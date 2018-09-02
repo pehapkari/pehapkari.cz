@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{#
+    the homepage is a special page which displays neither a header nor a footer.
+    this is done with the 'trick' of defining empty Twig blocks without any content
+#}
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block body %}
+    <div class="page-header">
+        <h1>{{ 'title.homepage'|raw }}</h1>
+    </div>
+
+    Welcome to lecture
+
+    <ul>
+        <li><a href="/admin/">Admin</a></li>
+        <li><a href="/adminer?sqlite=&username=&db=%2Fvar%2Fwww%2Fopen-lectures%2Fvar%2Fdatabase.sqlite">Database</a></li>
+    </ul>
+{% endblock %}

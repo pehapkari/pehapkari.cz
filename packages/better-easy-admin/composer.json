@@ -1,13 +1,12 @@
 {
-    "name": "open-projects/open-projects",
+    "name": "open-projects/better-easy-admin",
     "description": "Open source monorepo for applications.",
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "ext-intl": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
-        "alterphp/easyadmin-extension-bundle": "^1.2",
+        "ext-intl": "*",
         "doctrine/doctrine-bundle": "^1.9",
         "doctrine/orm": "2.7.x-dev",
         "easycorp/easyadmin-bundle": "^1.17",
@@ -46,8 +45,7 @@
     },
     "autoload": {
         "psr-4": {
-            "OpenRealEstate\\": "projects/open-real-estate/src",
-            "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src"
+            "App\\": "src"
         }
     },
     "scripts": {
@@ -55,9 +53,9 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
-        "check-cs": "vendor/bin/ecs check src packages projects/open-real-estate/src",
-        "fix-cs": "vendor/bin/ecs check src packages projects/open-real-estate/src --fix",
-        "phpstan": "vendor/bin/phpstan analyse src projects/open-real-estate/src --level max",
+        "check-cs": "vendor/bin/ecs check src packages",
+        "fix-cs": "vendor/bin/ecs check src packages --fix",
+        "phpstan": "vendor/bin/phpstan analyse src packages --level max",
         "adminer-install": [
             "mkdir -p public/adminer",
             "wget https://github.com/vrana/adminer/releases/download/v4.6.3/adminer-4.6.3-en.php -O public/adminer/index.php"
@@ -70,5 +68,7 @@
         "symfony": {
             "allow-contrib": true
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

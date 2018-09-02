@@ -1,0 +1,22 @@
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    form_themes:
+        - 'form/layout.html.twig'
+        - 'form/fields.html.twig'
+
+    # see https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration
+    date:
+        format: 'Y-m-d, H:i'
+
+    # @see https://symfony.com/doc/current/configuration/override_dir_structure.html#override-the-templates-directory
+    paths:
+        - "%kernel.project_dir%/templates"
+        # don't forget to update paths for 2 options in PHPStorm for autocomplete as well
+        - "%kernel.project_dir%/packages/Lead/templates" # @todo auto add?
+
+    # see https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration
+    number_format:
+        decimals: 0
+        decimal_point: ','
+        thousands_separator: ' '

@@ -1,0 +1,13 @@
+app_annotations:
+    resource: '../src/Controller/'
+    type: annotation
+
+#packages_provision:
+#    resource: '../packages/Lead/src/Controller/'
+#    type: annotation
+
+homepage:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: default/homepage.html.twig

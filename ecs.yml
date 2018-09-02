@@ -1,0 +1,72 @@
+imports:
+    - { resource: 'vendor/symplify/easy-coding-standard/config/psr2.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/php71.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/clean-code.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/symplify.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/common.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/psr12.yml' }
+
+services:
+    Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff:
+        maxCognitiveComplexity: 8
+
+    Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenParentClassSniff:
+        forbiddenParentClasses:
+            - 'Symfony\Bundle\FrameworkBundle\Controller\AbstractController'
+            - 'Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository'
+            - 'Doctrine\ORM\EntityRepository'
+
+    # class should be Abstact or Final
+    SlamCsFixer\FinalInternalClassFixer: ~
+
+    Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
+        extraAllowedClasses:
+            - 'OpenTraining\Provision\Data\*'
+            - 'App\Request\*Request'
+            - 'Doctrine\Common\Collections\ArrayCollection'
+
+    # object calisthenics - https://github.com/object-calisthenics/phpcs-calisthenics-rules
+    ObjectCalisthenics\Sniffs\ControlStructures\NoElseSniff: ~
+    ObjectCalisthenics\Sniffs\CodeAnalysis\OneObjectOperatorPerLineSniff: ~
+    ObjectCalisthenics\Sniffs\NamingConventions\ElementNameMinimalLengthSniff: ~
+    ObjectCalisthenics\Sniffs\Classes\ForbiddenPublicPropertySniff: ~
+    ObjectCalisthenics\Sniffs\Files\ClassTraitAndInterfaceLengthSniff: ~
+    ObjectCalisthenics\Sniffs\Metrics\PropertyPerClassLimitSniff: ~
+    ObjectCalisthenics\Sniffs\NamingConventions\NoSetterSniff:
+        allowedClasses:
+            - 'App\Request\*FormRequest'
+            - '*\Entity\*'
+
+    # automattic - https://github.com/Automattic/phpcs-neutron-standard
+    # see https://github.com/Automattic/phpcs-neutron-standard/blob/667af4666f68da2e007d35c7fd8c464c3e9fdb2c/tests/Sniffs/Conditions/ConditionsFixture.php#L5
+    NeutronStandard\Sniffs\Conditions\DisallowConditionAssignWithoutConditionalSniff:
+    NeutronStandard\Sniffs\Constants\DisallowDefineSniff:
+    NeutronStandard\Sniffs\Functions\DisallowCallUserFuncSniff:
+    NeutronStandard\Sniffs\Functions\VariableFunctionsSniff:
+    NeutronStandard\Sniffs\MagicMethods\DisallowMagicGetSniff:
+    NeutronStandard\Sniffs\MagicMethods\DisallowMagicSerializeSniff:
+    NeutronStandard\Sniffs\MagicMethods\DisallowMagicSetSniff:
+    NeutronStandard\Sniffs\MagicMethods\RiskyMagicMethodSniff:
+
+parameters:
+    exclude_checkers:
+        # exclude from psr12.yml
+        - 'PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer'
+        - 'PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer'
+
+    exclude_files:
+        - 'src/Form/RegisterToLectureFormType.php'
+        - 'src/Kernel.php'
+
+    skip:
+        ObjectCalisthenics\Sniffs\CodeAnalysis\OneObjectOperatorPerLineSniff:
+            # bugged
+            - '*/Repository/*Repository.php'
+
+        ObjectCalisthenics\Sniffs\Files\ClassTraitAndInterfaceLengthSniff:
+            # big entity
+            - 'src/Entity/Training.php'
+
+        ObjectCalisthenics\Sniffs\Metrics\PropertyPerClassLimitSniff:
+            # big entity
+            - 'src/Entity/Training.php'

@@ -1,0 +1,5 @@
+easy_admin:
+    entities:
+        Lead:
+            label: 'Leads'
+            class: 'OpenRealEstate\Lead\Entity\Lead'
