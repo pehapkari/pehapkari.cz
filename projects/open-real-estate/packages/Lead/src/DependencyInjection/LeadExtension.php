@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenRealEstate\Lead\Entity\DependencyInjection;
+namespace OpenRealEstate\Lead\DependencyInjection;
 
 // https://matthiasnoback.nl/2014/06/framework-independent-controllers-part-3/
 // or this: http://www.ahmed-samy.com/symofny2-twig-multiple-domains-templating/
@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 
-final class PrependConfigurationExtension extends Extension implements PrependExtensionInterface
+final class LeadExtension extends Extension implements PrependExtensionInterface
 {
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -16,12 +16,23 @@ final class PrependConfigurationExtension extends Extension implements PrependEx
 
     public function prepend(ContainerBuilder $containerBuilder)
     {
-        dump($containerBuilder);
-        die;
 
         $containerBuilder->prependExtensionConfig(
-
+            'doctrine', [
+                'orm' => [
+                    'mappings' => [
+                        'OpenRealEstate\Lead' => [
+                            'type' => 'annotation',
+                            'dir' => '%kernel.project_dir%/packages/Lead/src/Entity',
+                            'prefix' => 'OpenRealEstate\Lead\Entity',
+                        ]
+                    ]
+                ]
+            ]
         );
+
+        // or rahter ompilep ass?
+//
         // ...
     }
 }
