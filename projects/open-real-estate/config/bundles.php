@@ -1,5 +1,7 @@
 <?php
 
+use AlterPHP\EasyAdminExtensionBundle\EasyAdminExtensionBundle;
+use Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle;
 use OpenRealEstate\Lead\LeadBundle;
 
 return [
@@ -17,4 +19,6 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle::class => ['all' => true],
     LeadBundle::class => ['all' => true],
+    DoctrineBehaviorsBundle::class => ['all' => true],
+    EasyAdminExtensionBundle::class => ['all' => true],
 ];

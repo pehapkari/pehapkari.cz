@@ -4,4 +4,9 @@ easy_admin:
             label: 'Leads'
             class: 'OpenRealEstate\Lead\Entity\Lead'
             form:
-                exclude_fields: ['createdAt']
+                # added by `Knp\DoctrineBehaviors\Model\Timestampable\Timestampable` trait
+                exclude_fields: ['createdAt', 'updatedAt']
+
+        LeadStatus:
+            label: 'Lead Status'
+            class: 'OpenRealEstate\Lead\Entity\LeadStatus'
