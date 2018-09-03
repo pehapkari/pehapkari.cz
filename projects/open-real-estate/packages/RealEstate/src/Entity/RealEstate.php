@@ -7,6 +7,8 @@ use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 
 /**
  * @ORM\Entity
+ *
+ * @see http://www.oksana-zitka.cz/online-oceneni-nemovitosti/
  */
 class RealEstate
 {
