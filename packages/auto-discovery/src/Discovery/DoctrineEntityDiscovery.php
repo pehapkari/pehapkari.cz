@@ -1,43 +1,35 @@
 <?php declare(strict_types=1);
 
-namespace OpenRealEstate\Lead\DependencyInjection;
+namespace OpenProject\AutoDiscovery\Discovery;
 
-// https://matthiasnoback.nl/2014/06/framework-independent-controllers-part-3/
-// or this: http://www.ahmed-samy.com/symofny2-twig-multiple-domains-templating/
 use Iterator;
 use SplFileInfo;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\Finder\Finder;
 
-final class LeadExtension extends Extension implements PrependExtensionInterface
+final class DoctrineEntityDiscovery
 {
-    public function load(array $configs, ContainerBuilder $containerBuilder): void
-    {
-        // ...
-    }
-
-    public function prepend(ContainerBuilder $containerBuilder): void
+    public function processContainerBuilder(ContainerBuilder $containerBuilder): void
     {
         $entityDirectories = $this->getEntityDirectories($containerBuilder);
 
         $entityMappings = [];
         foreach ($entityDirectories as $entityDirectory) {
             $namespace = $this->detectNamespaceFromDirectory($entityDirectory);
-            if (! $namespace) {
+            if (!$namespace) {
                 continue;
             }
 
             $entityMappings[] = [
-                'name' => $namespace,
+                'name' => $namespace, // required name
                 'type' => 'annotation',
                 'dir' => $entityDirectory->getRealPath(),
-                'prefix' => $namespace
+                'prefix' => $namespace,
+                'is_bundle' => false // performance
             ];
         }
 
-        if (! count($entityMappings)) {
+        if (!count($entityMappings)) {
             return;
         }
 
@@ -53,11 +45,13 @@ final class LeadExtension extends Extension implements PrependExtensionInterface
      */
     private function getEntityDirectories(ContainerBuilder $containerBuilder): Iterator
     {
-        $projectDir = $containerBuilder->getParameter('kernel.project_dir') . '/packages';
+        $dirs = [];
+        $dirs[] = $containerBuilder->getParameter('kernel.project_dir') . '/src';
+        $dirs[] = $containerBuilder->getParameter('kernel.project_dir') . '/packages';
 
         return Finder::create()->directories()
             ->name('Entity')
-            ->in($projectDir)
+            ->in($dirs)
             ->getIterator();
     }
 

@@ -3,6 +3,7 @@
 namespace OpenRealEstate;
 
 use Iterator;
+use OpenProject\AutoDiscovery\DependencyInjection\CompilerPass\AutoDiscoveryCompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -45,6 +46,8 @@ final class Kernel extends BaseKernel
         $loader->load($this->getProjectDir() . '/packages/*/src/config/*' . self::CONFIG_EXTENSIONS, 'glob');
 
         $this->configureContainerFlex($containerBuilder, $loader);
+
+        $containerBuilder->addCompilerPass(new AutoDiscoveryCompilerPass());
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void

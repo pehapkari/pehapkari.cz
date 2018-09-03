@@ -14,9 +14,9 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-#        mappings:
-#            App:
-#                type: 'annotation'
-#                dir: '%kernel.project_dir%/src/Entity'
-#                prefix: 'App\Entity'
+        mappings:
+            OpenRealEstate:
+                type: 'annotation'
+                dir: '%kernel.project_dir%/packages'
+                prefix: 'OpenRealEstate'
             # @todo register not manually here, but in a package

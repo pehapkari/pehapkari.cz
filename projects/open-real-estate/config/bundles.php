@@ -2,7 +2,6 @@
 
 use AlterPHP\EasyAdminExtensionBundle\EasyAdminExtensionBundle;
 use Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle;
-use OpenRealEstate\Lead\LeadBundle;
 
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
@@ -18,7 +17,6 @@ return [
     Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle::class => ['all' => true],
-    LeadBundle::class => ['all' => true],
     DoctrineBehaviorsBundle::class => ['all' => true],
     EasyAdminExtensionBundle::class => ['all' => true],
 ];

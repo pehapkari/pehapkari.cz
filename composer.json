@@ -1,5 +1,5 @@
 {
-    "name": "open-projects/open-projects",
+    "name": "open-project/open-project",
     "description": "Open source monorepo for applications.",
     "license": "MIT",
     "require": {
@@ -47,6 +47,7 @@
     },
     "autoload": {
         "psr-4": {
+            "OpenProject\\AutoDiscovery\\": "packages/auto-discovery/src",
             "OpenProject\\BetterEasyAdmin\\": "packages/better-easy-admin/src",
             "OpenRealEstate\\": "projects/open-real-estate/src",
             "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src"
