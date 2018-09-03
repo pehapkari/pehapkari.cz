@@ -1,0 +1,16 @@
+easy_admin:
+    entities:
+        RealEstate:
+            label: 'Real Estate'
+            class: 'OpenRealEstate\RealEstate\Entity\RealEstate'
+            form:
+                # added by `Knp\DoctrineBehaviors\Model\Timestampable\Timestampable` trait
+                exclude_fields: ['createdAt', 'updatedAt']
+
+        Type:
+            label: 'Type'
+            class: 'OpenRealEstate\RealEstate\Entity\RealEstateType'
+
+        ReconstructrionType:
+            label: 'Reconstruction Type'
+            class: 'OpenRealEstate\RealEstate\Entity\ReconstructionType'

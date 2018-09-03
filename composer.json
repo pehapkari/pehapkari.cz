@@ -50,7 +50,8 @@
             "OpenProject\\AutoDiscovery\\": "packages/auto-discovery/src",
             "OpenProject\\BetterEasyAdmin\\": "packages/better-easy-admin/src",
             "OpenRealEstate\\": "projects/open-real-estate/src",
-            "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src"
+            "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src",
+            "OpenRealEstate\\RealEstate\\": "projects/open-real-estate/packages/RealEstate/src"
         }
     },
     "scripts": {

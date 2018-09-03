@@ -24,7 +24,7 @@ class RealEstate
      * @ORM\Column(type="string", length=10)
      * @var string
      */
-    private $psc;
+    private $zip;
 
     /**
      * @ORM\Column(type="integer", length=10)
@@ -54,16 +54,14 @@ class RealEstate
         $this->id = $id;
     }
 
-    // zip
-
-    public function getPsc(): ?string
+    public function getZip(): ?string
     {
-        return $this->psc;
+        return $this->zip;
     }
 
-    public function setPsc(string $psc)
+    public function setZip(string $zip)
     {
-        $this->psc = $psc;
+        $this->zip = $zip;
     }
 
     public function getArea(): ?int
