@@ -16,7 +16,7 @@ final class DoctrineEntityDiscovery
         $entityMappings = [];
         foreach ($entityDirectories as $entityDirectory) {
             $namespace = $this->detectNamespaceFromDirectory($entityDirectory);
-            if (!$namespace) {
+            if (! $namespace) {
                 continue;
             }
 
@@ -25,18 +25,18 @@ final class DoctrineEntityDiscovery
                 'type' => 'annotation',
                 'dir' => $entityDirectory->getRealPath(),
                 'prefix' => $namespace,
-                'is_bundle' => false // performance
+                'is_bundle' => false, // performance
             ];
         }
 
-        if (!count($entityMappings)) {
+        if (! count($entityMappings)) {
             return;
         }
 
         $containerBuilder->prependExtensionConfig('doctrine', [
             'orm' => [
-                'mappings' => $entityMappings
-            ]
+                'mappings' => $entityMappings,
+            ],
         ]);
     }
 
@@ -58,7 +58,7 @@ final class DoctrineEntityDiscovery
     private function detectNamespaceFromDirectory(SplFileInfo $entityDirectory): ?string
     {
         $filesInDirectory = glob($entityDirectory->getRealPath() . '/*.php');
-        if (!count($filesInDirectory)) {
+        if (! count($filesInDirectory)) {
             return null;
         }
 

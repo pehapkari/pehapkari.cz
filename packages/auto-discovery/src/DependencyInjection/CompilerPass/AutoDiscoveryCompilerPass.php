@@ -21,7 +21,7 @@ final class AutoDiscoveryCompilerPass implements CompilerPassInterface
         $this->doctrineEntityDiscovery = new DoctrineEntityDiscovery();
     }
 
-    public function process(ContainerBuilder $containerBuilder)
+    public function process(ContainerBuilder $containerBuilder): void
     {
         $this->doctrineEntityDiscovery->processContainerBuilder($containerBuilder);
     }
