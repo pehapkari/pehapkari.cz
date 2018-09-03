@@ -27,7 +27,7 @@ class RealEstate
     private $psc;
 
     /**
-     * @ORM\Column(type="int", length=10)
+     * @ORM\Column(type="integer", length=10)
      * @var int
      */
     private $area;
