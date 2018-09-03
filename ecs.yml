@@ -37,6 +37,7 @@ services:
             - 'App\Request\*FormRequest'
             - '*\Entity\*'
 
+    # legacy
     # automattic - https://github.com/Automattic/phpcs-neutron-standard
     # see https://github.com/Automattic/phpcs-neutron-standard/blob/667af4666f68da2e007d35c7fd8c464c3e9fdb2c/tests/Sniffs/Conditions/ConditionsFixture.php#L5
     NeutronStandard\Sniffs\Conditions\DisallowConditionAssignWithoutConditionalSniff:

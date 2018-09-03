@@ -3,3 +3,5 @@ easy_admin:
         Lead:
             label: 'Leads'
             class: 'OpenRealEstate\Lead\Entity\Lead'
+            form:
+                exclude_fields: ['createdAt']

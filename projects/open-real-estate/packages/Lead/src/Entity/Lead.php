@@ -2,6 +2,7 @@
 
 namespace OpenRealEstate\Lead\Entity;
 
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,7 +24,13 @@ class Lead
      */
     private $name;
 
-    public function getId(): int
+    /**
+     * @ORM\Column(type="datetime")
+     * @var DateTimeInterface
+     */
+    private $createdAt;
+
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -33,7 +40,7 @@ class Lead
         $this->id = $id;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -41,5 +48,15 @@ class Lead
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getCreatedAt(): ?DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(DateTimeInterface $createdAt): void
+    {
+        $this->createdAt = $createdAt;
     }
 }

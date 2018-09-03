@@ -46,6 +46,7 @@
     },
     "autoload": {
         "psr-4": {
+            "OpenProject\\BetterEasyAdmin\\": "packages/better-easy-admin/src",
             "OpenRealEstate\\": "projects/open-real-estate/src",
             "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src"
         }

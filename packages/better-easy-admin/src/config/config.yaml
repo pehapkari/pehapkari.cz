@@ -1,3 +1,3 @@
 services:
-    OpenRealEstate\BetterEasyAdmin\Configuration\ExcludeFieldsConfigPass:
+    OpenProject\BetterEasyAdmin\Configuration\ExcludeFieldsConfigPass:
         tags: { name: 'easyadmin.config_pass', priority: 120 }

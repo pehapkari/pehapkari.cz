@@ -1,1 +1,4 @@
 parameters:
+    project_directories:
+        - '/packages'
+        - '/projects'

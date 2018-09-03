@@ -1,74 +1,21 @@
 {
-    "name": "open-projects/better-easy-admin",
-    "description": "Open source monorepo for applications.",
+    "name": "open-project/better-easy-admin",
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "ext-pdo": "*",
-        "ext-pdo_mysql": "*",
-        "ext-intl": "*",
-        "doctrine/doctrine-bundle": "^1.9",
-        "doctrine/orm": "2.7.x-dev",
-        "easycorp/easyadmin-bundle": "^1.17",
-        "sensio/framework-extra-bundle": "^5.0",
-        "symfony/asset": "^4.1",
-        "symfony/dependency-injection": "^4.1",
-        "symfony/dotenv": "^4.1",
-        "symfony/flex": "^1.0",
-        "symfony/form": "^4.1",
-        "symfony/framework-bundle": "^4.1",
-        "symfony/orm-pack": "^1.0",
-        "symfony/security-bundle": "^4.1",
-        "symfony/swiftmailer-bundle": "^3.1",
-        "symfony/templating": "^4.1",
-        "symfony/twig-bridge": "^4.1",
-        "symfony/twig-bundle": "^4.1",
-        "symfony/validator": "^4.1",
-        "symfony/yaml": "^4.1",
-        "twig/extensions": "^1.5"
+        "easycorp/easyadmin-bundle": "^1.17"
     },
     "require-dev": {
-        "automattic/phpcs-neutron-ruleset": "^1.8",
-        "object-calisthenics/phpcs-calisthenics-rules": "^3.3",
-        "phpstan/phpstan": "^0.10.3",
-        "phpstan/phpstan-doctrine": "^0.10.0",
-        "phpunit/phpunit": "^7.2",
-        "slam/php-cs-fixer-extensions": "^1.16",
-        "symfony/browser-kit": "^4.1",
-        "symfony/debug-bundle": "^4.1",
-        "symfony/maker-bundle": "^1.5",
-        "symfony/web-profiler-bundle": "^4.1",
-        "symfony/web-server-bundle": "^4.1",
-        "symplify/coding-standard": "^4.6",
-        "symplify/easy-coding-standard": "^4.6",
-        "symplify/monorepo-builder": "^4.6"
+        "phpunit/phpunit": "^7.3"
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src"
+            "OpenProject\\BetterEasyAdmin\\": "src"
         }
     },
-    "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
-        "check-cs": "vendor/bin/ecs check src packages",
-        "fix-cs": "vendor/bin/ecs check src packages --fix",
-        "phpstan": "vendor/bin/phpstan analyse src packages --level max",
-        "adminer-install": [
-            "mkdir -p public/adminer",
-            "wget https://github.com/vrana/adminer/releases/download/v4.6.3/adminer-4.6.3-en.php -O public/adminer/index.php"
-        ]
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": true
+    "autoload-dev": {
+        "psr-4": {
+            "OpenProject\\BetterEasyAdmin\\Tests\\": "tests"
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

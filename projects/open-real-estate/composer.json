@@ -3,7 +3,6 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "ext-intl": "*",

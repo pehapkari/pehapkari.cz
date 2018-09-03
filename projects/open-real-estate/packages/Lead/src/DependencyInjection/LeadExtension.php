@@ -16,7 +16,6 @@ final class LeadExtension extends Extension implements PrependExtensionInterface
 
     public function prepend(ContainerBuilder $containerBuilder)
     {
-
         $containerBuilder->prependExtensionConfig(
             'doctrine', [
                 'orm' => [

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\BetterEasyAdmin\Configuration;
+namespace OpenProject\BetterEasyAdmin\Configuration;
 
 use EasyCorp\Bundle\EasyAdminBundle\Configuration\ConfigPassInterface;
 use OpenTraining\BetterEasyAdmin\Exception\Configuration\ConflictingConfigurationException;
