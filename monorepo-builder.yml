@@ -1,8 +1,8 @@
 # see https://github.com/symplify/monorepobuilder
 parameters:
-    project_directories:
-        - '/packages'
-        - '/projects'
+    package_directories:
+        - 'packages'
+        - 'projects'
 
     # @todo
     directories_to_repositories:
