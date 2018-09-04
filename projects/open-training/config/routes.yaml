@@ -1,0 +1,18 @@
+app_annotations:
+    resource: '../src/Controller/'
+    type: annotation
+
+# @todo automate in the package
+packages_register:
+    resource: '../packages/Registration/src/Controller/'
+    type: annotation
+
+packages_provision:
+    resource: '../packages/Provision/src/Controller/'
+    type: annotation
+
+homepage:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: default/homepage.html.twig

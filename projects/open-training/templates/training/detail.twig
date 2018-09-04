@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div class="container">
+        {#{% if training.getImage() %}#}
+            <p class="text-center mt-5 d-none d-sm-block">
+                {#<img src="{{ training.getImage() }}" alt="" width="150">#}
+            </p>
+        {#{% endif %}#}
+
+        <h1 class="text-center">{{ training.getName() }}</h1>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        {#<img width="100" src="/assets/images/people/{{ trainer.getPhoto() }}" alt="" class="img-thumbnail mb-3 rounded-circle pull-left mr-3">#}
+                    </div>
+
+                    <div class="col-md">
+                        {{ "training.trainer"|trans }}
+
+                        {% if trainer.getWebsite() %}
+                            <a href="{{ trainer.getWebsite() }}">
+                        {% endif %}
+
+                        {{ trainer.getName() }}
+
+                        {% if trainer.getWebsite() %}
+                            </a>
+                        {% endif %}
+
+                        {% if trainer.getBio() %}
+                            <p>„{{ trainer.getBio()|raw }}“</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                {% if training.isActive() %}
+                    {{ "training.next_term"|trans }}
+
+                    <strong>{{ training.getNearestTerm()|date }}</strong>
+
+                    <br>
+ě
+                    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Lecture:+{{ training.getName() }}&dates={{ training.getNearestTerm()|google_calendar_link }}&details=Details:+https://pehapkari.cz/
+{#{{ training.getRelativeUrl() }}#}
+&ctz=Europe/Prague&location=
+{#{{ places[training.getPlaceId()].google_calendar_place }} #}
+&sf=true&output=xml">
+                        <em class="fa fa-fw fa-calendar"></em>
+                        {{ "training.add_to_calendar"|trans }}
+                    </a>
+
+                    <div class="card border-warning">
+                        <div class="card-body bg-warning">
+                            {{ "training.deadline"|trans }}
+                            <strong>{{ training.getNearestTermDeadline()|date("j. n.") }}</strong>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <p>
+                    {{ "training.location"|trans }}:
+                    <strong>
+                        <a href="{{ place.getMapUrl() }}">{{ place.getName() }}</a>
+                    </strong>
+                </p>
+
+                <p>
+                    {{ "training.duration"|trans }}:
+                    <strong>{{ training.getDuration() }}</strong>
+                    {{ "training.hours"|transchoice(training.getDuration()) }}
+                </p>
+
+                <p>
+                    {{ "training.capacity"|trans }}:
+                    <strong>{{ training.getCapacity() }}</strong>
+                </p>
+
+                <p>
+                    {{ "training.price"|trans }}:
+                    <strong>{{ training.getPrice()|number_format }} Kč</strong>
+                </p>
+
+                {% if trainer.getPhone() %}
+                    <p>
+                        <a href="tel:{{ trainer.getPhone() }}">
+                            {# @todo separate in groups by 3 #}
+                            {{ trainer.getPhone() }}
+                        </a>
+                    </p>
+                {% endif %}
+
+                {% if trainer.getEmail() %}
+                    <p>
+                        <a href="mailto:{{ trainer.getEmail() }}">
+                            {{ trainer.getEmail() }}
+                        </a>
+                    </p>
+                {% endif %}
+
+                {% if training.isActive() %}
+                    <div class="text-center">
+                        <a href="register-to-training/{{ training.getId() }}" class="btn btn-success mt-4 mb-5">
+                            <em class="fa fa-fw fa-handshake-o"></em>
+                            &nbsp;
+                            {{ "training.register"|trans }}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="col-md-8">
+                {{ training.getDescription()|raw }}
+
+                {% if training.hasReferences() %}
+                    <hr>
+
+                    <h3>{{ "training.list_of_references"|trans }}</h3>
+
+                    <div class="row">
+                        {% for reference in training.getReferences() %}
+                            <div class="col-md-6 text-left mb-4">
+                                {% if reference.getUrl() %}
+                                    <a href="{{ reference.getUrl() }}">
+                                {% endif %}
+
+                                {{ reference.name }}
+
+                                {% if reference.getUrl() %}
+                                    </a>
+                                {% endif %}
+
+                                <p class="mt-3">
+                                    <em>„{{ reference.getText()|raw }}“</em>
+                                </p>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

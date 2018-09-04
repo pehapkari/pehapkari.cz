@@ -1,10 +1,9 @@
 <?php
 
-use OpenRealEstate\Kernel;
+use App\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
-
 
 $possibleAutoloadFiles = [
 // project
@@ -12,12 +11,6 @@ $possibleAutoloadFiles = [
     // monorepo
     __DIR__  .'/../../../vendor/autoload.php',
 ];
-
-foreach ($possibleAutoloadFiles as $possibleAutoloadFile) {
-    if (file_exists($possibleAutoloadFile)) {
-        require $possibleAutoloadFile;
-    }
-}
 
 // The check is to ensure we don't use .env in production
 if (!isset($_SERVER['APP_ENV'])) {

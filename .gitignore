@@ -4,9 +4,6 @@ npm-debug.log
 yarn-error.log
 
 ###> symfony/framework-bundle ###
-/.env
-/public/bundles/
-/var/
 /vendor/
 ###< symfony/framework-bundle ###
 ###> symfony/web-server-bundle ###
@@ -20,4 +17,10 @@ yarn-error.log
 composer.lock
 
 
+# todo merge from local .gitignores, same like composer.json
 projects/open-real-estate/var
+projects/open-real-estate/public/bundles/
+projects/open-training/var
+projects/open-training/public/bundles/
+projects/open-training/public/build/fonts/glyphicons-*
+projects/open-training/public/build/images/glyphicons-*
