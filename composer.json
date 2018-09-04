@@ -59,9 +59,9 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
-        "check-cs": "vendor/bin/ecs check packages projects/open-real-estate/src",
-        "fix-cs": "vendor/bin/ecs check packages projects/open-real-estate/src --fix",
-        "phpstan": "vendor/bin/phpstan analyse projects/open-real-estate/src --level max",
+        "check-cs": "vendor/bin/ecs check packages projects/open-real-estate/src projects/open-training/src",
+        "fix-cs": "vendor/bin/ecs check packages projects/open-real-estate/src projects/open-training/src --fix",
+        "phpstan": "vendor/bin/phpstan analyse projects/open-real-estate/src projects/open-training/src --level max",
         "adminer-install": [
             "mkdir -p public/adminer",
             "wget https://github.com/vrana/adminer/releases/download/v4.6.3/adminer-4.6.3-en.php -O public/adminer/index.php"
