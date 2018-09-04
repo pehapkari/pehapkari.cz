@@ -36,7 +36,8 @@
     "autoload": {
         "psr-4": {
             "OpenRealEstate\\": "src",
-            "OpenRealEstate\\Lead\\": "packages/Lead/src"
+            "OpenRealEstate\\Lead\\": "packages/Lead/src",
+            "OpenRealEstate\\RealEstate\\": "packages/RealEstate/src"
         }
     },
     "scripts": {

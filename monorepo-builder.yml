@@ -1,4 +1,10 @@
+# see https://github.com/symplify/monorepobuilder
 parameters:
     project_directories:
         - '/packages'
         - '/projects'
+
+    # @todo
+    directories_to_repositories:
+        projects/open-real-estate: 'git@github.com:TomasVotruba/open-real-estate.git'
+        projects/open-training: 'git@github.com:TomasVotruba/open-training.git'

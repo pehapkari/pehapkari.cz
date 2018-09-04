@@ -45,6 +45,11 @@ final class Kernel extends BaseKernel
         // local packages
         $loader->load($this->getProjectDir() . '/packages/*/src/config/*' . self::CONFIG_EXTENSIONS, 'glob');
 
+//        $configGlob = $this->getProjectDir() . '/packages/**/config/**.{yaml,yml}';
+//        dump($configGlob);
+//        dump(glob($configGlob, GLOB_BRACE));
+//        die;
+
         $this->configureContainerFlex($containerBuilder, $loader);
 
         $containerBuilder->addCompilerPass(new AutoDiscoveryCompilerPass());
