@@ -57,6 +57,11 @@
             "OpenTraining\\Registration\\": "projects/open-training/packages/Registration/src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenTraining\\Provision\\Tests\\": "projects/open-training/packages/Provision/tests"
+        }
+    },
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
@@ -76,11 +81,6 @@
     "extra": {
         "symfony": {
             "allow-contrib": true
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "OpenTraining\\Provision\\Tests\\": "projects/open-training/packages/Provision/tests"
         }
     }
 }
