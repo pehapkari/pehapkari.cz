@@ -16,6 +16,7 @@
         "symfony/asset": "^3.4|^4.0",
         "symfony/dependency-injection": "^3.4|^4.0",
         "symfony/dotenv": "^3.4|^4.0",
+        "symfony/finder": "^3.4|^4.0",
         "symfony/flex": "^1.0",
         "symfony/form": "^3.4|^4.0",
         "symfony/framework-bundle": "^3.4|^4.0",
@@ -51,7 +52,11 @@
             "OpenProject\\BetterEasyAdmin\\": "packages/better-easy-admin/src",
             "OpenRealEstate\\": "projects/open-real-estate/src",
             "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src",
-            "OpenRealEstate\\RealEstate\\": "projects/open-real-estate/packages/RealEstate/src"
+            "OpenRealEstate\\RealEstate\\": "projects/open-real-estate/packages/RealEstate/src",
+            "OpenTraining\\": "projects/open-training/src",
+            "OpenTraining\\BetterEasyAdmin\\": "projects/open-training/packages/BetterEasyAdmin/src",
+            "OpenTraining\\Provision\\": "projects/open-training/packages/Provision/src",
+            "OpenTraining\\Registration\\": "projects/open-training/packages/Registration/src"
         }
     },
     "scripts": {
@@ -73,6 +78,12 @@
     "extra": {
         "symfony": {
             "allow-contrib": true
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenProject\\BetterEasyAdmin\\Tests\\": "packages/better-easy-admin/tests",
+            "OpenTraining\\Provision\\Tests\\": "projects/open-training/packages/Provision/tests"
         }
     }
 }

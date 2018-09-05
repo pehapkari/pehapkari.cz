@@ -1,6 +1,6 @@
 # Important Commands
 
-## Install
+## 1. Install
 
 You do this only once:
 
@@ -21,7 +21,7 @@ git checkout master
 composer install
 ```
 
-## Run
+## 2. Run
 
 Run web in browser:
 

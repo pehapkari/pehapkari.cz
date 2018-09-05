@@ -8,7 +8,9 @@
         "ext-pdo_mysql": "*",
         "ext-intl": "*",
         "doctrine/doctrine-bundle": "^1.9",
+        "alterphp/easyadmin-extension-bundle": "^1.2",
         "doctrine/orm": "2.7.x-dev",
+        "knplabs/doctrine-behaviors": "^1.5",
         "easycorp/easyadmin-bundle": "^1.17",
         "sensio/framework-extra-bundle": "^5.0",
         "symfony/asset": "^3.4|^4.0",
@@ -37,7 +39,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src",
+            "OpenTraining\\": "src",
             "OpenTraining\\Provision\\": "packages/Provision/src",
             "OpenTraining\\Registration\\": "packages/Registration/src",
             "OpenTraining\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src"

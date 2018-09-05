@@ -24,18 +24,6 @@ final class TrainingTermRepository
     public function fetchFinishedBackup(): array
     {
         return $this->entityRepository->createQueryBuilder('tt')
-            ->where('tt.endDateTime')
-    }
-
-
-
-
-    /**
-     * @return TrainingTerm[]
-     */
-    public function fetchFinishedBackup(): array
-    {
-        return $this->entityRepository->createQueryBuilder('tt')
             ->where('tt.endDateTime < CURRENT_DATE()')
             ->getQuery()
             ->getResult();
