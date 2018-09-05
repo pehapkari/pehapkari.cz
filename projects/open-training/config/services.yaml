@@ -8,7 +8,6 @@ services:
         autowire: true
         autoconfigure: true
 
-    App\:
+    OpenTraining\:
         resource: '../src/'
-        exclude:
-            - '../src/Kernel.php'
+        exclude: '../src/{Kernel.php}'

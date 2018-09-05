@@ -5,5 +5,4 @@ services:
 
     OpenTraining\Registration\:
         resource: '../'
-        exclude:
-            - '../Form'
+        exclude: '../Form'

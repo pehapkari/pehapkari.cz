@@ -2,9 +2,9 @@
 
 namespace OpenTraining\Repository;
 
-use OpenTraining\Entity\Place;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
+use OpenTraining\Entity\Place;
 
 final class PlaceRepository
 {

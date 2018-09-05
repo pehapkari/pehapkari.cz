@@ -7,7 +7,7 @@
         "ext-intl": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
-        "alterphp/easyadmin-extension-bundle": "^1.2",
+        "alterphp/easyadmin-extension-bundle": "^1.2.10",
         "doctrine/doctrine-bundle": "^1.9",
         "doctrine/orm": "2.7.x-dev",
         "easycorp/easyadmin-bundle": "^1.17",
@@ -42,19 +42,17 @@
         "symfony/maker-bundle": "^1.5",
         "symfony/web-profiler-bundle": "^3.4|^4.0",
         "symfony/web-server-bundle": "^3.4|^4.0",
-        "symplify/coding-standard": "^4.6",
-        "symplify/easy-coding-standard": "^4.6",
-        "symplify/monorepo-builder": "^4.6"
+        "symplify/coding-standard": "^4.7",
+        "symplify/easy-coding-standard": "^4.7",
+        "symplify/monorepo-builder": "^4.7"
     },
     "autoload": {
         "psr-4": {
             "OpenProject\\AutoDiscovery\\": "packages/auto-discovery/src",
-            "OpenProject\\BetterEasyAdmin\\": "packages/better-easy-admin/src",
             "OpenRealEstate\\": "projects/open-real-estate/src",
             "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src",
             "OpenRealEstate\\RealEstate\\": "projects/open-real-estate/packages/RealEstate/src",
             "OpenTraining\\": "projects/open-training/src",
-            "OpenTraining\\BetterEasyAdmin\\": "projects/open-training/packages/BetterEasyAdmin/src",
             "OpenTraining\\Provision\\": "projects/open-training/packages/Provision/src",
             "OpenTraining\\Registration\\": "projects/open-training/packages/Registration/src"
         }
@@ -82,7 +80,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "OpenProject\\BetterEasyAdmin\\Tests\\": "packages/better-easy-admin/tests",
             "OpenTraining\\Provision\\Tests\\": "projects/open-training/packages/Provision/tests"
         }
     }

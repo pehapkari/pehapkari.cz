@@ -2,9 +2,9 @@
 
 namespace OpenTraining\Repository;
 
-use OpenTraining\Entity\TrainingReference;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
+use OpenTraining\Entity\TrainingReference;
 
 final class TrainingReferenceRepository
 {

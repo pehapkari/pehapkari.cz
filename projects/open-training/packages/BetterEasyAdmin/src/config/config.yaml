@@ -1,3 +1,0 @@
-services:
-    OpenTraining\BetterEasyAdmin\Configuration\ExcludeFieldsConfigPass:
-        tags: { name: 'easyadmin.config_pass', priority: 120 }

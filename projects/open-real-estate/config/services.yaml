@@ -10,8 +10,3 @@ services:
     OpenRealEstate\:
         resource: '../src/'
         exclude: '../src/Kernel.php'
-
-    # to be in EasyAdminExtensionBundle: https://github.com/alterphp/EasyAdminExtensionBundle/pull/57
-    OpenProject\BetterEasyAdmin\Configuration\ExcludeFieldsConfigPass:
-        tags:
-            - { name: 'easyadmin.config_pass', priority: "120" }

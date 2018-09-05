@@ -41,8 +41,7 @@
         "psr-4": {
             "OpenTraining\\": "src",
             "OpenTraining\\Provision\\": "packages/Provision/src",
-            "OpenTraining\\Registration\\": "packages/Registration/src",
-            "OpenTraining\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src"
+            "OpenTraining\\Registration\\": "packages/Registration/src"
         }
     },
     "autoload-dev": {

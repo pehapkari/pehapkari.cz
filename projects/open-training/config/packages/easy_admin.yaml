@@ -17,22 +17,22 @@ easy_admin:
     entities:
         Training:
             label: 'Trainings'
-            class: 'App\Entity\Training'
+            class: 'OpenTraining\Entity\Training'
             form:
                 exclude_fields: ['trainingReferences', 'trainingTerms']
         TrainingTerm:
             label: 'Training Term'
-            class: 'App\Entity\TrainingTerm'
+            class: 'OpenTraining\Entity\TrainingTerm'
         TrainingReference:
             label: 'References'
-            class: 'App\Entity\TrainingReference'
+            class: 'OpenTraining\Entity\TrainingReference'
         Trainer:
             label: 'Trainers'
-            class: 'App\Entity\Trainer'
+            class: 'OpenTraining\Entity\Trainer'
             form:
                 exclude_fields: ['trainings']
         Place:
-            class: 'App\Entity\Place'
+            class: 'OpenTraining\Entity\Place'
         Registration:
             label: 'Registrations'
             class: 'OpenTraining\Registration\Entity\TrainingRegistration'
