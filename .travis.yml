@@ -2,9 +2,9 @@ language: php
 
 matrix:
     include:
-        - php: 7.1
+        - php: 7.2
           env: CODE_ANALYSIS=true
-        - php: 7.1
+        - php: 7.2
           env: COMPOSER_FLAGS="--prefer-lowest"
         - php: 7.2
           env: MONOREPO_SPLIT=true
@@ -34,10 +34,11 @@ script:
         composer phpstan
       fi
 
+    # @todo pick a single project?
     # this checks that the YAML config files contain no syntax errors
-    - ./bin/console lint:yaml config
+    - projects/open-real-estate/bin/console lint:yaml config
     # this checks that the Twig template files contain no syntax errors
-    - ./bin/console lint:twig templates
+    - projects/open-real-estate/bin/console lint:twig templates
 
 after_script:
     # split monorepo to packages - only on merge to master
