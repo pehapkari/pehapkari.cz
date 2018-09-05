@@ -1,0 +1,46 @@
+easy_admin:
+    design:
+        menu:
+            - label: 'Trainings'
+              icon: 'graduation-cap'
+              children: ['Training', 'TrainingTerm']
+            - label: 'Money'
+              icon: 'money'
+              children: ['Registration', 'Expense', 'Provision']
+            - label: 'Feedback'
+              icon: 'comment'
+              children: ['TrainingReference']
+            - label: 'Who and Where'
+              icon: 'map-marker'
+              children: ['Trainer', 'Place']
+
+    entities:
+        Training:
+            label: 'Trainings'
+            class: 'OpenTraining\Training\Entity\Training'
+            form:
+                exclude_fields: ['trainingReferences', 'trainingTerms']
+        TrainingTerm:
+            label: 'Training Term'
+            class: 'OpenTraining\Training\Entity\TrainingTerm'
+        TrainingReference:
+            label: 'References'
+            class: 'OpenTraining\Training\Entity\TrainingReference'
+        Trainer:
+            label: 'Trainers'
+            class: 'OpenTraining\Training\Entity\Trainer'
+            form:
+                exclude_fields: ['trainings']
+        Place:
+            class: 'OpenTraining\Training\Entity\Place'
+        Registration:
+            label: 'Registrations'
+            class: 'OpenTraining\Registration\Entity\TrainingRegistration'
+        Expense:
+            label: 'Expenses'
+            class: 'OpenTraining\Provision\Entity\PartnerExpense'
+        Provision:
+            label: 'Provision Partners'
+            class: 'OpenTraining\Provision\Entity\Partner'
+            form:
+                exclude_fields: ['expenses']

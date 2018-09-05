@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        public: true
+
+    OpenTraining\Registration\:
+        resource: '../'
+        exclude: '../{Form,Entity}'

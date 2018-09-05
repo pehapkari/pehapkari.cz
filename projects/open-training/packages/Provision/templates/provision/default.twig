@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <h2>Terms to pay Provision to</h2>
+
+    {% for trainingTerm in termsToPayProvision %}
+        <a href="{{ path('provision-detail', { 'trainingTerm': trainingTerm.getId() }) }}">
+            {{ trainingTerm.getTrainingName() }}
+        </a>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+parameters:
+    locale: 'cs'
+    training_max_references_to_show: 3
+
+services:
+    _defaults:
+        public: true
+        autowire: true
+        autoconfigure: true
+
+    OpenTraining\:
+        resource: '../src/'
+        exclude: '../src/{Kernel.php}'

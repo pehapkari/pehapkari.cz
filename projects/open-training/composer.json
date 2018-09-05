@@ -1,0 +1,74 @@
+{
+    "name": "open-training/open-training",
+    "license": "MIT",
+    "require": {
+        "php": "^7.2",
+
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-intl": "*",
+        "doctrine/doctrine-bundle": "^1.9",
+        "alterphp/easyadmin-extension-bundle": "^1.2.10",
+        "doctrine/orm": "2.7.x-dev",
+        "knplabs/doctrine-behaviors": "^1.5",
+        "easycorp/easyadmin-bundle": "^1.17",
+        "sensio/framework-extra-bundle": "^5.0",
+        "symfony/asset": "^3.4|^4.0",
+        "symfony/dependency-injection": "^3.4|^4.0",
+        "symfony/dotenv": "^3.4|^4.0",
+        "symfony/flex": "^1.0",
+        "symfony/form": "^3.4|^4.0",
+        "symfony/framework-bundle": "^3.4|^4.0",
+        "symfony/orm-pack": "^1.0",
+        "symfony/security-bundle": "^3.4|^4.0",
+        "symfony/swiftmailer-bundle": "^3.1",
+        "symfony/templating": "^3.4|^4.0",
+        "symfony/twig-bridge": "^3.4|^4.0",
+        "symfony/twig-bundle": "^3.4|^4.0",
+        "symfony/validator": "^3.4|^4.0",
+        "symfony/yaml": "^3.4|^4.0",
+        "twig/extensions": "^1.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3",
+        "symfony/browser-kit": "^3.4|^4.0",
+        "symfony/debug-bundle": "^3.4|^4.0",
+        "symfony/maker-bundle": "^1.5",
+        "symfony/web-profiler-bundle": "^3.4|^4.0",
+        "symfony/web-server-bundle": "^3.4|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenTraining\\": "src",
+            "OpenTraining\\Provision\\": "packages/Provision/src",
+            "OpenTraining\\Registration\\": "packages/Registration/src",
+            "OpenTraining\\Training\\": "packages/Training/src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenTraining\\Provision\\Tests\\": "packages/Provision/tests"
+        }
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "check-cs": "vendor/bin/ecs check src packages",
+        "fix-cs": "vendor/bin/ecs check src packages --fix",
+        "phpstan": "vendor/bin/phpstan analyse src packages --level max",
+        "adminer-install": [
+            "mkdir -p public/adminer",
+            "wget https://github.com/vrana/adminer/releases/download/v4.6.3/adminer-4.6.3-en.php -O public/adminer/index.php"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true
+        }
+    }
+}
