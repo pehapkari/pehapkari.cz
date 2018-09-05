@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace App\Repository;
+namespace OpenTraining\Repository;
 
-use App\Entity\Trainer;
+use OpenTraining\Entity\Trainer;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 

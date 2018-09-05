@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Request;
+namespace OpenTraining\Request;
 
 /**
  * @see https://blog.martinhujer.cz/symfony-forms-with-request-objects/

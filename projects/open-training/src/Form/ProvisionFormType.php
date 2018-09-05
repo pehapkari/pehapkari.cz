@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace App\Form;
+namespace OpenTraining\Form;
 
-use App\Request\ProvisionFormRequest;
+use OpenTraining\Request\ProvisionFormRequest;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App;
+namespace OpenTraining;
 
 use Iterator;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;

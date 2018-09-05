@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace App\Repository;
+namespace OpenTraining\Repository;
 
-use App\Entity\TrainingTerm;
+use OpenTraining\Entity\TrainingTerm;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 
@@ -21,7 +21,7 @@ final class TrainingTermRepository
     /**
      * @return TrainingTerm[]
      */
-    public function fetchFinishedBackup(): array
+    public function fetchFinished(): array
     {
         return $this->entityRepository->createQueryBuilder('tt')
             ->where('tt.endDateTime < CURRENT_DATE()')

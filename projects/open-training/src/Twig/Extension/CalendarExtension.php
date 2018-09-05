@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace App\Twig\Extension;
+namespace OpenTraining\Twig\Extension;
 
-use App\Entity\TrainingTerm;
+use OpenTraining\Entity\TrainingTerm;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 

@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace App\Controller;
+namespace OpenTraining\Controller;
 
-use App\Entity\Training;
-use App\Repository\PlaceRepository;
-use App\Repository\TrainingReferenceRepository;
-use App\Repository\TrainingRepository;
-use App\Repository\TrainingTermRepository;
+use OpenTraining\Entity\Training;
+use OpenTraining\Repository\PlaceRepository;
+use OpenTraining\Repository\TrainingReferenceRepository;
+use OpenTraining\Repository\TrainingRepository;
+use OpenTraining\Repository\TrainingTermRepository;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
