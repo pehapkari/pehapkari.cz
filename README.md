@@ -45,12 +45,3 @@ Update database after changing entities:
 ```bash
 php projects/open-real-estate/bin/console doctrine:schema:update --dump-sql --force
 ```
-
-<br>
-
-Update main `composer.json` from project ones:
-
-```bash
-php vendor/bin/monorepo-builder merge
-php vendor/bin/monorepo-builder validate
-```
