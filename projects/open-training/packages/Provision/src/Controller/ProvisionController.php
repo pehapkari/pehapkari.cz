@@ -2,8 +2,8 @@
 
 namespace OpenTraining\Provision\Controller;
 
-use OpenTraining\Entity\TrainingTerm;
-use OpenTraining\Repository\TrainingTermRepository;
+use OpenTraining\Training\Entity\TrainingTerm;
+use OpenTraining\Training\Repository\TrainingTermRepository;
 use OpenTraining\Provision\ProvisionResolver;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Response;

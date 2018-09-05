@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Repository;
+namespace OpenTraining\Training\Repository;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
-use OpenTraining\Entity\Trainer;
+use OpenTraining\Training\Entity\TrainingReference;
 
-final class TrainerRepository
+final class TrainingReferenceRepository
 {
     /**
      * @var EntityRepository
@@ -15,11 +15,11 @@ final class TrainerRepository
 
     public function __construct(EntityManagerInterface $entityManager)
     {
-        $this->entityRepository = $entityManager->getRepository(Trainer::class);
+        $this->entityRepository = $entityManager->getRepository(TrainingReference::class);
     }
 
     /**
-     * @return Trainer[]
+     * @return TrainingReference[]
      */
     public function fetchAll(): array
     {

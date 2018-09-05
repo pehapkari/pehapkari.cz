@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Entity;
+namespace OpenTraining\Training\Entity;
 
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -56,25 +56,25 @@ class Training
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Entity\Place")
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Place")
      * @var Place
      */
     private $place;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Entity\Trainer")
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Trainer")
      * @var Trainer
      */
     private $trainer;
 
     /**
-     * @ORM\OneToMany(targetEntity="OpenTraining\Entity\TrainingTerm", mappedBy="training")
+     * @ORM\OneToMany(targetEntity="OpenTraining\Training\Entity\TrainingTerm", mappedBy="training")
      * @var TrainingTerm[]|ArrayCollection
      */
     private $trainingTerms = [];
 
     /**
-     * @ORM\OneToMany(targetEntity="OpenTraining\Entity\TrainingReference", mappedBy="training")
+     * @ORM\OneToMany(targetEntity="OpenTraining\Training\Entity\TrainingReference", mappedBy="training")
      * @var TrainingReference[]|ArrayCollection
      */
     private $trainingReferences = [];

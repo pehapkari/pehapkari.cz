@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Repository;
+namespace OpenTraining\Training\Repository;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
-use OpenTraining\Entity\Place;
+use OpenTraining\Training\Entity\Place;
 
 final class PlaceRepository
 {

@@ -2,7 +2,7 @@
 
 namespace OpenTraining\Provision\Repository;
 
-use OpenTraining\Entity\TrainingTerm;
+use OpenTraining\Training\Entity\TrainingTerm;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use OpenTraining\Provision\Entity\PartnerExpense;

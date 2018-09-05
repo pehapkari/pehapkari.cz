@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Entity;
+namespace OpenTraining\Training\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -36,7 +36,7 @@ class TrainingReference
     private $text;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Entity\Training", inversedBy="trainingReferences")
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Training", inversedBy="trainingReferences")
      * @var Training
      */
     private $training;

@@ -2,7 +2,7 @@
 
 namespace OpenTraining\Provision;
 
-use OpenTraining\Entity\TrainingTerm;
+use OpenTraining\Training\Entity\TrainingTerm;
 //use OpenTraining\Provision\Data\PartnerData;
 //use OpenTraining\Provision\Data\ProvisionData;
 use OpenTraining\Provision\Repository\PartnerExpenseRepository;

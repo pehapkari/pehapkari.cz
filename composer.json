@@ -54,7 +54,8 @@
             "OpenRealEstate\\RealEstate\\": "projects/open-real-estate/packages/RealEstate/src",
             "OpenTraining\\": "projects/open-training/src",
             "OpenTraining\\Provision\\": "projects/open-training/packages/Provision/src",
-            "OpenTraining\\Registration\\": "projects/open-training/packages/Registration/src"
+            "OpenTraining\\Registration\\": "projects/open-training/packages/Registration/src",
+            "OpenTraining\\Training\\": "projects/open-training/packages/Training/src"
         }
     },
     "autoload-dev": {

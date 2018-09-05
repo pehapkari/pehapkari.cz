@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Entity;
+namespace OpenTraining\Training\Entity;
 
 use DateTime;
 use DateTimeInterface;
@@ -41,7 +41,7 @@ class TrainingTerm
     private $endDateTime;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Entity\Training")
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Training")
      * @var Training
      */
     private $training;

@@ -8,7 +8,7 @@
         "ext-pdo_mysql": "*",
         "ext-intl": "*",
         "doctrine/doctrine-bundle": "^1.9",
-        "alterphp/easyadmin-extension-bundle": "^1.2",
+        "alterphp/easyadmin-extension-bundle": "^1.2.10",
         "doctrine/orm": "2.7.x-dev",
         "knplabs/doctrine-behaviors": "^1.5",
         "easycorp/easyadmin-bundle": "^1.17",
@@ -41,7 +41,8 @@
         "psr-4": {
             "OpenTraining\\": "src",
             "OpenTraining\\Provision\\": "packages/Provision/src",
-            "OpenTraining\\Registration\\": "packages/Registration/src"
+            "OpenTraining\\Registration\\": "packages/Registration/src",
+            "OpenTraining\\Training\\": "packages/Training/src"
         }
     },
     "autoload-dev": {

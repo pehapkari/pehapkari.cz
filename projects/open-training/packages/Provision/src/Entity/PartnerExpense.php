@@ -2,7 +2,7 @@
 
 namespace OpenTraining\Provision\Entity;
 
-use OpenTraining\Entity\TrainingTerm;
+use OpenTraining\Training\Entity\TrainingTerm;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,7 +31,7 @@ final class PartnerExpense
     private $amount;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Entity\TrainingTerm")
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm")
      * @var TrainingTerm
      */
     private $trainingTerm;

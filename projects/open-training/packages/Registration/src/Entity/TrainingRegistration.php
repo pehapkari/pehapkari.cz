@@ -2,7 +2,7 @@
 
 namespace OpenTraining\Registration\Entity;
 
-use OpenTraining\Entity\TrainingTerm;
+use OpenTraining\Training\Entity\TrainingTerm;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,7 +43,7 @@ class TrainingRegistration
     private $note;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Entity\TrainingTerm", inversedBy="registrations")
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm", inversedBy="registrations")
      * @var TrainingTerm
      */
     private $trainingTerm;

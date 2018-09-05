@@ -2,7 +2,7 @@
 
 namespace OpenTraining\Twig\Extension;
 
-use OpenTraining\Entity\TrainingTerm;
+use OpenTraining\Training\Entity\TrainingTerm;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 

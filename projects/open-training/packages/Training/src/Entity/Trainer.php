@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Entity;
+namespace OpenTraining\Training\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -50,7 +50,7 @@ class Trainer
     private $bio;
 
     /**
-     * @ORM\OneToMany(targetEntity="OpenTraining\Entity\Training", mappedBy="trainer")
+     * @ORM\OneToMany(targetEntity="OpenTraining\Training\Entity\Training", mappedBy="trainer")
      * @var Training[]|ArrayCollection
      */
     private $trainings = [];

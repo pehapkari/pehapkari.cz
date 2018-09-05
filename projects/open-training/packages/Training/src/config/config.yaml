@@ -3,6 +3,6 @@ services:
         autowire: true
         public: true
 
-    OpenTraining\Provision\:
+    OpenTraining\Training\:
         resource: '../'
-        exclude: '../{Entity}'
+        exclude: '../Entity'

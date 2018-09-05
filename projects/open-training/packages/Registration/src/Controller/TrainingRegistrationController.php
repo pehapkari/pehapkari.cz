@@ -2,7 +2,7 @@
 
 namespace OpenTraining\Registration\Controller;
 
-use OpenTraining\Entity\Training;
+use OpenTraining\Training\Entity\Training;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 use OpenTraining\Registration\Form\TrainingRegistrationFormType;
 use OpenTraining\Registration\Repository\TrainingRegistrationRepository;

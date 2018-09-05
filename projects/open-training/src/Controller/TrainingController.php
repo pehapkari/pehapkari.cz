@@ -2,11 +2,11 @@
 
 namespace OpenTraining\Controller;
 
-use OpenTraining\Entity\Training;
-use OpenTraining\Repository\PlaceRepository;
-use OpenTraining\Repository\TrainingReferenceRepository;
-use OpenTraining\Repository\TrainingRepository;
-use OpenTraining\Repository\TrainingTermRepository;
+use OpenTraining\Training\Entity\Training;
+use OpenTraining\Training\Repository\PlaceRepository;
+use OpenTraining\Training\Repository\TrainingReferenceRepository;
+use OpenTraining\Training\Repository\TrainingRepository;
+use OpenTraining\Training\Repository\TrainingTermRepository;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
