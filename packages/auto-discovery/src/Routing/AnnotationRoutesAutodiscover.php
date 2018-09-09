@@ -1,32 +1,33 @@
 <?php declare(strict_types=1);
 
-namespace OpenProject\AutoDiscovery\Router;
+namespace OpenProject\AutoDiscovery\Routing;
 
-use Nette\Utils\Strings;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\Config\Loader\LoaderResolverInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 
-final class AutoDiscoveryRouteMapping
+final class AnnotationRoutesAutodiscover
 {
     /**
-     * @var
+     * @var RouteCollectionBuilder
      */
     private $routeCollectionBuilder;
 
-    public function __construct(RouteCollectionBuilder $routeCollectionBuilder)
+    /**
+     * @var ContainerBuilder
+     */
+    private $containerBuilder;
+
+    public function __construct(RouteCollectionBuilder $routeCollectionBuilder, ContainerBuilder $containerBuilder)
     {
         $this->routeCollectionBuilder = $routeCollectionBuilder;
+        $this->containerBuilder = $containerBuilder;
     }
 
-    public function load(ContainerBuilder $containerBuilder)
+    public function autodiscover(): void
     {
-        $controllerDirectories = $this->getControllerDirectories($containerBuilder);
-
-        foreach ($controllerDirectories as $controllerDirectoryFileInfo) {
+        foreach ($this->getControllerDirectories() as $controllerDirectoryFileInfo) {
             $this->routeCollectionBuilder->import($controllerDirectoryFileInfo->getRealPath(), '/', 'annotation');
         }
     }
@@ -34,11 +35,11 @@ final class AutoDiscoveryRouteMapping
     /**
      * @return SplFileInfo[]
      */
-    private function getControllerDirectories(ContainerBuilder $containerBuilder): array
+    private function getControllerDirectories(): array
     {
         $dirs = [
-            $containerBuilder->getParameter('kernel.project_dir') . '/src',
-            $containerBuilder->getParameter('kernel.project_dir') . '/packages',
+            $this->containerBuilder->getParameter('kernel.project_dir') . '/src',
+            $this->containerBuilder->getParameter('kernel.project_dir') . '/packages',
         ];
 
         $controllerDirectories = Finder::create()->directories()

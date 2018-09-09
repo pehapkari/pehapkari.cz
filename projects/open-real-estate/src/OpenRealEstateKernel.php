@@ -4,7 +4,7 @@ namespace OpenRealEstate;
 
 use Iterator;
 use OpenProject\AutoDiscovery\DependencyInjection\CompilerPass\AutoDiscoveryCompilerPass;
-use OpenProject\AutoDiscovery\Router\AutoDiscoveryRouteMapping;
+use OpenProject\AutoDiscovery\Routing\AnnotationRoutesAutodiscover;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -43,39 +43,44 @@ final class OpenRealEstateKernel extends BaseKernel
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
     {
-        // local packages
-        $loader->load($this->getProjectDir() . '/packages/*/src/config/*' . self::CONFIG_EXTENSIONS, 'glob');
+        $containerBuilder->addCompilerPass(new AutoDiscoveryCompilerPass());
 
         $this->configureContainerFlex($containerBuilder, $loader);
-
-        $containerBuilder->addCompilerPass(new AutoDiscoveryCompilerPass());
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
     {
-        $confDir = $this->getProjectDir() . '/config';
+        (new AnnotationRoutesAutodiscover($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
 
-        $routeCollectionBuilder->import($confDir . '/{routes}/*' . self::CONFIG_EXTENSIONS, '/', 'glob');
-        $routeCollectionBuilder->import(
-            $confDir . '/{routes}/' . $this->environment . '/**/*' . self::CONFIG_EXTENSIONS,
-            '/',
-            'glob'
-        );
-        $routeCollectionBuilder->import($confDir . '/{routes}' . self::CONFIG_EXTENSIONS, '/', 'glob');
-
-        (new AutoDiscoveryRouteMapping($routeCollectionBuilder))->load($this->getContainerBuilder());
-
+        $this->configureRoutesFlex($routeCollectionBuilder);
     }
 
     private function configureContainerFlex(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
     {
         $containerBuilder->addResource(new FileResource($this->getProjectDir() . '/config/bundles.php'));
         $containerBuilder->setParameter('container.dumper.inline_class_loader', true);
-        $confDir = $this->getProjectDir() . '/config';
 
-        $loader->load($confDir . '/{packages}/*' . self::CONFIG_EXTENSIONS, 'glob');
-        $loader->load($confDir . '/{packages}/' . $this->environment . '/**/*' . self::CONFIG_EXTENSIONS, 'glob');
-        $loader->load($confDir . '/{services}' . self::CONFIG_EXTENSIONS, 'glob');
-        $loader->load($confDir . '/{services}_' . $this->environment . self::CONFIG_EXTENSIONS, 'glob');
+        $possibleServicePaths = [
+            $this->getProjectDir() . '/config/{packages}/*',
+            $this->getProjectDir() . '/config/{packages}/',
+            $this->getProjectDir() . '/config/services',
+            $this->getProjectDir() . '/config/{services}_',
+            $this->getProjectDir() . '/packages/*/src/config/*',
+        ];
+        foreach ($possibleServicePaths as $possibleServicePath) {
+            $loader->load($possibleServicePath . self::CONFIG_EXTENSIONS, 'glob');
+        }
+    }
+
+    private function configureRoutesFlex(RouteCollectionBuilder $routeCollectionBuilder): void
+    {
+        $possibleRoutingPaths = [
+            $this->getProjectDir() . '/config/{routes}*',
+            $this->getProjectDir() . '/config/{routes}/' . $this->environment . '/**/*',
+            $this->getProjectDir() . '/config/{routes}',
+        ];
+        foreach ($possibleRoutingPaths as $possibleRoutingDir) {
+            $routeCollectionBuilder->import($possibleRoutingDir . self::CONFIG_EXTENSIONS, '/', 'glob');
+        }
     }
 }

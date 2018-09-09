@@ -1,20 +1,28 @@
 <?php declare(strict_types=1);
 
-namespace OpenProject\AutoDiscovery\Discovery;
+namespace OpenProject\AutoDiscovery\Doctrine;
 
 use Iterator;
 use SplFileInfo;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Finder\Finder;
 
-final class DoctrineEntityDiscovery
+final class DoctrineEntityAutodiscover
 {
-    public function processContainerBuilder(ContainerBuilder $containerBuilder): void
-    {
-        $entityDirectories = $this->getEntityDirectories($containerBuilder);
+    /**
+     * @var ContainerBuilder
+     */
+    private $containerBuilder;
 
+    public function __construct(ContainerBuilder $containerBuilder)
+    {
+        $this->containerBuilder = $containerBuilder;
+    }
+
+    public function autodiscover(): void
+    {
         $entityMappings = [];
-        foreach ($entityDirectories as $entityDirectory) {
+        foreach ($this->getEntityDirectories() as $entityDirectory) {
             $namespace = $this->detectNamespaceFromDirectory($entityDirectory);
             if (! $namespace) {
                 continue;
@@ -43,11 +51,11 @@ final class DoctrineEntityDiscovery
     /**
      * @return SplFileInfo[]
      */
-    private function getEntityDirectories(ContainerBuilder $containerBuilder): Iterator
+    private function getEntityDirectories(): Iterator
     {
         $dirs = [
-            $containerBuilder->getParameter('kernel.project_dir') . '/src',
-            $containerBuilder->getParameter('kernel.project_dir') . '/packages',
+            $this->containerBuilder->getParameter('kernel.project_dir') . '/src',
+            $this->containerBuilder->getParameter('kernel.project_dir') . '/packages',
         ];
 
         return Finder::create()->directories()
