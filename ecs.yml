@@ -34,8 +34,8 @@ services:
     ObjectCalisthenics\Sniffs\Metrics\PropertyPerClassLimitSniff: ~
     ObjectCalisthenics\Sniffs\NamingConventions\NoSetterSniff:
         allowedClasses:
-            - 'App\Request\*FormRequest'
             - '*\Entity\*'
+            - '*\Request\*'
 
     # legacy
     # automattic - https://github.com/Automattic/phpcs-neutron-standard

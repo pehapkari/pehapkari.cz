@@ -1,10 +1,2 @@
 includes:
 	- 'vendor/phpstan/phpstan-doctrine/extension.neon'
-
-parameters:
-    ignoreErrors:
-        # Doctrine iterable collection
-        - '#Property(.*?)(ArrayCollection)(.*?)does not accept (default value of type )?array(.*?)#'
-
-        # false positive - known value
-        - '#Cannot call method getDeadlineDateTime\(\) on OpenTraining\\Entity\\TrainingTerm\|null#'
