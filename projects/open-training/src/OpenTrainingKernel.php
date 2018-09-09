@@ -52,15 +52,7 @@ final class OpenTrainingKernel extends BaseKernel
     {
         (new AnnotationRoutesAutodiscover($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
 
-        // Symfony Flex
-        $possibleRoutingPaths = [
-            $this->getProjectDir() . '/config/{routes}*',
-            $this->getProjectDir() . '/config/{routes}/' . $this->environment . '/**/*',
-            $this->getProjectDir() . '/config/{routes}',
-        ];
-        foreach ($possibleRoutingPaths as $possibleRoutingDir) {
-            $routeCollectionBuilder->import($possibleRoutingDir . self::CONFIG_EXTENSIONS, '/', 'glob');
-        }
+        $this->configureRoutesFlex($routeCollectionBuilder);
     }
 
     private function configureContainerFlex(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
@@ -68,16 +60,27 @@ final class OpenTrainingKernel extends BaseKernel
         $containerBuilder->addResource(new FileResource($this->getProjectDir() . '/config/bundles.php'));
         $containerBuilder->setParameter('container.dumper.inline_class_loader', true);
 
-        // Symfony Flex
         $possibleServicePaths = [
             $this->getProjectDir() . '/config/{packages}/*',
-            $this->getProjectDir() . '/config/{packages}/',
+            $this->getProjectDir() . '/config/{packages}/' . $this->environment . '/**/*',
             $this->getProjectDir() . '/config/services',
-            $this->getProjectDir() . '/config/{services}_',
+            $this->getProjectDir() . '/config/{services}_' . $this->environment,
             $this->getProjectDir() . '/packages/*/src/config/*',
         ];
         foreach ($possibleServicePaths as $possibleServicePath) {
             $loader->load($possibleServicePath . self::CONFIG_EXTENSIONS, 'glob');
+        }
+    }
+
+    private function configureRoutesFlex(RouteCollectionBuilder $routeCollectionBuilder): void
+    {
+        $possibleRoutingPaths = [
+            $this->getProjectDir() . '/config/{routes}*',
+            $this->getProjectDir() . '/config/{routes}/' . $this->environment . '/**/*',
+            $this->getProjectDir() . '/config/{routes}',
+        ];
+        foreach ($possibleRoutingPaths as $possibleRoutingDir) {
+            $routeCollectionBuilder->import($possibleRoutingDir . self::CONFIG_EXTENSIONS, '/', 'glob');
         }
     }
 }

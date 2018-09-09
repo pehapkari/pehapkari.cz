@@ -62,9 +62,9 @@ final class OpenRealEstateKernel extends BaseKernel
 
         $possibleServicePaths = [
             $this->getProjectDir() . '/config/{packages}/*',
-            $this->getProjectDir() . '/config/{packages}/',
+            $this->getProjectDir() . '/config/{packages}/' . $this->environment . '/**/*',
             $this->getProjectDir() . '/config/services',
-            $this->getProjectDir() . '/config/{services}_',
+            $this->getProjectDir() . '/config/{services}_' . $this->environment,
             $this->getProjectDir() . '/packages/*/src/config/*',
         ];
         foreach ($possibleServicePaths as $possibleServicePath) {
