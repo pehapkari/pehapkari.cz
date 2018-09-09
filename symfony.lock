@@ -539,6 +539,9 @@
     "theseer/tokenizer": {
         "version": "1.1.0"
     },
+    "tracy/tracy": {
+        "version": "v2.5.2"
+    },
     "twig/extensions": {
         "version": "1.0",
         "recipe": {

@@ -10,4 +10,4 @@ services:
 
     OpenTraining\:
         resource: '../src/'
-        exclude: '../src/{Kernel.php}'
+        exclude: '../src/{OpenTrainingKernel.php}'

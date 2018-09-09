@@ -45,9 +45,10 @@ final class DoctrineEntityDiscovery
      */
     private function getEntityDirectories(ContainerBuilder $containerBuilder): Iterator
     {
-        $dirs = [];
-        $dirs[] = $containerBuilder->getParameter('kernel.project_dir') . '/src';
-        $dirs[] = $containerBuilder->getParameter('kernel.project_dir') . '/packages';
+        $dirs = [
+            $containerBuilder->getParameter('kernel.project_dir') . '/src',
+            $containerBuilder->getParameter('kernel.project_dir') . '/packages',
+        ];
 
         return Finder::create()->directories()
             ->name('Entity')

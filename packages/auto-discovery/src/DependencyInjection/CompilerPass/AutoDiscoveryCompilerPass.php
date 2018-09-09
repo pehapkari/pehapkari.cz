@@ -23,15 +23,7 @@ final class AutoDiscoveryCompilerPass implements CompilerPassInterface
 
     public function process(ContainerBuilder $containerBuilder): void
     {
+        // 1. autodiscovery entity directories with annotation
         $this->doctrineEntityDiscovery->processContainerBuilder($containerBuilder);
-
-        // autodiscovery sources for controller annotatoins
-
-        dump($containerBuilder);
-        die;
-
-        // 1. find Controller dirs
-        // 2. add them as source with has
-        // 3. use type annotation
     }
 }

@@ -4,6 +4,7 @@ namespace OpenRealEstate;
 
 use Iterator;
 use OpenProject\AutoDiscovery\DependencyInjection\CompilerPass\AutoDiscoveryCompilerPass;
+use OpenProject\AutoDiscovery\Router\AutoDiscoveryRouteMapping;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -61,6 +62,9 @@ final class OpenRealEstateKernel extends BaseKernel
             'glob'
         );
         $routeCollectionBuilder->import($confDir . '/{routes}' . self::CONFIG_EXTENSIONS, '/', 'glob');
+
+        (new AutoDiscoveryRouteMapping($routeCollectionBuilder))->load($this->getContainerBuilder());
+
     }
 
     private function configureContainerFlex(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
