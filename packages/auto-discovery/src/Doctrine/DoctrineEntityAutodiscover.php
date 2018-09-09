@@ -41,7 +41,7 @@ final class DoctrineEntityAutodiscover
             return;
         }
 
-        $containerBuilder->prependExtensionConfig('doctrine', [
+        $this->containerBuilder->prependExtensionConfig('doctrine', [
             'orm' => [
                 'mappings' => $entityMappings,
             ],
