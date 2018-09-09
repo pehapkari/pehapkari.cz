@@ -9,4 +9,4 @@ services:
 
     OpenRealEstate\:
         resource: '../src/'
-        exclude: '../src/Kernel.php'
+        exclude: '../src/OpenRealEstateKernel.php'

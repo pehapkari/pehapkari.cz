@@ -57,8 +57,7 @@ final class TrainingRegistrationController
     }
 
     /**
-     * @Route(path="/register-to-training/{training}", name="register-to-training", methods={"GET", "POST"})
-     *
+     ;*
      * @see https://github.com/symfony/demo/blob/master/src/Controller/Admin/BlogController.php
      */
     public function default(Request $request, Training $training): Response

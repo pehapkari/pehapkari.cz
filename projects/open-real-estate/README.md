@@ -1,17 +1,4 @@
-# Open Trainings
-
-Open and free platform for organizing trainings. 
-
-## Setup
-
-We cover all you need to organize a training, with a trainer and attendees:
-
-- [ ] create training
-- [ ] create a new term for the training
-- [ ] let people buy and attend a training
-- [ ] automated invoicing
-- [ ] automated emails to all parties
-- [x] compute provision for the trainer and the organizer
+# Open Real Estate
 
 ## Instal
 

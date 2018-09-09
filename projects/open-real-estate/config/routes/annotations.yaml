@@ -1,4 +1,10 @@
+# todo autoad!!!
 controllers:
     resource: '../src/Controller/'
     type: annotation
-    prefix: /{_locale}
+
+# todo autoad!!!
+package_controllers:
+    resource: '../packages/RealEstate/src/Controller/'
+    # resource: '../packages/*/Controller/'
+    type: annotation
