@@ -44,8 +44,7 @@
         "symfony/web-server-bundle": "^3.4|^4.0",
         "symplify/coding-standard": "^4.7",
         "symplify/easy-coding-standard": "^4.7",
-        "symplify/monorepo-builder": "^4.7",
-        "tracy/tracy": "^2.5"
+        "symplify/monorepo-builder": "^4.7"
     },
     "autoload": {
         "psr-4": {

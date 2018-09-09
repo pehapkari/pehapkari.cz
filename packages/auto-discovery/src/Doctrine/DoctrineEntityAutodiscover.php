@@ -3,11 +3,12 @@
 namespace OpenProject\AutoDiscovery\Doctrine;
 
 use Iterator;
+use OpenProject\AutoDiscovery\Contract\AutodiscovererInterface;
 use SplFileInfo;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Finder\Finder;
 
-final class DoctrineEntityAutodiscover
+final class DoctrineEntityAutodiscover implements AutodiscovererInterface
 {
     /**
      * @var ContainerBuilder

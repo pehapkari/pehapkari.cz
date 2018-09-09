@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 final class PriceController
@@ -29,9 +30,17 @@ final class PriceController
     /**
      * @Route(path="/upload-xls-price-list", name="upload-xls-price-list", methods={"GET", "POST"})
      */
-    public function uploadXlsPriceList(): Response
+    public function uploadXlsPriceList(Request $request): Response
     {
         $uploadXlsPriceForm = $this->formFactory->create(FileType::class);
+
+        $uploadXlsPriceForm->handleRequest($request);
+
+        if ($uploadXlsPriceForm->isSubmitted() && $uploadXlsPriceForm->isValid()) {
+            $formData = $uploadXlsPriceForm->getData();
+            dump($formData);
+            die;
+        }
 
         return $this->templateEngine->renderResponse('real-estate/upload-xls-price-list.twig', [
             'form' => $uploadXlsPriceForm->createView()

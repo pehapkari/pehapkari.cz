@@ -3,6 +3,7 @@
 namespace OpenProject\AutoDiscovery\DependencyInjection\CompilerPass;
 
 use OpenProject\AutoDiscovery\Doctrine\DoctrineEntityAutodiscover;
+use OpenProject\AutoDiscovery\Twig\TwigPathsAutodiscoverer;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -13,7 +14,7 @@ final class AutoDiscoveryCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $containerBuilder): void
     {
-        // 1. autodiscovery entity directories with annotation
         (new DoctrineEntityAutodiscover($containerBuilder))->autodiscover();
+        (new TwigPathsAutodiscoverer($containerBuilder))->autodiscover();
     }
 }

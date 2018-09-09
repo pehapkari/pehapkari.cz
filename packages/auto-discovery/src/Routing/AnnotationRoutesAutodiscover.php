@@ -2,12 +2,13 @@
 
 namespace OpenProject\AutoDiscovery\Routing;
 
+use OpenProject\AutoDiscovery\Contract\AutodiscovererInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 
-final class AnnotationRoutesAutodiscover
+final class AnnotationRoutesAutodiscover implements AutodiscovererInterface
 {
     /**
      * @var RouteCollectionBuilder
