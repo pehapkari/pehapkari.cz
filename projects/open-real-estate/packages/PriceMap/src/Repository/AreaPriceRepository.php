@@ -51,8 +51,5 @@ final class AreaPriceRepository
                 $this->entityManager->flush();
             }
         }
-
-        dump('DONE');
-        die;
     }
 }
