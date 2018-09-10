@@ -8,10 +8,11 @@ cd open-trainings
 composer update
 ```
 
-Configure `php.ini`:
+Configure `php.ini`: 
 
 ```ini
 upload_max_filesize = 20MB # at least
+max_execution_time = 120
 ```
 
 Then rename `.env.dist` to `.env` and complete variables:

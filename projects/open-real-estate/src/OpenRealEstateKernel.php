@@ -50,9 +50,9 @@ final class OpenRealEstateKernel extends BaseKernel
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
     {
-        (new AnnotationRoutesAutodiscover($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
-
         $this->configureRoutesFlex($routeCollectionBuilder);
+
+        (new AnnotationRoutesAutodiscover($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
     }
 
     private function configureContainerFlex(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
@@ -75,10 +75,11 @@ final class OpenRealEstateKernel extends BaseKernel
     private function configureRoutesFlex(RouteCollectionBuilder $routeCollectionBuilder): void
     {
         $possibleRoutingPaths = [
-            $this->getProjectDir() . '/config/{routes}*',
-            $this->getProjectDir() . '/config/{routes}/' . $this->environment . '/**/*',
-            $this->getProjectDir() . '/config/{routes}',
+            $this->getProjectDir() . '/config/routes/*',
+            $this->getProjectDir() . '/config/routes/' . $this->environment . '/**/*',
+            $this->getProjectDir() . '/config/routes',
         ];
+
         foreach ($possibleRoutingPaths as $possibleRoutingDir) {
             $routeCollectionBuilder->import($possibleRoutingDir . self::CONFIG_EXTENSIONS, '/', 'glob');
         }

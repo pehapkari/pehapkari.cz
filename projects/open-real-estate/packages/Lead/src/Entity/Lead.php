@@ -48,7 +48,7 @@ class Lead
      * @ORM\ManyToOne(targetEntity="OpenRealEstate\Lead\Entity\LeadStatus")
      * @var LeadStatus
      */
-    private $status;
+    private $leadStatus;
 
     /**
      * @ORM\ManyToOne(targetEntity="OpenRealEstate\Lead\Entity\Adviser")
