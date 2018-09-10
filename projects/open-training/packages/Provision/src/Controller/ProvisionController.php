@@ -2,9 +2,8 @@
 
 namespace OpenTraining\Provision\Controller;
 
-use OpenTraining\Training\Entity\TrainingTerm;
-use OpenTraining\Training\Repository\TrainingTermRepository;
 use OpenTraining\Provision\ProvisionResolver;
+use OpenTraining\Training\Repository\TrainingTermRepository;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,6 +29,7 @@ final class ProvisionController
      * @var TrainingTermRepository
      */
     private $trainingTermRepository;
+
     /**
      * @var RouterInterface
      */
@@ -40,15 +40,12 @@ final class ProvisionController
         EngineInterface $templatingEngine,
         TrainingTermRepository $trainingTermRepository,
         RouterInterface $router
-
     ) {
         $this->provisionResolver = $provisionResolver;
         $this->templatingEngine = $templatingEngine;
         $this->trainingTermRepository = $trainingTermRepository;
         $this->router = $router;
     }
-
-
 
     /**
      * @Route(path="/provision/", name="provision")
@@ -59,13 +56,4 @@ final class ProvisionController
         // "/packages/Provision/templates/provision/default.twig"
         return $this->templatingEngine->renderResponse('provision/default.twig');
     }
-
-
-
-
-
-
-
-
-
 }

@@ -51,6 +51,7 @@
             "OpenProject\\AutoDiscovery\\": "packages/auto-discovery/src",
             "OpenRealEstate\\": "projects/open-real-estate/src",
             "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src",
+            "OpenRealEstate\\PriceMap\\": "projects/open-real-estate/packages/PriceMap/src",
             "OpenRealEstate\\RealEstate\\": "projects/open-real-estate/packages/RealEstate/src",
             "OpenTraining\\": "projects/open-training/src",
             "OpenTraining\\Provision\\": "projects/open-training/packages/Provision/src",
@@ -68,9 +69,9 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
-        "check-cs": "vendor/bin/ecs check packages projects/open-real-estate/src projects/open-training/src",
-        "fix-cs": "vendor/bin/ecs check packages projects/open-real-estate/src projects/open-training/src --fix",
-        "phpstan": "vendor/bin/phpstan analyse projects/open-real-estate/src projects/open-training/src --level max",
+        "check-cs": "vendor/bin/ecs check packages projects/*/src projects/*/packages/*/src",
+        "fix-cs": "vendor/bin/ecs check packages projects/*/src projects/*/packages/*/src --fix",
+        "phpstan": "vendor/bin/phpstan analyse projects/*/src projects/*/packages/*/src --level max",
         "adminer-install": [
             "mkdir -p public/adminer",
             "wget https://github.com/vrana/adminer/releases/download/v4.6.3/adminer-4.6.3-en.php -O public/adminer/index.php"

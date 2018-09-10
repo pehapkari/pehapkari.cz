@@ -2,10 +2,10 @@
 
 namespace OpenTraining\Registration\Controller;
 
-use OpenTraining\Training\Entity\Training;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 use OpenTraining\Registration\Form\TrainingRegistrationFormType;
 use OpenTraining\Registration\Repository\TrainingRegistrationRepository;
+use OpenTraining\Training\Entity\Training;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;

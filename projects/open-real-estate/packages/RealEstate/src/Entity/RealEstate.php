@@ -38,7 +38,7 @@ class RealEstate
      * @ORM\ManyToOne(targetEntity="OpenRealEstate\RealEstate\Entity\RealEstateType")
      * @var RealEstateType
      */
-    private $type;
+    private $realEstateType;
 
     /**
      * @ORM\ManyToOne(targetEntity="OpenRealEstate\RealEstate\Entity\ReconstructionType")
@@ -51,7 +51,7 @@ class RealEstate
         return $this->id;
     }
 
-    public function setId(int $id)
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -61,7 +61,7 @@ class RealEstate
         return $this->zip;
     }
 
-    public function setZip(string $zip)
+    public function setZip(string $zip): void
     {
         $this->zip = $zip;
     }
@@ -71,19 +71,19 @@ class RealEstate
         return $this->area;
     }
 
-    public function setArea(int $area)
+    public function setArea(int $area): void
     {
         $this->area = $area;
     }
 
     public function getType(): ?RealEstateType
     {
-        return $this->type;
+        return $this->realEstateType;
     }
 
-    public function setType(RealEstateType $type)
+    public function setType(RealEstateType $realEstateType): void
     {
-        $this->type = $type;
+        $this->realEstateType = $realEstateType;
     }
 
     public function getReconstructionType(): ?ReconstructionType
@@ -91,7 +91,7 @@ class RealEstate
         return $this->reconstructionType;
     }
 
-    public function setReconstructionType(ReconstructionType $reconstructionType)
+    public function setReconstructionType(ReconstructionType $reconstructionType): void
     {
         $this->reconstructionType = $reconstructionType;
     }

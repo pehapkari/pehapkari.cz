@@ -2,13 +2,13 @@
 
 namespace OpenTraining\Provision\Repository;
 
-use OpenTraining\Training\Entity\TrainingTerm;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query\Expr;
 use Doctrine\ORM\Query\Expr\Join;
 use OpenTraining\Provision\Entity\Partner;
 use OpenTraining\Provision\Entity\PartnerExpense;
+use OpenTraining\Training\Entity\TrainingTerm;
 
 final class PartnerRepository
 {

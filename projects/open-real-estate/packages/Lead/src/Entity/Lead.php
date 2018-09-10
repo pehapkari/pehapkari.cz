@@ -67,7 +67,7 @@ class Lead
         return $this->id;
     }
 
-    public function setId(int $id)
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -87,7 +87,7 @@ class Lead
         return $this->email;
     }
 
-    public function setEmail(string $email)
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
@@ -97,7 +97,7 @@ class Lead
         return $this->phone;
     }
 
-    public function setPhone(string $phone)
+    public function setPhone(string $phone): void
     {
         $this->phone = $phone;
     }
@@ -107,19 +107,19 @@ class Lead
         return $this->comment;
     }
 
-    public function setComment(string $comment)
+    public function setComment(string $comment): void
     {
         $this->comment = $comment;
     }
 
     public function getStatus(): ?LeadStatus
     {
-        return $this->status;
+        return $this->leadStatus;
     }
 
-    public function setStatus(LeadStatus $status)
+    public function setStatus(LeadStatus $leadStatus): void
     {
-        $this->status = $status;
+        $this->leadStatus = $leadStatus;
     }
 
     public function getAdviser(): ?Adviser
@@ -127,7 +127,7 @@ class Lead
         return $this->adviser;
     }
 
-    public function setAdviser(Adviser $adviser)
+    public function setAdviser(Adviser $adviser): void
     {
         $this->adviser = $adviser;
     }
