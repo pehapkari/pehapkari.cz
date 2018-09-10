@@ -7,6 +7,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
+ *
+ * @see https://github.com/EliHood/symfonyormexample/blob/master/src/Entity/User.php#L13
  */
 class User implements UserInterface
 {
@@ -43,7 +45,7 @@ class User implements UserInterface
         return $this->name;
     }
 
-    public function setName(string $name)
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
@@ -74,7 +76,7 @@ class User implements UserInterface
     /**
      * @param string[] $roles
      */
-    public function setRoles(array $roles)
+    public function setRoles(array $roles): void
     {
         $this->roles = $roles;
     }
@@ -87,7 +89,7 @@ class User implements UserInterface
         return (string) $this->password;
     }
 
-    public function setPassword(string $password)
+    public function setPassword(string $password): void
     {
         $this->password = $password;
     }
@@ -95,7 +97,7 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getSalt()
+    public function getSalt(): void
     {
         // not needed when using the "bcrypt" algorithm in security.yaml
     }
@@ -103,7 +105,7 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;

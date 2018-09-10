@@ -4,6 +4,7 @@ namespace OpenProject\AutoDiscovery\Doctrine;
 
 use Iterator;
 use OpenProject\AutoDiscovery\Contract\AutodiscovererInterface;
+use OpenProject\AutoDiscovery\Php\NamespaceDetector;
 use SplFileInfo;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Finder\Finder;
@@ -15,16 +16,22 @@ final class DoctrineEntityAutodiscover implements AutodiscovererInterface
      */
     private $containerBuilder;
 
+    /**
+     * @var NamespaceDetector
+     */
+    private $namespaceDetector;
+
     public function __construct(ContainerBuilder $containerBuilder)
     {
         $this->containerBuilder = $containerBuilder;
+        $this->namespaceDetector = new NamespaceDetector();
     }
 
     public function autodiscover(): void
     {
         $entityMappings = [];
         foreach ($this->getEntityDirectories() as $entityDirectory) {
-            $namespace = $this->detectNamespaceFromDirectory($entityDirectory);
+            $namespace = $this->namespaceDetector->detectFromDirectory($entityDirectory);
             if (! $namespace) {
                 continue;
             }
@@ -63,33 +70,5 @@ final class DoctrineEntityAutodiscover implements AutodiscovererInterface
             ->name('Entity')
             ->in($dirs)
             ->getIterator();
-    }
-
-    private function detectNamespaceFromDirectory(SplFileInfo $entityDirectory): ?string
-    {
-        $filesInDirectory = glob($entityDirectory->getRealPath() . '/*.php');
-        if (! count($filesInDirectory)) {
-            return null;
-        }
-
-        $entityFilePath = array_pop($filesInDirectory);
-
-        return $this->detectNamespaceFromFilePath($entityFilePath);
-    }
-
-    /**
-     * @see https://stackoverflow.com/a/7153243/1348344
-     */
-    private function detectNamespaceFromFilePath(string $filePath): string
-    {
-        include $filePath;
-
-        $classes = get_declared_classes();
-        $class = end($classes);
-
-        $classParts = explode('\\', $class);
-        unset($classParts[count($classParts) - 1]);
-
-        return implode('\\', $classParts);
     }
 }
