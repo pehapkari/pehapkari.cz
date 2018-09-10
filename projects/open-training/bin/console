@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php declare(strict_types=1);
 
-use OpenTraining\Kernel;
+use OpenTraining\OpenTrainingKernel;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Debug\Debug;
@@ -27,6 +27,6 @@ if ($debug) {
     }
 }
 
-$kernel = new Kernel($env, $debug);
+$kernel = new OpenTrainingKernel($env, $debug);
 $application = new Application($kernel);
 $application->run($input);

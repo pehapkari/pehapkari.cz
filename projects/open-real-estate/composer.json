@@ -38,6 +38,7 @@
     "autoload": {
         "psr-4": {
             "OpenRealEstate\\": "src",
+            "OpenRealEstate\\PriceMap\\": "packages/PriceMap/src",
             "OpenRealEstate\\Lead\\": "packages/Lead/src",
             "OpenRealEstate\\RealEstate\\": "packages/RealEstate/src"
         }

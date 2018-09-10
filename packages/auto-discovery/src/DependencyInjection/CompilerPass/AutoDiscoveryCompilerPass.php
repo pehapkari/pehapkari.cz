@@ -2,7 +2,8 @@
 
 namespace OpenProject\AutoDiscovery\DependencyInjection\CompilerPass;
 
-use OpenProject\AutoDiscovery\Discovery\DoctrineEntityDiscovery;
+use OpenProject\AutoDiscovery\Doctrine\DoctrineEntityAutodiscover;
+use OpenProject\AutoDiscovery\Twig\TwigPathsAutodiscoverer;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -11,18 +12,9 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  */
 final class AutoDiscoveryCompilerPass implements CompilerPassInterface
 {
-    /**
-     * @var DoctrineEntityDiscovery
-     */
-    private $doctrineEntityDiscovery;
-
-    public function __construct()
-    {
-        $this->doctrineEntityDiscovery = new DoctrineEntityDiscovery();
-    }
-
     public function process(ContainerBuilder $containerBuilder): void
     {
-        $this->doctrineEntityDiscovery->processContainerBuilder($containerBuilder);
+        (new DoctrineEntityAutodiscover($containerBuilder))->autodiscover();
+        (new TwigPathsAutodiscoverer($containerBuilder))->autodiscover();
     }
 }

@@ -1,0 +1,5 @@
+easy_admin:
+    entities:
+        Type:
+            label: 'Price Estimate by Area'
+            class: 'OpenRealEstate\PriceMap\Entity\AreaPrice'

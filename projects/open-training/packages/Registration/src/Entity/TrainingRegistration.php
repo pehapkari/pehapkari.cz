@@ -2,8 +2,8 @@
 
 namespace OpenTraining\Registration\Entity;
 
-use OpenTraining\Training\Entity\TrainingTerm;
 use Doctrine\ORM\Mapping as ORM;
+use OpenTraining\Training\Entity\TrainingTerm;
 
 /**
  * @ORM\Entity

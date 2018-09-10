@@ -1,17 +1,4 @@
-# Open Trainings
-
-Open and free platform for organizing trainings. 
-
-## Setup
-
-We cover all you need to organize a training, with a trainer and attendees:
-
-- [ ] create training
-- [ ] create a new term for the training
-- [ ] let people buy and attend a training
-- [ ] automated invoicing
-- [ ] automated emails to all parties
-- [x] compute provision for the trainer and the organizer
+# Open Real Estate
 
 ## Instal
 
@@ -21,11 +8,18 @@ cd open-trainings
 composer update
 ```
 
+Configure `php.ini`: 
+
+```ini
+upload_max_filesize = 20MB # at least
+max_execution_time = 120
+```
+
 Then rename `.env.dist` to `.env` and complete variables:
 
 ```bash
 # create database
-bin/console doctrine:schema:create 
+bin/console doctrine:schema:create
 
 # dump css and js from all bundles
 bin/console assets:install --env=prod --no-debug
@@ -38,3 +32,4 @@ composer adminer-install
 ```bash
 bin/console server:run
 ```
+
