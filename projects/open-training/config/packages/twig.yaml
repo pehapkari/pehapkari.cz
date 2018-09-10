@@ -12,13 +12,6 @@ twig:
     date:
         format: 'Y-m-d, H:i'
 
-    # @see https://symfony.com/doc/current/configuration/override_dir_structure.html#override-the-templates-directory
-    paths:
-        - "%kernel.project_dir%/templates"
-        - "%kernel.project_dir%/packages/Registration/templates" # @todo auto add?
-        # don't forget to update paths for 2 options in PHPStorm for autocomplete as well
-        - "%kernel.project_dir%/packages/Provision/templates" # @todo auto add?
-
     # see https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration
     number_format:
         decimals: 0
