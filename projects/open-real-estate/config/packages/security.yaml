@@ -2,15 +2,19 @@ security:
     encoders:
         # Our user class and the algorithm we'll use to encode passwords
         # https://symfony.com/doc/current/security.html#c-encoding-the-user-s-password
-        App\Entity\User: bcrypt
+        OpenRealEstate\User\Entity\User:
+            algorithm: argon2i
 
     providers:
         # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
         # In this example, users are stored via Doctrine in the database
         # To see the users at src/App/DataFixtures/ORM/LoadFixtures.php
         # To load users from somewhere else: https://symfony.com/doc/current/security/custom_provider.html
-        database_users:
-            entity: { class: App\Entity\User, property: username }
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: OpenRealEstate\User\Entity\User
+                property: name
 
     # https://symfony.com/doc/current/security.html#initial-security-yml-setup-authentication
     firewalls:

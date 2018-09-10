@@ -11,6 +11,7 @@
         "doctrine/orm": "2.7.x-dev",
         "knplabs/doctrine-behaviors": "^1.5",
         "easycorp/easyadmin-bundle": "^1.17",
+        "phpoffice/phpspreadsheet": "^1.4",
         "sensio/framework-extra-bundle": "^5.0",
         "symfony/asset": "^3.4|^4.0",
         "symfony/dependency-injection": "^3.4|^4.0",
@@ -38,6 +39,7 @@
     "autoload": {
         "psr-4": {
             "OpenRealEstate\\": "src",
+            "OpenRealEstate\\User\\": "packages/User/src",
             "OpenRealEstate\\PriceMap\\": "packages/PriceMap/src",
             "OpenRealEstate\\Lead\\": "packages/Lead/src",
             "OpenRealEstate\\RealEstate\\": "packages/RealEstate/src"

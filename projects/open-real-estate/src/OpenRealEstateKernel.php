@@ -66,6 +66,7 @@ final class OpenRealEstateKernel extends BaseKernel
             $this->getProjectDir() . '/config/services',
             $this->getProjectDir() . '/config/{services}_' . $this->environment,
             $this->getProjectDir() . '/packages/*/src/config/*',
+            $this->getProjectDir() . '/packages/*/config/*',
         ];
         foreach ($possibleServicePaths as $possibleServicePath) {
             $loader->load($possibleServicePath . self::CONFIG_EXTENSIONS, 'glob');
