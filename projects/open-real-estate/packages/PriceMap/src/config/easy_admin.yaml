@@ -1,5 +1,13 @@
 easy_admin:
+    # @see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/menu-configuration.html
+    design:
+        menu:
+            -
+                label: 'Cenová mapa'
+                icon: 'money'
+                entity: 'AreaPrice'
+
     entities:
-        Type:
-            label: 'Price Estimate by Area'
+        AreaPrice:
+            label: 'Cenová mapa'
             class: 'OpenRealEstate\PriceMap\Entity\AreaPrice'

@@ -12,6 +12,7 @@
         "doctrine/orm": "2.7.x-dev",
         "easycorp/easyadmin-bundle": "^1.17",
         "knplabs/doctrine-behaviors": "^1.5",
+        "phpoffice/phpspreadsheet": "^1.4",
         "sensio/framework-extra-bundle": "^5.0",
         "symfony/asset": "^3.4|^4.0",
         "symfony/dependency-injection": "^3.4|^4.0",

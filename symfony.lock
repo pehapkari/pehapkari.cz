@@ -125,6 +125,9 @@
     "knplabs/doctrine-behaviors": {
         "version": "1.5.0"
     },
+    "markbaker/complex": {
+        "version": "1.4.6"
+    },
     "myclabs/deep-copy": {
         "version": "1.8.1"
     },
@@ -184,6 +187,9 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
+    },
+    "phpoffice/phpspreadsheet": {
+        "version": "1.4.0"
     },
     "phpspec/prophecy": {
         "version": "1.8.0"
