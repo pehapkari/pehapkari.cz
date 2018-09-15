@@ -43,9 +43,9 @@ final class OpenTrainingKernel extends BaseKernel
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
     {
-        $this->configureContainerFlex($containerBuilder, $loader);
-
         $containerBuilder->addCompilerPass(new AutoDiscoveryCompilerPass());
+
+        $this->configureContainerFlex($containerBuilder, $loader);
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
@@ -75,10 +75,11 @@ final class OpenTrainingKernel extends BaseKernel
     private function configureRoutesFlex(RouteCollectionBuilder $routeCollectionBuilder): void
     {
         $possibleRoutingPaths = [
-            $this->getProjectDir() . '/config/{routes}*',
-            $this->getProjectDir() . '/config/{routes}/' . $this->environment . '/**/*',
-            $this->getProjectDir() . '/config/{routes}',
+            $this->getProjectDir() . '/config/routes/*',
+            $this->getProjectDir() . '/config/routes/' . $this->environment . '/**/*',
+            $this->getProjectDir() . '/config/routes',
         ];
+
         foreach ($possibleRoutingPaths as $possibleRoutingDir) {
             $routeCollectionBuilder->import($possibleRoutingDir . self::CONFIG_EXTENSIONS, '/', 'glob');
         }
