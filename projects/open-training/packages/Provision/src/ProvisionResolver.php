@@ -3,16 +3,12 @@
 namespace OpenTraining\Provision;
 
 use OpenTraining\Provision\Repository\PartnerExpenseRepository;
-//use OpenTraining\Provision\Data\PartnerData;
-//use OpenTraining\Provision\Data\ProvisionData;
 use OpenTraining\Provision\Repository\PartnerRepository;
 use OpenTraining\Training\Entity\TrainingTerm;
 
 final class ProvisionResolver
 {
     /**
-     * @todo reword to database approach
-     *
      * To cover dual tax payments by main invoicing entity
      * 10 000  profit ~= 2000 taxes
      *
@@ -45,10 +41,8 @@ final class ProvisionResolver
         $profit = $income - $expense;
 
         $partnersWithExpense = $this->partnerRepository->fetchAllWithExpenseForTrainingTerm($trainingTerm);
-        dump($partnersWithExpense);
-        die;
 
-        foreach ($provisionData->getPartnerDatas() as $partnerData) {
+        foreach ($partnersWithExpense as $partnerData) {
             $partnerProfit = $this->resolvePartnerProfit($profit, $partnerData);
             $partnerData->changeProfit($partnerProfit);
         }

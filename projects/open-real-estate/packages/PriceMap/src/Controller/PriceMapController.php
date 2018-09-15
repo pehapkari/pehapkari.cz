@@ -71,17 +71,18 @@ final class PriceMapController
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form->getData()['file'];
 
-            if (! in_array($uploadedFile->getClientOriginalExtension(), ['xls', 'xlsx'], true)) {
-                $form->get('file')->addError(new FormError(sprintf(
-                    'Only XLS/XLSX formats are supported. "%s" provided',
-                    $uploadedFile->getClientOriginalExtension()
-                )));
-            } else {
+            if (in_array($uploadedFile->getClientOriginalExtension(), ['xls', 'xlsx'], true)) {
                 $spreadsheet = $this->xls->load($uploadedFile->getRealPath());
                 $this->areaPriceRepository->importWorksheet($spreadsheet->getActiveSheet());
 
                 $this->flashBag->add('XLS byl úspěšně importován.', 'success');
+                // @todo redirect
             }
+
+            $form->addError(new FormError(sprintf(
+                'Only XLS/XLSX formats are supported. "%s" provided',
+                $uploadedFile->getClientOriginalExtension()
+            )));
         }
 
         return $this->templateEngine->renderResponse('real-estate/upload-xls-price-list.twig', [

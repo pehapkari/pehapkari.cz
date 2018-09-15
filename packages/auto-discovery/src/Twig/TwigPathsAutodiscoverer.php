@@ -3,9 +3,8 @@
 namespace OpenProject\AutoDiscovery\Twig;
 
 use OpenProject\AutoDiscovery\Contract\AutodiscovererInterface;
+use OpenProject\AutoDiscovery\Util\Filesystem;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
 
 final class TwigPathsAutodiscoverer implements AutodiscovererInterface
 {
@@ -14,34 +13,27 @@ final class TwigPathsAutodiscoverer implements AutodiscovererInterface
      */
     private $containerBuilder;
 
+    /**
+     * @var Filesystem
+     */
+    private $filesystem;
+
     public function __construct(ContainerBuilder $containerBuilder)
     {
+        $this->filesystem = new Filesystem($containerBuilder);
         $this->containerBuilder = $containerBuilder;
     }
 
     public function autodiscover(): void
     {
+        if (! $this->containerBuilder->hasDefinition('twig.loader.filesystem')) {
+            return;
+        }
+
         $twigLoaderFilesystemDefinition = $this->containerBuilder->getDefinition('twig.loader.filesystem');
 
-        foreach ($this->getTemplateDirectories() as $templateDirectory) {
+        foreach ($this->filesystem->getTemplatesDirectories() as $templateDirectory) {
             $twigLoaderFilesystemDefinition->addMethodCall('addPath', [$templateDirectory->getRealPath()]);
         }
-    }
-
-    /**
-     * @return SplFileInfo[]
-     */
-    private function getTemplateDirectories(): array
-    {
-        $dirs = [
-            $this->containerBuilder->getParameter('kernel.project_dir'),
-            $this->containerBuilder->getParameter('kernel.project_dir') . '/packages/',
-        ];
-
-        $finder = Finder::create()->directories()
-            ->name('templates')
-            ->in($dirs);
-
-        return iterator_to_array($finder->getIterator());
     }
 }

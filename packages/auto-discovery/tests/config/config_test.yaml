@@ -1,0 +1,7 @@
+parameters:
+    kernel.secret: 123
+    # simulate "project_dir" parameter in tests directory
+    kernel.project_dir: '%kernel.root_dir%/../../tests/KernelProjectDir'
+
+imports:
+    - { resource: 'packages/*.yaml' }
