@@ -12,6 +12,12 @@ $possibleAutoloadFiles = [
     __DIR__  .'/../../../vendor/autoload.php',
 ];
 
+foreach ($possibleAutoloadFiles as $possibleAutoloadFile) {
+    if (file_exists($possibleAutoloadFile)) {
+        require $possibleAutoloadFile;
+    }
+}
+
 // The check is to ensure we don't use .env in production
 if (!isset($_SERVER['APP_ENV'])) {
     (new Dotenv())->load(__DIR__.'/../.env');

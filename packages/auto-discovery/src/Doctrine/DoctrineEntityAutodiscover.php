@@ -45,6 +45,7 @@ final class DoctrineEntityAutodiscover implements AutodiscovererInterface
             ];
         }
 
+
         if (! count($entityMappings)) {
             return;
         }
