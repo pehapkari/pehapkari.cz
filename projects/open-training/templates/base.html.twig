@@ -3,11 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>{% block title %}Open Tranins{% endblock %}</title>
-        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
+        <title>{% block title %}Vzdělávej se{% endblock %}</title>
+
+        {#<link rel="stylesheet" href="{{ asset('build/css/app.css') }}">#}
+
+        <link rel="stylesheet" href="https://pehapkari.cz/assets/bootstrap/bootstrap.min.css?v=0.9">
+        <link rel="stylesheet" href="https://pehapkari.cz/assets/css/style.css?v=0.10">
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
 
+    {# what is this for? #}
     <body id="{% block body_id %}{% endblock %}">
         {% block header %}
             <header>
@@ -23,7 +29,7 @@
             </header>
         {% endblock %}
 
-        <div class="container body-container">
+        <div class="container">
             {% block body %}
                 <div class="row">
                     <div id="main" class="col-sm-9">
@@ -44,6 +50,5 @@
         {# it's not mandatory to set the timezone in localizeddate(). This is done to
            avoid errors when the 'intl' PHP extension is not available and the application
            is forced to use the limited "intl polyfill", which only supports UTC and GMT #}
-        <!-- Page rendered on {{ 'now'|localizeddate('long', 'long', null, 'UTC') }} -->
     </body>
 </html>

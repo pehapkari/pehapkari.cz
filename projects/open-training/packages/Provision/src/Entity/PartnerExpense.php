@@ -8,7 +8,7 @@ use OpenTraining\Training\Entity\TrainingTerm;
 /**
  * @ORM\Entity
  */
-final class PartnerExpense
+class PartnerExpense
 {
     /**
      * @ORM\Id()

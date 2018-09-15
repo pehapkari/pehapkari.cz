@@ -21,6 +21,20 @@ git checkout master
 composer install
 ```
 
+
+Install assets
+
+```bash
+php projects/open-real-estate/bin/console assets:install --env=prod --no-debug
+```
+
+Install adminer
+
+```
+composer adminer-install
+```
+
+
 ## 2. Database setup
 
 1. Xampp - create databse

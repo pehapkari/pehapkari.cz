@@ -30,13 +30,11 @@ final class SecurityController
      */
     public function loginAction(): Response
     {
-        $error = $this->authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
-
         return $this->templatingEngine->renderResponse('security/login.html.twig', [
             // last username entered by the user
             'last_username' => $this->authenticationUtils->getLastUsername(),
-            'error' => $error,
+            // last user if there was some
+            'error' => $this->authenticationUtils->getLastAuthenticationError(),
         ]);
     }
 }
