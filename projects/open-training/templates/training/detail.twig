@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="col-md">
-                        {{ "training.trainer"|trans }}
+                        Školitel
 
                         {% if trainer.getWebsite() %}
                             <a href="{{ trainer.getWebsite() }}">
@@ -39,7 +39,7 @@
                 <div class="clearfix"></div>
 
                 {% if training.isActive() %}
-                    {{ "training.next_term"|trans }}
+                    Příští termín
 
                     <strong>{{ training.getNearestTerm()|date }}</strong>
 
@@ -51,37 +51,37 @@
 {#{{ places[training.getPlaceId()].google_calendar_place }} #}
 &sf=true&output=xml">
                         <em class="fa fa-fw fa-calendar"></em>
-                        {{ "training.add_to_calendar"|trans }}
+                        Přidat do kalendáře
                     </a>
 
                     <div class="card border-warning">
                         <div class="card-body bg-warning">
-                            {{ "training.deadline"|trans }}
+                            Uzavěrka přihlášek
                             <strong>{{ training.getNearestTermDeadline()|date("j. n.") }}</strong>
                         </div>
                     </div>
                 {% endif %}
 
                 <p>
-                    {{ "training.location"|trans }}:
+                    Místo
                     <strong>
                         <a href="{{ place.getMapUrl() }}">{{ place.getName() }}</a>
                     </strong>
                 </p>
 
                 <p>
-                    {{ "training.duration"|trans }}:
+                    Délka
                     <strong>{{ training.getDuration() }}</strong>
-                    {{ "training.hours"|transchoice(training.getDuration()) }}
+                    {{ training.getDuration()) }} hodin
                 </p>
 
                 <p>
-                    {{ "training.capacity"|trans }}:
+                    Kapacita:
                     <strong>{{ training.getCapacity() }}</strong>
                 </p>
 
                 <p>
-                    {{ "training.price"|trans }}:
+                    Cena:
                     <strong>{{ training.getPrice()|number_format }} Kč</strong>
                 </p>
 
@@ -107,7 +107,7 @@
                         <a href="{{ path('registration', { 'trainingTerm': training.getNearestTerm().getId() }) }}" class="btn btn-success mt-4 mb-5">
                             <em class="fa fa-fw fa-handshake-o"></em>
                             &nbsp;
-                            {{ "training.register"|trans }}
+                            Přihlaš se
                         </a>
                     </div>
                 {% endif %}
@@ -119,7 +119,7 @@
                 {% if training.hasReferences() %}
                     <hr>
 
-                    <h3>{{ "training.list_of_references"|trans }}</h3>
+                    <h3>Co říkaj ostatní</h3>
 
                     <div class="row">
                         {% for reference in training.getReferences() %}

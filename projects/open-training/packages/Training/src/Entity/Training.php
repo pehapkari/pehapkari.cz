@@ -5,12 +5,15 @@ namespace OpenTraining\Training\Entity;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model\Sluggable\Sluggable;
 
 /**
  * @ORM\Entity
  */
 class Training
 {
+    use Sluggable;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -231,5 +234,15 @@ class Training
     public function getReferences()
     {
         return $this->trainingReferences;
+    }
+
+    /**
+     * Returns an array of the fields used to generate the slug.
+     *
+     * @return string[]
+     */
+    public function getSluggableFields(): array
+    {
+        return ['name'];
     }
 }

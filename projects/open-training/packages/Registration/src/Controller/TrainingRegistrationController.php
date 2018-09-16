@@ -16,7 +16,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 
 /**
- * @todo remove překlady
  * @todo registrační formulář - přidat * pro required položky
  */
 final class TrainingRegistrationController

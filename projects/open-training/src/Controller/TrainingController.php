@@ -2,7 +2,6 @@
 
 namespace OpenTraining\Controller;
 
-use OpenTraining\Training\Entity\Training;
 use OpenTraining\Training\Repository\PlaceRepository;
 use OpenTraining\Training\Repository\TrainingReferenceRepository;
 use OpenTraining\Training\Repository\TrainingRepository;

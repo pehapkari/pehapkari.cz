@@ -2,6 +2,7 @@
 
 namespace OpenProject\AutoDiscovery\Flex;
 
+use Iterator;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -52,12 +53,12 @@ final class FlexLoader
         }
     }
 
-    public function loadBundlesFromFilePath(string $bundlesFilePath, string $environment): \Iterator
+    public function loadBundlesFromFilePath(string $bundlesFilePath, string $environment): Iterator
     {
         $contents = require $bundlesFilePath;
+
         foreach ($contents as $class => $envs) {
-            if (isset($envs['all']) || isset($envs[$
-            environment])) {
+            if (isset($envs['all']) || isset($envs[$environment])) {
                 yield new $class();
             }
         }

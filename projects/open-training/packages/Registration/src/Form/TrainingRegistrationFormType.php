@@ -18,24 +18,24 @@ final class TrainingRegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
         $formBuilder->add('name', TextType::class, [
-            'label' => 'Tvé jméno'
+            'label' => 'Tvé jméno',
         ]);
         $formBuilder->add('email', TextType::class, [
-            'label' => 'Tvůj email'
+            'label' => 'Tvůj email',
         ]);
         $formBuilder->add('phone', TextType::class, [
-            'label' => 'Tvé telefonní číslo'
+            'label' => 'Tvé telefonní číslo',
         ]);
         $formBuilder->add('ico', TextType::class, [
             'label' => 'IČO pro fakturaci nebo Tvá adresa',
         ]);
         $formBuilder->add('note', TextareaType::class, [
             'required' => false,
-            'label' => 'Poznámka'
+            'label' => 'Poznámka',
         ]);
 
         $formBuilder->add('register', SubmitType::class, [
-            'label' => 'Odeslat přihlášku'
+            'label' => 'Odeslat přihlášku',
         ]);
     }
 

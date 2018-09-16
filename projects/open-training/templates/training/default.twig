@@ -34,7 +34,7 @@
                                 <p>{{ training.getPerex()|raw }}</p>
                             {% endif %}
 
-                            <p>{{ "training.next_term"|trans }}: <strong>{{ training.getNearestTerm()|date }}</strong></p>
+                            <p>Příští termín: <strong>{{ training.getNearestTerm()|date }}</strong></p>
                             <p>
                                 Lektor:
                                 <strong>
@@ -50,9 +50,9 @@
                                 </strong>
                             </p>
 
-                            <a href="{{ path('registration', { 'training': training.getId() }) }}" class="btn btn-success btn-xs-block-only" target="_blank">
+                            <a href="{{ path('registration', { 'trainingTerm': training.getNearestTerm().getId() }) }}" class="btn btn-success btn-xs-block-only" target="_blank">
                                 <em class="fa fa-fw fa-handshake-o"></em>
-                                {{ "training.register"|trans }}
+                                Přihlaš se
                             </a>
                             <br>
                         </div>
@@ -65,7 +65,7 @@
 
             <div class="text-center text-smaller">
                 <p>
-                    {{ "training.traings_without_active_terms"|trans }}:
+                    Školení bez aktivního termínu
                 </p>
                 <p>
                     {% for training in trainings %}
@@ -83,7 +83,7 @@
             <hr>
 
             <div class="text-center">
-                <h2 class="mb-5">{{ "training.over_x_references"|transchoice(null, {'%count': referenceCount}) }}</h2>
+                <h2 class="mb-5">Už přes {{ referenceCount }} proběhlých školení</h2>
 
                 <div class="row narrower">
                     {% for reference in references %}
@@ -139,7 +139,7 @@
             <hr>
 
             <div class="text-center" id="kde-skolime">
-                <h2>{{ "training.lecture_places"|trans }}</h2>
+                <h2>Kde školíme</h2>
                 <div class="row">
                     <div class="col-md-6">
                         <p>

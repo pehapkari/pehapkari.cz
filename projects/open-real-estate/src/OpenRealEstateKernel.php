@@ -41,7 +41,10 @@ final class OpenRealEstateKernel extends BaseKernel
 
     public function registerBundles(): Iterator
     {
-        return $this->flexLoader->loadBundlesFromFilePath($this->getProjectDir() . '/config/bundles.php', $this->environment);
+        return $this->flexLoader->loadBundlesFromFilePath(
+            $this->getProjectDir() . '/config/bundles.php',
+            $this->environment
+        );
     }
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
