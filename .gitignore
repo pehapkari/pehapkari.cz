@@ -5,14 +5,6 @@ yarn-error.log
 
 ###> symfony/framework-bundle ###
 /vendor/
-###< symfony/framework-bundle ###
-###> symfony/web-server-bundle ###
-/.web-server-pid
-###< symfony/web-server-bundle ###
-
-###> phpunit/phpunit ###
-/phpunit.xml
-###< phpunit/phpunit ###
 
 composer.lock
 
@@ -22,8 +14,7 @@ projects/open-real-estate/var
 projects/open-real-estate/public/bundles/
 projects/open-training/var
 projects/open-training/public/bundles/
-projects/open-training/public/build/fonts/glyphicons-*
-projects/open-training/public/build/images/glyphicons-*
+projects/open-training/public/build/*/glyphicons-*
 
 projects/open-real-estate/.env
 projects/open-training/.env

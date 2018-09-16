@@ -71,7 +71,7 @@
                     {% for training in trainings %}
                         {% if training.isActive() == false %}
                             <li>
-                                <a href="{{ path('training-detail', { 'training': training.getId() }) }}/">{{ training.getName()|raw }}</a>
+                                <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">{{ training.getName()|raw }}</a>
                             </li>
                         {% endif %}
                     {% endfor %}
