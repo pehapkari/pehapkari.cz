@@ -18,11 +18,6 @@ final class OpenRealEstateKernel extends BaseKernel
     use MicroKernelTrait;
 
     /**
-     * @var string
-     */
-    public const CONFIG_EXTENSIONS = '.{yaml,yml}';
-
-    /**
      * @var FlexLoader
      */
     private $flexLoader;
@@ -46,12 +41,7 @@ final class OpenRealEstateKernel extends BaseKernel
 
     public function registerBundles(): Iterator
     {
-        $contents = require $this->getProjectDir() . '/config/bundles.php';
-        foreach ($contents as $class => $envs) {
-            if (isset($envs['all']) || isset($envs[$this->environment])) {
-                yield new $class();
-            }
-        }
+        return $this->flexLoader->loadBundlesFromFilePath($this->getProjectDir() . '/config/bundles.php', $this->environment);
     }
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void

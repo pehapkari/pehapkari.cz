@@ -51,4 +51,15 @@ final class FlexLoader
             $routeCollectionBuilder->import($possibleRoutingDir . self::CONFIG_EXTENSIONS, '/', 'glob');
         }
     }
+
+    public function loadBundlesFromFilePath(string $bundlesFilePath, string $environment): \Iterator
+    {
+        $contents = require $bundlesFilePath;
+        foreach ($contents as $class => $envs) {
+            if (isset($envs['all']) || isset($envs[$
+            environment])) {
+                yield new $class();
+            }
+        }
+    }
 }
