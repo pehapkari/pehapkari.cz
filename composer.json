@@ -12,6 +12,7 @@
         "doctrine/orm": "2.7.x-dev",
         "easycorp/easyadmin-bundle": "^1.17",
         "knplabs/doctrine-behaviors": "^1.5",
+        "nette/utils": "^2.5",
         "phpoffice/phpspreadsheet": "^1.4",
         "sensio/framework-extra-bundle": "^5.0",
         "symfony/asset": "^3.4|^4.1",
@@ -33,6 +34,7 @@
     },
     "require-dev": {
         "automattic/phpcs-neutron-ruleset": "^1.8",
+        "doctrine/doctrine-bundle": "^1.9",
         "object-calisthenics/phpcs-calisthenics-rules": "^3.3",
         "phpstan/phpstan": "^0.10.3",
         "phpstan/phpstan-doctrine": "^0.10.0",
@@ -40,7 +42,10 @@
         "slam/php-cs-fixer-extensions": "^1.16",
         "symfony/browser-kit": "^3.4|^4.1",
         "symfony/debug-bundle": "^3.4|^4.1",
+        "symfony/framework-bundle": "^3.4|^4.1",
+        "symfony/http-kernel": "^3.4|^4.1",
         "symfony/maker-bundle": "^1.5",
+        "symfony/twig-bundle": "^3.4|^4.1",
         "symfony/web-profiler-bundle": "^3.4|^4.1",
         "symfony/web-server-bundle": "^3.4|^4.1",
         "symplify/coding-standard": "^4.7",
@@ -65,7 +70,10 @@
         "psr-4": {
             "OpenProject\\AutoDiscovery\\Tests\\": "packages/auto-discovery/tests",
             "OpenTraining\\Provision\\Tests\\": "projects/open-training/packages/Provision/tests"
-        }
+        },
+        "classmap": [
+            "packages/auto-discovery/tests/KernelProjectDir"
+        ]
     },
     "scripts": {
         "auto-scripts": {

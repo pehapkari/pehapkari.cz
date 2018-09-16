@@ -2,12 +2,10 @@
 
 namespace OpenProject\AutoDiscovery\Doctrine;
 
-use Iterator;
 use OpenProject\AutoDiscovery\Contract\AutodiscovererInterface;
-use OpenProject\AutoDiscovery\Php\NamespaceDetector;
-use SplFileInfo;
+use OpenProject\AutoDiscovery\Util\Filesystem;
+use OpenProject\AutoDiscovery\Util\NamespaceDetector;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Finder\Finder;
 
 final class DoctrineEntityAutodiscover implements AutodiscovererInterface
 {
@@ -21,16 +19,26 @@ final class DoctrineEntityAutodiscover implements AutodiscovererInterface
      */
     private $namespaceDetector;
 
+    /**
+     * @var Filesystem
+     */
+    private $filesystem;
+
     public function __construct(ContainerBuilder $containerBuilder)
     {
         $this->containerBuilder = $containerBuilder;
         $this->namespaceDetector = new NamespaceDetector();
+        $this->filesystem = new Filesystem($containerBuilder);
     }
 
+    /**
+     * Needs to run before @see \Symfony\Bridge\Doctrine\DependencyInjection\CompilerPass\RegisterMappingsPass
+     */
     public function autodiscover(): void
     {
         $entityMappings = [];
-        foreach ($this->getEntityDirectories() as $entityDirectory) {
+
+        foreach ($this->filesystem->getEntityDirectories() as $entityDirectory) {
             $namespace = $this->namespaceDetector->detectFromDirectory($entityDirectory);
             if (! $namespace) {
                 continue;
@@ -54,21 +62,5 @@ final class DoctrineEntityAutodiscover implements AutodiscovererInterface
                 'mappings' => $entityMappings,
             ],
         ]);
-    }
-
-    /**
-     * @return SplFileInfo[]
-     */
-    private function getEntityDirectories(): Iterator
-    {
-        $dirs = [
-            $this->containerBuilder->getParameter('kernel.project_dir') . '/src',
-            $this->containerBuilder->getParameter('kernel.project_dir') . '/packages',
-        ];
-
-        return Finder::create()->directories()
-            ->name('Entity')
-            ->in($dirs)
-            ->getIterator();
     }
 }

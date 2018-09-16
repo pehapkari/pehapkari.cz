@@ -39,7 +39,7 @@ final class PartnerRepository
     {
         $exprBuilder = new Expr();
 
-        $result = $this->entityRepository->createQueryBuilder('p')
+        return $this->entityRepository->createQueryBuilder('p')
             ->leftJoin(
                 PartnerExpense::class,
                 'pe',
@@ -53,9 +53,5 @@ final class PartnerRepository
             ->groupBy('p.id')
             ->getQuery()
             ->getResult();
-
-        // @todo value object
-        dump($result);
-        die;
     }
 }

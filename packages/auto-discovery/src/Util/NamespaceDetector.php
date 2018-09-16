@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenProject\AutoDiscovery\Php;
+namespace OpenProject\AutoDiscovery\Util;
 
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;

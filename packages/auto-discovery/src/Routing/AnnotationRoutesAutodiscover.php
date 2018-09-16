@@ -3,9 +3,8 @@
 namespace OpenProject\AutoDiscovery\Routing;
 
 use OpenProject\AutoDiscovery\Contract\AutodiscovererInterface;
+use OpenProject\AutoDiscovery\Util\Filesystem;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 
 final class AnnotationRoutesAutodiscover implements AutodiscovererInterface
@@ -16,38 +15,20 @@ final class AnnotationRoutesAutodiscover implements AutodiscovererInterface
     private $routeCollectionBuilder;
 
     /**
-     * @var ContainerBuilder
+     * @var Filesystem
      */
-    private $containerBuilder;
+    private $filesystem;
 
     public function __construct(RouteCollectionBuilder $routeCollectionBuilder, ContainerBuilder $containerBuilder)
     {
         $this->routeCollectionBuilder = $routeCollectionBuilder;
-        $this->containerBuilder = $containerBuilder;
+        $this->filesystem = new Filesystem($containerBuilder);
     }
 
     public function autodiscover(): void
     {
-        foreach ($this->getControllerDirectories() as $controllerDirectoryFileInfo) {
+        foreach ($this->filesystem->getControllerDirectories() as $controllerDirectoryFileInfo) {
             $this->routeCollectionBuilder->import($controllerDirectoryFileInfo->getRealPath(), '/', 'annotation');
         }
-    }
-
-    /**
-     * @return SplFileInfo[]
-     */
-    private function getControllerDirectories(): array
-    {
-        $dirs = [
-            $this->containerBuilder->getParameter('kernel.project_dir') . '/src',
-            $this->containerBuilder->getParameter('kernel.project_dir') . '/packages',
-        ];
-
-        $controllerDirectories = Finder::create()->directories()
-            ->name('Controller')
-            ->in($dirs)
-            ->getIterator();
-
-        return iterator_to_array($controllerDirectories);
     }
 }

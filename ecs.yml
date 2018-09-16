@@ -24,10 +24,13 @@ services:
             - 'OpenTraining\Provision\Data\*'
             - 'App\Request\*Request'
             - 'Doctrine\Common\Collections\ArrayCollection'
+            - 'Symfony\Component\Form\FormError'
+            # pre-container used classes
+            - 'OpenProject\AutoDiscovery\Util\*'
+            - 'Symfony\Component\Config\Resource\FileResource'
 
     # object calisthenics - https://github.com/object-calisthenics/phpcs-calisthenics-rules
     ObjectCalisthenics\Sniffs\ControlStructures\NoElseSniff: ~
-    ObjectCalisthenics\Sniffs\CodeAnalysis\OneObjectOperatorPerLineSniff: ~
     ObjectCalisthenics\Sniffs\NamingConventions\ElementNameMinimalLengthSniff: ~
     ObjectCalisthenics\Sniffs\Classes\ForbiddenPublicPropertySniff: ~
     ObjectCalisthenics\Sniffs\Files\ClassTraitAndInterfaceLengthSniff: ~

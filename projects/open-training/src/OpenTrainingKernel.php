@@ -3,11 +3,12 @@
 namespace OpenTraining;
 
 use Iterator;
-use OpenProject\AutoDiscovery\DependencyInjection\CompilerPass\AutoDiscoveryCompilerPass;
+use OpenProject\AutoDiscovery\Doctrine\DoctrineEntityAutodiscover;
+use OpenProject\AutoDiscovery\Flex\FlexLoader;
 use OpenProject\AutoDiscovery\Routing\AnnotationRoutesAutodiscover;
+use OpenProject\AutoDiscovery\Twig\TwigPathsAutodiscoverer;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
@@ -17,9 +18,15 @@ final class OpenTrainingKernel extends BaseKernel
     use MicroKernelTrait;
 
     /**
-     * @var string
+     * @var FlexLoader
      */
-    public const CONFIG_EXTENSIONS = '.{yaml,yml}';
+    private $flexLoader;
+
+    public function __construct(string $environment, bool $debug)
+    {
+        parent::__construct($environment, $debug);
+        $this->flexLoader = new FlexLoader();
+    }
 
     public function getCacheDir(): string
     {
@@ -43,45 +50,16 @@ final class OpenTrainingKernel extends BaseKernel
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
     {
-        $containerBuilder->addCompilerPass(new AutoDiscoveryCompilerPass());
+        (new DoctrineEntityAutodiscover($containerBuilder))->autodiscover();
+        (new TwigPathsAutodiscoverer($containerBuilder))->autodiscover();
 
-        $this->configureContainerFlex($containerBuilder, $loader);
+        $this->flexLoader->loadConfigs($containerBuilder, $loader, $this->environment);
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
     {
         (new AnnotationRoutesAutodiscover($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
 
-        $this->configureRoutesFlex($routeCollectionBuilder);
-    }
-
-    private function configureContainerFlex(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
-    {
-        $containerBuilder->addResource(new FileResource($this->getProjectDir() . '/config/bundles.php'));
-        $containerBuilder->setParameter('container.dumper.inline_class_loader', true);
-
-        $possibleServicePaths = [
-            $this->getProjectDir() . '/config/{packages}/*',
-            $this->getProjectDir() . '/config/{packages}/' . $this->environment . '/**/*',
-            $this->getProjectDir() . '/config/services',
-            $this->getProjectDir() . '/config/{services}_' . $this->environment,
-            $this->getProjectDir() . '/packages/*/src/config/*',
-        ];
-        foreach ($possibleServicePaths as $possibleServicePath) {
-            $loader->load($possibleServicePath . self::CONFIG_EXTENSIONS, 'glob');
-        }
-    }
-
-    private function configureRoutesFlex(RouteCollectionBuilder $routeCollectionBuilder): void
-    {
-        $possibleRoutingPaths = [
-            $this->getProjectDir() . '/config/routes/*',
-            $this->getProjectDir() . '/config/routes/' . $this->environment . '/**/*',
-            $this->getProjectDir() . '/config/routes',
-        ];
-
-        foreach ($possibleRoutingPaths as $possibleRoutingDir) {
-            $routeCollectionBuilder->import($possibleRoutingDir . self::CONFIG_EXTENSIONS, '/', 'glob');
-        }
+        $this->flexLoader->loadRoutes($routeCollectionBuilder, $this->getContainerBuilder(), $this->environment);
     }
 }
