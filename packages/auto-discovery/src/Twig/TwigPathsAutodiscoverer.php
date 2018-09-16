@@ -26,14 +26,13 @@ final class TwigPathsAutodiscoverer implements AutodiscovererInterface
 
     public function autodiscover(): void
     {
-        if (! $this->containerBuilder->hasDefinition('twig.loader.filesystem')) {
-            return;
-        }
-
-        $twigLoaderFilesystemDefinition = $this->containerBuilder->getDefinition('twig.loader.filesystem');
-
+        $paths = [];
         foreach ($this->filesystem->getTemplatesDirectories() as $templateDirectory) {
-            $twigLoaderFilesystemDefinition->addMethodCall('addPath', [$templateDirectory->getRealPath()]);
+            $paths[] = $templateDirectory->getRealPath();
         }
+
+        $this->containerBuilder->prependExtensionConfig('twig', [
+            'paths' => $paths,
+        ]);
     }
 }

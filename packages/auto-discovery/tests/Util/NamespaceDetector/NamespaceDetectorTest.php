@@ -11,10 +11,11 @@ final class NamespaceDetectorTest extends TestCase
     public function test(): void
     {
         $namespaceDetector = new NamespaceDetector();
+        $directoryFileInfo = new SplFileInfo(__DIR__ . '/Source', '', '');
 
         $this->assertSame(
             'OpenProject\AutoDiscovery\Tests\Util\Source',
-            $namespaceDetector ->detectFromDirectory(new SplFileInfo(__DIR__ . '/Source', '', ''))
+            $namespaceDetector->detectFromDirectory($directoryFileInfo)
         );
     }
 }

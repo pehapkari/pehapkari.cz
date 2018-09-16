@@ -1,6 +1,2 @@
+# TwigBundle is registered
 twig:
-    debug: '%kernel.debug%'
-    strict_variables: '%kernel.debug%'
-    form_themes:
-        - 'form/layout.html.twig'
-        - 'form/fields.html.twig'

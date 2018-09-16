@@ -2,36 +2,43 @@
 
 namespace OpenProject\AutoDiscovery\Tests\Doctrine;
 
+use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\Common\Persistence\Mapping\Driver\MappingDriver;
 use Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain;
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
+use OpenProject\AutoDiscovery\Doctrine\DoctrineEntityAutodiscover;
 use OpenProject\AutoDiscovery\Tests\AbstractContainerAwareTestCase;
 use OpenProject\AutoDiscovery\Tests\KernelProjectDir\Entity\Product;
 
+/**
+ * @see DoctrineEntityAutodiscover
+ */
 final class DoctrineEntityAutodiscoverTest extends AbstractContainerAwareTestCase
 {
     /**
      * @var MappingDriver
      */
-    private $metadataDriver;
+    private $mappingDriver;
 
     protected function setUp(): void
     {
-        /** @var EntityManager|ObjectManager $entityManager */
-        $entityManager = $this->container->get('doctrine')->getManager();
+        /** @var Registry $registry */
+        $registry = $this->container->get('doctrine');
+
+        /** @var EntityManager $entityManager */
+        $entityManager = $registry->getManager();
         $configuration = $entityManager->getConfiguration();
 
-        $this->metadataDriver = $configuration->getMetadataDriverImpl();
+        $this->mappingDriver = $configuration->getMetadataDriverImpl();
     }
 
     public function test(): void
     {
-        $this->assertInstanceOf(MappingDriverChain::class, $this->metadataDriver);
+        $this->assertInstanceOf(MappingDriverChain::class, $this->mappingDriver);
 
-        $this->assertNotEmpty($this->metadataDriver->getAllClassNames());
+        $this->assertNotEmpty($this->mappingDriver->getAllClassNames());
 
-        $this->assertFalse($this->metadataDriver->isTransient(Product::class));
-        $this->assertTrue($this->metadataDriver->isTransient('NonExisting'));
+        $this->assertFalse($this->mappingDriver->isTransient(Product::class));
+        $this->assertTrue($this->mappingDriver->isTransient('NonExisting'));
     }
 }

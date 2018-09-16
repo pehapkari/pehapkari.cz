@@ -30,7 +30,6 @@ services:
 
     # object calisthenics - https://github.com/object-calisthenics/phpcs-calisthenics-rules
     ObjectCalisthenics\Sniffs\ControlStructures\NoElseSniff: ~
-    ObjectCalisthenics\Sniffs\CodeAnalysis\OneObjectOperatorPerLineSniff: ~
     ObjectCalisthenics\Sniffs\NamingConventions\ElementNameMinimalLengthSniff: ~
     ObjectCalisthenics\Sniffs\Classes\ForbiddenPublicPropertySniff: ~
     ObjectCalisthenics\Sniffs\Files\ClassTraitAndInterfaceLengthSniff: ~

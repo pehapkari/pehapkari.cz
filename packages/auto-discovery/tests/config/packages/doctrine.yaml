@@ -1,12 +1,7 @@
+# minimal setup for Doctrine bundle to register EntityManager
 doctrine:
     dbal:
-        driver: 'pdo_mysql'
-        url: '...'
+        driver: 'pdo_sqlite'
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
-
-        mappings:
-            # ...

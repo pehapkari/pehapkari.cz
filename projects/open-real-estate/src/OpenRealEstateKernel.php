@@ -3,8 +3,9 @@
 namespace OpenRealEstate;
 
 use Iterator;
-use OpenProject\AutoDiscovery\DependencyInjection\CompilerPass\AutoDiscoveryCompilerPass;
+use OpenProject\AutoDiscovery\Doctrine\DoctrineEntityAutodiscover;
 use OpenProject\AutoDiscovery\Routing\AnnotationRoutesAutodiscover;
+use OpenProject\AutoDiscovery\Twig\TwigPathsAutodiscoverer;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -43,7 +44,8 @@ final class OpenRealEstateKernel extends BaseKernel
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
     {
-        $containerBuilder->addCompilerPass(new AutoDiscoveryCompilerPass());
+        (new DoctrineEntityAutodiscover($containerBuilder))->autodiscover();
+        (new TwigPathsAutodiscoverer($containerBuilder))->autodiscover();
 
         $this->configureContainerFlex($containerBuilder, $loader);
     }

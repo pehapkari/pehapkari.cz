@@ -31,9 +31,13 @@ final class DoctrineEntityAutodiscover implements AutodiscovererInterface
         $this->filesystem = new Filesystem($containerBuilder);
     }
 
+    /**
+     * Needs to run before @see \Symfony\Bridge\Doctrine\DependencyInjection\CompilerPass\RegisterMappingsPass
+     */
     public function autodiscover(): void
     {
         $entityMappings = [];
+
         foreach ($this->filesystem->getEntityDirectories() as $entityDirectory) {
             $namespace = $this->namespaceDetector->detectFromDirectory($entityDirectory);
             if (! $namespace) {

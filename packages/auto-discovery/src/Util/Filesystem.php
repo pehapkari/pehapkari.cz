@@ -35,12 +35,19 @@ final class Filesystem
     }
 
     /**
+     * @return SplFileInfo[]
+     */
+    public function getControllerDirectories(): array
+    {
+        return $this->getDirectoriesInSourceByName('Controller');
+    }
+
+    /**
      * @return string[]
      */
     private function getDirectories(): array
     {
-        $parameterBag = $this->containerBuilder->getParameterBag();
-        $projectDir = $parameterBag->resolveValue('%kernel.project_dir%');
+        $projectDir = $this->getProjectDir();
 
         $possibleDirs = [$projectDir . '/src', $projectDir . '/templates', $projectDir . '/packages'];
 
@@ -69,5 +76,22 @@ final class Filesystem
             ->in($this->getDirectories());
 
         return iterator_to_array($finder->getIterator());
+    }
+
+    private function getProjectDir(): string
+    {
+        if ($this->isPHPUnit()) {
+            // the least wtf way to get different %kernel.project_dir% for tests
+            return realpath(__DIR__ . '/../../tests/KernelProjectDir');
+        }
+
+        $projectDir = $this->containerBuilder->getParameter('kernel.project_dir');
+        return realpath($projectDir);
+    }
+
+    private function isPHPUnit(): bool
+    {
+        // defined by PHPUnit
+        return defined('PHPUNIT_COMPOSER_INSTALL') || defined('__PHPUNIT_PHAR__');
     }
 }

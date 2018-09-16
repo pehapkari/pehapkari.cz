@@ -3,8 +3,9 @@
 namespace OpenProject\AutoDiscovery\Tests\DependencyInjection;
 
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
-use OpenProject\AutoDiscovery\DependencyInjection\CompilerPass\AutoDiscoveryCompilerPass;
+use OpenProject\AutoDiscovery\Doctrine\DoctrineEntityAutodiscover;
 use OpenProject\AutoDiscovery\Routing\AnnotationRoutesAutodiscover;
+use OpenProject\AutoDiscovery\Twig\TwigPathsAutodiscoverer;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\TwigBundle\TwigBundle;
@@ -32,7 +33,8 @@ final class AudiscoveryTestingKernel extends Kernel
     {
         $loader->load(__DIR__ . '/../config/config_test.yaml');
 
-        $containerBuilder->addCompilerPass(new AutoDiscoveryCompilerPass());
+        (new DoctrineEntityAutodiscover($containerBuilder))->autodiscover();
+        (new TwigPathsAutodiscoverer($containerBuilder))->autodiscover();
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void

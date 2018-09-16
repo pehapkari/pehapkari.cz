@@ -2,32 +2,38 @@
 
 namespace OpenProject\AutoDiscovery\Tests;
 
+use OpenProject\AutoDiscovery\Twig\TwigPathsAutodiscoverer;
 use Symfony\Bundle\TwigBundle\Loader\FilesystemLoader;
+use Twig\Loader\LoaderInterface;
 use Twig_Environment;
 
+/**
+ * @see TwigPathsAutodiscoverer
+ */
 final class TwigPathsAutodiscoveryTest extends AbstractContainerAwareTestCase
 {
     /**
-     * @var Twig_Environment
+     * @var LoaderInterface
      */
-    private $twigEnvironment;
+    private $twigLoader;
 
     protected function setUp(): void
     {
-        $this->twigEnvironment = $this->container->get('twig');
+        /** @var Twig_Environment $twigEnvironment */
+        $twigEnvironment = $this->container->get('twig');
+        $this->twigLoader = $twigEnvironment->getLoader();
     }
 
     public function test(): void
     {
-        $twigLoader = $this->twigEnvironment->getLoader();
-        $this->assertInstanceOf(FilesystemLoader::class, $twigLoader);
+        $this->assertInstanceOf(FilesystemLoader::class, $this->twigLoader);
 
         /** @var FilesystemLoader $twigLoader */
-        $this->assertCount(3, $twigLoader->getPaths());
+        $this->assertCount(3, $this->twigLoader->getPaths());
 
         $this->assertContains(
             realpath(__DIR__ . '/../KernelProjectDir/packages/ForTests/templates/'),
-            $twigLoader->getPaths()
+            $this->twigLoader->getPaths()
         );
     }
 }
