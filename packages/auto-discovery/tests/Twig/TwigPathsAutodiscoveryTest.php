@@ -28,7 +28,6 @@ final class TwigPathsAutodiscoveryTest extends AbstractContainerAwareTestCase
     {
         $this->assertInstanceOf(FilesystemLoader::class, $this->twigLoader);
 
-        /** @var FilesystemLoader $twigLoader */
         $this->assertCount(3, $this->twigLoader->getPaths());
 
         $this->assertContains(

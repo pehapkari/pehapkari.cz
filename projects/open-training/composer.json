@@ -3,15 +3,14 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-
+        "ext-intl": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
-        "ext-intl": "*",
-        "doctrine/doctrine-bundle": "^1.9",
         "alterphp/easyadmin-extension-bundle": "^1.2.10",
+        "doctrine/doctrine-bundle": "^1.9",
         "doctrine/orm": "2.7.x-dev",
-        "knplabs/doctrine-behaviors": "^1.5",
         "easycorp/easyadmin-bundle": "^1.17",
+        "knplabs/doctrine-behaviors": "^1.5",
         "sensio/framework-extra-bundle": "^5.0",
         "symfony/asset": "^3.4|^4.1",
         "symfony/dependency-injection": "^3.4|^4.1",
@@ -33,7 +32,7 @@
         "phpunit/phpunit": "^7.3",
         "symfony/browser-kit": "^3.4|^4.1",
         "symfony/debug-bundle": "^3.4|^4.1",
-        "symfony/maker-bundle": "^1.5",
+        "symfony/maker-bundle": "^1.7",
         "symfony/web-profiler-bundle": "^3.4|^4.1",
         "symfony/web-server-bundle": "^3.4|^4.1"
     },
