@@ -5,15 +5,13 @@ namespace OpenTraining\Training\Entity;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Model\Sluggable\Sluggable;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity
  */
 class Training
 {
-    use Sluggable;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -21,6 +19,12 @@ class Training
      * @var int
      */
     private $id;
+
+    /**
+     * @ORM\Column(type="string", unique=true)
+     * @Gedmo\Slug(fields={"name"})
+     */
+    private $slug;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -218,7 +222,7 @@ class Training
         return $this->description;
     }
 
-    public function setDescription(string $description): void
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
@@ -236,13 +240,13 @@ class Training
         return $this->trainingReferences;
     }
 
-    /**
-     * Returns an array of the fields used to generate the slug.
-     *
-     * @return string[]
-     */
-    public function getSluggableFields(): array
+    public function getSlug(): ?string
     {
-        return ['name'];
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): void
+    {
+        $this->slug = $slug;
     }
 }

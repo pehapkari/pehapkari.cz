@@ -1,6 +1,6 @@
 <?php
 
-use AlterPHP\EasyAdminExtensionBundle\EasyAdminExtensionBundle;
+use Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle;
 
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
@@ -15,5 +15,7 @@ return [
     Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
     Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
-    EasyAdminExtensionBundle::class => ['all' => true],
+    AlterPHP\EasyAdminExtensionBundle\EasyAdminExtensionBundle::class => ['all' => true],
+    Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle::class => ['all' => true],
+    DoctrineBehaviorsBundle::class => ['all' => true],
 ];

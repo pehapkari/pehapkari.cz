@@ -19,7 +19,7 @@ easy_admin:
             label: 'Trainings'
             class: 'OpenTraining\Training\Entity\Training'
             form:
-                exclude_fields: ['trainingReferences', 'trainingTerms']
+                exclude_fields: ['trainingReferences', 'trainingTerms', 'slug']
         TrainingTerm:
             label: 'Training Term'
             class: 'OpenTraining\Training\Entity\TrainingTerm'

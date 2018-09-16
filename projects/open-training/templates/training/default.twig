@@ -19,7 +19,7 @@
                     {% if training.isActive() %}
                         <div class="flex col-md-6">
                             <h2>
-                                <a href="{{ path('training-detail', { 'training': training.getId() }) }}/">
+                                <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">
                                     <strong>{{ training.getName()|raw }}</strong>
                                 </a>
                             </h2>
@@ -71,7 +71,9 @@
                     {% for training in trainings %}
                         {% if training.isActive() == false %}
                             <li>
-                                <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">{{ training.getName()|raw }}</a>
+                                <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">
+                                    {{ training.getName()|raw }}
+                                </a>
                             </li>
                         {% endif %}
                     {% endfor %}

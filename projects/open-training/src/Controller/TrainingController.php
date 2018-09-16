@@ -2,6 +2,7 @@
 
 namespace OpenTraining\Controller;
 
+use OpenTraining\Training\Entity\Training;
 use OpenTraining\Training\Repository\PlaceRepository;
 use OpenTraining\Training\Repository\TrainingReferenceRepository;
 use OpenTraining\Training\Repository\TrainingRepository;
@@ -67,10 +68,13 @@ final class TrainingController
     }
 
     /**
-     * @Route(path="/training-detail/{training}", name="training-detail")
+     * @Route(path="/training-detail/{slug}", name="training-detail")
      */
     public function detail(Training $training): Response
     {
+        dump($training);
+        die;
+
         return $this->templatingEngine->renderResponse('training/detail.twig', [
             'training' => $training,
             'trainer' => $training->getTrainer(),
