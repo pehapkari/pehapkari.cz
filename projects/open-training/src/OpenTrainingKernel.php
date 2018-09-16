@@ -9,7 +9,6 @@ use OpenProject\AutoDiscovery\Routing\AnnotationRoutesAutodiscover;
 use OpenProject\AutoDiscovery\Twig\TwigPathsAutodiscoverer;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
@@ -18,14 +17,14 @@ final class OpenTrainingKernel extends BaseKernel
 {
     use MicroKernelTrait;
 
-
     /**
      * @var FlexLoader
      */
     private $flexLoader;
 
-    public function __construct()
+    public function __construct(string $environment, bool $debug)
     {
+        parent::__construct($environment, $debug);
         $this->flexLoader = new FlexLoader();
     }
 

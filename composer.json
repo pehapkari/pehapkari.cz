@@ -1,10 +1,5 @@
 {
     "name": "open-project/open-project",
-    "extra": {
-        "symfony": {
-            "allow-contrib": true
-        }
-    },
     "description": "Open source monorepo for applications.",
     "license": "MIT",
     "require": {
@@ -96,5 +91,10 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true
+        }
     }
 }

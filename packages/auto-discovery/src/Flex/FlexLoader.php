@@ -14,7 +14,7 @@ final class FlexLoader
      */
     public const CONFIG_EXTENSIONS = '.{yaml,yml}';
 
-    public function loadConfigs(ContainerBuilder $containerBuilder, LoaderInterface $loader, string $environment)
+    public function loadConfigs(ContainerBuilder $containerBuilder, LoaderInterface $loader, string $environment): void
     {
         $projectDir = $containerBuilder->getParameter('kernel.project_dir');
 
@@ -27,14 +27,18 @@ final class FlexLoader
             $projectDir . '/config/services',
             $projectDir . '/config/services_' . $environment,
             $projectDir . '/packages/*/src/config/*',
+            $projectDir . '/packages/*/config/*',
         ];
         foreach ($possibleServicePaths as $possibleServicePath) {
             $loader->load($possibleServicePath . self::CONFIG_EXTENSIONS, 'glob');
         }
     }
 
-    public function loadRoutes(RouteCollectionBuilder $routeCollectionBuilder, ContainerBuilder $containerBuilder, string $environment): void
-    {
+    public function loadRoutes(
+        RouteCollectionBuilder $routeCollectionBuilder,
+        ContainerBuilder $containerBuilder,
+        string $environment
+    ): void {
         $projectDir = $containerBuilder->getParameter('kernel.project_dir');
 
         $possibleRoutingPaths = [

@@ -27,6 +27,7 @@ services:
             - 'Symfony\Component\Form\FormError'
             # pre-container used classes
             - 'OpenProject\AutoDiscovery\Util\*'
+            - 'Symfony\Component\Config\Resource\FileResource'
 
     # object calisthenics - https://github.com/object-calisthenics/phpcs-calisthenics-rules
     ObjectCalisthenics\Sniffs\ControlStructures\NoElseSniff: ~
