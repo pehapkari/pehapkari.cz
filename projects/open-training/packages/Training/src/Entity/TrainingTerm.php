@@ -7,7 +7,7 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Model\Sluggable\Sluggable;
+use Gedmo\Mapping\Annotation as Gedmo;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 
 /**
@@ -15,8 +15,6 @@ use OpenTraining\Registration\Entity\TrainingRegistration;
  */
 class TrainingTerm
 {
-    use Sluggable;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -24,6 +22,13 @@ class TrainingTerm
      * @var int
      */
     private $id;
+
+    /**
+     * @ORM\Column(type="string", unique=true)
+     * @Gedmo\Slug(fields={"startDateTime", "id"})
+     * @var string
+     */
+    private $termSlug;
 
     /**
      * @ORM\Column(type="datetime")
@@ -179,5 +184,15 @@ class TrainingTerm
     public function getRegistrations(): Collection
     {
         return $this->registrations;
+    }
+
+    public function getTermSlug(): ?string
+    {
+        return $this->termSlug;
+    }
+
+    public function setTermSlug(?string $termSlug): void
+    {
+        $this->termSlug = $termSlug;
     }
 }

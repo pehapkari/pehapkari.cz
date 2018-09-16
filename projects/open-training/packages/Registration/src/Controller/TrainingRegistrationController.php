@@ -61,12 +61,11 @@ final class TrainingRegistrationController
     }
 
     /**
-     * @Route(path="/registration/{slug}", name="registration", methods={"GET", "POST"})
-     * @todo název-školení/datum
+     * @Route(path="/registration/{slug}/{termSlug}/", name="registration", methods={"GET", "POST"})
      *
      * @see https://github.com/symfony/demo/blob/master/src/Controller/Admin/BlogController.php
      */
-    public function default(Request $request, TrainingTerm $trainingTerm): Response
+    public function default(Request $request, Training $training, TrainingTerm $trainingTerm): Response
     {
         $form = $this->formFactory->create(TrainingRegistrationFormType::class);
         $form->handleRequest($request);
@@ -76,12 +75,14 @@ final class TrainingRegistrationController
             $trainingRegistration = $form->getData();
             $this->trainingRegistrationRepository->save($trainingRegistration);
 
-            // @todo translate
-            $this->flashBag->add('success', 'training.registration_successful');
+            $this->flashBag->add('success', 'Tvá registrace byla úspěšná!');
 
             return new RedirectResponse($this->router->generate(
                 'registration',
-                ['trainingTerm' => $trainingTerm->getId()]
+                [
+                    'slug' => $training->getSlug(),
+                    'termSlug' => $trainingTerm->getTermSlug(),
+                ]
             ));
         }
 

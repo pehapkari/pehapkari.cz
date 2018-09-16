@@ -23,6 +23,7 @@ class Training
     /**
      * @ORM\Column(type="string", unique=true)
      * @Gedmo\Slug(fields={"name"})
+     * @var string
      */
     private $slug;
 

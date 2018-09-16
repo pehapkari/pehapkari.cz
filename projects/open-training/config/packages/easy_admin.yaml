@@ -24,7 +24,7 @@ easy_admin:
             label: 'Termíny školení'
             class: 'OpenTraining\Training\Entity\TrainingTerm'
             form:
-                exclude_fields: ['registrations', 'slug']
+                exclude_fields: ['registrations', 'termSlug']
         Registration:
             label: 'Registrace'
             class: 'OpenTraining\Registration\Entity\TrainingRegistration'
