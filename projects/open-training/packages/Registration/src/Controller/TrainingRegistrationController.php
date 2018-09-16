@@ -5,7 +5,7 @@ namespace OpenTraining\Registration\Controller;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 use OpenTraining\Registration\Form\TrainingRegistrationFormType;
 use OpenTraining\Registration\Repository\TrainingRegistrationRepository;
-use OpenTraining\Training\Entity\Training;
+use OpenTraining\Training\Entity\TrainingTerm;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -57,11 +57,11 @@ final class TrainingRegistrationController
     }
 
     /**
-     * @Route(path="/register-to-training/{training}", name="register-to-training", methods={"GET", "POST"})
+     * @Route(path="/registration/{trainingTerm}", name="registration", methods={"GET", "POST"})
      *
      * @see https://github.com/symfony/demo/blob/master/src/Controller/Admin/BlogController.php
      */
-    public function default(Request $request, Training $training): Response
+    public function default(Request $request, TrainingTerm $trainingTerm): Response
     {
         $form = $this->formFactory->create(TrainingRegistrationFormType::class);
         $form->handleRequest($request);
@@ -72,16 +72,16 @@ final class TrainingRegistrationController
             $this->trainingRegistrationRepository->save($trainingRegistration);
 
             // @todo translate
-            $this->flashBag->add('succes', 'training.registration_successful');
+            $this->flashBag->add('success', 'training.registration_successful');
 
             return new RedirectResponse($this->router->generate(
-                'register-to-training',
-                ['training' => $training->getId()]
+                'registration',
+                ['trainingTerm' => $trainingTerm->getId()]
             ));
         }
 
         return $this->templatingEngine->renderResponse('registration/default.twig', [
-            'training' => $training,
+            'training' => $trainingTerm,
             'form' => $form->createView(),
         ]);
     }

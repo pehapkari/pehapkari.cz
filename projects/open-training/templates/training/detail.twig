@@ -104,7 +104,7 @@
 
                 {% if training.isActive() %}
                     <div class="text-center">
-                        <a href="register-to-training/{{ training.getId() }}" class="btn btn-success mt-4 mb-5">
+                        <a href="{{ path('registration', { 'trainingTerm': training.getNearestTerm().getId() }) }}" class="btn btn-success mt-4 mb-5">
                             <em class="fa fa-fw fa-handshake-o"></em>
                             &nbsp;
                             {{ "training.register"|trans }}
