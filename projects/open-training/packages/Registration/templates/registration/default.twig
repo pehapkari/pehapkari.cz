@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    Register to training...
+    <h2>Přihláška na školení {{ training.getName() }}</h2>
+    <h3>({{ trainingTerm.getStartDateTime()|date("j. n. Y") }})</h3>
+
+    <br>
 
     {{ form(form) }}
 

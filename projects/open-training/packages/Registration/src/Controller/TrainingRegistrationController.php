@@ -15,6 +15,10 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 
+/**
+ * @todo remove překlady
+ * @todo registrační formulář - přidat * pro required položky
+ */
 final class TrainingRegistrationController
 {
     /**
@@ -58,6 +62,7 @@ final class TrainingRegistrationController
 
     /**
      * @Route(path="/registration/{trainingTerm}", name="registration", methods={"GET", "POST"})
+     * @todo název-školení/datum
      *
      * @see https://github.com/symfony/demo/blob/master/src/Controller/Admin/BlogController.php
      */
@@ -81,7 +86,8 @@ final class TrainingRegistrationController
         }
 
         return $this->templatingEngine->renderResponse('registration/default.twig', [
-            'training' => $trainingTerm,
+            'training' => $trainingTerm->getTraining(),
+            'trainingTerm' => $trainingTerm,
             'form' => $form->createView(),
         ]);
     }
