@@ -104,7 +104,7 @@
 
                 {% if training.isActive() %}
                     <div class="text-center">
-                        <a href="{{ path('registration', { 'slug': training.getSlug(), 'termSlug': training.getNearestTerm().getTermSlug() }) }}" class="btn btn-success mt-4 mb-5">
+                        <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success mt-4 mb-5">
                             <em class="fa fa-fw fa-handshake-o"></em>
                             &nbsp;
                             Přihlaš se

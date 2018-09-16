@@ -5,7 +5,6 @@ namespace OpenTraining\Registration\Controller;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 use OpenTraining\Registration\Form\TrainingRegistrationFormType;
 use OpenTraining\Registration\Repository\TrainingRegistrationRepository;
-use OpenTraining\Training\Entity\Training;
 use OpenTraining\Training\Entity\TrainingTerm;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -61,11 +60,11 @@ final class TrainingRegistrationController
     }
 
     /**
-     * @Route(path="/registration/{slug}/{termSlug}/", name="registration", methods={"GET", "POST"})
+     * @Route(path="/registration/{slug}/", name="registration", methods={"GET", "POST"})
      *
      * @see https://github.com/symfony/demo/blob/master/src/Controller/Admin/BlogController.php
      */
-    public function default(Request $request, Training $training, TrainingTerm $trainingTerm): Response
+    public function default(Request $request, TrainingTerm $trainingTerm): Response
     {
         $form = $this->formFactory->create(TrainingRegistrationFormType::class);
         $form->handleRequest($request);

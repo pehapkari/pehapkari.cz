@@ -50,7 +50,7 @@
                                 </strong>
                             </p>
 
-                            <a href="{{ path('registration', { 'slug': training.getSlug(), 'termSlug': training.getNearestTerm().getTermSlug() }) }}" class="btn btn-success btn-xs-block-only" target="_blank">
+                            <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success btn-xs-block-only" target="_blank">
                                 <em class="fa fa-fw fa-handshake-o"></em>
                                 Přihlaš se
                             </a>

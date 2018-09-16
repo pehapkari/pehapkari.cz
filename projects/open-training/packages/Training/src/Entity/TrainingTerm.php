@@ -7,11 +7,11 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 
 /**
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class TrainingTerm
 {
@@ -25,10 +25,9 @@ class TrainingTerm
 
     /**
      * @ORM\Column(type="string", unique=true)
-     * @Gedmo\Slug(fields={"startDateTime", "id"})
      * @var string
      */
-    private $termSlug;
+    private $slug;
 
     /**
      * @ORM\Column(type="datetime")
@@ -164,20 +163,6 @@ class TrainingTerm
         return $income;
     }
 
-    public function generateSlug(): string
-    {
-        return $this->getTraining()->getSlug() . '-' . $this->getStartDateTime()->format('Y-m-d');
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getSluggableFields(): array
-    {
-        // required by interface, not needed
-        return [];
-    }
-
     /**
      * @return TrainingRegistration[]|Collection
      */
@@ -186,13 +171,22 @@ class TrainingTerm
         return $this->registrations;
     }
 
-    public function getTermSlug(): ?string
+    public function getSlug(): ?string
     {
-        return $this->termSlug;
+        return $this->slug;
     }
 
-    public function setTermSlug(?string $termSlug): void
+    public function setSlug(?string $slug): void
     {
-        $this->termSlug = $termSlug;
+        $this->slug = $slug;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function updateSlug(): void
+    {
+        $this->slug = $this->training->getSlug() . '-' . $this->startDateTime->format('Y-m-d');
     }
 }

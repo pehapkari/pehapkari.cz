@@ -250,4 +250,13 @@ class Training
     {
         $this->slug = $slug;
     }
+
+    public function getNearestTermSlug(): ?string
+    {
+        if (! $this->getNearestTerm()) {
+            return null;
+        }
+
+        return $this->getNearestTerm()->getSlug();
+    }
 }
