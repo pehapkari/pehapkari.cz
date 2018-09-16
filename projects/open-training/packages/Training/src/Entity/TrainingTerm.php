@@ -7,6 +7,7 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model\Sluggable\Sluggable;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 
 /**
@@ -14,6 +15,8 @@ use OpenTraining\Registration\Entity\TrainingRegistration;
  */
 class TrainingTerm
 {
+    use Sluggable;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -154,5 +157,27 @@ class TrainingTerm
         }
 
         return $income;
+    }
+
+    public function generateSlug(): string
+    {
+        return $this->getTraining()->getSlug() . '-' . $this->getStartDateTime()->format('Y-m-d');
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getSluggableFields(): array
+    {
+        // required by interface, not needed
+        return [];
+    }
+
+    /**
+     * @return TrainingRegistration[]|Collection
+     */
+    public function getRegistrations(): Collection
+    {
+        return $this->registrations;
     }
 }

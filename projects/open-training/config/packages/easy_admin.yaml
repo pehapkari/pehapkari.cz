@@ -1,46 +1,51 @@
 easy_admin:
     design:
         menu:
-            - label: 'Trainings'
+            - label: 'Školení'
               icon: 'graduation-cap'
               children: ['Training', 'TrainingTerm']
-            - label: 'Money'
+            - label: 'Finance'
               icon: 'money'
               children: ['Registration', 'Expense', 'Provision']
-            - label: 'Feedback'
+            - label: 'Zpětné vazby'
               icon: 'comment'
               children: ['TrainingReference']
-            - label: 'Who and Where'
+            - label: 'Školitelé a místa'
               icon: 'map-marker'
               children: ['Trainer', 'Place']
 
     entities:
         Training:
-            label: 'Trainings'
+            label: 'Školení'
             class: 'OpenTraining\Training\Entity\Training'
             form:
                 exclude_fields: ['trainingReferences', 'trainingTerms', 'slug']
         TrainingTerm:
-            label: 'Training Term'
+            label: 'Termíny školení'
             class: 'OpenTraining\Training\Entity\TrainingTerm'
+            form:
+                exclude_fields: ['registrations', 'slug']
+        Registration:
+            label: 'Registrace'
+            class: 'OpenTraining\Registration\Entity\TrainingRegistration'
+
         TrainingReference:
-            label: 'References'
+            label: 'Reference'
             class: 'OpenTraining\Training\Entity\TrainingReference'
         Trainer:
-            label: 'Trainers'
+            label: 'Školitelé'
             class: 'OpenTraining\Training\Entity\Trainer'
             form:
                 exclude_fields: ['trainings']
         Place:
+            label: 'Školící místa'
             class: 'OpenTraining\Training\Entity\Place'
-        Registration:
-            label: 'Registrations'
-            class: 'OpenTraining\Registration\Entity\TrainingRegistration'
+
         Expense:
-            label: 'Expenses'
+            label: 'Výdaje'
             class: 'OpenTraining\Provision\Entity\PartnerExpense'
         Provision:
-            label: 'Provision Partners'
+            label: 'Provize'
             class: 'OpenTraining\Provision\Entity\Partner'
             form:
                 exclude_fields: ['expenses']

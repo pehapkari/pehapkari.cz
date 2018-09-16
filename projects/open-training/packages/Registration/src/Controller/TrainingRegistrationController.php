@@ -5,6 +5,7 @@ namespace OpenTraining\Registration\Controller;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 use OpenTraining\Registration\Form\TrainingRegistrationFormType;
 use OpenTraining\Registration\Repository\TrainingRegistrationRepository;
+use OpenTraining\Training\Entity\Training;
 use OpenTraining\Training\Entity\TrainingTerm;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -60,7 +61,7 @@ final class TrainingRegistrationController
     }
 
     /**
-     * @Route(path="/registration/{trainingTerm}", name="registration", methods={"GET", "POST"})
+     * @Route(path="/registration/{slug}", name="registration", methods={"GET", "POST"})
      * @todo název-školení/datum
      *
      * @see https://github.com/symfony/demo/blob/master/src/Controller/Admin/BlogController.php
