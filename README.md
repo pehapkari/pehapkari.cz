@@ -28,6 +28,12 @@ Install assets
 php projects/open-real-estate/bin/console assets:install --env=prod --no-debug
 ```
 
+Clear cache after any config change - e.g. security
+
+```bash
+php projects/open-real-estate/bin/console cache:clear
+```
+
 Install adminer
 
 ```
