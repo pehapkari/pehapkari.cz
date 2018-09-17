@@ -8,6 +8,7 @@ yarn-error.log
 
 composer.lock
 
+.idea
 
 # todo merge from local .gitignores, same like composer.json
 projects/open-real-estate/var

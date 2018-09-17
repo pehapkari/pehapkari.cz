@@ -4,7 +4,6 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "ext-intl": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "alterphp/easyadmin-extension-bundle": "^1.2.10",
