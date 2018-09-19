@@ -53,7 +53,7 @@ final class TrainingController
     }
 
     /**
-     * @Route(path="/trainings/", name="trainings")
+     * @Route(path="/vzdelavej-se/", name="trainings")
      */
     public function default(): Response
     {
@@ -68,7 +68,7 @@ final class TrainingController
     }
 
     /**
-     * @Route(path="/training-detail/{slug}", name="training-detail")
+     * @Route(path="/kurz/{slug}", name="training-detail")
      */
     public function detail(Training $training): Response
     {
