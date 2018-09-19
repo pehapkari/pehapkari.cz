@@ -17,10 +17,10 @@ security:
                 class: 'OpenRealEstate\User\Entity\User'
                 property: name
 
-    access_control:
-        -
-            path: '^/admin'
-            roles: 'ROLE_ADMIN'
+#    access_control:
+#        -
+#            path: '^/admin'
+#            roles: 'ROLE_ADMIN'
 
     # https://symfony.com/doc/current/security.html#initial-security-yml-setup-authentication
     firewalls:
@@ -28,10 +28,6 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        secured_area:
-            form_login:
-                login_path: 'login'
-                check_path: 'login'
 
         main:
             # this firewall applies to all URLs
