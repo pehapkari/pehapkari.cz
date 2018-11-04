@@ -5,7 +5,7 @@ namespace OpenTraining\Provision\Controller;
 use OpenTraining\Provision\ProvisionResolver;
 use OpenTraining\Training\Entity\TrainingTerm;
 use OpenTraining\Training\Repository\TrainingTermRepository;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,15 +15,12 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 final class ProvisionController
 {
+    use ControllerTrait;
+
     /**
      * @var ProvisionResolver
      */
     private $provisionResolver;
-
-    /**
-     * @var EngineInterface
-     */
-    private $templatingEngine;
 
     /**
      * @var TrainingTermRepository
@@ -32,11 +29,9 @@ final class ProvisionController
 
     public function __construct(
         ProvisionResolver $provisionResolver,
-        EngineInterface $templatingEngine,
         TrainingTermRepository $trainingTermRepository
     ) {
         $this->provisionResolver = $provisionResolver;
-        $this->templatingEngine = $templatingEngine;
         $this->trainingTermRepository = $trainingTermRepository;
     }
 
@@ -47,7 +42,7 @@ final class ProvisionController
     {
         // how to auto-complete:
         // "/packages/Provision/templates/provision/default.twig"
-        return $this->templatingEngine->renderResponse('provision/default.twig', [
+        return $this->render('provision/default.twig', [
             'trainingTerms' => $this->trainingTermRepository->fetchFinishedWithoutPaidProvision(),
         ]);
     }
@@ -57,7 +52,7 @@ final class ProvisionController
      */
     public function detail(TrainingTerm $trainingTerm): Response
     {
-        return $this->templatingEngine->renderResponse('provision/default.twig', [
+        return $this->render('provision/default.twig', [
             'provision' => $this->provisionResolver->resolveForTrainingTerm($trainingTerm),
         ]);
     }
