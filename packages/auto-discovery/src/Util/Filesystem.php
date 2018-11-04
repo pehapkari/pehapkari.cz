@@ -45,6 +45,23 @@ final class Filesystem
     /**
      * @return string[]
      */
+    private function getDirectoriesInSourceByName(string $name): array
+    {
+        if (! $this->getDirectories()) {
+            return [];
+        }
+
+        $finder = Finder::create()
+            ->directories()
+            ->name($name)
+            ->in($this->getDirectories());
+
+        return iterator_to_array($finder->getIterator());
+    }
+
+    /**
+     * @return string[]
+     */
     private function getDirectories(): array
     {
         $projectDir = $this->getProjectDir();
@@ -59,23 +76,6 @@ final class Filesystem
         }
 
         return $dirs;
-    }
-
-    /**
-     * @return string[]
-     */
-    private function getDirectoriesInSourceByName(string $name): array
-    {
-        if (! $this->getDirectories()) {
-            return [];
-        }
-
-        $finder = Finder::create()
-            ->directories()
-            ->name($name)
-            ->in($this->getDirectories());
-
-        return iterator_to_array($finder->getIterator());
     }
 
     private function getProjectDir(): string

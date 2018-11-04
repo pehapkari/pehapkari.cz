@@ -43,16 +43,16 @@ class TrainingRegistration
     private $note;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm", inversedBy="registrations")
-     * @var TrainingTerm
-     */
-    private $trainingTerm;
-
-    /**
      * @ORM\Column(type="boolean")
      * @var bool
      */
     private $isPaid;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm", inversedBy="registrations")
+     * @var TrainingTerm
+     */
+    private $trainingTerm;
 
     public function getId(): int
     {

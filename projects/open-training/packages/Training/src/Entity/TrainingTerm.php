@@ -30,6 +30,12 @@ class TrainingTerm
     private $slug;
 
     /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $isProvisionPaid;
+
+    /**
      * @ORM\Column(type="datetime")
      * @var DateTimeInterface
      */
@@ -58,12 +64,6 @@ class TrainingTerm
      * @var TrainingRegistration[]|Collection
      */
     private $registrations;
-
-    /**
-     * @ORM\Column(type="boolean")
-     * @var bool
-     */
-    private $isProvisionPaid;
 
     public function __construct()
     {
