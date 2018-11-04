@@ -4,7 +4,7 @@ security:
         # Our user class and the algorithm we'll use to encode passwords
         # https://symfony.com/doc/current/security.html#c-encoding-the-user-s-password
         OpenRealEstate\User\Entity\User:
-            algorithm: argon2i
+            algorithm: 'argon2i'
 
     providers:
         # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
@@ -15,12 +15,7 @@ security:
         app_user_provider:
             entity:
                 class: 'OpenRealEstate\User\Entity\User'
-                property: name
-
-#    access_control:
-#        -
-#            path: '^/admin'
-#            roles: 'ROLE_ADMIN'
+                property: 'name'
 
     # https://symfony.com/doc/current/security.html#initial-security-yml-setup-authentication
     firewalls:
@@ -28,11 +23,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-
         main:
-            # this firewall applies to all URLs
-            pattern: ^/
-
             # but the firewall does not require login on every page
             # denying access is done in access_control or in your controllers
             anonymous: true
@@ -57,3 +48,9 @@ security:
                 path: security_logout
                 # The name of the route to redirect to after logging out
                 target: homepage
+
+    access_control:
+        # allow access to "/admin" only to logged-in
+        -
+            path: '^/admin'
+            roles: ROLE_ADMIN

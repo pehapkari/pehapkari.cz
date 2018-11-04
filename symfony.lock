@@ -1,0 +1,5 @@
+{
+    "swiftmailer/swiftmailer": {
+        "version": "v6.1.3"
+    }
+}
