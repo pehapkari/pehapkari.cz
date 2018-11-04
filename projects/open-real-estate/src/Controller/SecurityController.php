@@ -3,26 +3,22 @@
 namespace OpenRealEstate\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 final class SecurityController
 {
+    use ControllerTrait;
+
     /**
      * @var AuthenticationUtils
      */
     private $authenticationUtils;
 
-    /**
-     * @var EngineInterface
-     */
-    private $templatingEngine;
-
-    public function __construct(AuthenticationUtils $authenticationUtils, EngineInterface $templatingEngine)
+    public function __construct(AuthenticationUtils $authenticationUtils)
     {
         $this->authenticationUtils = $authenticationUtils;
-        $this->templatingEngine = $templatingEngine;
     }
 
     /**
@@ -33,7 +29,7 @@ final class SecurityController
         $error = $this->authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
 
-        return $this->templatingEngine->renderResponse('security/login.html.twig', [
+        return $this->render('security/login.html.twig', [
             // last username entered by the user
             'last_username' => $this->authenticationUtils->getLastUsername(),
             'error' => $error,

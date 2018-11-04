@@ -2,7 +2,7 @@
 
 namespace OpenRealEstate\User\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -12,20 +12,16 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  */
 final class UserController
 {
+    use ControllerTrait;
+
     /**
      * @var AuthenticationUtils
      */
     private $authenticationUtils;
 
-    /**
-     * @var EngineInterface
-     */
-    private $templateEngine;
-
-    public function __construct(AuthenticationUtils $authenticationUtils, EngineInterface $templateEngine)
+    public function __construct(AuthenticationUtils $authenticationUtils)
     {
         $this->authenticationUtils = $authenticationUtils;
-        $this->templateEngine = $templateEngine;
     }
 
     /**
@@ -33,7 +29,7 @@ final class UserController
      */
     public function login(): Response
     {
-        return $this->templateEngine->renderResponse('security/login.twig', [
+        return $this->render('security/login.twig', [
             'last_username' => $this->authenticationUtils->getLastUsername(),
             'error' => $this->authenticationUtils->getLastAuthenticationError(),
         ]);
