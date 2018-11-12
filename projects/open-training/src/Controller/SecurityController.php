@@ -2,14 +2,14 @@
 
 namespace OpenTraining\Controller;
 
+use OpenTraining\AutowiredControllerTrait;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 final class SecurityController
 {
-    use ControllerTrait;
+    use AutowiredControllerTrait;
 
     /**
      * @var AuthenticationUtils
@@ -26,6 +26,8 @@ final class SecurityController
      */
     public function loginAction(): Response
     {
+        dump($this->authenticationUtils->getLastAuthenticationError());
+
         return $this->render('security/login.html.twig', [
             // last username entered by the user
             'last_username' => $this->authenticationUtils->getLastUsername(),

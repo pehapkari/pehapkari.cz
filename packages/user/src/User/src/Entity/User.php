@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenRealEstate\User\Entity;
+namespace OpenProject\User\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;

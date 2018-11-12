@@ -1,7 +1,10 @@
+imports:
+    - { resource: "security.yaml" }
+
 services:
     _defaults:
         public: true
         autowire: true
 
-    OpenRealEstate\User\:
+    OpenProject\User\:
         resource: '../src'
