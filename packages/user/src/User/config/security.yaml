@@ -2,7 +2,7 @@ security:
     encoders:
         # Our user class and the algorithm we'll use to encode passwords
         # https://symfony.com/doc/current/security.html#c-encoding-the-user-s-password
-        App\Entity\User: 'argon2i'
+        OpenProject\User\Entity\User: 'argon2i'
 
     providers:
         # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
@@ -12,7 +12,7 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: 'OpenRealEstate\User\Entity\User'
+                class: 'OpenProject\User\Entity\User'
                 property: 'name'
 
     # https://symfony.com/doc/current/security.html#initial-security-yml-setup-authentication

@@ -24,6 +24,7 @@
         "symfony/form": "^4.1",
         "symfony/framework-bundle": "^4.1",
         "symfony/orm-pack": "^1.0",
+        "symfony/security": "^4.1",
         "symfony/security-bundle": "^4.1",
         "symfony/swiftmailer-bundle": "^3.1",
         "symfony/templating": "^4.1",
@@ -53,6 +54,7 @@
     "autoload": {
         "psr-4": {
             "OpenProject\\AutoDiscovery\\": "packages/auto-discovery/src",
+            "OpenProject\\User\\": "packages/user/src",
             "OpenRealEstate\\": "projects/open-real-estate/src",
             "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src",
             "OpenRealEstate\\PriceMap\\": "projects/open-real-estate/packages/PriceMap/src",

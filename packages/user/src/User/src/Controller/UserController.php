@@ -1,15 +1,19 @@
 <?php declare(strict_types=1);
 
-namespace OpenRealEstate\Controller;
+namespace OpenProject\User\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use OpenTraining\AutowiredControllerTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-final class SecurityController
+/**
+ * @see https://github.com/EliHood/symfonyormexample/blob/master/src/Controller/UserController.php
+ */
+final class UserController
 {
-    use ControllerTrait;
+    use AutowiredControllerTrait;
 
     /**
      * @var AuthenticationUtils
@@ -22,17 +26,13 @@ final class SecurityController
     }
 
     /**
-     * @Route("/login/", name="security_login")
+     * @Route("/login", name="login")
      */
-    public function loginAction(): Response
+    public function login(): Response
     {
-        $error = $this->authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
-
-        return $this->render('security/login.html.twig', [
-            // last username entered by the user
+        return $this->render('security/login.twig', [
             'last_username' => $this->authenticationUtils->getLastUsername(),
-            'error' => $error,
+            'error' => $this->authenticationUtils->getLastAuthenticationError(),
         ]);
     }
 }

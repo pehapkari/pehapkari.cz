@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenRealEstate\User\Repository;
+namespace OpenProject\User\Repository;
 
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use OpenRealEstate\User\Entity\User;
+use OpenProject\User\Entity\User;
 
 final class UserRepository
 {
