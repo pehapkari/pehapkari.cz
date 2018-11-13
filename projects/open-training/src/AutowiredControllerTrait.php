@@ -2,21 +2,11 @@
 
 namespace OpenTraining;
 
-use Iterator;
-use OpenProject\AutoDiscovery\Doctrine\DoctrineEntityAutodiscover;
-use OpenProject\AutoDiscovery\Flex\FlexLoader;
-use OpenProject\AutoDiscovery\Routing\AnnotationRoutesAutodiscover;
-use OpenProject\AutoDiscovery\Twig\TwigPathsAutodiscoverer;
 use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
-use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Kernel as BaseKernel;
-use Symfony\Component\Routing\RouteCollectionBuilder;
 
 /**
- * Just ot make ControllerTrait work
+ * Just to make ControllerTrait work
  */
 trait AutowiredControllerTrait
 {
@@ -30,7 +20,7 @@ trait AutowiredControllerTrait
     /**
      * @required
      */
-    public function setContainer(ContainerInterface $container)
+    public function autowireContainer(ContainerInterface $container): void
     {
         $this->container = $container;
     }

@@ -67,7 +67,12 @@ final class Filesystem
     {
         $projectDir = $this->getProjectDir();
 
-        $possibleDirs = [$projectDir . '/src', $projectDir . '/templates', $projectDir . '/packages', __DIR__ . '/../../../../packages'];
+        $possibleDirs = [
+            $projectDir . '/src',
+            $projectDir . '/templates',
+            $projectDir . '/packages',
+            __DIR__ . '/../../../../packages',
+        ];
 
         $dirs = [];
         foreach ($possibleDirs as $possibleDir) {

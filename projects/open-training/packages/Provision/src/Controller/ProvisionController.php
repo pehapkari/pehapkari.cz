@@ -2,10 +2,10 @@
 
 namespace OpenTraining\Provision\Controller;
 
+use OpenTraining\AutowiredControllerTrait;
 use OpenTraining\Provision\ProvisionResolver;
 use OpenTraining\Training\Entity\TrainingTerm;
 use OpenTraining\Training\Repository\TrainingTermRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 final class ProvisionController
 {
-    use ControllerTrait;
+    use AutowiredControllerTrait;
 
     /**
      * @var ProvisionResolver

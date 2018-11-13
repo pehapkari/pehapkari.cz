@@ -1,10 +1,4 @@
 imports:
     - { resource: "security.yaml" }
-
-services:
-    _defaults:
-        public: true
-        autowire: true
-
-    OpenProject\User\:
-        resource: '../src'
+    - { resource: "parameters.yaml" }
+    - { resource: "services.yaml" }

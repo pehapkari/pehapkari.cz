@@ -2,11 +2,11 @@
 
 namespace OpenTraining\Registration\Controller;
 
+use OpenTraining\AutowiredControllerTrait;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 use OpenTraining\Registration\Form\TrainingRegistrationFormType;
 use OpenTraining\Registration\Repository\TrainingRegistrationRepository;
 use OpenTraining\Training\Entity\TrainingTerm;
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 final class TrainingRegistrationController
 {
-    use ControllerTrait;
+    use AutowiredControllerTrait;
 
     /**
      * @var TrainingRegistrationRepository
