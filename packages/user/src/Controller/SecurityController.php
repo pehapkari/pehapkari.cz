@@ -25,7 +25,7 @@ final class SecurityController
     }
 
     /**
-     * @Route("/login", name="app_login")
+     * @Route("/login", name="login")
      */
     public function login(): Response
     {
@@ -44,6 +44,14 @@ final class SecurityController
      * @Route("/access-denied", name="access-denied")
      */
     public function accessDenied(): Response
+    {
+        return $this->render('security/access-denied.html.twig');
+    }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout(): Response
     {
         return $this->render('security/access-denied.html.twig');
     }

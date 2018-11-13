@@ -40,7 +40,7 @@ final class ProvisionResolver
         }
     }
 
-    private function resolvePartnerProfit(int $profit, PartnerData $partnerData): int
+    private function resolvePartnerProfit(float $profit, PartnerData $partnerData): int
     {
         $result = $profit * $partnerData->getProvisionRate();
 

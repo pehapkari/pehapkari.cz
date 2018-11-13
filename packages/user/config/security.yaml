@@ -35,20 +35,20 @@ security:
             # Reference: https://symfony.com/doc/current/security/form_login_setup.html
             form_login:
                 # The route name that the login form submits to
-                check_path: security_login
+                check_path: "login"
                 # The name of the route where the login form lives
                 # When the user tries to access a protected page, they are redirected here
-                login_path: security_login
+                login_path: "login"
                 # Secure the login form against CSRF
                 # Reference: https://symfony.com/doc/current/security/csrf_in_login_form.html
                 csrf_token_generator: security.csrf.token_manager
                 # The page users are redirect to when there is no previous page stored in the
                 # session (for example when the users access directly to the login page).
-                default_target_path: "security_login"
+                default_target_path:  "login"
 
             logout:
                 # The route name the user can go to in order to logout
-                path: security_logout
+                path: "logout"
                 # The name of the route to redirect to after logging out
                 target: homepage
 

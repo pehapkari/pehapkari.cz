@@ -4,3 +4,10 @@ includes:
 parameters:
     excludes_analyse:
         - "*/Entity*"
+        # wip
+        - "*/open-training/packages/Provision/*"
+
+
+    ignoreErrors:
+        # known value of getRealPath(), uploaded file
+        - '#Parameter \#1 \$pFilename of method PhpOffice\\PhpSpreadsheet\\Reader\\Xls::load\(\) expects string, string\|false given#'
