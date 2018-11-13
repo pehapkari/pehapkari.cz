@@ -61,7 +61,7 @@ final class OpenProjectAuthenticator extends AbstractFormLoginAuthenticator
 
     public function supports(Request $request): bool
     {
-        return $request->attributes->get('_route') === 'app_login' && $request->isMethod('POST');
+        return $request->attributes->get('_route') === 'login' && $request->isMethod('POST');
     }
 
     /**
@@ -70,8 +70,8 @@ final class OpenProjectAuthenticator extends AbstractFormLoginAuthenticator
     public function getCredentials(Request $request): array
     {
         $credentials = [
-            'name' => $request->request->get('name'),
-            'password' => $request->request->get('password'),
+            'name' => $request->request->get('_username'),
+            'password' => $request->request->get('_password'),
             'csrf_token' => $request->request->get('_csrf_token'),
         ];
 

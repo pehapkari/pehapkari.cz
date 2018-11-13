@@ -5,6 +5,10 @@ namespace OpenProject\User\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+// @todo add custom edit method to set password!!!
+// custom safe: https://symfony.com/doc/master/bundles/EasyAdminBundle/tutorials/custom-actions.html
+
+
 /**
  * @ORM\Entity
  *
@@ -28,15 +32,15 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string")
-     * @var string The hashed password
+     * @var string
      */
     private $password;
 
     /**
-     * @ORM\Column(type="json")
-     * @var string[]
+     * @ORM\ManyToOne(targetEntity="OpenProject\User\Entity\UserRole")
+     * @var UserRole
      */
-    private $roles = [];
+    private $userRole;
 
     public function getId(): ?int
     {
@@ -63,31 +67,20 @@ class User implements UserInterface
         return $this->name;
     }
 
-    /**
-     * @see UserInterface
-     * @return string[]
-     */
-    public function getRoles(): array
+    public function getRole(): ?UserRole
     {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
+        return $this->userRole;
     }
 
-    /**
-     * @param string[] $roles
-     */
-    public function setRoles(array $roles): void
+    public function setRole(UserRole $userRole): void
     {
-        $this->roles = $roles;
+        $this->userRole = $userRole;
     }
 
     /**
      * @see UserInterface
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -112,5 +105,15 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * Required by interface
+     *
+     * @return UserRole[]
+     */
+    public function getRoles(): array
+    {
+        return [$this->userRole];
     }
 }
