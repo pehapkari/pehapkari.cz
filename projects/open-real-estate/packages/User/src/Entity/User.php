@@ -27,16 +27,16 @@ class User implements UserInterface
     private $name;
 
     /**
-     * @ORM\Column(type="json")
-     * @var string[]
-     */
-    private $roles = [];
-
-    /**
      * @ORM\Column(type="string")
      * @var string The hashed password
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="json")
+     * @var string[]
+     */
+    private $roles = [];
 
     public function getId(): ?int
     {

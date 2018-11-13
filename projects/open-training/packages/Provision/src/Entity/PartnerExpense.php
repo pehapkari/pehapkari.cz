@@ -19,16 +19,16 @@ class PartnerExpense
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Provision\Entity\Partner", inversedBy="expenses")
-     * @var Partner
-     */
-    private $partner;
-
-    /**
      * @ORM\Column(type="float")
      * @var float
      */
     private $amount;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Provision\Entity\Partner", inversedBy="expenses")
+     * @var Partner
+     */
+    private $partner;
 
     /**
      * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm")
