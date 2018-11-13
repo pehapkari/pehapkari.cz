@@ -9,14 +9,6 @@ use OpenTraining\Training\Entity\TrainingTerm;
 final class ProvisionResolver
 {
     /**
-     * To cover dual tax payments by main invoicing entity
-     * 10 000  profit ~= 2000 taxes
-     *
-     * @var float
-     */
-    private const TAX_BALANCER_LECTOR = 0.11;
-
-    /**
      * @var PartnerRepository
      */
     private $partnerRepository;
@@ -51,11 +43,6 @@ final class ProvisionResolver
     private function resolvePartnerProfit(int $profit, PartnerData $partnerData): int
     {
         $result = $profit * $partnerData->getProvisionRate();
-
-        // to cover his or her taxes payment from original income
-        if ($partnerData->isOfficialInvoicer() === false) {
-            $result *= (1 - self::TAX_BALANCER_LECTOR);
-        }
 
         // cover his or her expenses
         return (int) $result + $partnerData->getExpenses();
