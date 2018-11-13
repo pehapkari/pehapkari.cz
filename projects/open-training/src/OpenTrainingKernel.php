@@ -52,6 +52,8 @@ final class OpenTrainingKernel extends BaseKernel
         (new TwigPathsAutodiscoverer($containerBuilder))->autodiscover();
 
         $this->flexLoader->loadConfigs($containerBuilder, $loader, $this->environment);
+
+        $loader->load(__DIR__ . '/../../../packages/user/config/config.yaml');
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
