@@ -2,18 +2,18 @@
 
 namespace OpenTraining\Controller;
 
+use OpenTraining\AutowiredControllerTrait;
 use OpenTraining\Training\Entity\Training;
 use OpenTraining\Training\Repository\PlaceRepository;
 use OpenTraining\Training\Repository\TrainingReferenceRepository;
 use OpenTraining\Training\Repository\TrainingRepository;
 use OpenTraining\Training\Repository\TrainingTermRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class TrainingController
 {
-    use ControllerTrait;
+    use AutowiredControllerTrait;
 
     /**
      * @var TrainingRepository

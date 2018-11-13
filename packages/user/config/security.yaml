@@ -1,15 +1,17 @@
 security:
+    access_denied_url: /access-denied
+
+    access_control:
+        # allow access to "/admin" only to logged-in
+        -
+            path: '^/admin'
+            roles: ROLE_ADMIN
+
     encoders:
-        # Our user class and the algorithm we'll use to encode passwords
-        # https://symfony.com/doc/current/security.html#c-encoding-the-user-s-password
         OpenProject\User\Entity\User: 'argon2i'
 
     providers:
         # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
-        # In this example, users are stored via Doctrine in the database
-        # To see the users at src/App/DataFixtures/ORM/LoadFixtures.php
-        # To load users from somewhere else: https://symfony.com/doc/current/security/custom_provider.html
-        # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
                 class: 'OpenProject\User\Entity\User'
@@ -42,7 +44,7 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 # The page users are redirect to when there is no previous page stored in the
                 # session (for example when the users access directly to the login page).
-                default_target_path: blog_index
+                default_target_path: "security_login"
 
             logout:
                 # The route name the user can go to in order to logout
@@ -50,8 +52,6 @@ security:
                 # The name of the route to redirect to after logging out
                 target: homepage
 
-    access_control:
-        # allow access to "/admin" only to logged-in
-        -
-            path: '^/admin'
-            roles: ROLE_ADMIN
+            guard:
+                authenticators:
+                    - OpenProject\User\Security\OpenProjectAuthenticator

@@ -59,11 +59,9 @@
             "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src",
             "OpenRealEstate\\PriceMap\\": "projects/open-real-estate/packages/PriceMap/src",
             "OpenRealEstate\\RealEstate\\": "projects/open-real-estate/packages/RealEstate/src",
-            "OpenRealEstate\\User\\": "projects/open-real-estate/packages/User/src",
             "OpenTraining\\": "projects/open-training/src",
             "OpenTraining\\Provision\\": "projects/open-training/packages/Provision/src",
             "OpenTraining\\Registration\\": "projects/open-training/packages/Registration/src",
-            "OpenTraining\\Security\\": "projects/open-training/packages/Security/src",
             "OpenTraining\\Training\\": "projects/open-training/packages/Training/src"
         }
     },
