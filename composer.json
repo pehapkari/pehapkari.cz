@@ -47,9 +47,9 @@
         "symfony/maker-bundle": "^1.7",
         "symfony/web-profiler-bundle": "^4.1",
         "symfony/web-server-bundle": "^4.1",
-        "symplify/coding-standard": "^4.7",
-        "symplify/easy-coding-standard": "^4.7",
-        "symplify/monorepo-builder": "^4.7"
+        "symplify/coding-standard": "^5.2",
+        "symplify/easy-coding-standard": "^5.2",
+        "symplify/monorepo-builder": "^5.2"
     },
     "autoload": {
         "psr-4": {

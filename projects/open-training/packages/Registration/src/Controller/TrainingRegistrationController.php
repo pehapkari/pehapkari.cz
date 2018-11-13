@@ -49,8 +49,7 @@ final class TrainingRegistrationController
             return new RedirectResponse($this->generateUrl(
                 'registration',
                 [
-                    'slug' => $training->getSlug(),
-                    'termSlug' => $trainingTerm->getTermSlug(),
+                    'slug' => $trainingTerm->getSlug(),
                 ]
             ));
         }
