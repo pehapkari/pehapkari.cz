@@ -60,6 +60,10 @@ final class OpenRealEstateKernel extends BaseKernel
         $this->flexLoader->loadConfigs($containerBuilder, $loader, $this->environment);
 
         $loader->load(__DIR__ . '/../../../packages/user/config/config.yaml');
+
+        // @todo load multiusers config based on parameter > multi_user: true?
+        // or extension?
+        // put under OpenReality account
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
@@ -83,16 +87,8 @@ final class OpenRealEstateKernel extends BaseKernel
         $containerBuilder->addCompilerPass(new ConfigurableCollectorCompilerPass());
 
         // autowiring
-//        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
-        // @todo fix
-        // "Circular reference detected for service "templating.loader.chain", path: "templating.loader.chain -> templating.loader.chain"."
-
-        // @todo fix
-        // "Invalid service "kernel": class "" does not exist."
-//        $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
-
-        // @todo fix
-        // "You have requested a non-existent service "Symfony\Bundle\FrameworkBundle\Routing\Router""
-        // $containerBuilder->addCompilerPass(new AutowireSinglyImplementedCompilerPass());
+        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
+        $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
+        $containerBuilder->addCompilerPass(new AutowireSinglyImplementedCompilerPass());
     }
 }

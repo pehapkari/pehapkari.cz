@@ -19,10 +19,12 @@
         "symfony/asset": "^4.1",
         "symfony/dependency-injection": "^4.1",
         "symfony/dotenv": "^4.1",
+        "symfony/event-subscriber": "^4.1",
         "symfony/finder": "^4.1",
         "symfony/flex": "^1.0",
         "symfony/form": "^4.1",
         "symfony/framework-bundle": "^4.1",
+        "symfony/http-kernel": "^4.1",
         "symfony/orm-pack": "^1.0",
         "symfony/security": "^4.1",
         "symfony/security-bundle": "^4.1",
@@ -35,15 +37,13 @@
         "twig/extensions": "^1.5"
     },
     "require-dev": {
-        "automattic/phpcs-neutron-ruleset": "^1.8",
+        "automattic/phpcs-neutron-ruleset": "^1.9",
         "object-calisthenics/phpcs-calisthenics-rules": "^3.3",
-        "phpstan/phpstan": "^0.10.3",
+        "phpstan/phpstan": "^0.10.6",
         "phpstan/phpstan-doctrine": "^0.10.0",
         "phpunit/phpunit": "^7.4",
-        "slam/php-cs-fixer-extensions": "^1.16",
         "symfony/browser-kit": "^4.1",
         "symfony/debug-bundle": "^4.1",
-        "symfony/http-kernel": "^4.1",
         "symfony/maker-bundle": "^1.7",
         "symfony/web-profiler-bundle": "^4.1",
         "symfony/web-server-bundle": "^4.1",
@@ -62,6 +62,7 @@
             "OpenTraining\\": "projects/open-training/src",
             "OpenTraining\\Provision\\": "projects/open-training/packages/Provision/src",
             "OpenTraining\\Registration\\": "projects/open-training/packages/Registration/src",
+            "OpenTraining\\Security\\": "projects/open-training/packages/Security/src",
             "OpenTraining\\Training\\": "projects/open-training/packages/Training/src"
         }
     },
