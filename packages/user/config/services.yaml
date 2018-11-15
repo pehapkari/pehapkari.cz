@@ -8,3 +8,5 @@ services:
 
     # consider SecurityUser entity decoupling in the future
     # https://medium.com/@simshaun/decoupling-your-application-user-from-symfonys-security-user-60fa31b4f7f2
+
+    Symfony\Component\EventDispatcher\EventDispatcher: ~

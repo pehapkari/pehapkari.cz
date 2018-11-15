@@ -115,6 +115,7 @@ final class OpenProjectAuthenticator extends AbstractFormLoginAuthenticator
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey): Response
     {
         $targetPath = $this->getTargetPath($request->getSession(), $providerKey);
+
         if ($targetPath) {
             return new RedirectResponse($targetPath);
         }

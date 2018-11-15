@@ -9,7 +9,7 @@ use OpenProject\User\Exception\InvalidEntityException;
 /**
  * @ORM\Entity
  */
-class UserRole
+class Role
 {
     /**
      * @ORM\Id()

@@ -1,0 +1,16 @@
+easy_admin:
+    design:
+        menu:
+            # @todo poskládat together
+#            - label: 'Školení'
+#              icon: 'graduation-cap'
+#              children: ['Training', 'TrainingTerm']
+#            - label: 'Finance'
+#              icon: 'money'
+#              children: ['Registration', 'Expense', 'Provision']
+#            - label: 'Zpětné vazby'
+#              icon: 'comment'
+#              children: ['TrainingReference']
+#            - label: 'Školitelé a místa'
+#              icon: 'map-marker'
+#              children: ['Trainer', 'Place']

@@ -31,6 +31,7 @@ final class SecurityController
     {
         // get the login error if there is one
         $error = $this->authenticationUtils->getLastAuthenticationError();
+
         // last username entered by the user
         $lastUsername = $this->authenticationUtils->getLastUsername();
 

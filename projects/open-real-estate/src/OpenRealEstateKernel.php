@@ -12,6 +12,12 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireSinglyImplementedCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\ConfigurableCollectorCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\PublicForTestsCompilerPass;
 
 final class OpenRealEstateKernel extends BaseKernel
 {
@@ -25,7 +31,6 @@ final class OpenRealEstateKernel extends BaseKernel
     public function __construct(string $environment, bool $debug)
     {
         parent::__construct($environment, $debug);
-
         $this->flexLoader = new FlexLoader();
     }
 
@@ -62,5 +67,32 @@ final class OpenRealEstateKernel extends BaseKernel
         $this->flexLoader->loadRoutes($routeCollectionBuilder, $this->getContainerBuilder(), $this->environment);
 
         (new AnnotationRoutesAutodiscover($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
+    }
+
+    /**
+     * Order matters!
+     */
+    protected function build(ContainerBuilder $containerBuilder): void
+    {
+        // needs to be first, since it's adding new service definitions
+        $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
+
+        // tests
+        $containerBuilder->addCompilerPass(new PublicForTestsCompilerPass());
+
+        $containerBuilder->addCompilerPass(new ConfigurableCollectorCompilerPass());
+
+        // autowiring
+//        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
+        // @todo fix
+        // "Circular reference detected for service "templating.loader.chain", path: "templating.loader.chain -> templating.loader.chain"."
+
+        // @todo fix
+        // "Invalid service "kernel": class "" does not exist."
+//        $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
+
+        // @todo fix
+        // "You have requested a non-existent service "Symfony\Bundle\FrameworkBundle\Routing\Router""
+        // $containerBuilder->addCompilerPass(new AutowireSinglyImplementedCompilerPass());
     }
 }

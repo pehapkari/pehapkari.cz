@@ -3,6 +3,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "symfony/event-subscriber": "^4.1",
         "symfony/http-kernel": "^4.1",
         "symfony/security": "^4.1"
     },

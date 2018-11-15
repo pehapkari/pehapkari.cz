@@ -8,7 +8,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 // @todo add custom edit method to set password!!!
 // custom safe: https://symfony.com/doc/master/bundles/EasyAdminBundle/tutorials/custom-actions.html
 
-
 /**
  * @ORM\Entity
  *
@@ -37,10 +36,10 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenProject\User\Entity\UserRole")
-     * @var UserRole
+     * @ORM\ManyToOne(targetEntity="OpenProject\User\Entity\Role")
+     * @var Role
      */
-    private $userRole;
+    private $role;
 
     public function getId(): ?int
     {
@@ -67,14 +66,14 @@ class User implements UserInterface
         return $this->name;
     }
 
-    public function getRole(): ?UserRole
+    public function getRole(): ?Role
     {
-        return $this->userRole;
+        return $this->role;
     }
 
-    public function setRole(UserRole $userRole): void
+    public function setRole(Role $role): void
     {
-        $this->userRole = $userRole;
+        $this->role = $role;
     }
 
     /**
@@ -110,10 +109,12 @@ class User implements UserInterface
     /**
      * Required by interface
      *
-     * @return UserRole[]
+     * @return string[]
      */
     public function getRoles(): array
     {
-        return [$this->userRole];
+        // required by authenticator:
+        // "$roles must be an array of strings, or Role instances, but got object."
+        return [$this->role->getUid()];
     }
 }

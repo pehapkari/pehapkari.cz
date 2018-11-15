@@ -14,8 +14,8 @@ easy_admin:
         User:
             label: 'Uživatelé'
             class: 'OpenProject\User\Entity\User'
-            form:
-                fields: ['name', 'password', 'role']
+
+        # @todo enable only for multi-user option = true
         UserRole:
             label: 'Přístupové role'
-            class: 'OpenProject\User\Entity\UserRole'
+            class: 'OpenProject\User\Entity\Role'
