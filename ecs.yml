@@ -28,6 +28,7 @@ services:
             # pre-container used classes
             - 'OpenProject\AutoDiscovery\Util\*'
             - 'Symfony\Component\Config\Resource\FileResource'
+            - 'Symfony\Component\Security\Csrf\CsrfToken'
 
     # object calisthenics - https://github.com/object-calisthenics/phpcs-calisthenics-rules
     ObjectCalisthenics\Sniffs\ControlStructures\NoElseSniff: ~
@@ -74,3 +75,7 @@ parameters:
         ObjectCalisthenics\Sniffs\Metrics\PropertyPerClassLimitSniff:
             # big entity
             - 'src/Entity/Training.php'
+
+        # 3rd party contract
+        SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
+            - 'packages/user/src/Security/OpenProjectAuthenticator.php'

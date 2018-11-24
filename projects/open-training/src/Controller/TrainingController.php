@@ -2,21 +2,18 @@
 
 namespace OpenTraining\Controller;
 
+use OpenTraining\AutowiredControllerTrait;
 use OpenTraining\Training\Entity\Training;
 use OpenTraining\Training\Repository\PlaceRepository;
 use OpenTraining\Training\Repository\TrainingReferenceRepository;
 use OpenTraining\Training\Repository\TrainingRepository;
 use OpenTraining\Training\Repository\TrainingTermRepository;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class TrainingController
 {
-    /**
-     * @var EngineInterface
-     */
-    private $templatingEngine;
+    use AutowiredControllerTrait;
 
     /**
      * @var TrainingRepository
@@ -39,13 +36,11 @@ final class TrainingController
     private $trainingTermRepository;
 
     public function __construct(
-        EngineInterface $templatingEngine,
         TrainingRepository $trainingRepository,
         PlaceRepository $placeRepository,
         TrainingReferenceRepository $trainingReferenceRepository,
         TrainingTermRepository $trainingTermRepository
     ) {
-        $this->templatingEngine = $templatingEngine;
         $this->trainingRepository = $trainingRepository;
         $this->placeRepository = $placeRepository;
         $this->trainingReferenceRepository = $trainingReferenceRepository;
@@ -53,11 +48,11 @@ final class TrainingController
     }
 
     /**
-     * @Route(path="/trainings/", name="trainings")
+     * @Route(path="/vzdelavej-se/", name="trainings")
      */
     public function default(): Response
     {
-        return $this->templatingEngine->renderResponse('training/default.twig', [
+        return $this->render('training/default.twig', [
             'trainings' => $this->trainingRepository->fetchAll(),
             'place' => $this->placeRepository->getMainPlace(),
             'references' => $this->trainingReferenceRepository->fetchAll(),
@@ -68,11 +63,11 @@ final class TrainingController
     }
 
     /**
-     * @Route(path="/training-detail/{slug}", name="training-detail")
+     * @Route(path="/kurz/{slug}", name="training-detail")
      */
     public function detail(Training $training): Response
     {
-        return $this->templatingEngine->renderResponse('training/detail.twig', [
+        return $this->render('training/detail.twig', [
             'training' => $training,
             'trainer' => $training->getTrainer(),
             'place' => $this->placeRepository->getMainPlace(),

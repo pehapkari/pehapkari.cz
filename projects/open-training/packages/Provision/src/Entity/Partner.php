@@ -29,17 +29,6 @@ class Partner
      */
     private $provisionRate;
 
-    /**
-     * @ORM\Column(type="boolean")
-     * @var bool
-     *
-     * Is the one who is responsible for main invoicing.
-     *
-     * He or she has main tax handicap, as he or she pays taxes for whole amount,
-     * compared to others, who only pays partially.
-     */
-    private $isOfficialInvoicer = false;
-
     public function __toString(): string
     {
         return $this->name;
@@ -73,15 +62,5 @@ class Partner
     public function setProvisionRate(float $provisionRate): void
     {
         $this->provisionRate = $provisionRate;
-    }
-
-    public function isOfficialInvoicer(): bool
-    {
-        return $this->isOfficialInvoicer;
-    }
-
-    public function setIsOfficialInvoicer(bool $isOfficialInvoicer): void
-    {
-        $this->isOfficialInvoicer = $isOfficialInvoicer;
     }
 }

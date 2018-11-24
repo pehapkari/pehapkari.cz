@@ -5,21 +5,16 @@ matrix:
         - php: 7.2
           env: CODE_ANALYSIS=true
         - php: 7.2
-          env: COMPOSER_FLAGS="--prefer-lowest"
-        - php: 7.2
           env: MONOREPO_SPLIT=true
 
 before_install:
+    # disable xdebug to fasten process
     - phpenv config-rm xdebug.ini
+    # make the script fail for any failed command
+    - set -e
 
 install:
     - composer update $COMPOSER_FLAGS
-
-before_script:
-    # make the script fail for any failed command
-    - set -e
-    # disable xdebug to fasten process
-    - phpenv config-rm xdebug.ini || return 0
 
 script:
     - vendor/bin/phpunit
@@ -30,8 +25,8 @@ script:
     # code analysis
     - |
       if [[ $CODE_ANALYSIS == true ]]; then
-        composer check-cs
-        composer phpstan
+          composer check-cs
+          composer phpstan
       fi
 
     # @todo pick a single project?
@@ -44,8 +39,8 @@ after_script:
     # split monorepo to packages - only on merge to master
     # see https://www.tomasvotruba.cz/blog/2018/07/19/how-to-make-github-and-travis-split-monorepo-to-multiple-git-repositories-for-you/
     - |
-      if [[ $TRAVIS_EVENT_TYPE == "push" && $MONOREPO_SPLIT == true && $TRAVIS_BRANCH == "master" ]]; then
-        vendor/bin/monorepo-builder split -v
+      if [[ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "master" && $MONOREPO_SPLIT == true ]]; then
+          vendor/bin/monorepo-builder split -v
       fi
 
 notifications:

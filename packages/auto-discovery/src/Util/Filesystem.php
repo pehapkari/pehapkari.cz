@@ -54,7 +54,8 @@ final class Filesystem
         $finder = Finder::create()
             ->directories()
             ->name($name)
-            ->in($this->getDirectories());
+            ->in($this->getDirectories())
+            ->notPath('#tests#');
 
         return iterator_to_array($finder->getIterator());
     }
@@ -66,7 +67,12 @@ final class Filesystem
     {
         $projectDir = $this->getProjectDir();
 
-        $possibleDirs = [$projectDir . '/src', $projectDir . '/templates', $projectDir . '/packages'];
+        $possibleDirs = [
+            $projectDir . '/src',
+            $projectDir . '/templates',
+            $projectDir . '/packages',
+            __DIR__ . '/../../../../packages',
+        ];
 
         $dirs = [];
         foreach ($possibleDirs as $possibleDir) {

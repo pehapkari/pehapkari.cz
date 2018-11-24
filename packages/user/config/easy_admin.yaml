@@ -1,0 +1,21 @@
+easy_admin:
+    # extension by config?
+    # conditionally enable?
+
+    # @see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/menu-configuration.html
+    design:
+        menu:
+            -
+                label: 'Uživatelé'
+                icon: 'group'
+                children: ['User', 'UserRole']
+
+    entities:
+        User:
+            label: 'Uživatelé'
+            class: 'OpenProject\User\Entity\User'
+
+        # @todo enable only for multi-user option = true
+        UserRole:
+            label: 'Přístupové role'
+            class: 'OpenProject\User\Entity\Role'

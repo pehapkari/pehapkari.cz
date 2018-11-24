@@ -112,12 +112,12 @@ class Lead
         $this->comment = $comment;
     }
 
-    public function getStatus(): ?LeadStatus
+    public function getLeadStatus(): ?LeadStatus
     {
         return $this->leadStatus;
     }
 
-    public function setStatus(LeadStatus $leadStatus): void
+    public function setLeadStatus(LeadStatus $leadStatus): void
     {
         $this->leadStatus = $leadStatus;
     }

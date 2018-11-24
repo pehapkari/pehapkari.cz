@@ -4,15 +4,58 @@
 {% block footer %}{% endblock %}
 
 {% block body %}
-    <div class="page-header">
-        <h1>{{ 'title.homepage'|raw }}</h1>
+    {{ include('_snippets/slider.html.twig') }}
+
+    <div class="homepage grid">
+        <div class="row">
+            <div class="c6 pull-right omega" id="nase-sluzby">
+                <section>
+                    <h2>S čím vám můžeme pomoci?</h2>
+
+                    <p>Pomůžeme vám s financováním nového bydlení, s nákupem i prodejem nemovitosti, s odhadem ceny nemovitosti nebo s celkovým zlepšením vaší finanční situace.</p>
+
+                    <hr>
+                    <h3><i class="icon icons-calc_o"></i>Ocenění nemovitosti ZDARMA</h3>
+
+                    <p>Chcete si ověřit, jaká je tržní cena vaší nemovitosti? Chcete ji zdarma a nezávisle ocenit? Kvalifikovaně odhadneme cenu vaší nemovitosti‎ online.</p>
+
+                    <p><a class="btn btn-blue" href="/online-oceneni-nemovitosti/">Ocenit nemovitost online</a></p>
+
+                    <hr>
+                    <h3><i class="icon icons-pig_o"></i>Vyřízení hypotéky</h3>
+
+                    <p>Vlastní bydlení vám změní život. Aby financování vlastní nemovitosti dopadlo dle vašich představ a bez komplikací, provedeme vás hladce celým procesem vyřízení hypotéky. Hezky krok po kroku.</p>
+
+                    <p><a class="btn btn-blue" href="/hypotecni-kalkulacka/">Spočítat výši hypotéky</a></p>
+
+                    <hr>
+                    <h3><i class="icon icons-house_o"></i>Nákup či prodej nemovitosti</h3>
+
+                    <p>Moc dobře si uvědomujeme, že vaším zájmem je koupit či prodat nemovitost bez velkých překážek, co možná nejdříve a hlavně za co nejlepší cenu. Zajistíme hladký průběh celého procesu. Hezky krok po kroku. Bez rizik a bez starostí.</p>
+
+                    <p><a class="btn btn-blue" href="/koupe-nemovitosti/">Kupuji nemovitost</a> <a class="btn btn-blue" href="/prodej-nemovitosti/">Prodávám nemovitost</a></p>
+                </section>
+            </div>
+            <div class="c6 alpha">
+                <section class="clearfix">
+                    <h2>Poznejme se lépe</h2>
+
+                    <blockquote>
+                        <p>Můžeme se vám k něčemu přiznat? Každý den se do práce těšíme. Je sice náročná, ale dává smysl. Klientům pomáháme hlavně s hypotečními úvěry a nákupem a prodejem nemovitostí. Jsme profesionálové a nikdy neslibujeme nic, co bychom nemohli splnit. Naše klienty vždy postavíme před tvrdou realitu a navrhneme optimální řešení. Nasloucháme jim, protože máme zájem o jejich potřeby, ne o jejich peněženku.</p>
+
+                        <p><cite>Oksana Hodboďová a Jan Zítka <a href="/o-nas/" style="float:right;">více o nás</a></cite></p>
+                    </blockquote>
+                </section>
+                {{ include("_snippets/references.html.twig") }}
+
+                <img class="illustration" src="http://www.oksana-zitka.cz/images/layout/hp_1.jpg" alt="">
+            </div>
+        </div>
     </div>
 
-    Welcome to open real estate
-
-    <ul>
-        <li><a href="{{ path('upload-xls-price-list') }}">Ceny nemovitostí</a></li>
-        <li><a href="/admin/">Admin</a></li>
-        <li><a href="/adminer?sqlite=&username=&db=%2Fvar%2Fwww%2Fopen-lectures%2Fvar%2Fdatabase.sqlite">Database</a></li>
-    </ul>
+    {#<ul>#}
+        {#<li><a href="{{ path('upload-xls-price-list') }}">Ceny nemovitostí</a></li>#}
+        {#<li><a href="/admin/">Admin</a></li>#}
+        {#<li><a href="/adminer?sqlite=&username=&db=%2Fvar%2Fwww%2Fopen-lectures%2Fvar%2Fdatabase.sqlite">Database</a></li>#}
+    {#</ul>#}
 {% endblock %}

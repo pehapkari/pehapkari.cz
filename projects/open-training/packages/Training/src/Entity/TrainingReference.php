@@ -85,4 +85,14 @@ class TrainingReference
     {
         $this->url = $url;
     }
+
+    public function getTrainingSlug(): string
+    {
+        return $this->training->getSlug();
+    }
+
+    public function getTrainingName(): string
+    {
+        return $this->training->getName();
+    }
 }

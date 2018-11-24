@@ -29,14 +29,12 @@
             </header>
         {% endblock %}
 
-        <div class="container">
+        <div>
             {% block body %}
-                <div class="row">
-                    <div id="main" class="col-sm-9">
-                        {{ include('default/_flash_messages.html.twig') }}
+                <div id="main">
+                    {{ include('default/_flash_messages.html.twig') }}
 
-                        {% block main %}{% endblock %}
-                    </div>
+                    {% block main %}{% endblock %}
                 </div>
             {% endblock %}
         </div>
