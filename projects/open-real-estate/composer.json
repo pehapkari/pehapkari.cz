@@ -13,28 +13,28 @@
         "easycorp/easyadmin-bundle": "^1.17",
         "phpoffice/phpspreadsheet": "^1.5",
         "sensio/framework-extra-bundle": "^5.2",
-        "symfony/asset": "^4.1",
-        "symfony/dependency-injection": "^4.1",
-        "symfony/dotenv": "^4.1",
+        "symfony/asset": "^4.2",
+        "symfony/dependency-injection": "^4.2",
+        "symfony/dotenv": "^4.2",
         "symfony/flex": "^1.0",
-        "symfony/form": "^4.1",
-        "symfony/framework-bundle": "^4.1",
+        "symfony/form": "^4.2",
+        "symfony/framework-bundle": "^4.2",
         "symfony/orm-pack": "^1.0",
-        "symfony/security-bundle": "^4.1",
+        "symfony/security-bundle": "^4.2",
         "symfony/swiftmailer-bundle": "^3.1",
-        "symfony/templating": "^4.1",
-        "symfony/twig-bridge": "^4.1",
-        "symfony/twig-bundle": "^4.1",
-        "symfony/validator": "^4.1",
-        "symfony/yaml": "^4.1",
+        "symfony/templating": "^4.2",
+        "symfony/twig-bridge": "^4.2",
+        "symfony/twig-bundle": "^4.2",
+        "symfony/validator": "^4.2",
+        "symfony/yaml": "^4.2",
         "twig/extensions": "^1.5"
     },
     "require-dev": {
-        "symfony/browser-kit": "^4.1",
-        "symfony/debug-bundle": "^4.1",
+        "symfony/browser-kit": "^4.2",
+        "symfony/debug-bundle": "^4.2",
         "symfony/maker-bundle": "^1.7",
-        "symfony/web-profiler-bundle": "^4.1",
-        "symfony/web-server-bundle": "^4.1"
+        "symfony/web-profiler-bundle": "^4.2",
+        "symfony/web-server-bundle": "^4.2"
     },
     "autoload": {
         "psr-4": {
@@ -59,7 +59,8 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": true
+            "allow-contrib": true,
+            "require": "4.2.*"
         }
     }
 }
