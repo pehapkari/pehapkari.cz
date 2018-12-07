@@ -46,7 +46,7 @@ class TrainingRegistration
      * @ORM\Column(type="boolean")
      * @var bool
      */
-    private $isPaid;
+    private $isPaid = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm", inversedBy="registrations")
