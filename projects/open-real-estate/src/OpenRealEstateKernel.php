@@ -61,6 +61,13 @@ final class OpenRealEstateKernel extends BaseKernel
         // load optional specific configs
         $loader->load(__DIR__ . '/../../../packages/user/config/config.yaml');
         $loader->load(__DIR__ . '/../../../packages/user/config/config_multi.yaml');
+<<<<<<< HEAD
+=======
+
+        // @todo load multiusers config based on parameter > multi_user: true?
+        // or extension?
+        // put under OpenReality account
+>>>>>>> split easy_admin_multi.yaml
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
