@@ -27,7 +27,6 @@ final class FlexLoader
             $projectDir . '/config/packages/' . $environment . '/**/*',
             $projectDir . '/config/services',
             $projectDir . '/config/services_' . $environment,
-            $projectDir . '/packages/*/src/config/*',
             $projectDir . '/packages/*/config/*',
         ];
         foreach ($possibleServicePaths as $possibleServicePath) {

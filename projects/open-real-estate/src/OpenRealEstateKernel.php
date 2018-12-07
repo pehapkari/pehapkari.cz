@@ -18,10 +18,12 @@ use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParame
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireSinglyImplementedCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\ConfigurableCollectorCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\PublicForTestsCompilerPass;
+use Symplify\PackageBuilder\HttpKernel\SimpleKernelTrait;
 
 final class OpenRealEstateKernel extends BaseKernel
 {
     use MicroKernelTrait;
+    use SimpleKernelTrait;
 
     /**
      * @var FlexLoader
@@ -34,15 +36,15 @@ final class OpenRealEstateKernel extends BaseKernel
         $this->flexLoader = new FlexLoader();
     }
 
-    public function getCacheDir(): string
-    {
-        return $this->getProjectDir() . '/var/cache/' . $this->environment;
-    }
-
-    public function getLogDir(): string
-    {
-        return $this->getProjectDir() . '/var/log';
-    }
+//    public function getCacheDir(): string
+//    {
+//        return $this->getProjectDir() . '/var/cache/' . $this->environment;
+//    }
+//
+//    public function getLogDir(): string
+//    {
+//        return $this->getProjectDir() . '/var/log';
+//    }
 
     public function registerBundles(): Iterator
     {
@@ -60,6 +62,7 @@ final class OpenRealEstateKernel extends BaseKernel
         $this->flexLoader->loadConfigs($containerBuilder, $loader, $this->environment);
 
         $loader->load(__DIR__ . '/../../../packages/user/config/config.yaml');
+        $loader->load(__DIR__ . '/../../../packages/user/config/config_multi.yaml');
 
         // @todo load multiusers config based on parameter > multi_user: true?
         // or extension?
