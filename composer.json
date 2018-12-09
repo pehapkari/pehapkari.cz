@@ -40,11 +40,11 @@
         "automattic/phpcs-neutron-ruleset": "^1.9",
         "object-calisthenics/phpcs-calisthenics-rules": "^3.3",
         "phpstan/phpstan": "^0.10.6",
-        "phpstan/phpstan-doctrine": "^0.10",
-        "phpunit/phpunit": "^7.5",
+        "phpstan/phpstan-doctrine": "^0.10.0",
+        "phpunit/phpunit": "^7.4",
         "symfony/browser-kit": "^4.2",
         "symfony/debug-bundle": "^4.2",
-        "symfony/maker-bundle": "^1.9",
+        "symfony/maker-bundle": "^1.7",
         "symfony/web-profiler-bundle": "^4.2",
         "symfony/web-server-bundle": "^4.2",
         "symplify/coding-standard": "^5.2",
@@ -62,7 +62,6 @@
             "OpenTraining\\": "projects/open-training/src",
             "OpenTraining\\Provision\\": "projects/open-training/packages/Provision/src",
             "OpenTraining\\Registration\\": "projects/open-training/packages/Registration/src",
-            "OpenTraining\\Security\\": "projects/open-training/packages/Security/src",
             "OpenTraining\\Training\\": "projects/open-training/packages/Training/src"
         }
     },
