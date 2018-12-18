@@ -33,6 +33,7 @@
         "symfony/yaml": "^4.2",
         "symplify/autodiscovery": "@dev",
         "symplify/flex-loader": "@dev",
+        "symplify/package-builder": "@dev",
         "twig/extensions": "^1.5"
     },
     "require-dev": {
