@@ -26,32 +26,9 @@ services:
             - 'Doctrine\Common\Collections\ArrayCollection'
             - 'Symfony\Component\Form\FormError'
             # pre-container used classes
-            - 'OpenProject\AutoDiscovery\Util\*'
+            - 'Symplify\Autodiscovery\Util\*'
             - 'Symfony\Component\Config\Resource\FileResource'
             - 'Symfony\Component\Security\Csrf\CsrfToken'
-
-    # object calisthenics - https://github.com/object-calisthenics/phpcs-calisthenics-rules
-    ObjectCalisthenics\Sniffs\ControlStructures\NoElseSniff: ~
-    ObjectCalisthenics\Sniffs\NamingConventions\ElementNameMinimalLengthSniff: ~
-    ObjectCalisthenics\Sniffs\Classes\ForbiddenPublicPropertySniff: ~
-    ObjectCalisthenics\Sniffs\Files\ClassTraitAndInterfaceLengthSniff: ~
-    ObjectCalisthenics\Sniffs\Metrics\PropertyPerClassLimitSniff: ~
-    ObjectCalisthenics\Sniffs\NamingConventions\NoSetterSniff:
-        allowedClasses:
-            - '*\Entity\*'
-            - '*\Request\*'
-
-    # legacy
-    # automattic - https://github.com/Automattic/phpcs-neutron-standard
-    # see https://github.com/Automattic/phpcs-neutron-standard/blob/667af4666f68da2e007d35c7fd8c464c3e9fdb2c/tests/Sniffs/Conditions/ConditionsFixture.php#L5
-    NeutronStandard\Sniffs\Conditions\DisallowConditionAssignWithoutConditionalSniff:
-    NeutronStandard\Sniffs\Constants\DisallowDefineSniff:
-    NeutronStandard\Sniffs\Functions\DisallowCallUserFuncSniff:
-    NeutronStandard\Sniffs\Functions\VariableFunctionsSniff:
-    NeutronStandard\Sniffs\MagicMethods\DisallowMagicGetSniff:
-    NeutronStandard\Sniffs\MagicMethods\DisallowMagicSerializeSniff:
-    NeutronStandard\Sniffs\MagicMethods\DisallowMagicSetSniff:
-    NeutronStandard\Sniffs\MagicMethods\RiskyMagicMethodSniff:
 
 parameters:
     exclude_checkers:
@@ -64,18 +41,6 @@ parameters:
         - 'src/Kernel.php'
 
     skip:
-        ObjectCalisthenics\Sniffs\CodeAnalysis\OneObjectOperatorPerLineSniff:
-            # bugged
-            - '*/Repository/*Repository.php'
-
-        ObjectCalisthenics\Sniffs\Files\ClassTraitAndInterfaceLengthSniff:
-            # big entity
-            - 'src/Entity/Training.php'
-
-        ObjectCalisthenics\Sniffs\Metrics\PropertyPerClassLimitSniff:
-            # big entity
-            - 'src/Entity/Training.php'
-
         # 3rd party contract
         SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
             - 'packages/user/src/Security/OpenProjectAuthenticator.php'

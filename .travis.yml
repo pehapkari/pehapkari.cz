@@ -4,8 +4,7 @@ matrix:
     include:
         - php: 7.2
           env: CODE_ANALYSIS=true
-        - php: 7.2
-          env: MONOREPO_SPLIT=true
+        - php: 7.3
 
 before_install:
     # disable xdebug to fasten process
@@ -34,14 +33,6 @@ script:
     - projects/open-real-estate/bin/console lint:yaml config
     # this checks that the Twig template files contain no syntax errors
     - projects/open-real-estate/bin/console lint:twig templates
-
-after_script:
-    # split monorepo to packages - only on merge to master
-    # see https://www.tomasvotruba.cz/blog/2018/07/19/how-to-make-github-and-travis-split-monorepo-to-multiple-git-repositories-for-you/
-    - |
-      if [[ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "master" && $MONOREPO_SPLIT == true ]]; then
-          vendor/bin/monorepo-builder split -v
-      fi
 
 notifications:
     email: false

@@ -16,5 +16,11 @@
     },
     "symfony/var-exporter": {
         "version": "v4.2.1"
+    },
+    "symplify/autodiscovery": {
+        "version": "5.3-dev"
+    },
+    "symplify/flex-loader": {
+        "version": "5.3-dev"
     }
 }

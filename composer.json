@@ -21,30 +21,30 @@
         "symfony/dotenv": "^4.2",
         "symfony/event-dispatcher": "^4.2",
         "symfony/finder": "^4.2",
-        "symfony/flex": "^1.0",
+        "symfony/flex": "^1.1",
         "symfony/form": "^4.2",
         "symfony/framework-bundle": "^4.2",
         "symfony/http-kernel": "^4.2",
         "symfony/orm-pack": "^1.0",
         "symfony/security": "^4.2",
         "symfony/security-bundle": "^4.2",
-        "symfony/swiftmailer-bundle": "^3.1",
+        "symfony/swiftmailer-bundle": "^3.2",
         "symfony/templating": "^4.2",
         "symfony/twig-bridge": "^4.2",
         "symfony/twig-bundle": "^4.2",
         "symfony/validator": "^4.2",
         "symfony/yaml": "^4.2",
+        "symplify/autodiscovery": "@dev",
+        "symplify/flex-loader": "@dev",
         "twig/extensions": "^1.5"
     },
     "require-dev": {
-        "automattic/phpcs-neutron-ruleset": "^1.9",
-        "object-calisthenics/phpcs-calisthenics-rules": "^3.3",
         "phpstan/phpstan": "^0.10.6",
-        "phpstan/phpstan-doctrine": "^0.10.0",
-        "phpunit/phpunit": "^7.4",
+        "phpstan/phpstan-doctrine": "^0.10",
+        "phpunit/phpunit": "^7.5",
         "symfony/browser-kit": "^4.2",
         "symfony/debug-bundle": "^4.2",
-        "symfony/maker-bundle": "^1.7",
+        "symfony/maker-bundle": "^1.9",
         "symfony/web-profiler-bundle": "^4.2",
         "symfony/web-server-bundle": "^4.2",
         "symplify/coding-standard": "^5.2",
@@ -53,7 +53,6 @@
     },
     "autoload": {
         "psr-4": {
-            "OpenProject\\AutoDiscovery\\": "packages/auto-discovery/src",
             "OpenProject\\User\\": "packages/user/src",
             "OpenRealEstate\\": "projects/open-real-estate/src",
             "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src",
@@ -67,12 +66,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "OpenProject\\AutoDiscovery\\Tests\\": "packages/auto-discovery/tests",
             "OpenTraining\\Provision\\Tests\\": "projects/open-training/packages/Provision/tests"
-        },
-        "classmap": [
-            "packages/auto-discovery/tests/KernelProjectDir"
-        ]
+        }
     },
     "scripts": {
         "auto-scripts": {
@@ -96,5 +91,7 @@
             "allow-contrib": true,
             "require": "4.2.*"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

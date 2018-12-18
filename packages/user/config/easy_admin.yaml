@@ -1,6 +1,6 @@
 easy_admin:
     # @see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/menu-configuration.html
     entities:
-        UserRole:
-            label: 'Přístupové role'
-            class: 'OpenProject\User\Entity\Role'
+        User:
+            label: 'Uživatelé'
+            class: 'OpenProject\User\Entity\User'
