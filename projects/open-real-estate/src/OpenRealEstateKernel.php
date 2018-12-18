@@ -53,8 +53,12 @@ final class OpenRealEstateKernel extends BaseKernel
         (new DoctrineEntityMappingAutodiscoverer($containerBuilder))->autodiscover();
         (new TwigPathAutodiscoverer($containerBuilder))->autodiscover();
 
-        $this->flexLoader->loadConfigs($containerBuilder, $loader);
+        $this->flexLoader->loadConfigs($containerBuilder, $loader, [
+            $this->getProjectDir() . '/packages/*/src/config',
+            $this->getProjectDir() . '/packages/*/config',
+        ]);
 
+        // load optional specific configs
         $loader->load(__DIR__ . '/../../../packages/user/config/config.yaml');
         $loader->load(__DIR__ . '/../../../packages/user/config/config_multi.yaml');
     }
