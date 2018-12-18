@@ -3,10 +3,10 @@
 namespace OpenTraining;
 
 use Iterator;
-use OpenProject\AutoDiscovery\Doctrine\DoctrineEntityAutodiscover;
-use OpenProject\AutoDiscovery\Flex\FlexLoader;
-use OpenProject\AutoDiscovery\Routing\AnnotationRoutesAutodiscover;
-use OpenProject\AutoDiscovery\Twig\TwigPathsAutodiscoverer;
+use Symplify\Autodiscovery\Doctrine\DoctrineEntityAutodiscover;
+use Symplify\Autodiscovery\Flex\FlexLoader;
+use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscover;
+use Symplify\Autodiscovery\Twig\TwigPathsAutodiscoverer;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
