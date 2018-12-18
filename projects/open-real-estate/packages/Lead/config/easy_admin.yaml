@@ -1,7 +1,4 @@
 easy_admin:
-    # @todo add menu + add link to docs
-
-    # @see
     entities:
         Lead:
             label: 'Leads'

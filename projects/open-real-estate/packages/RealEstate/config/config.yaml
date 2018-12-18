@@ -1,0 +1,11 @@
+imports:
+    - { resource: "easy_admin.yaml" }
+
+services:
+    _defaults:
+        public: true
+        autowire: true
+
+    OpenRealEstate\RealEstate\:
+        resource: '../src'
+        exclude: '../src/{Entity}'

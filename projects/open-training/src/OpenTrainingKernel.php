@@ -28,16 +28,6 @@ final class OpenTrainingKernel extends BaseKernel
         $this->flexLoader = new FlexLoader($environment, $this->getProjectDir());
     }
 
-    public function getCacheDir(): string
-    {
-        return $this->getProjectDir() . '/var/cache/' . $this->environment;
-    }
-
-    public function getLogDir(): string
-    {
-        return $this->getProjectDir() . '/var/log';
-    }
-
     public function registerBundles(): Iterator
     {
         return $this->flexLoader->loadBundles();
@@ -48,9 +38,10 @@ final class OpenTrainingKernel extends BaseKernel
         (new DoctrineEntityMappingAutodiscoverer($containerBuilder))->autodiscover();
         (new TwigPathAutodiscoverer($containerBuilder))->autodiscover();
 
-        $this->flexLoader->loadConfigs($containerBuilder, $loader, [__DIR__ . '/../../../packages/*']);
-
-//        $loader->load(__DIR__ . '/../../../packages/user/config/config.yaml');
+        $this->flexLoader->loadConfigs($containerBuilder, $loader, [
+            __DIR__ . '/../../../packages/*/config/config', // root packages
+            $this->getProjectDir() . '/packages/*/config/*', // project packages
+        ]);
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void

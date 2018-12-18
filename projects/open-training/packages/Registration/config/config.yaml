@@ -4,5 +4,5 @@ services:
         public: true
 
     OpenTraining\Registration\:
-        resource: '../'
-        exclude: '../{Form,Entity}'
+        resource: '../src'
+        exclude: '../src/{Form,Entity}'

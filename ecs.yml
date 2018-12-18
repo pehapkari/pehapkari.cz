@@ -12,7 +12,6 @@ services:
 
     Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenParentClassSniff:
         forbiddenParentClasses:
-            - 'Symfony\Bundle\FrameworkBundle\Controller\AbstractController'
             - 'Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository'
             - 'Doctrine\ORM\EntityRepository'
 

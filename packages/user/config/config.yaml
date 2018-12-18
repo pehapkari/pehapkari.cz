@@ -1,5 +1,4 @@
 imports:
     - { resource: "security.yaml" }
-    - { resource: "parameters.yaml" }
     - { resource: "services.yaml" }
     - { resource: "easy_admin.yaml" }
