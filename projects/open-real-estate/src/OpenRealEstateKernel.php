@@ -30,8 +30,8 @@ final class OpenRealEstateKernel extends BaseKernel
 
     public function __construct(string $environment, bool $debug)
     {
-        parent::__construct($environment, $debug);
-        $this->flexLoader = new FlexLoader();
+        parent::__construct($environment, true);
+        $this->flexLoader = new FlexLoader($environment, $this->getProjectDir());
     }
 
     public function getCacheDir(): string
@@ -46,10 +46,7 @@ final class OpenRealEstateKernel extends BaseKernel
 
     public function registerBundles(): Iterator
     {
-        return $this->flexLoader->loadBundlesFromFilePath(
-            $this->getProjectDir() . '/config/bundles.php',
-            $this->environment
-        );
+        return $this->flexLoader->loadBundlesFromFilePath($this->getProjectDir() . '/config/bundles.php');
     }
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
@@ -57,19 +54,15 @@ final class OpenRealEstateKernel extends BaseKernel
         (new DoctrineEntityAutodiscover($containerBuilder))->autodiscover();
         (new TwigPathsAutodiscoverer($containerBuilder))->autodiscover();
 
-        $this->flexLoader->loadConfigs($containerBuilder, $loader, $this->environment);
+        $this->flexLoader->loadConfigs($containerBuilder, $loader);
 
         $loader->load(__DIR__ . '/../../../packages/user/config/config.yaml');
         $loader->load(__DIR__ . '/../../../packages/user/config/config_multi.yaml');
-
-        // @todo load multiusers config based on parameter > multi_user: true?
-        // or extension?
-        // put under OpenReality account
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
     {
-        $this->flexLoader->loadRoutes($routeCollectionBuilder, $this->getContainerBuilder(), $this->environment);
+        $this->flexLoader->loadRoutes($routeCollectionBuilder);
 
         (new AnnotationRoutesAutodiscover($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
     }

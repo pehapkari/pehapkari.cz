@@ -53,7 +53,6 @@
     },
     "autoload": {
         "psr-4": {
-            "OpenProject\\AutoDiscovery\\": "packages/auto-discovery/src",
             "OpenProject\\User\\": "packages/user/src",
             "OpenRealEstate\\": "projects/open-real-estate/src",
             "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src",
@@ -67,12 +66,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "OpenProject\\AutoDiscovery\\Tests\\": "packages/auto-discovery/tests",
             "OpenTraining\\Provision\\Tests\\": "projects/open-training/packages/Provision/tests"
-        },
-        "classmap": [
-            "packages/auto-discovery/tests/KernelProjectDir"
-        ]
+        }
     },
     "scripts": {
         "auto-scripts": {
