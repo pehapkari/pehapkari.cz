@@ -33,7 +33,7 @@ class TrainingTerm
      * @ORM\Column(type="boolean")
      * @var bool
      */
-    private $isProvisionPaid;
+    private $isProvisionPaid = false;
 
     /**
      * @ORM\Column(type="datetime")

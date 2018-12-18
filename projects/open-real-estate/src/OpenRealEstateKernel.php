@@ -60,6 +60,7 @@ final class OpenRealEstateKernel extends BaseKernel
         $this->flexLoader->loadConfigs($containerBuilder, $loader, $this->environment);
 
         $loader->load(__DIR__ . '/../../../packages/user/config/config.yaml');
+        $loader->load(__DIR__ . '/../../../packages/user/config/config_multi.yaml');
 
         // @todo load multiusers config based on parameter > multi_user: true?
         // or extension?

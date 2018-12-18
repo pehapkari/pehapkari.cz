@@ -12,6 +12,8 @@ use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
  */
 class RealEstate
 {
+    // @todo
+
     use Timestampable;
 
     /**

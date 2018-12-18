@@ -1,5 +1,15 @@
+imports:
+    - { resource: "easy_admin.yaml" }
+
 easy_admin:
     # @see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/menu-configuration.html
+    design:
+        menu:
+            -
+                label: 'Uživatelé'
+                icon: 'group'
+                children: ['User', 'UserRole']
+
     entities:
         UserRole:
             label: 'Přístupové role'
