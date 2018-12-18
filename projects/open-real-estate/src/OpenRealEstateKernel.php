@@ -5,7 +5,6 @@ namespace OpenRealEstate;
 use Iterator;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
@@ -71,7 +70,7 @@ final class OpenRealEstateKernel extends Kernel
         $containerBuilder->addCompilerPass(new ConfigurableCollectorCompilerPass());
 
         // autowiring
-        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass(), PassConfig::TYPE_BEFORE_REMOVING);
+        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
         $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
         $containerBuilder->addCompilerPass(new AutowireSinglyImplementedCompilerPass());
     }

@@ -12,6 +12,11 @@ use Symplify\Autodiscovery\Doctrine\DoctrineEntityMappingAutodiscoverer;
 use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscover;
 use Symplify\Autodiscovery\Twig\TwigPathAutodiscoverer;
 use Symplify\FlexLoader\Flex\FlexLoader;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireSinglyImplementedCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\ConfigurableCollectorCompilerPass;
 
 final class OpenTrainingKernel extends BaseKernel
 {
@@ -49,5 +54,21 @@ final class OpenTrainingKernel extends BaseKernel
         (new AnnotationRoutesAutodiscover($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
 
         $this->flexLoader->loadRoutes($routeCollectionBuilder);
+    }
+
+    /**
+     * Order matters!
+     */
+    protected function build(ContainerBuilder $containerBuilder): void
+    {
+        // needs to be first, since it's adding new service definitions
+        $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
+
+        $containerBuilder->addCompilerPass(new ConfigurableCollectorCompilerPass());
+
+        // autowiring
+        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
+        $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
+        $containerBuilder->addCompilerPass(new AutowireSinglyImplementedCompilerPass());
     }
 }
