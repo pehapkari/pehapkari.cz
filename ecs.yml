@@ -26,7 +26,7 @@ services:
             - 'Doctrine\Common\Collections\ArrayCollection'
             - 'Symfony\Component\Form\FormError'
             # pre-container used classes
-            - 'OpenProject\AutoDiscovery\Util\*'
+            - 'Symplify\Autodiscovery\Util\*'
             - 'Symfony\Component\Config\Resource\FileResource'
             - 'Symfony\Component\Security\Csrf\CsrfToken'
 

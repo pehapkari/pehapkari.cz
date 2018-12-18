@@ -3,21 +3,20 @@
 namespace OpenRealEstate;
 
 use Iterator;
-use OpenProject\AutoDiscovery\Doctrine\DoctrineEntityAutodiscover;
-use OpenProject\AutoDiscovery\Flex\FlexLoader;
-use OpenProject\AutoDiscovery\Routing\AnnotationRoutesAutodiscover;
-use OpenProject\AutoDiscovery\Twig\TwigPathsAutodiscoverer;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+use Symplify\Autodiscovery\Doctrine\DoctrineEntityMappingAutodiscoverer;
+use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscover;
+use Symplify\Autodiscovery\Twig\TwigPathAutodiscoverer;
+use Symplify\FlexLoader\Flex\FlexLoader;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireSinglyImplementedCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\ConfigurableCollectorCompilerPass;
-use Symplify\PackageBuilder\DependencyInjection\CompilerPass\PublicForTestsCompilerPass;
 
 final class OpenRealEstateKernel extends BaseKernel
 {
@@ -30,7 +29,7 @@ final class OpenRealEstateKernel extends BaseKernel
 
     public function __construct(string $environment, bool $debug)
     {
-        parent::__construct($environment, true);
+        parent::__construct($environment, $debug);
         $this->flexLoader = new FlexLoader($environment, $this->getProjectDir());
     }
 
@@ -46,13 +45,13 @@ final class OpenRealEstateKernel extends BaseKernel
 
     public function registerBundles(): Iterator
     {
-        return $this->flexLoader->loadBundlesFromFilePath($this->getProjectDir() . '/config/bundles.php');
+        return $this->flexLoader->loadBundles();
     }
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
     {
-        (new DoctrineEntityAutodiscover($containerBuilder))->autodiscover();
-        (new TwigPathsAutodiscoverer($containerBuilder))->autodiscover();
+        (new DoctrineEntityMappingAutodiscoverer($containerBuilder))->autodiscover();
+        (new TwigPathAutodiscoverer($containerBuilder))->autodiscover();
 
         $this->flexLoader->loadConfigs($containerBuilder, $loader);
 
@@ -74,9 +73,6 @@ final class OpenRealEstateKernel extends BaseKernel
     {
         // needs to be first, since it's adding new service definitions
         $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
-
-        // tests
-        $containerBuilder->addCompilerPass(new PublicForTestsCompilerPass());
 
         $containerBuilder->addCompilerPass(new ConfigurableCollectorCompilerPass());
 
