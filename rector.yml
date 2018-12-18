@@ -1,0 +1,4 @@
+parameters:
+    exclude_paths:
+        - '*/var/cache/*'
+        - '*/adminer/index.php'
