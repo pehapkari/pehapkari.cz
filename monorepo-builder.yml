@@ -9,7 +9,11 @@ parameters:
     data_to_append:
         require-dev:
             phpstan/phpstan: "^0.10.6"
-            phpstan/phpstan-doctrine: "^0.10.6"
+            phpstan/phpstan-doctrine: "^0.10"
             symplify/coding-standard: "^5.2"
             symplify/easy-coding-standard: "^5.2"
             symplify/monorepo-builder: "^5.2"
+
+    data_to_remove:
+        require:
+            symfony/flex: "*"

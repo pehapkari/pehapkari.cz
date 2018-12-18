@@ -12,6 +12,11 @@ use Symplify\Autodiscovery\Doctrine\DoctrineEntityMappingAutodiscoverer;
 use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscover;
 use Symplify\Autodiscovery\Twig\TwigPathAutodiscoverer;
 use Symplify\FlexLoader\Flex\FlexLoader;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireSinglyImplementedCompilerPass;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\ConfigurableCollectorCompilerPass;
 
 final class OpenTrainingKernel extends BaseKernel
 {
@@ -28,16 +33,6 @@ final class OpenTrainingKernel extends BaseKernel
         $this->flexLoader = new FlexLoader($environment, $this->getProjectDir());
     }
 
-    public function getCacheDir(): string
-    {
-        return $this->getProjectDir() . '/var/cache/' . $this->environment;
-    }
-
-    public function getLogDir(): string
-    {
-        return $this->getProjectDir() . '/var/log';
-    }
-
     public function registerBundles(): Iterator
     {
         return $this->flexLoader->loadBundles();
@@ -48,9 +43,10 @@ final class OpenTrainingKernel extends BaseKernel
         (new DoctrineEntityMappingAutodiscoverer($containerBuilder))->autodiscover();
         (new TwigPathAutodiscoverer($containerBuilder))->autodiscover();
 
-        $this->flexLoader->loadConfigs($containerBuilder, $loader, [__DIR__ . '/../../../packages/*']);
-
-//        $loader->load(__DIR__ . '/../../../packages/user/config/config.yaml');
+        $this->flexLoader->loadConfigs($containerBuilder, $loader, [
+            __DIR__ . '/../../../packages/*/config/config', // root packages
+            $this->getProjectDir() . '/packages/*/config/*', // project packages
+        ]);
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
@@ -58,5 +54,21 @@ final class OpenTrainingKernel extends BaseKernel
         (new AnnotationRoutesAutodiscover($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
 
         $this->flexLoader->loadRoutes($routeCollectionBuilder);
+    }
+
+    /**
+     * Order matters!
+     */
+    protected function build(ContainerBuilder $containerBuilder): void
+    {
+        // needs to be first, since it's adding new service definitions
+        $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
+
+        $containerBuilder->addCompilerPass(new ConfigurableCollectorCompilerPass());
+
+        // autowiring
+        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
+        $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
+        $containerBuilder->addCompilerPass(new AutowireSinglyImplementedCompilerPass());
     }
 }

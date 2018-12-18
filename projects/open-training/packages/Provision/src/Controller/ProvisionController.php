@@ -2,10 +2,10 @@
 
 namespace OpenTraining\Provision\Controller;
 
-use OpenTraining\AutowiredControllerTrait;
 use OpenTraining\Provision\ProvisionResolver;
 use OpenTraining\Training\Entity\TrainingTerm;
 use OpenTraining\Training\Repository\TrainingTermRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -13,10 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
  * @todo admin only
  * @see https://symfony.com/doc/current/controller/service.html#alternatives-to-base-controller-methods
  */
-final class ProvisionController
+final class ProvisionController extends AbstractController
 {
-    use AutowiredControllerTrait;
-
     /**
      * @var ProvisionResolver
      */

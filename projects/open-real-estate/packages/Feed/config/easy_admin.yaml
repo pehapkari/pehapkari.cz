@@ -1,0 +1,16 @@
+easy_admin:
+    design:
+        menu:
+            -
+                label: 'Nemovitosti do feedů'
+                icon: 'rss-square'
+                entity: 'FeedRealEstate'
+
+    entities:
+        FeedRealEstate:
+            label: 'Nemovitosti do feedů'
+            class: 'OpenRealEstate\Feed\Entity\FeedRealEstate'
+            form:
+                # added by `Knp\DoctrineBehaviors\Model\Timestampable\Timestampable` trait
+                # @see https://github.com/KnpLabs/DoctrineBehaviors
+                exclude_fields: ['createdAt', 'updatedAt']

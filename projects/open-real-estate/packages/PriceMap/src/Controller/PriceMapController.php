@@ -3,9 +3,9 @@
 namespace OpenRealEstate\PriceMap\Controller;
 
 use OpenRealEstate\PriceMap\Repository\AreaPriceRepository;
-use OpenTraining\AutowiredControllerTrait;
 use PhpOffice\PhpSpreadsheet\Reader\Xls;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormError;
@@ -14,10 +14,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class PriceMapController
+final class PriceMapController extends AbstractController
 {
-    use AutowiredControllerTrait;
-
     /**
      * @var AreaPriceRepository
      */

@@ -2,18 +2,13 @@
 
 namespace OpenProject\User\Controller;
 
-use OpenTraining\AutowiredControllerTrait;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-/**
- * @todo ask Peter, how this works
- */
-final class SecurityController
+final class SecurityController extends AbstractController
 {
-    use AutowiredControllerTrait;
-
     /**
      * @var AuthenticationUtils
      */

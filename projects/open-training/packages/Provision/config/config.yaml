@@ -4,5 +4,5 @@ services:
         public: true
 
     OpenTraining\Provision\:
-        resource: '../'
-        exclude: '../{Entity}'
+        resource: '../src/'
+        exclude: '../src/{Entity}'

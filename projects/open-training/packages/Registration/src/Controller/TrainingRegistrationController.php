@@ -2,11 +2,11 @@
 
 namespace OpenTraining\Registration\Controller;
 
-use OpenTraining\AutowiredControllerTrait;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 use OpenTraining\Registration\Form\TrainingRegistrationFormType;
 use OpenTraining\Registration\Repository\TrainingRegistrationRepository;
 use OpenTraining\Training\Entity\TrainingTerm;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +15,8 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @todo registrační formulář - přidat * pro required položky
  */
-final class TrainingRegistrationController
+final class TrainingRegistrationController extends AbstractController
 {
-    use AutowiredControllerTrait;
-
     /**
      * @var TrainingRegistrationRepository
      */

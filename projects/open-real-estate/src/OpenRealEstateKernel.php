@@ -6,7 +6,7 @@ use Iterator;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Kernel as BaseKernel;
+use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symplify\Autodiscovery\Doctrine\DoctrineEntityMappingAutodiscoverer;
 use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscover;
@@ -18,7 +18,7 @@ use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParame
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireSinglyImplementedCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\ConfigurableCollectorCompilerPass;
 
-final class OpenRealEstateKernel extends BaseKernel
+final class OpenRealEstateKernel extends Kernel
 {
     use MicroKernelTrait;
 
@@ -33,16 +33,6 @@ final class OpenRealEstateKernel extends BaseKernel
         $this->flexLoader = new FlexLoader($environment, $this->getProjectDir());
     }
 
-    public function getCacheDir(): string
-    {
-        return $this->getProjectDir() . '/var/cache/' . $this->environment;
-    }
-
-    public function getLogDir(): string
-    {
-        return $this->getProjectDir() . '/var/log';
-    }
-
     public function registerBundles(): Iterator
     {
         return $this->flexLoader->loadBundles();
@@ -54,12 +44,11 @@ final class OpenRealEstateKernel extends BaseKernel
         (new TwigPathAutodiscoverer($containerBuilder))->autodiscover();
 
         $this->flexLoader->loadConfigs($containerBuilder, $loader, [
-            $this->getProjectDir() . '/packages/*/src/config',
-            $this->getProjectDir() . '/packages/*/config',
+            __DIR__ . '/../../../packages/*/config/config', // root packages
+            $this->getProjectDir() . '/packages/*/config/config', // project packages
         ]);
 
         // load optional specific configs
-        $loader->load(__DIR__ . '/../../../packages/user/config/config.yaml');
         $loader->load(__DIR__ . '/../../../packages/user/config/config_multi.yaml');
     }
 
