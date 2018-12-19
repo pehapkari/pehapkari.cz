@@ -1,5 +1,6 @@
 easy_admin:
     list:
+        max_results: 100
         actions:
             - { name: 'new', icon: 'plus', label: "Přidat" }
             - { name: 'edit', icon: 'pencil', label: "Upravit" }
