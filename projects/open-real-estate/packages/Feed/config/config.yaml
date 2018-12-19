@@ -2,6 +2,19 @@ imports:
     - { resource: "easy_admin.yaml" }
 
 services:
-    OpenRealEstate\Feed\EasyAdmin\Configuration\ParamLabelConfigPass:
+    _defaults:
+        autowire: true
+
+    OpenRealEstate\Feed\:
+        resource: '../src'
+        exclude: '../src/{EasyAdmin/Configuration}'
+
+    OpenRealEstate\Feed\EasyAdmin\Configuration\GridLabelConfigPass:
         tags:
-            - { name: 'easyadmin.config_pass', priority: 100 }
+            # after ViewConfigPass
+            - { name: 'easyadmin.config_pass', priority: 28 }
+
+    # this works
+    OpenRealEstate\Feed\EasyAdmin\Configuration\FormLabelConfigPass:
+        tags:
+            - { name: 'easyadmin.config_pass', priority: 90 }
