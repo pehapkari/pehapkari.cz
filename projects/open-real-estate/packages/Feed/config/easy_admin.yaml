@@ -4,7 +4,9 @@ easy_admin:
             -
                 label: 'Nemovitosti do feedů'
                 icon: 'rss-square'
-                entity: 'FeedRealEstate'
+                children:
+                    - { label: 'Seznam nemovitostí', entity: 'FeedRealEstate' }
+#                    - { label: 'Generování feedů', route: 'xml_feed_generate' }
 
     entities:
         FeedRealEstate:

@@ -3,6 +3,7 @@
 namespace OpenRealEstate\Feed\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model\Blameable\Blameable;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 
 /**
@@ -11,6 +12,7 @@ use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 class FeedRealEstate
 {
     use Timestampable;
+    use Blameable;
 
     // extra dům
 
@@ -23,79 +25,79 @@ class FeedRealEstate
     // extra pozemek
 
     /**
-     * @ORM\Column(type="string", length=255, name="cena_za_m²")
+     * @ORM\Column(type="string", nullable=true, length=255, name="cena_za_m²")
      * @var string
      */
     private $pricePerSquareMeter;
 
     /**
-     * @ORM\Column(type="string", length=255, name="energeticka_narocnost_budovy")
+     * @ORM\Column(type="string", nullable=true, length=255, name="energeticka_narocnost_budovy")
      * @var string
      */
     private $electricityRequirements;
 
     /**
-     * @ORM\Column(type="string", length=255, name="bezbarierovy")
+     * @ORM\Column(type="string", nullable=true, length=255, name="bezbarierovy")
      * @var string
      */
     private $barrierAccess;
 
     /**
-     * @ORM\Column(type="string", length=255, name="komunikace")
+     * @ORM\Column(type="string", nullable=true, length=255, name="komunikace")
      * @var string
      */
     private $communication;
 
     /**
-     * @ORM\Column(type="string", length=255, name="telekomunikace")
+     * @ORM\Column(type="string", nullable=true, length=255, name="telekomunikace")
      * @var string
      */
     private $telecommunication;
 
     /**
-     * @ORM\Column(type="string", length=255, name="odpad")
+     * @ORM\Column(type="string", nullable=true, length=255, name="odpad")
      * @var string
      */
     private $waste;
 
     /**
-     * @ORM\Column(type="string", length=255, name="garaz")
+     * @ORM\Column(type="string", nullable=true, length=255, name="garaz")
      * @var string
      */
     private $garage;
 
     /**
-     * @ORM\Column(type="string", length=255, name="parkovani")
+     * @ORM\Column(type="string", nullable=true, length=255, name="parkovani")
      * @var string
      */
     private $parking;
 
     /**
-     * @ORM\Column(type="string", length=255, name="plocha_zahrady")
+     * @ORM\Column(type="string", nullable=true, length=255, name="plocha_zahrady")
      * @var string
      */
     private $gardenArea;
 
     /**
-     * @ORM\Column(type="string", length=255, name="plocha_pozemku")
+     * @ORM\Column(type="string", nullable=true, length=255, name="plocha_pozemku")
      * @var string
      */
     private $flatArea;
 
     /**
-     * @ORM\Column(type="string", length=255, name="plocha_zastavena")
+     * @ORM\Column(type="string", nullable=true, length=255, name="plocha_zastavena")
      * @var string
      */
     private $houseArea;
 
     /**
-     * @ORM\Column(type="string", length=255, name="typ_domu")
+     * @ORM\Column(type="string", nullable=true, length=255, name="typ_domu")
      * @var string
      */
     private $houseType;
 
     /**
-     * @ORM\Column(type="string", length=255, name="vybaveni")
+     * @ORM\Column(type="string", nullable=true, length=255, name="vybaveni")
      * @var string
      */
     private $contents;
@@ -109,90 +111,90 @@ class FeedRealEstate
     private $id;
 
     /**
-     * @ORM\Column(type="text", name="popis")
+     * @ORM\Column(type="text", nullable=true, name="popis")
      * @var string
      */
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255, name="plyn")
+     * @ORM\Column(type="string", nullable=true, length=255, name="plyn")
      * @var string
      */
     private $gas;
 
     /**
-     * @ORM\Column(type="string", length=255, name="topeni")
+     * @ORM\Column(type="string", nullable=true, length=255, name="topeni")
      * @var string
      */
     private $heating;
 
     /**
-     * @ORM\Column(type="string", length=255, name="voda")
+     * @ORM\Column(type="string", nullable=true, length=255, name="voda")
      * @var string
      */
     private $water;
 
     /**
-     * @ORM\Column(type="string", length=255, name="sklep")
+     * @ORM\Column(type="string", nullable=true, length=255, name="sklep")
      * @var string
      */
     private $celar;
 
     /**
-     * @ORM\Column(type="string", length=255, name="lodzie")
+     * @ORM\Column(type="string", nullable=true, length=255, name="lodzie")
      * @var string
      */
     private $lodzie;
 
     /**
-     * @ORM\Column(type="string", length=255, name="plocha_podlahova")
+     * @ORM\Column(type="string", nullable=true, length=255, name="plocha_podlahova")
      * @var string
      */
     private $floorArea;
 
     /**
-     * @ORM\Column(type="string", length=255, name="uzitna_plocha")
+     * @ORM\Column(type="string", nullable=true, length=255, name="uzitna_plocha")
      * @var string
      */
     private $usedArea;
 
     /**
-     * @ORM\Column(type="string", length=255, name="podlazi")
+     * @ORM\Column(type="string", nullable=true, length=255, name="podlazi")
      * @var string
      */
     private $level;
 
     /**
-     * @ORM\Column(type="string", length=255, name="vlastnictvi")
+     * @ORM\Column(type="string", nullable=true, length=255, name="vlastnictvi")
      * @var string
      */
     private $ownership;
 
     /**
-     * @ORM\Column(type="string", length=255, name="stav_objektu")
+     * @ORM\Column(type="string", nullable=true, length=255, name="stav_objektu")
      * @var string
      */
     private $objectState;
 
     /**
-     * @ORM\Column(type="string", length=255, name="stavba")
+     * @ORM\Column(type="string", nullable=true, length=255, name="stavba")
      * @var string
      */
     private $building;
 
     /**
-     * @ORM\Column(type="string", length=255, name="celkova_cena")
+     * @ORM\Column(type="string", nullable=true, length=255, name="celkova_cena")
      * @var string
      */
     private $price;
 
     /**
-     * @ORM\Column(type="string", length=255, name="elektrina")
+     * @ORM\Column(type="string", nullable=true, length=255, name="elektrina")
      * @var string
      */
     private $electricity;
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -202,7 +204,7 @@ class FeedRealEstate
         $this->id = $id;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -212,7 +214,7 @@ class FeedRealEstate
         $this->description = $description;
     }
 
-    public function getPrice(): string
+    public function getPrice(): ?string
     {
         return $this->price;
     }
@@ -222,7 +224,7 @@ class FeedRealEstate
         $this->price = $price;
     }
 
-    public function getBuilding(): string
+    public function getBuilding(): ?string
     {
         return $this->building;
     }
@@ -232,7 +234,7 @@ class FeedRealEstate
         $this->building = $building;
     }
 
-    public function getObjectState(): string
+    public function getObjectState(): ?string
     {
         return $this->objectState;
     }
@@ -242,7 +244,7 @@ class FeedRealEstate
         $this->objectState = $objectState;
     }
 
-    public function getOwnership(): string
+    public function getOwnership(): ?string
     {
         return $this->ownership;
     }
@@ -252,7 +254,7 @@ class FeedRealEstate
         $this->ownership = $ownership;
     }
 
-    public function getLevel(): string
+    public function getLevel(): ?string
     {
         return $this->level;
     }
@@ -262,7 +264,7 @@ class FeedRealEstate
         $this->level = $level;
     }
 
-    public function getUsedArea(): string
+    public function getUsedArea(): ?string
     {
         return $this->usedArea;
     }
@@ -272,7 +274,7 @@ class FeedRealEstate
         $this->usedArea = $usedArea;
     }
 
-    public function getFloorArea(): string
+    public function getFloorArea(): ?string
     {
         return $this->floorArea;
     }
@@ -282,7 +284,7 @@ class FeedRealEstate
         $this->floorArea = $floorArea;
     }
 
-    public function getLodzie(): string
+    public function getLodzie(): ?string
     {
         return $this->lodzie;
     }
@@ -292,7 +294,7 @@ class FeedRealEstate
         $this->lodzie = $lodzie;
     }
 
-    public function getCelar(): string
+    public function getCelar(): ?string
     {
         return $this->celar;
     }
@@ -302,7 +304,7 @@ class FeedRealEstate
         $this->celar = $celar;
     }
 
-    public function getWater(): string
+    public function getWater(): ?string
     {
         return $this->water;
     }
@@ -312,7 +314,7 @@ class FeedRealEstate
         $this->water = $water;
     }
 
-    public function getHeating(): string
+    public function getHeating(): ?string
     {
         return $this->heating;
     }
@@ -322,7 +324,7 @@ class FeedRealEstate
         $this->heating = $heating;
     }
 
-    public function getGas(): string
+    public function getGas(): ?string
     {
         return $this->gas;
     }
@@ -332,7 +334,7 @@ class FeedRealEstate
         $this->gas = $gas;
     }
 
-    public function getElectricity(): string
+    public function getElectricity(): ?string
     {
         return $this->electricity;
     }
@@ -342,7 +344,7 @@ class FeedRealEstate
         $this->electricity = $electricity;
     }
 
-    public function getElectricityRequirements(): string
+    public function getElectricityRequirements(): ?string
     {
         return $this->electricityRequirements;
     }
@@ -352,7 +354,7 @@ class FeedRealEstate
         $this->electricityRequirements = $electricityRequirements;
     }
 
-    public function getContents(): string
+    public function getContents(): ?string
     {
         return $this->contents;
     }
@@ -362,7 +364,7 @@ class FeedRealEstate
         $this->contents = $contents;
     }
 
-    public function getHouseLocation(): string
+    public function getHouseLocation(): ?string
     {
         return $this->houseLocation;
     }
@@ -372,7 +374,7 @@ class FeedRealEstate
         $this->houseLocation = $houseLocation;
     }
 
-    public function getHouseType(): string
+    public function getHouseType(): ?string
     {
         return $this->houseType;
     }
@@ -382,7 +384,7 @@ class FeedRealEstate
         $this->houseType = $houseType;
     }
 
-    public function getHouseArea(): string
+    public function getHouseArea(): ?string
     {
         return $this->houseArea;
     }
@@ -392,7 +394,7 @@ class FeedRealEstate
         $this->houseArea = $houseArea;
     }
 
-    public function getFlatArea(): string
+    public function getFlatArea(): ?string
     {
         return $this->flatArea;
     }
@@ -402,7 +404,7 @@ class FeedRealEstate
         $this->flatArea = $flatArea;
     }
 
-    public function getGardenArea(): string
+    public function getGardenArea(): ?string
     {
         return $this->gardenArea;
     }
@@ -412,7 +414,7 @@ class FeedRealEstate
         $this->gardenArea = $gardenArea;
     }
 
-    public function getParking(): string
+    public function getParking(): ?string
     {
         return $this->parking;
     }
@@ -422,7 +424,7 @@ class FeedRealEstate
         $this->parking = $parking;
     }
 
-    public function getGarage(): string
+    public function getGarage(): ?string
     {
         return $this->garage;
     }
@@ -432,7 +434,7 @@ class FeedRealEstate
         $this->garage = $garage;
     }
 
-    public function getWaste(): string
+    public function getWaste(): ?string
     {
         return $this->waste;
     }
@@ -442,7 +444,7 @@ class FeedRealEstate
         $this->waste = $waste;
     }
 
-    public function getTelecommunication(): string
+    public function getTelecommunication(): ?string
     {
         return $this->telecommunication;
     }
@@ -452,7 +454,7 @@ class FeedRealEstate
         $this->telecommunication = $telecommunication;
     }
 
-    public function getCommunication(): string
+    public function getCommunication(): ?string
     {
         return $this->communication;
     }
@@ -462,7 +464,7 @@ class FeedRealEstate
         $this->communication = $communication;
     }
 
-    public function getBarrierAccess(): string
+    public function getBarrierAccess(): ?string
     {
         return $this->barrierAccess;
     }
@@ -472,7 +474,7 @@ class FeedRealEstate
         $this->barrierAccess = $barrierAccess;
     }
 
-    public function getPricePerSquareMeter(): string
+    public function getPricePerSquareMeter(): ?string
     {
         return $this->pricePerSquareMeter;
     }
