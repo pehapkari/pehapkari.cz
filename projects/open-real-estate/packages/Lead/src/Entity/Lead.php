@@ -3,6 +3,7 @@
 namespace OpenRealEstate\Lead\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model\Blameable\Blameable;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 
 /**
@@ -11,6 +12,7 @@ use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 class Lead
 {
     use Timestampable;
+    use Blameable;
 
     /**
      * @ORM\Id()
@@ -45,6 +47,12 @@ class Lead
     private $comment;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     * @var string
+     */
+    private $internalComment;
+
+    /**
      * @ORM\ManyToOne(targetEntity="OpenRealEstate\Lead\Entity\LeadStatus")
      * @var LeadStatus
      */
@@ -56,12 +64,6 @@ class Lead
      */
     private $adviser;
 
-    /**
-     * "Zadal"
-     * @todo ask ? string or the current user?
-     */
-    //private $createdBy;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -70,6 +72,16 @@ class Lead
     public function setId(int $id): void
     {
         $this->id = $id;
+    }
+
+    public function getInternalComment(): ?string
+    {
+        return $this->internalComment;
+    }
+
+    public function setInternalComment(string $internalComment): void
+    {
+        $this->internalComment = $internalComment;
     }
 
     public function getName(): ?string

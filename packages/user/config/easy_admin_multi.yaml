@@ -14,3 +14,4 @@ easy_admin:
         UserRole:
             label: 'Přístupové role'
             class: 'OpenProject\User\Entity\Role'
+            role_prefix: ROLE_SUPER_ADMIN

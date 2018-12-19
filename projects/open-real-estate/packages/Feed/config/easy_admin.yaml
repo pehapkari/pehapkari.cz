@@ -4,13 +4,44 @@ easy_admin:
             -
                 label: 'Nemovitosti do feedů'
                 icon: 'rss-square'
-                entity: 'FeedRealEstate'
+                children:
+                    - { label: 'Seznam nemovitostí', entity: 'FeedRealEstate' }
+                    - { label: 'Generování feedů', route: 'xml_feed_generate' }
 
     entities:
         FeedRealEstate:
             label: 'Nemovitosti do feedů'
             class: 'OpenRealEstate\Feed\Entity\FeedRealEstate'
             form:
-                # added by `Knp\DoctrineBehaviors\Model\Timestampable\Timestampable` trait
-                # @see https://github.com/KnpLabs/DoctrineBehaviors
-                exclude_fields: ['createdAt', 'updatedAt']
+                exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy', 'deletedBy']
+            list:
+                title: '%%entity_label%%'
+                fields:
+                    - { property: 'houseLocation', label: 'Poloha domu' }
+                    - { property: 'pricePerSquareMeter', label: 'Cena za m²' }
+                    - { property: 'electricityRequirements', label: 'Energetická náročnost budovy' }
+                    - { property: 'barrierAccess', label: 'Bezbariérový' }
+                    - { property: 'communication', label: 'Komunikace' }
+                    - { property: 'telecommunication', label: 'Telekomunikace' }
+                    - { property: 'waste', label: 'Odpad' }
+                    - { property: 'garage', label: 'Garáž' }
+                    - { property: 'parking', label: 'Parkování' }
+                    - { property: 'gardenArea', label: 'Plocha zahrady' }
+                    - { property: 'flatArea', label: 'Plocha pozemku' }
+                    - { property: 'houseArea', label: 'Plocha zastavěná' }
+                    - { property: 'houseType', label: 'Typ domu' }
+                    - { property: 'contents', label: 'Vybavení' }
+                    - { property: 'description', label: 'Popis' }
+                    - { property: 'gas', label: 'Plyn' }
+                    - { property: 'heating', label: 'Topení' }
+                    - { property: 'water', label: 'Voda' }
+                    - { property: 'celar', label: 'Sklep' }
+                    - { property: 'lodzie', label: 'Lodzie' }
+                    - { property: 'floorArea', label: 'Plocha podlahová' }
+                    - { property: 'usedArea', label: 'Užitná plocha' }
+                    - { property: 'level', label: 'Podlaží' }
+                    - { property: 'ownership', label: 'Vlastnictví' }
+                    - { property: 'objectState', label: 'Stav objektu' }
+                    - { property: 'building', label: 'Stavba' }
+                    - { property: 'price', label: 'Celková cena' }
+                    - { property: 'electricity', label: 'Elektřina' }

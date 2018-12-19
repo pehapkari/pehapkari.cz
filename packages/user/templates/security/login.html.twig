@@ -1,20 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    {# source: https://getbootstrap.com/docs/4.1/examples/sign-in/ #}
+
+    <div class="container text-center">
         <div class="row">
-            <div class="col-xs-12">
-                <h1>Login</h1>
+            <div class="col-12">
+                <h1 class="h3 mb-3 font-weight-normal">Přihlášení</h1>
 
                 {% if error %}
                     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                 {% endif %}
 
-                <form action="{{ path('login') }}" method="post">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="_password" />
+                <form action="{{ path('login') }}" method="post" class="form-signin">
+                    <label for="username" class="sr-only">Email</label>
+                    <input type="email" name="_username" id="username" class="form-control" placeholder="Email address" required autofocus value="{{ last_username }}">
+
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" id="password" name="_password" class="form-control" placeholder="Password" required>
                     {#
                         If you want to control the URL the user
                         is redirected to on success (more details below)
@@ -24,7 +27,7 @@
                     {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                    <button type="submit">login</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Přihlásit se</button>
                 </form>
             </div>
         </div>

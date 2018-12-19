@@ -5,42 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="robots" content="all">
-        <meta name="description" content="Pomůžeme vám s financováním nového bydlení, s nákupem i prodejem nemovitosti, s odhadem ceny nemovitosti nebo s celkovým zlepšením vaší finanční situace.">
-
-        <meta property="og:site_name" content="Oksana &amp; Zítka">
-        <meta property="og:locale" content="cs_CZ">
-        <meta property="og:description" content="Pomůžeme vám s financováním nového bydlení, s nákupem i prodejem nemovitosti, s odhadem ceny nemovitosti nebo s celkovým zlepšením vaší finanční situace.">
 
         <title id="snippet--title">{% block title %}Oksana &amp; Zítka – Specialisté na hypotéky a reality{% endblock %}</title>
 
         <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
-        <link href="http://www.oksana-zitka.cz/css/style.css?v=0.2" type="text/css" media="all" rel="stylesheet">
-
-        <link rel="shortcut icon" href="http://www.oksana-zitka.cz/images/layout/favicon.ico">
-
-        <!--[if lt IE 9]>
-        <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', "UA-75460638-1", 'auto');
-            ga('require', 'displayfeatures');
-            ga('send', 'pageview');
-        </script>
+        <link rel="stylesheet" href="{{ asset('build/css/sign-in.css') }}">
     </head>
 
-    <body class="cs page-homepage module-static home-page" data-basepath="" id="{% block body_id %}{% endblock %}">
-        <div id="top">
-            {{ include("_snippets/header.html.twig") }}
-
-            {% block body %}{% endblock %}
-
-            {{ include("_snippets/footer.html.twig") }}
-        </div>
+    <body id="{% block body_id %}{% endblock %}">
+        {% block body %}{% endblock %}
     </body>
 </html>
