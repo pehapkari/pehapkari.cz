@@ -1,5 +1,6 @@
 {
     "namespaces": [
+        { "path": "packages/user/templates/" },
         { "path": "projects/open-real-estate/templates/" },
         { "path": "projects/open-training/templates/" }
     ]
