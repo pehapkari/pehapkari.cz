@@ -79,7 +79,7 @@ class Lead
         return $this->internalComment;
     }
 
-    public function setInternalComment(string $internalComment)
+    public function setInternalComment(string $internalComment): void
     {
         $this->internalComment = $internalComment;
     }

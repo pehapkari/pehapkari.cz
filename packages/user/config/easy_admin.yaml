@@ -4,3 +4,4 @@ easy_admin:
         User:
             label: 'Uživatelé'
             class: 'OpenProject\User\Entity\User'
+            role_prefix: ROLE_ADMIN

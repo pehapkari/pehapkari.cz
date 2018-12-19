@@ -6,13 +6,11 @@ easy_admin:
                 icon: 'rss-square'
                 children:
                     - { label: 'Seznam nemovitostí', entity: 'FeedRealEstate' }
-#                    - { label: 'Generování feedů', route: 'xml_feed_generate' }
+                    - { label: 'Generování feedů', route: 'xml_feed_generate' }
 
     entities:
         FeedRealEstate:
             label: 'Nemovitosti do feedů'
             class: 'OpenRealEstate\Feed\Entity\FeedRealEstate'
             form:
-                # added by `Knp\DoctrineBehaviors\Model\Timestampable\Timestampable` trait
-                # @see https://github.com/KnpLabs/DoctrineBehaviors
-                exclude_fields: ['createdAt', 'updatedAt']
+                exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy', 'deletedBy']
