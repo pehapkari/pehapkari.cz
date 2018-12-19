@@ -47,9 +47,6 @@ final class OpenRealEstateKernel extends Kernel
             __DIR__ . '/../../../packages/*/config/config', // root packages
             $this->getProjectDir() . '/packages/*/config/config', // project packages
         ]);
-
-        // load optional specific configs
-        $loader->load(__DIR__ . '/../../../packages/user/config/config_multi.yaml');
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
@@ -59,9 +56,6 @@ final class OpenRealEstateKernel extends Kernel
         (new AnnotationRoutesAutodiscover($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
     }
 
-    /**
-     * Order matters!
-     */
     protected function build(ContainerBuilder $containerBuilder): void
     {
         // needs to be first, since it's adding new service definitions

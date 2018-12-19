@@ -3,6 +3,7 @@
         { "path": "packages/user/templates/" },
         { "path": "projects/open-real-estate/templates/" },
         { "path": "projects/open-training/templates/" },
-        { "path": "projects/open-real-estate/packages/Feed/templates" }
+        { "path": "projects/open-real-estate/packages/Feed/templates/" },
+        { "path": "projects/open-real-estate/packages/PriceMap/templates/" }
     ]
 }

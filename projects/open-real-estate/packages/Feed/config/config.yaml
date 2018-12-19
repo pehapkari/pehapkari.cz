@@ -1,2 +1,7 @@
 imports:
     - { resource: "easy_admin.yaml" }
+
+services:
+    OpenRealEstate\Feed\EasyAdmin\Configuration\ParamLabelConfigPass:
+        tags:
+            - { name: 'easyadmin.config_pass', priority: 100 }
