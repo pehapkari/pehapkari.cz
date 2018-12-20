@@ -2,7 +2,7 @@
     "name": "open-real-estate/open-real-estate",
     "license": "MIT",
     "require": {
-        "php": "^7.2",
+        "php": "^7.1",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "ext-intl": "*",

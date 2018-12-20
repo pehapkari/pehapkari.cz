@@ -2,7 +2,7 @@
     "name": "open-training/open-training",
     "license": "MIT",
     "require": {
-        "php": "^7.2",
+        "php": "^7.1",
         "ext-intl": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
