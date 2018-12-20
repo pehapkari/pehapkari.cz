@@ -2,14 +2,13 @@
 
 namespace OpenRealEstate\PriceMap\Controller;
 
-use OpenRealEstate\PriceMap\Repository\AreaPriceRepository;
+use OpenRealEstate\PriceMap\Entity\PriceMap;
+use OpenRealEstate\PriceMap\Form\UploadXlsFormFactory;
+use OpenRealEstate\PriceMap\Repository\PriceMapRepository;
 use PhpOffice\PhpSpreadsheet\Reader\Xls;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormError;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,29 +16,38 @@ use Symfony\Component\HttpFoundation\Response;
 final class PriceMapController extends AbstractController
 {
     /**
-     * @var AreaPriceRepository
+     * @var PriceMapRepository
      */
-    private $areaPriceRepository;
+    private $priceMapRepository;
 
     /**
      * @var Xls
      */
     private $xls;
 
-    public function __construct(AreaPriceRepository $areaPriceRepository, Xls $xls)
-    {
-        $this->areaPriceRepository = $areaPriceRepository;
+    /**
+     * @var UploadXlsFormFactory
+     */
+    private $uploadXlsFormFactory;
+
+    public function __construct(
+        PriceMapRepository $priceMapRepository,
+        Xls $xls,
+        UploadXlsFormFactory $uploadXlsFormFactory
+    ) {
+        $this->priceMapRepository = $priceMapRepository;
         $this->xls = $xls;
+        $this->uploadXlsFormFactory = $uploadXlsFormFactory;
     }
 
     /**
      * @see https://symfony.com/doc/current/controller/upload_file.html
      *
-     * @Route(path="/upload-xls-price-list", name="upload-xls-price-list", methods={"GET", "POST"})
+     * @Route(path="/admin/price-map/upload-xls", name="price_map_upload_xls", methods={"GET", "POST"})
      */
-    public function uploadXlsPriceList(Request $request): Response
+    public function uploadXls(Request $request): Response
     {
-        $form = $this->createUploadForm();
+        $form = $this->uploadXlsFormFactory->create();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -48,31 +56,24 @@ final class PriceMapController extends AbstractController
 
             if (in_array($uploadedFile->getClientOriginalExtension(), ['xls', 'xlsx'], true)) {
                 $spreadsheet = $this->xls->load($uploadedFile->getRealPath());
-                $this->areaPriceRepository->importWorksheet($spreadsheet->getActiveSheet());
+                $this->priceMapRepository->importWorksheet($spreadsheet->getActiveSheet());
 
                 $this->addFlash('XLS byl úspěšně importován.', 'success');
-                // @todo redirect
+
+                $this->redirectToRoute('easyadmin', [
+                    'entity' => PriceMap::class,
+                    'action' => 'list',
+                ]);
             }
 
             $form->addError(new FormError(sprintf(
-                'Only XLS/XLSX formats are supported. "%s" provided',
+                'Nahrajte XLS/XLSX soubor, místo "%s"',
                 $uploadedFile->getClientOriginalExtension()
             )));
         }
 
-        return $this->render('real-estate/upload-xls-price-list.twig', [
+        return $this->render('price_map/upload_xls.twig', [
             'form' => $form->createView(),
         ]);
-    }
-
-    private function createUploadForm(): FormInterface
-    {
-        $formBuilder = $this->createFormBuilder();
-        $formBuilder->add('file', FileType::class, [
-            'label' => 'XLS soubor s cenami',
-        ]);
-        $formBuilder->add('submit', SubmitType::class);
-
-        return $formBuilder->getForm();
     }
 }

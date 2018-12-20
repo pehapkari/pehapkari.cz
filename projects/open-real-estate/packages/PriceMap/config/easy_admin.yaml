@@ -5,9 +5,13 @@ easy_admin:
             -
                 label: 'Cenová mapa'
                 icon: 'money'
-                entity: 'AreaPrice'
+                children:
+                    - { label: 'Odhadnout cenu', route: 'price_map_estimate_price' }
+                    # @todo - only admin
+                    - { label: 'Cenová mapa', entity: 'PriceMap' }
+                    - { label: 'Nahrát XLS', route: 'price_map_upload_xls' }
 
     entities:
-        AreaPrice:
+        PriceMap:
             label: 'Cenová mapa'
-            class: 'OpenRealEstate\PriceMap\Entity\AreaPrice'
+            class: 'OpenRealEstate\PriceMap\Entity\PriceMap'
