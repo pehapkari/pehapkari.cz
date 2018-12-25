@@ -23,12 +23,14 @@
         "symfony/security-bundle": "^4.2",
         "symfony/swiftmailer-bundle": "^3.2",
         "symfony/templating": "^4.2",
+        "symfony/translation": "^4.2",
         "symfony/twig-bridge": "^4.2",
         "symfony/twig-bundle": "^4.2",
         "symfony/validator": "^4.2",
         "symfony/yaml": "^4.2",
         "symplify/autodiscovery": "@dev",
         "symplify/flex-loader": "@dev",
+        "symplify/package-builder": "@dev",
         "twig/extensions": "^1.5"
     },
     "require-dev": {
@@ -43,8 +45,7 @@
             "OpenRealEstate\\": "src",
             "OpenRealEstate\\PriceMap\\": "packages/PriceMap/src",
             "OpenRealEstate\\Feed\\": "packages/Feed/src",
-            "OpenRealEstate\\Lead\\": "packages/Lead/src",
-            "OpenRealEstate\\RealEstate\\": "packages/RealEstate/src"
+            "OpenRealEstate\\Lead\\": "packages/Lead/src"
         }
     },
     "scripts": {
