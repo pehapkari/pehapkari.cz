@@ -8,13 +8,3 @@ services:
     OpenRealEstate\Feed\:
         resource: '../src'
         exclude: '../src/{EasyAdmin/Configuration}'
-
-    OpenRealEstate\Feed\EasyAdmin\Configuration\GridLabelConfigPass:
-        tags:
-            # after ViewConfigPass
-            - { name: 'easyadmin.config_pass', priority: 28 }
-
-    # this works
-    OpenRealEstate\Feed\EasyAdmin\Configuration\FormLabelConfigPass:
-        tags:
-            - { name: 'easyadmin.config_pass', priority: 90 }

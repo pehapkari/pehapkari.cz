@@ -17,7 +17,7 @@ class FeedRealEstate
     // extra dům
 
     /**
-     * @ORM\Column(type="string", length=255, name="poloha_domu")
+     * @ORM\Column(type="string", length=255)
      * @var string
      */
     private $houseLocation;
@@ -25,79 +25,79 @@ class FeedRealEstate
     // extra pozemek
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="cena_za_m²")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $pricePerSquareMeter;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="energeticka_narocnost_budovy")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $electricityRequirements;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="bezbarierovy")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $barrierAccess;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="komunikace")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $communication;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="telekomunikace")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $telecommunication;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="odpad")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $waste;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="garaz")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $garage;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="parkovani")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $parking;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="plocha_zahrady")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $gardenArea;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="plocha_pozemku")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $flatArea;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="plocha_zastavena")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $houseArea;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="typ_domu")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $houseType;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="vybaveni")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $contents;
@@ -111,85 +111,85 @@ class FeedRealEstate
     private $id;
 
     /**
-     * @ORM\Column(type="text", nullable=true, name="popis")
+     * @ORM\Column(type="text", nullable=true)
      * @var string
      */
     private $description;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="plyn")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $gas;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="topeni")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $heating;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="voda")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $water;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="sklep")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $celar;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="lodzie")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $lodzie;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="plocha_podlahova")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $floorArea;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="uzitna_plocha")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $usedArea;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="podlazi")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $level;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="vlastnictvi")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $ownership;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="stav_objektu")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $objectState;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="stavba")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $building;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="celkova_cena")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $price;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=255, name="elektrina")
+     * @ORM\Column(type="string", nullable=true, length=255)
      * @var string
      */
     private $electricity;
