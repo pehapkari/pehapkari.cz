@@ -9,7 +9,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symplify\Autodiscovery\Doctrine\DoctrineEntityMappingAutodiscoverer;
-use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscover;
 use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscoverer;
 use Symplify\Autodiscovery\Twig\TwigPathAutodiscoverer;
 use Symplify\FlexLoader\Flex\FlexLoader;
