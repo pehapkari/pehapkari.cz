@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        public: true
+        autowire: true
+        autoconfigure: true
+
+    OpenProject\BetterEasyAdmin\:
+        resource: '../src'
+
+    Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~

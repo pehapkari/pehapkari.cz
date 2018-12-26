@@ -33,15 +33,18 @@ easy_admin:
             show:
                 fields: "%training_grid_fields%"
             form:
-                fields:
-                    - 'name'
-                    - { property: 'imageFile', type: 'file' }
-                    - 'perex'
-                    - 'description'
-                    - 'capacity'
-                    - 'price'
-                    - 'place'
-                    - 'trainer'
+                exclude_fields:
+                    - 'trainingReferences'
+#                    - 'imageUploadedAt'
+#                fields:
+#                    - 'name'
+#                    - { property: 'imageFile', type: 'file' }
+#                    - 'perex'
+#                    - 'description'
+#                    - 'capacity'
+#                    - 'price'
+#                    - 'place'
+#                    - 'trainer'
 
         TrainingTerm:
             label: 'Termíny školení'

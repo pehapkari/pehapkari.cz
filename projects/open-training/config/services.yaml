@@ -12,3 +12,8 @@ services:
     OpenTraining\:
         resource: '../src/'
         exclude: '../src/{OpenTrainingKernel.php}'
+
+    OpenTraining\EasyAdmin\ConfigPass\ImagePropertyAutoconfigureConfigPass:
+        tags:
+            # after ViewConfigPass
+            - { name: 'easyadmin.config_pass', priority: 5 }

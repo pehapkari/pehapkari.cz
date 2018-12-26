@@ -1,0 +1,13 @@
+{
+    "name": "open-project/better-easy-admin",
+    "license": "MIT",
+    "require": {
+        "php": "^7.1",
+        "symfony/console": "^4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenProject\\BetterEasyAdmin\\": "src"
+        }
+    }
+}

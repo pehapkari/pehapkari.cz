@@ -7,6 +7,9 @@ parameters:
 
     # for "merge" command
     data_to_append:
+        autoload:
+            psr-4:
+
         require-dev:
             phpstan/phpstan: "^0.10.6"
             phpstan/phpstan-doctrine: "^0.10"
