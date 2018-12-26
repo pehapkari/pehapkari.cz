@@ -1,8 +1,10 @@
 <?php
 
 use Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle;
+use Vich\UploaderBundle\VichUploaderBundle;
 
 return [
+    VichUploaderBundle::class => ['all' => true],
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],

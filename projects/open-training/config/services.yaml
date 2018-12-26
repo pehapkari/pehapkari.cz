@@ -1,6 +1,7 @@
 parameters:
     locale: 'cs'
     training_max_references_to_show: 3
+    training_image_path: "/uploads/images/trainings"
 
 services:
     _defaults:

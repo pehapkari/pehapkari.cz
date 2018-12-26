@@ -1,0 +1,8 @@
+# https://symfony.com/doc/master/bundles/EasyAdminBundle/integration/vichuploaderbundle.html#configuring-the-uploading-of-image-files
+vich_uploader:
+    db_driver: 'orm'
+
+    mappings:
+        lecture_images:
+            uri_prefix: '%training_image_path%'
+            upload_destination: '%kernel.project_dir%/public%training_image_path%'

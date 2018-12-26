@@ -1,0 +1,40 @@
+easy_admin:
+    design:
+        menu:
+            - label: 'Školení'
+              icon: 'graduation-cap'
+              children: ['Training', 'TrainingTerm']
+            - label: 'Školitelé a místa'
+              icon: 'map-marker'
+              children: ['Trainer', 'Place']
+
+    entities:
+        Training:
+            label: 'Školení'
+            class: 'OpenTraining\Training\Entity\Training'
+
+            list:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '%training_image_path%' }
+                show:
+                    fields:
+                        - { property: 'image', type: 'image', base_path: '%training_image_path%' }
+            form:
+                fields:
+                    - { property: 'imageFile', type: 'file' }
+                exclude_fields: ['trainingReferences', 'trainingTerms', 'slug']
+
+        TrainingTerm:
+            label: 'Termíny školení'
+            class: 'OpenTraining\Training\Entity\TrainingTerm'
+            form:
+                exclude_fields: ['registrations', 'slug']
+
+        Trainer:
+            label: 'Školitelé'
+            class: 'OpenTraining\Training\Entity\Trainer'
+            form:
+                exclude_fields: ['trainings']
+        Place:
+            label: 'Školící místa'
+            class: 'OpenTraining\Training\Entity\Place'
