@@ -5,6 +5,7 @@ namespace OpenProject\BetterEasyAdmin\Command;
 use EasyCorp\Bundle\EasyAdminBundle\Configuration\ConfigManager;
 use EasyCorp\Bundle\EasyAdminBundle\Configuration\ConfigPassInterface;
 use Nette\Utils\Strings;
+use ReflectionClass;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -15,11 +16,6 @@ use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 final class DebugConfigPassCommand extends Command
 {
     /**
-     * @var array
-     */
-    private $configPasses = [];
-
-    /**
      * @var ConfigManager
      */
     private $configManager;
@@ -29,11 +25,20 @@ final class DebugConfigPassCommand extends Command
      */
     private $symfonyStyle;
 
-    public function __construct(ConfigManager $configManager, SymfonyStyle $symfonyStyle)
-    {
+    /**
+     * @var PrivatesAccessor
+     */
+    private $privatesAccessor;
+
+    public function __construct(
+        ConfigManager $configManager,
+        SymfonyStyle $symfonyStyle,
+        PrivatesAccessor $privatesAccessor
+    ) {
         parent::__construct();
         $this->configManager = $configManager;
         $this->symfonyStyle = $symfonyStyle;
+        $this->privatesAccessor = $privatesAccessor;
     }
 
     protected function configure(): void
@@ -44,15 +49,18 @@ final class DebugConfigPassCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
-        $configPasses = (new PrivatesAccessor())->getPrivateProperty($this->configManager, 'configPasses');
+        $configPasses = $this->privatesAccessor->getPrivateProperty($this->configManager, 'configPasses');
 
-        $this->symfonyStyle->section('Active config passes');
+        $this->symfonyStyle->section('Active config passes in order of execution');
 
         foreach ($configPasses as $configPass) {
             $bareClass = Strings::after(get_class($configPass), '\\', -1);
             $mainNamespace = Strings::before(get_class($configPass), '\\', 1);
 
-            $this->symfonyStyle->writeln(sprintf(' * %s (%s)', $bareClass, $mainNamespace));
+            $reflectionClass = new ReflectionClass($configPass);
+            $filePath = $reflectionClass->getFileName();
+
+            $this->symfonyStyle->writeln(sprintf(' * %s (%s) - %s', $bareClass, $mainNamespace, $filePath));
         }
 
         $this->symfonyStyle->newLine();

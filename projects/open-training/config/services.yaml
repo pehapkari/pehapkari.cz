@@ -16,4 +16,4 @@ services:
     OpenTraining\EasyAdmin\ConfigPass\ImagePropertyAutoconfigureConfigPass:
         tags:
             # after ViewConfigPass
-            - { name: 'easyadmin.config_pass', priority: 5 }
+            - { name: 'easyadmin.config_pass', priority: 2 }

@@ -16,5 +16,5 @@ projects/open-training/public/build/*/glyphicons-*
 
 .env
 
-public/uploads/images
+projects/open-training/public/uploads/images
 projects/*/composer.lock

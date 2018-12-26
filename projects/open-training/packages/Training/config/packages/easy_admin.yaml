@@ -1,50 +1,12 @@
-parameters:
-    training_grid_fields:
-        - 'name'
-        - { property: 'image', type: 'image', base_path: '%image_uploads%' }
-        - 'perex'
-        - 'description'
-        - 'capacity'
-        - 'price'
-        - 'place'
-        - 'trainer'
-
-    trainer_grid_fields:
-        - 'name'
-        - { property: 'image', type: 'image', base_path: '%image_uploads%' }
-        - 'email'
-        - 'phone'
-        - 'website'
-        - 'bio'
-
-    place_grid_fields:
-        - 'name'
-        - { property: 'image', type: 'image', base_path: '%image_uploads%' }
-        - 'description'
-        - 'mapUrl'
-
 easy_admin:
     entities:
         Training:
             label: 'Školení'
             class: 'OpenTraining\Training\Entity\Training'
-            list:
-                fields: "%training_grid_fields%"
-            show:
-                fields: "%training_grid_fields%"
             form:
                 exclude_fields:
                     - 'trainingReferences'
-#                    - 'imageUploadedAt'
-#                fields:
-#                    - 'name'
-#                    - { property: 'imageFile', type: 'file' }
-#                    - 'perex'
-#                    - 'description'
-#                    - 'capacity'
-#                    - 'price'
-#                    - 'place'
-#                    - 'trainer'
+                    - 'trainingTerms'
 
         TrainingTerm:
             label: 'Termíny školení'
@@ -53,31 +15,13 @@ easy_admin:
         Trainer:
             label: 'Školitelé'
             class: 'OpenTraining\Training\Entity\Trainer'
-            list:
-                fields: '%trainer_grid_fields%'
-            show:
-                fields: '%trainer_grid_fields%'
             form:
-                fields:
-                    - 'name'
-                    - { property: 'imageFile', type: 'file' }
-                    - 'email'
-                    - 'phone'
-                    - 'website'
-                    - 'bio'
+                exclude_fields:
+                    - 'trainings'
+
         Place:
             label: 'Školící místa'
             class: 'OpenTraining\Training\Entity\Place'
-            list:
-                fields: '%place_grid_fields%'
-            show:
-                fields: '%place_grid_fields%'
-            form:
-                fields:
-                    - 'name'
-                    - { property: 'imageFile', type: 'file' }
-                    - 'description'
-                    - 'mapUrl'
 
         Reference:
             label: 'Zpětné vazby'
