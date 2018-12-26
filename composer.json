@@ -32,7 +32,7 @@
         "symfony/twig-bundle": "^4.2",
         "symfony/validator": "^4.2",
         "symfony/yaml": "^4.2",
-        "symplify/autodiscovery": "@dev",
+        "symplify/autodiscovery": "dev-master",
         "symplify/flex-loader": "@dev",
         "symplify/package-builder": "@dev",
         "twig/extensions": "^1.5"

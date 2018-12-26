@@ -9,7 +9,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symplify\Autodiscovery\Doctrine\DoctrineEntityMappingAutodiscoverer;
-use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscover;
+use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscoverer;
+use Symplify\Autodiscovery\Translation\TranslationPathAutodiscoverer;
 use Symplify\Autodiscovery\Twig\TwigPathAutodiscoverer;
 use Symplify\FlexLoader\Flex\FlexLoader;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
@@ -42,6 +43,7 @@ final class OpenRealEstateKernel extends Kernel
     {
         (new DoctrineEntityMappingAutodiscoverer($containerBuilder))->autodiscover();
         (new TwigPathAutodiscoverer($containerBuilder))->autodiscover();
+        (new TranslationPathAutodiscoverer($containerBuilder))->autodiscover();
 
         $this->flexLoader->loadConfigs($containerBuilder, $loader, [
             __DIR__ . '/../../../packages/*/config/config', // root packages
@@ -53,7 +55,7 @@ final class OpenRealEstateKernel extends Kernel
     {
         $this->flexLoader->loadRoutes($routeCollectionBuilder);
 
-        (new AnnotationRoutesAutodiscover($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
+        (new AnnotationRoutesAutodiscoverer($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
     }
 
     protected function build(ContainerBuilder $containerBuilder): void
