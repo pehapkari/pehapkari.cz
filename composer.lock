@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a5cc7ca022d652841fecd7b9954ca4e",
+    "content-hash": "a547642fad36da2aa03cebe1aad077f2",
     "packages": [
         {
             "name": "alterphp/easyadmin-extension-bundle",
@@ -4984,25 +4984,26 @@
         },
         {
             "name": "symplify/autodiscovery",
-            "version": "v5.2.18",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Symplify/Autodiscovery.git",
-                "reference": "ed547f8aca3965b464c01d26281423f7ef9f0bea"
+                "reference": "e1e397bbe77c5c53eb5e1466708b01fd2a15fb8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Symplify/Autodiscovery/zipball/ed547f8aca3965b464c01d26281423f7ef9f0bea",
-                "reference": "ed547f8aca3965b464c01d26281423f7ef9f0bea",
+                "url": "https://api.github.com/repos/Symplify/Autodiscovery/zipball/e1e397bbe77c5c53eb5e1466708b01fd2a15fb8b",
+                "reference": "e1e397bbe77c5c53eb5e1466708b01fd2a15fb8b",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^2.5",
                 "php": "^7.1",
+                "symfony/console": "^3.4|^4.1",
                 "symfony/dependency-injection": "^3.4|^4.1",
                 "symfony/finder": "^3.4|^4.1",
                 "symfony/routing": "^3.4|^4.1",
-                "symplify/package-builder": "^5.2.18",
+                "symplify/package-builder": "^5.3",
                 "thecodingmachine/safe": "^0.1.8"
             },
             "require-dev": {
@@ -5012,8 +5013,12 @@
                 "symfony/framework-bundle": "^3.4|^4.1",
                 "symfony/http-kernel": "^3.4|^4.1",
                 "symfony/templating": "^3.4|^4.1",
+                "symfony/translation": "^3.4|^4.1",
                 "symfony/twig-bundle": "^3.4|^4.1"
             },
+            "bin": [
+                "bin/autodiscovery"
+            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -5030,7 +5035,7 @@
                 "MIT"
             ],
             "description": "Forget manual registration of Doctrine entities, Twig templates and routes. Let autodiscovery handle that for you.",
-            "time": "2018-12-18T18:30:48+00:00"
+            "time": "2018-12-25T22:38:23+00:00"
         },
         {
             "name": "symplify/flex-loader",
@@ -5077,16 +5082,16 @@
         },
         {
             "name": "symplify/package-builder",
-            "version": "v5.2.18",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Symplify/PackageBuilder.git",
-                "reference": "fae792579378e436d52d65c775bf9ec62b1c3ee2"
+                "reference": "a45ecd9916dff681b245f90ec098aca874953daa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Symplify/PackageBuilder/zipball/fae792579378e436d52d65c775bf9ec62b1c3ee2",
-                "reference": "fae792579378e436d52d65c775bf9ec62b1c3ee2",
+                "url": "https://api.github.com/repos/Symplify/PackageBuilder/zipball/a45ecd9916dff681b245f90ec098aca874953daa",
+                "reference": "a45ecd9916dff681b245f90ec098aca874953daa",
                 "shasum": ""
             },
             "require": {
@@ -5121,7 +5126,7 @@
                 "MIT"
             ],
             "description": "Dependency Injection, Console and Kernel toolkit for Symplify packages.",
-            "time": "2018-12-18T17:45:39+00:00"
+            "time": "2018-12-23T22:50:55+00:00"
         },
         {
             "name": "thecodingmachine/safe",
@@ -9096,20 +9101,21 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a"
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/0df1908962e7a3071564e857d86874dad1ef204a",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/83e253c8e0be5b0257b881e1827274667c5c17a9",
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.3.3 || ^7.0",
+                "symfony/polyfill-ctype": "^1.8"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.6",
@@ -9142,7 +9148,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-01-29T19:49:41+00:00"
+            "time": "2018-12-25T11:19:39+00:00"
         }
     ],
     "aliases": [],
