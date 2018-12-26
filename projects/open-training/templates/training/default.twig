@@ -25,9 +25,14 @@
                             </h2>
 
                             <div class="text-center pt-xl-5 pb-xl-5 border-secondary border mb-3 mt-3">
-                                {#<img width="120" src="/assets/images/people/{{ training.getTrainerPhoto() }}" class="img-thumbnail mr-4 rounded-circle pull-right">#}
+                                {% if training.getImage() %}
+                                    <img src="{{ image_uploads }}/{{ training.getImage() }}" width="150">
+                                {% endif %}
 
-                                {#<img src="{{ training.getImage() }}" width="150">#}
+                                {% set trainer = training.getTrainer() %}
+                                {% if trainer.getImage() %}
+                                    <img width="120" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail ml-5 rounded-circle pull-right">
+                                {% endif %}
                             </div>
 
                             {% if training.getPerex() %}

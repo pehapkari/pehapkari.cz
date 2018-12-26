@@ -3,6 +3,6 @@ vich_uploader:
     db_driver: 'orm'
 
     mappings:
-        lecture_images:
-            uri_prefix: '%training_image_path%'
-            upload_destination: '%kernel.project_dir%/public%training_image_path%'
+        image_uploads:
+            uri_prefix: '%image_uploads%'
+            upload_destination: '%kernel.project_dir%/public%image_uploads%'

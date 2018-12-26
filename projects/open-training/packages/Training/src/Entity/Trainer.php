@@ -5,12 +5,17 @@ namespace OpenTraining\Training\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use OpenTraining\Entity\UploadableImageTrait;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Trainer
 {
+    use UploadableImageTrait;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

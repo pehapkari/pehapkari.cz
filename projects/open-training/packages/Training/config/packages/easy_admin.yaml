@@ -1,7 +1,7 @@
 parameters:
     training_grid_fields:
         - 'name'
-        - { property: 'image', type: 'image', base_path: '%training_image_path%' }
+        - { property: 'image', type: 'image', base_path: '%image_uploads%' }
         - 'perex'
         - 'description'
         - 'capacity'
@@ -9,12 +9,25 @@ parameters:
         - 'place'
         - 'trainer'
 
+    trainer_grid_fields:
+        - 'name'
+        - { property: 'image', type: 'image', base_path: '%image_uploads%' }
+        - 'email'
+        - 'phone'
+        - 'website'
+        - 'bio'
+
+    place_grid_fields:
+        - 'name'
+        - { property: 'image', type: 'image', base_path: '%image_uploads%' }
+        - 'description'
+        - 'mapUrl'
+
 easy_admin:
     entities:
         Training:
             label: 'Školení'
             class: 'OpenTraining\Training\Entity\Training'
-
             list:
                 fields: "%training_grid_fields%"
             show:
@@ -33,17 +46,35 @@ easy_admin:
         TrainingTerm:
             label: 'Termíny školení'
             class: 'OpenTraining\Training\Entity\TrainingTerm'
-            form:
-                exclude_fields: ['registrations', 'slug']
 
         Trainer:
             label: 'Školitelé'
             class: 'OpenTraining\Training\Entity\Trainer'
+            list:
+                fields: '%trainer_grid_fields%'
+            show:
+                fields: '%trainer_grid_fields%'
             form:
-                exclude_fields: ['trainings']
+                fields:
+                    - 'name'
+                    - { property: 'imageFile', type: 'file' }
+                    - 'email'
+                    - 'phone'
+                    - 'website'
+                    - 'bio'
         Place:
             label: 'Školící místa'
             class: 'OpenTraining\Training\Entity\Place'
+            list:
+                fields: '%place_grid_fields%'
+            show:
+                fields: '%place_grid_fields%'
+            form:
+                fields:
+                    - 'name'
+                    - { property: 'imageFile', type: 'file' }
+                    - 'description'
+                    - 'mapUrl'
 
         Reference:
             label: 'Zpětné vazby'
