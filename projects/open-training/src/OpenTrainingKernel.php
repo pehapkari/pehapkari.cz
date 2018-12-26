@@ -49,6 +49,7 @@ final class OpenTrainingKernel extends BaseKernel
         $this->flexLoader->loadConfigs($containerBuilder, $loader, [
             __DIR__ . '/../../../packages/*/config/config', // root packages
             $this->getProjectDir() . '/packages/*/config/*', // project packages
+            $this->getProjectDir() . '/packages/*/config/packages/*', // project packages
         ]);
     }
 
