@@ -33,10 +33,11 @@
         "symfony/twig-bundle": "^4.2",
         "symfony/validator": "^4.2",
         "symfony/yaml": "^4.2",
-        "symplify/autodiscovery": "@dev",
-        "symplify/flex-loader": "@dev",
-        "symplify/package-builder": "@dev",
-        "twig/extensions": "^1.5"
+        "symplify/autodiscovery": "dev-master",
+        "symplify/flex-loader": "dev-master",
+        "symplify/package-builder": "dev-master",
+        "twig/extensions": "^1.5",
+        "vich/uploader-bundle": "^1.8"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.10.6",
