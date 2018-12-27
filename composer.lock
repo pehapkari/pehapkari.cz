@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "808e1d0ddf5147fbafa637e84fc7de83",
+    "content-hash": "49db4a7a27a40337d1d62b0a3c9e4796",
     "packages": [
         {
             "name": "alterphp/easyadmin-extension-bundle",
@@ -1578,61 +1578,6 @@
                 "sql"
             ],
             "time": "2014-01-12T16:20:24+00:00"
-        },
-        {
-            "name": "jms/metadata",
-            "version": "1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schmittjoh/metadata.git",
-                "reference": "e5854ab1aa643623dc64adde718a8eec32b957a8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/e5854ab1aa643623dc64adde718a8eec32b957a8",
-                "reference": "e5854ab1aa643623dc64adde718a8eec32b957a8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "doctrine/cache": "~1.0",
-                "symfony/cache": "~3.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Metadata\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Asmir Mustafic",
-                    "email": "goetas@gmail.com"
-                },
-                {
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                }
-            ],
-            "description": "Class/method/property metadata management in PHP",
-            "keywords": [
-                "annotations",
-                "metadata",
-                "xml",
-                "yaml"
-            ],
-            "time": "2018-10-26T12:40:10+00:00"
         },
         {
             "name": "knplabs/doctrine-behaviors",
@@ -5039,26 +4984,25 @@
         },
         {
             "name": "symplify/autodiscovery",
-            "version": "dev-master",
+            "version": "v5.2.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Symplify/Autodiscovery.git",
-                "reference": "e1e397bbe77c5c53eb5e1466708b01fd2a15fb8b"
+                "reference": "ed547f8aca3965b464c01d26281423f7ef9f0bea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Symplify/Autodiscovery/zipball/e1e397bbe77c5c53eb5e1466708b01fd2a15fb8b",
-                "reference": "e1e397bbe77c5c53eb5e1466708b01fd2a15fb8b",
+                "url": "https://api.github.com/repos/Symplify/Autodiscovery/zipball/ed547f8aca3965b464c01d26281423f7ef9f0bea",
+                "reference": "ed547f8aca3965b464c01d26281423f7ef9f0bea",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^2.5",
                 "php": "^7.1",
-                "symfony/console": "^3.4|^4.1",
                 "symfony/dependency-injection": "^3.4|^4.1",
                 "symfony/finder": "^3.4|^4.1",
                 "symfony/routing": "^3.4|^4.1",
-                "symplify/package-builder": "^5.3",
+                "symplify/package-builder": "^5.2.18",
                 "thecodingmachine/safe": "^0.1.8"
             },
             "require-dev": {
@@ -5068,12 +5012,8 @@
                 "symfony/framework-bundle": "^3.4|^4.1",
                 "symfony/http-kernel": "^3.4|^4.1",
                 "symfony/templating": "^3.4|^4.1",
-                "symfony/translation": "^3.4|^4.1",
                 "symfony/twig-bundle": "^3.4|^4.1"
             },
-            "bin": [
-                "bin/autodiscovery"
-            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -5090,7 +5030,7 @@
                 "MIT"
             ],
             "description": "Forget manual registration of Doctrine entities, Twig templates and routes. Let autodiscovery handle that for you.",
-            "time": "2018-12-25T22:38:23+00:00"
+            "time": "2018-12-18T18:30:48+00:00"
         },
         {
             "name": "symplify/flex-loader",
@@ -5137,16 +5077,16 @@
         },
         {
             "name": "symplify/package-builder",
-            "version": "dev-master",
+            "version": "v5.2.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Symplify/PackageBuilder.git",
-                "reference": "a45ecd9916dff681b245f90ec098aca874953daa"
+                "reference": "fae792579378e436d52d65c775bf9ec62b1c3ee2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Symplify/PackageBuilder/zipball/a45ecd9916dff681b245f90ec098aca874953daa",
-                "reference": "a45ecd9916dff681b245f90ec098aca874953daa",
+                "url": "https://api.github.com/repos/Symplify/PackageBuilder/zipball/fae792579378e436d52d65c775bf9ec62b1c3ee2",
+                "reference": "fae792579378e436d52d65c775bf9ec62b1c3ee2",
                 "shasum": ""
             },
             "require": {
@@ -5181,7 +5121,7 @@
                 "MIT"
             ],
             "description": "Dependency Injection, Console and Kernel toolkit for Symplify packages.",
-            "time": "2018-12-23T22:50:55+00:00"
+            "time": "2018-12-18T17:45:39+00:00"
         },
         {
             "name": "thecodingmachine/safe",
@@ -5434,98 +5374,6 @@
                 "templating"
             ],
             "time": "2018-12-16T10:36:48+00:00"
-        },
-        {
-            "name": "vich/uploader-bundle",
-            "version": "1.8.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dustin10/VichUploaderBundle.git",
-                "reference": "ee1ffe8264d4ea09f97756580963d059809bb941"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/ee1ffe8264d4ea09f97756580963d059809bb941",
-                "reference": "ee1ffe8264d4ea09f97756580963d059809bb941",
-                "shasum": ""
-            },
-            "require": {
-                "behat/transliterator": "^1.2",
-                "jms/metadata": "^1.6",
-                "php": "^7.1",
-                "symfony/config": "^3.4|^4.0",
-                "symfony/dependency-injection": "^3.4|^4.0",
-                "symfony/event-dispatcher": "^3.4|^4.0",
-                "symfony/form": "^3.4|^4.0",
-                "symfony/http-foundation": "^3.4|^4.0",
-                "symfony/http-kernel": "^3.4|^4.0",
-                "symfony/property-access": "^3.4|^4.0",
-                "symfony/templating": "^3.4|^4.0"
-            },
-            "require-dev": {
-                "alcaeus/mongo-php-adapter": "^1.1",
-                "doctrine/doctrine-bundle": "^1.8",
-                "doctrine/mongodb-odm": "^1.2",
-                "doctrine/orm": "^2.5",
-                "ext-sqlite3": "*",
-                "knplabs/knp-gaufrette-bundle": "^0.5",
-                "matthiasnoback/symfony-dependency-injection-test": "^2.3|^3.0",
-                "mikey179/vfsstream": "^1.6",
-                "oneup/flysystem-bundle": "^3.0",
-                "phpunit/phpunit": "^6.5|^7.0",
-                "symfony/browser-kit": "^3.4|^4.0",
-                "symfony/css-selector": "^3.4|^4.0",
-                "symfony/doctrine-bridge": "^3.4|^4.0",
-                "symfony/dom-crawler": "^3.4|^4.0",
-                "symfony/framework-bundle": "^3.4|^4.0",
-                "symfony/phpunit-bridge": "^3.3",
-                "symfony/security-csrf": "^3.4|^4.0",
-                "symfony/twig-bridge": "^3.4|^4.0",
-                "symfony/twig-bundle": "^3.4|^4.0",
-                "symfony/validator": "^3.4|^4.0",
-                "symfony/var-dumper": "^3.4|^4.0",
-                "symfony/yaml": "^3.4|^4.0"
-            },
-            "suggest": {
-                "doctrine/doctrine-bundle": "For integration with Doctrine",
-                "doctrine/mongodb-odm-bundle": "For integration with Doctrine ODM",
-                "doctrine/orm": "For integration with Doctrine ORM",
-                "doctrine/phpcr-odm": "For integration with Doctrine PHPCR",
-                "knplabs/knp-gaufrette-bundle": "For integration with Gaufrette",
-                "liip/imagine-bundle": "To generate image thumbnails",
-                "ocramius/proxy-manager": "To use lazy services",
-                "oneup/flysystem-bundle": "For integration with Flysystem",
-                "symfony/yaml": "To use YAML mapping",
-                "willdurand/propel-eventdispatcher-bundle": "For integration with Propel"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.8.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Vich\\UploaderBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dustin Dobervich",
-                    "email": "ddobervich@gmail.com"
-                }
-            ],
-            "description": "Ease file uploads attached to entities",
-            "homepage": "https://github.com/dustin10/VichUploaderBundle",
-            "keywords": [
-                "file uploads",
-                "upload"
-            ],
-            "time": "2018-11-27T10:24:51+00:00"
         },
         {
             "name": "zendframework/zend-code",
@@ -6530,16 +6378,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.1.0",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "d0230c5c77a7e3cfa69446febf340978540958c0"
+                "reference": "8aae5b59b83bb4d0dbf07b0a835f2680a658f610"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/d0230c5c77a7e3cfa69446febf340978540958c0",
-                "reference": "d0230c5c77a7e3cfa69446febf340978540958c0",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/8aae5b59b83bb4d0dbf07b0a835f2680a658f610",
+                "reference": "8aae5b59b83bb4d0dbf07b0a835f2680a658f610",
                 "shasum": ""
             },
             "require": {
@@ -6577,7 +6425,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-10-10T09:24:14+00:00"
+            "time": "2018-12-26T11:32:39+00:00"
         },
         {
             "name": "paragonie/random_compat",
