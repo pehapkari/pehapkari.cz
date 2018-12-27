@@ -1,51 +1,19 @@
 easy_admin:
     design:
         menu:
-            - label: 'Školení'
-              icon: 'graduation-cap'
-              children: ['Training', 'TrainingTerm']
-            - label: 'Finance'
-              icon: 'money'
-              children: ['Registration', 'Expense', 'Provision']
-            - label: 'Zpětné vazby'
-              icon: 'comment'
-              children: ['TrainingReference']
-            - label: 'Školitelé a místa'
-              icon: 'map-marker'
-              children: ['Trainer', 'Place']
-
-    entities:
-        Training:
-            label: 'Školení'
-            class: 'OpenTraining\Training\Entity\Training'
-            form:
-                exclude_fields: ['trainingReferences', 'trainingTerms', 'slug']
-        TrainingTerm:
-            label: 'Termíny školení'
-            class: 'OpenTraining\Training\Entity\TrainingTerm'
-            form:
-                exclude_fields: ['registrations', 'slug']
-        Registration:
-            label: 'Registrace'
-            class: 'OpenTraining\Registration\Entity\TrainingRegistration'
-
-        TrainingReference:
-            label: 'Reference'
-            class: 'OpenTraining\Training\Entity\TrainingReference'
-        Trainer:
-            label: 'Školitelé'
-            class: 'OpenTraining\Training\Entity\Trainer'
-            form:
-                exclude_fields: ['trainings']
-        Place:
-            label: 'Školící místa'
-            class: 'OpenTraining\Training\Entity\Place'
-
-        Expense:
-            label: 'Výdaje'
-            class: 'OpenTraining\Provision\Entity\PartnerExpense'
-        Provision:
-            label: 'Provize'
-            class: 'OpenTraining\Provision\Entity\Partner'
-            form:
-                exclude_fields: ['expenses']
+            -
+                label: 'Školení'
+                icon: 'graduation-cap'
+                children: ['Training', 'TrainingTerm']
+            -
+                label: 'Školitelé a místa'
+                icon: 'map-marker'
+                children: ['Trainer', 'Place']
+            -
+                label: 'Zpětné vazby'
+                icon: 'map-comment'
+                children: ['Reference']
+            -
+                label: 'Finance'
+                icon: 'money'
+                children: ['Registration', 'Expense', 'Provision']

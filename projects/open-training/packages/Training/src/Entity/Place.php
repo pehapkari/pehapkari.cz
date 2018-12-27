@@ -3,12 +3,17 @@
 namespace OpenTraining\Training\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use OpenTraining\Entity\UploadableImageTrait;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Place
 {
+    use UploadableImageTrait;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

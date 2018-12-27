@@ -1,0 +1,28 @@
+easy_admin:
+    entities:
+        Training:
+            label: 'Školení'
+            class: 'OpenTraining\Training\Entity\Training'
+            form:
+                exclude_fields:
+                    - 'trainingReferences'
+                    - 'trainingTerms'
+
+        TrainingTerm:
+            label: 'Termíny školení'
+            class: 'OpenTraining\Training\Entity\TrainingTerm'
+
+        Trainer:
+            label: 'Školitelé'
+            class: 'OpenTraining\Training\Entity\Trainer'
+            form:
+                exclude_fields:
+                    - 'trainings'
+
+        Place:
+            label: 'Školící místa'
+            class: 'OpenTraining\Training\Entity\Place'
+
+        Reference:
+            label: 'Zpětné vazby'
+            class: 'OpenTraining\Training\Entity\TrainingReference'

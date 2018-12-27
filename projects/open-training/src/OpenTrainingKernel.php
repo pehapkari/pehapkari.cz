@@ -3,14 +3,15 @@
 namespace OpenTraining;
 
 use Iterator;
+use OpenTraining\DependencyInjection\CompilerPass\CorrectionCompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symplify\Autodiscovery\Doctrine\DoctrineEntityMappingAutodiscoverer;
-use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscover;
 use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscoverer;
+use Symplify\Autodiscovery\Translation\TranslationPathAutodiscoverer;
 use Symplify\Autodiscovery\Twig\TwigPathAutodiscoverer;
 use Symplify\FlexLoader\Flex\FlexLoader;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
@@ -43,10 +44,12 @@ final class OpenTrainingKernel extends BaseKernel
     {
         (new DoctrineEntityMappingAutodiscoverer($containerBuilder))->autodiscover();
         (new TwigPathAutodiscoverer($containerBuilder))->autodiscover();
+        (new TranslationPathAutodiscoverer($containerBuilder))->autodiscover();
 
         $this->flexLoader->loadConfigs($containerBuilder, $loader, [
             __DIR__ . '/../../../packages/*/config/config', // root packages
             $this->getProjectDir() . '/packages/*/config/*', // project packages
+            $this->getProjectDir() . '/packages/*/config/packages/*', // project packages
         ]);
     }
 
@@ -64,6 +67,9 @@ final class OpenTrainingKernel extends BaseKernel
     {
         // needs to be first, since it's adding new service definitions
         $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
+
+        // correction compiler pass - needs to run before collector
+        $containerBuilder->addCompilerPass(new CorrectionCompilerPass());
 
         $containerBuilder->addCompilerPass(new ConfigurableCollectorCompilerPass());
 

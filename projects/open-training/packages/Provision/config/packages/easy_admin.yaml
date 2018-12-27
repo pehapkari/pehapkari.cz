@@ -1,0 +1,13 @@
+easy_admin:
+    entities:
+        Registration:
+            label: 'Registrace'
+            class: 'OpenTraining\Registration\Entity\TrainingRegistration'
+        Expense:
+            label: 'Výdaje'
+            class: 'OpenTraining\Provision\Entity\PartnerExpense'
+        Provision:
+            label: 'Provize'
+            class: 'OpenTraining\Provision\Entity\Partner'
+            form:
+                exclude_fields: ['expenses']

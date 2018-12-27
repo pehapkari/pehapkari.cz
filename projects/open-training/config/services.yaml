@@ -1,6 +1,7 @@
 parameters:
     locale: 'cs'
     training_max_references_to_show: 3
+    image_uploads: "/uploads/images/"
 
 services:
     _defaults:
@@ -11,3 +12,8 @@ services:
     OpenTraining\:
         resource: '../src/'
         exclude: '../src/{OpenTrainingKernel.php}'
+
+    OpenTraining\EasyAdmin\ConfigPass\ImagePropertyAutoconfigureConfigPass:
+        tags:
+            # after ViewConfigPass
+            - { name: 'easyadmin.config_pass', priority: 2 }

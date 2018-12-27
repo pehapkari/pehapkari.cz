@@ -6,12 +6,17 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use OpenTraining\Entity\UploadableImageTrait;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Training
 {
+    use UploadableImageTrait;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
