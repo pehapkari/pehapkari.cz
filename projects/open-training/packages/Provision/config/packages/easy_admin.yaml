@@ -5,9 +5,4 @@ easy_admin:
             class: 'OpenTraining\Registration\Entity\TrainingRegistration'
         Expense:
             label: 'Výdaje'
-            class: 'OpenTraining\Provision\Entity\PartnerExpense'
-        Provision:
-            label: 'Provize'
-            class: 'OpenTraining\Provision\Entity\Partner'
-            form:
-                exclude_fields: ['expenses']
+            class: 'OpenTraining\Provision\Entity\Expense'

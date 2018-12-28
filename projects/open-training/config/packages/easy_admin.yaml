@@ -1,4 +1,10 @@
 easy_admin:
+    # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#customizing-date-and-time-properties
+    formats:
+        date: 'j. n. Y'
+        time: 'H:i'
+        datetime: 'j. n. Y, H:i'
+
     design:
         menu:
             -
@@ -16,4 +22,4 @@ easy_admin:
             -
                 label: 'Finance'
                 icon: 'money'
-                children: ['Registration', 'Expense', 'Provision']
+                children: ['Registration', 'Expense']

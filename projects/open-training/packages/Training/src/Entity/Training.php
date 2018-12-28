@@ -6,7 +6,7 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use OpenTraining\Entity\UploadableImageTrait;
+use OpenProject\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -147,6 +147,11 @@ class Training
     public function getPlace(): ?Place
     {
         return $this->place;
+    }
+
+    public function getPlaceMapUrl(): ?string
+    {
+        return $this->place ? $this->place->getMapUrl() : null;
     }
 
     public function getTrainer(): ?Trainer

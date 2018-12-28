@@ -3,16 +3,13 @@
 namespace OpenTraining;
 
 use Iterator;
-use OpenTraining\DependencyInjection\CompilerPass\CorrectionCompilerPass;
+use OpenProject\BetterEasyAdmin\DependencyInjection\CompilerPass\CorrectionCompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
-use Symplify\Autodiscovery\Doctrine\DoctrineEntityMappingAutodiscoverer;
-use Symplify\Autodiscovery\Routing\AnnotationRoutesAutodiscoverer;
-use Symplify\Autodiscovery\Translation\TranslationPathAutodiscoverer;
-use Symplify\Autodiscovery\Twig\TwigPathAutodiscoverer;
+use Symplify\Autodiscovery\Discovery;
 use Symplify\FlexLoader\Flex\FlexLoader;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
@@ -29,10 +26,16 @@ final class OpenTrainingKernel extends BaseKernel
      */
     private $flexLoader;
 
+    /**
+     * @var Discovery
+     */
+    private $discovery;
+
     public function __construct(string $environment, bool $debug)
     {
         parent::__construct($environment, $debug);
         $this->flexLoader = new FlexLoader($environment, $this->getProjectDir());
+        $this->discovery = new Discovery($this->getProjectDir(), [__DIR__ . '/../../../packages/user/']);
     }
 
     public function registerBundles(): Iterator
@@ -42,9 +45,9 @@ final class OpenTrainingKernel extends BaseKernel
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
     {
-        (new DoctrineEntityMappingAutodiscoverer($containerBuilder))->autodiscover();
-        (new TwigPathAutodiscoverer($containerBuilder))->autodiscover();
-        (new TranslationPathAutodiscoverer($containerBuilder))->autodiscover();
+        $this->discovery->discoverEntityMappings($containerBuilder);
+        $this->discovery->discoverTemplates($containerBuilder);
+        $this->discovery->discoverTranslations($containerBuilder);
 
         $this->flexLoader->loadConfigs($containerBuilder, $loader, [
             __DIR__ . '/../../../packages/*/config/config', // root packages
@@ -55,7 +58,7 @@ final class OpenTrainingKernel extends BaseKernel
 
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
     {
-        (new AnnotationRoutesAutodiscoverer($routeCollectionBuilder, $this->getContainerBuilder()))->autodiscover();
+        $this->discovery->discoverRoutes($routeCollectionBuilder);
 
         $this->flexLoader->loadRoutes($routeCollectionBuilder);
     }

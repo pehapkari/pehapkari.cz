@@ -3,7 +3,7 @@
 namespace OpenRealEstate\PriceMap\Controller;
 
 use OpenRealEstate\PriceMap\Entity\PriceMap;
-use OpenRealEstate\PriceMap\Form\UploadXlsFormFactory;
+use OpenRealEstate\PriceMap\Form\UploadXlsFormType;
 use OpenRealEstate\PriceMap\Repository\PriceMapRepository;
 use PhpOffice\PhpSpreadsheet\Reader\Xls;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -25,19 +25,10 @@ final class PriceMapController extends AbstractController
      */
     private $xls;
 
-    /**
-     * @var UploadXlsFormFactory
-     */
-    private $uploadXlsFormFactory;
-
-    public function __construct(
-        PriceMapRepository $priceMapRepository,
-        Xls $xls,
-        UploadXlsFormFactory $uploadXlsFormFactory
-    ) {
+    public function __construct(PriceMapRepository $priceMapRepository, Xls $xls)
+    {
         $this->priceMapRepository = $priceMapRepository;
         $this->xls = $xls;
-        $this->uploadXlsFormFactory = $uploadXlsFormFactory;
     }
 
     /**
@@ -47,7 +38,7 @@ final class PriceMapController extends AbstractController
      */
     public function uploadXls(Request $request): Response
     {
-        $form = $this->uploadXlsFormFactory->create();
+        $form = $this->createForm(UploadXlsFormType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
