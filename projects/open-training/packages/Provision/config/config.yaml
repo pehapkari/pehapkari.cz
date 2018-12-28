@@ -5,4 +5,4 @@ services:
 
     OpenTraining\Provision\:
         resource: '../src/'
-        exclude: '../src/{Entity}'
+        exclude: '../src/{Entity,Data}'

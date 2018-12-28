@@ -1,12 +1,2 @@
 parameters:
     locale: 'cs'
-
-services:
-    _defaults:
-        public: true
-        autowire: true
-        autoconfigure: true
-
-    OpenRealEstate\:
-        resource: '../src/'
-        exclude: '../src/OpenRealEstateKernel.php'

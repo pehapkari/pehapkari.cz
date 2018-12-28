@@ -24,4 +24,12 @@ final class PlaceRepository
 
         return array_pop($places);
     }
+
+    /**
+     * @return Place[]
+     */
+    public function fetchAll(): array
+    {
+        return $this->entityRepository->findAll();
+    }
 }

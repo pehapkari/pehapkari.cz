@@ -2,7 +2,7 @@
 
 namespace OpenRealEstate\PriceMap\Controller;
 
-use OpenRealEstate\PriceMap\Form\EstimatePriceFormFactory;
+use OpenRealEstate\PriceMap\Form\EstimatePriceFormType;
 use OpenRealEstate\PriceMap\Repository\PriceMapRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
@@ -17,17 +17,9 @@ final class EstimatePriceController extends AbstractController
      */
     private $priceMapRepository;
 
-    /**
-     * @var EstimatePriceFormFactory
-     */
-    private $estimatePriceFormFactory;
-
-    public function __construct(
-        PriceMapRepository $priceMapRepository,
-        EstimatePriceFormFactory $estimatePriceFormFactory
-    ) {
+    public function __construct(PriceMapRepository $priceMapRepository)
+    {
         $this->priceMapRepository = $priceMapRepository;
-        $this->estimatePriceFormFactory = $estimatePriceFormFactory;
     }
 
     /**
@@ -37,7 +29,7 @@ final class EstimatePriceController extends AbstractController
      */
     public function estimatePrice(Request $request): Response
     {
-        $form = $this->estimatePriceFormFactory->create();
+        $form = $this->createForm(EstimatePriceFormType::class);
         $form->handleRequest($request);
         $price = null;
 

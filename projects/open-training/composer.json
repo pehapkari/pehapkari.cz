@@ -27,8 +27,8 @@
         "symfony/twig-bundle": "^4.2",
         "symfony/validator": "^4.2",
         "symfony/yaml": "^4.2",
-        "symplify/autodiscovery": "dev-master",
-        "symplify/flex-loader": "dev-master",
+        "symplify/autodiscovery": "^5.2",
+        "symplify/flex-loader": "^5.2",
         "twig/extensions": "^1.5",
         "vich/uploader-bundle": "^1.8"
     },
@@ -45,7 +45,8 @@
             "OpenTraining\\": "src",
             "OpenTraining\\Provision\\": "packages/Provision/src",
             "OpenTraining\\Registration\\": "packages/Registration/src",
-            "OpenTraining\\Training\\": "packages/Training/src"
+            "OpenTraining\\Training\\": "packages/Training/src",
+            "OpenTraining\\Marketing\\": "packages/Marketing/src"
         }
     },
     "autoload-dev": {

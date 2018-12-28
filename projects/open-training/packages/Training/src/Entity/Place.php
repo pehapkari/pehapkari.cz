@@ -3,7 +3,7 @@
 namespace OpenTraining\Training\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use OpenTraining\Entity\UploadableImageTrait;
+use OpenProject\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**

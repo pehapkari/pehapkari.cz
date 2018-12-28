@@ -33,9 +33,9 @@
         "symfony/twig-bundle": "^4.2",
         "symfony/validator": "^4.2",
         "symfony/yaml": "^4.2",
-        "symplify/autodiscovery": "dev-master",
-        "symplify/flex-loader": "dev-master",
-        "symplify/package-builder": "dev-master",
+        "symplify/autodiscovery": "^5.2",
+        "symplify/flex-loader": "^5.2",
+        "symplify/package-builder": "^5.2",
         "twig/extensions": "^1.5",
         "vich/uploader-bundle": "^1.8"
     },
@@ -61,6 +61,7 @@
             "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src",
             "OpenRealEstate\\PriceMap\\": "projects/open-real-estate/packages/PriceMap/src",
             "OpenTraining\\": "projects/open-training/src",
+            "OpenTraining\\Marketing\\": "projects/open-training/packages/Marketing/src",
             "OpenTraining\\Provision\\": "projects/open-training/packages/Provision/src",
             "OpenTraining\\Registration\\": "projects/open-training/packages/Registration/src",
             "OpenTraining\\Training\\": "projects/open-training/packages/Training/src"

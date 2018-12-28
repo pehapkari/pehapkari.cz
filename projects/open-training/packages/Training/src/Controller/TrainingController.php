@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Controller;
+namespace OpenTraining\Training\Controller;
 
 use OpenTraining\Training\Entity\Training;
 use OpenTraining\Training\Repository\PlaceRepository;
@@ -46,11 +46,21 @@ final class TrainingController extends AbstractController
     }
 
     /**
+     * @Route(path="/zacni-skolit/", name="become_trainer")
+     */
+    public function start(): Response
+    {
+        return $this->render('training/become_trainer.twig', [
+            'places' => $this->placeRepository->fetchAll(),
+        ]);
+    }
+
+    /**
      * @Route(path="/vzdelavej-se/", name="trainings")
      */
     public function default(): Response
     {
-        return $this->render('training/default.twig', [
+        return $this->render('training/trainings.twig', [
             'trainings' => $this->trainingRepository->fetchAll(),
             'place' => $this->placeRepository->getMainPlace(),
             'references' => $this->trainingReferenceRepository->fetchAll(),

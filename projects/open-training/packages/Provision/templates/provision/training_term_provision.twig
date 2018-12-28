@@ -1,0 +1,59 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+
+{% block main %}
+    <div class="pt-4 pb-4 pl-4 pr-4">
+        <h2>Provize</h2>
+
+        <p>Přidal jsi už všechny náklady? Jestli ne, <a href="{{ path('easyadmin', {action: 'new', entity: 'Expense'}) }}">naprav to</a></p>.
+
+        <br>
+
+        <div class="row">
+            <div class="col-6">
+                <table>
+                    <tr>
+                        <th colspan="2">Náklady</th>
+                    </tr>
+                    <tr>
+                        <td>Vlastník (nájem)</td>
+                        <td>{{ ownerExpense }} Kč</td>
+                    </tr>
+                    <tr>
+                        <td>Organizátor (tisk, občerstvení)</td>
+                        <td>{{ organizerExpense }} Kč</td>
+                    </tr>
+                    <tr>
+                        <td>Školitel (obědy)</td>
+                        <td>{{ trainerExpense }} Kč</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-6">
+
+                <ul>
+                    <li>Příjem: {{ income }}</li>
+                    <li>Výdej: {{ expense }}</li>
+                    <li>Zisk: {{ profit }}</li>
+                </ul>
+
+            </div>
+
+            <pre>
+
+
+            @todo tabulka
+
+            Čistý zisk -
+            provize školitel - x % (@todo resolve x %, in bracket the number of lecture)
+            provize organizátor - nájemce %
+
+            i s náklady (na fkaturu)
+            provize školitel - x % - todo already finished trainings
+            provize organizátor - nájemce %
+
+            @todo poslat email o fakturu organizáto  - check/not posláno
+            @todo poslat email o fakturu školitel - check/not posláno
+            </pre>
+        </div>
+    </div>
+{% endblock %}

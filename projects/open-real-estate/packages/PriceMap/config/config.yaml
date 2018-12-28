@@ -1,6 +1,3 @@
-imports:
-    - { resource: "easy_admin.yaml" }
-
 services:
     _defaults:
         public: true
@@ -8,7 +5,7 @@ services:
 
     OpenRealEstate\PriceMap\:
         resource: '../src'
-        exclude: '../src/{Entity}'
+        exclude: '../src/{Entity,Form}'
 
     PhpOffice\PhpSpreadsheet\Reader\Xls:
         calls:

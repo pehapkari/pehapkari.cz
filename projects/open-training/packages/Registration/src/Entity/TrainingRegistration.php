@@ -31,6 +31,12 @@ class TrainingRegistration
     private $email;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $phone;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
@@ -53,6 +59,16 @@ class TrainingRegistration
      * @var TrainingTerm
      */
     private $trainingTerm;
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): void
+    {
+        $this->phone = $phone;
+    }
 
     public function getId(): int
     {

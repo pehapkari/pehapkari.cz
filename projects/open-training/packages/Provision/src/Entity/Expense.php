@@ -8,7 +8,7 @@ use OpenTraining\Training\Entity\TrainingTerm;
 /**
  * @ORM\Entity
  */
-class PartnerExpense
+class Expense
 {
     /**
      * @ORM\Id()
@@ -25,8 +25,16 @@ class PartnerExpense
     private $amount;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Provision\Entity\Partner", inversedBy="expenses")
-     * @var Partner
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    private $note;
+
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     *
+     * @todo enum?
      */
     private $partner;
 
@@ -41,12 +49,12 @@ class PartnerExpense
         return $this->id;
     }
 
-    public function getPartner(): ?Partner
+    public function getPartner(): ?string
     {
         return $this->partner;
     }
 
-    public function setPartner(Partner $partner): void
+    public function setPartner(?string $partner): void
     {
         $this->partner = $partner;
     }
@@ -69,5 +77,15 @@ class PartnerExpense
     public function setTrainingTerm(TrainingTerm $trainingTerm): void
     {
         $this->trainingTerm = $trainingTerm;
+    }
+
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(?string $note): void
+    {
+        $this->note = $note;
     }
 }
