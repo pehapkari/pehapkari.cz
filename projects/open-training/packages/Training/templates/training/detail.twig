@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div id="trainings">
+        <div class="section">
+
+        {% if training.getImage() %}
+            <p class="text-center mt-5 d-none d-sm-block">
+                <img src="{{ image_uploads }}/{{ training.getImage() }}" width="150">
+            </p>
+        {% endif %}
+
+        <h1 class="text-center">{{ training.getName() }}</h1>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            {% if trainer.getImage() %}
+                                <img width="100" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-left mr-3">
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md">
+                            <strong>Školí</strong>:
+
+                            {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
+
+                            {{ trainer.getName() }}
+
+                            {% if trainer.getWebsite() %}</a>{% endif %}
+
+                            {% if trainer.getBio() %}
+                                <p>„{{ trainer.getBio()|raw }}“</p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    {% if training.isActive() %}
+                        Příští termín:
+
+                        <strong>{{ training.getNearestTerm()|date }}</strong>
+
+                        <br>
+
+                        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Lecture:+{{ training.getName() }}&dates={{ training.getNearestTerm()|google_calendar_link }}&details=Details:+https://pehapkari.cz/{{ path('training-detail', { 'slug': training.getSlug() }) }}&ctz=Europe/Prague&location={{ training.getPlaceMapUrl() }}&sf=true&output=xml">
+                            <em class="fa fa-fw fa-calendar"></em>
+                            Přidat do kalendáře
+                        </a>
+
+                        {% if training.getNearestTermDeadline() %}
+                            <div class="card border-warning mt-3 mb-4">
+                                <div class="card-body bg-warning">
+                                    Uzavěrka přihlášek
+                                    <strong>{{ training.getNearestTermDeadline()|date }}</strong>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                    <p>
+                        Místo:
+                        <strong>
+                            <a href="{{ place.getMapUrl() }}">{{ place.getName() }}</a>
+                        </strong>
+                    </p>
+
+                    <p>
+                        Délka: <strong>{{ word_by_count(training.getDuration(), ['hodin', 'hodiny', 'hodin']) }}</strong>
+                    </p>
+
+                    <p>
+                        Kapacita: <strong>{{ word_by_count(training.getCapacity(), ['člověk', 'lidi', 'lidí']) }}</strong>
+                    </p>
+
+                    <p>
+                        Cena: <strong>{{ training.getPrice()|number_format }} Kč</strong>
+                    </p>
+
+                    {% if trainer.getPhone() %}
+                        <p>
+                            <a href="tel:{{ trainer.getPhone() }}">{{ trainer.getPhone() }}</a>
+                        </p>
+                    {% endif %}
+
+                    {% if trainer.getEmail() %}
+                        <p>
+                            <a href="mailto:{{ trainer.getEmail() }}">{{ trainer.getEmail() }}</a>
+                        </p>
+                    {% endif %}
+
+                    {% if training.isActive() %}
+                        <div class="text-center">
+                            <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success mt-4 mb-5">
+                                <em class="fa fa-fw fa-handshake"></em>
+                                &nbsp;
+                                Přihlaš se
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="col-md-8">
+                    {{ training.getDescription()|raw }}
+
+                    {% if training.hasReferences() %}
+                        <hr>
+
+                        <h3>Co říkaj ostatní</h3>
+
+                        <div class="row">
+                            {% for reference in training.getReferences() %}
+                                <div class="col-md-6 text-left mb-4">
+                                    {% if reference.getUrl() %}
+                                        <a href="{{ reference.getUrl() }}">
+                                    {% endif %}
+
+                                    {{ reference.name }}
+
+                                    {% if reference.getUrl() %}
+                                        </a>
+                                    {% endif %}
+
+                                    <p class="mt-3">
+                                        <em>„{{ reference.getText()|raw }}“</em>
+                                    </p>
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

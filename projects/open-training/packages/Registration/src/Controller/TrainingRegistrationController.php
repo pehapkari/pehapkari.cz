@@ -44,6 +44,12 @@ final class TrainingRegistrationController extends AbstractController
 
             $this->addFlash('success', 'Tvá registrace byla úspěšná!');
 
+            dump('Thank you - page @todo!');
+            dump('we send you email with detail');
+            dump('až bude temrín aplněn, pošleme ti faktury a více detailů');
+            dump('školenís e bude kotna');
+            die;
+
             return new RedirectResponse($this->generateUrl(
                 'registration',
                 [

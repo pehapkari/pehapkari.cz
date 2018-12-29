@@ -1,43 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>{% block title %}Vzdělávej se{% endblock %}</title>
 
         {#<link rel="stylesheet" href="{{ asset('build/css/app.css') }}">#}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="https://pehapkari.cz/assets/bootstrap/bootstrap.min.css?v=0.9">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
         <link rel="stylesheet" href="https://pehapkari.cz/assets/css/style.css?v=0.10">
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
 
-    {# what is this for? #}
+
+
     <body id="{% block body_id %}{% endblock %}">
-        {% block header %}
-            <header>
-                <div class="navbar navbar-default navbar-static-top" role="navigation">
-                    <div class="container">
-                        <div class="navbar-header col-md-3 col-lg-2">
-                            <a class="navbar-brand" href="{{ path('homepage') }}">
-                                Open Lecture
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </header>
-        {% endblock %}
+        {% include "snippet/header.twig" %}
 
         <div>
             {% block body %}
                 <div id="main">
-                    {{ include('default/_flash_messages.html.twig') }}
+                    <div class="container">
+                        {{ include('default/_flash_messages.html.twig') }}
 
-                    {% block main %}{% endblock %}
+                        {% block main %}{% endblock %}
+                    </div>
                 </div>
             {% endblock %}
         </div>
+
+        {% include "snippet/footer.twig" %}
 
         {% block javascripts %}
             <script src="{{ asset('build/manifest.js') }}"></script>

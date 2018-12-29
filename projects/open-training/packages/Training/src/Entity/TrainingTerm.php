@@ -156,6 +156,7 @@ class TrainingTerm
 
         foreach ($this->registrations as $registration) {
             if ($registration->isPaid()) {
+                // @todo, price can change in time, registration should have own "price" unrelated to training price
                 $income += $this->training->getPrice();
             }
         }
@@ -188,5 +189,10 @@ class TrainingTerm
     public function updateSlug(): void
     {
         $this->slug = $this->training->getSlug() . '-' . $this->startDateTime->format('Y-m-d');
+    }
+
+    public function getTrainer(): ?Trainer
+    {
+        return $this->training ? $this->training->getTrainer() : null;
     }
 }

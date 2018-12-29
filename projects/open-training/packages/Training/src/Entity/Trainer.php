@@ -5,7 +5,7 @@ namespace OpenTraining\Training\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use OpenTraining\Entity\UploadableImageTrait;
+use OpenProject\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**

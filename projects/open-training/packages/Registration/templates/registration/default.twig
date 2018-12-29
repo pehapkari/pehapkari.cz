@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <h2>Přihláška na školení {{ training.getName() }}</h2>
-    <h3>({{ trainingTerm.getStartDateTime()|date("j. n. Y") }})</h3>
+    <div id="trainings">
+        <div class="section">
+            <div class="container">
+                <h2>Přihláška na školení {{ training.getName() }}</h2>
+                <h3>({{ trainingTerm.getStartDateTime()|date("j. n. Y") }})</h3>
 
-    <br>
+                <br>
 
-    {{ form(form) }}
-
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

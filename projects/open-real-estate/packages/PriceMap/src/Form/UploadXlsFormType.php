@@ -2,27 +2,18 @@
 
 namespace OpenRealEstate\PriceMap\Form;
 
+use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormBuilderInterface;
 
-final class UploadXlsFormFactory
+final class UploadXlsFormType extends EasyAdminFormType
 {
     /**
-     * @var FormFactoryInterface
+     * @param mixed[] $options
      */
-    private $formFactory;
-
-    public function __construct(FormFactoryInterface $formFactory)
+    public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
-        $this->formFactory = $formFactory;
-    }
-
-    public function create(): FormInterface
-    {
-        $formBuilder = $this->formFactory->createBuilder();
-
         $formBuilder->add('file', FileType::class, [
             'label' => 'XLS soubor s cenami',
         ]);
@@ -32,7 +23,5 @@ final class UploadXlsFormFactory
                 'class' => 'btn-success',
             ],
         ]);
-
-        return $formBuilder->getForm();
     }
 }

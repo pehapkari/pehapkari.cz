@@ -11,6 +11,9 @@ easy_admin:
         TrainingTerm:
             label: 'Termíny školení'
             class: 'OpenTraining\Training\Entity\TrainingTerm'
+            list:
+                actions:
+                    - { name: 'training_term_provision', type: 'route' }
 
         Trainer:
             label: 'Školitelé'

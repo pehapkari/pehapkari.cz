@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Entity;
+namespace OpenProject\BetterEasyAdmin\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
