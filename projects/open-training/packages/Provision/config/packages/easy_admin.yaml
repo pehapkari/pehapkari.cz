@@ -6,3 +6,5 @@ easy_admin:
         Expense:
             label: 'Výdaje'
             class: 'OpenTraining\Provision\Entity\Expense'
+            # see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/complex-dynamic-backends.html#customization-based-on-entity-controllers
+            controller: 'OpenTraining\Provision\Controller\ExpenseController'
