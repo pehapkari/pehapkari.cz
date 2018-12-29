@@ -33,8 +33,6 @@ class Expense
     /**
      * @ORM\Column(type="string")
      * @var string
-     *
-     * @todo enum?
      */
     private $partner;
 
