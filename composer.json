@@ -80,6 +80,7 @@
         "merge": "vendor/bin/monorepo-builder merge",
         "check-cs": "vendor/bin/ecs check packages projects/*/src projects/*/packages/*/src",
         "fix-cs": "vendor/bin/ecs check packages projects/*/src projects/*/packages/*/src --fix",
+        "doctrine": "bin/console doctrine:schema:update --dump-sql --force",
         "phpstan": "vendor/bin/phpstan analyse projects/*/src projects/*/packages/*/src --level max",
         "adminer-install": [
             "mkdir -p public/adminer",

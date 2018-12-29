@@ -23,18 +23,22 @@ final class ExpenseRepository
 
     public function getExpensesByTrainingTerm(TrainingTerm $trainingTerm): TrainingTermExpenses
     {
-        $expenseByPartner = $this->entityRepository->createQueryBuilder('e')
-            ->select('SUM(e.amount) as expense')
-            ->where('e.trainingTerm = :trainingTerm')
-            ->setParameter(':trainingTerm', $trainingTerm)
-            ->groupBy('e.partner')
-            ->getQuery()
-            ->getArrayResult();
-
         return new TrainingTermExpenses(
-            $expenseByPartner[Partner::OWNER] ?? 0.0,
-            $expenseByPartner[Partner::ORGANIZER] ?? 0.0,
-            $expenseByPartner[Partner::TRAINER] ?? 0.0
+            $this->getExpesnseByTrainingTermAndPartner($trainingTerm, Partner::TRAINER),
+            $this->getExpesnseByTrainingTermAndPartner($trainingTerm, Partner::ORGANIZER),
+            $this->getExpesnseByTrainingTermAndPartner($trainingTerm, Partner::OWNER)
         );
+    }
+
+    private function getExpesnseByTrainingTermAndPartner(TrainingTerm $trainingTerm, string $partner): float
+    {
+        return (float) $this->entityRepository->createQueryBuilder('e')
+            ->select('SUM(e.amount) as expense')
+            ->andWhere('e.trainingTerm = :trainingTerm')
+            ->setParameter(':trainingTerm', $trainingTerm)
+            ->andWhere('e.partner = :partner')
+            ->setParameter(':partner', $partner)
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 }

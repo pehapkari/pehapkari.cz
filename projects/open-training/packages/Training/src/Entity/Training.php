@@ -75,7 +75,7 @@ class Training
     private $place;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Trainer")
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Trainer", inversedBy="trainings")
      * @var Trainer
      */
     private $trainer;

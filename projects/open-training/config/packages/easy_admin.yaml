@@ -17,9 +17,13 @@ easy_admin:
                 children: ['Trainer', 'Place']
             -
                 label: 'Zpětné vazby'
-                icon: 'map-comment'
-                children: ['Reference']
+                icon: 'comment'
+                entity: 'Reference'
             -
                 label: 'Finance'
                 icon: 'money'
                 children: ['Registration', 'Expense']
+            -
+                label: 'Zpátky na web'
+                icon: 'arrow-left'
+                route: 'trainings'

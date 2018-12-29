@@ -54,7 +54,7 @@ class TrainingTerm
     private $endDateTime;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Training")
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Training", inversedBy="trainingTerms")
      * @var Training
      */
     private $training;

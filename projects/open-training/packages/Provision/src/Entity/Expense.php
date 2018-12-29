@@ -25,7 +25,7 @@ class Expense
     private $amount;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      * @var string
      */
     private $note;

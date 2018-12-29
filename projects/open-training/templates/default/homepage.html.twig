@@ -7,7 +7,7 @@
 {% block header %}{% endblock %}
 {% block footer %}{% endblock %}
 
-{% block body %}
+{% block main %}
     <div class="page-header">
         <h1>{{ 'title.homepage'|raw }}</h1>
     </div>
@@ -15,8 +15,8 @@
     Welcome to lecture
 
     <ul>
-        <li><a href="{{ url('trainings') }}">Vzdělávej se</a></li>
-        <li><a href="/admin/">Admin</a></li>
+        <li><a href="{{ path('trainings') }}">Vzdělávej se</a></li>
+        <li><a href="{{ path('easyadmin') }}">Admin</a></li>
         <li><a href="/adminer?sqlite=&username=&db=%2Fvar%2Fwww%2Fopen-lectures%2Fvar%2Fdatabase.sqlite">Database</a></li>
     </ul>
 {% endblock %}
