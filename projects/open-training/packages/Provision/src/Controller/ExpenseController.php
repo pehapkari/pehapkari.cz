@@ -14,7 +14,7 @@ use Symfony\Component\Form\FormInterface;
 final class ExpenseController extends EasyAdminController
 {
     /**
-     * @param mixed[] $entityProperties
+     * @inheritdoc
      */
     protected function createEditForm($entity, array $entityProperties): FormInterface
     {
@@ -24,7 +24,7 @@ final class ExpenseController extends EasyAdminController
     }
 
     /**
-     * @param mixed[] $entityProperties
+     * @inheritdoc
      */
     protected function createNewForm($entity, array $entityProperties): FormInterface
     {
