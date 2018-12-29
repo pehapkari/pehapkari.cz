@@ -62,7 +62,7 @@ final class TrainingController extends AbstractController
     {
         return $this->render('training/trainings.twig', [
             'trainings' => $this->trainingRepository->fetchAll(),
-            'place' => $this->placeRepository->getMainPlace(),
+            'places' => $this->placeRepository->fetchAll(),
             'references' => $this->trainingReferenceRepository->fetchAll(),
             'referenceCount' => count($this->trainingReferenceRepository->fetchAll()),
             'pastTerms' => $this->trainingTermRepository->fetchFinished(),

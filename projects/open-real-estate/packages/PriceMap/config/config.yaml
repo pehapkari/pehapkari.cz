@@ -2,10 +2,11 @@ services:
     _defaults:
         public: true
         autowire: true
+        autoconfigure: true
 
     OpenRealEstate\PriceMap\:
         resource: '../src'
-        exclude: '../src/{Entity,Form}'
+        exclude: '../src/{Entity}'
 
     PhpOffice\PhpSpreadsheet\Reader\Xls:
         calls:

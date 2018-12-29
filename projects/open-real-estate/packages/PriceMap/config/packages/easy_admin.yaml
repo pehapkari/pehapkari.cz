@@ -15,3 +15,4 @@ easy_admin:
         PriceMap:
             label: 'Cenová mapa'
             class: 'OpenRealEstate\PriceMap\Entity\PriceMap'
+

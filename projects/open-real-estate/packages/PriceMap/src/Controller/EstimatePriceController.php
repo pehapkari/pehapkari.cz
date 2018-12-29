@@ -29,7 +29,10 @@ final class EstimatePriceController extends AbstractController
      */
     public function estimatePrice(Request $request): Response
     {
-        $form = $this->createForm(EstimatePriceFormType::class);
+        $form = $this->createForm(EstimatePriceFormType::class, null, [
+            'entity' => 'PriceMap', // same as key in the config, not a class
+            'view' => 'random',
+        ]);
         $form->handleRequest($request);
         $price = null;
 
