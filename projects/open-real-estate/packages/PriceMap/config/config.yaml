@@ -1,6 +1,3 @@
-imports:
-    - { resource: "easy_admin.yaml" }
-
 services:
     _defaults:
         public: true

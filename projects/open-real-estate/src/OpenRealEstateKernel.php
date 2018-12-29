@@ -50,7 +50,9 @@ final class OpenRealEstateKernel extends Kernel
 
         $this->flexLoader->loadConfigs($containerBuilder, $loader, [
             __DIR__ . '/../../../packages/*/config/config', // root packages
-            $this->getProjectDir() . '/packages/*/config/config', // project packages
+            // project packages
+            $this->getProjectDir() . '/packages/*/config/*',
+            $this->getProjectDir() . '/packages/*/config/packages/*',
         ]);
     }
 
