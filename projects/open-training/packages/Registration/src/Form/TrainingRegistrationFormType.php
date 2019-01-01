@@ -2,15 +2,19 @@
 
 namespace OpenTraining\Registration\Form;
 
-use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType;
 use OpenTraining\Registration\Entity\TrainingRegistration;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class TrainingRegistrationFormType extends EasyAdminFormType
+/**
+ * @see TrainingRegistration
+ */
+final class TrainingRegistrationFormType extends AbstractType
 {
     /**
      * @param mixed[] $options
@@ -19,23 +23,39 @@ final class TrainingRegistrationFormType extends EasyAdminFormType
     {
         $formBuilder->add('name', TextType::class, [
             'label' => 'Tvé jméno',
+            'required' => true,
         ]);
+
         $formBuilder->add('email', TextType::class, [
             'label' => 'Tvůj email',
+            'required' => true,
         ]);
+
         $formBuilder->add('phone', TextType::class, [
             'label' => 'Tvé telefonní číslo',
+            'required' => true,
         ]);
+
         $formBuilder->add('ico', TextType::class, [
             'label' => 'IČO pro fakturaci nebo Tvá adresa',
+            'required' => true,
         ]);
+
         $formBuilder->add('note', TextareaType::class, [
             'required' => false,
             'label' => 'Poznámka',
         ]);
 
+        $formBuilder->add('agrees_with_personal_data', CheckboxType::class, [
+            'label' => 'Zaškrtnutím souhlasíš se zpracováním osobních údajů firmou Edukai s.r.o., která pořádá školení. Firma údaje uchovává po dobu 2 let pouze pro účely organizace kurzu a zpracování zpětné vazby. Máš právo kdykoliv požádat o úpravu či smazání údajů z naší databáze. Nikdo jiný než organizátor a školitel k tvým údajům nemá přístup.',
+            'required' => true,
+        ]);
+
         $formBuilder->add('register', SubmitType::class, [
             'label' => 'Odeslat přihlášku',
+            'attr' => [
+                'class' => 'btn btn-success',
+            ],
         ]);
     }
 

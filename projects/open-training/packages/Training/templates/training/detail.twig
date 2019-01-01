@@ -41,7 +41,7 @@
                     {% if training.isActive() %}
                         Příští termín:
 
-                        <strong>{{ training.getNearestTerm()|date }}</strong>
+                        <strong>{{ training.getNearestTermDateTime()|date }}</strong>
 
                         <br>
 
@@ -100,6 +100,17 @@
                             </a>
                         </div>
                     {% endif %}
+
+                    {# watchdog #}
+                    <p>
+                        {% if training.isActive() %}
+                            Nehodí se ti termín?
+                        {% else %}
+                            Nechceš promeškat další termín?
+                        {% endif %}
+
+                        <a href="{{ path('watchdog', { slug: training.getSlug() }) }}">Dej nám email a ozveme se ti</a>
+                    </p>
                 </div>
 
                 <div class="col-md-8">
@@ -108,7 +119,7 @@
                     {% if training.hasReferences() %}
                         <hr>
 
-                        <h3>Co říkaj ostatní</h3>
+                        <h3>Kurzem už {{ word_by_count(training.getReferences()|length, ['prošel %d účastník', 'prošly %d účastníci', 'prošlo %d účastníků']) }} </h3>
 
                         <div class="row">
                             {% for reference in training.getReferences() %}

@@ -4,6 +4,7 @@ namespace OpenTraining\Training\Repository;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
+use Nette\Utils\DateTime;
 use OpenTraining\Training\Entity\Training;
 
 final class TrainingRepository
@@ -24,5 +25,21 @@ final class TrainingRepository
     public function fetchAll(): array
     {
         return $this->entityRepository->findAll();
+    }
+
+    /**
+     * Trainings with active term today - last 30 days
+     * @return Training[]
+     */
+    public function fetchRecentlyActive(): array
+    {
+        return $this->entityRepository->createQueryBuilder('t')
+            ->join('t.trainingTerms', 'tt')
+            ->andWhere('tt.startDateTime >= CURRENT_DATE()')
+            ->andWhere('tt.endDateTime < :weekAgo')
+            ->setParameter(':weekAgo', DateTime::from('- 30 days'))
+            ->groupBy('t.id')
+            ->getQuery()
+            ->getResult();
     }
 }

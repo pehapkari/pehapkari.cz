@@ -12,9 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @todo registrační formulář - přidat * pro required položky
- */
 final class TrainingRegistrationController extends AbstractController
 {
     /**

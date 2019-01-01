@@ -8,6 +8,10 @@ use OpenTraining\Training\Entity\TrainingTerm;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Mimics
+ * @see https://docs.google.com/spreadsheets/d/1ubuko63ZEXPMzbOM87ouLYfUXTR1_yQcppxR7zsyZvA/edit#gid=1800966876
+ */
 final class TrainingTermProvisionController extends EasyAdminController
 {
     /**

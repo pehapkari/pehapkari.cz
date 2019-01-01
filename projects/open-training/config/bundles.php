@@ -1,5 +1,6 @@
 <?php
 
+use Goetas\TwitalBundle\GoetasTwitalBundle;
 use Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle;
 use Vich\UploaderBundle\VichUploaderBundle;
 

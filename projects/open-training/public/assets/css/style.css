@@ -1,0 +1,5 @@
+/* https://stackoverflow.com/a/45763767/1348344 */
+.required:after {
+    content: " *";
+    color: red;
+}

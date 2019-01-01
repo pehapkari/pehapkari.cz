@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <h2 class="text-center pb-4 pt-4">Dej nám feedback</h2>
+
+    {# this alternative theme is also available #}
+    {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+
+    {{ form(form) }}
+{% endblock %}

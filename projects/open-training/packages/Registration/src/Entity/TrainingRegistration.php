@@ -2,6 +2,7 @@
 
 namespace OpenTraining\Registration\Entity;
 
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use OpenTraining\Training\Entity\TrainingTerm;
 
@@ -53,6 +54,12 @@ class TrainingRegistration
      * @var bool
      */
     private $isPaid = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $agreesWithPersonalData = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm", inversedBy="registrations")
@@ -138,5 +145,25 @@ class TrainingRegistration
     public function setIsPaid(bool $isPaid): void
     {
         $this->isPaid = $isPaid;
+    }
+
+    public function getTrainingTermDate(): DateTimeInterface
+    {
+        return $this->trainingTerm->getStartDateTime();
+    }
+
+    public function getTrainingName(): string
+    {
+        return $this->trainingTerm->getTraining()->getName();
+    }
+
+    public function isAgreesWithPersonalData(): ?bool
+    {
+        return $this->agreesWithPersonalData;
+    }
+
+    public function setAgreesWithPersonalData(?bool $agreesWithPersonalData): void
+    {
+        $this->agreesWithPersonalData = $agreesWithPersonalData;
     }
 }

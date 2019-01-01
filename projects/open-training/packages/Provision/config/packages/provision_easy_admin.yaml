@@ -1,8 +1,5 @@
 easy_admin:
     entities:
-        Registration:
-            label: 'Registrace'
-            class: 'OpenTraining\Registration\Entity\TrainingRegistration'
         Expense:
             label: 'Výdaje'
             class: 'OpenTraining\Provision\Entity\Expense'

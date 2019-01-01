@@ -1,0 +1,14 @@
+easy_admin:
+    entities:
+        Registration:
+            label: 'Registrace'
+            class: 'OpenTraining\Registration\Entity\TrainingRegistration'
+
+            list:
+                fields:
+                    - 'name'
+                    - 'email'
+                    - 'phone'
+                    - 'ico'
+                    - 'isPaid'
+                    - { property: 'agreesWithPersonalData', type: 'boolean' }

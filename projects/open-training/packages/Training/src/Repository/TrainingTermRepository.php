@@ -35,9 +35,18 @@ final class TrainingTermRepository
     public function fetchFinishedWithoutPaidProvision(): array
     {
         return $this->entityRepository->createQueryBuilder('tt')
-            ->where('tt.endDateTime < CURRENT_DATE()')
+            ->andWhere('tt.endDateTime < CURRENT_DATE()')
             ->andWhere('tt.isProvisionPaid = false')
             ->getQuery()
             ->getResult();
+    }
+
+    public function getFinishedCount(): int
+    {
+        return (int) $this->entityRepository->createQueryBuilder('tt')
+            ->select('count(tt.id)')
+            ->andWhere('tt.endDateTime < CURRENT_DATE()')
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 }

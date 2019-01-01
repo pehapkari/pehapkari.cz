@@ -1,29 +1,44 @@
 easy_admin:
     # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#customizing-date-and-time-properties
     formats:
+        # czech format
         date: 'j. n. Y'
         time: 'H:i'
         datetime: 'j. n. Y, H:i'
+
+    list:
+        actions:
+            # see: https://symfony.com/doc/master/bundles/EasyAdminBundle/book/actions-configuration.html#removing-action-labels-and-displaying-just-icons
+            -
+                name: 'edit'
+                icon: 'pencil'
+                label: false
+                css_class: 'btn btn-sm btn-light pl-2'
+            -
+                name: 'delete'
+                icon: 'times'
+                label: false
+                css_class: 'btn btn-sm btn-danger pl-2'
 
     design:
         menu:
             -
                 label: 'Školení'
                 icon: 'graduation-cap'
-                children: ['Training', 'TrainingTerm']
+                children: ['TrainingTerm', 'Registration', 'Expense', 'Training', ]
             -
                 label: 'Školitelé a místa'
                 icon: 'map-marker'
                 children: ['Trainer', 'Place']
             -
-                label: 'Zpětné vazby'
+                label: 'Zpětné vazby a zájemci'
                 icon: 'comment'
-                entity: 'Reference'
-            -
-                label: 'Finance'
-                icon: 'money'
-                children: ['Registration', 'Expense']
+                children: ['Feedback', 'Watchdog']
             -
                 label: 'Zpátky na web'
                 icon: 'arrow-left'
                 route: 'trainings'
+            -
+                label: 'Zpátky na feedbacky'
+                icon: 'arrow-left'
+                route: 'open_feedbacks'

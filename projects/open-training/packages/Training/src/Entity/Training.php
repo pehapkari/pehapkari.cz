@@ -87,14 +87,14 @@ class Training
     private $trainingTerms = [];
 
     /**
-     * @ORM\OneToMany(targetEntity="OpenTraining\Training\Entity\TrainingReference", mappedBy="training")
-     * @var TrainingReference[]|ArrayCollection
+     * @ORM\OneToMany(targetEntity="TrainingFeedback", mappedBy="training")
+     * @var TrainingFeedback[]|ArrayCollection
      */
-    private $trainingReferences = [];
+    private $trainingFeedbacks = [];
 
     public function __construct()
     {
-        $this->trainingReferences = new ArrayCollection();
+        $this->trainingFeedbacks = new ArrayCollection();
         $this->trainingTerms = new ArrayCollection();
     }
 
@@ -108,6 +108,17 @@ class Training
         foreach ($this->trainingTerms as $trainingTerm) {
             if ($trainingTerm->isActive()) {
                 return $trainingTerm;
+            }
+        }
+
+        return null;
+    }
+
+    public function getNearestTermDateTime(): ?DateTimeInterface
+    {
+        foreach ($this->trainingTerms as $trainingTerm) {
+            if ($trainingTerm->isActive()) {
+                return $trainingTerm->getStartDateTime();
             }
         }
 
@@ -240,15 +251,15 @@ class Training
 
     public function hasReferences(): bool
     {
-        return (bool) count($this->trainingReferences);
+        return (bool) count($this->trainingFeedbacks);
     }
 
     /**
-     * @return TrainingReference[]|ArrayCollection
+     * @return TrainingFeedback[]|ArrayCollection
      */
     public function getReferences()
     {
-        return $this->trainingReferences;
+        return $this->trainingFeedbacks;
     }
 
     public function getSlug(): ?string
