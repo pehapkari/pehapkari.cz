@@ -59,7 +59,6 @@ class TrainingTerm
     /**
      * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Training", inversedBy="trainingTerms")
      * @Assert\NotNull
-     *
      * @var Training
      */
     private $training;

@@ -34,7 +34,7 @@
                         <td>
                             Náklady
 
-                            <a class="btn btn-info btn-sm pull-right" href="{{ path('easyadmin', {action: 'new', entity: 'Expense'}) }}">Přidat náklad</a>
+                            <a class="btn btn-info btn-sm pull-right" href="{{ path('easyadmin', {action: 'new', entity: 'Expense', trainingTerm: trainingTerm.getId() }) }}">Přidat náklad</a>
                             {# todo link přímo na náklad tohoto termínu šklení, slug! #}
 
                         </td>

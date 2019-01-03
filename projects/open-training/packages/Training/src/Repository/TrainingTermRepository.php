@@ -2,6 +2,8 @@
 
 namespace OpenTraining\Training\Repository;
 
+use Doctrine\Common\Proxy\Proxy;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use OpenTraining\Training\Entity\TrainingTerm;
@@ -13,8 +15,14 @@ final class TrainingTermRepository
      */
     private $entityRepository;
 
+    /**
+     * @var EntityManager
+     */
+    private $entityManager;
+
     public function __construct(EntityManagerInterface $entityManager)
     {
+        $this->entityManager = $entityManager;
         $this->entityRepository = $entityManager->getRepository(TrainingTerm::class);
     }
 
@@ -48,5 +56,21 @@ final class TrainingTermRepository
             ->andWhere('tt.endDateTime < CURRENT_DATE()')
             ->getQuery()
             ->getSingleScalarResult();
+    }
+
+    public function findBySlug(string $slug): ?TrainingTerm
+    {
+        return $this->entityRepository->findOneBy([
+            'slug' => $slug,
+        ]);
+    }
+
+    /**
+     * @param mixed $id
+     * @return bool|Proxy|object|null
+     */
+    public function getReference($id)
+    {
+        return $this->entityManager->getReference(TrainingTerm::class, $id);
     }
 }
