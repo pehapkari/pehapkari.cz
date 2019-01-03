@@ -5,6 +5,7 @@ namespace OpenTraining\Training\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 use OpenProject\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -15,6 +16,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class Trainer
 {
     use UploadableImageTrait;
+    use Timestampable;
 
     /**
      * @ORM\Id()
@@ -59,10 +61,6 @@ class Trainer
      * @var Training[]|ArrayCollection
      */
     private $trainings = [];
-
-    // https://symfony.com/doc/master/bundles/EasyAdminBundle/integration/vichuploaderbundle.html
-    // * @todo how to do file?
-    // private $photo;
 
     public function __construct()
     {

@@ -1,3 +1,7 @@
+parameters:
+    # exclude globally, if not explicitly listed
+    easy_admin_exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy']
+
 easy_admin:
     design:
         menu:
@@ -11,8 +15,6 @@ easy_admin:
         Lead:
             label: 'Leads'
             class: 'OpenRealEstate\Lead\Entity\Lead'
-            form:
-                exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy']
 
         LeadStatus:
             label: 'Lead Status'

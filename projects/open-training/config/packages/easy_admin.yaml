@@ -1,3 +1,7 @@
+parameters:
+    # exclude globally, if not explicitly listed
+    easy_admin_exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy']
+
 easy_admin:
     # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#customizing-date-and-time-properties
     formats:

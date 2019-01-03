@@ -12,7 +12,5 @@ easy_admin:
         FeedRealEstate:
             label: 'Nemovitosti do feedů'
             class: 'OpenRealEstate\Feed\Entity\FeedRealEstate'
-            form:
-                exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy', 'deletedBy']
             list:
                 title: '%%entity_label%%'

@@ -7,9 +7,10 @@ easy_admin:
                 icon: 'money'
                 children:
                     - { label: 'Odhadnout cenu', route: 'price_map_estimate_price' }
-                    # @todo - only admin
-                    - { label: 'Cenová mapa', entity: 'PriceMap' }
-                    - { label: 'Nahrát XLS', route: 'price_map_upload_xls' }
+                    # only super admin
+                    # https://github.com/alterphp/EasyAdminExtensionBundle#hiding-not-entity-based-menu-entries-on-role-option
+                    - { label: 'Cenová mapa', entity: 'PriceMap', role: 'ROLE_SUPER_ADMIN' }
+                    - { label: 'Nahrát XLS', route: 'price_map_upload_xls', role: 'ROLE_SUPER_ADMIN' }
 
     entities:
         PriceMap:

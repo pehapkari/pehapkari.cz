@@ -51,7 +51,7 @@ final class DebugConfigPassCommand extends Command
     {
         $configPasses = $this->privatesAccessor->getPrivateProperty($this->configManager, 'configPasses');
 
-        $this->symfonyStyle->section('Active config passes in order of execution');
+        $this->symfonyStyle->section('Config passes in order of execution');
 
         foreach ($configPasses as $configPass) {
             $bareClass = Strings::after(get_class($configPass), '\\', -1);
