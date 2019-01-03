@@ -4,7 +4,6 @@ namespace OpenProject\BetterEasyAdmin\ConfigPass;
 
 use EasyCorp\Bundle\EasyAdminBundle\Configuration\ConfigPassInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Vich\UploaderBundle\Form\Type\VichImageType;
 
 /**
  * @see https://github.com/alterphp/EasyAdminExtensionBundle#exclude-fields-in-forms, just global
@@ -66,7 +65,6 @@ final class GlobalExcludeFieldsConfigPass implements ConfigPassInterface
         return $entityConfig;
     }
 
-
     /**
      * @param mixed[] $entityConfig
      * @return mixed[]
@@ -79,7 +77,10 @@ final class GlobalExcludeFieldsConfigPass implements ConfigPassInterface
         }
 
         $excludeFields = $this->parameterBag->get('easy_admin_exclude_fields');
-        $entityConfig[$section]['exclude_fields'] = array_merge($entityConfig[$section]['exclude_fields'] ?? [], $excludeFields);
+        $entityConfig[$section]['exclude_fields'] = array_merge(
+            $entityConfig[$section]['exclude_fields'] ?? [],
+            $excludeFields
+        );
 
         return $entityConfig;
     }

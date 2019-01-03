@@ -187,6 +187,11 @@ class TrainingTerm
         $this->slug = $slug;
     }
 
+    public function getParticipantCount(): int
+    {
+        return count($this->registrations);
+    }
+
     /**
      * @ORM\PrePersist()
      * @ORM\PreUpdate()

@@ -25,6 +25,10 @@ easy_admin:
                 css_class: 'btn btn-sm btn-danger pl-2'
 
     design:
+        assets:
+            # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/design-configuration.html#loading-the-entire-bootstrap-framework
+            css:
+                - 'bundles/easyadmin/bootstrap-all.css'
         menu:
             -
                 label: 'Školení'

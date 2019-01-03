@@ -42,7 +42,7 @@ easy_admin:
             class: 'OpenTraining\Training\Entity\TrainingFeedback'
 
         Watchdog:
-            label: 'Zájemci o školní'
+            label: 'Zájemci o školení'
             class: 'OpenTraining\Training\Entity\Watchdog'
             list:
                 fields:

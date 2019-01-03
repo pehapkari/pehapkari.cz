@@ -31,6 +31,22 @@ final class TrainingTermProvisionController extends EasyAdminController
     {
         $trainingTermExpense = $this->expenseRepository->getExpensesByTrainingTerm($trainingTerm);
 
+        $profit = $trainingTerm->getIncome() - $trainingTermExpense->getTotal();
+
+        // trainer
+        $trainerProvisionRate = 50.0; // počítat pro daný termín!
+        $trainerProvision = ceil($profit * ($trainerProvisionRate / 100.0)); // be nice with ceil :)
+        $trainerProvisionWithExpense = $trainerProvision + $trainingTermExpense->getTrainerExpense();
+
+        // organizer
+        $organizerProvisionRate = (100.0 - $trainerProvisionRate) / 2;
+        $organizerProvision = ceil($profit * ($organizerProvisionRate / 100)); // be nice with ceil :)
+        $organizerProvisionWithExpense = $organizerProvision + $trainingTermExpense->getOrganizerExpense();
+
+        // owner (the rest)
+        $ownerProvisionRate = 100.0 - $trainerProvisionRate - $organizerProvisionRate;
+        $ownerProvision = $profit - $trainerProvision - $organizerProvision;
+
         return $this->render('provision/training_term_provision.twig', [
             'trainer' => $trainingTerm->getTrainer(),
             'training' => $trainingTerm->getTraining(),
@@ -38,11 +54,23 @@ final class TrainingTermProvisionController extends EasyAdminController
             // numbers
             'income' => $trainingTerm->getIncome(),
             'expense' => $trainingTermExpense->getTotal(),
-            'profit' => $trainingTerm->getIncome() - $trainingTermExpense->getTotal(),
+            'profit' => $profit,
             // expense
             'ownerExpense' => $trainingTermExpense->getOwnerExpense(),
             'organizerExpense' => $trainingTermExpense->getOrganizerExpense(),
             'trainerExpense' => $trainingTermExpense->getTrainerExpense(),
+
+            // trainer
+            'trainerProvisionRate' => $trainerProvisionRate,
+            'trainerProvision' => $trainerProvision,
+            'trainerProvisionWithExpense' => $trainerProvisionWithExpense,
+            // organizer
+            'organizerProvisionRate' => $organizerProvisionRate,
+            'organizerProvision' => $organizerProvision,
+            'organizerProvisionWithExpense' => $organizerProvisionWithExpense,
+            // owner
+            'ownerProvisionRate' => $ownerProvisionRate,
+            'ownerProvision' => $ownerProvision,
         ]);
     }
 }

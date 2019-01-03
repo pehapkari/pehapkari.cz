@@ -7,7 +7,6 @@ use OpenTraining\Registration\Form\TrainingRegistrationFormType;
 use OpenTraining\Registration\Repository\TrainingRegistrationRepository;
 use OpenTraining\Training\Entity\TrainingTerm;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -41,24 +40,25 @@ final class TrainingRegistrationController extends AbstractController
 
             $this->addFlash('success', 'Tvá registrace byla úspěšná!');
 
-            dump('Thank you - page @todo!');
-            dump('we send you email with detail');
-            dump('až bude temrín aplněn, pošleme ti faktury a více detailů');
-            dump('školenís e bude kotna');
-            die;
-
-            return new RedirectResponse($this->generateUrl(
-                'registration',
-                [
-                    'slug' => $trainingTerm->getSlug(),
-                ]
-            ));
+            return $this->redirectToRoute('registration_thank_you', [
+                'slug' => $trainingTerm->getSlug(),
+            ]);
         }
 
         return $this->render('registration/default.twig', [
             'training' => $trainingTerm->getTraining(),
             'trainingTerm' => $trainingTerm,
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route(path="/vitej-na-skoleni/{slug}/", name="registration_thank_you")
+     */
+    public function thankYou(TrainingTerm $trainingTerm): Response
+    {
+        return $this->render('registration/thank_you.twig', [
+            'trainingTerm' => $trainingTerm,
         ]);
     }
 }

@@ -62,7 +62,6 @@ final class WatchdogController extends AbstractController
     }
 
     /**
-     *
      * @Route(path="/pohlidame-ti-to/", name="watchdog_thank_you")
      */
     public function watchdogThankYou(): Response
