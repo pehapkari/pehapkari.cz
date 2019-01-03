@@ -2,15 +2,16 @@
 
 namespace OpenRealEstate\PriceMap\Controller;
 
+use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use OpenRealEstate\PriceMap\Form\EstimatePriceFormType;
 use OpenRealEstate\PriceMap\Repository\PriceMapRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class EstimatePriceController extends AbstractController
+final class EstimatePriceController extends EasyAdminController
 {
     /**
      * @var PriceMapRepository
@@ -49,9 +50,21 @@ final class EstimatePriceController extends AbstractController
             $price *= $data['area'];
         }
 
+        // needs to be modified because native `EasyAdminExtension` skips it for custom forms
+        // @see https://github.com/EasyCorp/EasyAdminBundle/issues/2565#issuecomment-450579629
+        $formView = $form->createView();
+        $formView = $this->finishView($formView);
+
         return $this->render('estimate_real_estate/default.twig', [
-            'form' => $form->createView(),
+            'form' => $formView,
             'price' => $price,
         ]);
+    }
+
+    private function finishView(FormView $formView): FormView
+    {
+        dump($this);
+        die;
+        // ...
     }
 }

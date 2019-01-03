@@ -6,6 +6,7 @@
         { "path": "projects/open-training/packages/Provision/templates" },
         { "path": "projects/open-training/packages/Registration/templates" },
         { "path": "projects/open-training/packages/Training/templates" },
+        { "path": "projects/open-training/packages/KnowHow/templates" },
         { "path": "projects/open-training/packages/Marketing/templates" },
 
         { "path": "projects/open-real-estate/templates/" },

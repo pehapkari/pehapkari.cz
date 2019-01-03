@@ -36,6 +36,10 @@ final class TrainingRegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var TrainingRegistration $trainingRegistration */
             $trainingRegistration = $form->getData();
+
+            // @todo set price from current price of the training - eays :)
+            // $trainingRegistration->setPrice();
+
             $this->trainingRegistrationRepository->save($trainingRegistration);
 
             $this->addFlash('success', 'Tvá registrace byla úspěšná!');

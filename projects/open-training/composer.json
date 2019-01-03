@@ -49,6 +49,7 @@
             "OpenTraining\\": "src",
             "OpenTraining\\Provision\\": "packages/Provision/src",
             "OpenTraining\\Registration\\": "packages/Registration/src",
+            "OpenTraining\\KnowHow\\": "packages/KnowHow/src",
             "OpenTraining\\Training\\": "packages/Training/src",
             "OpenTraining\\Marketing\\": "packages/Marketing/src"
         }
