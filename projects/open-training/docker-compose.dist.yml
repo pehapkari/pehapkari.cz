@@ -5,15 +5,15 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - .:/app:cached
-      - ./projects/open-training/.docker/nginx/site.conf:/etc/nginx/conf.d/default.conf
+      - ../../:/app:cached
+      - ./.docker/nginx/site.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
 
   php:
     image: open-training:latest
     build:
-      context: .
+      context: ../../
       target: dev
       dockerfile: projects/open-training/Dockerfile
     environment:
@@ -21,16 +21,19 @@ services:
       PHP_IDE_CONFIG: "serverName=open-training"
       DATABASE_HOST: mysql
       DATABASE_USER: root
+      DATABASE_PORT: 3306
       DATABASE_PASSWORD:
       DATABASE_DBNAME: open_training
+      DATABASE_CHARSET: utf8
       DATABASE_URL: "mysql://root@mysql/open_training?charset=utf8"
+      APP_ENV: dev
+      APP_DEBUG: 1
+      APP_SECRET: 67d829bf61dc5f87a73fd814e2c9f629
     volumes:
-      - ./vendor:/app/vendor:delegated
-      - ./projects/open-training/:/app/projects/open-training:cached
+      - ../../vendor:/app/vendor:delegated
+      - .:/app/projects/open-training:cached
     depends_on:
       - mysql
-    entrypoint: ["sh", "/database-setup.sh"]
-    command: ["php-fpm"]
 
   mysql:
     image: mysql:5.7
@@ -39,6 +42,6 @@ services:
       MYSQL_DATABASE: "open_training"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
-      - ./projects/open-training/.docker/mysql-data:/var/lib/mysql
+      - ./.docker/mysql-data:/var/lib/mysql
     ports:
       - 3306:3306
