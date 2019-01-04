@@ -7,7 +7,7 @@ use OpenProject\BetterEasyAdmin\DependencyInjection\CompilerPass\CorrectionCompi
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Kernel as BaseKernel;
+use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symplify\Autodiscovery\Discovery;
 use Symplify\FlexLoader\Flex\FlexLoader;
@@ -17,7 +17,7 @@ use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParame
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireSinglyImplementedCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\ConfigurableCollectorCompilerPass;
 
-final class OpenTrainingKernel extends BaseKernel
+final class OpenTrainingKernel extends Kernel
 {
     use MicroKernelTrait;
 
@@ -34,6 +34,7 @@ final class OpenTrainingKernel extends BaseKernel
     public function __construct(string $environment, bool $debug)
     {
         parent::__construct($environment, $debug);
+
         $this->flexLoader = new FlexLoader($environment, $this->getProjectDir());
         $this->discovery = new Discovery($this->getProjectDir(), [__DIR__ . '/../../../packages/user/']);
     }
@@ -64,9 +65,6 @@ final class OpenTrainingKernel extends BaseKernel
         $this->flexLoader->loadRoutes($routeCollectionBuilder);
     }
 
-    /**
-     * Order matters!
-     */
     protected function build(ContainerBuilder $containerBuilder): void
     {
         // needs to be first, since it's adding new service definitions

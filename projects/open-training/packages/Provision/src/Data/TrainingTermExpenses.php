@@ -19,11 +19,11 @@ final class TrainingTermExpenses
      */
     private $trainerExpense;
 
-    public function __construct(float $ownerExpense, float $organizerExpense, float $trainerExpense)
+    public function __construct(float $trainerExpense, float $organizerExpense, float $ownerExpense)
     {
-        $this->ownerExpense = $ownerExpense;
-        $this->organizerExpense = $organizerExpense;
         $this->trainerExpense = $trainerExpense;
+        $this->organizerExpense = $organizerExpense;
+        $this->ownerExpense = $ownerExpense;
     }
 
     public function getOwnerExpense(): float

@@ -8,10 +8,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use OpenTraining\Registration\Entity\TrainingRegistration;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
+ *
+ * @see https://github.com/EasyCorp/EasyAdminBundle/issues/2566
  */
 class TrainingTerm
 {
@@ -54,7 +57,8 @@ class TrainingTerm
     private $endDateTime;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Training")
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Training", inversedBy="trainingTerms")
+     * @Assert\NotNull
      * @var Training
      */
     private $training;
@@ -72,7 +76,7 @@ class TrainingTerm
 
     public function __toString(): string
     {
-        return $this->startDateTime->format('Y-m-d H:i');
+        return $this->training->getName() . ' - ' . $this->startDateTime->format('j. n. Y');
     }
 
     public function getTrainingName(): string
@@ -180,6 +184,11 @@ class TrainingTerm
     public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
+    }
+
+    public function getParticipantCount(): int
+    {
+        return count($this->registrations);
     }
 
     /**

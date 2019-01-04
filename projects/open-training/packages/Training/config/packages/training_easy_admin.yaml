@@ -1,0 +1,53 @@
+easy_admin:
+    entities:
+        Training:
+            label: 'Školení'
+            class: 'OpenTraining\Training\Entity\Training'
+            form:
+                exclude_fields:
+                    - 'trainingFeedbacks'
+                    - 'trainingTerms'
+
+        TrainingTerm:
+            label: 'Termíny školení'
+            class: 'OpenTraining\Training\Entity\TrainingTerm'
+            list:
+                fields:
+                    - 'training'
+                    - 'startDateTime'
+                    - 'registrations'
+                    - 'isProvisionPaid'
+                actions:
+                    - { name: 'download_certificates', type: 'route', label: 'Stáhnout certifikáty',  css_class: 'btn btn-sm btn-info' }
+                    - { name: 'training_term_provision', type: 'route', label: 'Provize', css_class: 'btn btn-sm btn-warning' }
+            form:
+                exclude_fields:
+                    - 'registrations'
+                    - 'slug'
+                    - 'isProvisionPaid'
+
+        Trainer:
+            label: 'Školitelé'
+            class: 'OpenTraining\Training\Entity\Trainer'
+            form:
+                exclude_fields:
+                    - 'trainings'
+
+        Place:
+            label: 'Školící místa'
+            class: 'OpenTraining\Training\Entity\Place'
+
+        Feedback:
+            label: 'Zpětné vazby'
+            class: 'OpenTraining\Training\Entity\TrainingFeedback'
+
+        Watchdog:
+            label: 'Zájemci o školení'
+            class: 'OpenTraining\Training\Entity\Watchdog'
+            list:
+                fields:
+                    - 'email'
+                    - 'note'
+                    - 'training'
+                    - 'createdAt'
+                    - 'isInformed'

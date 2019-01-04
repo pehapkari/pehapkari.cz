@@ -38,7 +38,7 @@
                             <p>{{ training.getPerex()|raw }}</p>
                         {% endif %}
 
-                        <p>Příští termín: <strong>{{ training.getNearestTerm()|date }}</strong></p>
+                        <p>Příští termín: <strong>{{ training.getNearestTermDateTime()|date }}</strong></p>
                         <p>
                             Lektor:
                             <strong>
@@ -66,11 +66,15 @@
         </div>
 
         <br>
+
+        <hr>
+
         <br>
 
         <div class="text-center text-smaller">
             <p>Další kurzy, které teď nemají vypsaný termín:</p>
             <p>
+
                 {% for training in trainings %}
                     {% if training.isActive() == false %}
                         <li>
@@ -83,31 +87,143 @@
             </p>
         </div>
 
+        <hr>
+
+        <h2 class="text-center mb-4">Chceš s něčím poradit, školení na míru nebo taky školit?</h2>
+
+        <p>
+            Napiš na <a href="martina@pehapkari.cz">martina@pehapkari.cz</a> a do 24 hodin ti dám vědět.
+        </p>
+
         <br>
 
         <hr>
 
         <div class="text-center">
-            <h2 class="mb-5">Přes {{ references|length }} spokojených účastníků</h2>
+            <h2 class="mb-5">
+                {{ word_by_count(finishedParticipantCount|length, ['spokojený účastník', 'spokojení účastnící', 'spokojených účastníků']) }}
+            </h2>
 
             <div class="row narrower">
-                {% for reference in references %}
-                    {% if loop.index < training_max_references_to_show %}
-                        {% include "snippet/reference.twig" with {"reference": reference} %}
-                    {% endif %}
-                {% endfor %}
+                <div class="col-md-6 text-left mb-4">
+                    {# todo vybrat 2-3 top; ve formátu - https://laravelshift.com/ #}
+
+                    na školení <a href="/kurz/docker-bez-predchozich-znalosti">Docker bez předchozích znalostí</a>:
+                    <p class="mt-3">
+                        <em>„Dobře připravené příklady s popsaným postupem.“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+
+                    na školení <a href="/kurz/zacnete-debugovat-jako-profici-s-xdebugem">Začněte debugovat jako profíci s xdebugem!</a>:
+                    <p class="mt-3">
+                        <em>„Super nakopnutí jak zvýšit svoje schopnosti. Xdebug beru jako zlepšení vývoje, teď jen nabité dovednosti přenést do praxe.“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+
+                    na školení <a href="/kurz/zacnete-debugovat-jako-profici-s-xdebugem">Začněte debugovat jako profíci s xdebugem!</a>:
+                    <p class="mt-3">
+                        <em>„Super individuální!“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+
+                    na školení <a href="/kurz/zacnete-debugovat-jako-profici-s-xdebugem">Začněte debugovat jako profíci s xdebugem!</a>:
+                    <p class="mt-3">
+                        <em>„Praktické ukázky :)“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+
+                    na školení <a href="/kurz/doctrine-2-pokrocile-pouziti">Doctrine 2 - Pokročilé použití</a>:
+                    <p class="mt-3">
+                        <em>„Nejvíc se mi líbil individuální přístup.“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+
+                    na školení <a href="/kurz/doctrine-2-pokrocile-pouziti">Doctrine 2 - Pokročilé použití</a>:
+                    <p class="mt-3">
+                        <em>„Praktické ukážky, podanie problematiky lektorom a reálne príklady.“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+                    <a href="https://www.linkedin.com/in/michael-kufner-cz">Michael Kufner</a>
+
+                    na školení <a href="/kurz/doctrine-2-zaciname-pouzivat-orm">Doctrine 2 - Začínáme používat ORM</a>:
+                    <p class="mt-3">
+                        <em>„Výborné školení, obrovské množství informací, <strong>které jsem hned druhý den využil v kanceláři</strong>. Určitě to nebylo naposled! Na konci to bylo sice trochu hrr, ale vzhledem k tomu množství informací by nepomohly ani 4 hodiny navíc. Díky!“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+                    <a href="https://www.antstudio.cz">Adam Janča</a>
+
+                    na školení <a href="/kurz/elasticsearch-zaciname-vyhledavat">Elasticsearch - Začínáme vyhledávat</a>:
+                    <p class="mt-3">
+                        <em>„Ze školení jsem nadšený! Výborný poměr teorie/praxe - dokážu si hned představit reálné využítí na skutečných projektech. Tomáš byl flexibilní a suprově reagoval na naše podněty - sdílel kód online, abychom ho nemuseli otrocky přepisovat. Díky moc za školení a těším se na další.“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+                    <a href="https://entrydo.com/">Jan Mikeš, CTO &amp; Co-founder of Entrydo</a>
+
+                    na školení <a href="/kurz/jak-na-rapidni-vyvoj-a-continuous-delivery">Jak na rapidní vývoj a Continuous Delivery</a>:
+                    <p class="mt-3">
+                        <em>„Školení bylo velmi přínosné a inspirativní. Získané dovednosti jsem hned aplikovat v praxi. <strong>Teď již žádný feedback loop není příliš dlouhý :)</strong>.“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+                    <a href="https://www.neoweb.sk">Ing. Eduard Barnáš</a>
+
+                    na školení <a href="/kurz/jak-na-rapidni-vyvoj-a-continuous-delivery">Jak na rapidní vývoj a Continuous Delivery</a>:
+                    <p class="mt-3">
+                        <em>„Príjemné prostredie, výborna téma a <strong>skvelý prednášajúci Ondrej Mirtes</strong>. <strong>Teória sa prepája s praxou</strong>. Po tomto kurze bude Continuous Delivery hračkou. Vrelo odporúčam!“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+
+                    na školení <a href="/kurz/jak-na-rapidni-vyvoj-a-continuous-delivery">Jak na rapidní vývoj a Continuous Delivery</a>:
+                    <p class="mt-3">
+                        <em>„Ondra měl jasno v tom co chce předat obecenstvu. <strong>Jeho školení nám pomohlo vylepšit systém našeho deploymentu</strong> a firemní procesy. Díky!“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+                    <a href="http://www.klabnik.cz/">Michal Klabník</a>
+
+                    na školení <a href="/kurz/ovladni-php-storm-od-zakladu-po-profi-tipy">Ovládni PhpStorm - od základů po profi tipy</a>:
+                    <p class="mt-3">
+                        <em>„S PhpStormem jsem nikdy předtím nedělal a byla to super ukázka toho, co to všechno umí. <strong>Tomáš skvěle, lidsky a poutavě přednášel, nachystané to měl na jedničku</strong>.“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+                    <a href="https://www.keboola.com/">Ondřej Popelka, Keboola</a>
+
+                    na školení <a href="/kurz/ovladni-php-storm-od-zakladu-po-profi-tipy">Ovládni PhpStorm - od základů po profi tipy</a>:
+                    <p class="mt-3">
+                        <em>„Vždycky jsem si myslel, že to co dělam složitě, určitě PhpStorm umí udelat nějak jednodušeji, ale dozvěděl jsem se, ze dělam složite i věci o kterých jsem si myslel, že je dělam jednoduše.“</em>
+                    </p>
+                </div>
+                <div class="col-md-6 text-left mb-4">
+
+                    na školení <a href="/kurz/ovladni-php-storm-od-zakladu-po-profi-tipy">Ovládni PhpStorm - od základů po profi tipy</a>:
+                    <p class="mt-3">
+                        <em>„Školení bylo super nakopnutí, abych se naučil PhpStorm používat efektivněji. Odnesl jsem si spoustu poznámek, které mám v plánu postupně zavést.“</em>
+                    </p>
+                </div>
+            </div>
             </div>
         </div>
 
         <hr>
 
-       <div class="text-center">
-            {# @todo render with.. counter #}
-            <h2>Už 9 proběhlých školení</h2>
+        <div class="text-center">
+            <h2>Už {{ finishedTrainingTermCount }} proběhlých školení</h2>
 
             <p>Od <strong>května 2017</strong> jsme zorganizovali 9 veřejných školení od 5 odborných školitelů.</p>
 
             <br>
+
+           {# use photos from https://photos.google.com/share/AF1QipNQyjjItQ54KB6MDc5FJfiz2DNTK5tWmhHnaNpBnq7eoL-gtiAvwT3fqmgPfCmq5g?key=cnlhSmpmWndibEFDaHo1cXpzQmp3d2daVjVwdTBB#}
 
             <div id="gallery" class="row">
                 <div class="col-md-3 col-sm-4 col-6">
@@ -137,32 +253,30 @@
             </div>
         </div>
 
+
         <br>
+
 
         <hr>
 
         <div class="text-center" id="kde-skolime">
             <h2>Kde školíme</h2>
             <div class="row">
-                <div class="col-md-6">
-                    <p>
-                        V prostorách karlínského <a href="https://www.google.com/maps?q=Pobřežní+667/78,+186+00,+Praha+8+-+Karlín">Footshopu</a>.
-                    </p>
+                {% for place in places %}
+                    <div class="col-md-6">
+                        <p>
+                            V prostorách <a href="{{ place.mapUrl }}">{{ place.getName() }}u</a>.
+                        </p>
 
-                    <a href="https://www.google.com/maps?q=Pobřežní+667/78,+186+00,+Praha+8+-+Karlín">
-                        <img src="/assets/images/places/footshop.jpg" width="400" class="img-thumbnail">
-                    </a>
-                </div>
-
-                <div class="col-md-6">
-                    <p>
-                        V Holešovich v <a href="https://www.google.com/maps?q=U+Pergamenky+1145/12,+170+00+Praha+7-Holešovice">Jablotronu</a>.
-                    </p>
-
-                    <a href="https://www.google.com/maps?q=U+Pergamenky+1145/12,+170+00+Praha+7-Holešovice">
-                        <img src="/assets/images/places/jablotron.jpg" width="400" class="img-thumbnail">
-                    </a>
-                </div>
+                        <a href="{{ place.mapUrl }}">
+                            {% if place.getImage() %}
+                                <p class="text-center mt-5 d-none d-sm-block">
+                                    <img src="{{ image_uploads }}/{{ place.getImage() }}" width="400" class="img-thumbnail">
+                                </p>
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
 
@@ -190,16 +304,6 @@
                 <p>Nejsme plátci DPH.</p>
             </div>
         </div>
-
-        <br>
-
-        <hr>
-
-        <h2 class="text-center mb-4">Chcete školitele jen pro sebe?</h2>
-
-        <p>
-            <a href="/kontakt">Napište nám</a> a zařídíme plnou pozornost jen pro váš projekt u vás ve firmě.
-        </p>
 
         <br>
 

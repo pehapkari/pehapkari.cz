@@ -1,59 +1,149 @@
-{% extends '@EasyAdmin/default/layout.html.twig' %}
+{% extends '@!EasyAdmin/default/layout.html.twig' %}
 
 {% block main %}
     <div class="pt-4 pb-4 pl-4 pr-4">
-        <h2>Provize</h2>
+        <h2 class="text-center">
+            Provize ze školení <strong>{{ trainingTerm }}</strong>
+        </h2>
 
-        <p>Přidal jsi už všechny náklady? Jestli ne, <a href="{{ path('easyadmin', {action: 'new', entity: 'Expense'}) }}">naprav to</a></p>.
+        <p class="text-center">Školil <strong>{{ trainer.getName() }}</strong></p>
 
         <br>
 
         <div class="row">
             <div class="col-6">
-                <table>
+                <table class="table table-bordered">
+                    <thead class="bg-success text-white text-center">
+                        <tr>
+                            <th colspan="2">Vyúčtování</th>
+                        </tr>
+                    </thead>
                     <tr>
-                        <th colspan="2">Náklady</th>
+                        <td>Učastníků x cena školení</td>
+                        <td class="text-right">
+                            {{ trainingTerm.getParticipantCount() }} x
+                            {{ training.getPrice()|number_format }} Kč
+                            {# @todo price na tento termín školení #}
+                        </td>
                     </tr>
                     <tr>
-                        <td>Vlastník (nájem)</td>
-                        <td>{{ ownerExpense }} Kč</td>
+                        <td>Příjem</td>
+                        <td class="text-right text-success">{{ income|number_format }} Kč</td>
                     </tr>
                     <tr>
-                        <td>Organizátor (tisk, občerstvení)</td>
-                        <td>{{ organizerExpense }} Kč</td>
+                        <td>
+                            Náklady
+
+                            <a class="btn btn-info btn-sm pull-right" href="{{ path('easyadmin', {action: 'new', entity: 'Expense', trainingTerm: trainingTerm.getId() }) }}">Přidat náklad</a>
+                            {# todo link přímo na náklad tohoto termínu šklení, slug! #}
+
+                        </td>
+                        <td class="text-right text-danger">- {{ expense|number_format }} Kč</td>
                     </tr>
-                    <tr>
-                        <td>Školitel (obědy)</td>
-                        <td>{{ trainerExpense }} Kč</td>
+
+                    <tr class="bg-dark text-light">
+                        <th>Zisk</th>
+                        <th class="text-right">{{ profit|number_format }} Kč</th>
                     </tr>
                 </table>
             </div>
-            <div class="col-6">
+        </div>
 
-                <ul>
-                    <li>Příjem: {{ income }}</li>
-                    <li>Výdej: {{ expense }}</li>
-                    <li>Zisk: {{ profit }}</li>
-                </ul>
+        <br>
+        <hr>
 
+        <h3 class="text-center mt-1 mb-3">Provize</h3>
+
+        <div class="row">
+            <div class="col-4">
+                <table class="table table-bordered">
+                    <thead class="bg-warning text-white text-center">
+                        <tr>
+                            <th colspan="2">Školitel</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>Podíl ze zisku</td>
+                        <td class="text-right">{{ trainerProvisionRate }} %</td>
+                    </tr>
+                    <tr>
+                        <td>Podíl</td>
+                        <td class="text-right">{{ trainerProvision|number_format }} Kč</td>
+                    </tr>
+                    <tr>
+                        <td>Náklady <span class="text-muted">(oběd)</span></td>
+                        <td class="text-right">{{ trainerExpense|number_format }} Kč</td>
+                    </tr>
+                    <tr>
+                        <th>Celkem poslat</th>
+                        <th class="text-right">{{ trainerProvisionWithExpense|number_format }} Kč</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-center">
+                            <a href="..." class="btn btn-lg btn-info">
+                                Poslat žádost o fakturu mailem
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-4">
+                <table class="table table-bordered">
+                    <thead class="bg-warning text-white text-center">
+                    <tr>
+                        <th colspan="2">Organizátor</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>Podíl ze zisku</td>
+                        <td class="text-right">{{ organizerProvisionRate }} %</td>
+                    </tr>
+                    <tr>
+                        <td>Podíl</td>
+                        <td class="text-right">{{ organizerProvision|number_format }} Kč</td>
+                    </tr>
+                    <tr>
+                        <td>Náklady <span class="text-muted">(tisk, občerstvení)</span></td>
+                        <td class="text-right">{{ organizerExpense|number_format }} Kč</td>
+                    </tr>
+                    <tr>
+                        <th>Celkem poslat</th>
+                        <th class="text-right">{{ organizerProvisionWithExpense|number_format }} Kč</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-center">
+                            <a href="..." class="btn btn-lg btn-info">
+                                Poslat žádost o fakturu mailem
+                            </a>
+                        </td>
+                    </tr>
+                </table>
             </div>
 
-            <pre>
-
-
-            @todo tabulka
-
-            Čistý zisk -
-            provize školitel - x % (@todo resolve x %, in bracket the number of lecture)
-            provize organizátor - nájemce %
-
-            i s náklady (na fkaturu)
-            provize školitel - x % - todo already finished trainings
-            provize organizátor - nájemce %
-
-            @todo poslat email o fakturu organizáto  - check/not posláno
-            @todo poslat email o fakturu školitel - check/not posláno
-            </pre>
+            <div class="col-4">
+                <table class="table table-bordered">
+                    <thead class="bg-warning text-white text-center">
+                    <tr>
+                        <th colspan="2">Vlastík</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>Podíl ze zisku</td>
+                        <td class="text-right">{{ ownerProvisionRate }} %</td>
+                    </tr>
+                    <tr>
+                        <th>Podíl</th>
+                        <th class="text-right">{{ ownerProvision|number_format }} Kč</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Náklady
+                            <span class="text-muted">(nájem)</span>
+                        </td>
+                        <td class="text-right">{{ ownerExpense|number_format }} Kč</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 {% endblock %}

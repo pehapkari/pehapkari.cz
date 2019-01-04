@@ -29,11 +29,8 @@ script:
           composer phpstan
       fi
 
-    # @todo pick a single project?
-    # this checks that the YAML config files contain no syntax errors
-    - projects/open-real-estate/bin/console lint:yaml config
-    # this checks that the Twig template files contain no syntax errors
-    - projects/open-real-estate/bin/console lint:twig templates
+    - bin/console lint:yaml projects
+    - bin/console lint:twig projects
 
 notifications:
     email: false

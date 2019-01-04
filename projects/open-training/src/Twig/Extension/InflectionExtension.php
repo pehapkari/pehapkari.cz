@@ -2,6 +2,7 @@
 
 namespace OpenTraining\Twig\Extension;
 
+use Nette\Utils\Strings;
 use OpenTraining\Exception\Twig\InvalidWordCountException;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -23,15 +24,13 @@ final class InflectionExtension extends AbstractExtension
         return [
             new TwigFunction('word_by_count', function (int $count, array $versions): string {
                 $this->ensureValidFormCountIsProvided($versions);
-                if ($count === 1) {
-                    return $count . ' ' . $versions[0];
+
+                $form = $this->resolveForm($count, $versions);
+                if (Strings::contains($form, '%d')) {
+                    return sprintf($form, $count);
                 }
 
-                if ($count === 0 || $count < 5) {
-                    return $count . ' ' . $versions[1];
-                }
-
-                return $count . ' ' . $versions[2];
+                return $count . ' ' . $form;
             }),
         ];
     }
@@ -49,5 +48,21 @@ final class InflectionExtension extends AbstractExtension
             'Provide exactly 3 options to word_by_count() function as 2nd argument. %d given',
             count($versions)
         ));
+    }
+
+    /**
+     * @param string[] $versions
+     */
+    private function resolveForm(int $count, array $versions): string
+    {
+        if ($count === 1) {
+            return $versions[0];
+        }
+
+        if ($count === 0 || $count < 5) {
+            return $versions[1];
+        }
+
+        return $versions[2];
     }
 }

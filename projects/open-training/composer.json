@@ -5,7 +5,9 @@
         "php": "^7.1",
         "ext-intl": "*",
         "ext-pdo": "*",
+        "ext-iconv": "*",
         "ext-pdo_mysql": "*",
+        "chumper/zipper": "^1.0",
         "alterphp/easyadmin-extension-bundle": "^2.0",
         "doctrine/doctrine-bundle": "^1.10",
         "doctrine/orm": "2.7.x-dev",
@@ -18,6 +20,8 @@
         "symfony/dotenv": "^4.2",
         "symfony/flex": "^1.0",
         "symfony/form": "^4.2",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi": "^2.1",
         "symfony/framework-bundle": "^4.2",
         "symfony/orm-pack": "^1.0",
         "symfony/security-bundle": "^4.2",
@@ -45,6 +49,7 @@
             "OpenTraining\\": "src",
             "OpenTraining\\Provision\\": "packages/Provision/src",
             "OpenTraining\\Registration\\": "packages/Registration/src",
+            "OpenTraining\\KnowHow\\": "packages/KnowHow/src",
             "OpenTraining\\Training\\": "packages/Training/src",
             "OpenTraining\\Marketing\\": "packages/Marketing/src"
         }

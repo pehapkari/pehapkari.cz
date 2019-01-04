@@ -1,8 +1,16 @@
+parameters:
+    certificate_assets_directory: '%kernel.project_dir%/public/assets/certificates'
+    certificate_output_directory: '%kernel.project_dir%/public/generated/certificates'
+    zip_output_directory: '%kernel.project_dir%/public/generated/zips'
+
 services:
     _defaults:
         autowire: true
+        autoconfigure: true
         public: true
 
     OpenTraining\Training\:
         resource: '../src'
-        exclude: '../src/Entity'
+        exclude: '../src/{Entity}'
+
+    Chumper\Zipper\Zipper: ~

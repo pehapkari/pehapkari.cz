@@ -4,7 +4,6 @@ namespace OpenTraining\Training\Controller;
 
 use OpenTraining\Training\Entity\Training;
 use OpenTraining\Training\Repository\PlaceRepository;
-use OpenTraining\Training\Repository\TrainingReferenceRepository;
 use OpenTraining\Training\Repository\TrainingRepository;
 use OpenTraining\Training\Repository\TrainingTermRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,11 +23,6 @@ final class TrainingController extends AbstractController
     private $placeRepository;
 
     /**
-     * @var TrainingReferenceRepository
-     */
-    private $trainingReferenceRepository;
-
-    /**
      * @var TrainingTermRepository
      */
     private $trainingTermRepository;
@@ -36,12 +30,10 @@ final class TrainingController extends AbstractController
     public function __construct(
         TrainingRepository $trainingRepository,
         PlaceRepository $placeRepository,
-        TrainingReferenceRepository $trainingReferenceRepository,
         TrainingTermRepository $trainingTermRepository
     ) {
         $this->trainingRepository = $trainingRepository;
         $this->placeRepository = $placeRepository;
-        $this->trainingReferenceRepository = $trainingReferenceRepository;
         $this->trainingTermRepository = $trainingTermRepository;
     }
 
@@ -62,9 +54,7 @@ final class TrainingController extends AbstractController
     {
         return $this->render('training/trainings.twig', [
             'trainings' => $this->trainingRepository->fetchAll(),
-            'place' => $this->placeRepository->getMainPlace(),
-            'references' => $this->trainingReferenceRepository->fetchAll(),
-            'referenceCount' => count($this->trainingReferenceRepository->fetchAll()),
+            'places' => $this->placeRepository->fetchAll(),
             'pastTerms' => $this->trainingTermRepository->fetchFinished(),
             'pastTermsCount' => count($this->trainingTermRepository->fetchFinished()),
         ]);

@@ -6,8 +6,6 @@ parameters:
         - "*/Entity*"
         - '*/var/cache/*'
         - '*/var/logs/*'
-        # wip
-        - "*/open-training/packages/Provision/*"
 
     ignoreErrors:
         # known value of getRealPath(), uploaded file

@@ -4,6 +4,7 @@ namespace OpenTraining\Provision\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use OpenTraining\Training\Entity\TrainingTerm;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -25,7 +26,7 @@ class Expense
     private $amount;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      * @var string
      */
     private $note;
@@ -33,14 +34,13 @@ class Expense
     /**
      * @ORM\Column(type="string")
      * @var string
-     *
-     * @todo enum?
      */
     private $partner;
 
     /**
      * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm")
      * @var TrainingTerm
+     * @Assert\NotNull
      */
     private $trainingTerm;
 

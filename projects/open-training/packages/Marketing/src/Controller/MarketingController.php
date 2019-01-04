@@ -8,9 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class MarketingController extends AbstractController
 {
-    /**
-     * @Route(path="/budte-videt/", name="sponsoring")
-     */
+
+
     public function default(): Response
     {
         // how to auto-complete:

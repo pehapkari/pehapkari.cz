@@ -20,6 +20,8 @@ services:
 
     Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
         extraAllowedClasses:
+            - 'setasign\Fpdi\*'
+            - 'ZipStream\ZipStream'
             - 'OpenTraining\Provision\Data\*'
             - 'App\Request\*Request'
             - 'Doctrine\Common\Collections\ArrayCollection'

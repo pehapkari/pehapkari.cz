@@ -21,17 +21,18 @@ git checkout master
 composer install
 ```
 
+Setup path to your project in `bin/console`.
 
-Install assets
+### Install assets
 
 ```bash
-php projects/open-real-estate/bin/console assets:install --env=prod --no-debug
+php bin/console assets:install --env=prod --no-debug
 ```
 
 Clear cache after any config change - e.g. security
 
 ```bash
-php projects/open-real-estate/bin/console cache:clear
+php bin/console cache:clear
 ```
 
 Install adminer
@@ -51,7 +52,7 @@ composer adminer-install
 Run web in browser:
 
 ```bash
-php projects/open-real-estate/bin/console server:run
+php bin/console server:run
 ```
 
 Open in browser to see website:
