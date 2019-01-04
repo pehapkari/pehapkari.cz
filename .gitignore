@@ -19,3 +19,7 @@ projects/open-training/public/build/*/glyphicons-*
 projects/open-training/public/uploads/images
 projects/open-training/public/generated
 projects/*/composer.lock
+
+## Docker
+docker-compose.yml
+projects/*/.docker/mysql-data
