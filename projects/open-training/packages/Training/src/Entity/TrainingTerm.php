@@ -69,6 +69,12 @@ class TrainingTerm
      */
     private $registrations;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Place")
+     * @var Place
+     */
+    private $place;
+
     public function __construct()
     {
         $this->registrations = new ArrayCollection();
@@ -203,5 +209,15 @@ class TrainingTerm
     public function getTrainer(): ?Trainer
     {
         return $this->training ? $this->training->getTrainer() : null;
+    }
+
+    public function getPlace(): ?Place
+    {
+        return $this->place;
+    }
+
+    public function setPlace(?Place $place): void
+    {
+        $this->place = $place;
     }
 }

@@ -69,12 +69,6 @@ class Training
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Place")
-     * @var Place
-     */
-    private $place;
-
-    /**
      * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Trainer", inversedBy="trainings")
      * @var Trainer
      */
@@ -153,16 +147,6 @@ class Training
     public function getPrice(): ?int
     {
         return $this->price;
-    }
-
-    public function getPlace(): ?Place
-    {
-        return $this->place;
-    }
-
-    public function getPlaceMapUrl(): ?string
-    {
-        return $this->place ? $this->place->getMapUrl() : null;
     }
 
     public function getTrainer(): ?Trainer
@@ -279,5 +263,31 @@ class Training
         }
 
         return $this->getNearestTerm()->getSlug();
+    }
+
+    public function getNearestTermPlaceName(): ?string
+    {
+        if ($this->getNearestTerm() !== null) {
+            return null;
+        }
+
+        if ($this->getNearestTerm()->getPlace() !== null) {
+            return null;
+        }
+
+        return $this->getNearestTerm()->getPlace()->getName();
+    }
+
+    public function getNearestTermPlaceMapUrl(): ?string
+    {
+        if ($this->getNearestTerm() !== null) {
+            return null;
+        }
+
+        if ($this->getNearestTerm()->getPlace() !== null) {
+            return null;
+        }
+
+        return $this->getNearestTerm()->getPlace()->getMapUrl();
     }
 }

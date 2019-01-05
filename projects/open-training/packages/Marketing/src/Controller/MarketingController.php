@@ -8,8 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class MarketingController extends AbstractController
 {
-
-
 	/**
 	 * @Route(path="/zviditelnete-vasi-firmu", name="sponsoring")
 	 */
