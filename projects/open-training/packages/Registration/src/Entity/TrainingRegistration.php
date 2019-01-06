@@ -53,6 +53,12 @@ class TrainingRegistration
      * @ORM\Column(type="boolean")
      * @var bool
      */
+    private $isSentInvoice = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
     private $isPaid = false;
 
     /**
@@ -181,5 +187,15 @@ class TrainingRegistration
     public function getPrice(): ?float
     {
         return $this->price;
+    }
+
+    public function isSentInvoice(): ?bool
+    {
+        return $this->isSentInvoice;
+    }
+
+    public function setIsSentInvoice(?bool $isSentInvoice): void
+    {
+        $this->isSentInvoice = $isSentInvoice;
     }
 }
