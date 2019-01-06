@@ -3,3 +3,11 @@ test:
   script:
     - echo "Hello world"
     - echo "Test 2"
+
+deploy:
+  stage: deploy
+  environment:
+    name: production
+    url: https://example.com
+  script:
+    - echo "Im deploying"
