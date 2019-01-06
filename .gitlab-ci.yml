@@ -2,3 +2,4 @@ test:
   stage: build
   script:
     - echo "Hello world"
+    - echo "Test 2"
