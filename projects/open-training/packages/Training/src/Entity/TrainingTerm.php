@@ -220,4 +220,13 @@ class TrainingTerm
     {
         $this->place = $place;
     }
+
+    public function getPrice(): ?float
+    {
+        if ($this->training === null) {
+            return null;
+        }
+
+        return $this->training->getPrice();
+    }
 }

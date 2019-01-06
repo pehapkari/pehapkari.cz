@@ -37,8 +37,7 @@ final class TrainingRegistrationController extends AbstractController
             /** @var TrainingRegistration $trainingRegistration */
             $trainingRegistration = $form->getData();
 
-            // @todo set price from current price of the training - eays :)
-            // $trainingRegistration->setPrice();
+            $trainingRegistration->setPrice($trainingTerm->getPrice());
 
             $this->trainingRegistrationRepository->save($trainingRegistration);
 

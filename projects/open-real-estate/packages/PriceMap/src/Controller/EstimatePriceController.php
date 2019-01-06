@@ -63,8 +63,5 @@ final class EstimatePriceController extends EasyAdminController
 
     private function finishView(FormView $formView): FormView
     {
-        dump($this);
-        die;
-        // ...
     }
 }

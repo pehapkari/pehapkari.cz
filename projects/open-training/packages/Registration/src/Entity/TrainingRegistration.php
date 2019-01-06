@@ -62,6 +62,12 @@ class TrainingRegistration
     private $agreesWithPersonalData = false;
 
     /**
+     * @ORM\Column(type="float")
+     * @var float
+     */
+    private $price;
+
+    /**
      * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm", inversedBy="registrations")
      * @var TrainingTerm
      */
@@ -165,5 +171,15 @@ class TrainingRegistration
     public function setAgreesWithPersonalData(?bool $agreesWithPersonalData): void
     {
         $this->agreesWithPersonalData = $agreesWithPersonalData;
+    }
+
+    public function setPrice(?float $price): void
+    {
+        $this->price = $price;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
     }
 }
