@@ -3,4 +3,4 @@
 
 # switch as needed
 require_once __DIR__ . '/../projects/open-training/bin/console';
-//require_once __DIR__ . '/../projects/open-real-estate/bin/console';
+require_once __DIR__ . '/../projects/open-real-estate/bin/console';
