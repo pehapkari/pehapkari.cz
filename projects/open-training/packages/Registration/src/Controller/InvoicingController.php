@@ -25,18 +25,29 @@ final class InvoicingController extends AbstractController
      */
     public function sendInvoices(TrainingTerm $trainingTerm): Response
     {
-        foreach ($trainingTerm->getRegistrations() as $registration) {
-            if ($registration->isSentInvoice()) {
-                continue;
+        if ($trainingTerm->getRegistrations() === []) {
+            $this->addFlash('warning', 'Zatím tu nejsou žádné registrace.');
+        } else {
+            $hasNewInvoices = false;
+            foreach ($trainingTerm->getRegistrations() as $registration) {
+                if ($registration->hasInvoice()) {
+                    continue;
+                }
+
+                $hasNewInvoices = true;
+                $this->invoicer->sendInvoiceForRegistration($registration);
+
+                $this->addFlash('success', 'Faktura pro ' . $registration->getTrainingName() . ' ' . $registration->getName() . ' byla vytvořena');
             }
 
-            $this->invoicer->sendInvoiceForRegistration($registration);
+            if ($hasNewInvoices === false) {
+                $this->addFlash('success', 'Všechny registrace už svou fakturu mají');
+            }
         }
 
-        die;
-
-//        return $this->render('training/become_trainer.twig', [
-//            'places' => $this->placeRepository->fetchAll(),
-//        ]);
+        return $this->redirectToRoute('easyadmin', [
+            'entity' => 'TrainingTerm',
+            'action' => 'list',
+        ]);
     }
 }

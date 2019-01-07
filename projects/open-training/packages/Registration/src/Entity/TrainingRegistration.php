@@ -5,6 +5,7 @@ namespace OpenTraining\Registration\Entity;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use OpenTraining\Training\Entity\TrainingTerm;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -53,7 +54,7 @@ class TrainingRegistration
      * @ORM\Column(type="boolean")
      * @var bool
      */
-    private $isSentInvoice = false;
+    private $hasInvoice = false;
 
     /**
      * @ORM\Column(type="boolean")
@@ -76,6 +77,7 @@ class TrainingRegistration
     /**
      * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm", inversedBy="registrations")
      * @var TrainingTerm
+     * @Assert\NotNull
      */
     private $trainingTerm;
 
@@ -189,13 +191,13 @@ class TrainingRegistration
         return $this->price;
     }
 
-    public function isSentInvoice(): ?bool
+    public function hasInvoice(): ?bool
     {
-        return $this->isSentInvoice;
+        return $this->hasInvoice;
     }
 
-    public function setIsSentInvoice(?bool $isSentInvoice): void
+    public function setHasInvoice(?bool $hasInvoice): void
     {
-        $this->isSentInvoice = $isSentInvoice;
+        $this->hasInvoice = $hasInvoice;
     }
 }

@@ -2,9 +2,9 @@
 
 namespace OpenTraining\Registration\Invoicing;
 
-use K0nias\FakturoidApi\Api;
 use OpenTraining\Registration\Api\FakturoidApi;
 use OpenTraining\Registration\Entity\TrainingRegistration;
+use OpenTraining\Registration\Repository\TrainingRegistrationRepository;
 
 final class Invoicer
 {
@@ -13,21 +13,28 @@ final class Invoicer
      */
     private $fakturoidApi;
 
-    public function __construct(FakturoidApi $fakturoidApi)
-    {
+    /**
+     * @var TrainingRegistrationRepository
+     */
+    private $trainingRegistrationRepository;
+
+    public function __construct(
+        FakturoidApi $fakturoidApi,
+        TrainingRegistrationRepository $trainingRegistrationRepository
+    ) {
         $this->fakturoidApi = $fakturoidApi;
+        $this->trainingRegistrationRepository = $trainingRegistrationRepository;
     }
 
-    public function sendInvoiceForRegistration(TrainingRegistration $registration)
+    public function sendInvoiceForRegistration(TrainingRegistration $trainingRegistration): void
     {
+        // create invoice
+        $this->fakturoidApi->createInvoice($trainingRegistration);
 
+        // update registration about invoice
+        $trainingRegistration->setHasInvoice(true);
+        $this->trainingRegistrationRepository->save($trainingRegistration);
 
-
-        $this->fakturoidApi->createInvoice();
-
-
-        dump($registration);
-
-        die;
+        // @todo send invoice
     }
 }
