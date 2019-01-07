@@ -1,10 +1,3 @@
-FROM nginx:latest AS nginx
-
-WORKDIR /app
-
-COPY --from=production /app /app
-COPY ./projects/open-training/.docker/nginx/site.conf /etc/nginx/conf.d/default.conf
-
 FROM composer:latest
 FROM php:7.2-fpm as production
 
@@ -61,6 +54,14 @@ RUN mkdir -p var/cache var/logs var/sessions \
 	&& composer dump-autoload --classmap-authoritative --no-dev \
 	&& chown -R www-data var
 
+
+## Nginx
+FROM nginx:latest AS nginx
+
+WORKDIR /app
+
+COPY --from=production /app /app
+COPY ./projects/open-training/.docker/nginx/site.conf /etc/nginx/conf.d/default.conf
 
 
 ## Local build with xdebug
