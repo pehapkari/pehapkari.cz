@@ -1,3 +1,10 @@
+FROM nginx:latest AS nginx
+
+WORKDIR /app
+
+COPY --from=production /app /app
+COPY ./projects/open-training/.docker/nginx/site.conf /etc/nginx/conf.d/default.conf
+
 FROM composer:latest
 FROM php:7.2-fpm as production
 

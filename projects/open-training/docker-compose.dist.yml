@@ -1,17 +1,20 @@
 version: "3.7"
 services:
   web:
-    image: nginx:latest
+    image: open-training/nginx:latest
+    build:
+      context: ../../
+      target: nginx
+      dockerfile: projects/open-training/Dockerfile
     ports:
       - "8000:80"
     volumes:
       - ../../:/app:cached
-      - ./.docker/nginx/site.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
 
   php:
-    image: open-training:latest
+    image: open-training/php:latest
     build:
       context: ../../
       target: dev
