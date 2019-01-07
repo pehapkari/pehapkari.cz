@@ -5,6 +5,7 @@ namespace OpenTraining\Registration\Form;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -39,6 +40,12 @@ final class TrainingRegistrationFormType extends AbstractType
         $formBuilder->add('ico', TextType::class, [
             'label' => 'IČO pro fakturaci nebo Tvá adresa',
             'required' => true,
+        ]);
+
+        $formBuilder->add('participantCount', IntegerType::class, [
+            'label' => 'Kolik vás bude?',
+            'required' => true,
+            'data' => 1, // default value
         ]);
 
         $formBuilder->add('note', TextareaType::class, [

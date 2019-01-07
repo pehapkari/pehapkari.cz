@@ -14,6 +14,7 @@
         "doctrine/orm": "2.7.x-dev",
         "easycorp/easyadmin-bundle": "^2.0",
         "fakturoid/fakturoid-php": "^1.0",
+        "guzzlehttp/guzzle": "^6.3",
         "k0nias/fakturoid-api": "dev-master",
         "knplabs/doctrine-behaviors": "^1.6",
         "sensio/framework-extra-bundle": "^5.2",

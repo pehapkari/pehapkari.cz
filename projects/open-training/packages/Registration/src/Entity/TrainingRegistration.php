@@ -51,6 +51,14 @@ class TrainingRegistration
     private $note;
 
     /**
+     * @ORM\Column(type="integer")
+     * @Assert\Type(type="integer")
+     * @Assert\GreaterThan(0)
+     * @var int
+     */
+    private $participantCount;
+
+    /**
      * @ORM\Column(type="boolean")
      * @var bool
      */
@@ -73,6 +81,12 @@ class TrainingRegistration
      * @var float
      */
     private $price;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
+    private $fakturoidInvoiceId;
 
     /**
      * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm", inversedBy="registrations")
@@ -199,5 +213,25 @@ class TrainingRegistration
     public function setHasInvoice(?bool $hasInvoice): void
     {
         $this->hasInvoice = $hasInvoice;
+    }
+
+    public function getParticipantCount(): ?int
+    {
+        return $this->participantCount;
+    }
+
+    public function setParticipantCount(?int $participantCount): void
+    {
+        $this->participantCount = $participantCount;
+    }
+
+    public function getFakturoidInvoiceId(): ?int
+    {
+        return $this->fakturoidInvoiceId;
+    }
+
+    public function setFakturoidInvoiceId(?int $fakturoidInvoiceId): void
+    {
+        $this->fakturoidInvoiceId = $fakturoidInvoiceId;
     }
 }

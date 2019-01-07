@@ -21,9 +21,12 @@
                     <tr>
                         <td>Učastníků x cena školení</td>
                         <td class="text-right">
+                            {# @todo add fakturováno #}
+                            {# @todo add zaplaceno - tabulka vpravo pro work in progress #}
+                            {# @todo add odkaz na sync faktur #}
+
                             {{ trainingTerm.getParticipantCount() }} x
                             {{ training.getPrice()|number_format }} Kč
-                            {# @todo price na tento termín školení #}
                         </td>
                     </tr>
                     <tr>

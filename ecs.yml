@@ -23,6 +23,8 @@ services:
             - 'K0nias\FakturoidApi\*'
             - 'setasign\Fpdi\*'
             - 'ZipStream\ZipStream'
+            - '*Request'
+            - '*Response'
             - 'OpenTraining\Provision\Data\*'
             - 'App\Request\*Request'
             - 'Doctrine\Common\Collections\ArrayCollection'

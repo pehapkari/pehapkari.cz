@@ -11,6 +11,7 @@ easy_admin:
                     - 'trainingTerm'
                     - 'phone'
                     - 'ico'
+                    - { property: 'participantCount', label: 'Persons?' }
                     - { property: 'hasInvoice', label: 'Invoice?' }
                     - { property: 'isPaid', label: 'Paid?' }
                     - { property: 'agreesWithPersonalData', label: 'GDPR', type: 'boolean' }
