@@ -1,13 +1,16 @@
-test:
+image: docker:git
+
+services:
+  - docker:dind
+
+variables:
+  IMAGE: registry.gitlab.com/jm-tv-rename-later/open-project-jm-test
+
+before_script:
+  - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
+
+build open-training image:
   stage: build
   script:
-    - echo "Hello world"
-    - echo "Test 2"
-
-deploy:
-  stage: deploy
-  environment:
-    name: production
-    url: https://example.com
-  script:
-    - echo "Im deploying"
+    - docker build --cache-from $IMAGE:latest -t $IMAGE:$CI_COMMIT_SHA -t $IMAGE:latest projects/open-training
+    - docker push $IMAGE
