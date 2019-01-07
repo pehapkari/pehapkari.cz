@@ -7,20 +7,23 @@ if [ "${1#-}" != "$1" ]; then
 fi
 
 if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ]; then
+
+    ## If we are not on production, we install dev dependencies
 	if [ "$APP_ENV" != 'prod' ]; then
 		composer install --prefer-dist --no-progress --no-suggest --no-interaction
-
-        php projects/open-training/bin/console assets:install --env=prod --no-debug
-        php projects/open-training/bin/console cache:clear
-
-        ## Wait until database connection is ready
-        until mysql -u $DATABASE_USER -h $DATABASE_HOST --password="$DATABASE_PASSWORD" -e "" ; do
-            >&2 echo "Waiting for database service to start."
-            sleep 3
-        done
-
-	    php projects/open-training/bin/console doctrine:schema:update --dump-sql --force
 	fi
+
+    php projects/open-training/bin/console assets:install --env=prod --no-debug
+    php projects/open-training/bin/console cache:clear
+
+    ## Wait until database connection is ready
+    until mysql -u $DATABASE_USER -h $DATABASE_HOST --password="$DATABASE_PASSWORD" -e "" ; do
+        >&2 echo "Waiting for database service to start."
+        sleep 3
+    done
+
+    ## Update DB
+    php projects/open-training/bin/console doctrine:schema:update --dump-sql --force
 
 	# Permissions hack because setfacl does not work on Mac and Windows
 	chown -R www-data projects/open-training/var
