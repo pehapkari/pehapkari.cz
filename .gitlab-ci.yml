@@ -12,5 +12,5 @@ before_script:
 build open-training image:
   stage: build
   script:
-    - docker build --cache-from $IMAGE:latest -t $IMAGE:$CI_COMMIT_SHA -t $IMAGE:latest projects/open-training
+    - docker build --cache-from $IMAGE:latest -t $IMAGE:$CI_COMMIT_SHA -t $IMAGE:latest --target production -f projects/open-training/Dockerfile .
     - docker push $IMAGE
