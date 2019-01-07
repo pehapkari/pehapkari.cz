@@ -10,14 +10,10 @@ variables:
 before_script:
   - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
 
-build open-training php image:
-  stage: build
-  script:
-    - docker build --cache-from $IMAGE_PHP:latest -t $IMAGE_PHP:$CI_COMMIT_SHA -t $IMAGE_PHP:latest --target production -f projects/open-training/Dockerfile .
-    - docker push $IMAGE_PHP
-
-build open-training nginx image:
+build open-training images:
   stage: build
   script:
     - docker build --cache-from $IMAGE_NGINX:latest -t $IMAGE_NGINX:$CI_COMMIT_SHA -t $IMAGE_NGINX:latest --target nginx -f projects/open-training/Dockerfile .
+    - docker build --cache-from $IMAGE_PHP:latest -t $IMAGE_PHP:$CI_COMMIT_SHA -t $IMAGE_PHP:latest --target production -f projects/open-training/Dockerfile .
     - docker push $IMAGE_NGINX
+    - docker push $IMAGE_PHP
