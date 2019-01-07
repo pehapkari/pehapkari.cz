@@ -52,7 +52,7 @@ COPY ./projects/open-training /app/projects/open-training
 
 RUN mkdir -p ./projects/open-training/var/cache ./projects/open-training/var/logs ./projects/open-training/var/sessions \
 	&& composer dump-autoload --classmap-authoritative --no-dev \
-	&& chown -R www-data var
+	&& chown -R www-data ./projects/open-training/var
 
 
 ## Nginx
