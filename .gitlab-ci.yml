@@ -1,20 +1,60 @@
-image: docker:git
-
-services:
-  - docker:dind
+stages:
+  - build
+  - test
+  - release
+  - deploy
 
 variables:
-  IMAGE_PHP: registry.gitlab.com/jm-tv-rename-later/open-project-jm-test/php
-  IMAGE_NGINX: registry.gitlab.com/jm-tv-rename-later/open-project-jm-test/nginx
+  IMAGE_OPEN_TRAINING: registry.gitlab.com/jm-tv-rename-later/open-project-jm-test
 
-before_script:
-  - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
 
-build open-training images:
+build docker images:
   stage: build
+  image: docker:git
+  variables:
+    IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
+    IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
+  services:
+    - docker:dind
+  before_script:
+    - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
   script:
     - docker pull $IMAGE_PHP || true
-    - docker build --cache-from $IMAGE_PHP -t $IMAGE_PHP:$CI_COMMIT_SHA -t $IMAGE_PHP:latest --target production -f projects/open-training/Dockerfile .
+    - docker build --cache-from $IMAGE_PHP -t $IMAGE_PHP:$CI_COMMIT_SHA --target production -f projects/open-training/Dockerfile .
     - docker push $IMAGE_PHP
-    - docker build --cache-from $IMAGE_PHP --cache-from $IMAGE_NGINX -t $IMAGE_NGINX:$CI_COMMIT_SHA -t $IMAGE_NGINX:latest --target nginx -f projects/open-training/Dockerfile .
+    - docker build --cache-from $IMAGE_PHP --cache-from $IMAGE_NGINX -t $IMAGE_NGINX:$CI_COMMIT_SHA --target nginx -f projects/open-training/Dockerfile .
     - docker push $IMAGE_NGINX
+
+test:
+  stage: test
+  script:
+    - echo "Testing"
+
+release open-training:
+  stage: release
+  image: docker:git
+  variables:
+    IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
+    IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
+  services:
+    - docker:dind
+  before_script:
+    - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
+  script:
+    - docker pull $IMAGE_PHP:$CI_COMMIT_SHA
+    - docker tag $IMAGE_PHP:$CI_COMMIT_SHA $IMAGE_PHP:latest
+    - docker push $IMAGE_PHP
+    - docker pull $IMAGE_NGINX:$CI_COMMIT_SHA
+    - docker tag $IMAGE_NGINX:$CI_COMMIT_SHA $IMAGE_NGINX:latest
+    - docker push $IMAGE_NGINX
+
+deploy open-training:
+  stage: deploy
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$DEPLOYER_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  script:
+    - ssh root@DEPLOY_HOST "cd /projects/open-training && ./run.sh"
+  environment:
+    name: production
+    url: http://phpskoleni.cz
