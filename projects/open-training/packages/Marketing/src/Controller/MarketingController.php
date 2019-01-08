@@ -10,6 +10,9 @@ final class MarketingController extends AbstractController
 {
 
 
+	/**
+	 * @Route(path="/zviditelnete-vasi-firmu", name="sponsoring")
+	 */
     public function default(): Response
     {
         // how to auto-complete:
