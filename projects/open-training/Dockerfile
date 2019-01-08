@@ -54,7 +54,7 @@ RUN mkdir -p ./projects/open-training/var/cache \
     ./projects/open-training/public/uploads/images \
     ./projects/open-training/public/generated \
         && composer dump-autoload --classmap-authoritative --no-dev \
-        && chown -R www-data ./projects/open-training/var
+        && chown -R www-data ./projects/open-training/var \
         && chmod -R 777 ./projects/open-training/public/uploads/images ./projects/open-training/public/generated
 
 
