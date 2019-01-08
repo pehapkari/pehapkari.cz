@@ -43,58 +43,6 @@ phpunit:
   script:
     - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/phpunit
 
-validate monorepo:
-  stage: test
-  variables:
-    IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
-    IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
-  services:
-    - docker:dind
-  before_script:
-    - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
-  script:
-    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/monorepo-builder validate
-
-easy coding standard:
-  stage: test
-  variables:
-    IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
-    IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
-  services:
-    - docker:dind
-  before_script:
-    - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
-  script:
-    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/ecs check packages projects/*/src projects/*/packages/*/src
-  allow_failure: true
-
-phpstan:
-  stage: test
-  variables:
-    IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
-    IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
-  services:
-    - docker:dind
-  before_script:
-    - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
-  script:
-    # - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/phpstan analyse projects/*/src projects/*/packages/*/src --level max
-    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/phpstan analyse projects/open-training/src projects/open-training/packages/*/src --level max
-  allow_failure: true
-
-lint:
-  stage: test
-  variables:
-    IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
-    IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
-  services:
-    - docker:dind
-  before_script:
-    - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
-  script:
-    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php projects/open-training/bin/console lint:yaml projects
-    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php projects/open-training/bin/console lint:twig projects
-
 release open-training:
   stage: release
   variables:
