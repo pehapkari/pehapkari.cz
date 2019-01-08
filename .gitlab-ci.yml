@@ -8,6 +8,9 @@ stages:
 
 variables:
   IMAGE_OPEN_TRAINING: registry.gitlab.com/jm-tv-rename-later/open-project-jm-test
+  APP_ENV: dev
+  APP_DEBUG: 0
+  APP_SECRET: 67d829bf61dc5f87a73fd814e2c9f629
 
 
 build docker images:
@@ -48,9 +51,9 @@ validate monorepo:
   before_script:
     - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
   script:
-    - docker run $IMAGE_PHP:$CI_COMMIT_SHA vendor/bin/monorepo-builder validate
+    - docker run $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/monorepo-builder validate
 
-code analysis:
+easy coding standard:
   stage: test
   variables:
     IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
@@ -60,8 +63,19 @@ code analysis:
   before_script:
     - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
   script:
-    - docker run $IMAGE_PHP:$CI_COMMIT_SHA composer check-cs
-    - docker run $IMAGE_PHP:$CI_COMMIT_SHA composer phpstan
+    - docker run $IMAGE_PHP:$CI_COMMIT_SHA vendor/bin/ecs check packages projects/*/src projects/*/packages/*/src
+
+phpstan:
+  stage: test
+  variables:
+    IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
+    IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
+  services:
+    - docker:dind
+  before_script:
+    - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
+  script:
+    - docker run $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/phpstan analyse projects/*/src projects/*/packages/*/src --level max
 
 lint:
   stage: test

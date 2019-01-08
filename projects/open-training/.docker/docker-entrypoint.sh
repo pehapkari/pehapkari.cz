@@ -6,7 +6,7 @@ if [ "${1#-}" != "$1" ]; then
 	set -- php-fpm "$@"
 fi
 
-if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ]; then
+if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ] || [ "$1" = 'php' ]; then
 
     ## If we are not on production, we install dev dependencies
 	if [ "$APP_ENV" != 'prod' ]; then
