@@ -111,6 +111,8 @@ release open-training:
     - docker pull $IMAGE_NGINX:$CI_COMMIT_SHA
     - docker tag $IMAGE_NGINX:$CI_COMMIT_SHA $IMAGE_NGINX:latest
     - docker push $IMAGE_NGINX
+  only:
+    - master
 
 deploy open-training:
   stage: deploy
