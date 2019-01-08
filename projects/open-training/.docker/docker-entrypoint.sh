@@ -18,7 +18,7 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ] || [ "$1" = 'php' ]; then
 
 
     ## Check if variable DATABASE_HOST is set, if yes, we have database
-    if [[ -v DATABASE_HOST ]]; then
+    if [ -v DATABASE_HOST ]; then
         ## Wait until database connection is ready
         until mysql -u $DATABASE_USER -h $DATABASE_HOST --password="$DATABASE_PASSWORD" -e "" ; do
             >&2 echo "Waiting for database service to start."
