@@ -63,7 +63,7 @@ easy coding standard:
   before_script:
     - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
   script:
-    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA vendor/bin/ecs check packages projects/*/src projects/*/packages/*/src
+    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/ecs check packages projects/*/src projects/*/packages/*/src
 
 phpstan:
   stage: test

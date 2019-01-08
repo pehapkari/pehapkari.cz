@@ -16,14 +16,19 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ] || [ "$1" = 'php' ]; then
     php projects/open-training/bin/console assets:install --env=prod --no-debug
     php projects/open-training/bin/console cache:clear
 
-    ## Wait until database connection is ready
-    until mysql -u $DATABASE_USER -h $DATABASE_HOST --password="$DATABASE_PASSWORD" -e "" ; do
-        >&2 echo "Waiting for database service to start."
-        sleep 3
-    done
 
-    ## Update DB
-    php projects/open-training/bin/console doctrine:schema:update --dump-sql --force
+    ## Check if variable DATABASE_HOST is set, if yes, we have database
+    if [[ -v DATABASE_HOST ]]; then
+        ## Wait until database connection is ready
+        until mysql -u $DATABASE_USER -h $DATABASE_HOST --password="$DATABASE_PASSWORD" -e "" ; do
+            >&2 echo "Waiting for database service to start."
+            sleep 3
+        done
+
+        ## Update DB
+        php projects/open-training/bin/console doctrine:schema:update --dump-sql --force
+    fi
+
 
 	# Permissions hack because setfacl does not work on Mac and Windows
 	chown -R www-data projects/open-training/var
