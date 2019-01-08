@@ -90,8 +90,8 @@ lint:
   before_script:
     - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
   script:
-    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA projects/open-training/bin/console lint:yaml projects
-    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA projects/open-training/bin/console lint:twig projects
+    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php projects/open-training/bin/console lint:yaml projects
+    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php projects/open-training/bin/console lint:twig projects
 
 release open-training:
   stage: release

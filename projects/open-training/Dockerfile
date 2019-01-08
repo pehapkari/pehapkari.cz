@@ -37,24 +37,19 @@ RUN chmod +x /usr/local/bin/docker-entrypoint
 ENTRYPOINT ["docker-entrypoint"]
 CMD ["php-fpm"]
 
-# Copy packages
+# TODO: Copy packages (once this dockerifle is project specific)
 COPY ./packages /app/packages
 
 # Composer
 COPY composer.json composer.json
 COPY composer.lock composer.lock
 
-# Dev tools (for CI)
-COPY phpstan.neon phpstan.neon
-COPY phpunit.xml phpunit.xml
-COPY ecs.yml ecs.yml
-COPY monorepo-builder.yml monorepo-builder.yml
-
 RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
 
-# Copy this specific project
-COPY ./projects/open-training /app/projects/open-training
+# TODO: this should be project specific in future:
+# COPY ./projects/open-training /app/projects/open-training
+COPY . /app
 
 RUN mkdir -p ./projects/open-training/var/cache ./projects/open-training/var/logs ./projects/open-training/var/sessions \
 	&& composer dump-autoload --classmap-authoritative --no-dev \
