@@ -54,7 +54,7 @@ deploy open-training:
     - eval $(ssh-agent -s)
     - echo "$DEPLOY_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
   script:
-    - ssh root@DEPLOY_HOST "cd /projects/open-training && ./run.sh"
+    - ssh root@$DEPLOY_HOST "cd /projects/open-training && ./run.sh"
   environment:
     name: production
     url: http://phpskoleni.cz
