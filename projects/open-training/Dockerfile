@@ -44,6 +44,12 @@ COPY ./packages /app/packages
 COPY composer.json composer.json
 COPY composer.lock composer.lock
 
+# Dev tools (for CI)
+COPY phpstan.neon phpstan.neon
+COPY phpunit.xml phpunit.xml
+COPY ecs.yml ecs.yml
+COPY monorepo-builder.yml monorepo-builder.yml
+
 RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
 
