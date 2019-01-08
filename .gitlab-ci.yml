@@ -124,3 +124,5 @@ deploy open-training:
   environment:
     name: production
     url: http://phpskoleni.cz
+  only:
+    - master
