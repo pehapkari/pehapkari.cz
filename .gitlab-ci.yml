@@ -1,3 +1,5 @@
+image: docker:git
+
 stages:
   - build
   - test
@@ -10,7 +12,6 @@ variables:
 
 build docker images:
   stage: build
-  image: docker:git
   variables:
     IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
     IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
@@ -32,7 +33,6 @@ test:
 
 release open-training:
   stage: release
-  image: docker:git
   variables:
     IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
     IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
@@ -52,7 +52,7 @@ deploy open-training:
   stage: deploy
   before_script:
     - eval $(ssh-agent -s)
-    - echo "$DEPLOYER_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - echo "$DEPLOY_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
   script:
     - ssh root@DEPLOY_HOST "cd /projects/open-training && ./run.sh"
   environment:
