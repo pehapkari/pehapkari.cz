@@ -37,23 +37,25 @@ RUN chmod +x /usr/local/bin/docker-entrypoint
 ENTRYPOINT ["docker-entrypoint"]
 CMD ["php-fpm"]
 
-# TODO: Copy packages (once this dockerifle is project specific)
+COPY phpunit.xml ./
 COPY ./packages /app/packages
 
 # Composer
-COPY composer.json composer.json
-COPY composer.lock composer.lock
+COPY composer.json composer.lock ./
 
 RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
 
-# TODO: this should be project specific in future:
-# COPY ./projects/open-training /app/projects/open-training
-COPY . /app
+COPY ./projects/open-training /app/projects/open-training
 
-RUN mkdir -p ./projects/open-training/var/cache ./projects/open-training/var/logs ./projects/open-training/var/sessions \
-	&& composer dump-autoload --classmap-authoritative --no-dev \
-	&& chown -R www-data ./projects/open-training/var
+RUN mkdir -p ./projects/open-training/var/cache \
+    ./projects/open-training/var/logs \
+    ./projects/open-training/var/sessions \
+    ./projects/open-training/public/uploads/images \
+    ./projects/open-training/public/generated \
+        && composer dump-autoload --classmap-authoritative --no-dev \
+        && chown -R www-data ./projects/open-training/var \
+        && chmod -R 777 ./projects/open-training/public/uploads/images ./projects/open-training/public/generated
 
 
 ## Nginx

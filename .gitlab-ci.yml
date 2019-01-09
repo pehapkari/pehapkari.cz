@@ -13,17 +13,20 @@ variables:
   APP_DEBUG: 0
   APP_SECRET: 67d829bf61dc5f87a73fd814e2c9f629
 
-
-build docker images:
-  stage: build
+.docker-job:
   variables:
-    GIT_STRATEGY: clone
     IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
     IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
   services:
     - docker:dind
   before_script:
     - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
+
+build docker images:
+  stage: build
+  extends: .docker-job
+  variables:
+    GIT_STRATEGY: clone
   script:
     - docker pull $IMAGE_PHP || true
     - docker build --cache-from $IMAGE_PHP -t $IMAGE_PHP:$CI_COMMIT_SHA --target production -f projects/open-training/Dockerfile .
@@ -33,25 +36,13 @@ build docker images:
 
 phpunit:
   stage: test
-  variables:
-    IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
-    IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
-  services:
-    - docker:dind
-  before_script:
-    - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
+  extends: .docker-job
   script:
     - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/phpunit
 
 release open-training:
   stage: release
-  variables:
-    IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
-    IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
-  services:
-    - docker:dind
-  before_script:
-    - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
+  extends: .docker-job
   script:
     - docker pull $IMAGE_PHP:$CI_COMMIT_SHA
     - docker tag $IMAGE_PHP:$CI_COMMIT_SHA $IMAGE_PHP:latest
