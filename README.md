@@ -66,11 +66,11 @@ Update database after changing entities:
 php projects/open-real-estate/bin/console doctrine:schema:update --dump-sql --force
 ```
 
-## Install via docker
+## Run via docker
 
 This is example for running open-training project locally:
 
-1) Switch to the directory of your desired project: `cd projects/open-training`
-2) Create **docker-compose.yml** file from template: `cp docker-compose.dist.yml docker-compose.yml` (optionally edit it for your needs, though it should not be necessary)
-3) Run `docker-compose up`
-4) Enjoy :-) project is available on [localhost:8000](http://localhost:8000)
+1) Run `projects/open-training/bin/run-from-docker.sh`
+2) Enjoy :-) project is available on [localhost:8000](http://localhost:8000)
+
+*In some rare scenarios you might want to tweak `projects/open-training/docker-compose.yml` file for your needs.*
