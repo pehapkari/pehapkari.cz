@@ -39,6 +39,18 @@ class TrainingTerm
     private $isProvisionPaid = false;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
+    private $minParticipantCount;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
+    private $maxParticipantCount;
+
+    /**
      * @ORM\Column(type="datetime")
      * @var DateTimeInterface
      */
@@ -68,6 +80,12 @@ class TrainingTerm
      * @var TrainingRegistration[]|Collection
      */
     private $registrations;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Place")
+     * @var Place
+     */
+    private $place;
 
     public function __construct()
     {
@@ -160,8 +178,7 @@ class TrainingTerm
 
         foreach ($this->registrations as $registration) {
             if ($registration->isPaid()) {
-                // @todo, price can change in time, registration should have own "price" unrelated to training price
-                $income += $this->training->getPrice();
+                $income += $registration->getPrice();
             }
         }
 
@@ -174,6 +191,11 @@ class TrainingTerm
     public function getRegistrations(): Collection
     {
         return $this->registrations;
+    }
+
+    public function getRegistrationCount(): int
+    {
+        return count($this->registrations);
     }
 
     public function getSlug(): ?string
@@ -203,5 +225,44 @@ class TrainingTerm
     public function getTrainer(): ?Trainer
     {
         return $this->training ? $this->training->getTrainer() : null;
+    }
+
+    public function getPlace(): ?Place
+    {
+        return $this->place;
+    }
+
+    public function setPlace(?Place $place): void
+    {
+        $this->place = $place;
+    }
+
+    public function getPrice(): ?float
+    {
+        if ($this->training === null) {
+            return null;
+        }
+
+        return $this->training->getPrice();
+    }
+
+    public function getMinParticipantCount(): ?int
+    {
+        return $this->minParticipantCount;
+    }
+
+    public function setMinParticipantCount(?int $minParticipantCount): void
+    {
+        $this->minParticipantCount = $minParticipantCount;
+    }
+
+    public function getMaxParticipantCount(): ?int
+    {
+        return $this->maxParticipantCount;
+    }
+
+    public function setMaxParticipantCount(?int $maxParticipantCount): void
+    {
+        $this->maxParticipantCount = $maxParticipantCount;
     }
 }

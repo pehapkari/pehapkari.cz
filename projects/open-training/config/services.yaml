@@ -12,3 +12,6 @@ services:
     OpenTraining\:
         resource: '../src/'
         exclude: '../src/{OpenTrainingKernel.php}'
+
+    Defr\Ares: ~
+    GuzzleHttp\Client: ~

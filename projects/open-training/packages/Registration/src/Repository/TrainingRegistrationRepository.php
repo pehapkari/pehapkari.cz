@@ -39,4 +39,14 @@ final class TrainingRegistrationRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
+
+    /**
+     * @return TrainingRegistration[]
+     */
+    public function getUnpaid(): array
+    {
+        return $this->entityRepository->findBy([
+            'isPaid' => false,
+        ]);
+    }
 }

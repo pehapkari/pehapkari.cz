@@ -2,11 +2,10 @@
 
 use OpenTraining\OpenTrainingKernel;
 use Symfony\Component\Debug\Debug;
-use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 
 $possibleAutoloadFiles = [
-// project
+    // project
     __DIR__  .'/../vendor/autoload.php',
     // monorepo
     __DIR__  .'/../../../vendor/autoload.php',
@@ -18,15 +17,9 @@ foreach ($possibleAutoloadFiles as $possibleAutoloadFile) {
     }
 }
 
-// The check is to ensure we don't use .env in production
-if (!isset($_SERVER['APP_ENV'])) {
-    (new Dotenv())->load(__DIR__.'/../.env');
-}
+require dirname(__DIR__).'/config/bootstrap.php';
 
-$env = $_SERVER['APP_ENV'] ?? 'dev';
-$debug = (bool) ($_SERVER['APP_DEBUG'] ?? ('prod' !== $env));
-
-if ($debug) {
+if ($_SERVER['APP_DEBUG']) {
     umask(0000);
 
     Debug::enable();
@@ -37,15 +30,11 @@ if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
 }
 
 if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
-    Request::setTrustedHosts(explode(',', $trustedHosts));
+    Request::setTrustedHosts([$trustedHosts]);
 }
 
-$kernel = new OpenTrainingKernel($env, $debug);
+$kernel = new OpenTrainingKernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
 $request = Request::createFromGlobals();
-
-// see https://stackoverflow.com/a/50862707/1348344
-Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
-
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);

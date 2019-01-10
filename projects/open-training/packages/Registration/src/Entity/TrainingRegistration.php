@@ -5,6 +5,7 @@ namespace OpenTraining\Registration\Entity;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use OpenTraining\Training\Entity\TrainingTerm;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -50,6 +51,20 @@ class TrainingRegistration
     private $note;
 
     /**
+     * @ORM\Column(type="integer")
+     * @Assert\Type(type="integer")
+     * @Assert\GreaterThan(0)
+     * @var int
+     */
+    private $participantCount;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $hasInvoice = false;
+
+    /**
      * @ORM\Column(type="boolean")
      * @var bool
      */
@@ -62,8 +77,21 @@ class TrainingRegistration
     private $agreesWithPersonalData = false;
 
     /**
+     * @ORM\Column(type="float")
+     * @var float
+     */
+    private $price;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
+    private $fakturoidInvoiceId;
+
+    /**
      * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm", inversedBy="registrations")
      * @var TrainingTerm
+     * @Assert\NotNull
      */
     private $trainingTerm;
 
@@ -165,5 +193,45 @@ class TrainingRegistration
     public function setAgreesWithPersonalData(?bool $agreesWithPersonalData): void
     {
         $this->agreesWithPersonalData = $agreesWithPersonalData;
+    }
+
+    public function setPrice(?float $price): void
+    {
+        $this->price = $price;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function hasInvoice(): ?bool
+    {
+        return $this->hasInvoice;
+    }
+
+    public function setHasInvoice(?bool $hasInvoice): void
+    {
+        $this->hasInvoice = $hasInvoice;
+    }
+
+    public function getParticipantCount(): ?int
+    {
+        return $this->participantCount;
+    }
+
+    public function setParticipantCount(?int $participantCount): void
+    {
+        $this->participantCount = $participantCount;
+    }
+
+    public function getFakturoidInvoiceId(): ?int
+    {
+        return $this->fakturoidInvoiceId;
+    }
+
+    public function setFakturoidInvoiceId(?int $fakturoidInvoiceId): void
+    {
+        $this->fakturoidInvoiceId = $fakturoidInvoiceId;
     }
 }

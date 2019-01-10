@@ -51,7 +51,7 @@ final class PriceMapController extends AbstractController
 
                 $this->addFlash('XLS byl úspěšně importován.', 'success');
 
-                $this->redirectToRoute('easyadmin', [
+                return $this->redirectToRoute('easyadmin', [
                     'entity' => PriceMap::class,
                     'action' => 'list',
                 ]);

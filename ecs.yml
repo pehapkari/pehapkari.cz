@@ -20,8 +20,11 @@ services:
 
     Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
         extraAllowedClasses:
+            - 'K0nias\FakturoidApi\*'
             - 'setasign\Fpdi\*'
             - 'ZipStream\ZipStream'
+            - '*Request'
+            - '*Response'
             - 'OpenTraining\Provision\Data\*'
             - 'App\Request\*Request'
             - 'Doctrine\Common\Collections\ArrayCollection'

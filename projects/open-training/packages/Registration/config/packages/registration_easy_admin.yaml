@@ -8,7 +8,10 @@ easy_admin:
                 fields:
                     - 'name'
                     - 'email'
+                    - 'trainingTerm'
                     - 'phone'
                     - 'ico'
-                    - 'isPaid'
-                    - { property: 'agreesWithPersonalData', type: 'boolean' }
+                    - { property: 'participantCount', label: 'Persons?' }
+                    - { property: 'hasInvoice', label: 'Invoice?' }
+                    - { property: 'isPaid', label: 'Paid?' }
+                    - { property: 'agreesWithPersonalData', label: 'GDPR', type: 'boolean' }
