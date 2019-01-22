@@ -1,0 +1,13 @@
+{
+  "name": "open-project/sendgrid",
+  "license": "MIT",
+  "require": {
+    "php": "^7.1",
+    "sendgrid/sendgrid": "^7.2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "OpenProject\\SendGrid\\": "src"
+    }
+  }
+}

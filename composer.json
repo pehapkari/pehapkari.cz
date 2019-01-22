@@ -18,8 +18,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "k0nias/fakturoid-api": "dev-master",
         "knplabs/doctrine-behaviors": "^1.6",
-        "mjaschen/phpgeo": "^2.0",
         "phpoffice/phpspreadsheet": "^1.5",
+        "sendgrid/sendgrid": "^7.2.1",
         "sensio/framework-extra-bundle": "^5.2",
         "setasign/fpdf": "^1.8",
         "setasign/fpdi": "^2.1",
@@ -64,6 +64,7 @@
     "autoload": {
         "psr-4": {
             "OpenProject\\BetterEasyAdmin\\": "packages/better-easy-admin/src",
+            "OpenProject\\SendGrid\\": "packages/sendgrid/src",
             "OpenProject\\User\\": "packages/user/src",
             "OpenRealEstate\\": "projects/open-real-estate/src",
             "OpenRealEstate\\Feed\\": "projects/open-real-estate/packages/Feed/src",
