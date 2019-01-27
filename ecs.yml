@@ -22,9 +22,6 @@ services:
         extraAllowedClasses:
             - 'K0nias\FakturoidApi\*'
             - 'setasign\Fpdi\*'
-            - 'ZipStream\ZipStream'
-            - '*Request'
-            - '*Response'
             - 'OpenTraining\Provision\Data\*'
             - 'App\Request\*Request'
             - 'Doctrine\Common\Collections\ArrayCollection'
@@ -35,16 +32,14 @@ services:
             - 'Symfony\Component\Security\Csrf\CsrfToken'
 
 parameters:
-    exclude_checkers:
-        # exclude from psr12.yml
-        - 'PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer'
-        - 'PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer'
-
     exclude_files:
         - 'src/Form/RegisterToLectureFormType.php'
         - 'src/Kernel.php'
 
     skip:
+        # exclude from psr12.yml
+        PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer: ~
+        PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
         # 3rd party contract
         SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
-            - 'packages/user/src/Security/OpenProjectAuthenticator.php'
+            - 'packages/User/src/Security/OpenTrainingAuthenticator.php'

@@ -29,9 +29,9 @@ build docker images:
     GIT_STRATEGY: clone
   script:
     - docker pull $IMAGE_PHP || true
-    - docker build --cache-from $IMAGE_PHP -t $IMAGE_PHP:$CI_COMMIT_SHA --target production -f projects/open-training/Dockerfile .
+    - docker build --cache-from $IMAGE_PHP -t $IMAGE_PHP:$CI_COMMIT_SHA --target production -f Dockerfile .
     - docker push $IMAGE_PHP
-    - docker build --cache-from $IMAGE_PHP --cache-from $IMAGE_NGINX -t $IMAGE_NGINX:$CI_COMMIT_SHA --target nginx -f projects/open-training/Dockerfile .
+    - docker build --cache-from $IMAGE_PHP --cache-from $IMAGE_NGINX -t $IMAGE_NGINX:$CI_COMMIT_SHA --target nginx -f Dockerfile .
     - docker push $IMAGE_NGINX
 
 phpunit:
@@ -61,7 +61,7 @@ deploy open-training:
     - ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
     - echo "$DEPLOY_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
   script:
-    - ssh root@$DEPLOY_HOST "cd /projects/open-training && ./run.sh"
+    - ssh root@$DEPLOY_HOST "./run.sh"
   environment:
     name: production
     url: http://phpskoleni.cz

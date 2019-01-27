@@ -1,7 +1,0 @@
-easy_admin:
-    # @see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/menu-configuration.html
-    entities:
-        User:
-            label: 'Uživatelé'
-            class: 'OpenProject\User\Entity\User'
-            role_prefix: ROLE_ADMIN

@@ -1,11 +1,6 @@
 language: php
 
-matrix:
-    include:
-        - php: 7.1
-        - php: 7.2
-          env: CODE_ANALYSIS=true
-        - php: 7.3
+php: 7.3
 
 before_install:
     # disable xdebug to fasten process
@@ -14,23 +9,17 @@ before_install:
     - set -e
 
 install:
-    - composer update $COMPOSER_FLAGS
+    - composer update
 
 script:
     - vendor/bin/phpunit
 
-    # validate packages composer.json
-    - vendor/bin/monorepo-builder validate
-
     # code analysis
-    - |
-      if [[ $CODE_ANALYSIS == true ]]; then
-          composer check-cs
-          composer phpstan
-      fi
+    - composer check-cs
+    - composer phpstan
 
-    - bin/console lint:yaml projects
-    - bin/console lint:twig projects
+    - bin/console lint:yaml src packages
+    - bin/console lint:twig packages templates
 
 notifications:
     email: false

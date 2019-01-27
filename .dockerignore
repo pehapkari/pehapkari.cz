@@ -11,7 +11,7 @@ ide-twig.json
 .gitattributes
 .gitignore
 
-projects/*/var/*
+var/*
 
 *.md
 
@@ -20,5 +20,5 @@ Dockerfile
 docker-compose.yml
 docker-compose.dist.yml
 
-projects/*/public/uploads/*
-projects/*/public/generated
+public/uploads/*
+public/generated

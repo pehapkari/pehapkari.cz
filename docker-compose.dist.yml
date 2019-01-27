@@ -1,0 +1,49 @@
+version: "3.7"
+services:
+  web:
+    image: open-training/nginx:latest
+    build:
+      context: ../../
+      target: nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    volumes:
+      - ../../:/app:cached
+    depends_on:
+      - php
+
+  php:
+    image: open-training/php:latest
+    build:
+      context: ../../
+      target: dev
+      dockerfile: Dockerfile
+    environment:
+      XDEBUG_CONFIG: "remote_host=host.docker.internal"
+      PHP_IDE_CONFIG: "serverName=open-training"
+      DATABASE_HOST: mysql
+      DATABASE_USER: root
+      DATABASE_PORT: 3306
+      DATABASE_PASSWORD:
+      DATABASE_DBNAME: open_training
+      DATABASE_CHARSET: utf8
+      DATABASE_URL: "mysql://root@mysql/open_training?charset=utf8"
+      APP_ENV: dev
+      APP_DEBUG: 1
+      APP_SECRET: 67d829bf61dc5f87a73fd814e2c9f629
+    volumes:
+      - ../../:/app:cached
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_DATABASE: "open_training"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - ./.docker/mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
