@@ -86,7 +86,8 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-b        "symfony": {
+    "extra": {
+        "symfony": {
             "allow-contrib": true,
             "require": "4.2.*"
         }
