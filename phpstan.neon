@@ -2,13 +2,12 @@ includes:
 	- 'vendor/phpstan/phpstan-doctrine/extension.neon'
 
 parameters:
+    level: max
     excludes_analyse:
         - "*/Entity*"
         - '*/var/cache/*'
         - '*/var/logs/*'
 
     ignoreErrors:
-        # known value of getRealPath(), uploaded file
-        - '#Parameter \#1 \$pFilename of method PhpOffice\\PhpSpreadsheet\\Reader\\Xls::load\(\) expects string, string\|false given#'
         # known child
         - '#Property OpenTraining\\Training\\Repository\\TrainingTermRepository::\$entityManager \(Doctrine\\ORM\\EntityManager\) does not accept Doctrine\\ORM\\EntityManagerInterface#'

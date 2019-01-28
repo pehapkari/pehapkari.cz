@@ -1,15 +1,14 @@
 {
-    "name": "open-project/open-project",
-    "description": "Open source monorepo for applications.",
+    "name": "open-training/open-training",
     "license": "MIT",
     "require": {
-        "php": "^7.1",
-        "ext-iconv": "*",
+        "php": "^7.2",
         "ext-intl": "*",
         "ext-pdo": "*",
+        "ext-iconv": "*",
         "ext-pdo_mysql": "*",
-        "alterphp/easyadmin-extension-bundle": "^2.0",
         "chumper/zipper": "^1.0",
+        "alterphp/easyadmin-extension-bundle": "^2.0",
         "dfridrich/ares": "^1.2",
         "doctrine/doctrine-bundle": "^1.10",
         "doctrine/orm": "2.7.x-dev",
@@ -18,68 +17,54 @@
         "guzzlehttp/guzzle": "^6.3",
         "k0nias/fakturoid-api": "dev-master",
         "knplabs/doctrine-behaviors": "^1.6",
-        "mjaschen/phpgeo": "^2.0",
-        "phpoffice/phpspreadsheet": "^1.5",
         "sensio/framework-extra-bundle": "^5.2",
-        "setasign/fpdf": "^1.8",
-        "setasign/fpdi": "^2.1",
         "stof/doctrine-extensions-bundle": "^1.3",
         "symfony/asset": "^4.2",
-        "symfony/console": "^4.2",
         "symfony/dependency-injection": "^4.2",
         "symfony/dotenv": "^4.2",
-        "symfony/event-dispatcher": "^4.2",
+        "symfony/flex": "^1.0",
         "symfony/form": "^4.2",
-        "symfony/framework-bundle": "^4.2",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi": "^2.1",
+        "symfony/event-dispatcher": "^4.2",
         "symfony/http-kernel": "^4.2",
-        "symfony/orm-pack": "^1.0",
         "symfony/security": "^4.2",
+        "symfony/framework-bundle": "^4.2",
+        "symfony/orm-pack": "^1.0",
         "symfony/security-bundle": "^4.2",
         "symfony/swiftmailer-bundle": "^3.2",
         "symfony/templating": "^4.2",
-        "symfony/translation": "^4.2",
         "symfony/twig-bridge": "^4.2",
         "symfony/twig-bundle": "^4.2",
         "symfony/validator": "^4.2",
         "symfony/yaml": "^4.2",
         "symplify/autodiscovery": "^5.2",
         "symplify/flex-loader": "^5.2",
-        "symplify/package-builder": "^5.2",
         "twig/extensions": "^1.5",
         "vich/uploader-bundle": "^1.8"
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.10.6",
-        "phpstan/phpstan-doctrine": "^0.10",
         "phpunit/phpunit": "^7.5",
         "symfony/browser-kit": "^4.2",
         "symfony/debug-bundle": "^4.2",
         "symfony/maker-bundle": "^1.10",
         "symfony/web-profiler-bundle": "^4.2",
         "symfony/web-server-bundle": "^4.2",
-        "symplify/coding-standard": "^5.2",
-        "symplify/easy-coding-standard": "^5.2",
-        "symplify/monorepo-builder": "^5.2"
+        "phpstan/phpstan": "^0.11",
+        "phpstan/phpstan-doctrine": "^0.11",
+        "symplify/coding-standard": "^5.4",
+        "symplify/easy-coding-standard": "^5.4"
     },
     "autoload": {
         "psr-4": {
-            "OpenProject\\BetterEasyAdmin\\": "packages/better-easy-admin/src",
-            "OpenProject\\User\\": "packages/user/src",
-            "OpenRealEstate\\": "projects/open-real-estate/src",
-            "OpenRealEstate\\Feed\\": "projects/open-real-estate/packages/Feed/src",
-            "OpenRealEstate\\Lead\\": "projects/open-real-estate/packages/Lead/src",
-            "OpenRealEstate\\PriceMap\\": "projects/open-real-estate/packages/PriceMap/src",
-            "OpenTraining\\": "projects/open-training/src",
-            "OpenTraining\\KnowHow\\": "projects/open-training/packages/KnowHow/src",
-            "OpenTraining\\Marketing\\": "projects/open-training/packages/Marketing/src",
-            "OpenTraining\\Provision\\": "projects/open-training/packages/Provision/src",
-            "OpenTraining\\Registration\\": "projects/open-training/packages/Registration/src",
-            "OpenTraining\\Training\\": "projects/open-training/packages/Training/src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "OpenTraining\\Provision\\Tests\\": "projects/open-training/packages/Provision/tests"
+            "OpenTraining\\": "src",
+            "OpenTraining\\Provision\\": "packages/Provision/src",
+            "OpenTraining\\Registration\\": "packages/Registration/src",
+            "OpenTraining\\KnowHow\\": "packages/KnowHow/src",
+            "OpenTraining\\Training\\": "packages/Training/src",
+            "OpenTraining\\Marketing\\": "packages/Marketing/src",
+            "OpenTraining\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
+            "OpenTraining\\User\\": "packages/User/src"
         }
     },
     "scripts": {
@@ -87,12 +72,10 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
-        "merge": "vendor/bin/monorepo-builder merge",
-        "propagate": "vendor/bin/monorepo-builder propagate",
-        "check-cs": "vendor/bin/ecs check packages projects/*/src projects/*/packages/*/src",
-        "fix-cs": "vendor/bin/ecs check packages projects/*/src projects/*/packages/*/src --fix",
+        "check-cs": "vendor/bin/ecs check packages src",
+        "fix-cs": "vendor/bin/ecs check packages src --fix",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force",
-        "phpstan": "vendor/bin/phpstan analyse projects/*/src projects/*/packages/*/src --level max",
+        "phpstan": "vendor/bin/phpstan analyse packages src",
         "adminer-install": [
             "mkdir -p public/adminer",
             "wget https://github.com/vrana/adminer/releases/download/v4.6.3/adminer-4.6.3-en.php -O public/adminer/index.php"
@@ -103,8 +86,7 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "extra": {
-        "symfony": {
+b        "symfony": {
             "allow-contrib": true,
             "require": "4.2.*"
         }

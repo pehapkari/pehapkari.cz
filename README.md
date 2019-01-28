@@ -1,32 +1,35 @@
-# Important Commands
+# Open Trainings
 
-## 1. Install
+Open and free platform for organizing trainings. 
 
-You do this only once:
+## Setup
 
-```
-# create git repository
-git init
+We cover all you need to organize a training, with a trainer and attendees:
 
-# add link to repository - first https, than ssh to modify the code
-git remote add origin git@github.com:TomasVotruba/open-project.git
+## Instal
 
-# download project here
-git pull
-
-# turn code  
-git checkout master
-
-# install other packages - Symfony, Doctrine...
+```bash
+git clone ...
 composer install
 ```
 
-Setup path to your project in `bin/console`.
-
-### Install assets
+Then rename `.env.dist` to `.env` and complete variables:
 
 ```bash
-php bin/console assets:install --env=prod --no-debug
+# create database
+bin/console doctrine:schema:create 
+
+# dump css and js from all bundles
+bin/console assets:install --env=prod --no-debug
+
+# install adminer
+composer adminer-install
+```
+
+## Run
+
+```bash
+bin/console server:run
 ```
 
 Clear cache after any config change - e.g. security
@@ -35,42 +38,19 @@ Clear cache after any config change - e.g. security
 php bin/console cache:clear
 ```
 
-Install adminer
-
-```
-composer adminer-install
-```
-
-## 2. Database setup
-
-1. Xampp - create databse
-...
-
-## 3. Run
-
-Run web in browser:
-
-```bash
-php bin/console server:run
-```
-
-Open in browser to see website:
-
-[localhost:8000](http://localhost:8000)
-
 <br>
 
 Update database after changing entities:
 
 ```bash
-php projects/open-real-estate/bin/console doctrine:schema:update --dump-sql --force
+bin/console doctrine:schema:update --dump-sql --force
 ```
 
 ## Run via docker
 
 This is example for running open-training project locally:
 
-1) Run `projects/open-training/bin/run-from-docker.sh`
+1) Run `bin/run-from-docker.sh`
 2) Enjoy :-) project is available on [localhost:8000](http://localhost:8000)
 
-*In some rare scenarios you might want to tweak `projects/open-training/docker-compose.yml` file for your needs.*
+*In some rare scenarios you might want to tweak `docker-compose.yml` file for your needs.*

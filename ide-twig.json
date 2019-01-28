@@ -1,16 +1,11 @@
 {
     "namespaces": [
-        { "path": "packages/user/templates/" },
-
-        { "path": "projects/open-training/templates/" },
-        { "path": "projects/open-training/packages/Provision/templates" },
-        { "path": "projects/open-training/packages/Registration/templates" },
-        { "path": "projects/open-training/packages/Training/templates" },
-        { "path": "projects/open-training/packages/KnowHow/templates" },
-        { "path": "projects/open-training/packages/Marketing/templates" },
-
-        { "path": "projects/open-real-estate/templates/" },
-        { "path": "projects/open-real-estate/packages/Feed/templates/" },
-        { "path": "projects/open-real-estate/packages/PriceMap/templates/" }
+        { "path": "templates" },
+        { "path": "packages/Provision/templates" },
+        { "path": "packages/Registration/templates" },
+        { "path": "packages/Training/templates" },
+        { "path": "packages/KnowHow/templates" },
+        { "path": "packages/Marketing/templates" },
+        { "path": "packages/User/templates" }
     ]
 }

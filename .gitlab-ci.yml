@@ -1,69 +1,69 @@
 image: docker:git
 
 stages:
-  - build
-  - test
-  - release
-  - deploy
+    - build
+    - test
+    - release
+    - deploy
 
 variables:
-  GIT_STRATEGY: none
-  IMAGE_OPEN_TRAINING: registry.gitlab.com/open-guys/open-project
-  APP_ENV: dev
-  APP_DEBUG: 0
-  APP_SECRET: 67d829bf61dc5f87a73fd814e2c9f629
+    GIT_STRATEGY: none
+    IMAGE_OPEN_TRAINING: registry.gitlab.com/open-guys/open-project
+    APP_ENV: dev
+    APP_DEBUG: 0
+    APP_SECRET: 67d829bf61dc5f87a73fd814e2c9f629
 
 .docker-job:
-  variables:
-    IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
-    IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
-  services:
-    - docker:dind
-  before_script:
-    - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
+    variables:
+        IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
+        IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
+    services:
+        - docker:dind
+    before_script:
+        - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
 
 build docker images:
-  stage: build
-  extends: .docker-job
-  variables:
-    GIT_STRATEGY: clone
-  script:
-    - docker pull $IMAGE_PHP || true
-    - docker build --cache-from $IMAGE_PHP -t $IMAGE_PHP:$CI_COMMIT_SHA --target production -f projects/open-training/Dockerfile .
-    - docker push $IMAGE_PHP
-    - docker build --cache-from $IMAGE_PHP --cache-from $IMAGE_NGINX -t $IMAGE_NGINX:$CI_COMMIT_SHA --target nginx -f projects/open-training/Dockerfile .
-    - docker push $IMAGE_NGINX
+    stage: build
+    extends: .docker-job
+    variables:
+        GIT_STRATEGY: clone
+    script:
+        - docker pull $IMAGE_PHP || true
+        - docker build --cache-from $IMAGE_PHP -t $IMAGE_PHP:$CI_COMMIT_SHA --target production -f Dockerfile .
+        - docker push $IMAGE_PHP
+        - docker build --cache-from $IMAGE_PHP --cache-from $IMAGE_NGINX -t $IMAGE_NGINX:$CI_COMMIT_SHA --target nginx -f Dockerfile .
+        - docker push $IMAGE_NGINX
 
 phpunit:
-  stage: test
-  extends: .docker-job
-  script:
-    - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/phpunit
+    stage: test
+    extends: .docker-job
+    script:
+        - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/phpunit
 
 release open-training:
-  stage: release
-  extends: .docker-job
-  script:
-    - docker pull $IMAGE_PHP:$CI_COMMIT_SHA
-    - docker tag $IMAGE_PHP:$CI_COMMIT_SHA $IMAGE_PHP:latest
-    - docker push $IMAGE_PHP
-    - docker pull $IMAGE_NGINX:$CI_COMMIT_SHA
-    - docker tag $IMAGE_NGINX:$CI_COMMIT_SHA $IMAGE_NGINX:latest
-    - docker push $IMAGE_NGINX
-  only:
-    - master
+    stage: release
+    extends: .docker-job
+    script:
+        - docker pull $IMAGE_PHP:$CI_COMMIT_SHA
+        - docker tag $IMAGE_PHP:$CI_COMMIT_SHA $IMAGE_PHP:latest
+        - docker push $IMAGE_PHP
+        - docker pull $IMAGE_NGINX:$CI_COMMIT_SHA
+        - docker tag $IMAGE_NGINX:$CI_COMMIT_SHA $IMAGE_NGINX:latest
+        - docker push $IMAGE_NGINX
+    only:
+        - master
 
 deploy open-training:
-  stage: deploy
-  before_script:
-    - eval $(ssh-agent -s)
-    - mkdir -p ~/.ssh
-    - ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
-    - echo "$DEPLOY_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-  script:
-    - ssh root@$DEPLOY_HOST "cd /projects/open-training && ./run.sh"
-  environment:
-    name: production
-    url: http://phpskoleni.cz
-  only:
-    - master
+    stage: deploy
+    before_script:
+        - eval $(ssh-agent -s)
+        - mkdir -p ~/.ssh
+        - ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
+        - echo "$DEPLOY_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    script:
+        - ssh root@$DEPLOY_HOST "./run.sh"
+    environment:
+        name: production
+        url: http://phpskoleni.cz
+    only:
+        - master

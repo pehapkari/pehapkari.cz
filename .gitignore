@@ -7,20 +7,17 @@ vendor/
 
 .idea
 
-# todo merge from local .gitignores, same like composer.json
-projects/open-real-estate/var
-projects/open-real-estate/public/bundles/
-projects/open-training/var
-projects/open-training/public/bundles/
-projects/open-training/public/build/*/glyphicons-*
+var
+public/bundles/
+public/build/*/glyphicons-*
 
-projects/open-training/public/uploads/images
-projects/open-training/public/generated
-projects/*/composer.lock
+public/uploads/images
+public/generated
+composer.lock
 
 ## Docker
 docker-compose.yml
-projects/*/.docker/mysql-data
+.docker/mysql-data
 
 .env.local
 .env.local.php
