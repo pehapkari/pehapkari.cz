@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
+use Symplify\PackageBuilder\Console\ShellCode;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
 final class DebugConfigPassCommand extends Command
@@ -47,7 +48,7 @@ final class DebugConfigPassCommand extends Command
         $this->setDescription(sprintf('Show "%s" implementation in their priority order', ConfigPassInterface::class));
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $configPasses = $this->privatesAccessor->getPrivateProperty($this->configManager, 'configPasses');
 
@@ -64,5 +65,7 @@ final class DebugConfigPassCommand extends Command
         }
 
         $this->symfonyStyle->newLine();
+
+        return ShellCode::SUCCESS;
     }
 }
