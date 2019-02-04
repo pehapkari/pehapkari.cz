@@ -30,6 +30,8 @@ COPY --from=0 /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --classmap-authoritative --no-plugins --no-scripts
 
+RUN echo '' > .env
+
 # Entrypoint
 COPY ./.docker/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
@@ -41,7 +43,7 @@ COPY phpunit.xml ./
 COPY ./packages /app/packages
 
 # Composer
-COPY composer.json composer.lock ./
+COPY composer.json ./
 
 RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache

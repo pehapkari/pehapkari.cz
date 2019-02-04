@@ -6,7 +6,6 @@ use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use OpenTraining\Registration\Entity\TrainingRegistration;
 use setasign\Fpdi\Fpdi;
-use function Safe\iconv;
 
 final class CertificateGenerator
 {
@@ -112,6 +111,6 @@ final class CertificateGenerator
 
     private function encode(string $string): string
     {
-        return iconv('UTF-8', 'windows-1250', $string);
+        return (string) iconv('UTF-8', 'windows-1250', $string);
     }
 }
