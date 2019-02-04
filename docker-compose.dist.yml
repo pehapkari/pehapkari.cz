@@ -3,20 +3,20 @@ services:
     web:
         image: open-training/nginx:latest
         build:
-            context: ../../
+            context: .
             target: nginx
             dockerfile: Dockerfile
         ports:
             - "8000:80"
         volumes:
-            - ../../:/app:cached
+            - .:/app:cached
         depends_on:
             - php
 
     php:
         image: open-training/php:latest
         build:
-            context: ../../
+            context: .
             target: dev
             dockerfile: Dockerfile
         environment:
@@ -32,8 +32,12 @@ services:
             APP_ENV: dev
             APP_DEBUG: 1
             APP_SECRET: 67d829bf61dc5f87a73fd814e2c9f629
+            MAILER_URL: ""
+            FAKTUROID_SLUG: ""
+            FAKTUROID_EMAIL: ""
+            FAKTUROID_API_KEY: ""
         volumes:
-            - ../../:/app:cached
+            - .:/app:cached
         depends_on:
             - mysql
 

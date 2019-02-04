@@ -8,7 +8,7 @@ stages:
 
 variables:
     GIT_STRATEGY: none
-    IMAGE_OPEN_TRAINING: registry.gitlab.com/open-guys/open-project
+    IMAGE_OPEN_TRAINING: registry.gitlab.com/open-guys/open-training
     APP_ENV: dev
     APP_DEBUG: 0
     APP_SECRET: 67d829bf61dc5f87a73fd814e2c9f629
@@ -61,7 +61,7 @@ deploy open-training:
         - ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
         - echo "$DEPLOY_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
     script:
-        - ssh root@$DEPLOY_HOST "./run.sh"
+        - ssh root@$DEPLOY_HOST "cd /projects/open-training && ./run.sh"
     environment:
         name: production
         url: http://phpskoleni.cz
