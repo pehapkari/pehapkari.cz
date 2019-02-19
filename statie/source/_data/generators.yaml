@@ -1,0 +1,11 @@
+parameters:
+    # see https://www.statie.org/docs/generators/
+    generators:
+        lectures:
+            variable: 'lecture'
+            variable_global: 'lectures'
+            path: '_lectures'
+            layout: '_layouts/lecture.twig'
+            route_prefix: 'kurz'
+            object: 'OpenTraining\Statie\Statie\Generator\LectureFile'
+            object_sorter: 'OpenTraining\Statie\Statie\Generator\LectureFileSorter'

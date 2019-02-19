@@ -1,5 +1,6 @@
 {
     "name": "open-training/open-training",
+    "description": "Website of Pehapkari.cz - Czech PHP Community",
     "license": "MIT",
     "require": {
         "php": "^7.2",
@@ -65,7 +66,13 @@
             "OpenTraining\\Training\\": "packages/Training/src",
             "OpenTraining\\Marketing\\": "packages/Marketing/src",
             "OpenTraining\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
-            "OpenTraining\\User\\": "packages/User/src"
+            "OpenTraining\\User\\": "packages/User/src",
+            "OpenTraining\\Statie\\": "statie/src"
+        }
+    },
+    "autoload-dev":{
+        "psr-4": {
+            "OpenTraining\\Statie\\Tests\\": "statie/tests"
         }
     },
     "scripts": {
