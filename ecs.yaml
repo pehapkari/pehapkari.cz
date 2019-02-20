@@ -42,6 +42,7 @@ parameters:
     exclude_files:
         - 'src/Form/RegisterToLectureFormType.php'
         - 'src/Kernel.php'
+        - 'statie/tests'
 
     skip:
         # 3rd party contract
@@ -67,3 +68,6 @@ parameters:
         PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer: ~
         PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer: ~
         PhpCsFixer\Fixer\Phpdoc\PhpdocSeparationFixer: ~
+
+        SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff.UnusedVariable:
+            - 'statie/tests/Posts/*.php'

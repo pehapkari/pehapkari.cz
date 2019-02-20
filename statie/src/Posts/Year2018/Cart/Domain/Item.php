@@ -51,7 +51,7 @@ final class Item
     public function add(int $amount): void
     {
         $this->checkAmount($amount);
-        $this->amount = $this->amount + $amount;
+        $this->amount += $amount;
     }
 
     /**
