@@ -22,7 +22,7 @@ final class EntityManagerFactory
 
         $cartMappingDirectory = __DIR__ . '/../../../../../src/Posts/Year2018/Cart/Infrastructure/DoctrineMapping';
         $namespaces = [
-            $cartMappingDirectory => 'Pehapkari\\Website\\Posts\\Year2018\\Cart\\Domain',
+            $cartMappingDirectory => 'OpenTraining\\Statie\\Posts\\Year2018\\Cart\\Domain',
         ];
         $xmlDrive = new SimplifiedXmlDriver($namespaces, '.xml');
 

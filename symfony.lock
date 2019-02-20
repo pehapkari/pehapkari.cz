@@ -196,8 +196,17 @@
     "nesbot/carbon": {
         "version": "1.36.2"
     },
+    "nette/application": {
+        "version": "v2.4.13"
+    },
     "nette/bootstrap": {
         "version": "v2.4.6"
+    },
+    "nette/caching": {
+        "version": "v3.0.0"
+    },
+    "nette/component-model": {
+        "version": "v2.4.0"
     },
     "nette/di": {
         "version": "v2.4.13"
@@ -205,14 +214,26 @@
     "nette/finder": {
         "version": "v2.4.2"
     },
+    "nette/forms": {
+        "version": "v2.4.9"
+    },
+    "nette/http": {
+        "version": "v2.4.10"
+    },
     "nette/neon": {
         "version": "v2.4.3"
     },
     "nette/php-generator": {
         "version": "v3.0.5"
     },
+    "nette/reflection": {
+        "version": "v2.4.2"
+    },
     "nette/robot-loader": {
         "version": "v3.0.4"
+    },
+    "nette/security": {
+        "version": "v3.0.0"
     },
     "nette/utils": {
         "version": "v2.5.2"
@@ -642,6 +663,9 @@
     },
     "symplify/package-builder": {
         "version": "v4.6.0"
+    },
+    "symplify/phpstan-extensions": {
+        "version": "v5.4.6"
     },
     "symplify/statie": {
         "version": "v5.4.2"

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phpunit
-    bootstrap="vendor/autoload.php"
+    bootstrap="tests/bootstrap.php"
     colors="true"
     verbose="true"
 >
     <testsuite name="main">
-        <directory>tests</directory>
-        <directory>packages/auto-discovery/tests</directory>
+        <directory>statie/tests</directory>
     </testsuite>
 </phpunit>
