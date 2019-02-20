@@ -3,6 +3,12 @@ parameters:
     training_max_references_to_show: 3
     image_uploads: "/uploads/images/"
 
+# copied from Statie
+twig:
+    globals:
+        google_analytics_tracking_id: "UA-89860072-1"
+        disqus_name: "pehapkari"
+
 services:
     _defaults:
         public: true

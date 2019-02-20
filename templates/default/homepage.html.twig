@@ -8,15 +8,147 @@
 {% block footer %}{% endblock %}
 
 {% block main %}
-    <div class="page-header">
-        <h1>{{ 'title.homepage'|raw }}</h1>
-    </div>
+    ---
+    layout: _layouts/default.twig
+    id: index
+    ---
 
-    Welcome to lecture
+    {% block content %}
+        {% include "_snippets/infobar.twig" %}
 
-    <ul>
-        <li><a href="{{ path('trainings') }}">Vzdělávej se</a></li>
-        <li><a href="{{ path('easyadmin') }}">Admin</a></li>
-        <li><a href="/adminer?sqlite=&username=&db=%2Fvar%2Fwww%2Fopen-lectures%2Fvar%2Fdatabase.sqlite">Database</a></li>
-    </ul>
+        <hr>
+
+        <div class="container first-section text-center">
+            <div class="row text-center">
+                <div class="col-12">
+                    <img src="/assets/images/slon/basic.png" alt="Slon" class="main-logo">
+                </div>
+            </div>
+
+            <div class="lead">
+                <p>
+                    Na <strong>PHP</strong> běží <a href="https://w3techs.com/technologies/details/pl-php/all/all"><strong>78,9 %</strong> všech webů</a>.
+                </p>
+                <p>
+                    Tady najdeš komunitu lidí with kteří jej mají rádi a pracují s&nbsp;ním. Můžeš mezi nimi <strong>najít nové přátele</strong> s&nbsp;podobnými zájmy with ukážou ti <strong>moderní technologie</strong> with které ti usnadní práci, a&nbsp;nebo tu <strong>najdeš práci s fajn lidmi</strong>.
+                </p>
+            </div>
+        </div>
+
+        {# wip #}
+        {#<div class="container" id="videos">#}
+        {#<h2 class="text-center">Sleduj díl za dílem</h2>#}
+
+        {#<div class="row">#}
+        {#<div class="col-md-6">#}
+        {#<h3>Ze srazů</h3>#}
+        {# consider facebook videos rss parsing #}
+        {# FB api video list manual: https://developers.facebook.com/docs/graph-api/reference/page/video_lists/ #}
+        {# more inspiration: https://stackoverflow.com/a/9778635/1348344, #}
+        {#</div>#}
+        {#<div class="col-md-6">#}
+        {#<h3>Záznamy z livestreamů</h3>#}
+        {# consider youtube rss parsing #}
+        {# livestream playlist: https://www.youtube.com/feeds/videos.xml?playlist_id=PLpPdQMJWIciF6kjVUkkSoK0tEpreS2FZt #}
+        {#</div>#}
+        {#</div>#}
+        {#</div>#}
+
+        {{ block('promoLine') }}
+
+        <div class="container" id="meetups">
+            <h2 class="text-center">Kdy a kde se potkáváme?</h2>
+
+            <br>
+
+            <div class="row">
+                <div class="col-md-6 text-center hidden-xs">
+                    <img src="/assets/images/meetup.jpg" alt="Přijď na sraz">
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a>.
+                    </p>
+
+                    <p>
+                        Typický sraz začíná v 18 hod. Pak promluví 2-3 speakři a nakonec jdeme diskutovat nad pivem.
+                    </p>
+
+                    <h3 class="mt-5">Kde se o nich dozvíš?</h3>
+
+                    <ol class="manual-list">
+                        <li>Lajkni <a href="https://www.facebook.com/pehapkari/events">naši Facebook stránku</a></li>
+                        <li><strong>subscribni <a href="https://www.meetup.com/friends-of-php-prague">na Meetup.com</a></strong></li>
+                        <li>odebírej <a href="http://bit.ly/pehapkari-newsletter">newsletter</a></li>
+                        <li>nebo importuj <a href="https://calendar.google.com/calendar/embed?src=07ofvjdfhg9ko1vm9jrodqnpl8%40group.calendar.google.com&ctz=Europe/Prague">Google kalendář</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        {{ block('youtubeLine') }}
+
+        <div class="container text-center" id="team">
+            <h2>Organizační Tým</h2>
+
+            <br>
+
+            <div class="row" id="organizers">
+                {% for organizer in organizers %}
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-5">
+                        {% set photoUrl %}{% if organizer.photo matches "#http#" %}{{ organizer.photo }}{% else %}/assets/images/people/{{ organizer.photo }}{% endif %}{% endset %}
+
+                        <img src="{{ photoUrl }}" class="rounded-circle" width="150" height="150">
+                        <h3>
+                            {% if organizer.url is defined %}<a href="{{ organizer.url }}">{% endif %}
+                                {{ organizer.name }}
+                                {% if organizer.url is defined %}</a>{% endif %}
+                        </h3>
+                        <p>
+                            {{ organizer.responsibility|raw }}
+                        </p>
+
+                        {% if organizer.work_email is defined %}
+                            <p>
+                                <a href="mailto:{{ organizer.work_email }}">{{ organizer.work_email }}</a>
+                            </p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {{ block('slackLine') }}
+    {% endblock %}
+
+    {% block slackLine %}
+        <div class="intermezzo">
+            <div class="container text-center">
+                <em class="fa fa-slack fa-fw"></em>
+                Potřebuješ poradit? Na Slacku najdeš přes <strong>1400 kamarádů</strong> - <a href="https://pehapkari.herokuapp.com/">stačí se pozvat</a> a seš <a href="https://pehapkari.slack.com/">tam</a> taky
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block youtubeLine %}
+        <div class="intermezzo">
+            <div class="container text-center">
+                <em class="fa fa-youtube fa-fw"></em>
+                Podívej se na <a href="https://youtube.com/pehapkari/videos">livestreamy na YouTube</a>
+                a na <a href="https://www.facebook.com/pg/pehapkari/videos/">přednášky na Facebooku</a>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block promoLine %}
+        <div class="intermezzo">
+            <div class="container text-center">
+                <em class="fa fa-meetup fa-fw"></em>
+                Sleduj meetupy v Praze na <strong>Meetup.com</strong> -
+                <a href="https://www.meetup.com/friends-of-php-prague/"><strong>2. čtvrtek v měsíci od 18 hod.</strong></a>
+            </div>
+        </div>
+    {% endblock %}
+
+
 {% endblock %}

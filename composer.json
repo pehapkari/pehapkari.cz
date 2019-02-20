@@ -78,7 +78,7 @@
             "OpenTraining\\Marketing\\": "packages/Marketing/src",
             "OpenTraining\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
             "OpenTraining\\User\\": "packages/User/src",
-            "OpenTraining\\Statie\\": "statie/src"
+            "OpenTraining\\Statie\\": ["statie/src", "packages/Statie/src"]
         }
     },
     "autoload-dev":{
