@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="cs">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>{% block title %}Vzdělávej se{% endblock %}</title>
+        {% include "_snippets/header.twig" %}
+
+        {#{% include "_snippets/head.twig" %}#}
 
         {#<link rel="stylesheet" href="{{ asset('build/css/app.css') }}">#}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -17,24 +17,23 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
 
-
-
     <body id="{% block body_id %}{% endblock %}">
-        {% include "snippet/header.twig" %}
+        {% include "_snippets/menu.twig" %}
 
         <div>
             {% block body %}
                 <div id="main">
                     <div class="container">
-                        {{ include('default/_flash_messages.html.twig') }}
+                        {% include 'default/_flash_messages.html.twig' %}
 
-                        {% block main %}{% endblock %}
+                        {% block content %}{% endblock %}
                     </div>
                 </div>
             {% endblock %}
         </div>
 
-        {% include "snippet/footer.twig" %}
+        {% include "_snippets/footer.twig" %}
+        {% include "_snippets/google_analytics.twig" %}
 
         {% block javascripts %}
             <script src="{{ asset('build/manifest.js') }}"></script>
