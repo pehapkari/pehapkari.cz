@@ -1,6 +1,5 @@
 imports:
     - { resource: 'source/_data/*.yaml' }
-    - { resource: 'source/_data/lecture_references/*.yaml' }
     # enabled on localhost only
     - { resource: 'statie.local.yaml',  ignore_errors: true }
 
