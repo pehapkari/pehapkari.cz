@@ -2,16 +2,33 @@
 
 namespace OpenTraining\Statie\Controller;
 
+use Psr\Http\Message\ResponseInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class HomepageController extends AbstractController
 {
     /**
+     * @var array|mixed[]
+     */
+    private $organizers;
+
+    /**
+     * @param mixed[] $organizers
+     */
+    public function __construct(array $organizers)
+    {
+        $this->organizers = $organizers;
+    }
+
+    /**
      * @Route(path="/", name="homepage")
      */
-    public function homepage()
+    public function homepage(): Response
     {
-        die;
+        return $this->render('default/homepage.html.twig', [
+            'organizers' => $this->organizers
+        ]);
     }
 }

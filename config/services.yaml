@@ -1,3 +1,6 @@
+imports:
+    - { resource: '../statie.yaml' }
+
 parameters:
     locale: 'cs'
     training_max_references_to_show: 3

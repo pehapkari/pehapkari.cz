@@ -18,6 +18,11 @@ parameters:
             responsibility: "PoSobota, Nette Camp, PHP Hory, Nette Občasník a natáčení videí"
             url: https://honzacerny.com/
         -
+            photo: "https://avatars0.githubusercontent.com/u/3995003?s=400&v=4"
+            name: "Jan Mikeš"
+            responsibility: "hosting a deploy webu, přednášky na poslední chvíli"
+            url: https://janmikes.cz/
+        -
             photo: jakub_kratina.jpg
             name: "Jakub Kratina"
             responsibility: "organizace srazů v Praze, livestreamy"
