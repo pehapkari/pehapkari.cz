@@ -1,11 +1,7 @@
 <?php
 
-use Goetas\TwitalBundle\GoetasTwitalBundle;
-use Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle;
-use Vich\UploaderBundle\VichUploaderBundle;
-
 return [
-    VichUploaderBundle::class => ['all' => true],
+    Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
@@ -20,5 +16,5 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     AlterPHP\EasyAdminExtensionBundle\EasyAdminExtensionBundle::class => ['all' => true],
     Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle::class => ['all' => true],
-    DoctrineBehaviorsBundle::class => ['all' => true],
+    Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle::class => ['all' => true],
 ];
