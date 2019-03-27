@@ -2,7 +2,6 @@
 
 namespace OpenTraining\Statie\Controller;
 
-use Psr\Http\Message\ResponseInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class HomepageController extends AbstractController
 {
     /**
-     * @var array|mixed[]
+     * @var mixed[]
      */
     private $organizers;
 

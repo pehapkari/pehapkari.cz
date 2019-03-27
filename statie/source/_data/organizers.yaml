@@ -8,11 +8,6 @@ parameters:
             url: https://tomasvotruba.cz
             work_email: "tomas@pehapkari.cz"
         -
-            photo: martina_hynkova.jpg
-            name: "Martina Hynková"
-            responsibility: "organizace školení"
-            work_email: "martina@pehapkari.cz"
-        -
             photo: "https://avatars0.githubusercontent.com/u/42802?s=460&v=4"
             name: "Honza Černý"
             responsibility: "PoSobota, Nette Camp, PHP Hory, Nette Občasník a natáčení videí"
@@ -27,7 +22,6 @@ parameters:
             name: "Jakub Kratina"
             responsibility: "organizace srazů v Praze, livestreamy"
             url: http://jakubkratina.cz/
-            work_email: "jakub@pehapkari.cz"
 
         # Pardubice
         -
@@ -57,13 +51,6 @@ parameters:
             name: "Martin Hlaváč"
             responsibility: "organizace srazů v Českých Budějovicích"
             url: "https://www.hlavacm.net/"
-
-        # Ostrava
-        -
-            photo: "https://avatars3.githubusercontent.com/u/10008612?s=460&v=4"
-            name: "Petr Heinz"
-            responsibility: "organizace srazů v Ostravě"
-            url: "https://www.shopsys.cz/"
 
         # Olomouc
         -
