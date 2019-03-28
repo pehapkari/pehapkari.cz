@@ -1,35 +1,105 @@
-@todo WIP
+{% extends 'base.twig' %}
 
-# Uč se jen to, co tě baví a co potřebují firmy
+{# formerly: https://docs.google.com/document/d/1fo9w_lFbtWcG1KWR0DBgEajmtLl4J-rU6HcUJvzGlJQ/edit #}
 
-Lidé se nejlépe učí ne od někoho, kdo je mistrem v jejich oboru, ale od někoho, kdo nedávno začal. Na kole mě nejlíp naučí jezdit někdo, kdo si čerstvě pamatuje začátky, první problémy a jak je vyřešil, ne pilot Boeingu 747 (i když ten skill určitě taky má).
+{% block main %}
+    <div id="trainings">
+        <div class="section">
+            <h1 class="text-center">Začni taky školit, bez Byrokracie</h1>
+        </div>
 
-Mimo školní systém se lidé přirozeně učí od sebe navzájem - p2p (peer-to-peer). Stejně jako vy nebo já. Tento už fungující a ověřený způsob můžete aplikovat na vzdělávání 6-25 let starých lidí. Tam pomůže nejvíc.
+        <hr>
 
-## Co děláme a proč?
+        <p>
+            Veřejná školení v rámci PHP ekosystému, vycházející z komunity Péhápkaři.cz.
+            O délce 4-8 hodin.
+        </p>
 
-Pro dokonalý vzdělávací proces je potřeba spojit 3 strany:
+        <p>Od června proběhlo X školení pro Y lidí (@todo vypsat nejaktivnějíš) a dalšími. Chceš se přidat?</p>
 
-- Lidé, kteří jsou motivování a chtějí se učit a rozvíjet v tom, co je naplňuje
-- Mentoři, leadři a učitelé, kteří chtějí své znalosti předávat dál a které jejich práce baví a živí
-- Firmy, které potřebují lidi s určitým skill-setem a vědí, že zapojením do vzdělávacího procesu si je snáz získají
+        <h2>Kde?</h2>
 
-Témata, na kterých se shodnout všechny 3 strany.
-Zajistíme prostory a vyřešíme papírování.
+        - @todo výpis places
 
-## Progresivní Provize
+        <h2>Co řešíme za tebe?</h2>
 
-Nejdřív má smysl pro lektora smysl dát pryč více, protože mu někdo sežene zakázky. Časem ale roste a podle toho i potřebuje, aby rostla i jeho odměna. Navíc časem je to spíš automatizované a přidaná hodnota už není tak velká.
+        <ul>
+            <li>zařídit místnost a termín</li>
+            <li>dovedeme účastníky na místo školení</li>
+            <li>propagaci na sociálních sítích Péhápkaři</li>
+            <li>mentoring v budování osobní značky, propagate na komunitním blogu https://pehapkari.cz/blog/ tak, aby měli smysl a hodnotu</li>
+            <li>veškerou byrokracii a fakturaci k účastníkům</li>
+            <li>tiskové materiály a certifikáty</li>
+            <li>občerstvení</li>
+        </ul>
 
-První školení 50 % pro vás.
-5.+ školení 70 % pro vás.
+        <h2>Koho oslovíš?</h2>
+
+        <p>Středně pokročilé a seniorní programátoy, kteří se chtějí vzdělávat v nových technologiích (poslední 2 roky). Neplánujeme tedy úvod do PHP, objektů, Nette nebo Symfony, ale spíše "Jak zlepšit výkon Symfony aplikacích".</p>
+
+        <p>Pro představu stačí mrknout na <a href="{{ path('trainings') }}">aktuální nabídku školení</a></p>
+
+        <p>Když budeš úspěšný, dostaneme tě i do firem.</p>
+
+        <h2>Kolik z toho budeš mít?</h2>
+
+        <p>Z praxe víme, že čím déle člověk školí v IT, tím má pro něj smysl budovat vlastní značku. Jednak kvůli vysokým provizím (konstantně 50-70 % pro firmu), jednak kvůli reklamě.</p>
+
+        <p>Proto používáme provizní systém s postupně klesající provizí. Čím déle školíš, tím jsi na tom líp.</p>
+
+        <ul>
+            <li>1-5. školení 50 % ze zisku pro tebe</li>
+            <li>6. a další školení 70 % ze zisku pro tebe</li>
+        </ul>
 
 
-Příklad:
+        <h3>Jak to vypadá na ukázkovém školení?</h3>
 
-Př. cena školení 2500 Kč na 4 hodiny.
-4 lidi => 10000 Kč
-4 hodiny x 250 => 1000 Kč prostory
-9000 Kč zisk, z toho provize, nejdřív 50 % pro vás, pak 70 % pro vás.
+        <p>10 účastníků na celodenním školení - cena školení 5000 Kč</p>
 
-Provize je z částky bez prostor.
+        <table class="table">
+            <thead class="thead-light text-center">
+            <tr class="row">
+                <th colspan="2" class="col-5">Příjmy</th>
+                <th colspan="2" class="col-5">Výdaje</th>
+                <th class="col-2">Zisk</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="row">
+                <td class="col-2">Příjmy</td>
+                <td class="col-3">10 * 5000 Kč</td>
+                <td class="col-2">Nájem</td>
+                <td class="col-3">3 500 Kč</td>
+                <td class="col-2">-</td>
+            </tr>
+            <tr class="row">
+                <td class="col-2">-</td>
+                <td class="col-3">-</td>
+                <td class="col-2">Obědy, občerstvení a certifikáty</td>
+                <td class="col-3">1 500 Kč</td>
+                <td class="col-2">-</td>
+            </tr>
+            <tr class="row">
+                <th class="col-2">Celkem</th>
+                <th class="col-3">50 000 Kč</th>
+                <th class="col-2">-</th>
+                <th class="col-3">5 000 Kč</th>
+                <th class="col-2">45 000 Kč</th>
+            </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <tr>
+                <td>Zisk</td>
+                <td>45 000 Kč</td>
+            </tr>
+        </table>
+
+        <ul>
+            <li>1.-5. školení: 45 000 Kč → <strong>22 500 Kč pro tebe</strong> (50 %) → 2812.5 Kč/hod.</li>
+            <li>6+ školení: 45 000 Kč → <strong>31 500 Kč pro tebe</strong> (70 %) → 3937.5 Kč/hod.</li>
+        </ul>
+    </div>
+{% endblock %}

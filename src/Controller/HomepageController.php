@@ -40,7 +40,7 @@ final class HomepageController extends AbstractController
      */
     public function homepage(): Response
     {
-        return $this->render('default/homepage.twig', [
+        return $this->render('homepage/homepage.twig', [
             'organizers' => $this->organizers,
         ]);
     }
