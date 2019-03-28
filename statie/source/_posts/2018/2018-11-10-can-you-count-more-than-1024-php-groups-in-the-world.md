@@ -9,7 +9,6 @@ perex: |
     Today, it's a much bigger project with over...
 author: 1
 tweet: "New Post on #pehapkari Blog: Can you Count more Than #1024 PHP Groups in The World?      #php #meetupcom #travelling #phpfamily by @votrubaT"
-tweet_image: "/assets/images/posts/2018/friends/preview.png"
 ---
 
 ...well, see for yourself:
