@@ -28,19 +28,12 @@ final class TrainingController extends AbstractController
      */
     private $trainingTermRepository;
 
-    /**
-     * @var TrainingRegistrationRepository
-     */
-    private $trainingRegistrationRepository;
-
     public function __construct(
         TrainingTermRepository $trainingTermRepository,
-        TrainingRegistrationRepository $trainingRegistrationRepository,
         TrainingRepository $trainingRepository,
         PlaceRepository $placeRepository
     ) {
         $this->trainingTermRepository = $trainingTermRepository;
-        $this->trainingRegistrationRepository = $trainingRegistrationRepository;
         $this->trainingRepository = $trainingRepository;
         $this->placeRepository = $placeRepository;
     }
@@ -64,7 +57,6 @@ final class TrainingController extends AbstractController
             'past_terms' => $this->trainingTermRepository->fetchFinished(),
             'past_terms_count' => count($this->trainingTermRepository->fetchFinished()),
         ]);
-
     }
 
     /**
