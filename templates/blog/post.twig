@@ -24,7 +24,7 @@
 
         <div class="intermezzo">
             <div class="container">
-                {% set relatedPosts = (post|relatedItems) %}
+                {% set relatedPosts = (post|related_items) %}
 
                 {% if relatedPosts|length %}
                     <h2>You Might Also Like</h2>

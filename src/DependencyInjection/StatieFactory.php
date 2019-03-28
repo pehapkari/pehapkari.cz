@@ -5,6 +5,7 @@ namespace OpenTraining\DependencyInjection;
 use Symfony\Component\DependencyInjection\Container;
 use Symplify\Statie\Configuration\StatieConfiguration;
 use Symplify\Statie\Generator\Generator;
+use Symplify\Statie\Generator\RelatedItemsResolver;
 use Symplify\Statie\HttpKernel\StatieKernel;
 
 final class StatieFactory
@@ -23,6 +24,11 @@ final class StatieFactory
     public function createGenerator(): Generator
     {
         return $this->statieContainer->get(Generator::class);
+    }
+
+    public function createRelatedItemsResolver(): RelatedItemsResolver
+    {
+        return $this->statieContainer->get(RelatedItemsResolver::class);
     }
 
     private function createStatieKernel(): Container

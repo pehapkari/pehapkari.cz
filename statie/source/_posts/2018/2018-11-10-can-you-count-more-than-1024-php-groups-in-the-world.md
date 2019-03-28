@@ -125,7 +125,7 @@ There is [plenty of reasons not-to-go](https://www.tomasvotruba.cz/blog/2018/07/
 
 To give you an idea, here **are costs of my trips from Prague** to cities nearby:
 
-<table class="table table-responsive table-bordered">
+<table class="table table-bordered">
     <thead class="table-inverse">
         <tr>
             <th class="text-center">City</th>

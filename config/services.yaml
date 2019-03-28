@@ -34,3 +34,6 @@ services:
 
     Symplify\Statie\Generator\Generator:
         factory: ['@OpenTraining\DependencyInjection\StatieFactory', 'createGenerator']
+
+    Symplify\Statie\Generator\RelatedItemsResolver:
+        factory: ['@OpenTraining\DependencyInjection\StatieFactory', 'createRelatedItemsResolver']
