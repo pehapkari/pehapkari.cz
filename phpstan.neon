@@ -1,5 +1,6 @@
 includes:
     - 'vendor/phpstan/phpstan-doctrine/extension.neon'
+    - 'vendor/symplify/phpstan-extensions/config/config.neon'
 
 parameters:
     level: max
@@ -22,3 +23,7 @@ parameters:
 
         # known child
         - '#Property OpenTraining\\Training\\Repository\\TrainingTermRepository::\$entityManager \(Doctrine\\ORM\\EntityManager\) does not accept Doctrine\\ORM\\EntityManagerInterface#'
+        - '#Method OpenTraining\\Blog\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
+
+        # desired sub-type
+        - '#Method OpenTraining\\DependencyInjection\\StatieFactory\:\:createStatieKernel\(\) should return Symfony\\Component\\DependencyInjection\\Container but returns Symfony\\Component\\DependencyInjection\\ContainerInterface#'

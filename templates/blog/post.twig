@@ -22,11 +22,11 @@
 
         <br>
 
-        <div class="intermezzo">
-            <div class="container">
-                {% set relatedPosts = (post|related_items) %}
+        {% set relatedPosts = (post|related_items) %}
 
-                {% if relatedPosts|length %}
+        {% if relatedPosts|length %}
+            <div class="intermezzo">
+                <div class="container">
                     <h2>You Might Also Like</h2>
 
                     <ul id="related-posts">
@@ -36,9 +36,9 @@
                             </li>
                         {% endfor %}
                     </ul>
-                {% endif %}
+                </div>
             </div>
-        </div>
+        {% endif %}
 
         <div class="container">
             {% include "_snippets/disqus_comments.twig" with { 'post': post, 'showCommentCount': true } %}
