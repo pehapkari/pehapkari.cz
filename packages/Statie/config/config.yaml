@@ -1,3 +1,6 @@
+imports:
+    - { resource: '../../../statie.yaml' }
+
 services:
     _defaults:
         autowire: true
@@ -7,6 +10,15 @@ services:
         bind:
             # not sure why not autowired - @todo fix
             $organizers: '%organizers%'
+            $authors: '%authors%'
 
     OpenTraining\Statie\:
         resource: '../src'
+
+    Symplify\Statie\Generator\Generator:
+        factory: ['@OpenTraining\Statie\DependencyInjection\StatieFactory', 'createGenerator']
+
+twig:
+    globals:
+        github_show_url_start: '%github_show_url_start%'
+        page_title: '%page_title%'

@@ -28,17 +28,17 @@
     <div class="hidden-sm-down">
         <div class="container-fluid">
             <a href="/"><img src="https://pehapkari.cz/assets/images/logo-header.svg?verver={{ random() }}" alt="" height="50"></a>
-            {#<a href="/"><img src="/assets/images/logo-header.svg?ver" alt="" height="50"></a>#}
+            <a href="/"><img src="/assets/images/logo-header.svg?ver" alt="" height="50"></a>
 
             <nav class="navbar top-navigation">
                 <a href="{{ path('blog') }}" class="{{ active_item(['blog', 'post']) }}">
                     <em class="fa fa-newspaper fa-fw"></em>
                     Blog
                 </a>
-                <a href="{{ path('trainings') }}" class="{{ active_item(['trainings', 'training-detail']) }}">
-                    <em class="fa fa-graduation-cap fa-fw"></em>
-                    Školení
-                </a>
+                {#<a href="{{ path('trainings') }}" class="{{ active_item(['trainings', 'training-detail']) }}">#}
+                    {#<em class="fa fa-graduation-cap fa-fw"></em>#}
+                    {#Školení#}
+                {#</a>#}
             </nav>
         </div>
     </div>
@@ -63,4 +63,6 @@
             </a>
         </div>
     </div>
+
+    <div class="clearfix"></div>
 </header>

@@ -1,9 +1,9 @@
-imports:
-    - { resource: 'statie/source/_data/*.yaml' }
-    # enabled on localhost only
-    - { resource: 'statie.local.yaml',  ignore_errors: true }
-
 parameters:
+    # @see https://www.statie.org/docs/generators/
+    generators:
+        posts:
+            layout: '' # no layout, already included in application templates
+
     twitter_name: 'Pehapkari'
     twitter_maximal_days_in_past: 30 # tweet max. 1 month old posts
 

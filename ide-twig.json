@@ -1,5 +1,6 @@
 {
     "namespaces": [
-        { "path": "statie/source" }
+        { "path": "statie/source" },
+        { "path": "templates" }
     ]
 }
