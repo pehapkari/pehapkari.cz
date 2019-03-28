@@ -1,0 +1,81 @@
+parameters:
+    organizers:
+        # Prague
+        -
+            photo: "https://avatars2.githubusercontent.com/u/924196?s=460&v=4"
+            name: "Tomáš Votruba"
+            responsibility: "vedení, komunikace, sponzoři, organizace srazů v Praze"
+            url: https://tomasvotruba.cz
+            work_email: "tomas@pehapkari.cz"
+        -
+            photo: martina_hynkova.jpg
+            name: "Martina Hynková"
+            responsibility: "organizace školení"
+            work_email: "martina@pehapkari.cz"
+        -
+            photo: "https://avatars0.githubusercontent.com/u/42802?s=460&v=4"
+            name: "Honza Černý"
+            responsibility: "PoSobota, Nette Camp, PHP Hory, Nette Občasník a natáčení videí"
+            url: https://honzacerny.com/
+        -
+            photo: jakub_kratina.jpg
+            name: "Jakub Kratina"
+            responsibility: "organizace srazů v Praze, livestreamy"
+            url: http://jakubkratina.cz/
+            work_email: "jakub@pehapkari.cz"
+
+        # Pardubice
+        -
+            photo: "https://avatars0.githubusercontent.com/u/695438?s=460&v=4"
+            name: "Václav Pávek"
+            responsibility: "organizace PHP Piva v Pardubicích"
+            url: "https://www.vaclavpavek.cz/"
+        -
+            photo: "https://avatars1.githubusercontent.com/u/133822?s=460&v=4"
+            name: "Jan Kuchař"
+            responsibility: "livestreamy ze srazů"
+            url: "https://grifart.cz/"
+        -
+            photo: jan_kopp.jpg
+            name: "Jan Kopp"
+            responsibility: "organizace srazů v Pardubicích"
+            url: "https://www.digitalsolutions.cz/"
+
+        # České Budějovice
+        -
+            photo: "https://avatars3.githubusercontent.com/u/1589644?s=400&v=4"
+            name: "Nikol Ježková"
+            responsibility: "organizace srazů v Českých Budějovicích"
+            url: "https://roxtri.cz/"
+        -
+            photo: "https://avatars1.githubusercontent.com/u/313014?s=460&v=4"
+            name: "Martin Hlaváč"
+            responsibility: "organizace srazů v Českých Budějovicích"
+            url: "https://www.hlavacm.net/"
+
+        # Ostrava
+        -
+            photo: "https://avatars3.githubusercontent.com/u/10008612?s=460&v=4"
+            name: "Petr Heinz"
+            responsibility: "organizace srazů v Ostravě"
+            url: "https://www.shopsys.cz/"
+
+        # Olomouc
+        -
+            photo: "https://avatars2.githubusercontent.com/u/1284781?s=460&v=4"
+            name: "Tomáš Jacík"
+            responsibility: "organizace PHP Piva v Olomouci"
+            url: "https://sunfox.cz/"
+
+        # Brno
+        -
+            photo: "https://avatars1.githubusercontent.com/u/1753937?s=460&v=4"
+            name: "Václav Čevela"
+            responsibility: "organizace srazů v Brně"
+            url: "https://www.peckadesign.cz/"
+
+        -
+            photo: richard_koza.jpg
+            name: "Richard Koza"
+            responsibility: "příprava newsletteru"
+            url: "https://www.umimeweby.cz"

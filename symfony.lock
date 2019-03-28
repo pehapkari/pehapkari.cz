@@ -107,6 +107,12 @@
     "egulias/email-validator": {
         "version": "2.1.5"
     },
+    "erusev/parsedown": {
+        "version": "1.7.1"
+    },
+    "erusev/parsedown-extra": {
+        "version": "0.7.1"
+    },
     "fabpot/goutte": {
         "version": "v3.2.3"
     },
@@ -143,6 +149,9 @@
     "illuminate/support": {
         "version": "v5.7.22"
     },
+    "j7mbo/twitter-api-php": {
+        "version": "1.0.6"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -158,6 +167,7 @@
     "knplabs/doctrine-behaviors": {
         "version": "1.5.0"
     },
+<<<<<<< HEAD
     "league/uri-components": {
         "version": "1.8.2"
     },
@@ -175,6 +185,10 @@
     },
     "league/uri-schemes": {
         "version": "1.2.1"
+=======
+    "latte/latte": {
+        "version": "v2.4.8"
+>>>>>>> merge old pehapkari.cz website form statie
     },
     "myclabs/deep-copy": {
         "version": "1.8.1"
@@ -629,11 +643,17 @@
     "symplify/package-builder": {
         "version": "v4.6.0"
     },
+    "symplify/statie": {
+        "version": "v5.4.2"
+    },
     "symplify/token-runner": {
         "version": "v4.6.0"
     },
     "theseer/tokenizer": {
         "version": "1.1.0"
+    },
+    "tracy/tracy": {
+        "version": "v2.5.5"
     },
     "twig/extensions": {
         "version": "1.0",

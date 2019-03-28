@@ -1,0 +1,87 @@
+# for php-prague
+parameters:
+    talks:
+        -
+            time: '10:10'
+            speaker: "David Velvethy"
+            speaker_url: "https://ae.linkedin.com/in/david-velvethy"
+            speaker_photo: "https://d1qb2nb5cznatu.cloudfront.net/users/6987685-large?1506880302"
+            talk: "MVP: How we fucked-up despite a training in Rocketspace, San Francisco"
+            perex: |
+                Despite all the Silicon Valley know-how, a good investor, detail planning and a decent team, something can still go bloody wrong.
+                How do we generally think about building MVP after all this?
+                What fuckup can be very useful for?
+            slides: "https://docs.google.com/presentation/d/10rTcSTNBHEEv_7Dc5vJ8kpdc_iphtgYJQMOTxciQKwA/edit?ts=5b2e59a4"
+            video: "https://www.youtube.com/watch?v=l3FY0BENmqs"
+
+        -
+            time: '10:50'
+            speaker: "Jindřich Kubát"
+            speaker_url: "https://cz.linkedin.com/in/jindrich-kubat"
+            speaker_photo: "https://pbs.twimg.com/profile_images/575292968531202048/4es7qIEp_400x400.jpeg"
+            talk: "Transactions in Distributed System"
+            slides: "https://www.slideshare.net/JindichKubt/php-conference-transactions-in-distributed-system"
+            video: "https://www.youtube.com/watch?v=AIBzp38sAOs"
+        -
+            time: '11:30'
+            speaker: "Ondrej Mirtes"
+            speaker_url: "https://ondrej.mirtes.cz"
+            speaker_photo: "https://pbs.twimg.com/profile_images/2314351649/j6ydzdrm8r17uz8lkzsy_400x400.jpeg"
+            talk: "What’s new in PHPStan"
+            video: "https://www.youtube.com/watch?v=nfq2zsazpZM"
+        -
+            time: '13:00'
+            speaker: "Matous Czerner"
+            speaker_url: "https://github.com/MattCzerner"
+            speaker_photo: "https://avatars2.githubusercontent.com/u/16896425?s=400&v=4"
+            talk: "How To Love Git"
+            slides: "https://docs.google.com/presentation/d/1sPYeOwIe6CvqHhSSltQCASX4j_gpGTFNEKWttCATmao/edit?ts=5b33af80"
+            video: "https://www.youtube.com/watch?v=EOn_VDZ9ep8"
+        -
+            time: '13:40'
+            speaker: "Holger Woltersdorf"
+            speaker_url: "https://hollo.me/index.html"
+            speaker_photo: "https://pbs.twimg.com/profile_images/753279260584976384/KoVhfLKl_400x400.jpg"
+            talk: "Total Recall - The application that never forgets"
+            country: "Germany"
+            slides: "https://speakerdeck.com/hollodotme/total-recall-the-application-that-never-forgets-2"
+            video: "https://www.youtube.com/watch?v=lD9oa5huoyA"
+        -
+            time: '14:20'
+            speaker: "Jan Mikeš"
+            speaker_url: "https://janmikes.cz/"
+            speaker_photo: "https://avatars1.githubusercontent.com/u/3995003?s=460&v=4"
+            talk: "The Simplest Gitlab CI Pipeline Ever"
+            slides: "https://www.slideshare.net/JanMike3/php-prague-2018-the-simplest-gitlab-ci-pipeline-ever"
+            video: "https://www.youtube.com/watch?v=HG0HgeUDbR8"
+        -
+            time: '15:00'
+            speaker: "Vladimir Kriška"
+            speaker_url: "https://www.ujovlado.com/"
+            speaker_photo: "https://miro.medium.com/fit/c/240/240/1*cWv5kUZBEvLqazoPHcNIpw.jpeg"
+            talk: "Docker for PHP developers - Tips, Tricks & Lessons learned"
+            slides: "https://speakerdeck.com/ujovlado/docker-for-php-developers-tips-tricks-and-lessons-learned"
+            video: "https://www.youtube.com/watch?v=zk2waYlEY8A"
+        -
+            time: '16:20'
+            speaker: "Arkadiusz Kondas"
+            speaker_url: "https://arkadiuszkondas.com/"
+            speaker_photo: "https://pbs.twimg.com/profile_images/819586686149677056/DOMf3P79_400x400.jpg"
+            talk: "Machine Learning - how to begin to learn the machine in PHP"
+            country: "Poland"
+            slides: "https://slides.com/arkadiuszkondas/shor-story-about-machine-learning-in-php#/"
+        -
+            time: '17:00'
+            speaker: "Tomas Votruba"
+            speaker_url: "https://tomasvotruba.com/"
+            speaker_photo: "https://avatars2.githubusercontent.com/u/924196?s=460&v=4"
+            talk: "Why Your Company Loses Money By Not-Open-Sourcing"
+            slides: "https://docs.google.com/presentation/d/1kYpsn_ZAR_Q2A7WYqBIjeVIjdKe67W_d0PTHVgsvMo4/edit?usp=sharing"
+            video: "https://www.youtube.com/watch?v=suscn1HeRAc"
+        -
+            time: '17:40'
+            speaker: "Michal Špaček"
+            speaker_url: "https://www.michalspacek.cz/"
+            speaker_photo: "https://avatars2.githubusercontent.com/u/1966648?s=460&v=4"
+            talk: "Everything is User Input"
+            slides: "https://www.michalspacek.com/talks/everything-is-user-input-phpprague"
