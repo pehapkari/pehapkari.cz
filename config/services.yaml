@@ -12,12 +12,16 @@ twig:
     globals:
         google_analytics_tracking_id: "UA-89860072-1"
         disqus_name: "pehapkari"
+        site_url: "%site_url%"
 
 services:
     _defaults:
         public: true
         autowire: true
         autoconfigure: true
+        bind:
+            $organizers: '%organizers%'
+            $authors: '%authors%'
 
     OpenTraining\:
         resource: '../src/'

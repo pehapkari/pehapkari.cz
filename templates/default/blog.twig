@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.twig' %}
 
 {% block header %}{% endblock %}
 {% block footer %}{% endblock %}
@@ -11,7 +11,7 @@
 
         <br>
 
-        <p class="text-center">
+        <div class="text-center">
             <!-- inspired and taken from: https://github.com/yegor256/blog/blob/master/_layouts/default.html -->
             <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction" class="col-md-4 pull-left">
                 <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
@@ -23,13 +23,15 @@
                 <em class="fa fa-fw fa-plus"></em>
                 Add your post
             </a>
+
             <a href="/rss.xml" class="btn btn-warning mr-3">
-                <em class="fa fa-fw fa-rss"></em>
+                <em class="fas fa-fw fa-rss"></em>
             </a>
+
             <a href="http://twitter.com/pehapkari" class="btn btn-info">
-                <em class="fa fa-fw fa-twitter"></em>
+                <em class="fab fa-fw fa-twitter"></em>
             </a>
-        </p>
+        </div>
 
         <hr>
 
@@ -46,7 +48,7 @@
                         </div>
                     </div>
 
-                    <p class="perex">{{ post.perex|raw }}</p>
+                    <p class="perex text-left">{{ post.perex|raw }}</p>
                 </div>
                 {% if loop.last == false %}<hr>{% endif %}
             {% endif %}

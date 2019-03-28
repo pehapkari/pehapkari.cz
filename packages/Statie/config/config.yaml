@@ -6,10 +6,7 @@ services:
         autowire: true
         autoconfigure: true
         public: true
-
         bind:
-            # not sure why not autowired - @todo fix
-            $organizers: '%organizers%'
             $authors: '%authors%'
 
     OpenTraining\Statie\:
