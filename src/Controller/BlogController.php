@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Controller;
+namespace OpenTraining\Controller;
 
+use OpenTraining\Blog\PostsProvider;
 use OpenTraining\Exception\ShouldNotHappenException;
-use OpenTraining\Statie\PostsProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symplify\Statie\Renderable\File\PostFile;
 
-final class StatiePostController extends AbstractController
+final class BlogController extends AbstractController
 {
     /**
      * @var mixed[]
@@ -55,7 +55,7 @@ final class StatiePostController extends AbstractController
 
         return $this->render('default/post.twig', [
             'post' => $matchedPost,
-            'authors' => $this->authors
+            'authors' => $this->authors,
         ]);
     }
 
@@ -65,7 +65,7 @@ final class StatiePostController extends AbstractController
 
         /** @var PostFile $post */
         foreach ($posts as $post) {
-            if ($post->getRelativeUrl()  . '/' !== 'blog/' . $postSlug) {
+            if ($post->getRelativeUrl() . '/' !== 'blog/' . $postSlug) {
                 continue;
             }
 

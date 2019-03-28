@@ -2,7 +2,7 @@
 
 namespace OpenTraining\Controller;
 
-use OpenTraining\Statie\PostsProvider;
+use OpenTraining\Blog\PostsProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,15 +12,17 @@ final class HomepageController extends AbstractController
     /**
      * @var mixed[]
      */
-    private $organizers;
+    private $organizers = [];
+
+    /**
+     * @var mixed[]
+     */
+    private $authors = [];
+
     /**
      * @var PostsProvider
      */
     private $postsProvider;
-    /**
-     * @var array
-     */
-    private $authors;
 
     /**
      * @param mixed[] $organizers
@@ -39,12 +41,12 @@ final class HomepageController extends AbstractController
     public function homepage(): Response
     {
         return $this->render('default/homepage.twig', [
-            'organizers' => $this->organizers
+            'organizers' => $this->organizers,
         ]);
     }
 
     /**
-     * @Route(path="/press", name="homepage")
+     * @Route(path="/press", name="press")
      */
     public function press(): Response
     {
@@ -58,7 +60,7 @@ final class HomepageController extends AbstractController
     {
         $response = $this->render('homepage/rss.xml.twig', [
             'posts' => $this->postsProvider->provide(),
-            'authors' => $this->authors
+            'authors' => $this->authors,
         ]);
 
         $response->headers->set('Content-Type', 'xml');

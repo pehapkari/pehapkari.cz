@@ -13,6 +13,8 @@ twig:
         google_analytics_tracking_id: "UA-89860072-1"
         disqus_name: "pehapkari"
         site_url: "%site_url%"
+        github_show_url_start: '%github_show_url_start%'
+        page_title: '%page_title%'
 
 services:
     _defaults:
@@ -29,3 +31,6 @@ services:
 
     Defr\Ares: ~
     GuzzleHttp\Client: ~
+
+    Symplify\Statie\Generator\Generator:
+        factory: ['@OpenTraining\DependencyInjection\StatieFactory', 'createGenerator']
