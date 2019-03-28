@@ -22,7 +22,7 @@ script:
     - bin/console lint:twig packages templates
 
     # tweets posts
-    - if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then vendor/bin/statie tweet-post; fi
+    - if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then vendor/bin/statie tweet-post statie/source; fi
 
 # do not send success notifications, they have no value
 notifications:
