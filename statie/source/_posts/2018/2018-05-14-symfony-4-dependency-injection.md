@@ -14,7 +14,7 @@ Implementácia návrhového vzoru Dependency Injection formou tzv. DI kontajnera
 > _The basic idea of the Dependency Injection is to have a separate object, an assembler, that populates a field in a class with an appropriate implementation for the interface._
 >
 > --Martin Fowler
- 
+
 Najčastejšie používané formy vkladania závislostí do objektov sú **Constructor Injection** a **Setter Injection**.
 
 **Constructor Injection** je vkladanie závislosti objektu prostredníctvom konštruktora. Konštruktor, ako vstupný bod, poskytuje prehľad o všetkých závislostiach objektu na jednom mieste a zabezpečuje jeho konzistenciu, teda objekt nemôže byť inštancovný bez potrebných závislostí.
@@ -69,7 +69,7 @@ services:
         autowire: true
         autoconfigure: true
         public: false
-        
+
     App\:
         resource: '../src/*'
         exclude: '../src/{Entity,Migrations,Tests,Kernel.php}'
@@ -81,7 +81,7 @@ Na ukážke sekcia ``_defaults`` zahŕňa tri predvolené nastavenia, platiace p
 services:
 	_defaults:
         public: false
-        
+
 	App\Model\TemplateEngine:
 		public: true
 ```
@@ -110,9 +110,9 @@ final class MailSender
 Vkladanie pracuje na úrovni typu služby alebo interfacu, ktorý služba implementuje.
 
 Ak existujú viaceré služby implementujúce rovnaký interface DI, kontajner nebude vedieť, ktorú službu má poskytnúť ako závislosť. K interfacu ako kľúču na úrovni DI kontajneru, priradíme konkrétnu implementáciu služby.
- 
+
 ```yaml
-services:        
+services:
     App\Logger\LoggerInterface: '@App\Logger\MailLogger'
 ```
 
@@ -121,31 +121,31 @@ Od Symfony 3.4. existuje ekvivalentný zápis v sekcii bind.
 ```yaml
 services:
     _defaults:
-        bind:        
+        bind:
 			App\Logger\LoggerInterface: '@App\Logger\FileLogger'
 ```
 
-Osobne mi tento zápis vyhovuje viac, pretože mám všetky bindy interfacov na jednom mieste v rámci konfigurácie. 
+Osobne mi tento zápis vyhovuje viac, pretože mám všetky bindy interfacov na jednom mieste v rámci konfigurácie.
 
 Nie všetky naše služby vyžadujúce ``App\Logger\LoggerInterface`` musia očakávať nabindovanú inštanciu ``App\Logger\FileLogger``. V tomto prípade môžeme implementáciu prebindovať pri konkrétnej definícií služby.
 
 ```yaml
 services:
     _defaults:
-        bind:        
+        bind:
 			App\Logger\LoggerInterface: '@App\Logger\FileLogger'
-    
+
     App\Logger\:
         resource: '../src/Logger/*'
-		
+
 	App\Mailer\MailGenerator:
 		bind:
-			App\Logger\LoggerInterface: '@App\Logger\DatabaseLogger'			
+			App\Logger\LoggerInterface: '@App\Logger\DatabaseLogger'
 ```
 
 ### Action Injection
 
-Symfony autowiring umožňuje vkladanie závislostí **aj priamo metódam v kontroleri**. Táto funkčnosť do určitej miery zjednodušuje prácu s kontrolerom, kedy nie je nutné k získaniu závislosti vytvárať konštruktor. 
+Symfony autowiring umožňuje vkladanie závislostí **aj priamo metódam v kontroleri**. Táto funkčnosť do určitej miery zjednodušuje prácu s kontrolerom, kedy nie je nutné k získaniu závislosti vytvárať konštruktor.
 
 ```php
 final class MailSendController
@@ -154,12 +154,12 @@ final class MailSendController
 	{
 		// ...
 	}
-}		
+}
 ```
 
 **Odporúčam používať výhradne konštruktor na vkladanie závislosti za každých okolností**. Kontroler tak jednoznačne priznáva svoje závislosti.
 
-Viac o problémoch spojených s používaním **action injection** sa môžete dočítať v článku od [Tomáša Votrubu](https://www.tomasvotruba.cz/blog/2018/04/23/how-to-slowly-turn-your-symfony-project-to-legacy-with-action-injection/).  
+Viac o problémoch spojených s používaním **action injection** sa môžete dočítať v článku od [Tomáša Votrubu](https://www.tomasvotruba.cz/blog/2018/04/23/how-to-slowly-turn-your-symfony-project-to-legacy-with-action-injection/).
 
 ### Ako autowiring pracuje?
 
@@ -188,7 +188,7 @@ services:
 
     App\Templating\AcmeTwigExtension:
 		tags: [twig.extension]
-		
+
     App\:
 		resource: '../src/*'
 ```
@@ -199,11 +199,11 @@ Tento zápis môžeme zjednodušiť definíciou tagu pre interface v sekcii``_in
 services:
     _defaults:
         autoconfigure: false
-		
+
     _instanceof:
         Twig_ExtensionInterface:
-            tags: [twig.extension]			
-	
+            tags: [twig.extension]
+
     App\:
 		resource: '../src/*'
 ```
@@ -231,7 +231,7 @@ V nutnom prípade môžeme preťažiť parameter ``public`` u konkrétnej defin�
 services:
     _defaults:
         public: false
-        
+
 	App\Logger\MailLogger:
 		public: true
 ```
@@ -242,11 +242,11 @@ services:
 
 ```yaml
 services:
-    App\Logger\MailLogger:        
+    App\Logger\MailLogger:
         arguments:
             $logDir: '%kernel.project_dir%/var/log'
 
-    App\Logger\QueryLogger:        
+    App\Logger\QueryLogger:
         arguments:
             $logDir: '%kernel.project_dir%/var/log'
 ```
@@ -255,7 +255,7 @@ Autowiring skalárnych argumentov môžeme vyriešiť jednoduchšie pomocou tzv.
 
 ```yaml
 services:
-    _defaults:    
+    _defaults:
         bind:
             $logDir: '%kernel.project_dir%/var/log'
 ```
@@ -267,9 +267,9 @@ Ak pre niektorú zo služieb potrebujeme určiť inú hodnotu argumentu ``$logDi
 ```yaml
 services:
     _defaults:
-        bind:		
+        bind:
             $logDir: '%kernel.project_dir%/var/log'
-		
+
 	App\Logger\QueryLogger:
 		bind:
             $logDir: '%kernel.project_dir%/var/log/query'
@@ -281,7 +281,7 @@ Hromadná registrácia služieb (autodiscovery) prostredníctvom špecifického 
 
 Definícia začína určením spoločného doménového názvu ([FQCN](https://en.wikipedia.org/wiki/Fully_qualified_name)), ktorý musí byť ukončený spätným lomítkom.
 
-Prvý argumentom ``resource`` definujeme cestu k zložke, kde sú umiestnené súbory pre registráciu a druhým nepovinným parametrom ``exclude`` môžeme určiť, ktoré zložky alebo súbory sa majú z registrácie vylúčiť. Definícia môže obsahovať aj iné parametre napr. ``arguments``, ``tags`` a podobne.:  
+Prvý argumentom ``resource`` definujeme cestu k zložke, kde sú umiestnené súbory pre registráciu a druhým nepovinným parametrom ``exclude`` môžeme určiť, ktoré zložky alebo súbory sa majú z registrácie vylúčiť. Definícia môže obsahovať aj iné parametre napr. ``arguments``, ``tags`` a podobne.:
 
 ```yaml
 services:
@@ -289,7 +289,7 @@ services:
         autowire: true
         autoconfigure: true
         public: false
-        
+
     App\:
         resource: '../src/*'
         exclude: '../src/{Entity,Migrations,Tests,Kernel.php}'
@@ -298,22 +298,22 @@ services:
 
 Z ukážky vyššie je zrejmé, že v základnom nastavení sa registrujú všetky služby, ktorých doménový názov začína na ``App``.
 
-Do parametrov ``resource`` a ``exclude`` nemusíme definovať len presnú cestu, umožňujú aj valídny zápis cesty so zástupnými znakmi v [glob patterne](https://en.wikipedia.org/wiki/Glob_(programming)). 
+Do parametrov ``resource`` a ``exclude`` nemusíme definovať len presnú cestu, umožňujú aj valídny zápis cesty so zástupnými znakmi v [glob patterne](https://en.wikipedia.org/wiki/Glob_(programming)).
 
 Predstavme si jednoduchý príklad, kde chceme vylúčiť z načítania všetky súbory, ktorých názov obsahuje reťazec **Command** alebo **Query** a tieto súbory môžu byť zanorené v ľubovoľnej hierarchií zložiek:
- 
+
 ```yaml
 services:
     _defaults:
         autowire: true
         autoconfigure: true
         public: false
-        
+
     App\:
         resource: '../src/*'
         exclude: '../src/**/*{Command,Query}.php'
 ```
- 
+
 V zápise ``resource`` sme použili zástupný znak ``*``, ktorý  v tomto prípade zastupuje akýkoľvek názov súboru. Zástupné znaky môžeme spresňovať prefixom alebo sufixom, ako sme to urobili v zápise argumentu ``exclude``. Za zmienku ešte stojí znak ``**``, ktorý zastupuje rôznu úroveň vnorenie adresárov.
 
 Viac informácií o **glob patterne** nájdete na [wikipédií](https://en.wikipedia.org/wiki/Glob_(programming)).
@@ -338,7 +338,7 @@ Príkaz má viacero nastavení, z ktorých stojí za zmienku napríklad paramete
 
 Skúsme teda do konzole zadať príkaz ```php bin/console debug:container --show-private```. Výstup už bude obsahovať všetky služby, ktorými disponuje kontajner bez ohľadu na to či sú verejné alebo nie.
 
-Keď projekt rastie, služieb pribúda a zoznam rastie. Práca s ním sa stáva nepohodlná a práve teraz je vhodný čas na vyhľadávanie služieb v zozname. Skúsme teda zadať príkaz ```php bin/console debug:container RedirectController``` 
+Keď projekt rastie, služieb pribúda a zoznam rastie. Práca s ním sa stáva nepohodlná a práve teraz je vhodný čas na vyhľadávanie služieb v zozname. Skúsme teda zadať príkaz ```php bin/console debug:container RedirectController```
 
 ![debug-container-search](/assets/images/posts/2018/symfony-4-dependency-injection/debug-container-search.jpg)
 
@@ -363,7 +363,7 @@ Viac informácií o príkazoch nájdete v nápovede pre konkrétny konzolový sk
 ![debug-autowiring-help](/assets/images/posts/2018/symfony-4-dependency-injection/debug-autowiring-help.jpg)
 
 Príkaz vypíše možné argumenty a parametre príkazu, krátky popis a v lepšom prípade aj možnosti použitia.
- 
+
 ## Záver
 
 Depency Injection je skvelá myšlienka, ktorá nám umožňuje vytvárať lepšie a flexibilnejšie aplikácie. Symfony túto myšlienku pomaly, ale iste doťahuje k dokonalosti.

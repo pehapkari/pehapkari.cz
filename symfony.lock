@@ -149,6 +149,9 @@
     "illuminate/support": {
         "version": "v5.7.22"
     },
+    "intervention/image": {
+        "version": "2.4.2"
+    },
     "j7mbo/twitter-api-php": {
         "version": "1.0.6"
     },
@@ -169,6 +172,12 @@
     },
     "latte/latte": {
         "version": "v2.4.8"
+    },
+    "league/flysystem": {
+        "version": "1.0.50"
+    },
+    "league/glide": {
+        "version": "1.4.0"
     },
     "league/uri-components": {
         "version": "1.8.2"
@@ -235,6 +244,9 @@
     },
     "nette/utils": {
         "version": "v2.5.2"
+    },
+    "nicmart/tree": {
+        "version": "v0.2.7"
     },
     "nikic/php-parser": {
         "version": "v4.0.3"
@@ -385,6 +397,27 @@
     },
     "slevomat/coding-standard": {
         "version": "4.6.3"
+    },
+    "spatie/browsershot": {
+        "version": "3.27.0"
+    },
+    "spatie/crawler": {
+        "version": "4.3.0"
+    },
+    "spatie/http-status-check": {
+        "version": "3.1.1"
+    },
+    "spatie/image": {
+        "version": "1.7.0"
+    },
+    "spatie/image-optimizer": {
+        "version": "1.1.5"
+    },
+    "spatie/robots-txt": {
+        "version": "1.0.3"
+    },
+    "spatie/temporary-directory": {
+        "version": "1.1.4"
     },
     "squizlabs/php_codesniffer": {
         "version": "3.3.1"
@@ -673,6 +706,9 @@
     },
     "theseer/tokenizer": {
         "version": "1.1.0"
+    },
+    "tightenco/collect": {
+        "version": "v5.8.8"
     },
     "tracy/tracy": {
         "version": "v2.5.5"

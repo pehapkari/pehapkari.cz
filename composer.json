@@ -45,28 +45,29 @@
         "vich/uploader-bundle": "^1.8"
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.11",
-        "phpstan/phpstan-doctrine": "^0.11",
-        "phpunit/phpunit": "^8.0",
-        "symfony/browser-kit": "^4.2",
-        "symfony/debug-bundle": "^4.2",
-        "symfony/maker-bundle": "^1.11",
-        "symfony/validator": "4.2.*",
-        "symfony/web-profiler-bundle": "^4.2",
-        "symfony/web-server-bundle": "^4.2",
-        "symplify/coding-standard": "^5.4",
-        "symplify/easy-coding-standard": "^5.4",
-        "symplify/phpstan-extensions": "^5.4",
         "doctrine/annotations": "^1.6",
         "doctrine/cache": "^1.8",
         "latte/latte": "^2.5",
         "nette/application": "^2.4",
         "nette/forms": "^2.4",
         "nette/security": "^2.4",
+        "phpstan/phpstan": "^0.11",
+        "phpstan/phpstan-doctrine": "^0.11",
+        "phpunit/phpunit": "^8.0",
+        "spatie/http-status-check": "^3.1",
+        "symfony/browser-kit": "^4.2",
         "symfony/console": "^4.2",
+        "symfony/debug-bundle": "^4.2",
         "symfony/event-dispatcher": "^4.2",
         "symfony/expression-language": "^4.2",
-        "symfony/intl": "^4.2"
+        "symfony/intl": "^4.2",
+        "symfony/maker-bundle": "^1.11",
+        "symfony/validator": "4.2.*",
+        "symfony/web-profiler-bundle": "^4.2",
+        "symfony/web-server-bundle": "^4.2",
+        "symplify/coding-standard": "^5.4",
+        "symplify/easy-coding-standard": "^5.4",
+        "symplify/phpstan-extensions": "^5.4"
     },
     "autoload": {
         "psr-4": {
@@ -92,9 +93,13 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "check-cs": "vendor/bin/ecs check packages src statie",
-        "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix",
+        "fix-cs": [
+            "vendor/bin/ecs check packages src statie/src statie/tests --fix",
+            "bin/clear_trailing_whitespaces.sh"
+        ],
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force",
-        "phpstan": "vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify"
+        "phpstan": "vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify",
+        "dead-links": "vendor/bin/http-status-check scan https://pehapkari.cz"
     },
     "config": {
         "sort-packages": true

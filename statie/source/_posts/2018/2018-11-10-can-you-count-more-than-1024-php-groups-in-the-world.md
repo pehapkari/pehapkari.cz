@@ -40,10 +40,10 @@ It would be easy to get lost among all these pins, so we put 2 more colors in.
         <em>(Before → After)</em>
     </p>
     <p>
-        Traffic lights to save your eyes: 
+        Traffic lights to save your eyes:
         <strong>
-            <span class="text-success">next 7 days</span> 
-            | <span class="text-warning">next 14 days</span> 
+            <span class="text-success">next 7 days</span>
+            | <span class="text-warning">next 14 days</span>
             | <span class="text-danger">next 30 days</span>
         </strong>
     </p>
@@ -77,7 +77,7 @@ Meetups are downloaded every day by Travis CRON job from Meetup.com for each of 
 
 Although there [Meetup API](https://www.meetup.com/meetup_api/) often works as documented, it's not possible to find all PHP groups with it. There is [an issue](https://github.com/meetup/api/issues/249) **when you search for groups in a specific location, it ignores the location and sets back to your origin city**. Pity, that exactly what we need here.
 
-### What now? 
+### What now?
 
 Maybe instead of API... a **crawler could help** - [and it did](https://github.com/meetup/api/issues/249#issuecomment-427548572):
 
@@ -166,4 +166,4 @@ Let [me know](https://www.tomasvotruba.cz/contact/) - I might know a way to help
 
 <br>
 
-That's all folks. Enjoy your offline PHP friends - [friendsofphp.org](https://friendsofphp.org) and have fun! 
+That's all folks. Enjoy your offline PHP friends - [friendsofphp.org](https://friendsofphp.org) and have fun!

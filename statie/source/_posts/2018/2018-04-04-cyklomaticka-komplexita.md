@@ -3,15 +3,15 @@ id: 68
 title: "Cyklomatická komplexita"
 perex: |
     Cyklomatická komplexita, neboli podmínková složitost je metrika indikující složitost zdrojového kódu.
-    
+
     Jedná se o jednu z hlavním metrik, díky které lze posoudit jeho kvalitu.
-    
+
     Udává počet různých cest skrze zdrojový kód. K čemu je to dobré? Díky tomu lze blíže odpovědět na 3 otázky:
-    
+
     1. Je kód dobře testovatelný?
     2. Je kód snadno čitelný?
     3. Je kód dostatečně spolehlivý?
-    
+
     Pomáhá nám to také určit počet testů, které bychom měli na kódu provádět.
 author: 30
 tweet: "Urodilo se na blogu: Cyklomatická komplexita #solid"
@@ -89,7 +89,7 @@ function index($a, $b) {
 
 Cyklomatická komplexita je: **2**, a to z důvodu, že existují 2 cesty, kterými lze kódem projít. Je zde 1 rozhodovací faktor.
 
-### Příklad 3 
+### Příklad 3
 
 ```php
 function index($a, $b) {

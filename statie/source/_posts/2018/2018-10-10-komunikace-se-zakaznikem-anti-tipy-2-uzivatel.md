@@ -12,7 +12,7 @@ tweet: "Urodilo se na blogu: Tipy na potopení projektu: #2 Nebavte se s uživat
 
 ## Pohádka O kohoutkovi a slepičce
 
-Docházel jsem mentorovat do firmy, kde jsem se studenty párově programoval. Jednou nám do klína spadl export stavu pokladen pro účetní. Na první pohled **brnkačka, ale něco mi na zadání nesedělo**. 
+Docházel jsem mentorovat do firmy, kde jsem se studenty párově programoval. Jednou nám do klína spadl export stavu pokladen pro účetní. Na první pohled **brnkačka, ale něco mi na zadání nesedělo**.
 
 Ptali jsme se **autora ticketu**, který nás odkázal na **produktového manažera**. Ten nám vysvětlil, že to chce dodělat jeden konkrétní zákazník - ale že vlastně detaily taky neví. Takže náš produkťák zavolal jejich **projekťákovi** a chvíli spolu moudře hovořili. Když nám pak shrnul výsledek, ukázalo se, že tam pořád ještě něco nehraje. On totiž **ani ten projekťák vlastně nevěděl**, jak se to bude používat.
 

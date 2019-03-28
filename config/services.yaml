@@ -12,8 +12,6 @@ twig:
     globals:
         page_title: "Děláš v PHP? Jsi jedním z nás"
         site_url: "https://pehapkari.cz"
-        github_edit_url_start: "https://github.com/pehapkari/pehapkari.cz/edit/master/source/"
-        github_show_url_start: "https://github.com/pehapkari/pehapkari.cz/tree/master/"
         google_analytics_tracking_id: "UA-89860072-1"
         disqus_name: "pehapkari"
 

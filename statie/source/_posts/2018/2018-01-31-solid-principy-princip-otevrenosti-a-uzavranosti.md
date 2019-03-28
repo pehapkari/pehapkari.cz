@@ -100,6 +100,7 @@ class ResponseRender
 }
 ```
 
-## Zdroje:
-http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod
+## Zdroje
+
+- http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod
 https://web.archive.org/web/20060822033314/http://www.objectmentor.com/resources/articles/ocp.pdf

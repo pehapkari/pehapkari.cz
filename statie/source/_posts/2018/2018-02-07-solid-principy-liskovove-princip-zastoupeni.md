@@ -3,12 +3,12 @@ id: 59
 title: "SOLID principy: Liskovové princip zastoupení"
 perex: |
     Liskovové princip zastupitelnosti je definovám jako tahle na první podhled děsivá rovnice:
-    
+
     >>> Nechť Φ(x) je vlastnost prokazatelná objektu x typu T.
     Potom Φ(y) jsou pravdivé pro objekty y typu S, kde S je potomkem T.
-    
+
     Trochu lidskými slovy ale říká:
-    
+
     >>> Supertyp by měl být plně nahraditelný podtypem.
 author: 30
 related_items: [50,57,58]
@@ -89,8 +89,9 @@ class ResponseRender
 }
 ```
 
-## Zdroje:
-http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod
-https://web.archive.org/web/20151128004108/http://www.objectmentor.com/resources/articles/lsp.pdf
-Liskovové přednáška: https://www.youtube.com/watch?v=dtZ-o96bH9A&feature=youtu.be&t=40m
+## Zdroje
+
+- http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod
+- https://web.archive.org/web/20151128004108/http://www.objectmentor.com/resources/articles/lsp.pdf
+- Liskovové přednáška: https://www.youtube.com/watch?v=dtZ-o96bH9A&feature=youtu.be&t=40m
 http://www.engr.mun.ca/~theo/Courses/sd/5895-downloads/sd-principles-3.ppt.pdf

@@ -49,7 +49,7 @@ Veľkosť samotného frameworku sa zmenšila o neuveriteľných 70%. To je skvel
 
 ### Konfigurácia
 
-V rámci **konfigurácie** bol odstránený súbor ``parameters.yml`` a nahrádzajú ho tzv. premenné prostedia, ktoré sa definujú v súbore ``.env`` umiestnenom v koreňovom adresári. Tento súbor sa neverzuje a je vždy viazaný na konkrétne behové prostredie. Ukážka jednoduchého ``.env`` súboru s konfiguráciou frameworku a doctríny: 
+V rámci **konfigurácie** bol odstránený súbor ``parameters.yml`` a nahrádzajú ho tzv. premenné prostedia, ktoré sa definujú v súbore ``.env`` umiestnenom v koreňovom adresári. Tento súbor sa neverzuje a je vždy viazaný na konkrétne behové prostredie. Ukážka jednoduchého ``.env`` súboru s konfiguráciou frameworku a doctríny:
 
 ````bash
 ###> symfony/framework-bundle ###
@@ -153,15 +153,15 @@ Symfony 4 je možné nainštalovať výhradne prostredníctvom nástroja [Compos
 $ composer create-project symfony/skeleton symfony4-project
 ````
 
-Na základe príkazu Composer stiahne repozitár [symfony/skeleton](https://github.com/symfony/skeleton), ktorý obsahuje iba súbor ``composer.json``, definujúci závislosti frameworku, ktoré nainštaluje. 
+Na základe príkazu Composer stiahne repozitár [symfony/skeleton](https://github.com/symfony/skeleton), ktorý obsahuje iba súbor ``composer.json``, definujúci závislosti frameworku, ktoré nainštaluje.
 
 Všimnite si, že v novovzniknutom projekte máte okrem adresárovej štruktúry aj inicializovaný git repozitár, čo je ďalšia z mnohých vecí, ktorú framework vyrieši za Vás.
 
 ### Ako pridať Twig?
-    
+
 Predpokladajme, že si na začiatok chceme navrhnúť jednoduchú webstránku. Na prípravu šablón môžeme samozrejme použiť čisté PHP, no my sa chceme niečo naučiť a preto si zvolíme šablónovací systém [Twig](https://twig.symfony.com/).
- 
-Samozrejme použijeme Symfony Flex a zadefinujeme novú závislosť: 
+
+Samozrejme použijeme Symfony Flex a zadefinujeme novú závislosť:
 
 ````bash
 $ composer require twig
@@ -208,7 +208,7 @@ Package operations: 3 installs, 0 updates, 0 removals
   - Installing twig/twig (v2.4.7): Loading from cache
   - Installing symfony/twig-bridge (v4.0.6): Loading from cache
   - Installing symfony/twig-bundle (v4.0.6): Loading from cache
-  
+
 Symfony operations: 1 recipe (66e53f29c335c61bdbf961f6f963b888)
   - Configuring symfony/twig-bundle (>=3.3): From github.com/symfony/recipes:master
 ````
@@ -216,7 +216,7 @@ Symfony operations: 1 recipe (66e53f29c335c61bdbf961f6f963b888)
 Tento [recept](https://github.com/symfony/recipes/tree/master/symfony/twig-bundle) je skutočne jednoduchý, kde celá registrácia a konfigurácia twigu do projektu pozostáva z dvoch krokov:
     1. mergnutie poľa bundles s aktuálnym poľom vo Vašom súbore ``config/bundles.php``,
     2. nakopírovanie nových zložiek aj s obsahom do Vášho projektu.
-    
+
 Pole ``aliases`` definuje skrátené formy oficiálneho názvu balíčka, čím značne zvyšuje efektivitu pri práci s týmto nástrojom.
 
 Symfony Flex si vytvára alebo aktualizuje súbor ``symfony.lock``, v ktorom zachytáva vykonané zmeny. Tento súbor sa odporúča verzovať s projektom.
@@ -233,7 +233,7 @@ Skús niektoré zo svojich obľúbených vyhľadať a hneď nainštalovať:
     * symfony/phpunit-bridge alias phpunit
     * symfony/profiler-pack alias profiler
     * ...
-    
+
 ## Záver
 
 Symfony vo svojej už štvrtej verzii vyrástlo a práca s ním je zo dňa na deň efektívnejšia, príjemnejšia a v neposlednom rade zaujímavejšia. Myslím, že sa Symfony uberá správnym smerom a my sa v budúcnosti máme na čo tešiť.
@@ -246,7 +246,7 @@ O novinkách v pripravovanej verzii 4.1 si dáme ďalší článok :) a nedočka
 
 * https://symfony.com/blog/hello-symfony-4
 * https://symfony.com/doc/current/service_container/3.3-di-changes.html
-* http://fabien.potencier.org/symfony4-performance.html 
+* http://fabien.potencier.org/symfony4-performance.html
 * http://fabien.potencier.org/symfony4-best-practices.html
 * https://www.etondigital.com/need-know-symfony-4/
 * https://medium.com/@zawadzki.jerzy/symfony-4-new-hope-dbf99dde91d8
