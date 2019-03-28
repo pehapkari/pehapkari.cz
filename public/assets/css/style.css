@@ -541,3 +541,7 @@ footer #posobota-logo, footer #pehapkari-logo {
     font-size: 1.5em;
     line-height: 2em;
 }
+
+#training_partners p {
+    line-height: 1.8em;
+}

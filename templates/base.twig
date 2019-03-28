@@ -2,7 +2,6 @@
 <html lang="cs">
     <head>
         {% include "_snippets/header.twig" %}
-
         {% include "_snippets/head.twig" %}
 
         {#<link rel="stylesheet" href="{{ asset('build/css/app.css') }}">#}
@@ -21,7 +20,7 @@
             {% block body %}
                 <div id="main">
                     <div class="container">
-                        {% include 'default/_flash_messages.twig' %}
+                        {% include '_snippets/flash_messages.twig' %}
 
                         {% block main %}{% endblock %}
                     </div>

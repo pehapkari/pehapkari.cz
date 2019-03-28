@@ -40,7 +40,7 @@ final class BlogController extends AbstractController
             'authors' => $this->authors,
         ];
 
-        return $this->render('default/blog.twig', $values);
+        return $this->render('blog/blog.twig', $values);
     }
 
     /**
@@ -53,7 +53,7 @@ final class BlogController extends AbstractController
             throw new ShouldNotHappenException();
         }
 
-        return $this->render('default/post.twig', [
+        return $this->render('blog/post.twig', [
             'post' => $matchedPost,
             'authors' => $this->authors,
         ]);
