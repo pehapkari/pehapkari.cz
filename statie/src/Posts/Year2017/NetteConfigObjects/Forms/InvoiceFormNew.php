@@ -15,11 +15,11 @@ final class InvoiceFormNew extends Control
     /**
      * @var InvoicingConfig
      */
-    private $config;
+    private $invoicingConfig;
 
-    public function __construct(InvoicingConfig $config)
+    public function __construct(InvoicingConfig $invoicingConfig)
     {
-        $this->config = $config;
+        $this->invoicingConfig = $invoicingConfig;
     }
 
     public function render(): void
@@ -32,7 +32,7 @@ final class InvoiceFormNew extends Control
         $form = new Form;
 
         $form->addText('maturity', 'Splatnost')
-            ->setDefaultValue($this->config->defaultMaturity);
+            ->setDefaultValue($this->invoicingConfig->defaultMaturity);
 
         return $form;
     }

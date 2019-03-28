@@ -38,10 +38,10 @@ final class ComparisonConstraintsTest extends TestCase
     /**
      * @param string[] $expected
      */
-    private function assertViolations(array $expected, ConstraintViolationListInterface $violationList): void
+    private function assertViolations(array $expected, ConstraintViolationListInterface $constraintViolationList): void
     {
         $violations = [];
-        foreach ($violationList as $violation) {
+        foreach ($constraintViolationList as $violation) {
             // @var ConstraintViolationInterface $violation
             $violations[$violation->getPropertyPath()] = $violation->getMessage();
         }

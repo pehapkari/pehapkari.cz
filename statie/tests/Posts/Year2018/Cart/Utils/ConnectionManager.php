@@ -14,20 +14,20 @@ final class ConnectionManager
     /**
      * @var Connection
      */
-    private static $connectionForCreatingDatabases;
+    private static $connection;
 
     public static function dropAndCreateDatabase(): void
     {
-        if (self::$connectionForCreatingDatabases === null) {
-            self::$connectionForCreatingDatabases = new Connection([
+        if (self::$connection === null) {
+            self::$connection = new Connection([
                 'user' => self::getUser(),
                 'password' => self::getPassword(),
                 'host' => self::getHost(),
             ], self::getDriver());
         }
 
-        self::$connectionForCreatingDatabases->exec(sprintf('DROP DATABASE IF EXISTS %s', self::getDbName()));
-        self::$connectionForCreatingDatabases->exec(sprintf('CREATE DATABASE %s', self::getDbName()));
+        self::$connection->exec(sprintf('DROP DATABASE IF EXISTS %s', self::getDbName()));
+        self::$connection->exec(sprintf('CREATE DATABASE %s', self::getDbName()));
     }
 
     public static function createConnection(): Connection

@@ -5,83 +5,83 @@ namespace OpenTraining\Statie\Tests\Posts\Year2018\Cart\Infrastructure;
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Cart;
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartDetail;
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartNotFoundException;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartRepository;
+use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\ItemDetail;
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Price;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
-abstract class CartRepositoryTest extends TestCase
+abstract class AbstractCartRepositoryTest extends TestCase
 {
     /**
-     * @var CartRepository
+     * @var CartRepositoryInterface
      */
-    private $repository;
+    private $cartRepository;
 
     protected function setUp(): void
     {
-        $this->repository = $this->createRepository();
+        $this->cartRepository = $this->createRepository();
     }
 
     public function testAddAndGetSuccessfully(): void
     {
         $cart = $this->createCartWithItem('1');
-        $this->repository->add($cart);
+        $this->cartRepository->add($cart);
         $this->flush();
 
-        $foundCart = $this->repository->get('1');
+        $foundCart = $this->cartRepository->get('1');
         Assert::assertEquals($this->getCartDetailWithItem(), $foundCart->calculate());
     }
 
     public function testAddAndRemoveSuccessfully(): void
     {
         $cart = $this->createCartWithItem('1');
-        $this->repository->add($cart);
+        $this->cartRepository->add($cart);
         $this->flush();
 
-        $this->repository->remove('1');
+        $this->cartRepository->remove('1');
         $this->flush();
 
         $this->expectException(CartNotFoundException::class);
-        $this->repository->get('1');
+        $this->cartRepository->get('1');
     }
 
     public function testAddedIsTheSameObject(): void
     {
         $empty = $this->createEmptyCart('1');
-        $this->repository->add($empty);
+        $this->cartRepository->add($empty);
         $empty->add('1', new Price(10.0));
         $this->flush();
 
-        $found = $this->repository->get('1');
+        $found = $this->cartRepository->get('1');
         Assert::assertEquals($this->getCartDetailWithItem(), $found->calculate());
     }
 
     public function testFlushAddedItemPersists(): void
     {
         $empty = $this->createEmptyCart('1');
-        $this->repository->add($empty);
+        $this->cartRepository->add($empty);
         $this->flush();
 
-        $foundEmpty = $this->repository->get('1');
+        $foundEmpty = $this->cartRepository->get('1');
         $foundEmpty->add('1', new Price(10.0));
         $this->flush();
 
-        $found = $this->repository->get('1');
+        $found = $this->cartRepository->get('1');
         Assert::assertEquals($this->getCartDetailWithItem(), $found->calculate());
     }
 
     public function testFlushRemovedItemPersists(): void
     {
         $empty = $this->createCartWithItem('1');
-        $this->repository->add($empty);
+        $this->cartRepository->add($empty);
         $this->flush();
 
-        $foundEmpty = $this->repository->get('1');
+        $foundEmpty = $this->cartRepository->get('1');
         $foundEmpty->remove('1');
         $this->flush();
 
-        $found = $this->repository->get('1');
+        $found = $this->cartRepository->get('1');
         Assert::assertEquals($this->getEmptyCartDetail(), $found->calculate());
     }
 
@@ -89,28 +89,28 @@ abstract class CartRepositoryTest extends TestCase
     {
         $this->expectException(CartNotFoundException::class);
 
-        $this->repository->get('1');
+        $this->cartRepository->get('1');
     }
 
     public function testRemoveNotExistingCauseException(): void
     {
         $this->expectException(CartNotFoundException::class);
 
-        $this->repository->remove('1');
+        $this->cartRepository->remove('1');
     }
 
     public function testAddTwoAndGetTwoSuccessfully(): void
     {
         $withItem = $this->createCartWithItem('1');
-        $this->repository->add($withItem);
+        $this->cartRepository->add($withItem);
         $empty = $this->createEmptyCart('2');
-        $this->repository->add($empty);
+        $this->cartRepository->add($empty);
         $this->flush();
 
-        $foundEmpty = $this->repository->get('1');
+        $foundEmpty = $this->cartRepository->get('1');
         Assert::assertEquals($this->getCartDetailWithItem(), $foundEmpty->calculate());
 
-        $foundEmpty = $this->repository->get('2');
+        $foundEmpty = $this->cartRepository->get('2');
         Assert::assertEquals($this->getEmptyCartDetail(), $foundEmpty->calculate());
     }
 
@@ -118,7 +118,7 @@ abstract class CartRepositoryTest extends TestCase
     {
     }
 
-    abstract protected function createRepository(): CartRepository;
+    abstract protected function createRepository(): CartRepositoryInterface;
 
     private function createCartWithItem(string $id): Cart
     {

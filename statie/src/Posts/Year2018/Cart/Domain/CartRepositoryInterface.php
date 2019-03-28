@@ -2,7 +2,7 @@
 
 namespace OpenTraining\Statie\Posts\Year2018\Cart\Domain;
 
-interface CartRepository
+interface CartRepositoryInterface
 {
     public function add(Cart $cart): void;
 

@@ -4,7 +4,7 @@ namespace OpenTraining\Statie\Tests\Posts\Year2018\Cart\Infrastructure;
 
 use Doctrine\ORM\EntityManager;
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Cart;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartRepository;
+use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Item;
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Price;
 use OpenTraining\Statie\Posts\Year2018\Cart\Infrastructure\DoctrineCartRepository;
@@ -12,7 +12,7 @@ use OpenTraining\Statie\Tests\Posts\Year2018\Cart\Utils\ConnectionManager;
 use OpenTraining\Statie\Tests\Posts\Year2018\Cart\Utils\EntityManagerFactory;
 use PHPUnit\Framework\Assert;
 
-final class DoctrineCartRepositoryTest extends CartRepositoryTest
+final class DoctrineCartRepositoryTest extends AbstractCartRepositoryTest
 {
     /**
      * @var EntityManager
@@ -51,7 +51,7 @@ final class DoctrineCartRepositoryTest extends CartRepositoryTest
         Assert::assertCount(0, $result);
     }
 
-    protected function createRepository(): CartRepository
+    protected function createRepository(): CartRepositoryInterface
     {
         return new DoctrineCartRepository($this->entityManager);
     }

@@ -5,23 +5,23 @@ namespace OpenTraining\Statie\Posts\Year2018\Cart\Infrastructure;
 use Doctrine\ORM\EntityManager;
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Cart;
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartNotFoundException;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartRepository;
+use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
 
-final class DoctrineCartRepository implements CartRepository
+final class DoctrineCartRepository implements CartRepositoryInterface
 {
     /**
      * @var EntityManager
      */
-    private $entityManger;
+    private $entityManager;
 
-    public function __construct(EntityManager $entityManger)
+    public function __construct(EntityManager $entityManager)
     {
-        $this->entityManger = $entityManger;
+        $this->entityManager = $entityManager;
     }
 
     public function add(Cart $cart): void
     {
-        $this->entityManger->persist($cart);
+        $this->entityManager->persist($cart);
     }
 
     public function get(string $id): Cart
@@ -32,7 +32,7 @@ final class DoctrineCartRepository implements CartRepository
     public function remove(string $id): void
     {
         $cart = $this->getThrowingException($id);
-        $this->entityManger->remove($cart);
+        $this->entityManager->remove($cart);
     }
 
     private function getThrowingException(string $id): Cart
@@ -47,6 +47,6 @@ final class DoctrineCartRepository implements CartRepository
 
     private function find(string $id): ?Cart
     {
-        return $this->entityManger->find(Cart::class, $id);
+        return $this->entityManager->find(Cart::class, $id);
     }
 }

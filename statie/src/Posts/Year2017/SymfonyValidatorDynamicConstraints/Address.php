@@ -25,12 +25,12 @@ final class Address
     /**
      * @Assert\Callback(groups = "zipcode")
      */
-    public function validateZipcode(ExecutionContextInterface $context): void
+    public function validateZipcode(ExecutionContextInterface $executionContext): void
     {
         $constraint = new ZipCodeConstraint(['country' => $this->country]);
-        $context
+        $executionContext
             ->getValidator()
-            ->inContext($context)
+            ->inContext($executionContext)
             ->atPath('zipcode')
             ->validate($this->zipcode, $constraint, [Constraint::DEFAULT_GROUP]);
     }
