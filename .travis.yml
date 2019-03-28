@@ -21,9 +21,6 @@ script:
     - bin/console lint:yaml src packages
     - bin/console lint:twig packages templates
 
-    # testing posts are ok
-    - vendor/bin/statie generate statie/source --output public
-
     # tweets posts
     - if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then vendor/bin/statie tweet-post; fi
 

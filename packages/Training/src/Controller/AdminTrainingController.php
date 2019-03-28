@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class TrainingController extends AbstractController
+final class AdminTrainingController extends AbstractController
 {
     /**
      * @var TrainingRepository

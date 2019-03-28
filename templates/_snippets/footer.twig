@@ -28,6 +28,8 @@
                         <li><a href="{{ path('trainings') }}">Školíme</a></li>
                         {#<li><a href="{{ path('become_trainer') }}">Začni taky školit</a></li>#}
                         <li><a href="{{ path('for_speakers') }}">Pro speakry</a></li>
+                        <li><a href="{{ path('php_prague', {'year': 2018}) }}">PHP Prague 2018</a></li>
+                        <li><a href="{{ path('php_prague', {'year': 2016}) }}">PHP Prague 2016</a></li>
                     </ul>
                 </div>
 
@@ -37,18 +39,19 @@
                     <a href="https://meetup.com/friends-of-php-prague/" class="p-3 btn">
                         <em class="fab fa-2x fa-meetup text-light"></em>
                     </a>
+
                     <a href="https://facebook.com/pehapkari" class="p-3 btn">
                         <em class="fab fa-2x fa-facebook text-light"></em>
                     </a>
+
                     <a href="https://twitter.com/pehapkari" class="p-3 btn ">
                         <em class="fab fa-2x fa-twitter text-light"></em>
                     </a>
+
                     <a href="https://github.com/pehapkari" class="p-3 btn">
                         <em class="fab fa-2x fa-github text-light"></em>
                     </a>
-                    <a href="https://youtube.com/pehapkari/videos" class="p-3 btn">
-                        <em class="fab fa-2x fa-youtube text-light"></em>
-                    </a>
+
                     <a href="https://pehapkari.slack.com" class="p-3 btn">
                         <em class="fab fa-2x fa-slack text-light"></em>
                     </a>
@@ -58,17 +61,9 @@
             <div class="row text-left pt-3">
                 <div class="col-md-7 col-sm-6">
                     <p class="powered-by">
-                        {#{% if post is defined or lecture is defined %}#}
-                            {#{% set item = lecture ?? post %}#}
-                            {#{% set githubEditLink %}{{ item|githubEditPostUrl }}{% endset %}#}
-                        {#{% elseif id is defined %}#}
-                            {#{% set githubEditLink %}{{ github_edit_url_start }}{{ id }}.twig{% endset %}#}
-                        {#{% endif %}#}
-
-                        {#{% if githubEditLink is defined %}#}
-                            {#<br>#}
-                            {#<strong>Našel jsi chybu?</strong> <a href="{{ githubEditLink }}">Oprav nám ji</a> prosím#}
-                        {#{% endif %}#}
+                        Jedeme otevřeně na Symfony na Githubu.
+                        <br>
+                        <strong>Chceš tu něco zlepšit?</strong> Jen <a href="https://github.com/pehapkari/pehapkari.cz">pošli pull-request</a>!
                     </p>
                 </div>
             </div>

@@ -98,10 +98,6 @@ header a.active, header nav a:focus, header nav a:active, header a:hover {
     padding-top: 1em;
 }
 
-.bordered-img {
-    border: 1px solid #DDD;
-}
-
 .intermezzo {
     padding: 1em 0;
     background: #F9F2E7;
@@ -135,14 +131,6 @@ h1, h2, .h2, h3 {
     }
 }
 
-#sponsor-logos img {
-    padding: 1.3em;
-}
-
-#sponsor-logos a:hover {
-    text-decoration: none;
-}
-
 .btn {
     font-size: 1em;
 }
@@ -167,21 +155,6 @@ h1, h2, .h2, h3 {
 
 .highlights-list {
     font-size: 1.6em;
-}
-
-/* for slovnicek.twig */
-#vocabulary > dd {
-    border-bottom: 1px #eee solid;
-    margin-bottom: 1em;
-    padding-bottom: 1em;
-}
-
-#vocabulary > dd:last-of-type {
-    border-bottom: none;
-}
-
-#vocabulary sup {
-    white-space: nowrap;
 }
 
 .text-greater {
@@ -544,4 +517,13 @@ footer #posobota-logo, footer #pehapkari-logo {
 
 #training_partners p {
     line-height: 1.8em;
+}
+
+#talks_table h3 {
+    margin-top: .2em;
+    font-size: 1.6em;
+}
+
+p.bigger {
+    font-size: 1.4em;
 }

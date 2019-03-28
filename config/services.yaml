@@ -24,6 +24,7 @@ services:
         bind:
             $organizers: '%organizers%'
             $authors: '%authors%'
+            $phpPrague: '%php_prague%'
 
     OpenTraining\:
         resource: '../src/'
