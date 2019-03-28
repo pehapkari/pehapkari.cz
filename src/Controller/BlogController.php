@@ -1,34 +1,33 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Controller;
+namespace OpenTraining\Controller;
 
+use OpenTraining\Blog\PostsProvider;
 use OpenTraining\Exception\ShouldNotHappenException;
-use Psr\Http\Message\ResponseInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symplify\Statie\Generator\Generator;
 use Symplify\Statie\Renderable\File\PostFile;
 
-final class StatiePostController extends AbstractController
+final class BlogController extends AbstractController
 {
-    /**
-     * @var Generator
-     */
-    private $generator;
-
     /**
      * @var mixed[]
      */
     private $authors = [];
 
     /**
+     * @var PostsProvider
+     */
+    private $postsProvider;
+
+    /**
      * @param mixed[] $authors
      */
-    public function __construct(Generator $generator, array $authors)
+    public function __construct(PostsProvider $postsProvider, array $authors)
     {
-        $this->generator = $generator;
         $this->authors = $authors;
+        $this->postsProvider = $postsProvider;
     }
 
     /**
@@ -36,10 +35,12 @@ final class StatiePostController extends AbstractController
      */
     public function blog(): Response
     {
-        $abstractGeneratorFiles = $this->generator->run();
-        $values = $abstractGeneratorFiles + ['authors' => $this->authors];
+        $values = [
+            'posts' => $this->postsProvider->provide(),
+            'authors' => $this->authors,
+        ];
 
-        return $this->render('default/blog.html.twig', $values);
+        return $this->render('blog/blog.twig', $values);
     }
 
     /**
@@ -52,19 +53,19 @@ final class StatiePostController extends AbstractController
             throw new ShouldNotHappenException();
         }
 
-        return $this->render('default/post.html.twig', [
+        return $this->render('blog/post.twig', [
             'post' => $matchedPost,
-            'authors' => $this->authors
+            'authors' => $this->authors,
         ]);
     }
 
     private function matchPostSlug(string $postSlug): ?PostFile
     {
-        $posts = $this->generator->run()['posts'] ?? [];
+        $posts = $this->postsProvider->provide();
 
         /** @var PostFile $post */
         foreach ($posts as $post) {
-            if ($post->getRelativeUrl()  . '/' !== 'blog/' . $postSlug) {
+            if ($post->getRelativeUrl() . '/' !== 'blog/' . $postSlug) {
                 continue;
             }
 

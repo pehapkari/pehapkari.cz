@@ -1,7 +1,4 @@
-{% extends 'base.html.twig' %}
-
-{% block header %}{% endblock %}
-{% block footer %}{% endblock %}
+{% extends 'base.twig' %}
 
 {% block main %}
     {% include "_snippets/infobar.twig" %}
@@ -11,7 +8,7 @@
 
         <br>
 
-        <p class="text-center">
+        <div class="text-center">
             <!-- inspired and taken from: https://github.com/yegor256/blog/blob/master/_layouts/default.html -->
             <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction" class="col-md-4 pull-left">
                 <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
@@ -19,17 +16,19 @@
                 <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search with Google..." autocomplete="off"/>
             </form>
 
-            <a href="/blog/2018/04/11/how-anyone-can-write-a-post-here/" class="btn btn-success mr-3">
+            <a href="{{ path('post', {'postSlug': '2018/04/11/how-anyone-can-write-a-post-here/'}) }}" class="btn btn-success mr-3">
                 <em class="fa fa-fw fa-plus"></em>
                 Add your post
             </a>
-            <a href="/rss.xml" class="btn btn-warning mr-3">
-                <em class="fa fa-fw fa-rss"></em>
+
+            <a href="{{ path('rss') }}" class="btn btn-warning mr-3">
+                <em class="fas fa-fw fa-rss"></em>
             </a>
+
             <a href="http://twitter.com/pehapkari" class="btn btn-info">
-                <em class="fa fa-fw fa-twitter"></em>
+                <em class="fab fa-fw fa-twitter"></em>
             </a>
-        </p>
+        </div>
 
         <hr>
 
@@ -37,7 +36,7 @@
             {% if post.getDateInFormat('Y-m-d') <= "now"|date('Y-m-d') %}
                 <div class="article">
                     <h3>
-                        <a href="/{{ post.getRelativeUrl() }}/">{{ post.title }}</a>
+                        <a href="/{{ post|link }}/">{{ post.title }}</a>
                     </h3>
 
                     <div class="row">
@@ -46,7 +45,7 @@
                         </div>
                     </div>
 
-                    <p class="perex">{{ post.perex|raw }}</p>
+                    <p class="perex text-left">{{ post.perex|raw }}</p>
                 </div>
                 {% if loop.last == false %}<hr>{% endif %}
             {% endif %}

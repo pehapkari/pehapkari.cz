@@ -2,8 +2,8 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     form_themes:
-        - 'form/layout.html.twig'
-        - 'form/fields.html.twig'
+        - '_snippets/form/layout.twig'
+        - '_snippets/form/fields.twig'
 
     globals:
         training_max_references_to_show: '%training_max_references_to_show%'

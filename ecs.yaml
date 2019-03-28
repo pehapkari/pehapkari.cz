@@ -43,6 +43,7 @@ parameters:
         - 'src/Form/RegisterToLectureFormType.php'
         - 'src/Kernel.php'
         - 'statie/tests'
+        - 'statie/tests/Posts/Year2017/NetteConfigObjects/ContainerFactory.php'
 
     skip:
         # 3rd party contract

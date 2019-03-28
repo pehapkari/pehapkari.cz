@@ -7,6 +7,7 @@ use Doctrine\DBAL\Driver;
 use Doctrine\DBAL\Driver\PDOMySql\Driver as MySqlDriver;
 use Doctrine\DBAL\Driver\PDOPgSql\Driver as PgSqlDriver;
 use Doctrine\DBAL\Driver\PDOSqlite\Driver as SqliteDriver;
+use OpenTraining\Exception\ShouldNotHappenException;
 
 final class ConnectionManager
 {
@@ -70,6 +71,8 @@ final class ConnectionManager
         if ($GLOBALS['DB_DRIVER'] === 'pdo_mysql') {
             return new MySqlDriver();
         }
+
+        throw new ShouldNotHappenException();
     }
 
     private static function getDbName(): ?string

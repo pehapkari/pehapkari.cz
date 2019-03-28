@@ -27,7 +27,6 @@
     {# normal menu #}
     <div class="hidden-sm-down">
         <div class="container-fluid">
-            <a href="/"><img src="https://pehapkari.cz/assets/images/logo-header.svg?verver={{ random() }}" alt="" height="50"></a>
             <a href="/"><img src="/assets/images/logo-header.svg?ver" alt="" height="50"></a>
 
             <nav class="navbar top-navigation">
@@ -35,10 +34,10 @@
                     <em class="fa fa-newspaper fa-fw"></em>
                     Blog
                 </a>
-                {#<a href="{{ path('trainings') }}" class="{{ active_item(['trainings', 'training-detail']) }}">#}
-                    {#<em class="fa fa-graduation-cap fa-fw"></em>#}
-                    {#Školení#}
-                {#</a>#}
+                <a href="{{ path('trainings') }}" class="{{ active_item(['trainings', 'training-detail']) }}">
+                    <em class="fa fa-graduation-cap fa-fw"></em>
+                    Školení
+                </a>
             </nav>
         </div>
     </div>
@@ -51,12 +50,12 @@
                 <br>
                 Home
             </a>
-            <a href="/blog/" class="col-4 col-sm-4 {% if (id is defined and id == 'blog') or (layout is defined and layout == '_layouts/post.twig') %}active{% endif %}">
+            <a href="{{ path('blog') }}" class="col-4 col-sm-4 {% if (id is defined and id == 'blog') or (layout is defined and layout == '_layouts/post.twig') %}active{% endif %}">
                 <em class="fa fa-book fa-fw"></em>
                 <br>
                 Blog
             </a>
-            <a href="/vzdelavej-se/" class="col-4 col-sm-4 {% if id is defined and id == 'lectures' %}active{% endif %}">
+            <a href="{{ path('trainings') }}" class="col-4 col-sm-4 {% if id is defined and id == 'lectures' %}active{% endif %}">
                 <em class="fa fa-graduation-cap fa-fw"></em>
                 <br>
                 Školení

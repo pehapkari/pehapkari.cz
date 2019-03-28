@@ -1,0 +1,169 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <img src="{{ logo }}" style="width:100%" alt="PHP Prague">
+                <hr>
+                <br>
+
+                <p class="bigger mb-4">
+                    PHP Prague is a conference for all PHP programmers,
+                    <br>
+                    organized once a 2 years in the center of the Europe - Prague.
+                </p>
+                {# @todo check another years #}
+                {#<h2>{{ conference_title }}</h2>#}
+
+                <p>
+                    <a href="{{ facebook_event }}" class="btn btn-primary">
+                        <em class="fab fa-facebook fa-fw"></em> FB Event
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+
+        <h2 class="text-center">Over 100 Programmers...</h2>
+
+        <p class="bigger text-center mb-5">...from Germany, Poland, Slovakia, Austria and the Czech Republic.</p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/assets/images/conferences/prague-2016/fun.jpg" class="w-100">
+            </div>
+            <div class="col-md-4">
+                <img src="/assets/images/conferences/prague-2016/hackaton.jpg" class="w-100">
+            </div>
+            <div class="col-md-4">
+                <img src="/assets/images/conferences/prague-2016/beer.jpg" class="w-100">
+            </div>
+        </div>
+
+        <hr>
+
+        <h2 class="text-center">Watch the Talks</h2>
+
+        <table class="table table-bordered" id="talks_table">
+            <thead class="table-inverse text-center">
+                <tr>
+                    <th>Talk</th>
+                    <th>Video</th>
+                    {% if year != 2016 %}
+                        <th>Slides</th>
+                    {% endif %}
+                </tr>
+            </thead>
+
+            {% for talk in talks %}
+                <tr>
+                    <td>
+                        <h3>{{ talk.title }}</h3>
+                        {% if talk.speaker_url %}<a href="{{ talk.speaker_url }}">{% endif %}
+                        {{ talk.speaker_name }}
+                        {% if talk.speaker_url %}</a>{% endif %}
+                    </td>
+                    <td class="text-center">
+                        {% if talk.video is defined %}
+                            <a href="{{ talk.video }}" class="btn btn-danger btn-sm">
+                                <em class="fab fa-fw fa-youtube"></em>
+                                Watch Video
+                            </a>
+                        {% endif %}
+                    </td>
+                    {% if year != 2016 %}
+                        <td class="text-center">
+                            {% if talk.slides is defined %}
+                                <a href="{{ talk.slides }}" class="btn btn-warning btn-sm">
+                                    <em class="fab fa-fw fa-slideshare"></em>
+                                    See Slides
+                                </a>
+                            {% endif %}
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {#<div class="section">#}
+        {#<div class="container">#}
+            {#<div class="row">#}
+                {#<div class="col-md-7">#}
+                    {#{% for item in items %}#}
+                        {#<div>#}
+                            {#<a href="{{ youtube.embed_url }}?&start={{ item.time_in_seconds  }}&autoplay=true"#}
+
+                               {#target="video" class="btn btn-success">#}
+                                {#<em class="fa fa-play fa-fw"></em>#}
+                                {#{{ item.time }}#}
+                            {#</a> &nbsp; <strong>{{ item.title }}</strong>#}
+
+                            {#- <a href="{{ item.speaker_url }}"><em class="fa fa-twitter fa-fw"></em>{{ item.speaker_name }}</a>#}
+                            {#<hr>#}
+                        {#</div>#}
+                    {#{% endfor %}#}
+                {#</div>#}
+                {#<div class="col-md-5">#}
+                    {#<iframe width="100%" src="https://www.youtube.com/embed/r3dr_DnaTG4" frameborder="0" allowfullscreen name="video"></iframe>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+
+    {#<div class="section intermezzo">#}
+        {#<div class="container">#}
+            {#<div class="row">#}
+                {#<div class="col-md-12 text-center">#}
+                    {#<em class="fa fa-heart fa-fw"></em>#}
+                    {#Děkujeme našim partnerům, kteří se <strong>postarali o příjemný prostor, dobré jídlo i pití, ceny pro nejlepší hackery a přidali sociální ruku k dílu při propagaci konference</strong>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+
+    {#<div class="section">#}
+        {#<div class="container">#}
+            {#<div class="row">#}
+                {#<div class="col-md-4 text-center">#}
+                    {#<p><strong>Gold partner</strong></p>#}
+                    {#<p>#}
+                        {#<a href="http://lmc.eu">#}
+                            {#<img src="/assets/images/conferences/prague-2016/partners/lmc.png">#}
+                        {#</a>#}
+                    {#</p>#}
+                {#</div>#}
+                {#<div class="col-md-4 text-center">#}
+                    {#<p>Silver partner</p>#}
+                    {#<p>#}
+                        {#<a href="https://www.rockawaycapital.com/cs/">#}
+                            {#<img src="/assets/images/conferences/prague-2016/partners/rockaway.png">#}
+                        {#</a>#}
+                    {#</p>#}
+                {#</div>#}
+                {#<div class="col-md-4 text-center">#}
+                    {#<p>Silver partner</p>#}
+                    {#<p>#}
+                        {#<a href="http://www.kurzor.net/">#}
+                            {#<img height="70px" src="/assets/images/conferences/prague-2016/partners/kurzor.gif">#}
+                        {#</a>#}
+                    {#</p>#}
+                {#</div>#}
+            {#</div>#}
+
+            {#<hr>#}
+
+            {#<div class="row">#}
+                {#<div class="col-md-6 text-center">#}
+                    {#<img src="/assets/images/conferences/prague-2016/beer.jpg" style="width: 100%">#}
+                {#</div>#}
+                {#<div class="col-md-6 text-center">#}
+                    {#<img src="/assets/images/conferences/prague-2016/hackaton-prices.jpg" style="width: 100%">#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+{% endblock %}

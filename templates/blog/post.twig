@@ -1,4 +1,4 @@
-{% extends "base.html.twig" %}
+{% extends "base.twig" %}
 
 {% block main %}
     <div id="article">
@@ -22,23 +22,23 @@
 
         <br>
 
-        {#<div class="intermezzo">#}
-            {#<div class="container">#}
-                {#{% set relatedPosts = (post|relatedItems) %}#}
+        {% set relatedPosts = (post|related_items) %}
 
-                {#{% if relatedPosts|length %}#}
-                    {#<h2>You Might Also Like</h2>#}
+        {% if relatedPosts|length %}
+            <div class="intermezzo">
+                <div class="container">
+                    <h2>You Might Also Like</h2>
 
-                    {#<ul id="related-posts">#}
-                        {#{% for relatedPost in relatedPosts %}#}
-                            {#<li>#}
-                                {#<a href="/{{ relatedPost|link }}">{{ relatedPost.title }} &raquo;</a>#}
-                            {#</li>#}
-                        {#{% endfor %}#}
-                    {#</ul>#}
-                {#{% endif %}#}
-            {#</div>#}
-        {#</div>#}
+                    <ul id="related-posts">
+                        {% for relatedPost in relatedPosts %}
+                            <li>
+                                <a href="/{{ relatedPost|link }}">{{ relatedPost.title }} &raquo;</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
 
         <div class="container">
             {% include "_snippets/disqus_comments.twig" with { 'post': post, 'showCommentCount': true } %}

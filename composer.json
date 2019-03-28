@@ -47,7 +47,7 @@
     "require-dev": {
         "phpstan/phpstan": "^0.11",
         "phpstan/phpstan-doctrine": "^0.11",
-        "phpunit/phpunit": "^7.5",
+        "phpunit/phpunit": "^8.0",
         "symfony/browser-kit": "^4.2",
         "symfony/debug-bundle": "^4.2",
         "symfony/maker-bundle": "^1.11",
@@ -59,7 +59,7 @@
         "symplify/phpstan-extensions": "^5.4",
         "doctrine/annotations": "^1.6",
         "doctrine/cache": "^1.8",
-        "latte/latte": "^2.4",
+        "latte/latte": "^2.5",
         "nette/application": "^2.4",
         "nette/forms": "^2.4",
         "nette/security": "^2.4",
@@ -78,7 +78,7 @@
             "OpenTraining\\Marketing\\": "packages/Marketing/src",
             "OpenTraining\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
             "OpenTraining\\User\\": "packages/User/src",
-            "OpenTraining\\Statie\\": ["statie/src", "packages/Statie/src"]
+            "OpenTraining\\Statie\\": "statie/src"
         }
     },
     "autoload-dev":{
@@ -94,7 +94,7 @@
         "check-cs": "vendor/bin/ecs check packages src statie/src statie/tests",
         "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force",
-        "phpstan": "vendor/bin/phpstan analyse packages src statie/src statie/tests",
+        "phpstan": "vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify",
         "adminer-install": [
             "mkdir -p public/adminer",
             "wget https://github.com/vrana/adminer/releases/download/v4.6.3/adminer-4.6.3-en.php -O public/adminer/index.php"
@@ -103,8 +103,6 @@
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "extra": {
         "symfony": {
             "allow-contrib": true,

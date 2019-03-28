@@ -24,7 +24,7 @@ final class UserEventSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * @return string[]
+     * @return string[][]
      */
     public static function getSubscribedEvents(): iterable
     {

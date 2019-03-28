@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends "base.twig" %}
 
 {% block main %}
     <div id="trainings">
@@ -7,61 +7,59 @@
 
             <p class="text-center subtitle">
                 Rozšiř si své know-how od odborníků v PHP.<br>
-                Pořádáme školení Symfony 4, Doctrine, Git, PHPStorm, Continuous delivery a další.
+                Pořádáme školení Docker, Elasticsearch, Doctrine, Git, PHPStorm, Continuous delivery a další.
             </p>
         </div>
 
         <hr>
 
         <div class="row">
-            {% for training in trainings %}
-                {% if training.isActive() %}
-                    <div class="flex col-md-6">
-                        <h2>
-                            <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">
-                                <strong>{{ training.getName()|raw }}</strong>
-                            </a>
-                        </h2>
-
-                        <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/" class="d-block text-center pt-xl-5 pb-xl-5 border-secondary border mb-3 mt-3">
-                            {% if training.getImage() %}
-                                <img src="{{ image_uploads }}/{{ training.getImage() }}" width="150" alt="">
-                            {% endif %}
-
-                            {% set trainer = training.getTrainer() %}
-                            {% if trainer.getImage() %}
-                                <img width="120" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail ml-5 rounded-circle pull-right" alt="">
-                            {% endif %}
+            {% for training in trainings if training.isActive() %}
+                <div class="flex col-md-6">
+                    <h2>
+                        <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">
+                            <strong>{{ training.getName()|raw }}</strong>
                         </a>
+                    </h2>
 
-                        {% if training.getPerex() %}
-                            <p>{{ training.getPerex()|raw }}</p>
+                    <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/" class="d-block text-center pt-xl-5 pb-xl-5 border-secondary border mb-3 mt-3">
+                        {% if training.getImage() %}
+                            <img src="{{ image_uploads }}/{{ training.getImage() }}" width="150" alt="">
                         {% endif %}
 
-                        <p>Příští termín: <strong>{{ training.getNearestTermDateTime()|date }}</strong></p>
-                        <p>
-                            Lektor:
-                            <strong>
-                                {% if training.getTrainerWebsite() %}
-                                    <a href="{{ training.getTrainerWebsite() }}">
+                        {% set trainer = training.getTrainer() %}
+                        {% if trainer.getImage() %}
+                            <img width="120" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail ml-5 rounded-circle pull-right" alt="">
+                        {% endif %}
+                    </a>
+
+                    {% if training.getPerex() %}
+                        <p>{{ training.getPerex()|raw }}</p>
+                    {% endif %}
+
+                    <p>Příští termín: <strong>{{ training.getNearestTermDateTime()|date }}</strong></p>
+                    <p>
+                        Lektor:
+                        <strong>
+                            {% if training.getTrainerWebsite() %}
+                            <a href="{{ training.getTrainerWebsite() }}">
                                 {% endif %}
 
                                 {{ training.getTrainerName() }}
 
                                 {% if training.getTrainerWebsite() %}
-                                    </a>
-                                {% endif %}
-                            </strong>
-                        </p>
+                            </a>
+                            {% endif %}
+                        </strong>
+                    </p>
 
-                        <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success btn-xs-block-only">
-                            <em class="fa fa-fw fa-handshake"></em>
-                            &nbsp;
-                            Přihlaš se
-                        </a>
-                        <br>
-                    </div>
-                {% endif %}
+                    <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success btn-xs-block-only">
+                        <em class="fa fa-fw fa-handshake"></em>
+                        &nbsp;
+                        Přihlaš se
+                    </a>
+                    <br>
+                </div>
             {% endfor %}
         </div>
 
@@ -76,14 +74,14 @@
             <p>
 
                 {% for training in trainings %}
-                    {% if training.isActive() == false %}
-                        <li>
-                            <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">
-                                {{ training.getName()|raw }}
-                            </a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
+                {% if training.isActive() == false %}
+            <li>
+                <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">
+                    {{ training.getName()|raw }}
+                </a>
+            </li>
+            {% endif %}
+            {% endfor %}
             </p>
         </div>
 
@@ -92,7 +90,7 @@
         <h2 class="text-center mb-4">Chceš s něčím poradit, školení na míru nebo taky školit?</h2>
 
         <p>
-            Napiš na <a href="martina@pehapkari.cz">martina@pehapkari.cz</a> a do 24 hodin ti dám vědět.
+            <a href="{{ path('contact') }}">Napiš nám</a> a do 2 dnů ti dáme vědět.
         </p>
 
         <br>
@@ -211,126 +209,128 @@
                     </p>
                 </div>
             </div>
-            </div>
         </div>
+    </div>
 
-        <hr>
+    <hr>
 
-        <div class="text-center">
-            <h2>Už {{ finishedTrainingTermCount }} proběhlých školení</h2>
+    <div class="text-center">
+        <h2>Už {{ finishedTrainingTermCount }} proběhlých školení</h2>
 
-            <p>Od <strong>května 2017</strong> jsme zorganizovali 9 veřejných školení od 5 odborných školitelů.</p>
-
-            <br>
-
-           {# use photos from https://photos.google.com/share/AF1QipNQyjjItQ54KB6MDc5FJfiz2DNTK5tWmhHnaNpBnq7eoL-gtiAvwT3fqmgPfCmq5g?key=cnlhSmpmWndibEFDaHo1cXpzQmp3d2daVjVwdTBB#}
-
-            <div id="gallery" class="row">
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training1.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training9.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training4.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training3.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training11.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training6.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training12.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training10.jpg" alt="">
-                </div>
-            </div>
-        </div>
-
+        <p>Od <strong>května 2017</strong> jsme zorganizovali 9 veřejných školení od 5 odborných školitelů.</p>
 
         <br>
 
+        {# use photos from https://photos.google.com/share/AF1QipNQyjjItQ54KB6MDc5FJfiz2DNTK5tWmhHnaNpBnq7eoL-gtiAvwT3fqmgPfCmq5g?key=cnlhSmpmWndibEFDaHo1cXpzQmp3d2daVjVwdTBB#}
 
-        <hr>
-
-        <div class="text-center" id="kde-skolime">
-            <h2>Kde školíme</h2>
-            <div class="row">
-                {% for place in places %}
-                    <div class="col-md-6">
-                        <p>
-                            V prostorách <a href="{{ place.mapUrl }}">{{ place.getName() }}u</a>.
-                        </p>
-
-                        <a href="{{ place.mapUrl }}">
-                            {% if place.getImage() %}
-                                <p class="text-center mt-5 d-none d-sm-block">
-                                    <img src="{{ image_uploads }}/{{ place.getImage() }}" width="400" class="img-thumbnail">
-                                </p>
-                            {% endif %}
-                        </a>
-                    </div>
-                {% endfor %}
+        <div id="gallery" class="row">
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training1.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training9.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training4.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training3.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training11.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training6.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training12.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training10.jpg" alt="">
             </div>
         </div>
+    </div>
 
-        <hr>
 
-        <div class="row">
-            <div class="col-md-6">
-                <h3 class="text-center">Jak to probíhá</h3>
-                <ul>
-                    <li>přihlásíš se přes formulář na kurz</li>
-                    <li>až se termín naplní, pošleme ti fakturu</li>
-                    <li>tu zaplatíš a můžeš se těšit na školení</li>
-                    <li><strong>pozvánku ti pošleme cca týden před termínem</strong></li>
-                </ul>
-            </div>
+    <br>
 
-            <div class="col-md-6">
-                <h3 class="text-center">Co máš v ceně kurzu?</h3>
-                <ul>
-                    <li>certifikát o absolvování kurzu</li>
-                    <li>u celodenních kurzů tě zveme na oběd</li>
-                    <li>nepodnikající studenti denního studia mají 50 % slevu</li>
-                </ul>
+    <hr>
 
-                <p>Nejsme plátci DPH.</p>
-            </div>
+    {#<div class="text-center" id="kde-skolime">#}
+        {#<h2>Kde školíme</h2>#}
+        {#<div class="row">#}
+            {#{% for place in places %}#}
+                {#<div class="col-md-6">#}
+                    {#<p>#}
+                        {#V prostorách <a href="{{ place.mapUrl }}">{{ place.getName() }}u</a>.#}
+                    {#</p>#}
+
+                    {#<a href="{{ place.mapUrl }}">#}
+                        {#{% if place.getImage() %}#}
+                            {#<p class="text-center mt-5 d-none d-sm-block">#}
+                                {#<img src="{{ image_uploads }}/{{ place.getImage() }}" width="400" class="img-thumbnail">#}
+                            {#</p>#}
+                        {#{% endif %}#}
+                    {#</a>#}
+                {#</div>#}
+            {#{% endfor %}#}
+        {#</div>#}
+    {#</div>#}
+
+    {#<hr>#}
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="text-center">Jak to probíhá</h3>
+            <ul>
+                <li>přihlásíš se přes formulář na kurz</li>
+                <li>až se termín naplní, pošleme ti fakturu</li>
+                <li>tu zaplatíš a můžeš se těšit na školení</li>
+                <li><strong>pozvánku ti pošleme cca týden před termínem</strong></li>
+            </ul>
         </div>
 
-        <br>
+        <div class="col-md-6">
+            <h3 class="text-center">Co máš v ceně kurzu?</h3>
+            <ul>
+                <li>certifikát o absolvování kurzu</li>
+                <li>u celodenních kurzů tě zveme na oběd</li>
+                <li>nepodnikající studenti denního studia mají 50 % slevu</li>
+            </ul>
 
-        <hr>
+            <p>Nejsme plátci DPH.</p>
+        </div>
+    </div>
 
-        <h2 class="text-center">Partnerská školení</h2>
+    <br>
 
-        <p>
-            Nauč se <a href="https://www.michalspacek.cz/skoleni/bezpecnost-php-aplikaci">Bezpečnost PHP aplikací</a> a další <a href="https://www.michalspacek.cz/skoleni">školení</a> v podání security experta <strong>Michala Špačka</strong>.
-        </p>
+    <hr>
 
-        <p>
-            A nasaj
-            <a href="https://www.vzhurudolu.cz/kurzy/webova-koderina">Dnešní webovou kodéřinu</a>,
-            <a href="https://www.vzhurudolu.cz/kurzy/wordpress">Wordpress</a>
-            nebo
-            <a href="https://www.vzhurudolu.cz/kurzy/javascript">Javascript</a>
-            na
-            <a href="https://www.vzhurudolu.cz/kurzy">frontendových školeních</a>
-            ze <strong>Vzhůru dolů</strong>.
-        </p>
+    <h2 class="text-center">Partnerská školení</h2>
 
-        <p>
-            Nastartuj se v PHP nebo si pořádně ujasni základy na <a href="https://www.martinhujer.cz/skoleni/">školeních</a>
-            <a href="https://www.martinhujer.cz/skoleni/uvod-do-php/">Úvod do PHP</a> a
-            <a href="https://www.martinhujer.cz/skoleni/objektove-programovani-v-php/">Objektové programování v PHP</a>,
-            která pořádá <strong>Martin Hujer</strong>.
-        </p>
+    <div class="row" id="training_partners">
+        <div class="col-4">
+            <p>
+                Vydrží tvoje aplikace útoky zákeřných hackerů?
+                <br>
+                Po školení <strong>security experta <a href="https://www.michalspacek.cz/skoleni">Michala Špačka</a></strong> si tím můžeš být téměř jistý.
+            </p>
+        </div>
+
+        <div class="col-4">
+            <p>
+                Potřebuješ rychle načíst web, pochopit SVG, kódování newsletteru nebo Javascript?
+                <br>
+                Běž na <strong>frontendová školení ze <a href="https://www.vzhurudolu.cz/kurzy">Vzhůru dolů</a></strong>.
+            </p>
+        </div>
+
+        <div class="col-4">
+            <p>
+                Chceš si ujasnit objetové programování v PHP nebo se stát mistrem Symfony?
+                <br>
+                S tím <strong>ti pomůže <a href="https://www.martinhujer.cz/skoleni/">Martin Hujer</a></strong>.
+            </p>
+        </div>
     </div>
 {% endblock %}
