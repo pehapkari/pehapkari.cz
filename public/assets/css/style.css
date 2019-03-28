@@ -532,3 +532,12 @@ footer #posobota-logo, footer #pehapkari-logo {
 .container li:last-child {
     margin-bottom: 0;
 }
+
+#contact h2 {
+    margin-top: 2em;
+}
+
+#contact p {
+    font-size: 1.5em;
+    line-height: 2em;
+}

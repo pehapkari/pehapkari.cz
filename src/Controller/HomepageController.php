@@ -46,11 +46,19 @@ final class HomepageController extends AbstractController
     }
 
     /**
-     * @Route(path="/press", name="press")
+     * @Route(path="/press/", name="press")
      */
     public function press(): Response
     {
         return $this->render('homepage/press.twig');
+    }
+
+    /**
+     * @Route(path="/contact/", name="contact")
+     */
+    public function contact(): Response
+    {
+        return $this->render('homepage/contact.twig');
     }
 
     /**

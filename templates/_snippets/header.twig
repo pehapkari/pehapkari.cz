@@ -34,7 +34,7 @@
                     <em class="fa fa-newspaper fa-fw"></em>
                     Blog
                 </a>
-                <a href="" class="{{ active_item(['trainings', 'training-detail']) }}">
+                <a href="{{ path('trainings') }}" class="{{ active_item(['trainings', 'training-detail']) }}">
                     <em class="fa fa-graduation-cap fa-fw"></em>
                     Školení
                 </a>
@@ -55,7 +55,7 @@
                 <br>
                 Blog
             </a>
-            <a href="/vzdelavej-se/" class="col-4 col-sm-4 {% if id is defined and id == 'lectures' %}active{% endif %}">
+            <a href="{{ path('trainings') }}" class="col-4 col-sm-4 {% if id is defined and id == 'lectures' %}active{% endif %}">
                 <em class="fa fa-graduation-cap fa-fw"></em>
                 <br>
                 Školení

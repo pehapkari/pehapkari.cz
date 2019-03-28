@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends "base.twig" %}
 
 {% block main %}
     <div id="trainings">
@@ -43,13 +43,13 @@
                             Lektor:
                             <strong>
                                 {% if training.getTrainerWebsite() %}
-                                    <a href="{{ training.getTrainerWebsite() }}">
-                                {% endif %}
+                                <a href="{{ training.getTrainerWebsite() }}">
+                                    {% endif %}
 
-                                {{ training.getTrainerName() }}
+                                    {{ training.getTrainerName() }}
 
-                                {% if training.getTrainerWebsite() %}
-                                    </a>
+                                    {% if training.getTrainerWebsite() %}
+                                </a>
                                 {% endif %}
                             </strong>
                         </p>
@@ -76,14 +76,14 @@
             <p>
 
                 {% for training in trainings %}
-                    {% if training.isActive() == false %}
-                        <li>
-                            <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">
-                                {{ training.getName()|raw }}
-                            </a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
+                {% if training.isActive() == false %}
+            <li>
+                <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">
+                    {{ training.getName()|raw }}
+                </a>
+            </li>
+            {% endif %}
+            {% endfor %}
             </p>
         </div>
 
@@ -92,7 +92,7 @@
         <h2 class="text-center mb-4">Chceš s něčím poradit, školení na míru nebo taky školit?</h2>
 
         <p>
-            Napiš na <a href="martina@pehapkari.cz">martina@pehapkari.cz</a> a do 24 hodin ti dám vědět.
+            <a href="{{ path('contact') }}">Napiš nám</a> a do 2 dnů ti dáme vědět.
         </p>
 
         <br>
@@ -211,126 +211,124 @@
                     </p>
                 </div>
             </div>
-            </div>
         </div>
-
-        <hr>
-
-        <div class="text-center">
-            <h2>Už {{ finishedTrainingTermCount }} proběhlých školení</h2>
-
-            <p>Od <strong>května 2017</strong> jsme zorganizovali 9 veřejných školení od 5 odborných školitelů.</p>
-
-            <br>
-
-           {# use photos from https://photos.google.com/share/AF1QipNQyjjItQ54KB6MDc5FJfiz2DNTK5tWmhHnaNpBnq7eoL-gtiAvwT3fqmgPfCmq5g?key=cnlhSmpmWndibEFDaHo1cXpzQmp3d2daVjVwdTBB#}
-
-            <div id="gallery" class="row">
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training1.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training9.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training4.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training3.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training11.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training6.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training12.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-sm-4 col-6">
-                    <img src="/assets/images/trainings/training10.jpg" alt="">
-                </div>
-            </div>
-        </div>
-
-
-        <br>
-
-
-        <hr>
-
-        <div class="text-center" id="kde-skolime">
-            <h2>Kde školíme</h2>
-            <div class="row">
-                {% for place in places %}
-                    <div class="col-md-6">
-                        <p>
-                            V prostorách <a href="{{ place.mapUrl }}">{{ place.getName() }}u</a>.
-                        </p>
-
-                        <a href="{{ place.mapUrl }}">
-                            {% if place.getImage() %}
-                                <p class="text-center mt-5 d-none d-sm-block">
-                                    <img src="{{ image_uploads }}/{{ place.getImage() }}" width="400" class="img-thumbnail">
-                                </p>
-                            {% endif %}
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-            <div class="col-md-6">
-                <h3 class="text-center">Jak to probíhá</h3>
-                <ul>
-                    <li>přihlásíš se přes formulář na kurz</li>
-                    <li>až se termín naplní, pošleme ti fakturu</li>
-                    <li>tu zaplatíš a můžeš se těšit na školení</li>
-                    <li><strong>pozvánku ti pošleme cca týden před termínem</strong></li>
-                </ul>
-            </div>
-
-            <div class="col-md-6">
-                <h3 class="text-center">Co máš v ceně kurzu?</h3>
-                <ul>
-                    <li>certifikát o absolvování kurzu</li>
-                    <li>u celodenních kurzů tě zveme na oběd</li>
-                    <li>nepodnikající studenti denního studia mají 50 % slevu</li>
-                </ul>
-
-                <p>Nejsme plátci DPH.</p>
-            </div>
-        </div>
-
-        <br>
-
-        <hr>
-
-        <h2 class="text-center">Partnerská školení</h2>
-
-        <p>
-            Nauč se <a href="https://www.michalspacek.cz/skoleni/bezpecnost-php-aplikaci">Bezpečnost PHP aplikací</a> a další <a href="https://www.michalspacek.cz/skoleni">školení</a> v podání security experta <strong>Michala Špačka</strong>.
-        </p>
-
-        <p>
-            A nasaj
-            <a href="https://www.vzhurudolu.cz/kurzy/webova-koderina">Dnešní webovou kodéřinu</a>,
-            <a href="https://www.vzhurudolu.cz/kurzy/wordpress">Wordpress</a>
-            nebo
-            <a href="https://www.vzhurudolu.cz/kurzy/javascript">Javascript</a>
-            na
-            <a href="https://www.vzhurudolu.cz/kurzy">frontendových školeních</a>
-            ze <strong>Vzhůru dolů</strong>.
-        </p>
-
-        <p>
-            Nastartuj se v PHP nebo si pořádně ujasni základy na <a href="https://www.martinhujer.cz/skoleni/">školeních</a>
-            <a href="https://www.martinhujer.cz/skoleni/uvod-do-php/">Úvod do PHP</a> a
-            <a href="https://www.martinhujer.cz/skoleni/objektove-programovani-v-php/">Objektové programování v PHP</a>,
-            která pořádá <strong>Martin Hujer</strong>.
-        </p>
     </div>
+
+    <hr>
+
+    <div class="text-center">
+        <h2>Už {{ finishedTrainingTermCount }} proběhlých školení</h2>
+
+        <p>Od <strong>května 2017</strong> jsme zorganizovali 9 veřejných školení od 5 odborných školitelů.</p>
+
+        <br>
+
+        {# use photos from https://photos.google.com/share/AF1QipNQyjjItQ54KB6MDc5FJfiz2DNTK5tWmhHnaNpBnq7eoL-gtiAvwT3fqmgPfCmq5g?key=cnlhSmpmWndibEFDaHo1cXpzQmp3d2daVjVwdTBB#}
+
+        <div id="gallery" class="row">
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training1.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training9.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training4.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training3.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training11.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training6.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training12.jpg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-4 col-6">
+                <img src="/assets/images/trainings/training10.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+
+    <hr>
+
+    {#<div class="text-center" id="kde-skolime">#}
+        {#<h2>Kde školíme</h2>#}
+        {#<div class="row">#}
+            {#{% for place in places %}#}
+                {#<div class="col-md-6">#}
+                    {#<p>#}
+                        {#V prostorách <a href="{{ place.mapUrl }}">{{ place.getName() }}u</a>.#}
+                    {#</p>#}
+
+                    {#<a href="{{ place.mapUrl }}">#}
+                        {#{% if place.getImage() %}#}
+                            {#<p class="text-center mt-5 d-none d-sm-block">#}
+                                {#<img src="{{ image_uploads }}/{{ place.getImage() }}" width="400" class="img-thumbnail">#}
+                            {#</p>#}
+                        {#{% endif %}#}
+                    {#</a>#}
+                {#</div>#}
+            {#{% endfor %}#}
+        {#</div>#}
+    {#</div>#}
+
+    {#<hr>#}
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="text-center">Jak to probíhá</h3>
+            <ul>
+                <li>přihlásíš se přes formulář na kurz</li>
+                <li>až se termín naplní, pošleme ti fakturu</li>
+                <li>tu zaplatíš a můžeš se těšit na školení</li>
+                <li><strong>pozvánku ti pošleme cca týden před termínem</strong></li>
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="text-center">Co máš v ceně kurzu?</h3>
+            <ul>
+                <li>certifikát o absolvování kurzu</li>
+                <li>u celodenních kurzů tě zveme na oběd</li>
+                <li>nepodnikající studenti denního studia mají 50 % slevu</li>
+            </ul>
+
+            <p>Nejsme plátci DPH.</p>
+        </div>
+    </div>
+
+    <br>
+
+    <hr>
+
+    <h2 class="text-center">Partnerská školení</h2>
+
+    <p>
+        Nauč se <a href="https://www.michalspacek.cz/skoleni/bezpecnost-php-aplikaci">Bezpečnost PHP aplikací</a> a další <a href="https://www.michalspacek.cz/skoleni">školení</a> v podání security experta <strong>Michala Špačka</strong>.
+    </p>
+
+    <p>
+        A nasaj
+        <a href="https://www.vzhurudolu.cz/kurzy/webova-koderina">Dnešní webovou kodéřinu</a>,
+        <a href="https://www.vzhurudolu.cz/kurzy/wordpress">Wordpress</a>
+        nebo
+        <a href="https://www.vzhurudolu.cz/kurzy/javascript">Javascript</a>
+        na
+        <a href="https://www.vzhurudolu.cz/kurzy">frontendových školeních</a>
+        ze <strong>Vzhůru dolů</strong>.
+    </p>
+
+    <p>
+        Nastartuj se v PHP nebo si pořádně ujasni základy na <a href="https://www.martinhujer.cz/skoleni/">školeních</a>
+        <a href="https://www.martinhujer.cz/skoleni/uvod-do-php/">Úvod do PHP</a> a
+        <a href="https://www.martinhujer.cz/skoleni/objektove-programovani-v-php/">Objektové programování v PHP</a>,
+        která pořádá <strong>Martin Hujer</strong>.
+    </p>
 {% endblock %}
