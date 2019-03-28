@@ -1,0 +1,73 @@
+imports:
+    - { resource: 'vendor/symplify/easy-coding-standard/config/psr2.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/php71.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/clean-code.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/symplify.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/common.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/psr12.yml' }
+
+services:
+    # Slevomat
+    SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff: ~
+    SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff:
+        enableEachParameterAndReturnInspection: true
+    SlevomatCodingStandard\Sniffs\Namespaces\ReferenceUsedNamesOnlySniff:
+        allowPartialUses: false
+
+    Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff:
+        maxCognitiveComplexity: 8
+
+    Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenParentClassSniff:
+        forbiddenParentClasses:
+            - 'Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository'
+            - 'Doctrine\ORM\EntityRepository'
+
+    # class should be Abstact or Final
+    SlamCsFixer\FinalInternalClassFixer: ~
+
+    Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
+        extraAllowedClasses:
+            - 'K0nias\FakturoidApi\*'
+            - 'setasign\Fpdi\*'
+            - 'OpenTraining\Provision\Data\*'
+            - 'App\Request\*Request'
+            - 'Doctrine\Common\Collections\ArrayCollection'
+            - 'Symfony\Component\Form\FormError'
+            # pre-container used classes
+            - 'Symplify\Autodiscovery\Util\*'
+            - 'Symfony\Component\Config\Resource\FileResource'
+            - 'Symfony\Component\Security\Csrf\CsrfToken'
+
+parameters:
+    exclude_files:
+        - 'src/Form/RegisterToLectureFormType.php'
+        - 'src/Kernel.php'
+        - 'statie/tests'
+
+    skip:
+        # 3rd party contract
+        SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
+            - 'packages/User/src/Security/OpenTrainingAuthenticator.php'
+
+        Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer:
+            - 'src/Posts/Year2018/Cart/Domain/Cart.php'
+
+        # from symplify.yml set
+        Symplify\CodingStandard\Fixer\Naming\PropertyNameMatchingTypeFixer: ~
+        Symplify\CodingStandard\Sniffs\Naming\InterfaceNameSniff: ~
+        Symplify\CodingStandard\Sniffs\Naming\AbstractClassNameSniff: ~
+        Symplify\CodingStandard\Sniffs\Property\DynamicPropertySniff: ~
+        Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~
+        Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenStaticFunctionSniff: ~
+
+        # from symfony.yml set
+        PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer: ~
+        PhpCsFixer\Fixer\Operator\NewWithBracesFixer: ~
+        PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
+        PhpCsFixer\Fixer\Phpdoc\PhpdocAlignFixer: ~
+        PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer: ~
+        PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer: ~
+        PhpCsFixer\Fixer\Phpdoc\PhpdocSeparationFixer: ~
+
+        SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff.UnusedVariable:
+            - 'statie/tests/Posts/*.php'

@@ -1,0 +1,20 @@
+{# @todo make full-width and nicer design :) #}
+
+<div class="container mt-4" id="top-promo-bar">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {% set displayedLectureCount = 0 %}
+
+            {#{% for lecture in lectures %}#}
+                {#{% if lecture.isActive() and displayedLectureCount <= 3 %}#}
+                    {#{% if displayedLectureCount == 0 %}#}
+                        {#<strong>Nejbližší školení</strong>:<br>#}
+                    {#{% endif %}#}
+
+                    {#<a href="/{{ lecture.getRelativeUrl() }}/">{{ lecture.getHumanDate() }} - {{ lecture.getTitle()|raw }}</a>{% if loop.last == false %}<br>{% endif %}#}
+                    {#{% set displayedLectureCount = displayedLectureCount + 1 %}#}
+                {#{% endif %}#}
+            {#{% endfor %}#}
+        </div>
+    </div>
+</div>

@@ -64,6 +64,6 @@ deploy open-training:
         - ssh root@$DEPLOY_HOST "cd /projects/open-training && ./run.sh"
     environment:
         name: production
-        url: http://phpskoleni.cz
+        url: http://pehapkari.cz
     only:
         - master
