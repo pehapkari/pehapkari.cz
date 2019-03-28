@@ -21,7 +21,7 @@ script:
     - bin/console lint:yaml src packages
     - bin/console lint:twig packages templates
 
-    # generated Statie - part of deploy
+    # testing posts are ok
     - vendor/bin/statie generate statie/source --output public
 
     # tweets posts
