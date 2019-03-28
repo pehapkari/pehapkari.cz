@@ -2,7 +2,7 @@
     {# normal menu #}
     <div class="hidden-sm-down">
         <div class="container-fluid">
-            <a href="/"><img src="/assets/images/logo-header.svg?ver" alt="" height="50"></a>
+            <a href="/"><img src="{{ asset('/assets/images/logo-header.svg') }}" alt="" height="50"></a>
 
             <nav class="navbar top-navigation">
                 <a href="{{ path('blog') }}" class="{{ active_item(['blog', 'post']) }}">
