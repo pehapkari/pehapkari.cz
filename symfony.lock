@@ -167,7 +167,6 @@
     "knplabs/doctrine-behaviors": {
         "version": "1.5.0"
     },
-<<<<<<< HEAD
     "league/uri-components": {
         "version": "1.8.2"
     },
@@ -185,10 +184,9 @@
     },
     "league/uri-schemes": {
         "version": "1.2.1"
-=======
+    },
     "latte/latte": {
         "version": "v2.4.8"
->>>>>>> merge old pehapkari.cz website form statie
     },
     "myclabs/deep-copy": {
         "version": "1.8.1"
