@@ -15,7 +15,6 @@ use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersC
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireSinglyImplementedCompilerPass;
-use Symplify\PackageBuilder\DependencyInjection\CompilerPass\ConfigurableCollectorCompilerPass;
 
 final class OpenTrainingKernel extends Kernel
 {
@@ -72,11 +71,9 @@ final class OpenTrainingKernel extends Kernel
         // correction compiler pass for uploader and Propel - needs to run before collector
         $containerBuilder->addCompilerPass(new CorrectionCompilerPass());
 
-        $containerBuilder->addCompilerPass(new ConfigurableCollectorCompilerPass());
-
         // autowiring
-        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
         $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
+        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
         $containerBuilder->addCompilerPass(new AutowireSinglyImplementedCompilerPass());
     }
 }
