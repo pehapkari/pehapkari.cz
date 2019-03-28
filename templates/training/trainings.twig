@@ -17,12 +17,12 @@
             {% for training in trainings if training.isActive() %}
                 <div class="flex col-md-6">
                     <h2>
-                        <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">
+                        <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">
                             <strong>{{ training.getName()|raw }}</strong>
                         </a>
                     </h2>
 
-                    <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/" class="d-block text-center pt-xl-5 pb-xl-5 border-secondary border mb-3 mt-3">
+                    <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/" class="d-block text-center pt-xl-5 pb-xl-5 border-secondary border mb-3 mt-3">
                         {% if training.getImage() %}
                             <img src="{{ image_uploads }}/{{ training.getImage() }}" width="150" alt="">
                         {% endif %}
@@ -76,7 +76,7 @@
                 {% for training in trainings %}
                 {% if training.isActive() == false %}
             <li>
-                <a href="{{ path('training-detail', { 'slug': training.getSlug() }) }}/">
+                <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">
                     {{ training.getName()|raw }}
                 </a>
             </li>
@@ -89,7 +89,7 @@
 
         <h2 class="text-center mb-4">Chceš s něčím poradit, školení na míru nebo taky školit?</h2>
 
-        <p>
+        <p class="text-center">
             <a href="{{ path('contact') }}">Napiš nám</a> a do 2 dnů ti dáme vědět.
         </p>
 
@@ -99,13 +99,11 @@
 
         <div class="text-center">
             <h2 class="mb-5">
-                {{ word_by_count(finishedParticipantCount|length, ['spokojený účastník', 'spokojení účastnící', 'spokojených účastníků']) }}
+                {{ word_by_count(total_participant_count, ['spokojený účastník', 'spokojení účastnící', 'spokojených účastníků']) }}
             </h2>
 
             <div class="row narrower">
                 <div class="col-md-6 text-left mb-4">
-                    {# todo vybrat 2-3 top; ve formátu - https://laravelshift.com/ #}
-
                     na školení <a href="/kurz/docker-bez-predchozich-znalosti">Docker bez předchozích znalostí</a>:
                     <p class="mt-3">
                         <em>„Dobře připravené příklady s popsaným postupem.“</em>
@@ -215,7 +213,7 @@
     <hr>
 
     <div class="text-center">
-        <h2>Už {{ finishedTrainingTermCount }} proběhlých školení</h2>
+        <h2>Už {{ total_training_term_count }} proběhlých školení</h2>
 
         <p>Od <strong>května 2017</strong> jsme zorganizovali 9 veřejných školení od 5 odborných školitelů.</p>
 
