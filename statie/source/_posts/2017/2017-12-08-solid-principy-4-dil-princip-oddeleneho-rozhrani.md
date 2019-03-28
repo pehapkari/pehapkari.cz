@@ -171,5 +171,6 @@ class Renderer
 
 Jako u všech zásad je potřeba dbát na to, aby to nebylo přehnané. Aby nás pak nestrašily třídy se stovkou rozhraní. :)
 
-## Zdroje:
-https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf
+## Zdroje
+
+- https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf

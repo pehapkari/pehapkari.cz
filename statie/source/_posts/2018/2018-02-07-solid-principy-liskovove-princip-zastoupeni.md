@@ -89,8 +89,9 @@ class ResponseRender
 }
 ```
 
-## Zdroje:
-http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod
-https://web.archive.org/web/20151128004108/http://www.objectmentor.com/resources/articles/lsp.pdf
-Liskovové přednáška: https://www.youtube.com/watch?v=dtZ-o96bH9A&feature=youtu.be&t=40m
+## Zdroje
+
+- http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod
+- https://web.archive.org/web/20151128004108/http://www.objectmentor.com/resources/articles/lsp.pdf
+- Liskovové přednáška: https://www.youtube.com/watch?v=dtZ-o96bH9A&feature=youtu.be&t=40m
 http://www.engr.mun.ca/~theo/Courses/sd/5895-downloads/sd-principles-3.ppt.pdf
