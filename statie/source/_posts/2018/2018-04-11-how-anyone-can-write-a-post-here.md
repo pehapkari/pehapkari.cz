@@ -4,7 +4,7 @@ title: "How Anyone Can Write a Post Here"
 perex: |
     Do you want to write about PHP, but don't have a blog? Do you have some ideas you'd like to share, but don't have time and know-how to spread them over social networks? Do you want to share your ideas to hunders of listening programmers?
     <br><br>
-    **Just write a post in Markdown and send PR to this open-source blog.** 
+    **Just write a post in Markdown and send PR to this open-source blog.**
 author: 1
 related_items: [4, 11]
 lang: en
@@ -42,9 +42,9 @@ We use [Markdown](https://guides.github.com/features/mastering-markdown/#example
 - the best posts are shared on Facebook
 
 
-Do you want your post to **survive years to the future**? [Add few tests to it](/blog/2017/01/12/why-articles-with-code-examples-should-be-CI-tested/). Such posts are easily updated and re-published when other posts die with next major release of technology or package they describe. 
+Do you want your post to **survive years to the future**? [Add few tests to it](/blog/2017/01/12/why-articles-with-code-examples-should-be-CI-tested/). Such posts are easily updated and re-published when other posts die with next major release of technology or package they describe.
 
-Got Any Questions? Just [write us](mailto:tomas@pehpkari.cz) or send PR and we'll help you. 
+Got Any Questions? Just [write us](mailto:tomas@pehpkari.cz) or send PR and we'll help you.
 
 <br>
 

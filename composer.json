@@ -92,7 +92,10 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "check-cs": "vendor/bin/ecs check packages src statie",
-        "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix",
+        "fix-cs": [
+            "vendor/bin/ecs check packages src statie/src statie/tests --fix",
+            "bin/clear_trailing_whitespaces.sh"
+        ],
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force",
         "phpstan": "vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify"
     },

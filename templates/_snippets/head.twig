@@ -19,9 +19,6 @@
 
 <link rel="alternate" type="application/rss+xml" title="Péhápkaři.cz Blog RSS" href="/rss.xml">
 
-{# Font Awesome #}
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
 {# Twitter Bootstrap - locally for css classes autocomplete #}
 <link href="/assets/bootstrap/bootstrap.min.css?v={{ random() }}" rel="stylesheet" type="text/css" />
 
@@ -29,8 +26,11 @@
 <link href="/assets/prism/prism.css?v={{ random() }}" rel="stylesheet" type="text/css" />
 <link href="/assets/prism/prism-custom.css?v={{ random() }}" rel="stylesheet" type="text/css" />
 
-<link href="/assets/css/style.css?v={{ random() }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('/assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
 <link href="/favicon.ico" rel="shortcut icon">
+
+{# Font Awesome #}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 <title>{% if title is defined %}{{ title|raw }} {% else %}{{ page_title }}{% endif %}</title>

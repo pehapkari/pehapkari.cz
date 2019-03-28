@@ -36,7 +36,7 @@ Podľa jeho meraní je nová komponenta **15x rýchlejšia ako FastRoute**!
 
 Najprv musíte všetky Vaše doterajšie routy zmazať a ...
 
-**Ufff, to by bol veľmi zlý scénar. Nič také nerobte, nie je potrebné!** 
+**Ufff, to by bol veľmi zlý scénar. Nič také nerobte, nie je potrebné!**
 
 Stači jednoducho po vydaní stable verzie Symfony 4.1 ak povýšime závislosť v ``composer.json``.
 
@@ -49,7 +49,7 @@ Stači jednoducho po vydaní stable verzie Symfony 4.1 ak povýšime závislosť
 ```
 
 Následne zavoláme príkaz na aktualizáciu závislostí.
- 
+
 ```bash
 composer update
 ```
@@ -59,7 +59,7 @@ Nový router **funguje**! Úžasné, že? :)
 Pri povýšení frameworku (``framework-bundle``) môže dojsť aj k povýšeniu ostatných dodatočných balíčkov, ako napríklad `security-bundle`, `twig-bundle`, ``orm-pack`` a podobne. To je v poriadku, pokiaľ ste na ich povýšenie pripravený.
 
 Zmeny verzií odporúčam, pre poriadok, zaniesť do ``composer.json``.
- 
+
 ## Internacionalizácia rout
 
 Doteraz, ak sme potrebovali pracovať s viacjazyčnými URL adresami, museli sme použiť bundle tretej strany, napríklad [JMSI18nRoutingBundle](https://github.com/schmittjoh/JMSI18nRoutingBundle), pretože router takúto možnosť priamo nepodporoval.
@@ -91,7 +91,7 @@ class DashboardController extends Controller
      *     "en": "/en/dashboard"
      * }, name="admin-dashboard")
      */
-    public function __invoke()    
+    public function __invoke()
     // ...
 }
 ```
@@ -150,7 +150,7 @@ class ArticlesController extends Controller
      */
     public function __invoke(int $page)
     // ...
-    
+
     /**
      * Nový inline zápis
      * @Route("/admin/articles/{page<\d+>?1}", name="admin-articles")

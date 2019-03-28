@@ -1,11 +1,9 @@
 <div class="metadataLine">
     {% if post.tested is defined %}
-        {% set testDirectoryOnGithub %}{{ github_show_url_start }}tests/Posts/Year{{ post.getDateInFormat('Y') }}/{{ post.test_slug }}{% endset %}
         <p class="success">
-            <strong><em class="fa fa-fw fa-check-square-o"></em>
-                <a href="{{ testDirectoryOnGithub }}">
-                    This post is Tested
-                </a>
+            <strong>
+                <em class="fa fa-fw fa-check-square-o"></em>
+                This post is Tested
             </strong>
         </p>
     {% endif %}
@@ -24,11 +22,9 @@
             {{ post.getDateInFormat('j. n. Y') }}
         </time>
 
-        {% if showCommentCount is defined %}
-            |
+        |
 
-            <em class="fa fa-fw fa-comments"></em>
-            <a href="{{ site_url }}/{{ post|link }}/#disqus_thread">X</a> comments
-        {% endif %}
+        <em class="fa fa-fw fa-comments"></em>
+        <a href="{{ site_url }}/{{ post|link }}/#disqus_thread">X</a> comments
     </p>
 </div>

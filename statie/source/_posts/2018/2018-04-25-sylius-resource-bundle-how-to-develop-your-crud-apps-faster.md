@@ -8,9 +8,9 @@ lang: en
 tweet: "Post from Community Blog: Introduction to @Sylius: SyliusResourceBundle - how to develop your CRUD apps faster."
 ---
 
-Have you heard about Sylius? If not, you need to know that it is an e-commerce solution built on top of Symfony framework full stack. 
-One of the main advantages of Sylius from the software engineer perspective is that it is developer oriented. 
-High productivity and fast iteration loops are essential for us. 
+Have you heard about Sylius? If not, you need to know that it is an e-commerce solution built on top of Symfony framework full stack.
+One of the main advantages of Sylius from the software engineer perspective is that it is developer oriented.
+High productivity and fast iteration loops are essential for us.
 That being said, SOLID and DRY are fundamental principles at our work.
 
 ## TL;DR
@@ -18,18 +18,18 @@ That being said, SOLID and DRY are fundamental principles at our work.
 SyliusResourceBundle can boost you CRUD develepment, you should try it out.
 You can also join the [Getting started with Sylius training](https://pehapkari.cz/kurz/getting-started-with-sylius/) in Prague and see it in action live.
 
-## Ok, but what does it mean regarding an e-commerce framework? 
+## Ok, but what does it mean regarding an e-commerce framework?
 
-Let’s take a look at administrator panel of a typical e-commerce website. 
-We can find there several usual CRUD-based resources. 
+Let’s take a look at administrator panel of a typical e-commerce website.
+We can find there several usual CRUD-based resources.
 Tax rates or shipping categories are not complicated entities.
-However, you need a whole stack of classes to handle each of them properly. 
+However, you need a whole stack of classes to handle each of them properly.
 In order to perform all required actions, you need to have a controller, repository, factory and some form type.
 
 > **Disclaimer**: Not every problem should be resolved in a CRUDish way. More complex or crucial parts of your software should be solved by different structural and architectural patterns.
 
 Our main aim was to provide a standard Symfony workflow without writing all of the classes manually or generating them.
-The second goal was to provide a simple solution, which will bootstrap feature implementation at the beginning, but will be easy to customise in the further phase of development. 
+The second goal was to provide a simple solution, which will bootstrap feature implementation at the beginning, but will be easy to customise in the further phase of development.
 And now the SyliusResourceBundle comes to play, all in white!
 
 ## What is SyliusResourceBundle?
@@ -101,7 +101,7 @@ class ProductBundle implements ResourceInterface
     {
         return $this->name;
     }
- 
+
    public function setName(?string $name): void
     {
         $this->name = $name;
@@ -252,7 +252,7 @@ As with every Symfony Bundle, you can reuse this logic in any Symfony app you wa
 ## Want to see more?
 
 If you would like to read a little bit more about ResourceBundle itself you can visit following links:
- 
+
  * https://docs.sylius.com/en/1.1/components_and_bundles/components/Resource/index.html
  * https://docs.sylius.com/en/1.1/book/architecture/resource_layer.html
  * https://docs.sylius.com/en/1.1/components_and_bundles/bundles/SyliusResourceBundle/index.html

@@ -1,6 +1,6 @@
 # Open Trainings
 
-Open and free platform for organizing trainings. 
+Open and free platform for organizing trainings.
 
 ## Setup
 
@@ -17,7 +17,7 @@ Then rename `.env.dist` to `.env` and complete variables:
 
 ```bash
 # create database
-bin/console doctrine:schema:create 
+bin/console doctrine:schema:create
 
 # dump css and js from all bundles
 bin/console assets:install --env=prod --no-debug
