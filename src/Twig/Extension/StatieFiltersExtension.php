@@ -32,14 +32,16 @@ final class StatieFiltersExtension extends AbstractExtension
         return [
             // use: {% set relatedPosts = related_items(post) %}
             new TwigFilter(
-                'related_items', function (AbstractGeneratorFile $generatorFile): array {
+                'related_items',
+                function (AbstractGeneratorFile $generatorFile): array {
                     return $this->relatedItemsResolver->resolveForFile($generatorFile);
                 }
             ),
 
             // use: {{ post|link }}
             new TwigFilter(
-                'link', function ($generatorFile): string {
+                'link',
+                function ($generatorFile): string {
                     $this->ensureArgumentIsGeneratorFile($generatorFile);
 
                     /** @var AbstractGeneratorFile $generatorFile */

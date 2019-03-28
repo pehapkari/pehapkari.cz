@@ -11,7 +11,7 @@
                         {#<strong>Nejbližší školení</strong>:<br>#}
                     {#{% endif %}#}
 
-                    {#<a href="/{{ lecture.getRelativeUrl() }}/">{{ lecture.getHumanDate() }} - {{ lecture.getTitle()|raw }}</a>{% if loop.last == false %}<br>{% endif %}#}
+                    {#<a href="/{{ lecture|link }}/">{{ lecture.getHumanDate() }} - {{ lecture.getTitle()|raw }}</a>{% if loop.last == false %}<br>{% endif %}#}
                     {#{% set displayedLectureCount = displayedLectureCount + 1 %}#}
                 {#{% endif %}#}
             {#{% endfor %}#}
