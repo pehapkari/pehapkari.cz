@@ -91,14 +91,10 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
-        "check-cs": "vendor/bin/ecs check packages src statie/src statie/tests",
+        "check-cs": "vendor/bin/ecs check packages src statie",
         "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force",
-        "phpstan": "vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify",
-        "adminer-install": [
-            "mkdir -p public/adminer",
-            "wget https://github.com/vrana/adminer/releases/download/v4.6.3/adminer-4.6.3-en.php -O public/adminer/index.php"
-        ]
+        "phpstan": "vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify"
     },
     "config": {
         "sort-packages": true

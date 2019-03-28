@@ -18,7 +18,7 @@ services:
         maxCognitiveComplexity: 8
 
     Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenParentClassSniff:
-        forbiddenParentClasses:
+        forbidden_parent_classes:
             - 'Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository'
             - 'Doctrine\ORM\EntityRepository'
 
@@ -26,7 +26,7 @@ services:
     SlamCsFixer\FinalInternalClassFixer: ~
 
     Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
-        extraAllowedClasses:
+        extra_allowed_classes:
             - 'K0nias\FakturoidApi\*'
             - 'setasign\Fpdi\*'
             - 'OpenTraining\Provision\Data\*'
@@ -54,10 +54,6 @@ parameters:
             - 'src/Posts/Year2018/Cart/Domain/Cart.php'
 
         # from symplify.yml set
-        Symplify\CodingStandard\Fixer\Naming\PropertyNameMatchingTypeFixer: ~
-        Symplify\CodingStandard\Sniffs\Naming\InterfaceNameSniff: ~
-        Symplify\CodingStandard\Sniffs\Naming\AbstractClassNameSniff: ~
-        Symplify\CodingStandard\Sniffs\Property\DynamicPropertySniff: ~
         Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~
         Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenStaticFunctionSniff: ~
 

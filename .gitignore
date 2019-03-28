@@ -27,6 +27,7 @@ docker-compose.yml
 /node_modules
 /output
 package-lock.json
+yarn.lock
 *.local.yaml
 
 # generated

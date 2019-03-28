@@ -4,9 +4,9 @@ namespace OpenTraining\Statie\Posts\Year2018\Cart\Infrastructure;
 
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Cart;
 use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartNotFoundException;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartRepository;
+use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
 
-final class MemoryCartRepository implements CartRepository
+final class MemoryCartRepository implements CartRepositoryInterface
 {
     /**
      * @var Cart[]
