@@ -400,14 +400,14 @@ These variables are defined in the `phpunit.xml`.
 
 ```xml
 <phpunit bootstrap="vendor/autoload.php">
-	<php>
-		<var name="DB_DRIVER" value="pdo_pgsql" />
-		<var name="DB_USER" value="user" />
-		<var name="DB_PASSWORD" value="***" />
-		<var name="DB_DBNAME" value="cart_test" />
-		<var name="DB_HOST" value="localhost" />
-	</php>
-	...
+    <php>
+        <var name="DB_DRIVER" value="pdo_pgsql" />
+        <var name="DB_USER" value="user" />
+        <var name="DB_PASSWORD" value="***" />
+        <var name="DB_DBNAME" value="cart_test" />
+        <var name="DB_HOST" value="localhost" />
+    </php>
+    ...
 </phpunit>
 ```
 
@@ -477,7 +477,7 @@ Creating the SQLite memory connection is easy because it doesn't require any cre
 
 class DoctrineCartRepositoryTest extends CartRepositoryTest
 {
-	// ...
+    // ...
 
     protected function setUp()
     {

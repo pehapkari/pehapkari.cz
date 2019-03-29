@@ -153,15 +153,15 @@ Now create a simple virtual host with this content.
 Put the following into `/etc/nginx/sites-available/site-with-php7.0`:
 ```
 server {
-	listen 8870 default_server;
-	listen [::]:8870 default_server;
-	server_name _;
-	root /var/www/site-with-php7.0;
-	index index.php;
-	location / {
-		include snippets/fastcgi-php.conf;
-		fastcgi_pass unix:/run/php/php7.0-fpm.sock; # adjust for the listen setting discussed above
-	}
+    listen 8870 default_server;
+    listen [::]:8870 default_server;
+    server_name _;
+    root /var/www/site-with-php7.0;
+    index index.php;
+    location / {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock; # adjust for the listen setting discussed above
+    }
 }
 ```
 
@@ -177,15 +177,15 @@ echo -e '<?php\nphpinfo();' > /var/www/site-with-php5.6/index.php
 Put the following into `/etc/nginx/sites-available/site-with-php5.6`:
 ```
 server {
-	listen 8856 default_server;
-	listen [::]:8856 default_server;
-	server_name _;
-	root /var/www/site-with-php5.6;
-	index index.php;
-	location / {
-		include snippets/fastcgi-php.conf;
-		fastcgi_pass unix:/run/php/php5.6-fpm.sock; # adjust for the listen setting discussed above
-	}
+    listen 8856 default_server;
+    listen [::]:8856 default_server;
+    server_name _;
+    root /var/www/site-with-php5.6;
+    index index.php;
+    location / {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php5.6-fpm.sock; # adjust for the listen setting discussed above
+    }
 }
 ```
 

@@ -29,39 +29,39 @@ use Doctrine\ORM\Mapping as ORM;
 class Article
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="IDENTITY")
-	 * @var int
-	 */
-	private $id;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @var int
+     */
+    private $id;
 
-	/**
-	 * @ORM\Column(type="string")
-	 * @var string
-	 */
-	private $header;
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $header;
 
-	/**
-	 * @ORM\Column(type="text")
-	 * @var string
-	 */
-	private $perex;
+    /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    private $perex;
 
-	/**
-	 * @ORM\Column(type="text")
-	 * @var string
-	 */
-	private $content;
+    /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    private $content;
 
-	/**
-	 * @ORM\Column(type="string")
-	 * @var string
-	 */
-	private $author;
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $author;
 
-	// getters + setters
+    // getters + setters
 
 }
 ```
@@ -81,39 +81,39 @@ use Doctrine\ORM\Mapping as ORM;
 class News
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="IDENTITY")
-	 * @var int
-	 */
-	private $id;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @var int
+     */
+    private $id;
 
-	/**
-	 * @ORM\Column(type="string")
-	 * @var string
-	 */
-	private $header;
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $header;
 
-	/**
-	 * @ORM\Column(type="text")
-	 * @var string
-	 */
-	private $content;
+    /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    private $content;
 
-	/**
-	 * @ORM\Column(type="string")
-	 * @var string
-	 */
-	private $tag;
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $tag;
 
-	/**
-	 * @ORM\Column(type="string")
-	 * @var string
-	 */
-	private $author;
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $author;
 
-	// getters + setters
+    // getters + setters
 
 }
 ```
@@ -146,39 +146,39 @@ use DateTime;
 abstract class AbstractText
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="IDENTITY")
-	 * @var int
-	 */
-	private $id;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @var int
+     */
+    private $id;
 
-	/**
-	 * @ORM\Column(type="string")
-	 * @var string
-	 */
-	private $header;
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $header;
 
-	/**
-	 * @ORM\Column(type="text")
-	 * @var string
-	 */
-	private $content;
+    /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    private $content;
 
-	/**
-	 * @ORM\Column(type="string")
-	 * @var string
-	 */
-	private $author;
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $author;
 
-	/**
-	 * @ORM\Column(type="datetime")
-	 * @var DateTime
-	 */
-	private $publishedAt;
+    /**
+     * @ORM\Column(type="datetime")
+     * @var DateTime
+     */
+    private $publishedAt;
 
-	// getters + setters
+    // getters + setters
 
 }
 ```
@@ -200,13 +200,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Article extends AbstractText
 {
 
-	/**
-	 * @ORM\Column(type="text")
-	 * @var string
-	 */
-	private $perex;
+    /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    private $perex;
 
-	// getter + setter
+    // getter + setter
 
 }
 ```
@@ -228,13 +228,13 @@ use Doctrine\ORM\Mapping as ORM;
 class News extends AbstractText
 {
 
-	/**
-	 * @ORM\Column(type="string")
-	 * @var string
-	 */
-	private $tag;
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $tag;
 
-	// getter + setter
+    // getter + setter
 
 }
 ```
@@ -257,13 +257,13 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discriminator", type="text")
  * @ORM\DiscriminatorMap({
- * 		"article" = "Article",
- * 		"news" = "News"
+ *         "article" = "Article",
+ *         "news" = "News"
  * })
  */
 abstract class AbstractText
 {
-	// zůstává stejné
+    // zůstává stejné
 }
 ```
 

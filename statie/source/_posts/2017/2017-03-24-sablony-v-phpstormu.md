@@ -98,14 +98,14 @@ Pro pohyb k dalším proměnným stačí stisknout `ENTER` nebo `TAB`.
 Teď si ukážeme live template na tvorbu fluent setteru. To je setter, který vypadá například takto:
 
 ```php
-	/**
-	 * @param $bar
-	 * @return $this
-	 */
-	public function setBar($bar) {
-		$this->bar = $bar;
-		return $this;
-	}
+    /**
+     * @param $bar
+     * @return $this
+     */
+    public function setBar($bar) {
+        $this->bar = $bar;
+        return $this;
+    }
 ```
 
 U takového setteru například pro proměnnou `$bar `chceme, aby v názvu metody bylo setBar, s velkým B,
@@ -157,12 +157,12 @@ use Nette;
 
 class ${NAME}
 {
-	use Nette\SmartObject;
+    use Nette\SmartObject;
 
-	public function __construct()
-	{
+    public function __construct()
+    {
 
-	}
+    }
 
 }
 ```
@@ -215,27 +215,27 @@ class ${NAME} extends BasePresenter
 {
 
 #if (${Action} != "")
-	public function action${Action}()
-	{
+    public function action${Action}()
+    {
 
-	}
+    }
 
 #end
 #if (${NAME} != 'BasePresenter')
-	public function renderDefault()
-	{
+    public function renderDefault()
+    {
 
-	}
+    }
 
 #end
 #if (${Render} != "")
 
 ## Na následucíjím řádku kapitalizujeme obsah proměnné $Render. Tento řádek je pouze komentář.
 #set ($Capitalized = $Render.substring(0,1).toUpperCase() + $Render.substring(1))
-	public function render${Capitalized}()
-	{
+    public function render${Capitalized}()
+    {
 
-	}
+    }
 
 #end
 }

@@ -24,7 +24,7 @@ Nevýhodou je možná neprehľadnosť konštruktora pri vyššom počte závislo
 ```php
 final class DependantService
 {
-	/**
+    /**
      * @var DependencyService
      */
     private $service;
@@ -43,7 +43,7 @@ To je výhodné v prípade, ak je potrebné setovať závislosť až v čase beh
 ```php
 final class DependantService
 {
-	/**
+    /**
      * @var DependencyService|null
      */
     private $service;
@@ -79,11 +79,11 @@ Na ukážke sekcia ``_defaults`` zahŕňa tri predvolené nastavenia, platiace p
 
 ```yaml
 services:
-	_defaults:
+    _defaults:
         public: false
 
-	App\Model\TemplateEngine:
-		public: true
+    App\Model\TemplateEngine:
+        public: true
 ```
 
 Sekcia ``_defaults`` je platná výhradne v rámci súboru, v ktorom je definovaná. Teda každý ``services.yml`` z bundlu alebo knižnice bude obsahovať vlastnú sadu týchto nastavení.
@@ -95,7 +95,7 @@ Povolenie **autowiring**-u pre všetky služby umožňuje DI kontajneru ich vkla
 ```php
 final class MailSender
 {
-	/**
+    /**
      * @var LoggerInterface
      */
     private $logger;
@@ -122,7 +122,7 @@ Od Symfony 3.4. existuje ekvivalentný zápis v sekcii bind.
 services:
     _defaults:
         bind:
-			App\Logger\LoggerInterface: '@App\Logger\FileLogger'
+            App\Logger\LoggerInterface: '@App\Logger\FileLogger'
 ```
 
 Osobne mi tento zápis vyhovuje viac, pretože mám všetky bindy interfacov na jednom mieste v rámci konfigurácie.
@@ -133,14 +133,14 @@ Nie všetky naše služby vyžadujúce ``App\Logger\LoggerInterface`` musia oča
 services:
     _defaults:
         bind:
-			App\Logger\LoggerInterface: '@App\Logger\FileLogger'
+            App\Logger\LoggerInterface: '@App\Logger\FileLogger'
 
     App\Logger\:
         resource: '../src/Logger/*'
 
-	App\Mailer\MailGenerator:
-		bind:
-			App\Logger\LoggerInterface: '@App\Logger\DatabaseLogger'
+    App\Mailer\MailGenerator:
+        bind:
+            App\Logger\LoggerInterface: '@App\Logger\DatabaseLogger'
 ```
 
 ### Action Injection
@@ -148,12 +148,14 @@ services:
 Symfony autowiring umožňuje vkladanie závislostí **aj priamo metódam v kontroleri**. Táto funkčnosť do určitej miery zjednodušuje prácu s kontrolerom, kedy nie je nutné k získaniu závislosti vytvárať konštruktor.
 
 ```php
+<?php
+
 final class MailSendController
 {
-	public function __invoke(MailSenderInterface $mailSender)
-	{
-		// ...
-	}
+    public function __invoke(MailSenderInterface $mailSender)
+    {
+        // ...
+    }
 }
 ```
 
@@ -187,10 +189,10 @@ services:
         autoconfigure: false
 
     App\Templating\AcmeTwigExtension:
-		tags: [twig.extension]
+        tags: [twig.extension]
 
     App\:
-		resource: '../src/*'
+        resource: '../src/*'
 ```
 
 Tento zápis môžeme zjednodušiť definíciou tagu pre interface v sekcii``_instanceof``.
@@ -205,7 +207,7 @@ services:
             tags: [twig.extension]
 
     App\:
-		resource: '../src/*'
+        resource: '../src/*'
 ```
 
 Keďže programátor je tvor lenivý, zapneme ``autoconfigure`` a nemusíme nič explicitne definovať.
@@ -218,7 +220,7 @@ services:
         public: false
 
     App\:
-		resource: '../src/*'
+        resource: '../src/*'
 ```
 
 ## Viditeľnosť služieb
@@ -232,8 +234,8 @@ services:
     _defaults:
         public: false
 
-	App\Logger\MailLogger:
-		public: true
+    App\Logger\MailLogger:
+        public: true
 ```
 
 ## Bindovanie parametrov
@@ -270,8 +272,8 @@ services:
         bind:
             $logDir: '%kernel.project_dir%/var/log'
 
-	App\Logger\QueryLogger:
-		bind:
+    App\Logger\QueryLogger:
+        bind:
             $logDir: '%kernel.project_dir%/var/log/query'
 ```
 

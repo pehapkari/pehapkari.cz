@@ -83,7 +83,7 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 
 class ProductBundle implements ResourceInterface
 {
-	/** @var int */
+    /** @var int */
     private $id;
 
     /** @var string|null */

@@ -26,8 +26,8 @@ Neustále si uvědomuji, že test se skládá z
 
 <blockquote class="alert alert-warning">
     <p>
-		Psaní testů do tříd <code>TestCase</code> tedy považuji jen za <em>syntactic sugar</em> testovacích frameworků,
-		což poskytuje jistý komfort (<code>setUp</code>, <code>tearDown</code>, <code>@dataProvider</code>).
+        Psaní testů do tříd <code>TestCase</code> tedy považuji jen za <em>syntactic sugar</em> testovacích frameworků,
+        což poskytuje jistý komfort (<code>setUp</code>, <code>tearDown</code>, <code>@dataProvider</code>).
     </p>
 </blockquote>
 
@@ -47,12 +47,12 @@ metod. Přidává to na přehlednosti a&nbsp;čitelnosti, a&nbsp;tak to usnadňu
 ```php
 public function testFoo()  : void
 {
-	$bar = $this->createMockBar(5);
-	$service = new Service($bar);
+    $bar = $this->createMockBar(5);
+    $service = new Service($bar);
 
-	$result = $service->foo();
+    $result = $service->foo();
 
-	Assert::equals('xyz', $result);
+    Assert::equals('xyz', $result);
 }
 ```
 
@@ -66,12 +66,12 @@ public function testFoo()  : void
 ```php
 public function setUp(): void
 {
-	$this->mockBar = $this->createMockBar(5);
+    $this->mockBar = $this->createMockBar(5);
 }
 
 public function testFoo(): void
 {
-	$service = new Service($this->mockBar);
+    $service = new Service($this->mockBar);
 
     $result = $service->foo();
 
@@ -84,8 +84,8 @@ insert testovacích dat, která jsou specifická pro daný scénář testu. Skry
 stavu konkrétního scénáře.
 
 <blockquote class="alert alert-info"><p>
-	Z&nbsp;těchto principů také přímo vyplývá, že <code>TestCase</code> třída je <em>immutable</em>.
-	Protože není co měnit. ;)
+    Z&nbsp;těchto principů také přímo vyplývá, že <code>TestCase</code> třída je <em>immutable</em>.
+    Protože není co měnit. ;)
 </p></blockquote>
 
 
@@ -109,7 +109,7 @@ public function testFoo(string $expectdResult, string $valueForFoo, string $valu
 {
     $bar = $this->mockBar($valueForBar); // Příprava výchozího stavu
     $foo = $this->mockFoo($valueForBar);
-	$service = new Xyz($foo, $bar);
+    $service = new Xyz($foo, $bar);
 
     $result = $service->foo(); // Přechod
 
@@ -166,7 +166,7 @@ public function testXyz(string $expected, int $valueForBar)
 
 public function mockFoo(int $valueForBar): Foo
 {
-	// Když budu chtít přidat $valueForBar2, budu muset upravit všechny metody po cestě.
+    // Když budu chtít přidat $valueForBar2, budu muset upravit všechny metody po cestě.
     $bar = $this->mockBar($valueForBar);
 
     return Mockery::mock(Foo::class)->shouldRecieve('getBar')->andReturn($bar)->getMock();
@@ -174,7 +174,7 @@ public function mockFoo(int $valueForBar): Foo
 ```
 
 <blockquote class="alert alert-info"><p>
-	Factory metody nemusí být vůbec definované na <code>TestCase</code> třídě daného testu, ale pokud se jedná o factorky
+    Factory metody nemusí být vůbec definované na <code>TestCase</code> třídě daného testu, ale pokud se jedná o factorky
     určené jen pro konkrétní test, je praktické si je držet na jednom místě. Pokud je ale znovupoužívám,
     extrahuji je do helperů (v PHPUnit do traitů).
 </p></blockquote>

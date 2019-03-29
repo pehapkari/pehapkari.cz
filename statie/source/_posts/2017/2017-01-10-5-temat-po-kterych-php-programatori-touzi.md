@@ -62,7 +62,7 @@ Teď to nejzajímavější &ndash; otevřená otázka. Odpovědi jsme analyzoval
 
 - CI (6)
 - deployment (4)
-- cloud/AWS	(3)
+- cloud/AWS    (3)
 
 *„Nasazení app do cloudu - ideálně asi AWS - od nuly (vč. výběru služeb, nastavení app pro vývoj / ostré prostředí po ukládání dat a balancingu. Nasazení CI - instalace, pouštění testů, deploy.“*
 
@@ -71,7 +71,7 @@ Teď to nejzajímavější &ndash; otevřená otázka. Odpovědi jsme analyzoval
 
 - git-branch, git-flow (7)
 - git (6)
-- pokročilý git	(4)
+- pokročilý git    (4)
 
 *„Git workflow + rebase a best practise na to, čo verzovať a čo nie. Ako navrhnúť repozitáre pre veľké projekty.“*
 
@@ -96,7 +96,7 @@ Teď to nejzajímavější &ndash; otevřená otázka. Odpovědi jsme analyzoval
 ### Symfony, Nette a jejich vztah (26 b.)
 
 - Symfony (16)
-- Nette	(7)
+- Nette    (7)
 - rozdíly mezi nimi, jak přejít z jednoho na druhý (3)
 
 *„Jaké jsou v Symfony best practices, které jej odlišují od Nette. Co za myšlenky v Symfony stojí za to a nejsou v Nette.“*

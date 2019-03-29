@@ -64,14 +64,14 @@ That was some theory and now let's try it in practise.
 2. switch to searchguard branch by `git checkout searchguard`
 3. Update the `docker-compose.yml` file to persist Elasticsearch data:
 
-	Add `    - ./elasticsearch/data:/usr/share/elasticsearch/data` to the `volumes` section of `elasticsearch` service.
+    Add `    - ./elasticsearch/data:/usr/share/elasticsearch/data` to the `volumes` section of `elasticsearch` service.
 
-	So the `volumes` section should like this:
-	```yml
-	volumes:
-	    - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-	    - ./elasticsearch/data:/usr/share/elasticsearch/data
-	```
+    So the `volumes` section should like this:
+    ```yml
+    volumes:
+        - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+        - ./elasticsearch/data:/usr/share/elasticsearch/data
+    ```
 
 3. run the stack by `docker-compose up`
 4. initialize the searchguard by `docker-compose exec -T elasticsearch bin/init_sg.sh`
@@ -122,13 +122,13 @@ We will define this file as volume in `docker-compose.yml` to easily change pass
 So to change passwords:
 1. Add `./elasticsearch/config/sg_internal_users.yml:/usr/share/elasticsearch/config/sg_internal_users.yml` to the `volumes` section of the `elasticsearch` service.
 
-	Now our `volumes` section looks like this:
-	```yml
-	volumes:
-	    - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-	    - ./elasticsearch/data:/usr/share/elasticsearch/data
-	    - ./elasticsearch/config/sg_internal_users.yml:/usr/share/elasticsearch/config/sg_internal_users.yml
-	```
+    Now our `volumes` section looks like this:
+    ```yml
+    volumes:
+        - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+        - ./elasticsearch/data:/usr/share/elasticsearch/data
+        - ./elasticsearch/config/sg_internal_users.yml:/usr/share/elasticsearch/config/sg_internal_users.yml
+    ```
 
 2. Generate hash of new password by
 ```bash
@@ -137,10 +137,10 @@ docker-compose run elasticsearch plugins/search-guard-5/tools/hash.sh -p [some_p
 
 3. Replace default hashes with the new ones in the file `sg_internal_users.yml`
 4. Restart the stack by
-	```bash
-	docker-compose down
-	docker-compose up
-	```
+    ```bash
+    docker-compose down
+    docker-compose up
+    ```
 
 Congratulations, now you have your ELK stack running and secure.
 

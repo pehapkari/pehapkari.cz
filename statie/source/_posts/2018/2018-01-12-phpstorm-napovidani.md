@@ -198,9 +198,9 @@ class Config {
 
     public function __set($property, $value){
         if ($property === 'username') {
-			return null; // you can't set username
-		}
-		return $this->config[$property];
+            return null; // you can't set username
+        }
+        return $this->config[$property];
     }
 
     public function __call($method, $arguments){

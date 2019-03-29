@@ -20,9 +20,9 @@ $accumulator = [];
 
 // Act
 foreach($a as $key1 => $val1) {
-	foreach($a as $key2 => $val2) {
-		$accumulator[] = [$val1, $val2];
-	}
+    foreach($a as $key2 => $val2) {
+        $accumulator[] = [$val1, $val2];
+    }
 }
 ```
 
@@ -41,9 +41,9 @@ $accumulator = [];
 
 // Act
 foreach($a as $key1 => $val1) {
-	foreach($a as $key2 => $val2) {
-		$accumulator[] = [$val1, $val2];
-	}
+    foreach($a as $key2 => $val2) {
+        $accumulator[] = [$val1, $val2];
+    }
 }
 ```
 
@@ -53,14 +53,14 @@ Teď si asi říkáte, k čemu je dobré iterovat dvakrát ten samý objekt v so
 
 ```php
 $object = new class(2) extends SplFixedArray {
-	public function __debugInfo()
-	{
-		$ret = [];
-		foreach($this as $key => $val) {
-			$ret[(string) $key] = (string) $val;
-		}
-		return $ret;
-	}
+    public function __debugInfo()
+    {
+        $ret = [];
+        foreach($this as $key => $val) {
+            $ret[(string) $key] = (string) $val;
+        }
+        return $ret;
+    }
 
 };
 
@@ -70,7 +70,7 @@ $object[1] = 'second-value';
 $accumulator = [];
 
 foreach($object as $key1 => $val1) {
-	$accumulator[] = $val1;                // (1)
+    $accumulator[] = $val1;                // (1)
 }
 ```
 
@@ -133,9 +133,9 @@ $accumulator = [];
 
 // Act
 foreach(clone $a as $key1 => $val1) {
-	foreach(clone $a as $key2 => $val2) {
-		$accumulator[] = [$val1, $val2];
-	}
+    foreach(clone $a as $key2 => $val2) {
+        $accumulator[] = [$val1, $val2];
+    }
 }
 ```
 Nyní dostaneme prvky **čtyři**. Hurá!
@@ -161,9 +161,9 @@ $accumulator = [];
 
 // Act
 foreach($a as $key1 => $val1) {
-	foreach($a as $key2 => $val2) {
-		$accumulator[] = [$val1, $val2];
-	}
+    foreach($a as $key2 => $val2) {
+        $accumulator[] = [$val1, $val2];
+    }
 }
 ```
 
@@ -179,11 +179,11 @@ Pojďme se těmto interface kouknout na zoubek.
 
 ```php
 interface Iterator extends Traversable {
-	function current();
-	function key();
-	function next(): void;
-	function rewind(): void;
-	function valid(): bool;
+    function current();
+    function key();
+    function next(): void;
+    function rewind(): void;
+    function valid(): bool;
 }
 ```
 
@@ -194,14 +194,14 @@ interface Iterator extends Traversable {
 
 ```php
 interface IteratorAggregate extends Traversable {
-	function getIterator(): Traversable;
+    function getIterator(): Traversable;
 }
 ```
 
 - `getIterator()` je továrna
-	- **při každém zavolání musí vracet novou instanci `Traversable`**
+    - **při každém zavolání musí vracet novou instanci `Traversable`**
 - objekt implementující rozhraní neuchovává žádný stav související s iterací
-	- uchování stavu deleguje do vráceného `Traversable` (což může být třeba `Iterator`)
+    - uchování stavu deleguje do vráceného `Traversable` (což může být třeba `Iterator`)
 
 ## Sémantika `Iterator` a `IteratorAggregate`
 
@@ -215,8 +215,8 @@ Iterátory je možné skládat do sebe. Kdy každý iterátor může pohled na d
 
 ```php
 $iterator = new CallbackFilterIterator(
-	$collection->getIterator(),
-	function($value, $key) { return rand(0,100) < 50; }
+    $collection->getIterator(),
+    function($value, $key) { return rand(0,100) < 50; }
 );
 foreach($iterator as $key => $value) { /* ... */ }
 ```
@@ -247,12 +247,12 @@ foreach($collection as $key => $value) { /* ... */ }
 $iterator = $collection->getIterator();
 $iterator->rewind();
 while($iterator->valid()) {
-	$key = $iterator->key();
-	$value = $iterator->current();
+    $key = $iterator->key();
+    $value = $iterator->current();
 
-	/* ... */
+    /* ... */
 
-	$iterator->next();
+    $iterator->next();
 }
 
 ```
@@ -268,13 +268,13 @@ Budou-li tedy **dva `foreach`e v sobě**, každý bude **mít svoji instanci ite
 - pokud chcete, aby se struktura, kterou dostanete na vstupu chovala **stejně jako pole**, vyžadujte rozhraní `IteratorAggregate`.
 - Ke kolekci může existovat více `Iterator`ů - tedy **více pohledů**, na ta **stejná data**.
 - Kolekce by neměla implementovat `Iterator` přímo, protože...
-	- tím říká, že na ni v **jednu chvíli** existuje jen **jeden pohled**.
-	- má poté **dvě zodpovědnosti** - uchování dat a zprostředkování pohledu na data v ní uložené.
+    - tím říká, že na ni v **jednu chvíli** existuje jen **jeden pohled**.
+    - má poté **dvě zodpovědnosti** - uchování dat a zprostředkování pohledu na data v ní uložené.
 - Dejte si pozor na `SplFixedArray`, `SplObjectStorage` a další kolekce, které implementují `Iterator`.
 - Použijte raději [phpds](https://secure.php.net/manual/en/book.ds.php), kde jsou datové struktury implementovány správně.
 - Pokud kolekce, kterou používáte implementuje přímo rozhraní `Iterator`, podporuje klonování a nemůžete použít jinou kolekci, která implementuje `IteratorAggregate`, můžete zkusit `foreach(clone $collection as $key => $value) { /* .. */ }`.
-	- Mějte však na paměti, že je to pomalé.
-	- A všude kde iterujete kolekci budete muset navíc ještě psát i `clone`.
+    - Mějte však na paměti, že je to pomalé.
+    - A všude kde iterujete kolekci budete muset navíc ještě psát i `clone`.
 
 
 ### Bonusový úkol

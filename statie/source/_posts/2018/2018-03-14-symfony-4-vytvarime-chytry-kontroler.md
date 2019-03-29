@@ -179,7 +179,7 @@ abstract class AbstractController extends Controller
             '/\:\:render(?<template>\S+)/',
             $this->get('request_stack')->getCurrentRequest()->attributes->get('_controller'),
             $matches
-	      );
+          );
 
         // ...
         return $this->render(
