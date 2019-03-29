@@ -13,77 +13,74 @@
 
         <hr>
 
-        <div class="row">
-            {% for training in trainings if training.isActive() %}
-                <div class="flex col-md-6">
-                    <h2>
-                        <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">
-                            <strong>{{ training.getName()|raw }}</strong>
-                        </a>
-                    </h2>
+        <br>
 
-                    <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/" class="d-block text-center pt-xl-5 pb-xl-5 border-secondary border mb-3 mt-3">
-                        {% if training.getImage() %}
-                            <img src="{{ image_uploads }}/{{ training.getImage() }}" width="150" alt="">
-                        {% endif %}
+        <p>Další školení připravujeme na <strong>květen/červen 2019</strong></p>
 
-                        {% set trainer = training.getTrainer() %}
-                        {% if trainer.getImage() %}
-                            <img width="120" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail ml-5 rounded-circle pull-right" alt="">
-                        {% endif %}
-                    </a>
+{#        <div class="row">#}
+{#            {% for training in trainings if training.isActive() %}#}
+{#                <div class="flex col-md-6">#}
+{#                    <h2>#}
+{#                        <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">#}
+{#                            <strong>{{ training.getName()|raw }}</strong>#}
+{#                        </a>#}
+{#                    </h2>#}
 
-                    {% if training.getPerex() %}
-                        <p>{{ training.getPerex()|raw }}</p>
-                    {% endif %}
+{#                    <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/" class="d-block text-center pt-xl-5 pb-xl-5 border-secondary border mb-3 mt-3">#}
+{#                        {% if training.getImage() %}#}
+{#                            <img src="{{ image_uploads }}/{{ training.getImage() }}" width="150" alt="">#}
+{#                        {% endif %}#}
 
-                    <p>Příští termín: <strong>{{ training.getNearestTermDateTime()|date }}</strong></p>
-                    <p>
-                        Lektor:
-                        <strong>
-                            {% if training.getTrainerWebsite() %}
-                            <a href="{{ training.getTrainerWebsite() }}">
-                                {% endif %}
+{#                        {% set trainer = training.getTrainer() %}#}
+{#                        {% if trainer.getImage() %}#}
+{#                            <img width="120" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail ml-5 rounded-circle pull-right" alt="">#}
+{#                        {% endif %}#}
+{#                    </a>#}
 
-                                {{ training.getTrainerName() }}
+{#                    {% if training.getPerex() %}#}
+{#                        <p>{{ training.getPerex()|raw }}</p>#}
+{#                    {% endif %}#}
 
-                                {% if training.getTrainerWebsite() %}
-                            </a>
-                            {% endif %}
-                        </strong>
-                    </p>
+{#                    <p>Příští termín: <strong>{{ training.getNearestTermDateTime()|date }}</strong></p>#}
+{#                    <p>#}
+{#                        Lektor:#}
+{#                        <strong>#}
+{#                            {% if training.getTrainerWebsite() %}#}
+{#                            <a href="{{ training.getTrainerWebsite() }}">#}
+{#                                {% endif %}#}
 
-                    <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success btn-xs-block-only">
-                        <em class="fa fa-fw fa-handshake"></em>
-                        &nbsp;
-                        Přihlaš se
-                    </a>
-                    <br>
-                </div>
-            {% endfor %}
-        </div>
+{#                                {{ training.getTrainerName() }}#}
+
+{#                                {% if training.getTrainerWebsite() %}#}
+{#                            </a>#}
+{#                            {% endif %}#}
+{#                        </strong>#}
+{#                    </p>#}
+
+{#                    <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success btn-xs-block-only">#}
+{#                        <em class="fa fa-fw fa-handshake"></em>#}
+{#                        &nbsp;#}
+{#                        Přihlaš se#}
+{#                    </a>#}
+{#                    <br>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
 
         <br>
 
-        <hr>
-
-        <br>
-
-        <div class="text-center text-smaller">
-            <p>Další kurzy, které teď nemají vypsaný termín:</p>
-            <p>
-
-                {% for training in trainings %}
-                {% if training.isActive() == false %}
-            <li>
-                <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">
-                    {{ training.getName()|raw }}
-                </a>
-            </li>
-            {% endif %}
-            {% endfor %}
-            </p>
-        </div>
+{#        <div class="text-center text-smaller">#}
+{#            <p>Další kurzy, které teď nemají vypsaný termín:</p>#}
+{#            <p>#}
+{#                {% for training in trainings if training.isActive() == false %}#}
+{#                    <li>#}
+{#                        <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">#}
+{#                            {{ training.getName()|raw }}#}
+{#                        </a>#}
+{#                    </li>#}
+{#                {% endfor %}#}
+{#            </p>#}
+{#        </div>#}
 
         <hr>
 
@@ -215,7 +212,8 @@
     <div class="text-center">
         <h2>Už {{ total_training_term_count }} proběhlých školení</h2>
 
-        <p>Od <strong>května 2017</strong> jsme zorganizovali 9 veřejných školení od 5 odborných školitelů.</p>
+        {# @todo count unique trainers #}
+        <p>Od <strong>května 2017</strong> jsme zorganizovali {{ total_training_term_count }} veřejných školení od 5 odborných školitelů.</p>
 
         <br>
 
