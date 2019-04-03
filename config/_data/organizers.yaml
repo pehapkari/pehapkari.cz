@@ -39,6 +39,11 @@ parameters:
             name: "Jan Kopp"
             responsibility: "organizace srazů v Pardubicích"
             url: "https://www.digitalsolutions.cz/"
+        -
+            photo: "martin_prokes.jpg"
+            name: "Martin Prokeš"
+            responsibility: "organizace srazů v Havlíčkově Brodě"
+            url: "https://www.hubbr.cz/"
 
         # České Budějovice
         -
