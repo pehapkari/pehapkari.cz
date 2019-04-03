@@ -14,7 +14,10 @@ framework:
     php_errors:
         log: true
     assets:
-        json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'
+        # use modern manifest later https://symfony.com/doc/current/reference/configuration/framework.html#reference-assets-json-manifest-path
+#        json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'
+        version: 'v2'
+
     cache:
         # this value is used as part of the "namespace" generated for the cache item keys
         # to avoid collisions when multiple apps share the same cache backend (e.g. a Redis server)
