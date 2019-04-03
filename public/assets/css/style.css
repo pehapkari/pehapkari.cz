@@ -527,3 +527,23 @@ footer #posobota-logo, footer #pehapkari-logo {
 p.bigger {
     font-size: 1.4em;
 }
+
+/* menu */
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+header nav ul li {
+    display: block;
+    float: left;
+}
+
+header nav #top-menu-search {
+    /*float: none;*/
+    overflow: hidden;
+    margin-top: .3em;
+    margin-right: .9em;
+}

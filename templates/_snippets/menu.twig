@@ -3,29 +3,32 @@
     <div class="hidden-sm-down">
         <div class="container-fluid">
             <a href="/"><img src="{{ asset('/assets/images/logo-header.svg') }}" alt="" height="50"></a>
+            <nav class="navbar float-right">
+                <ul>
+                    <li id="top-menu-search">
+                        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+                            <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+                            <input name="sitesearch" value="pehapkari.cz" type="hidden"/>
+                            <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Napiš co hledáš..." autocomplete="off"/>
+                        </form>
+                    </li>
 
-            <nav class="navbar top-navigation">
-                <!-- inspired and taken from: https://github.com/yegor256/blog/blob/master/_layouts/default.html -->
-                <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction" class="col-md-6 pull-right mr-2">
-                    <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
-                    <input name="sitesearch" value="pehapkari.cz" type="hidden"/>
-                    <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search with Google..." autocomplete="off"/>
-                </form>
+                    <li>
+                        <a href="{{ path('blog') }}" class="{{ active_item(['blog', 'post']) }}">
+                            <em class="fa fa-newspaper fa-fw"></em>
+                            &nbsp;
+                            Blog
+                        </a>
+                    </li>
 
-                <a href="{{ path('blog') }}" class="{{ active_item(['blog', 'post']) }}">
-                    <em class="fa fa-newspaper fa-fw"></em>
-                    &nbsp;
-                    Blog
-                </a>
-
-                &nbsp;
-                &nbsp;
-
-                <a href="{{ path('trainings') }}" class="{{ active_item(['trainings', 'training-detail']) }}">
-                    <em class="fa fa-graduation-cap fa-fw"></em>
-                    &nbsp;
-                    Školení
-                </a>
+                    <li>
+                        <a href="{{ path('trainings') }}" class="{{ active_item(['trainings', 'training-detail']) }}">
+                            <em class="fa fa-graduation-cap fa-fw"></em>
+                            &nbsp;
+                            Školení
+                        </a>
+                    </li>
+                </ul>
             </nav>
         </div>
     </div>
