@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Controller;
+namespace Pehapkari\Training\Controller;
 
 use Nette\Utils\Strings;
-use OpenTraining\Training\Certificate\CertificateGenerator;
-use OpenTraining\Training\Entity\TrainingTerm;
-use OpenTraining\Zip\Zip;
+use Pehapkari\Training\Certificate\CertificateGenerator;
+use Pehapkari\Training\Entity\TrainingTerm;
+use Pehapkari\Zip\Zip;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

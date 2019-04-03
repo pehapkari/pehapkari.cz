@@ -7,6 +7,6 @@ parameters:
         pdfDirectory: %appDir%/../invoices
 
 services:
-    - OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Config\InvoicingConfig( %invoicing% )
-    - OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormOldFactory( %invoicing% )
-    - OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormNewFactoryInterface
+    - Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Config\InvoicingConfig( %invoicing% )
+    - Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormOldFactory( %invoicing% )
+    - Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormNewFactoryInterface

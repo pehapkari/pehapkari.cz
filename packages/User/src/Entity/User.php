@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\User\Entity;
+namespace Pehapkari\User\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -36,7 +36,7 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\User\Entity\Role")
+     * @ORM\ManyToOne(targetEntity="Pehapkari\User\Entity\Role")
      * @var Role
      */
     private $role;

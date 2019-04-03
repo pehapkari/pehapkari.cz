@@ -7,5 +7,5 @@
 require_once __DIR__ . '/../../../../../vendor/autoload.php';
 
 $application = new Symfony\Component\Console\Application;
-$application->add(new OpenTraining\Statie\Posts\Year2017\SymfonyConsole\Command\HashPasswordCommand());
+$application->add(new Pehapkari\Statie\Posts\Year2017\SymfonyConsole\Command\HashPasswordCommand());
 $application->run();

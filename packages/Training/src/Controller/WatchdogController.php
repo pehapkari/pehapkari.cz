@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Controller;
+namespace Pehapkari\Training\Controller;
 
-use OpenTraining\Training\Entity\Training;
-use OpenTraining\Training\Entity\Watchdog;
-use OpenTraining\Training\Form\WatchdogFormType;
-use OpenTraining\Training\Repository\WatchdogRepository;
+use Pehapkari\Training\Entity\Training;
+use Pehapkari\Training\Entity\Watchdog;
+use Pehapkari\Training\Form\WatchdogFormType;
+use Pehapkari\Training\Repository\WatchdogRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

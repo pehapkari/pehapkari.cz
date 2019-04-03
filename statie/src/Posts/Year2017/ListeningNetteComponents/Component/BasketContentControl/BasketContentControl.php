@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Component\BasketContentControl;
+namespace Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Component\BasketContentControl;
 
 use Nette\Application\UI\Control;
 use Nette\Bridges\ApplicationLatte\Template;
-use OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Event\ProductAddedToBasketEvent;
+use Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Event\ProductAddedToBasketEvent;
 
 /**
  * @method Template getTemplate()

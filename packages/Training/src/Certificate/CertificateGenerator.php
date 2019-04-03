@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Certificate;
+namespace Pehapkari\Training\Certificate;
 
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
-use OpenTraining\Registration\Entity\TrainingRegistration;
+use Pehapkari\Registration\Entity\TrainingRegistration;
 use setasign\Fpdi\Fpdi;
 
 final class CertificateGenerator

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2017\SymfonyValidatorComparisonConstraints;
+namespace Pehapkari\Statie\Posts\Year2017\SymfonyValidatorComparisonConstraints;
 
 use DateTime;
 use Symfony\Component\Validator\Constraints as Assert;

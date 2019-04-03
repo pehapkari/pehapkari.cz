@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Twig\Extension;
+namespace Pehapkari\Twig\Extension;
 
 use Nette\Utils\Strings;
-use OpenTraining\Exception\Twig\InvalidWordCountException;
+use Pehapkari\Exception\Twig\InvalidWordCountException;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 

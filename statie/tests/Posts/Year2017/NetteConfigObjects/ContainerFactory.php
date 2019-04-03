@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2017\NetteConfigObjects;
+namespace Pehapkari\Statie\Tests\Posts\Year2017\NetteConfigObjects;
 
 use Nette\Configurator;
 use Nette\DI\Container;

@@ -3,6 +3,6 @@ services:
         autowire: true
         public: true
 
-    OpenTraining\Provision\:
+    Pehapkari\Provision\:
         resource: '../src/'
         exclude: '../src/{Entity,Data}'

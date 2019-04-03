@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Exception\Twig;
+namespace Pehapkari\Exception\Twig;
 
 use Exception;
 

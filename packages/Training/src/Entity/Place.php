@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Entity;
+namespace Pehapkari\Training\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use OpenTraining\BetterEasyAdmin\Entity\UploadableImageTrait;
+use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**

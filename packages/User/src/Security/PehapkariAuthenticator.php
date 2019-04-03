@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\User\Security;
+namespace Pehapkari\User\Security;
 
 use Doctrine\ORM\EntityManagerInterface;
-use OpenTraining\User\Entity\User;
+use Pehapkari\User\Entity\User;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,7 +23,7 @@ use Symfony\Component\Security\Http\Util\TargetPathTrait;
 /**
  * @see https://symfony.com/doc/4.1/security/form_login_setup.html
  */
-final class OpenTrainingAuthenticator extends AbstractFormLoginAuthenticator
+final class PehapkariAuthenticator extends AbstractFormLoginAuthenticator
 {
     use TargetPathTrait;
 
@@ -124,7 +124,7 @@ final class OpenTrainingAuthenticator extends AbstractFormLoginAuthenticator
             }
         }
 
-        return new RedirectResponse($this->router->generate('admin'));
+        return new RedirectResponse($this->router->generate('easyadmin'));
     }
 
     protected function getLoginUrl(): string

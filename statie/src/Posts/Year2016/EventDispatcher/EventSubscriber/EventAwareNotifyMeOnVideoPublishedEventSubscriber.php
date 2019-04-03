@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2016\EventDispatcher\EventSubscriber;
+namespace Pehapkari\Statie\Posts\Year2016\EventDispatcher\EventSubscriber;
 
-use OpenTraining\Statie\Posts\Year2016\EventDispatcher\Event\YoutuberNameEvent;
+use Pehapkari\Statie\Posts\Year2016\EventDispatcher\Event\YoutuberNameEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class EventAwareNotifyMeOnVideoPublishedEventSubscriber implements EventSubscriberInterface

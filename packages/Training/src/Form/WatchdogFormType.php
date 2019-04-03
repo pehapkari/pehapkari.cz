@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Form;
+namespace Pehapkari\Training\Form;
 
-use OpenTraining\Training\Entity\Training;
-use OpenTraining\Training\Entity\Watchdog;
+use Pehapkari\Training\Entity\Training;
+use Pehapkari\Training\Entity\Watchdog;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;

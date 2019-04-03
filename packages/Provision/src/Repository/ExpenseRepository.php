@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Provision\Repository;
+namespace Pehapkari\Provision\Repository;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
-use OpenTraining\Provision\Data\Partner;
-use OpenTraining\Provision\Data\TrainingTermExpenses;
-use OpenTraining\Provision\Entity\Expense;
-use OpenTraining\Training\Entity\TrainingTerm;
+use Pehapkari\Provision\Data\Partner;
+use Pehapkari\Provision\Data\TrainingTermExpenses;
+use Pehapkari\Provision\Entity\Expense;
+use Pehapkari\Training\Entity\TrainingTerm;
 
 final class ExpenseRepository
 {

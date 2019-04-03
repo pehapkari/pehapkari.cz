@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Entity;
+namespace Pehapkari\Training\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
-use OpenTraining\BetterEasyAdmin\Entity\UploadableImageTrait;
+use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -57,7 +57,7 @@ class Trainer
     private $bio;
 
     /**
-     * @ORM\OneToMany(targetEntity="OpenTraining\Training\Entity\Training", mappedBy="trainer")
+     * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\Training", mappedBy="trainer")
      * @var Training[]|ArrayCollection
      */
     private $trainings = [];

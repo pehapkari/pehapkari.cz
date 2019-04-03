@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\BetterEasyAdmin\ConfigPass;
+namespace Pehapkari\BetterEasyAdmin\ConfigPass;
 
 use EasyCorp\Bundle\EasyAdminBundle\Configuration\ConfigPassInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -8,8 +8,8 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 
 /**
  * Works best with:
- * - @see \OpenTraining\BetterEasyAdmin\DependencyInjection\CompilerPass\CorrectionCompilerPass
- * - @see \OpenTraining\BetterEasyAdmin\Entity\UploadableImageTrait
+ * - @see \Pehapkari\BetterEasyAdmin\DependencyInjection\CompilerPass\CorrectionCompilerPass
+ * - @see \Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait
  */
 final class ImagePropertyAutoconfigureConfigPass implements ConfigPassInterface
 {

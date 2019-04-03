@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Twig\Extension;
+namespace Pehapkari\Twig\Extension;
 
 use Symplify\Statie\Exception\Configuration\ConfigurationException;
 use Symplify\Statie\Generator\RelatedItemsResolver;

@@ -2,6 +2,6 @@ easy_admin:
     entities:
         Expense:
             label: 'Výdaje'
-            class: 'OpenTraining\Provision\Entity\Expense'
+            class: 'Pehapkari\Provision\Entity\Expense'
             # see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/complex-dynamic-backends.html#customization-based-on-entity-controllers
-            controller: 'OpenTraining\Provision\Controller\ExpenseController'
+            controller: 'Pehapkari\Provision\Controller\ExpenseController'

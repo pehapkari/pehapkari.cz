@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\DependencyInjection;
+namespace Pehapkari\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Container;
 use Symplify\Statie\Configuration\StatieConfiguration;

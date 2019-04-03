@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Entity;
+namespace Pehapkari\Training\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -67,7 +67,7 @@ class TrainingFeedback
     private $isAgreedWithPublishingName = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Training", inversedBy="trainingFeedbacks")
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingFeedbacks")
      * @var Training
      *
      * @Assert\NotNull

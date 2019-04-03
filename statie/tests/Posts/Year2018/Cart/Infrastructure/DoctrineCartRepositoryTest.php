@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2018\Cart\Infrastructure;
+namespace Pehapkari\Statie\Tests\Posts\Year2018\Cart\Infrastructure;
 
 use Doctrine\ORM\EntityManager;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Cart;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Item;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Price;
-use OpenTraining\Statie\Posts\Year2018\Cart\Infrastructure\DoctrineCartRepository;
-use OpenTraining\Statie\Tests\Posts\Year2018\Cart\Utils\ConnectionManager;
-use OpenTraining\Statie\Tests\Posts\Year2018\Cart\Utils\EntityManagerFactory;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\Cart;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\Item;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\Price;
+use Pehapkari\Statie\Posts\Year2018\Cart\Infrastructure\DoctrineCartRepository;
+use Pehapkari\Statie\Tests\Posts\Year2018\Cart\Utils\ConnectionManager;
+use Pehapkari\Statie\Tests\Posts\Year2018\Cart\Utils\EntityManagerFactory;
 use PHPUnit\Framework\Assert;
 
 final class DoctrineCartRepositoryTest extends AbstractCartRepositoryTest

@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2017\SymfonyValidatorDynamicConstraints\IsoCodes;
+namespace Pehapkari\Statie\Posts\Year2017\SymfonyValidatorDynamicConstraints\IsoCodes;
 
-use OpenTraining\Statie\Posts\Year2017\SymfonyValidatorDynamicConstraints\Exception\MissingZipCodeValidatorException;
+use Pehapkari\Statie\Posts\Year2017\SymfonyValidatorDynamicConstraints\Exception\MissingZipCodeValidatorException;
 
 /**
  * Inspired by https://github.com/ronanguilloux/IsoCodes/blob/master/src/IsoCodes/ZipCode.php.

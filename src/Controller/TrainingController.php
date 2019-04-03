@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Controller;
+namespace Pehapkari\Controller;
 
-use OpenTraining\Registration\Repository\TrainingRegistrationRepository;
-use OpenTraining\Training\Entity\Training;
-use OpenTraining\Training\Repository\PlaceRepository;
-use OpenTraining\Training\Repository\TrainingRepository;
-use OpenTraining\Training\Repository\TrainingTermRepository;
+use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
+use Pehapkari\Training\Entity\Training;
+use Pehapkari\Training\Repository\PlaceRepository;
+use Pehapkari\Training\Repository\TrainingRepository;
+use Pehapkari\Training\Repository\TrainingTermRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

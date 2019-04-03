@@ -3,5 +3,5 @@ easy_admin:
     entities:
         User:
             label: 'Uživatelé'
-            class: 'OpenTraining\User\Entity\User'
+            class: 'Pehapkari\User\Entity\User'
             role_prefix: ROLE_ADMIN

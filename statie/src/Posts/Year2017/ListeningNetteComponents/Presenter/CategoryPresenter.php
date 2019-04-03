@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Presenter;
+namespace Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Presenter;
 
 use Nette\Application\UI\Multiplier;
 use Nette\Application\UI\Presenter;
 use Nette\Bridges\ApplicationLatte\Template;
-use OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Component\AddToBasketControl\AddToBasketControlFactoryInterface;
-use OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Component\BasketContentControl\BasketContentControl;
-use OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Component\BasketContentControl\BasketContentControlFactoryInterface;
-use OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Event\ProductAddedToBasketEvent;
+use Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Component\AddToBasketControl\AddToBasketControlFactoryInterface;
+use Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Component\BasketContentControl\BasketContentControl;
+use Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Component\BasketContentControl\BasketContentControlFactoryInterface;
+use Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Event\ProductAddedToBasketEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**

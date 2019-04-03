@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Forms;
+namespace Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Forms;
 
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;

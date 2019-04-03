@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Registration\Geo;
+namespace Pehapkari\Registration\Geo;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;

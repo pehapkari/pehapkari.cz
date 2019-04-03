@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Entity;
+namespace Pehapkari\Training\Entity;
 
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use OpenTraining\BetterEasyAdmin\Entity\UploadableImageTrait;
+use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -69,13 +69,13 @@ class Training
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Trainer", inversedBy="trainings")
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Trainer", inversedBy="trainings")
      * @var Trainer
      */
     private $trainer;
 
     /**
-     * @ORM\OneToMany(targetEntity="OpenTraining\Training\Entity\TrainingTerm", mappedBy="training")
+     * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\TrainingTerm", mappedBy="training")
      * @var TrainingTerm[]|ArrayCollection
      */
     private $trainingTerms = [];

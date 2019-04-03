@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Provision\Data;
+namespace Pehapkari\Provision\Data;
 
 final class Provision
 {

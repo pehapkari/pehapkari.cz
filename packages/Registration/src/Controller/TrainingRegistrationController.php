@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Registration\Controller;
+namespace Pehapkari\Registration\Controller;
 
-use OpenTraining\Registration\Entity\TrainingRegistration;
-use OpenTraining\Registration\Form\TrainingRegistrationFormType;
-use OpenTraining\Registration\Repository\TrainingRegistrationRepository;
-use OpenTraining\Training\Entity\TrainingTerm;
+use Pehapkari\Registration\Entity\TrainingRegistration;
+use Pehapkari\Registration\Form\TrainingRegistrationFormType;
+use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
+use Pehapkari\Training\Entity\TrainingTerm;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

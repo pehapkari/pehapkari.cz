@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Repository;
+namespace Pehapkari\Training\Repository;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
-use OpenTraining\Training\Entity\TrainingFeedback;
+use Pehapkari\Training\Entity\TrainingFeedback;
 
 final class TrainingFeedbackRepository
 {

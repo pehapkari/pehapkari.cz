@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Exception;
+namespace Pehapkari\Exception;
 
 use Exception;
 

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2017\SymfonyConsole\Command;
+namespace Pehapkari\Statie\Posts\Year2017\SymfonyConsole\Command;
 
 use Nette\Security\Passwords;
 use Symfony\Component\Console\Command\Command;

@@ -13,5 +13,5 @@ easy_admin:
     entities:
         UserRole:
             label: 'Přístupové role'
-            class: 'OpenTraining\User\Entity\Role'
+            class: 'Pehapkari\User\Entity\Role'
             role_prefix: ROLE_SUPER_ADMIN

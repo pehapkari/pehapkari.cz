@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Registration\Repository;
+namespace Pehapkari\Registration\Repository;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
-use OpenTraining\Registration\Entity\TrainingRegistration;
+use Pehapkari\Registration\Entity\TrainingRegistration;
 
 final class TrainingRegistrationRepository
 {

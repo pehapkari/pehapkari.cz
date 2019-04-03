@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2017\Iterators;
+namespace Pehapkari\Statie\Tests\Posts\Year2017\Iterators;
 
 use PHPUnit\Framework\TestCase;
 use SplFixedArray;

@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Provision\Entity;
+namespace Pehapkari\Provision\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use OpenTraining\Training\Entity\TrainingTerm;
+use Pehapkari\Training\Entity\TrainingTerm;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -38,7 +38,7 @@ class Expense
     private $partner;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm")
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm")
      * @var TrainingTerm
      * @Assert\NotNull
      */

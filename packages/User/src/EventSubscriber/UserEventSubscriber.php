@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\User\EventSubscriber;
+namespace Pehapkari\User\EventSubscriber;
 
 use EasyCorp\Bundle\EasyAdminBundle\Event\EasyAdminEvents;
-use OpenTraining\User\Entity\User;
+use Pehapkari\User\Entity\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;

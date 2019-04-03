@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Entity;
+namespace Pehapkari\Training\Entity;
 
 use DateTime;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use OpenTraining\Registration\Entity\TrainingRegistration;
+use Pehapkari\Registration\Entity\TrainingRegistration;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -69,20 +69,20 @@ class TrainingTerm
     private $endDateTime;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Training", inversedBy="trainingTerms")
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingTerms")
      * @Assert\NotNull
      * @var Training
      */
     private $training;
 
     /**
-     * @ORM\OneToMany(targetEntity="OpenTraining\Registration\Entity\TrainingRegistration", mappedBy="trainingTerm")
+     * @ORM\OneToMany(targetEntity="Pehapkari\Registration\Entity\TrainingRegistration", mappedBy="trainingTerm")
      * @var TrainingRegistration[]|Collection
      */
     private $registrations;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Place")
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Place")
      * @var Place
      */
     private $place;

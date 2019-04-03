@@ -25,15 +25,15 @@ services:
             $authors: '%authors%'
             $phpPrague: '%php_prague%'
 
-    OpenTraining\:
+    Pehapkari\:
         resource: '../src/'
-        exclude: '../src/{OpenTrainingKernel.php}'
+        exclude: '../src/{PehapkariKernel.php}'
 
     Defr\Ares: ~
     GuzzleHttp\Client: ~
 
     Symplify\Statie\Generator\Generator:
-        factory: ['@OpenTraining\DependencyInjection\StatieFactory', 'createGenerator']
+        factory: ['@Pehapkari\DependencyInjection\StatieFactory', 'createGenerator']
 
     Symplify\Statie\Generator\RelatedItemsResolver:
-        factory: ['@OpenTraining\DependencyInjection\StatieFactory', 'createRelatedItemsResolver']
+        factory: ['@Pehapkari\DependencyInjection\StatieFactory', 'createRelatedItemsResolver']

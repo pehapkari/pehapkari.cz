@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Controller;
+namespace Pehapkari\Training\Controller;
 
-use OpenTraining\Training\Entity\TrainingFeedback;
-use OpenTraining\Training\Form\FeedbackFormType;
-use OpenTraining\Training\Repository\TrainingFeedbackRepository;
+use Pehapkari\Training\Entity\TrainingFeedback;
+use Pehapkari\Training\Form\FeedbackFormType;
+use Pehapkari\Training\Repository\TrainingFeedbackRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

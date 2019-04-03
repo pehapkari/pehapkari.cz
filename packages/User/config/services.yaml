@@ -3,7 +3,7 @@ services:
         public: true
         autowire: true
 
-    OpenTraining\User\:
+    Pehapkari\User\:
         resource: '../src'
 
     # consider SecurityUser entity decoupling in the future

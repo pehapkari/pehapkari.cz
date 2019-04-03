@@ -1,7 +1,7 @@
 application:
     scanDirs: FALSE
     mapping:
-        *: OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Presenter\*Presenter
+        *: Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Presenter\*Presenter
 
 services:
     routing.router: Nette\Application\Routers\SimpleRouter('Category:default')
@@ -9,5 +9,5 @@ services:
     - Symfony\Component\EventDispatcher\EventDispatcher
 
     # component factories
-    - OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Component\AddToBasketControl\AddToBasketControlFactoryInterface
-    - OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Component\BasketContentControl\BasketContentControlFactoryInterface
+    - Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Component\AddToBasketControl\AddToBasketControlFactoryInterface
+    - Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Component\BasketContentControl\BasketContentControlFactoryInterface

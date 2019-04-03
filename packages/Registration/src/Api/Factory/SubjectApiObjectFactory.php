@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Registration\Api\Factory;
+namespace Pehapkari\Registration\Api\Factory;
 
 use Defr\Ares;
 use K0nias\FakturoidApi\Model\Subject\OptionalParameters;
 use K0nias\FakturoidApi\Model\Subject\Subject;
-use OpenTraining\Registration\Entity\TrainingRegistration;
-use OpenTraining\Registration\Geo\FullAddressResolver;
+use Pehapkari\Registration\Entity\TrainingRegistration;
+use Pehapkari\Registration\Geo\FullAddressResolver;
 
 final class SubjectApiObjectFactory
 {

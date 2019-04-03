@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\BetterEasyAdmin\DependencyInjection\CompilerPass;
+namespace Pehapkari\BetterEasyAdmin\DependencyInjection\CompilerPass;
 
 use Nette\Utils\Strings;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;

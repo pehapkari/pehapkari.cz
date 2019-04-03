@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Entity;
+namespace Pehapkari\Training\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
@@ -39,7 +39,7 @@ class Watchdog
     private $isInformed = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\Training")
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training")
      * @var Training
      */
     private $training;

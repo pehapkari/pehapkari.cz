@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2016\EventDispatcher;
+namespace Pehapkari\Statie\Tests\Posts\Year2016\EventDispatcher;
 
-use OpenTraining\Statie\Posts\Year2016\EventDispatcher\EventSubscriber\NotifyMeOnVideoPublishedEventSubscriber;
+use Pehapkari\Statie\Posts\Year2016\EventDispatcher\EventSubscriber\NotifyMeOnVideoPublishedEventSubscriber;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 

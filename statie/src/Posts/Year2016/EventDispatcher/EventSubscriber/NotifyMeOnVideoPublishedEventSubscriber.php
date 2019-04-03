@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2016\EventDispatcher\EventSubscriber;
+namespace Pehapkari\Statie\Posts\Year2016\EventDispatcher\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
