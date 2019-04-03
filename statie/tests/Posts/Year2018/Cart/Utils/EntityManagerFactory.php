@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2018\Cart\Utils;
+namespace Pehapkari\Statie\Tests\Posts\Year2018\Cart\Utils;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\Configuration;
@@ -22,7 +22,7 @@ final class EntityManagerFactory
 
         $cartMappingDirectory = __DIR__ . '/../../../../../src/Posts/Year2018/Cart/Infrastructure/DoctrineMapping';
         $namespaces = [
-            $cartMappingDirectory => 'OpenTraining\\Statie\\Posts\\Year2018\\Cart\\Domain',
+            $cartMappingDirectory => 'Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Domain',
         ];
         $xmlDrive = new SimplifiedXmlDriver($namespaces, '.xml');
 

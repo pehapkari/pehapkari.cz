@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\BetterEasyAdmin\ConfigPass;
+namespace Pehapkari\BetterEasyAdmin\ConfigPass;
 
 use EasyCorp\Bundle\EasyAdminBundle\Configuration\ConfigPassInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;

@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Provision\Controller;
+namespace Pehapkari\Provision\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
-use OpenTraining\Provision\Repository\ExpenseRepository;
-use OpenTraining\Training\Entity\TrainingTerm;
+use Pehapkari\Provision\Repository\ExpenseRepository;
+use Pehapkari\Training\Entity\TrainingTerm;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 

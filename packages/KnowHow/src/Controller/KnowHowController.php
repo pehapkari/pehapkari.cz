@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\KnowHow\Controller;
+namespace Pehapkari\KnowHow\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

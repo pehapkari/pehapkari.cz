@@ -29,7 +29,7 @@ services:
         extra_allowed_classes:
             - 'K0nias\FakturoidApi\*'
             - 'setasign\Fpdi\*'
-            - 'OpenTraining\Provision\Data\*'
+            - 'Pehapkari\Provision\Data\*'
             - 'App\Request\*Request'
             - 'Doctrine\Common\Collections\ArrayCollection'
             - 'Symfony\Component\Form\FormError'
@@ -48,7 +48,7 @@ parameters:
     skip:
         # 3rd party contract
         SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
-            - 'packages/User/src/Security/OpenTrainingAuthenticator.php'
+            - 'packages/User/src/Security/PehapkariAuthenticator.php'
 
         Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer:
             - 'src/Posts/Year2018/Cart/Domain/Cart.php'

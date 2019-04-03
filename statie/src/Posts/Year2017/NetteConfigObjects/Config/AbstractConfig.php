@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Config;
+namespace Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Config;
 
 use Nette\Utils\ArrayHash;
 

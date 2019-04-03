@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining;
+namespace Pehapkari;
 
 use Iterator;
-use OpenTraining\BetterEasyAdmin\DependencyInjection\CompilerPass\CorrectionCompilerPass;
+use Pehapkari\BetterEasyAdmin\DependencyInjection\CompilerPass\CorrectionCompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -16,7 +16,7 @@ use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCo
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireSinglyImplementedCompilerPass;
 
-final class OpenTrainingKernel extends Kernel
+final class PehapkariKernel extends Kernel
 {
     use MicroKernelTrait;
 

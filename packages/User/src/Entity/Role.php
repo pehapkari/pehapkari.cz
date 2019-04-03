@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\User\Entity;
+namespace Pehapkari\User\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Nette\Utils\Strings;
-use OpenTraining\User\Exception\InvalidEntityException;
+use Pehapkari\User\Exception\InvalidEntityException;
 
 /**
  * @ORM\Entity

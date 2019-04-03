@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Component\AddToBasketControl;
+namespace Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Component\AddToBasketControl;
 
 use Nette\Application\UI\Control;
-use OpenTraining\Statie\Posts\Year2017\ListeningNetteComponents\Event\ProductAddedToBasketEvent;
+use Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Event\ProductAddedToBasketEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 final class AddToBasketControl extends Control

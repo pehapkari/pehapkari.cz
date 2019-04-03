@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2018\Cart\Utils;
+namespace Pehapkari\Statie\Tests\Posts\Year2018\Cart\Utils;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver;
 use Doctrine\DBAL\Driver\PDOMySql\Driver as MySqlDriver;
 use Doctrine\DBAL\Driver\PDOPgSql\Driver as PgSqlDriver;
 use Doctrine\DBAL\Driver\PDOSqlite\Driver as SqliteDriver;
-use OpenTraining\Exception\ShouldNotHappenException;
+use Pehapkari\Exception\ShouldNotHappenException;
 
 final class ConnectionManager
 {

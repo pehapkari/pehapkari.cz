@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2017\SymfonyConsole\Command;
+namespace Pehapkari\Statie\Tests\Posts\Year2017\SymfonyConsole\Command;
 
-use OpenTraining\Statie\Posts\Year2017\SymfonyConsole\Command\HashPasswordCommand;
+use Pehapkari\Statie\Posts\Year2017\SymfonyConsole\Command\HashPasswordCommand;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\StringInput;

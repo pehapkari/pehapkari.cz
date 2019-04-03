@@ -2,7 +2,7 @@ easy_admin:
     entities:
         Registration:
             label: 'Registrace'
-            class: 'OpenTraining\Registration\Entity\TrainingRegistration'
+            class: 'Pehapkari\Registration\Entity\TrainingRegistration'
 
             list:
                 fields:

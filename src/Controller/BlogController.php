@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Controller;
+namespace Pehapkari\Controller;
 
-use OpenTraining\Blog\PostsProvider;
-use OpenTraining\Exception\ShouldNotHappenException;
+use Pehapkari\Blog\PostsProvider;
+use Pehapkari\Exception\ShouldNotHappenException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

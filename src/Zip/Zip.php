@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Zip;
+namespace Pehapkari\Zip;
 
 use Chumper\Zipper\Zipper;
 use Nette\Utils\FileSystem;

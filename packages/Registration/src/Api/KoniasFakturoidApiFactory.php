@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Registration\Api;
+namespace Pehapkari\Registration\Api;
 
 use K0nias\FakturoidApi\Api;
 

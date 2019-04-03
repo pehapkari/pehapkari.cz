@@ -14,7 +14,7 @@ services:
         autoconfigure: true
         public: true
 
-    OpenTraining\Training\:
+    Pehapkari\Training\:
         resource: '../src'
         exclude: '../src/{Entity}'
 

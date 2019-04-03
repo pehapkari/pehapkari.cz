@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2018\Cart\Domain;
+namespace Pehapkari\Statie\Tests\Posts\Year2018\Cart\Domain;
 
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Cart;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartDetail;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\ItemDetail;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Price;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\ProductNotInCartException;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\Cart;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\CartDetail;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\ItemDetail;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\Price;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\ProductNotInCartException;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 

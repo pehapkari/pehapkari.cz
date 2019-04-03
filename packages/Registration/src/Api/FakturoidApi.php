@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Registration\Api;
+namespace Pehapkari\Registration\Api;
 
 use K0nias\FakturoidApi\Api;
 use K0nias\FakturoidApi\Http\Request\Invoice\CreateInvoiceRequest;
@@ -23,9 +23,9 @@ use K0nias\FakturoidApi\Model\Message\Message;
 use K0nias\FakturoidApi\Model\Payment\Method;
 use K0nias\FakturoidApi\Model\Subject\Id;
 use K0nias\FakturoidApi\Model\Subject\Subject;
-use OpenTraining\Exception\FakturoidException;
-use OpenTraining\Registration\Api\Factory\SubjectApiObjectFactory;
-use OpenTraining\Registration\Entity\TrainingRegistration;
+use Pehapkari\Exception\FakturoidException;
+use Pehapkari\Registration\Api\Factory\SubjectApiObjectFactory;
+use Pehapkari\Registration\Entity\TrainingRegistration;
 
 /**
  * @see https://fakturoid.docs.apiary.io

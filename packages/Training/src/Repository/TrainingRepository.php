@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Repository;
+namespace Pehapkari\Training\Repository;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Nette\Utils\DateTime;
-use OpenTraining\Training\Entity\Training;
+use Pehapkari\Training\Entity\Training;
 
 final class TrainingRepository
 {

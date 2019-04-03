@@ -8,13 +8,13 @@ security:
             roles: ROLE_ADMIN
 
     encoders:
-        OpenTraining\User\Entity\User: 'argon2i'
+        Pehapkari\User\Entity\User: 'argon2i'
 
     providers:
         # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
         app_user_provider:
             entity:
-                class: 'OpenTraining\User\Entity\User'
+                class: 'Pehapkari\User\Entity\User'
                 property: 'name'
 
     # https://symfony.com/doc/current/security.html#initial-security-yml-setup-authentication
@@ -54,4 +54,4 @@ security:
 
             guard:
                 authenticators:
-                    - OpenTraining\User\Security\OpenTrainingAuthenticator
+                    - Pehapkari\User\Security\PehapkariAuthenticator

@@ -1,17 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Provision\Controller;
+namespace Pehapkari\Provision\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
-use OpenTraining\Provision\Data\Partner;
-use OpenTraining\Provision\Entity\Expense;
-use OpenTraining\Training\Entity\TrainingTerm;
-use OpenTraining\Training\Repository\TrainingTermRepository;
+use Pehapkari\Provision\Data\Partner;
+use Pehapkari\Provision\Entity\Expense;
+use Pehapkari\Training\Entity\TrainingTerm;
+use Pehapkari\Training\Repository\TrainingTermRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormInterface;
 
 /**
- * @see \OpenTraining\Provision\Entity\Expense
+ * @see \Pehapkari\Provision\Entity\Expense
  */
 final class ExpenseController extends EasyAdminController
 {

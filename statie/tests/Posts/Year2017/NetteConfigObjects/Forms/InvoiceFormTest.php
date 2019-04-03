@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2017\NetteConfigObjects\Forms;
+namespace Pehapkari\Statie\Tests\Posts\Year2017\NetteConfigObjects\Forms;
 
 use Nette\Application\UI\Form;
 use Nette\DI\Container;
 use Nette\Forms\Controls\SelectBox;
-use OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormNew;
-use OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormNewFactoryInterface;
-use OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormOld;
-use OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormOldFactory;
-use OpenTraining\Statie\Tests\Posts\Year2017\NetteConfigObjects\ContainerFactory;
+use Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormNew;
+use Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormNewFactoryInterface;
+use Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormOld;
+use Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Forms\InvoiceFormOldFactory;
+use Pehapkari\Statie\Tests\Posts\Year2017\NetteConfigObjects\ContainerFactory;
 use PHPUnit\Framework\TestCase;
 
 final class InvoiceFormTest extends TestCase

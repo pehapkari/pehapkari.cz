@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Form;
+namespace Pehapkari\Training\Form;
 
-use OpenTraining\Training\Entity\Training;
-use OpenTraining\Training\Entity\TrainingFeedback;
-use OpenTraining\Training\Repository\TrainingRepository;
+use Pehapkari\Training\Entity\Training;
+use Pehapkari\Training\Entity\TrainingFeedback;
+use Pehapkari\Training\Repository\TrainingRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;

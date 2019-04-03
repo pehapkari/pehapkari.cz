@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Registration\Form;
+namespace Pehapkari\Registration\Form;
 
-use OpenTraining\Registration\Entity\TrainingRegistration;
+use Pehapkari\Registration\Entity\TrainingRegistration;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;

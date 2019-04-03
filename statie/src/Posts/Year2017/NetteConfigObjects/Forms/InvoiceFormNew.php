@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Forms;
+namespace Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Forms;
 
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
 use Nette\Bridges\ApplicationLatte\Template;
-use OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Config\InvoicingConfig;
+use Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Config\InvoicingConfig;
 
 /**
  * @method Template getTemplate()

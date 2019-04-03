@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2017\ListeningNetteComponents;
+namespace Pehapkari\Statie\Tests\Posts\Year2017\ListeningNetteComponents;
 
 use Nette\Application\IPresenter;
 use Nette\Application\IPresenterFactory;

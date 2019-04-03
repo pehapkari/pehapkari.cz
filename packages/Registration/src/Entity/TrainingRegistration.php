@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Registration\Entity;
+namespace Pehapkari\Registration\Entity;
 
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
-use OpenTraining\Training\Entity\TrainingTerm;
+use Pehapkari\Training\Entity\TrainingTerm;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -89,7 +89,7 @@ class TrainingRegistration
     private $fakturoidInvoiceId;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OpenTraining\Training\Entity\TrainingTerm", inversedBy="registrations")
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm", inversedBy="registrations")
      * @var TrainingTerm
      * @Assert\NotNull
      */

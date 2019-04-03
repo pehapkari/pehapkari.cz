@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Blog;
+namespace Pehapkari\Blog;
 
 use Symplify\Statie\Generator\Generator;
 use Symplify\Statie\Renderable\File\PostFile;

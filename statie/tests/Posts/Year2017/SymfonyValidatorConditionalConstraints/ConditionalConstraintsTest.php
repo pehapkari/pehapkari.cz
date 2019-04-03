@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2017\SymfonyValidatorConditionalConstraints;
+namespace Pehapkari\Statie\Tests\Posts\Year2017\SymfonyValidatorConditionalConstraints;
 
-use OpenTraining\Statie\Posts\Year2017\SymfonyValidatorConditionalConstraints\Client;
+use Pehapkari\Statie\Posts\Year2017\SymfonyValidatorConditionalConstraints\Client;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\ConstraintViolationListInterface;

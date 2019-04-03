@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Registration\Controller;
+namespace Pehapkari\Registration\Controller;
 
-use OpenTraining\Registration\Invoicing\Invoicer;
-use OpenTraining\Training\Entity\TrainingTerm;
+use Pehapkari\Registration\Invoicing\Invoicer;
+use Pehapkari\Training\Entity\TrainingTerm;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

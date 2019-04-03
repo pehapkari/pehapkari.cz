@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2018\Cart\Infrastructure;
+namespace Pehapkari\Statie\Posts\Year2018\Cart\Infrastructure;
 
 use Doctrine\ORM\EntityManager;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\Cart;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartNotFoundException;
-use OpenTraining\Statie\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\Cart;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\CartNotFoundException;
+use Pehapkari\Statie\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
 
 final class DoctrineCartRepository implements CartRepositoryInterface
 {

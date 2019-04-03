@@ -4,6 +4,6 @@ services:
         autoconfigure: true
         public: true
 
-    OpenTraining\Registration\:
+    Pehapkari\Registration\:
         resource: '../src'
         exclude: '../src/{Form,Entity}'

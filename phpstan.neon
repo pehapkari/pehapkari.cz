@@ -16,14 +16,14 @@ parameters:
 
         # known value
         - '#Cannot call method render\(\) on Nette\\Application\\UI\\ITemplate\|stdClass#'
-        - '#Method OpenTraining\\Statie\\Posts\\Year2018\\Cart\\Infrastructure\\DoctrineCartRepository::find\(\) should  OpenTraining\\Statie\\Posts\\Year2018\\Cart\\Domain\\Cart|null but returns object|null#'
+        - '#Method Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Infrastructure\\DoctrineCartRepository::find\(\) should  Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Domain\\Cart|null but returns object|null#'
 
         # not sure about this
-        - '#Return type \(array<array<string>>\) of method OpenTraining\\Statie\\Posts\\Year2017\\SymfonyValidatorConditionalConstraints\\Client::getGroupSequence\(\) should be compatible with return type \(array<string>\|Symfony\\Component\\Validator\\Constraints\\GroupSequence\) of method Symfony\\Component\\Validator\\GroupSequenceProviderInterface::getGroupSequence\(\)#'
+        - '#Return type \(array<array<string>>\) of method Pehapkari\\Statie\\Posts\\Year2017\\SymfonyValidatorConditionalConstraints\\Client::getGroupSequence\(\) should be compatible with return type \(array<string>\|Symfony\\Component\\Validator\\Constraints\\GroupSequence\) of method Symfony\\Component\\Validator\\GroupSequenceProviderInterface::getGroupSequence\(\)#'
 
         # known child
-        - '#Property OpenTraining\\Training\\Repository\\TrainingTermRepository::\$entityManager \(Doctrine\\ORM\\EntityManager\) does not accept Doctrine\\ORM\\EntityManagerInterface#'
-        - '#Method OpenTraining\\Blog\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
+        - '#Property Pehapkari\\Training\\Repository\\TrainingTermRepository::\$entityManager \(Doctrine\\ORM\\EntityManager\) does not accept Doctrine\\ORM\\EntityManagerInterface#'
+        - '#Method Pehapkari\\Blog\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
 
         # desired sub-type
-        - '#Method OpenTraining\\DependencyInjection\\StatieFactory\:\:createStatieKernel\(\) should return Symfony\\Component\\DependencyInjection\\Container but returns Symfony\\Component\\DependencyInjection\\ContainerInterface#'
+        - '#Method Pehapkari\\DependencyInjection\\StatieFactory\:\:createStatieKernel\(\) should return Symfony\\Component\\DependencyInjection\\Container but returns Symfony\\Component\\DependencyInjection\\ContainerInterface#'

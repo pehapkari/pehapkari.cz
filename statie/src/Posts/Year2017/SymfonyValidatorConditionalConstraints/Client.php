@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2017\SymfonyValidatorConditionalConstraints;
+namespace Pehapkari\Statie\Posts\Year2017\SymfonyValidatorConditionalConstraints;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\GroupSequenceProviderInterface;

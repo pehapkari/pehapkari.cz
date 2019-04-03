@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Registration\Invoicing;
+namespace Pehapkari\Registration\Invoicing;
 
-use OpenTraining\Registration\Api\FakturoidApi;
-use OpenTraining\Registration\Entity\TrainingRegistration;
-use OpenTraining\Registration\Repository\TrainingRegistrationRepository;
+use Pehapkari\Registration\Api\FakturoidApi;
+use Pehapkari\Registration\Entity\TrainingRegistration;
+use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 
 final class Invoicer
 {

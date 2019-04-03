@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Tests\Posts\Year2017\NetteConfigObjects\Config;
+namespace Pehapkari\Statie\Tests\Posts\Year2017\NetteConfigObjects\Config;
 
 use Nette\DI\Container;
-use OpenTraining\Statie\Posts\Year2017\NetteConfigObjects\Config\InvoicingConfig;
-use OpenTraining\Statie\Tests\Posts\Year2017\NetteConfigObjects\ContainerFactory;
+use Pehapkari\Statie\Posts\Year2017\NetteConfigObjects\Config\InvoicingConfig;
+use Pehapkari\Statie\Tests\Posts\Year2017\NetteConfigObjects\ContainerFactory;
 use PHPUnit\Framework\TestCase;
 
 final class InvoicingConfigTest extends TestCase

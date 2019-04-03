@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2018\Cart\Domain;
+namespace Pehapkari\Statie\Posts\Year2018\Cart\Domain;
 
 interface CartRepositoryInterface
 {

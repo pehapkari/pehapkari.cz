@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Repository;
+namespace Pehapkari\Training\Repository;
 
 use Doctrine\ORM\EntityManagerInterface;
-use OpenTraining\Training\Entity\Watchdog;
+use Pehapkari\Training\Entity\Watchdog;
 
 final class WatchdogRepository
 {

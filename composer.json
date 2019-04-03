@@ -16,7 +16,7 @@
         "easycorp/easyadmin-bundle": "^2.0",
         "fakturoid/fakturoid-php": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
-        "k0nias/fakturoid-api": "dev-master",
+        "k0nias/fakturoid-api": "^0.1",
         "knplabs/doctrine-behaviors": "^1.6",
         "sensio/framework-extra-bundle": "^5.2",
         "setasign/fpdf": "^1.8",
@@ -70,20 +70,20 @@
     },
     "autoload": {
         "psr-4": {
-            "OpenTraining\\": "src",
-            "OpenTraining\\Provision\\": "packages/Provision/src",
-            "OpenTraining\\Registration\\": "packages/Registration/src",
-            "OpenTraining\\KnowHow\\": "packages/KnowHow/src",
-            "OpenTraining\\Training\\": "packages/Training/src",
-            "OpenTraining\\Marketing\\": "packages/Marketing/src",
-            "OpenTraining\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
-            "OpenTraining\\User\\": "packages/User/src",
-            "OpenTraining\\Statie\\": "statie/src"
+            "Pehapkari\\": "src",
+            "Pehapkari\\Provision\\": "packages/Provision/src",
+            "Pehapkari\\Registration\\": "packages/Registration/src",
+            "Pehapkari\\KnowHow\\": "packages/KnowHow/src",
+            "Pehapkari\\Training\\": "packages/Training/src",
+            "Pehapkari\\Marketing\\": "packages/Marketing/src",
+            "Pehapkari\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
+            "Pehapkari\\User\\": "packages/User/src",
+            "Pehapkari\\Statie\\": "statie/src"
         }
     },
     "autoload-dev":{
         "psr-4": {
-            "OpenTraining\\Statie\\Tests\\": "statie/tests"
+            "Pehapkari\\Statie\\Tests\\": "statie/tests"
         }
     },
     "scripts": {

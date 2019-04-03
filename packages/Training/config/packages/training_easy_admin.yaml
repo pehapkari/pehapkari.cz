@@ -2,7 +2,7 @@ easy_admin:
     entities:
         Training:
             label: 'Školení'
-            class: 'OpenTraining\Training\Entity\Training'
+            class: 'Pehapkari\Training\Entity\Training'
             form:
                 exclude_fields:
                     - 'trainingFeedbacks'
@@ -10,7 +10,7 @@ easy_admin:
 
         TrainingTerm:
             label: 'Termíny školení'
-            class: 'OpenTraining\Training\Entity\TrainingTerm'
+            class: 'Pehapkari\Training\Entity\TrainingTerm'
             list:
                 fields:
                     - 'training'
@@ -29,22 +29,22 @@ easy_admin:
 
         Trainer:
             label: 'Školitelé'
-            class: 'OpenTraining\Training\Entity\Trainer'
+            class: 'Pehapkari\Training\Entity\Trainer'
             form:
                 exclude_fields:
                     - 'trainings'
 
         Place:
             label: 'Školící místa'
-            class: 'OpenTraining\Training\Entity\Place'
+            class: 'Pehapkari\Training\Entity\Place'
 
         Feedback:
             label: 'Zpětné vazby'
-            class: 'OpenTraining\Training\Entity\TrainingFeedback'
+            class: 'Pehapkari\Training\Entity\TrainingFeedback'
 
         Watchdog:
             label: 'Zájemci o školení'
-            class: 'OpenTraining\Training\Entity\Watchdog'
+            class: 'Pehapkari\Training\Entity\Watchdog'
             list:
                 fields:
                     - 'email'

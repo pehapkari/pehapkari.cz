@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Training\Repository;
+namespace Pehapkari\Training\Repository;
 
 use Doctrine\Common\Proxy\Proxy;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
-use OpenTraining\Training\Entity\TrainingTerm;
+use Pehapkari\Training\Entity\TrainingTerm;
 
 final class TrainingTermRepository
 {

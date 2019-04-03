@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace OpenTraining\Statie\Posts\Year2017\SymfonyValidatorDynamicConstraints\Constraints;
+namespace Pehapkari\Statie\Posts\Year2017\SymfonyValidatorDynamicConstraints\Constraints;
 
-use OpenTraining\Statie\Posts\Year2017\SymfonyValidatorDynamicConstraints\IsoCodes\ZipCode;
+use Pehapkari\Statie\Posts\Year2017\SymfonyValidatorDynamicConstraints\IsoCodes\ZipCode;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
