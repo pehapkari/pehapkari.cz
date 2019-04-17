@@ -1,13 +1,19 @@
 ---
 id: 79
-title: "How we Migrated 54 Lines of Code from Nette to Symfony in 2 People under 80 Hours"
+title: "How we Migrated 54 357 lines of Code from Nette to Symfony in 2 People under 80 Hours"
 perex: |
-    The code, which would take us 3 months to rewrite 2 years ago, has been overwritten in less than 3 weeks with the help of automated tools today. We'll show you how we went about it.
+    It would take us 3 full-time months to rewrite this code in 2017. In February 2019 we did it in less than 3-week span with the help of automated tools. Why and how? 
 author: 1
-tweet: "New Post on #pehapkari Blog: How we Migrated 54 Lines of Code from #nettefw to #symfony in 2 People under 80 Hours   #casestudy"
+tweet: "New Post on #pehapkari Blog: How we Migrated 54 357 Lines of Code from #nettefw to #symfony in 2 People under 80 Hours   #casestudy"
 ---
 
-*This post was originally published [in Czech on Zdrojak.cz](https://www.zdrojak.cz/clanky/50k-radku-z-nette-do-symfony/), where it got huge attention of Czech PHP community and hit amazing 54 comments (a possible record). But when I talk about this migration with my English speaking PHP friends, they don't believe me and want more - who, how, when, what exactly? This post is for them.*
+*This post was originally published [in Czech on Zdrojak.cz](https://www.zdrojak.cz/clanky/50k-radku-z-nette-do-symfony/), where it got huge attention of Czech PHP community and hit amazing 54 comments (a possible record). But when I talk about this migration with my English speaking PHP friends, it seems crazy to them and they want to hear details - who, how, when, what exactly?* 
+
+*This post is for you (and for you of course, if you haven't read it on Zdroják).*
+
+<div class="text-center">
+<img src="/assets/images/posts/2019/fw-migration/nette-to-symfony.png">
+</div>
 
 ## What Have We Migrated?
 
@@ -15,11 +21,13 @@ Backend of [Entry.do](https://entry.do/) project - API application built on cont
 
 How big is it? If we don't count tests, migration, fixtures, etc., the application has **270 PHP files** in the length of **54 357 lines** (using [phploc](https://github.com/sebastianbergmann/phploc)).
 
-How many routes does it have? 20...? 50...? **151!**
+How many unique routes does it have? 20...? 50...? **151!** 
+Just to have an idea, the pehapkari.cz website has 35 routes.
 
 ## Why?
 
-The application was in Nette, which worked and met the technical requirements. The main motivation for the transcription was the dying ecosystem and the integration of Symfony.
+The application was written in Nette, which worked and met the technical requirements. The main motivation for the transcription was the dying ecosystem and that over-integration of Symfony. What does "dying ecosystem" mean? Nette released just 1 minor version since July 2016, while Symfony had 6 releases during the same period.
+ 
 
 <div class="text-center mb-4">
     <img src="/assets/images/posts/2019/fw-migration/extensions.png">
@@ -35,7 +43,7 @@ The application was in Nette, which worked and met the technical requirements. T
 
 Why use unmaintained integrations of [Kdyby](https://github.com/kdyby) and [Zenify](https://github.com/zenify), that only integrate Symfony to Nette\DI, if Symfony is already there? Last new minor version of Nette was published 3 years ago. Symfony releases new minor version every 6 months with new features will make your work easier.
 
-## How did we do that?
+## How?
 
 I offered [Honza Mikeš](http://github.com/lexinek) deal he couldn't refuse: "We will give it a week and if we stuck, we'll give up". On the January 27th, we met with his Nette application and on February 13th the Symfony application went to the staging server. In less than 17 days we were done and on February 14th we celebrated a new production application in addition to Valentine's Day.
 
@@ -314,4 +322,10 @@ You can use your own PHP_CodeSniffer and PHP-CS-Fixer set. We used the [Rector-p
 vendor/bin/ecs check app src --config vendor/rector/rector/ecs-after-rector.yaml
 ```
 
-And so we migrated a four-year Nette app of 54 357 lines under 80 hours to Symfony and put it into production.
+## It's not about Work, It's about Knowledge 
+
+And so we migrated a four years old Nette application of 54 357 lines under 80 hours to Symfony and put it into production. The most of the time took us debugging of events and writing migration tools. Now **the same application would take us (or you) 10 hours top to migrate**.
+
+<br>
+
+As you can see, any application can be migrate from one framework to another in less than month nowadays. And it's getting faster everyday :)
