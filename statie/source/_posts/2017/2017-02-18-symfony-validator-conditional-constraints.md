@@ -60,7 +60,7 @@ class Client
 
 **The solution is to add a validation group to the constraints** and validate only one of them based on the user input.
 
-Note the groups attribute in each of the NotBlank constraints:
+Note the groups attribute in each of the `NotBlank` constraints:
 
 ```php
 use Symfony\Component\Validator\Constraints as Assert;
@@ -121,7 +121,7 @@ class Client implements GroupSequenceProviderInterface
             // Include the "Client" group to validate the $type property as well.
             // Note that using the "Default" group here won't work!
             'Client',
-            // Use either the person or company group based on whether company is filled or not.
+            // Use either the person or company group based on the selected type.
             $this->type === self::TYPE_PERSON ? 'person' : 'company',
         ];
     }
@@ -133,7 +133,7 @@ Now you can validate the client entity without specifying any groups. Symfony/Va
 
 ### Improving the validation result
 
-Prior to Symfony 3.2 there was a drawback to this solution. Symfony/Validator runs the groups from a GroupSequence one by one and if one and skips the rest if one fails. It was not possible to get all of the violations at once, just the first group with any failure. With my pull request that was accepted into Symfony 3.2 it is now possible to validate multiple validation groups in each step. If you only use one step you can get all violations at once.
+Prior to Symfony 3.2 there was a drawback to this solution. Symfony/Validator runs the groups from a GroupSequence one by one and skips the rest if one fails. It was not possible to get all of the violations at once, just the first group with any failure. With my pull request that was accepted into Symfony 3.2 it is now possible to validate multiple validation groups in each step. If you only use one step you can get all violations at once.
 
 ```php
 use Symfony\Component\Validator\Constraints as Assert;
