@@ -1,7 +1,6 @@
 {
     "name": "pehapkari/website",
     "description": "Website of Pehapkari.cz - Czech PHP Community",
-    "license": "MIT",
     "require": {
         "php": "^7.2",
         "ext-iconv": "*",
