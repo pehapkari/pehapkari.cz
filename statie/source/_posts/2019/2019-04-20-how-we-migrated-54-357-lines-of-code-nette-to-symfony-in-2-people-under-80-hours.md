@@ -1,6 +1,6 @@
 ---
 id: 79
-title: "How we Migrated 54 357 lines of Code from Nette to Symfony in 2 People under 80 Hours"
+title: "How we Migrated 54 357-lines Application from Nette to Symfony in 2 People under 80 Hours"
 perex: |
     It would take us 3 full-time months to rewrite this code in 2017. In February 2019 we did it in less than 3-week span with the help of automated tools. Why and how? 
 author: 1
@@ -17,7 +17,7 @@ tweet: "New Post on #pehapkari Blog: How we Migrated 54 357 Lines of Code from #
 
 ## What Have We Migrated?
 
-Backend of [Entry.do](https://entry.do/) project - API application built on controllers, routing, Kdyby integrations of Symfony, Doctrine and a few Latte templates that have been running for 4 years. We migrated from Nette 2.4 to Symfony 4.2.
+Backend of [Entry.do](https://entry.do/) project - API application built on controllers, routing, Kdyby integrations of Symfony, Doctrine and a few Latte templates. The application has been running in production for last 4 years. We migrated from Nette 2.4 to Symfony&nbsp;4.2.
 
 How big is it? If we don't count tests, migration, fixtures, etc., the application has **270 PHP files** in the length of **54 357 lines** (using [phploc](https://github.com/sebastianbergmann/phploc)).
 
@@ -45,7 +45,13 @@ Why use unmaintained integrations of [Kdyby](https://github.com/kdyby) and [Zeni
 
 ## How?
 
-I offered [Honza Mikeš](http://github.com/lexinek) deal he couldn't refuse: "We will give it a week and if we stuck, we'll give up". On the January 27th, we met with his Nette application and on February 13th the Symfony application went to the staging server. In less than 17 days we were done and on February 14th we celebrated a new production application in addition to Valentine's Day.
+I offered [Honza Mikeš](http://github.com/JanMikes) deal he couldn't refuse: 
+
+<blockquote class="blockquote text-center">
+"We will give it a week and if we stuck, we'll give up".
+</blockquote> 
+
+On the January 27th, we met with his Nette application and on February 13th the Symfony application went to the staging server. **In less than 17 days we were done** and on February 14th we celebrated a new production application in addition to Valentine's Day.
 
 <div class="text-center" markdown=1>
 <img src="/assets/images/posts/2019/fw-migration/pull-request.png">
@@ -54,7 +60,9 @@ I offered [Honza Mikeš](http://github.com/lexinek) deal he couldn't refuse: "We
 
 In fact, we were talking about migration at the beginning of 2017, because the Nette ecosystem wasn't really developing and Symfony was technologically skipping it. At that time, however, the transition would last at least 80-90 days for full-time, which is insane, so we didn't go into it.
 
-In 2019 we already have a lot of tools to do the work for you:
+## Tool Set
+
+In 2019 we already have a **lot of tools to do the work for you**:
 
 - The first is [Rector](https://github.com/rectorphp/rector), tool I made that can change any code that runs at least on PHP 5.3 from pattern A to pattern B. It can instantly update the code from PHP 5.3, 5.4, 5.5, 5.6... to 7.4, Symfony from 2.8 to 4.2, Laravel from static code to constructor injection, and more. You can add your own rules tailored to migrate your specific code, that can handle anything that PHP programmer can do (A → B) in a fraction of the time.
 
@@ -279,8 +287,9 @@ How does one change look like?
           return $router;
       }
  }
- 
- 
+```
+
+```diff
  namespace App Presenter;
   
 +use Symfony\Component\Routing\Annotation\Route;
@@ -297,9 +306,9 @@ How does one change look like?
  }
 ```
 
-When we first talked about the migration in 2017, we would make all these changes manually. Fortunately, it's 2019 now and we have used the Rector.
+Now do this 151 times... and make rebase-proof. When we first talked about the migration in 2017, we would make all these changes manually. **Too lazy to work.**
 
-For a few days, we were preparing the `nette-to-symfony` set and then run it on the entire code base:
+And in 2019? For a few days, we were preparing the `nette-to-symfony` Rector set and then run it on the entire code base:
 
 ```bash
 composer require rector/rector -dev
@@ -322,10 +331,10 @@ You can use your own PHP_CodeSniffer and PHP-CS-Fixer set. We used the [Rector-p
 vendor/bin/ecs check app src --config vendor/rector/rector/ecs-after-rector.yaml
 ```
 
-## It's not about Work, It's about Knowledge 
+## It's not about the Work, It's about the Knowledge 
 
-And so we migrated a four years old Nette application of 54 357 lines under 80 hours to Symfony and put it into production. The most of the time took us debugging of events and writing migration tools. Now **the same application would take us (or you) 10 hours top to migrate**.
+And so we migrated a 4-years old Nette application of 54 357 lines under 80 hours to Symfony and put it into production. The most of the time took us debugging of events and writing migration rules and tools. Now **the same application would take us (or you) 10 hours top to migrate**.
 
 <br>
 
-As you can see, any application can be migrate from one framework to another in less than month nowadays. And it's getting faster everyday :)
+As you can see, any application can be migrate from one framework to another under a month. Dare us!
