@@ -10,3 +10,6 @@ parameters:
 
     # Statie configuration
     github_repository_source_directory: "https://github.com/pehapkari/pehapkari.cz/tree/master/source"
+
+    # needed for tweeting
+    site_url: 'https://pehapkari.cz'
