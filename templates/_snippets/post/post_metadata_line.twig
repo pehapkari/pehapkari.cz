@@ -9,22 +9,12 @@
     {% endif %}
 
     <p>
-        <em class="fa fa-clock-o fa-fw"></em>
-        {{ post.getReadingTimeInMinutes() }} min
-
-        |
-
-        by <strong>{{ authors[post.author].name }}</strong>
+        Written by <strong>{{ authors[post.author].name }}</strong>
 
         &ndash;
 
         <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
             {{ post.getDateInFormat('j. n. Y') }}
         </time>
-
-        |
-
-        <em class="fa fa-fw fa-comments"></em>
-        <a href="{{ site_url }}/{{ post|link }}/#disqus_thread">X</a> comments
     </p>
 </div>
