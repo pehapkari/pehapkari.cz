@@ -1,56 +1,41 @@
-# Open Trainings
+# Web of Czech PHP Community
 
-Open and free platform for organizing trainings.
+We're family of PHP developers from the Czech Republic, learning from each other on meetups and trainings.
+We meet once a month in Prague, Brno and less often 4 other cities.
 
-## Setup
+**This website is deployed to [pehapkari.cz](https://pehapkari.cz/).**
 
-We cover all you need to organize a training, with a trainer and attendees:
-
-## Instal
+## Install
 
 ```bash
-git clone ...
+git clone git@github.com:pehapkari/pehapkari.cz.git
+
+# install PHP dependencies
 composer install
-```
 
-Then rename `.env.dist` to `.env` and complete variables:
+# rename `.env.dist` to `.env` and complete variables.
 
-```bash
 # create database
 bin/console doctrine:schema:create
 
 # dump css and js from all bundles
 bin/console assets:install --env=prod --no-debug
 
-# install adminer
-composer adminer-install
-```
-
-## Run
-
-```bash
+# final step - run the website
 bin/console server:run
 ```
 
-Clear cache after any config change - e.g. security
+Open [localhost:8000](http://localhost:8000) to see if it worked!
 
-```bash
-php bin/console cache:clear
-```
+## Run via Docker
 
-<br>
-
-Update database after changing entities:
-
-```bash
-bin/console doctrine:schema:update --dump-sql --force
-```
-
-## Run via docker
-
-This is example for running open-training project locally:
+This is example for running the project locally:
 
 1) Run `bin/run-from-docker.sh`
 2) Enjoy :-) project is available on [localhost:8000](http://localhost:8000)
 
 *In some rare scenarios you might want to tweak `docker-compose.yml` file for your needs.*
+
+## Thank You
+
+Our deploy from merge to production takes only 6 minutes thanks to [Jan Mikeš](https://janmikes.cz/). If you need CI-ready, Gitlab, Docker and DigitalOcean fully automated deploy, let him know.
