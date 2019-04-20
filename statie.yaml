@@ -13,3 +13,4 @@ parameters:
 
     # needed for tweeting
     site_url: 'https://pehapkar.cz'
+    twitter_minimal_gap_in_days: 0 # tweet now
