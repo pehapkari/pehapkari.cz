@@ -19,7 +19,7 @@
             {% if post.getDateInFormat('Y-m-d') < "now"|date('Y-m-d') %}
                 <item>
                     <title><![CDATA[ {{ post.title }} ]]></title>
-                    <link>{{ site_url }}/{{ post|link }}</link>
+                    <link>{{ site_url }}/{{ post|link }}/</link>
                     <description><![CDATA[ {{ post.perex|striptags }} ]]></description>
                     <guid isPermaLink="false">{{ site_url }}/{{ post|link }}</guid>
                     <dc:creator><![CDATA[ {{ authors[post.author].name }} ]]></dc:creator>
