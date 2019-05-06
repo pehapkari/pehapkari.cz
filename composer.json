@@ -54,7 +54,7 @@
         "symfony/web-profiler-bundle": "^4.2",
         "symfony/web-server-bundle": "^4.2",
         "symplify/coding-standard": "^5.5",
-        "symplify/easy-coding-standard": "^5.5",
+        "symplify/easy-coding-standard": "^5.4",
         "symplify/phpstan-extensions": "^5.5",
         "doctrine/annotations": "^1.6",
         "doctrine/cache": "^1.8",
