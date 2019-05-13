@@ -33,4 +33,4 @@
 {# Font Awesome #}
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-<title>{% if title is defined %}{{ title|raw }} {% else %}{{ page_title }}{% endif %}</title>
+<title>{% if title is defined and title is not null %}{{ title|raw }} | {% endif %}{{ page_title }}</title>
