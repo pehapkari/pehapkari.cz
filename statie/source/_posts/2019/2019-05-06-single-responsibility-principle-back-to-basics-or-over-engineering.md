@@ -331,3 +331,7 @@ Once we use AND during answering, we know there is something fishy.
 
 So what do you think?
 Back to basics or over-engineering?
+
+## Contact
+
+Do you struggle with difficult code and like the Single Responsibility approach? Hire me, I can help you - [svatasimara.cz](http://svatasimara.cz/)
