@@ -57,6 +57,7 @@ final class BlogController extends AbstractController
         return $this->render('blog/post.twig', [
             'post' => $matchedPost,
             'authors' => $this->authors,
+            'title' => $matchedPost->getConfiguration()['title'] ?? null,
         ]);
     }
 
