@@ -9,11 +9,12 @@ fi
 if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ] || [ "$1" = 'php' ]; then
 
     ## If we are not on production, we install dev dependencies
-	if [ "$APP_ENV" != 'prod' ]; then
-		composer install --prefer-dist --no-progress --no-suggest --no-interaction
-	fi
+    # Temporarily disabled - we need dev dependencies on production too, because of debug bar
+	# if [ "$APP_ENV" != 'prod' ]; then
+	#	composer install --prefer-dist --no-progress --no-suggest --no-interaction
+	# fi
 
-    php bin/console assets:install --env=prod --no-debug
+    php bin/console assets:install
     php bin/console cache:clear
 
 
@@ -28,7 +29,6 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ] || [ "$1" = 'php' ]; then
         ## Update DB
         php bin/console doctrine:schema:update --dump-sql --force
     fi
-
 
 	# Permissions hack because setfacl does not work on Mac and Windows
 	chown -R www-data var
