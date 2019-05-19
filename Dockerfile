@@ -46,8 +46,7 @@ COPY ./packages /app/packages
 COPY composer.json ./
 
 ## For now installing including dev dependencies
-# RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
-RUN composer install --prefer-dist --no-autoloader --no-scripts --no-progress --no-suggest \
+RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
 
 COPY . /app
@@ -57,7 +56,8 @@ RUN mkdir -p ./var/cache \
     ./var/sessions \
     ./public/uploads/images \
     ./public/generated \
-        && composer dump-autoload --classmap-authoritative --no-dev \
+        # && composer dump-autoload --classmap-authoritative --no-dev \
+        && composer dump-autoload -o \
         && chown -R www-data ./var \
         && chmod -R 777 ./public/uploads/images ./public/generated
 
