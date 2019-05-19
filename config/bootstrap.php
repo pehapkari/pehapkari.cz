@@ -15,3 +15,11 @@ if (is_array($env = @include dirname(__DIR__).'/.env.local.php')) {
 $_SERVER['APP_ENV'] = $_ENV['APP_ENV'] = ($_SERVER['APP_ENV'] ?? $_ENV['APP_ENV'] ?? null) ?: 'dev';
 $_SERVER['APP_DEBUG'] = $_SERVER['APP_DEBUG'] ?? $_ENV['APP_DEBUG'] ?? 'prod' !== $_SERVER['APP_ENV'];
 $_SERVER['APP_DEBUG'] = $_ENV['APP_DEBUG'] = (int) $_SERVER['APP_DEBUG'] || filter_var($_SERVER['APP_DEBUG'], FILTER_VALIDATE_BOOLEAN) ? '1' : '0';
+
+if (in_array($_SERVER['REMOTE_ADDR'], [
+    '86.49.240.47', // Jan Mikes
+    '86.49.112.53', // Tomas Votruba
+], true)) {
+    $_SERVER['APP_DEBUG'] = $_ENV['APP_DEBUG'] = 1;
+    $_SERVER['APP_ENV'] = $_ENV['APP_ENV'] = 'dev';
+}
