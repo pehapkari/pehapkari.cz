@@ -45,7 +45,9 @@ COPY ./packages /app/packages
 # Composer
 COPY composer.json ./
 
-RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
+## For now installing including dev dependencies
+# RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
+RUN composer install --prefer-dist --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
 
 COPY . /app
