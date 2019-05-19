@@ -2,12 +2,13 @@ version: "3.7"
 services:
     web:
         image: open-training/nginx:latest
+        restart: always
         build:
             context: .
             target: nginx
             dockerfile: Dockerfile
         ports:
-            - "8000:80"
+            - "8080:80"
         volumes:
             - .:/app:cached
         depends_on:
@@ -15,6 +16,7 @@ services:
 
     php:
         image: open-training/php:latest
+        restart: always
         build:
             context: .
             target: dev
@@ -43,6 +45,7 @@ services:
 
     mysql:
         image: mysql:5.7
+        restart: always
         environment:
             MYSQL_ROOT_PASSWORD: ""
             MYSQL_DATABASE: "open_training"
@@ -51,3 +54,11 @@ services:
             - ./.docker/mysql-data:/var/lib/mysql
         ports:
             - 3306:3306
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8081:8080
+        depends_on:
+            - mysql

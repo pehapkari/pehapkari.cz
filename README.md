@@ -32,7 +32,10 @@ Open [localhost:8000](http://localhost:8000) to see if it worked!
 This is example for running the project locally:
 
 1) Run `bin/run-from-docker.sh`
-2) Enjoy :-) project is available on [localhost:8000](http://localhost:8000)
+2) Enjoy :-)
+
+**Project** is available on [localhost:8080](http://localhost:8080)  
+**Adminer** is available on [localhost:8081](http://localhost:8081)
 
 *In some rare scenarios you might want to tweak `docker-compose.yml` file for your needs.*
 
