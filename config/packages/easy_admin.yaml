@@ -31,6 +31,7 @@ easy_admin:
             # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/design-configuration.html#loading-the-entire-bootstrap-framework
             css:
                 - 'bundles/easyadmin/bootstrap-all.css'
+
         menu:
             -
                 label: 'Trainings'

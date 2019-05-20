@@ -2,8 +2,9 @@ easy_admin:
     entities:
         Training:
             class: 'Pehapkari\Training\Entity\Training'
-            fields:
-                - { property: 'description', type_options: { label_attr: { class: 'col-lg-3' }, attr: { class: 'col-lg-9' } } }
+            form:
+                fields:
+                    - { property: 'description', type_options: { attr: { rows: '25' } } }
 
         TrainingTerm:
             label: 'Training Term'
