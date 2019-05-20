@@ -3,7 +3,6 @@
 namespace Pehapkari\Training\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -71,6 +70,11 @@ class TrainingFeedback
      * @var Training
      */
     private $training;
+
+    public function __toString(): string
+    {
+        return $this->text;
+    }
 
     public function getId(): ?int
     {
@@ -175,10 +179,5 @@ class TrainingFeedback
     public function setIsAgreedWithPublishingName(bool $isAgreedWithPublishingName): void
     {
         $this->isAgreedWithPublishingName = $isAgreedWithPublishingName;
-    }
-
-    public function __toString(): string
-    {
-        return $this->text;
     }
 }
