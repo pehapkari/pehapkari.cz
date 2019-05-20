@@ -63,7 +63,6 @@
         "nette/forms": "^2.4",
         "nette/security": "^2.4",
         "symfony/console": "^4.2",
-        "symfony/event-dispatcher": "^4.2",
         "symfony/expression-language": "^4.2",
         "symfony/intl": "^4.2"
     },

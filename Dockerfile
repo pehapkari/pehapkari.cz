@@ -1,7 +1,8 @@
-FROM composer:latest
-FROM php:7.2-fpm as production
+FROM php:7.2-apache as production
 
-WORKDIR /app
+WORKDIR /var/www/pehapkari.cz
+
+COPY ./.docker/apache/apache.conf /etc/apache2/sites-available/000-default.conf
 
 # Install php extensions + cleanup
 RUN apt-get update && apt-get install -y \
@@ -26,50 +27,32 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /tmp/* /usr/local/lib/php/doc/* /var/cache/apt/*
 
 # Installing composer and prestissimo globally
-COPY --from=0 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --classmap-authoritative --no-plugins --no-scripts
 
+## This is not so nice hack, for overriding local .env
 RUN echo '' > .env
 
 # Entrypoint
-COPY ./.docker/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
-RUN chmod +x /usr/local/bin/docker-entrypoint
+COPY ./.docker/docker-entrypoint.sh /usr/local/bin/docker-php-entrypoint
+RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
-ENTRYPOINT ["docker-entrypoint"]
-CMD ["php-fpm"]
-
-COPY phpunit.xml ./
-COPY ./packages /app/packages
-
-# Composer
-COPY composer.json ./
+COPY composer.json phpunit.xml ./
 
 ## For now installing including dev dependencies
 # RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
 RUN composer install --prefer-dist --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
 
-COPY . /app
+COPY . .
 
 RUN mkdir -p ./var/cache \
-    ./var/logs \
+    ./var/log \
     ./var/sessions \
-    ./public/uploads/images \
-    ./public/generated \
         # && composer dump-autoload --classmap-authoritative --no-dev \
         && composer dump-autoload \
-        && chown -R www-data ./var \
-        && chmod -R 777 ./public/uploads/images ./public/generated
-
-
-## Nginx
-FROM nginx:latest AS nginx
-
-WORKDIR /app
-
-COPY --from=production /app /app
-COPY ./.docker/nginx/site.conf /etc/nginx/conf.d/default.conf
+        && chown -R www-data ./var
 
 
 ## Local build with xdebug

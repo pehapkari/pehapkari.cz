@@ -1,21 +1,7 @@
 version: "3.7"
 services:
     web:
-        image: pehapkari_cz/nginx:latest
-        restart: always
-        build:
-            context: .
-            target: nginx
-            dockerfile: Dockerfile
-        ports:
-            - "8080:80"
-        volumes:
-            - .:/app:cached
-        depends_on:
-            - php
-
-    php:
-        image: pehapkari_cz/php:latest
+        image: pehapkari_cz
         restart: always
         build:
             context: .
@@ -38,6 +24,8 @@ services:
             FAKTUROID_SLUG: ""
             FAKTUROID_EMAIL: ""
             FAKTUROID_API_KEY: ""
+        ports:
+            - "8080:80"
         volumes:
             - .:/app:cached
         depends_on:

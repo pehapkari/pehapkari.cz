@@ -8,7 +8,7 @@ parameters:
     excludes_analyse:
         - "*/Entity*"
         - '*/var/cache/*'
-        - '*/var/logs/*'
+        - '*/var/log/*'
         - /statie/tests/
 
     ignoreErrors:

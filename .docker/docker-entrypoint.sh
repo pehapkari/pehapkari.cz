@@ -3,10 +3,10 @@ set -e
 
 # first arg is `-f` or `--some-option`
 if [ "${1#-}" != "$1" ]; then
-	set -- php-fpm "$@"
+	set -- apache2-foreground "$@"
 fi
 
-if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ] || [ "$1" = 'php' ]; then
+if [ "$1" = 'apache2-foreground' ] || [ "$1" = 'bin/console' ] || [ "$1" = 'php' ]; then
 
     ## If we are not on production, we install dev dependencies
     # Temporarily disabled - we need dev dependencies on production too, because of debug bar
@@ -34,4 +34,4 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ] || [ "$1" = 'php' ]; then
 	chown -R www-data var
 fi
 
-exec docker-php-entrypoint "$@"
+exec "$@"
