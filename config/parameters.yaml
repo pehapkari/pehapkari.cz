@@ -1,0 +1,7 @@
+parameters:
+    # number of trainings done by trainers in old way - to calculate the provision
+    # (this is just example - @todo complete from invoiced
+    finished_trainings:
+        -
+            user_id: 1
+            trainigs_count: 1

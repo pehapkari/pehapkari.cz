@@ -11,7 +11,7 @@ var
 public/bundles/
 public/build/*/glyphicons-*
 
-public/uploads/images
+# public/uploads/images
 public/generated
 composer.lock
 

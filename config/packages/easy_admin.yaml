@@ -35,7 +35,7 @@ easy_admin:
             -
                 label: 'Trainings'
                 icon: 'graduation-cap'
-                children: ['TrainingTerm', 'Registration', 'Expense', 'Training', ]
+                children: ['Training', 'TrainingTerm', 'Registration', 'Expense']
             -
                 label: 'Trainers and Places'
                 icon: 'map-marker'

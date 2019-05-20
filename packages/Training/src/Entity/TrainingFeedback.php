@@ -69,8 +69,6 @@ class TrainingFeedback
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingFeedbacks")
      * @var Training
-     *
-     * @Assert\NotNull
      */
     private $training;
 
@@ -177,5 +175,10 @@ class TrainingFeedback
     public function setIsAgreedWithPublishingName(bool $isAgreedWithPublishingName): void
     {
         $this->isAgreedWithPublishingName = $isAgreedWithPublishingName;
+    }
+
+    public function __toString(): string
+    {
+        return $this->text;
     }
 }
