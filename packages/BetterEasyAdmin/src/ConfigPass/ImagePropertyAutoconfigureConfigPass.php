@@ -187,7 +187,7 @@ final class ImagePropertyAutoconfigureConfigPass implements ConfigPassInterface
             'dataType' => 'image',
             'virtual' => false,
             'sortable' => true,
-            'template' => 'easy_admin/vich_uploader_image.twig',
+            'template' => 'admin/easy_admin/vich_uploader_image.twig',
             'type_options' => [
                 'required' => true,
             ],
