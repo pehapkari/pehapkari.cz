@@ -1,7 +1,6 @@
 easy_admin:
     entities:
         Registration:
-            label: 'Registrace'
             class: 'Pehapkari\Registration\Entity\TrainingRegistration'
 
             list:

@@ -3,6 +3,8 @@ parameters:
     easy_admin_exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy']
 
 easy_admin:
+    site_name: "Trainings from Péhápkaři Community"
+
     # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#customizing-date-and-time-properties
     formats:
         # czech format
@@ -31,22 +33,22 @@ easy_admin:
                 - 'bundles/easyadmin/bootstrap-all.css'
         menu:
             -
-                label: 'Školení'
+                label: 'Trainings'
                 icon: 'graduation-cap'
                 children: ['TrainingTerm', 'Registration', 'Expense', 'Training', ]
             -
-                label: 'Školitelé a místa'
+                label: 'Trainers and Places'
                 icon: 'map-marker'
                 children: ['Trainer', 'Place']
             -
-                label: 'Zpětné vazby a zájemci'
+                label: 'Feedback and Watchdog'
                 icon: 'comment'
                 children: ['Feedback', 'Watchdog']
             -
-                label: 'Zpátky na web'
+                label: 'Back to Website'
                 icon: 'arrow-left'
                 route: 'trainings'
             -
-                label: 'Zpátky na feedbacky'
+                label: 'Back na Feedback form'
                 icon: 'arrow-left'
                 route: 'open_feedbacks'
