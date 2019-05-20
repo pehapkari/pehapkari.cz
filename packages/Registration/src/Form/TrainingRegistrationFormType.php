@@ -35,7 +35,7 @@ final class TrainingRegistrationFormType extends AbstractType
         $formBuilder->add('phone', TextType::class, [
             'label' => 'Tvé telefonní číslo',
             'required' => true,
-            'help' => 'Abychom tě mohli rychle informovat v případě změn nebo kdybychom potřebovali podrobnosti k tvé registraci'
+            'help' => 'Abychom tě mohli rychle informovat v případě změn nebo kdybychom potřebovali podrobnosti k tvé registraci',
         ]);
 
         $formBuilder->add('ico', TextType::class, [
@@ -47,7 +47,7 @@ final class TrainingRegistrationFormType extends AbstractType
             'label' => 'Kolik vás bude?',
             'required' => true,
             'data' => 1, // default value
-            'help' => 'Kolik lidí máme fakturovat na toto IČO. Jestli vás bude víc než ty, napiš prosím jména do poznámky ↓, ať i ostatní mají pěkné certifikáty.'
+            'help' => 'Kolik lidí máme fakturovat na toto IČO. Jestli vás bude víc než ty, napiš prosím jména do poznámky ↓, ať i ostatní mají pěkné certifikáty.',
         ]);
 
         $formBuilder->add('note', TextareaType::class, [
