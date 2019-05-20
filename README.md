@@ -18,6 +18,9 @@ composer install
 # create database
 bin/console doctrine:schema:create
 
+# if you change entities later, update the database
+bin/console doctrine:schema:update --dump-sql --force
+
 # dump css and js from all bundles
 bin/console assets:install --env=prod --no-debug
 
