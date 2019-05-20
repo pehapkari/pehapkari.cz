@@ -46,6 +46,10 @@ parameters:
         - 'statie/tests/Posts/Year2017/NetteConfigObjects/ContainerFactory.php'
 
     skip:
+        # on purpose - property order is reflected in forms in admin
+        Symplify\CodingStandard\Fixer\Order\PropertyOrderByComplexityFixer:
+            - '*Entity*'
+
         # 3rd party contract
         SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
             - 'packages/User/src/Security/PehapkariAuthenticator.php'
