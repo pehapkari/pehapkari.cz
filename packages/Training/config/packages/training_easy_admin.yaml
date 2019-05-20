@@ -4,6 +4,7 @@ easy_admin:
             class: 'Pehapkari\Training\Entity\Training'
             form:
                 fields:
+                    - 'name'
                     - { property: 'description', type_options: { attr: { rows: '25' } } }
 
         TrainingTerm:

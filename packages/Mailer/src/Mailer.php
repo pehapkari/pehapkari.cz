@@ -8,7 +8,6 @@ final class Mailer
 {
     public function sendRegistrationEmail(TrainingRegistration $trainingRegistration): void
     {
-        dump($trainingRegistration);
-        die;
+        // @todo
     }
 }

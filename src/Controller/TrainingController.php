@@ -44,6 +44,7 @@ final class TrainingController extends AbstractController
     public function trainings(): Response
     {
         return $this->render('training/trainings.twig', [
+            'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),
             'trainings' => $this->trainingRepository->fetchAll(),
 
             // hardcoded till the db is up

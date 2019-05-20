@@ -66,6 +66,18 @@ final class TrainingTermRepository
     }
 
     /**
+     * @return TrainingTerm[]
+     */
+    public function getUpcoming(): array
+    {
+        return $this->entityRepository->createQueryBuilder('tt')
+            ->where('tt.startDateTime > CURRENT_DATE()')
+            ->orderBy('tt.startDateTime')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
      * @param mixed $id
      * @return bool|Proxy|object|null
      */
