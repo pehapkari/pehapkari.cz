@@ -31,6 +31,8 @@ services:
 
     Defr\Ares: ~
     GuzzleHttp\Client: ~
+    ParsedownExtra:
+        class: 'ParsedownExtra'
 
     Symplify\Statie\Generator\Generator:
         factory: ['@Pehapkari\DependencyInjection\StatieFactory', 'createGenerator']

@@ -45,7 +45,7 @@
 
                         <br>
 
-                        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Lecture:+{{ training.getName() }}&dates={{ training.getNearestTerm()|google_calendar_link }}&details=Details:+https://pehapkari.cz/{{ path('training-detail', { 'slug': training.getSlug() }) }}&ctz=Europe/Prague&location={{ training.getNearestTermPlaceMapUrl() }}&sf=true&output=xml">
+                        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Lecture:+{{ training.getName() }}&dates={{ training.getNearestTerm()|google_calendar_link }}&details=Details:+https://pehapkari.cz/{{ path('training_detail', { 'slug': training.getSlug() }) }}&ctz=Europe/Prague&location={{ training.getNearestTermPlaceMapUrl() }}&sf=true&output=xml">
                             <em class="fa fa-fw fa-calendar"></em>
                             Přidat do kalendáře
                         </a>
@@ -114,7 +114,7 @@
                 </div>
 
                 <div class="col-md-8">
-                    {{ training.getDescription()|raw }}
+                    {{ training.getDescription()|markdown }}
 
                     {% if training.hasReferences() %}
                         <hr>

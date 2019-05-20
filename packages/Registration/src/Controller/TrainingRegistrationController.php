@@ -67,7 +67,7 @@ final class TrainingRegistrationController extends AbstractController
      */
     public function thankYou(TrainingTerm $trainingTerm): Response
     {
-        return $this->render('registration/thank_you.twig', [
+        return $this->render('registration/thank_you_for_registration.twig', [
             'trainingTerm' => $trainingTerm,
         ]);
     }

@@ -67,18 +67,19 @@
 
         <br>
 
-{#        <div class="text-center text-smaller">#}
-{#            <p>Další kurzy, které teď nemají vypsaný termín:</p>#}
-{#            <p>#}
-{#                {% for training in trainings if training.isActive() == false %}#}
-{#                    <li>#}
-{#                        <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">#}
-{#                            {{ training.getName()|raw }}#}
-{#                        </a>#}
-{#                    </li>#}
-{#                {% endfor %}#}
-{#            </p>#}
-{#        </div>#}
+        <div class="text-center text-smaller">
+            <p>Další kurzy, které teď nemají vypsaný termín:</p>
+
+            <p>
+                {% for training in trainings if training.isActive() == false %}
+                    <li>
+                        <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">
+                            {{ training.getName()|raw }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </p>
+        </div>
 
         <hr>
 
@@ -94,7 +95,7 @@
 
         <div class="text-center">
             <h2 class="mb-5">
-                {{ word_by_count(total_participant_count, ['spokojený účastník', 'spokojení účastnící', 'spokojených účastníků']) }}
+                Přes 120 spokojených účastníků
             </h2>
 
             <div class="row narrower">
@@ -303,7 +304,7 @@
     <h2 class="text-center">Partnerská školení</h2>
 
     <div class="row" id="training_partners">
-        <div class="col-4">
+        <div class="col-12 col-md-4">
             <p>
                 Vydrží tvoje aplikace útoky zákeřných hackerů?
                 <br>
@@ -311,7 +312,7 @@
             </p>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-md-4">
             <p>
                 Potřebuješ rychle načíst web, pochopit SVG, kódování newsletteru nebo Javascript?
                 <br>
@@ -319,7 +320,7 @@
             </p>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-md-4">
             <p>
                 Chceš si ujasnit objetové programování v PHP nebo se stát mistrem Symfony?
                 <br>

@@ -200,11 +200,6 @@ class Training
         $this->price = $price;
     }
 
-    public function setPlace(Place $place): void
-    {
-        $this->place = $place;
-    }
-
     public function getPerex(): ?string
     {
         return $this->perex;
@@ -269,11 +264,11 @@ class Training
 
     public function getNearestTermPlaceName(): ?string
     {
-        if ($this->getNearestTerm() !== null) {
+        if ($this->getNearestTerm() === null) {
             return null;
         }
 
-        if ($this->getNearestTerm()->getPlace() !== null) {
+        if ($this->getNearestTerm()->getPlace() === null) {
             return null;
         }
 
@@ -282,11 +277,11 @@ class Training
 
     public function getNearestTermPlaceMapUrl(): ?string
     {
-        if ($this->getNearestTerm() !== null) {
+        if ($this->getNearestTerm() === null) {
             return null;
         }
 
-        if ($this->getNearestTerm()->getPlace() !== null) {
+        if ($this->getNearestTerm()->getPlace() === null) {
             return null;
         }
 
