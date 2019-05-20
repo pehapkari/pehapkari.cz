@@ -8,15 +8,15 @@ stages:
 
 variables:
     GIT_STRATEGY: none
-    IMAGE_OPEN_TRAINING: registry.gitlab.com/open-guys/open-training
+    IMAGE: registry.gitlab.com/pehapkari/pehapkari.cz
     APP_ENV: dev
     APP_DEBUG: 0
     APP_SECRET: 67d829bf61dc5f87a73fd814e2c9f629
 
 .docker-job:
     variables:
-        IMAGE_PHP: $IMAGE_OPEN_TRAINING/php
-        IMAGE_NGINX: $IMAGE_OPEN_TRAINING/nginx
+        IMAGE_PHP: $IMAGE/php
+        IMAGE_NGINX: $IMAGE/nginx
     services:
         - docker:dind
     before_script:
@@ -40,7 +40,7 @@ phpunit:
     script:
         - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE_PHP:$CI_COMMIT_SHA php vendor/bin/phpunit
 
-release open-training:
+release:
     stage: release
     extends: .docker-job
     script:
@@ -53,7 +53,7 @@ release open-training:
     only:
         - master
 
-deploy open-training:
+deploy:
     stage: deploy
     before_script:
         - eval $(ssh-agent -s)
@@ -61,7 +61,7 @@ deploy open-training:
         - ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
         - echo "$DEPLOY_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
     script:
-        - ssh root@$DEPLOY_HOST "cd /projects/open-training && ./run.sh"
+        - ssh root@$DEPLOY_HOST "cd /projects/pehapkaricz && ./run.sh"
     environment:
         name: production
         url: http://pehapkari.cz
