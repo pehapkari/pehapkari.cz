@@ -7,10 +7,7 @@ parameters:
     # for tweet post command
     twitter_name: 'Pehapkari'
     twitter_maximal_days_in_past: 30 # tweet max. 1 month old posts
+    site_url: 'https://pehapkari.cz'
 
     # Statie configuration
     github_repository_source_directory: "https://github.com/pehapkari/pehapkari.cz/tree/master/source"
-
-    # needed for tweeting
-    site_url: 'https://pehapkari.cz'
-    twitter_minimal_gap_in_days: 0 # tweet now

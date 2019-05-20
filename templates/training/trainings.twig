@@ -16,7 +16,8 @@
         <br>
 
         <div class="row">
-            {% for training in trainings if training.isActive() %}
+            {% for upcoming_training_term in upcoming_training_terms %}
+                {% set training = upcoming_training_term.getTraining() %}
                 <div class="flex col-md-6">
                     <h2>
                         <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">
@@ -67,18 +68,19 @@
 
         <br>
 
-{#        <div class="text-center text-smaller">#}
-{#            <p>Další kurzy, které teď nemají vypsaný termín:</p>#}
-{#            <p>#}
-{#                {% for training in trainings if training.isActive() == false %}#}
-{#                    <li>#}
-{#                        <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">#}
-{#                            {{ training.getName()|raw }}#}
-{#                        </a>#}
-{#                    </li>#}
-{#                {% endfor %}#}
-{#            </p>#}
-{#        </div>#}
+        <div class="text-center text-smaller">
+            <p>Další kurzy, které teď nemají vypsaný termín:</p>
+
+            <p>
+                {% for training in trainings if training.isActive() == false %}
+                    <li>
+                        <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">
+                            {{ training.getName()|raw }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </p>
+        </div>
 
         <hr>
 
@@ -94,7 +96,7 @@
 
         <div class="text-center">
             <h2 class="mb-5">
-                {{ word_by_count(total_participant_count, ['spokojený účastník', 'spokojení účastnící', 'spokojených účastníků']) }}
+                Přes 120 spokojených účastníků
             </h2>
 
             <div class="row narrower">
@@ -219,22 +221,22 @@
 
         <div id="gallery" class="row">
             <div class="col-md-3 col-sm-4 col-6">
-                <img src="/assets/images/trainings/training1.jpg" alt="">
+                <img src="/assets/images/trainings/training01.jpg" alt="">
             </div>
             <div class="col-md-3 col-sm-4 col-6">
-                <img src="/assets/images/trainings/training9.jpg" alt="">
+                <img src="/assets/images/trainings/training08.jpg" alt="">
             </div>
             <div class="col-md-3 col-sm-4 col-6">
-                <img src="/assets/images/trainings/training4.jpg" alt="">
+                <img src="/assets/images/trainings/training04.jpg" alt="">
             </div>
             <div class="col-md-3 col-sm-4 col-6">
-                <img src="/assets/images/trainings/training3.jpg" alt="">
+                <img src="/assets/images/trainings/training03.jpg" alt="">
             </div>
             <div class="col-md-3 col-sm-4 col-6">
                 <img src="/assets/images/trainings/training11.jpg" alt="">
             </div>
             <div class="col-md-3 col-sm-4 col-6">
-                <img src="/assets/images/trainings/training6.jpg" alt="">
+                <img src="/assets/images/trainings/training06.jpg" alt="">
             </div>
             <div class="col-md-3 col-sm-4 col-6">
                 <img src="/assets/images/trainings/training12.jpg" alt="">
@@ -303,7 +305,7 @@
     <h2 class="text-center">Partnerská školení</h2>
 
     <div class="row" id="training_partners">
-        <div class="col-4">
+        <div class="col-12 col-md-4">
             <p>
                 Vydrží tvoje aplikace útoky zákeřných hackerů?
                 <br>
@@ -311,7 +313,7 @@
             </p>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-md-4">
             <p>
                 Potřebuješ rychle načíst web, pochopit SVG, kódování newsletteru nebo Javascript?
                 <br>
@@ -319,7 +321,7 @@
             </p>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-md-4">
             <p>
                 Chceš si ujasnit objetové programování v PHP nebo se stát mistrem Symfony?
                 <br>

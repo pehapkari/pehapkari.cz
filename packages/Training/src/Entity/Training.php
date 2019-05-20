@@ -7,8 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
@@ -200,11 +200,6 @@ class Training
         $this->price = $price;
     }
 
-    public function setPlace(Place $place): void
-    {
-        $this->place = $place;
-    }
-
     public function getPerex(): ?string
     {
         return $this->perex;
@@ -269,11 +264,11 @@ class Training
 
     public function getNearestTermPlaceName(): ?string
     {
-        if ($this->getNearestTerm() !== null) {
+        if ($this->getNearestTerm() === null) {
             return null;
         }
 
-        if ($this->getNearestTerm()->getPlace() !== null) {
+        if ($this->getNearestTerm()->getPlace() === null) {
             return null;
         }
 
@@ -282,11 +277,11 @@ class Training
 
     public function getNearestTermPlaceMapUrl(): ?string
     {
-        if ($this->getNearestTerm() !== null) {
+        if ($this->getNearestTerm() === null) {
             return null;
         }
 
-        if ($this->getNearestTerm()->getPlace() !== null) {
+        if ($this->getNearestTerm()->getPlace() === null) {
             return null;
         }
 

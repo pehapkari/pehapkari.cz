@@ -3,9 +3,9 @@ easy_admin:
         Training:
             class: 'Pehapkari\Training\Entity\Training'
             form:
-                exclude_fields:
-                    - 'trainingFeedbacks'
-                    - 'trainingTerms'
+                fields:
+                    - 'name'
+                    - { property: 'description', type_options: { attr: { rows: '25' } } }
 
         TrainingTerm:
             label: 'Training Term'
@@ -20,17 +20,9 @@ easy_admin:
                     - { name: 'download_certificates', type: 'route', label: 'Stáhnout certifikáty',  css_class: 'btn btn-sm btn-info' }
                     - { name: 'send_invoices', type: 'route', label: 'Poslat faktury',  css_class: 'btn btn-sm btn-danger' }
                     - { name: 'training_term_provision', type: 'route', label: 'Provize', css_class: 'btn btn-sm btn-warning' }
-            form:
-                exclude_fields:
-                    - 'registrations'
-                    - 'slug'
-                    - 'isProvisionPaid'
 
         Trainer:
             class: 'Pehapkari\Training\Entity\Trainer'
-            form:
-                exclude_fields:
-                    - 'trainings'
 
         Place:
             class: 'Pehapkari\Training\Entity\Place'

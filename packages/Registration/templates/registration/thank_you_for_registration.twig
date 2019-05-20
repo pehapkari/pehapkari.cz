@@ -1,0 +1,48 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+    <div id="trainings">
+        <div class="section">
+            <div class="container">
+                <h2>Vítej na školení!</h2>
+
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p>Úspěšně jsme přijali tvou přihlášku na školení <strong>{{ trainingTerm }}</strong>.</p>
+
+                        <p>Nyní poprosíme o trochu strpení. Až se nám zaplní minimální kapacita kurzu, pošleme fakturu a další pokyny.</p>
+                        <p>Zatím se měj pěkně.</p>
+
+                        <br>
+
+                        <p>Za tým Péhápkaři</p>
+
+                        <br>
+
+                        <p>Tomáš Votruba</p>
+
+                        <br>
+                        <br>
+                        <br>
+
+                        <p>Máš otázky? Napiš nebo zavolej, odpovím ti nejpozději do 24 hodin.</p>
+
+                        <ul>
+                            <li>
+                                <a href="mailto:tomas@pehapkari.cz">tomas@pehapkari.cz</a>
+                            </li>
+                            <li>
+                                <a href="tel:+420776778332">+420 776 778 332</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p>↓ Už ti držíme židli!</p>
+
+                        <img src="/assets/images/your_chair_is_warming_up.jpg" alt="Your Free spot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

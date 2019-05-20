@@ -27,6 +27,20 @@ class TrainingTerm
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingTerms")
+     * @Assert\NotNull
+     * @var Training
+     */
+    private $training;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Place")
+     * @Assert\NotNull
+     * @var Place
+     */
+    private $place;
+
+    /**
      * @ORM\Column(type="string", unique=true)
      * @var string
      */
@@ -69,23 +83,10 @@ class TrainingTerm
     private $endDateTime;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingTerms")
-     * @Assert\NotNull
-     * @var Training
-     */
-    private $training;
-
-    /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Registration\Entity\TrainingRegistration", mappedBy="trainingTerm")
      * @var TrainingRegistration[]|Collection
      */
     private $registrations;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Place")
-     * @var Place
-     */
-    private $place;
 
     public function __construct()
     {

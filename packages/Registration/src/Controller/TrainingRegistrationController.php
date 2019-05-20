@@ -2,6 +2,7 @@
 
 namespace Pehapkari\Registration\Controller;
 
+use Pehapkari\Mailer\Mailer;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Form\TrainingRegistrationFormType;
 use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
@@ -18,9 +19,15 @@ final class TrainingRegistrationController extends AbstractController
      */
     private $trainingRegistrationRepository;
 
-    public function __construct(TrainingRegistrationRepository $trainingRegistrationRepository)
+    /**
+     * @var Mailer
+     */
+    private $mailer;
+
+    public function __construct(TrainingRegistrationRepository $trainingRegistrationRepository, Mailer $mailer)
     {
         $this->trainingRegistrationRepository = $trainingRegistrationRepository;
+        $this->mailer = $mailer;
     }
 
     /**
@@ -30,18 +37,18 @@ final class TrainingRegistrationController extends AbstractController
      */
     public function default(Request $request, TrainingTerm $trainingTerm): Response
     {
-        $form = $this->createForm(TrainingRegistrationFormType::class);
+        $trainingRegistration = new TrainingRegistration();
+        $trainingRegistration->setTrainingTerm($trainingTerm);
+        $trainingRegistration->setPrice($trainingTerm->getPrice());
+
+        $form = $this->createForm(TrainingRegistrationFormType::class, $trainingRegistration);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var TrainingRegistration $trainingRegistration */
-            $trainingRegistration = $form->getData();
-
-            $trainingRegistration->setPrice($trainingTerm->getPrice());
-
             $this->trainingRegistrationRepository->save($trainingRegistration);
 
-            $this->addFlash('success', 'Tvá registrace byla úspěšná!');
+            // email!
+            $this->mailer->sendRegistrationEmail($trainingRegistration);
 
             return $this->redirectToRoute('registration_thank_you', [
                 'slug' => $trainingTerm->getSlug(),
@@ -60,7 +67,7 @@ final class TrainingRegistrationController extends AbstractController
      */
     public function thankYou(TrainingTerm $trainingTerm): Response
     {
-        return $this->render('registration/thank_you.twig', [
+        return $this->render('registration/thank_you_for_registration.twig', [
             'trainingTerm' => $trainingTerm,
         ]);
     }

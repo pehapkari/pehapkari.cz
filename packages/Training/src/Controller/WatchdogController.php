@@ -39,11 +39,7 @@ final class WatchdogController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var Watchdog $watchdog */
-            $watchdog = $form->getData();
             $this->watchdogRepository->save($watchdog);
-
-            $this->addFlash('success', 'Díky, dáme ti včas vědět!');
 
             return $this->redirectToRoute('watchdog_thank_you');
         }

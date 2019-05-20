@@ -1,6 +1,6 @@
 parameters:
     # exclude globally, if not explicitly listed
-    easy_admin_exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy']
+    easy_admin_exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy', 'trainingFeedbacks', 'trainingTerms', 'registrations', 'trainings', 'slug', 'isProvisionPaid']
 
 easy_admin:
     site_name: "Trainings from Péhápkaři Community"
@@ -31,6 +31,7 @@ easy_admin:
             # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/design-configuration.html#loading-the-entire-bootstrap-framework
             css:
                 - 'bundles/easyadmin/bootstrap-all.css'
+
         menu:
             -
                 label: 'Trainings'
