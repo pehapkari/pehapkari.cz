@@ -35,12 +35,6 @@ class User implements UserInterface
      */
     private $password;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Pehapkari\User\Entity\Role")
-     * @var Role
-     */
-    private $role;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -64,16 +58,6 @@ class User implements UserInterface
     public function getUsername(): string
     {
         return $this->name;
-    }
-
-    public function getRole(): ?Role
-    {
-        return $this->role;
-    }
-
-    public function setRole(Role $role): void
-    {
-        $this->role = $role;
     }
 
     /**
@@ -115,6 +99,6 @@ class User implements UserInterface
     {
         // required by authenticator:
         // "$roles must be an array of strings, or Role instances, but got object."
-        return [$this->role->getUid()];
+        return ['ROLE_ADMIN'];
     }
 }

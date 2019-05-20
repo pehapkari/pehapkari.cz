@@ -1,7 +1,6 @@
 easy_admin:
     entities:
         Training:
-            label: 'Školení'
             class: 'Pehapkari\Training\Entity\Training'
             form:
                 exclude_fields:
@@ -9,7 +8,7 @@ easy_admin:
                     - 'trainingTerms'
 
         TrainingTerm:
-            label: 'Termíny školení'
+            label: 'Training Term'
             class: 'Pehapkari\Training\Entity\TrainingTerm'
             list:
                 fields:
@@ -28,22 +27,18 @@ easy_admin:
                     - 'isProvisionPaid'
 
         Trainer:
-            label: 'Školitelé'
             class: 'Pehapkari\Training\Entity\Trainer'
             form:
                 exclude_fields:
                     - 'trainings'
 
         Place:
-            label: 'Školící místa'
             class: 'Pehapkari\Training\Entity\Place'
 
         Feedback:
-            label: 'Zpětné vazby'
             class: 'Pehapkari\Training\Entity\TrainingFeedback'
 
         Watchdog:
-            label: 'Zájemci o školení'
             class: 'Pehapkari\Training\Entity\Watchdog'
             list:
                 fields:

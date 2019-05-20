@@ -5,6 +5,7 @@ namespace Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Presenter;
 use Nette\Application\UI\Multiplier;
 use Nette\Application\UI\Presenter;
 use Nette\Bridges\ApplicationLatte\Template;
+use Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Component\AddToBasketControl\AddToBasketControl;
 use Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Component\AddToBasketControl\AddToBasketControlFactoryInterface;
 use Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Component\BasketContentControl\BasketContentControl;
 use Pehapkari\Statie\Posts\Year2017\ListeningNetteComponents\Component\BasketContentControl\BasketContentControlFactoryInterface;
@@ -86,7 +87,7 @@ final class CategoryPresenter extends Presenter
         // Musíme použít Multiplier, protože potřebujeme samostatnou instanci pro každý produkt.
         // Co je to Multiplier? Více informací najdeš ve článku https://pla.nette.org/cs/multiplier.
 
-        return new Multiplier(function ($productId) {
+        return new Multiplier(function ($productId): AddToBasketControl {
             $product = [];
             foreach (self::PRODUCTS as $productData) {
                 if ($productData['id'] === (int) $productId) {

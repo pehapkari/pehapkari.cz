@@ -11,7 +11,7 @@ var
 public/bundles/
 public/build/*/glyphicons-*
 
-public/uploads/images
+# public/uploads/images
 public/generated
 composer.lock
 
@@ -44,3 +44,5 @@ new-design/node_modules
 
 # PHPUnit 8+
 .phpunit.result.cache
+
+/public/adminer.php

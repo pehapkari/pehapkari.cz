@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -70,6 +71,7 @@ class Training
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Trainer", inversedBy="trainings")
+     * @Assert\NotNull()
      * @var Trainer
      */
     private $trainer;
@@ -289,5 +291,13 @@ class Training
         }
 
         return $this->getNearestTerm()->getPlace()->getMapUrl();
+    }
+
+    /**
+     * @return TrainingFeedback[]|ArrayCollection
+     */
+    public function getTrainingFeedbacks()
+    {
+        return $this->trainingFeedbacks;
     }
 }
