@@ -20,5 +20,4 @@ Dockerfile
 docker-compose.yml
 docker-compose.dist.yml
 
-public/uploads/*
 public/generated
