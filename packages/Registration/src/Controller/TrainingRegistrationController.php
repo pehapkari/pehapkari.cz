@@ -30,15 +30,14 @@ final class TrainingRegistrationController extends AbstractController
      */
     public function default(Request $request, TrainingTerm $trainingTerm): Response
     {
-        $form = $this->createForm(TrainingRegistrationFormType::class);
+        $trainingRegistration = new TrainingRegistration();
+        $trainingRegistration->setTrainingTerm($trainingTerm);
+        $trainingRegistration->setPrice($trainingTerm->getPrice());
+
+        $form = $this->createForm(TrainingRegistrationFormType::class, $trainingRegistration);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var TrainingRegistration $trainingRegistration */
-            $trainingRegistration = $form->getData();
-
-            $trainingRegistration->setPrice($trainingTerm->getPrice());
-
             $this->trainingRegistrationRepository->save($trainingRegistration);
 
             $this->addFlash('success', 'Tvá registrace byla úspěšná!');

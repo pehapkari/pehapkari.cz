@@ -1,5 +1,12 @@
 {
     "namespaces": [
-        { "path": "templates" }
+        { "path": "templates" },
+        { "path": "packages/BetterEasyAdmin/templates" },
+        { "path": "packages/KnowHow/templates" },
+        { "path": "packages/Marketing/templates" },
+        { "path": "packages/Provision/templates" },
+        { "path": "packages/Registration/templates" },
+        { "path": "packages/Training/templates" },
+        { "path": "packages/User/templates" }
     ]
 }
