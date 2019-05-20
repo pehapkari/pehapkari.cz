@@ -4,13 +4,13 @@
     <div id="trainings">
         <div class="section">
             <div class="container">
-                <h2>Přihláška na školení {{ training.getName() }}</h2>
-                <h3>({{ trainingTerm.getStartDateTime()|date("j. n. Y") }})</h3>
+                <h2 class="text-center">Přihláška na školení {{ training.getName() }}</h2>
+                <h3>{{ trainingTerm.getStartDateTime()|date("j. n. Y H:i") }}</h3>
 
                 <br>
 
                 {# this alternative theme is also available #}
-                {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+                {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
                 {{ form(form) }}
             </div>
