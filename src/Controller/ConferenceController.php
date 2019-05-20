@@ -27,13 +27,24 @@ final class ConferenceController extends AbstractController
      */
     public function phpPrague(int $year = 2018): Response
     {
-        if (! isset($this->phpPrague[$year])) {
-            throw new ShouldNotHappenException();
-        }
+        $this->ensureYearIsConfigured($year);
 
         $values = $this->phpPrague[$year];
         $values['year'] = $year;
 
         return $this->render('conference/php_prague.twig', $values);
+    }
+
+    private function ensureYearIsConfigured(int $year): void
+    {
+        if (isset($this->phpPrague[$year])) {
+            return;
+        }
+
+        throw new ShouldNotHappenException(sprintf(
+            'Year "%d" was not found. Add it to "%s" file',
+            $year,
+            'conferences.yaml'
+        ));
     }
 }
