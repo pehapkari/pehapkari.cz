@@ -380,9 +380,6 @@
     "sirbrillig/phpcs-variable-analysis": {
         "version": "v2.1.1"
     },
-    "slam/php-cs-fixer-extensions": {
-        "version": "v1.16.0"
-    },
     "slevomat/coding-standard": {
         "version": "4.6.3"
     },
