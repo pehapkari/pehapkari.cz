@@ -29,8 +29,8 @@ We use [Markdown](https://guides.github.com/features/mastering-markdown/#example
 ### 1. Your Job...
 
 - [fork `pehapkari/pehapkari.cz/` repository on Github](https://github.com/pehapkari/pehapkari.cz/)
-- [add youself to `authors.yml`](https://github.com/pehapkari/pehapkari.cz/blob/master/source/_data/authors.yml)
-- feel free to duplicate [this post](https://github.com/pehapkari/pehapkari.cz/edit/master/source/_posts/2018/2018-04-11-how-anyone-can-write-a-post-here.md) or any from [/source/_posts](https://github.com/pehapkari/pehapkari.cz/tree/master/source/_posts) and edit the date, so it's at least 1 week from the last post
+- [add youself to `authors.yml`](https://github.com/pehapkari/pehapkari.cz/blob/master/config/_data/authors.yaml)
+- feel free to duplicate [this post](https://github.com/pehapkari/pehapkari.cz/blob/master/statie/source/_posts/2018/2018-04-11-how-anyone-can-write-a-post-here.md) or any from [/statie/source/_posts](https://github.com/pehapkari/pehapkari.cz/tree/master/statie/source/_posts) and edit the date, so it's at least 1 week from the last post
 - **write a post**
 - send PR to review
 
