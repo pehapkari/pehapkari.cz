@@ -11,7 +11,7 @@ twig:
 
     # see https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration
     date:
-        format: 'j. n., g:i' # Czech format
+        format: 'j. n., H:i' # Czech format
 
     # see https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration
     number_format:
