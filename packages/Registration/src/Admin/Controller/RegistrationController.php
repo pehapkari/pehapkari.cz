@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace Pehapkari\Registration\Controller;
+namespace Pehapkari\Registration\Admin\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
 use Pehapkari\Registration\Entity\TrainingRegistration;
+use Pehapkari\Registration\Invoicing\Invoicer;
 use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 use Pehapkari\Training\Certificate\CertificateGenerator;
 use Pehapkari\Zip\Zip;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -26,21 +26,31 @@ final class RegistrationController extends EasyAdminController
      * @var Zip
      */
     private $zip;
+
     /**
      * @var TrainingRegistrationRepository
      */
     private $trainingRegistrationRepository;
 
-    public function __construct(CertificateGenerator $certificateGenerator, Zip $zip, TrainingRegistrationRepository $trainingRegistrationRepository)
-    {
+    /**
+     * @var Invoicer
+     */
+    private $invoicer;
+
+    public function __construct(
+        CertificateGenerator $certificateGenerator,
+        Zip $zip,
+        TrainingRegistrationRepository $trainingRegistrationRepository,
+        Invoicer $invoicer
+    ) {
         $this->certificateGenerator = $certificateGenerator;
         $this->zip = $zip;
         $this->trainingRegistrationRepository = $trainingRegistrationRepository;
+        $this->invoicer = $invoicer;
     }
 
     /**
-     * @Route(path="/admin/download-certificates/{id}", name="download_certificates")
-     * @see https://symfony.com/blog/new-in-symfony-3-2-file-controller-helper
+     * @param int[] $ids
      */
     public function certificateBatchAction(array $ids): Response
     {
@@ -59,4 +69,24 @@ final class RegistrationController extends EasyAdminController
         return $this->file($zipFile);
     }
 
+    /**
+     * @param int[] $ids
+     */
+    public function sendInvoicesBatchAction(array $ids): void
+    {
+        $registrations = $this->trainingRegistrationRepository->findWithoutInvoicesByIds($ids);
+
+        foreach ($registrations as $registration) {
+            $this->invoicer->sendInvoiceForRegistration($registration);
+
+            $this->addFlash(
+                'success',
+                sprintf(
+                    'Faktura pro %s %s byla vytvořena a poslána',
+                    $registration->getTrainingName(),
+                    $registration->getName()
+                )
+            );
+        }
+    }
 }

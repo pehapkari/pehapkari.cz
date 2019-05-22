@@ -15,7 +15,7 @@
         "easycorp/easyadmin-bundle": "^2.1",
         "fakturoid/fakturoid-php": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
-        "k0nias/fakturoid-api": "^0.1",
+        "k0nias/fakturoid-api": "^0.1.1",
         "knplabs/doctrine-behaviors": "^1.6",
         "sensio/framework-extra-bundle": "^5.3",
         "setasign/fpdf": "^1.8",
