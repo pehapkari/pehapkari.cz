@@ -3,7 +3,10 @@ easy_admin:
         Registration:
             class: 'Pehapkari\Registration\Entity\TrainingRegistration'
 
+            controller: 'Pehapkari\Registration\Controller\RegistrationController'
+
             list:
+                batch_actions: ['certificate', 'send_invoice']
                 fields:
                     - 'name'
                     - 'email'

@@ -43,6 +43,21 @@ final class TrainingRegistrationRepository
     /**
      * @return TrainingRegistration[]
      */
+    public function findByIds(array $ids): array
+    {
+        return $this->entityRepository->findBy(['id' => $ids]);
+
+        //        return (int) $this->entityRepository->createQueryBuilder('tr')
+//            ->join('tr.trainingTerm', 'tt')
+//            ->select('count(tr.id)')
+//            ->andWhere('tt.endDateTime < CURRENT_DATE()')
+//            ->getQuery()
+//            ->getSingleScalarResult();
+    }
+
+    /**
+     * @return TrainingRegistration[]
+     */
     public function getUnpaid(): array
     {
         return $this->entityRepository->findBy([

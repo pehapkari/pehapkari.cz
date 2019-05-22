@@ -10,9 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @see https://symfony.com/doc/master/bundles/EasyAdminBundle/tutorials/custom-actions.html
- */
 final class CertificateController extends AbstractController
 {
     /**
