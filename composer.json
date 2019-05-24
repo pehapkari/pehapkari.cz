@@ -9,6 +9,7 @@
         "ext-pdo_mysql": "*",
         "alterphp/easyadmin-extension-bundle": "^2.1",
         "chumper/zipper": "^1.0",
+        "cweagans/composer-patches": "^1.6",
         "dfridrich/ares": "^1.2",
         "doctrine/doctrine-bundle": "^1.10",
         "doctrine/orm": "2.7.x-dev",
@@ -102,6 +103,11 @@
         "symfony": {
             "allow-contrib": true,
             "require": "4.2.*"
+        },
+        "patches": {
+            "easycorp/easyadmin-bundle": {
+                "Allow batch response": "patches/allow_batch_response.patch"
+            }
         }
     },
     "prefer-stable": true,

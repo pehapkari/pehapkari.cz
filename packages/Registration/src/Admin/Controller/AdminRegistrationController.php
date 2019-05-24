@@ -3,7 +3,6 @@
 namespace Pehapkari\Registration\Admin\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
-use Nette\Application\Responses\RedirectResponse;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
 use Pehapkari\Registration\Entity\TrainingRegistration;
@@ -16,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @see TrainingRegistration
  */
-final class RegistrationController extends EasyAdminController
+final class AdminRegistrationController extends EasyAdminController
 {
     /**
      * @var CertificateGenerator
@@ -48,28 +47,6 @@ final class RegistrationController extends EasyAdminController
         $this->zip = $zip;
         $this->trainingRegistrationRepository = $trainingRegistrationRepository;
         $this->invoicer = $invoicer;
-    }
-
-    /**
-     * Copied from parent
-     * https://github.com/EasyCorp/EasyAdminBundle/blob/6ac97da2a3bff834a195653882c9c4a778f9d56a/src/Controller/AdminControllerTrait.php#L401
-     */
-    protected function batchAction(): Response
-    {
-        $batchForm = $this->createBatchForm($this->entity['name']);
-        $batchForm->handleRequest($this->request);
-
-        if ($batchForm->isSubmitted() && $batchForm->isValid()) {
-            $actionName = $batchForm->get('name')->getData();
-            $actionIds = $batchForm->get('ids')->getData();
-            $possibleResponse = $this->executeDynamicMethod($actionName.'<EntityName>BatchAction', [$actionIds, $batchForm]);
-
-            if ($possibleResponse instanceof Response) {
-                return $possibleResponse;
-            }
-        }
-
-        return $this->redirectToReferrer();
     }
 
     /**

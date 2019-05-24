@@ -85,4 +85,13 @@ final class TrainingTermRepository
     {
         return $this->entityManager->getReference(TrainingTerm::class, $id);
     }
+
+    /**
+     * @param int[] $ids
+     * @return TrainingTerm[]
+     */
+    public function findByIds(array $ids): array
+    {
+        return $this->entityRepository->findBy(['id' => $ids]);
+    }
 }

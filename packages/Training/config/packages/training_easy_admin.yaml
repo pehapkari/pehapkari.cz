@@ -10,7 +10,9 @@ easy_admin:
         TrainingTerm:
             label: 'Training Term'
             class: 'Pehapkari\Training\Entity\TrainingTerm'
+            controller: 'Pehapkari\Training\Admin\Controller\AdminTrainingTermController'
             list:
+                batch_actions: ['generatePromoImages']
                 fields:
                     - 'training'
                     - 'startDateTime'
