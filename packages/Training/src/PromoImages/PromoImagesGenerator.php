@@ -5,7 +5,8 @@ namespace Pehapkari\Training\PromoImages;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Pehapkari\Exception\ShouldNotHappenException;
-use Pehapkari\Training\Entity\TrainingTerm;use setasign\Fpdi\Fpdi;
+use Pehapkari\Training\Entity\TrainingTerm;
+use setasign\Fpdi\Fpdi;
 
 final class PromoImagesGenerator
 {
@@ -18,13 +19,17 @@ final class PromoImagesGenerator
      * @var string
      */
     private $promoImageOutputDirectory;
+
     /**
      * @var string
      */
     private $uploadDestination;
 
-    public function __construct(string $promoImageAssetsDirectory, string $promoImageOutputDirectory, string $uploadDestination)
-    {
+    public function __construct(
+        string $promoImageAssetsDirectory,
+        string $promoImageOutputDirectory,
+        string $uploadDestination
+    ) {
         // required for Fpdi
         define('FPDF_FONTPATH', $promoImageAssetsDirectory . '/fonts');
 
@@ -42,7 +47,12 @@ final class PromoImagesGenerator
         $date = $trainingTerm->getStartDateTime()->format('j. n. Y');
         $participantName = $trainingTerm->getTrainingName();
 
-        return $this->generateForTrainingNameDateAndParticipantName($trainingName, $date, $participantName, $trainingTerm);
+        return $this->generateForTrainingNameDateAndParticipantName(
+            $trainingName,
+            $date,
+            $participantName,
+            $trainingTerm
+        );
     }
 
     private function generateForTrainingNameDateAndParticipantName(
@@ -54,8 +64,9 @@ final class PromoImagesGenerator
         $pdf = new Fpdi('l', 'pt');
         $pdf->AddPage('l');
 
-        $pdf->AddFont('DejaVuSans', '', 'DejaVuSans.php');
-        $pdf->AddFont('Georgia', '', 'Georgia.php');
+        // encode font here - http://www.fpdf.org/makefont - cp-1250
+        $pdf->AddFont('OpenSans', '', 'OpenSans-Regular.php');
+        $pdf->SetFont('OpenSans', '', 14);
 
         $pdf->setSourceFile($this->promoImageAssetsDirectory . '/promo_image.pdf');
         $tppl = $pdf->importPage(1);
@@ -73,8 +84,8 @@ final class PromoImagesGenerator
 
         // add trainer photo
         $trainerImage = $this->uploadDestination . $trainingTerm->getTrainer()->getImage();
-        $this->ensureFileExists($trainingImage);
-        $pdf->Image($trainingImage, 40, 150);
+        $this->ensureFileExists($trainerImage);
+        $pdf->Image($trainerImage, 40, 150);
 
         $destination = $this->createDestination($trainingName, $userName);
         // ensure directory exists
@@ -92,7 +103,7 @@ final class PromoImagesGenerator
         // resize for long lecture names
         $fontSize = strlen($trainingName) < 40 ? 23 : strlen($trainingName) < 45 ? 21 : 18;
 
-        $fpdi->SetFont('DejaVuSans', '', $fontSize);
+//        $fpdi->SetFont('OpenSans', '', $fontSize);
         $fpdi->SetTextColor(0, 0, 0);
         $fpdi->SetXY(($width / 2) - ($fpdi->GetStringWidth($trainingName) / 2), 350);
         $fpdi->Write(0, $trainingName);
@@ -101,10 +112,18 @@ final class PromoImagesGenerator
     private function addDate(string $date, Fpdi $fpdi, int $width): void
     {
         $date = $this->encode($date);
-        $fpdi->SetFont('Georgia', '', 13);
         $fpdi->SetTextColor(0, 0, 0);
         $fpdi->SetXY(($width / 2) - ($fpdi->GetStringWidth($date) / 2), 300);
         $fpdi->Write(0, $date);
+    }
+
+    private function ensureFileExists(string $trainingImage): void
+    {
+        if (file_exists($trainingImage)) {
+            return;
+        }
+
+        throw new ShouldNotHappenException(sprintf('File "%s" was not found.', $trainingImage));
     }
 
     private function createDestination(string $trainingName, string $participantName): string
@@ -116,14 +135,5 @@ final class PromoImagesGenerator
     private function encode(string $string): string
     {
         return (string) iconv('UTF-8', 'windows-1250', $string);
-    }
-
-    private function ensureFileExists(string $trainingImage): void
-    {
-        if (file_exists($trainingImage)) {
-            return;
-        }
-
-        throw new ShouldNotHappenException(sprintf('File "%s" was not found.', $trainingImage));
     }
 }

@@ -19,17 +19,22 @@ final class AdminTrainingTermController extends EasyAdminController
      * @var TrainingTermRepository
      */
     private $trainingTermRepository;
+
     /**
      * @var Zip
      */
     private $zip;
+
     /**
      * @var PromoImagesGenerator
      */
     private $promoImagesGenerator;
 
-    public function __construct(TrainingTermRepository $trainingTermRepository, Zip $zip, PromoImagesGenerator $promoImagesGenerator)
-    {
+    public function __construct(
+        TrainingTermRepository $trainingTermRepository,
+        Zip $zip,
+        PromoImagesGenerator $promoImagesGenerator
+    ) {
         $this->trainingTermRepository = $trainingTermRepository;
         $this->zip = $zip;
         $this->promoImagesGenerator = $promoImagesGenerator;
