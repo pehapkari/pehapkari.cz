@@ -4,6 +4,7 @@ namespace Pehapkari\Registration\Entity;
 
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 use Pehapkari\Training\Entity\TrainingTerm;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -12,6 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class TrainingRegistration
 {
+    use Timestampable;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
