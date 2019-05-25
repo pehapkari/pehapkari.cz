@@ -114,6 +114,10 @@ final class PromoImagesGenerator
     private function addTrainingImage(TrainingTerm $trainingTerm, Fpdi $fpdi): void
     {
         $trainingImage = $trainingTerm->getTrainingImageAbsolutePath();
+
+        dump($trainingImage . '____');
+        die;
+
         $this->ensureFileExists($trainingImage);
 
         $imageSquareSize = 140;
