@@ -6,15 +6,11 @@ use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Training\Entity\TrainingTerm;
+use Pehapkari\Training\Pdf\RgbColor;
 use setasign\Fpdi\Fpdi;
 
 final class PromoImagesGenerator
 {
-    /**
-     * @var string
-     */
-    private $promoImageAssetsDirectory;
-
     /**
      * @var string
      */
@@ -25,7 +21,6 @@ final class PromoImagesGenerator
         // required for Fpdi
         define('FPDF_FONTPATH', $promoImageAssetsDirectory . '/fonts');
 
-        $this->promoImageAssetsDirectory = $promoImageAssetsDirectory;
         $this->promoImageOutputDirectory = $promoImageOutputDirectory;
     }
 
@@ -50,14 +45,13 @@ final class PromoImagesGenerator
         $pageId = $pdf->importPage(1);
         $pdf->useTemplate($pageId, 25, 0);
 
-        $width = (int) $pdf->GetPageWidth();
-
         $this->addTrainingName($trainingName, $pdf);
-        $this->addDate($date, $pdf, $width);
+        $this->addDate($date, $pdf);
 
         // @done
         $this->addTrainingImage($trainingTerm, $pdf);
         $this->addTrainerImage($trainingTerm, $pdf);
+        $this->addTrainerName($trainingTerm, $pdf);
 
         $destination = $this->createFileDestination($trainingName, $trainingTerm);
 
@@ -75,11 +69,9 @@ final class PromoImagesGenerator
         $pdf = new Fpdi('landscape', 'pt');
         $pdf->AddPage('landscape');
 
-        // encode font here - http://www.fpdf.org/makefont - cp-1250
-        $pdf->AddFont('OpenSans', '', 'OpenSans-Regular.php');
-        $pdf->SetFont('OpenSans', '', 14);
+        $this->loadFontsToPdf($pdf);
 
-        $pdf->setSourceFile($this->promoImageAssetsDirectory . '/promo_image.pdf');
+        $pdf->setSourceFile(__DIR__ . '/../../../../public/assets/promo_image/promo_image.pdf');
 
         return $pdf;
     }
@@ -90,22 +82,20 @@ final class PromoImagesGenerator
 
         // resize for long lecture names
         $fontSize = strlen($trainingName) < 45 ? 35 : strlen($trainingName) < 45 ? 24 : 22;
-        $fpdi->SetFontSize($fontSize);
 
-        // @todo use BOLD here
-        $greenColorRGB = [143, 190, 0];
-        $fpdi->SetTextColor(...$greenColorRGB);
+        $fpdi->SetTextColor(...RgbColor::GREEN);
+        $fpdi->SetFont('OpenSans', 'Bold', $fontSize);
 
         $fpdi->SetXY(260, 90);
         $fpdi->Write(0, $trainingName);
+
+        // back to black
+        $fpdi->SetTextColor(...RgbColor::BLACK);
     }
 
-    private function addDate(string $date, Fpdi $fpdi, int $width): void
+    private function addDate(string $date, Fpdi $fpdi): void
     {
-        $date = $this->encode($date);
-        $fpdi->SetTextColor(0, 0, 0);
-        $fpdi->SetXY(($width / 2) - ($fpdi->GetStringWidth($date) / 2), 300);
-        $fpdi->Write(0, $date);
+        $this->writeTextInSizeToLocation($date, 20, 200, 255, $fpdi);
     }
 
     /**
@@ -114,10 +104,6 @@ final class PromoImagesGenerator
     private function addTrainingImage(TrainingTerm $trainingTerm, Fpdi $fpdi): void
     {
         $trainingImage = $trainingTerm->getTrainingImageAbsolutePath();
-
-        dump($trainingImage . '____');
-        die;
-
         $this->ensureFileExists($trainingImage);
 
         $imageSquareSize = 140;
@@ -137,6 +123,11 @@ final class PromoImagesGenerator
         $fpdi->Image($trainerImage, 440, 230, $imageSquareSize, $imageSquareSize);
     }
 
+    private function addTrainerName(TrainingTerm $trainingTerm, Fpdi $fpdi): void
+    {
+        $this->writeTextInSizeToLocation('školí ' . $trainingTerm->getTrainerName(), 20, 180, 310, $fpdi);
+    }
+
     private function createFileDestination(string $trainingName, TrainingTerm $trainingTerm): string
     {
         return $this->promoImageOutputDirectory . '/' .
@@ -147,9 +138,29 @@ final class PromoImagesGenerator
             );
     }
 
+    /**
+     * Encode font here to get *.php and *.t versions: http://www.fpdf.org/makefont
+     * Use cp-1250
+     */
+    private function loadFontsToPdf(Fpdi $fpdi): void
+    {
+        $fpdi->AddFont('OpenSans', '', 'OpenSans-Regular.php');
+        $fpdi->AddFont('OpenSans', 'Bold', 'OpenSans-Bold.php');
+        $fpdi->SetFont('OpenSans', '', 14);
+    }
+
     private function encode(string $string): string
     {
         return (string) iconv('UTF-8', 'windows-1250', $string);
+    }
+
+    private function writeTextInSizeToLocation(string $text, int $fontSize, int $x, int $y, Fpdi $fpdi): void
+    {
+        $text = $this->encode($text);
+        $fpdi->SetFontSize($fontSize);
+
+        $fpdi->SetXY($x, $y);
+        $fpdi->Write(0, $text);
     }
 
     private function ensureFileExists(string $trainingImage): void
