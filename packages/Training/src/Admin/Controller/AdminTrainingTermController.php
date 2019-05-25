@@ -52,12 +52,7 @@ final class AdminTrainingTermController extends EasyAdminController
             $promoImagePaths[] = $this->promoImagesGenerator->generateForTrainingTerm($trainingTerm);
         }
 
-        return $this->file($promoImagePaths[0]);
-
-        dump($promoImagePaths);
-        die;
-
-        $zipFileName = sprintf('promo-images-%s.zip', Strings::webalize(new DateTime()));
+        $zipFileName = sprintf('promo-images-%s.zip', Strings::webalize((string) new DateTime()));
         $zipFile = $this->zip->saveZipFileWithFiles($zipFileName, $promoImagePaths);
 
         return $this->file($zipFile);

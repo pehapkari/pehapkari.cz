@@ -63,7 +63,7 @@ final class AdminRegistrationController extends EasyAdminController
             );
         }
 
-        $zipFileName = sprintf('certifikaty-%s.zip', Strings::webalize(new DateTime()));
+        $zipFileName = sprintf('certifikaty-%s.zip', Strings::webalize((string) new DateTime()));
         $zipFile = $this->zip->saveZipFileWithFiles($zipFileName, $certificateFilePaths);
 
         return $this->file($zipFile);

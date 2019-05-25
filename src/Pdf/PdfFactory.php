@@ -22,6 +22,14 @@ final class PdfFactory
         return $fpdi;
     }
 
+    public function createHorizontalWithTemplate(string $template): Fpdi
+    {
+        $fpdi = $this->createHorizontal();
+        $fpdi->setSourceFile($template);
+
+        return $fpdi;
+    }
+
     /**
      * Encode font here to get *.php and *.t versions: http://www.fpdf.org/makefont
      * Use cp-1250

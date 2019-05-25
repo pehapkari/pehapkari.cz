@@ -49,13 +49,12 @@ final class PromoImagesGenerator
         $pageId = $pdf->importPage(1);
         $pdf->useTemplate($pageId, 0, 0, 720, 405, true);
 
-        // @done
         $this->addHeadline($pdf);
-        $this->addTrainingName($trainingName, $pdf);
 
+        $this->addTrainingName($trainingName, $pdf);
+        $this->addTrainingImage($trainingTerm, $pdf);
         $this->addDate($date, $pdf);
 
-        $this->addTrainingImage($trainingTerm, $pdf);
         $this->addTrainerImage($trainingTerm, $pdf);
         $this->addTrainerNamePositionAndCompany($trainingTerm, $pdf);
 
@@ -67,45 +66,38 @@ final class PromoImagesGenerator
 
     private function createLandscapePdfWithFonts(): Fpdi
     {
-        $fpdi = $this->pdfFactory->createHorizontal();
+        $fpdi = $this->pdfFactory->createHorizontalWithTemplate(
+            __DIR__ . '/../../../../public/assets/pdf/promo_image.pdf'
+        );
         $fpdi->SetFont('OpenSans', '', 14);
-
-        $fpdi->setSourceFile(__DIR__ . '/../../../../public/assets/pdf/promo_image.pdf');
 
         return $fpdi;
     }
 
     private function addHeadline(Fpdi $fpdi): void
     {
-        $fpdi->Image(__DIR__ . '/../../../../public/assets/images/slon_pehapkari_cz.png', 240, 15, 140);
+        $fpdi->Image(__DIR__ . '/../../../../public/assets/images/slon_pehapkari_cz.png', 240, 15, 150);
 
-        $this->addTextInSizeToLocation('školení', 20, 260, 15, $fpdi);
+        $this->addTextInSizeToLocation('školení', 17, 390, 37, $fpdi);
     }
 
     private function addTrainingName(string $trainingName, Fpdi $fpdi): void
     {
         // resize for long lecture names
-        $fontSize = strlen($trainingName) < 45 ? 35 : strlen($trainingName) < 45 ? 24 : 22;
+        $fontSize = $this->resolveTrainingNameFontSize($trainingName);
 
         $fpdi->SetTextColor(...RgbColor::GREEN);
         $fpdi->SetFont('OpenSans', 'Bold', $fontSize);
 
-        $this->addTextInSizeToLocation($trainingName, $fontSize, 260, 90, $fpdi);
+        $text = $this->encode($trainingName);
+        $fpdi->SetFontSize($fontSize);
+
+        // @see https://stackoverflow.com/a/24258682/1348344
+        $fpdi->SetXY(280, 70);
+        $fpdi->MultiCell(400, 60, $text);
 
         // back to black regular
         $fpdi->SetTextColor(...RgbColor::BLACK);
-        $fpdi->SetFont('OpenSans', '');
-    }
-
-    /**
-     * @done
-     */
-    private function addDate(string $date, Fpdi $fpdi): void
-    {
-        $fpdi->SetFont('OpenSans', 'Bold');
-
-        $this->addTextInSizeToLocation($date, 20, 200, 255, $fpdi);
-
         $fpdi->SetFont('OpenSans', '');
     }
 
@@ -119,6 +111,18 @@ final class PromoImagesGenerator
 
         $imageSquareSize = 140;
         $fpdi->Image($trainingImage, 75, 60, $imageSquareSize, $imageSquareSize);
+    }
+
+    /**
+     * @done
+     */
+    private function addDate(string $date, Fpdi $fpdi): void
+    {
+        $fpdi->SetFont('OpenSans', 'Bold');
+
+        $this->addTextInSizeToLocation($date, 20, 200, 255, $fpdi);
+
+        $fpdi->SetFont('OpenSans', '');
     }
 
     /**
@@ -175,6 +179,24 @@ final class PromoImagesGenerator
         $fpdi->Write(0, $text);
     }
 
+    private function resolveTrainingNameFontSize(string $trainingName): int
+    {
+        if (Strings::length($trainingName) < 45) {
+            return 35;
+        }
+
+        if (Strings::length($trainingName) > 45) {
+            return 24;
+        }
+
+        return 22;
+    }
+
+    private function encode(string $string): string
+    {
+        return (string) iconv('UTF-8', 'windows-1250', $string);
+    }
+
     private function ensureFileExists(string $trainingImage): void
     {
         if (file_exists($trainingImage)) {
@@ -182,10 +204,5 @@ final class PromoImagesGenerator
         }
 
         throw new ShouldNotHappenException(sprintf('File "%s" was not found.', $trainingImage));
-    }
-
-    private function encode(string $string): string
-    {
-        return (string) iconv('UTF-8', 'windows-1250', $string);
     }
 }

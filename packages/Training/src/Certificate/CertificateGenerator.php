@@ -45,8 +45,9 @@ final class CertificateGenerator
         string $date,
         string $userName
     ): string {
-        $pdf = $this->pdfFactory->createHorizontal();
-        $pdf->setSourceFile(__DIR__ . '/../../../../public/assets/pdf/certificate.pdf');
+        $pdf = $this->pdfFactory->createHorizontalWithTemplate(
+            __DIR__ . '/../../../../public/assets/pdf/certificate.pdf'
+        );
 
         $tppl = $pdf->importPage(1);
         $pdf->useTemplate($tppl, 25, 0);

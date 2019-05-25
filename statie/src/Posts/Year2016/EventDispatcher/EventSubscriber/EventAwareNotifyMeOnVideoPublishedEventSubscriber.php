@@ -17,7 +17,7 @@ final class EventAwareNotifyMeOnVideoPublishedEventSubscriber implements EventSu
      */
     public static function getSubscribedEvents(): array
     {
-        return ['youtube.newVideoPublished' => 'notifyUserAboutVideo'];
+        return [YoutuberNameEvent::class => 'notifyUserAboutVideo'];
     }
 
     public function notifyUserAboutVideo(YoutuberNameEvent $youtuberNameEvent): void
