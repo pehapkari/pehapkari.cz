@@ -75,6 +75,13 @@ final class PromoImagesGenerator
         return $fpdi;
     }
 
+    private function addHeadline(Fpdi $fpdi): void
+    {
+        $fpdi->Image(__DIR__ . '/../../../../public/assets/images/slon_pehapkari_cz.png', 240, 15, 140);
+
+        $this->addTextInSizeToLocation('školení', 20, 260, 15, $fpdi);
+    }
+
     private function addTrainingName(string $trainingName, Fpdi $fpdi): void
     {
         // resize for long lecture names
@@ -180,12 +187,5 @@ final class PromoImagesGenerator
     private function encode(string $string): string
     {
         return (string) iconv('UTF-8', 'windows-1250', $string);
-    }
-
-    private function addHeadline(Fpdi $fpdi): void
-    {
-        $fpdi->Image(__DIR__ . '/../../../../public/assets/images/slon_pehapkari_cz.png', 240, 15, 140);
-
-        $this->addTextInSizeToLocation('školení', 20, 260, 15, $fpdi);
     }
 }
