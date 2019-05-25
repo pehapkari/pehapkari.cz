@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Pehapkari\Training\Pdf;
+namespace Pehapkari\Pdf;
 
 final class RgbColor
 {

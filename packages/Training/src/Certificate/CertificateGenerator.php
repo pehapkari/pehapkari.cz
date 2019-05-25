@@ -21,8 +21,8 @@ final class CertificateGenerator
 
     public function __construct(string $certificateAssetsDirectory, string $certificateOutputDirectory)
     {
-        // required for Fpdi
-        define('FPDF_FONTPATH', $certificateAssetsDirectory . '/fonts');
+//        // required for Fpdi
+//        define('FPDF_FONTPATH', $certificateAssetsDirectory . '/fonts');
 
         $this->certificateAssetsDirectory = $certificateAssetsDirectory;
         $this->certificateOutputDirectory = $certificateOutputDirectory;
@@ -47,8 +47,8 @@ final class CertificateGenerator
         string $date,
         string $userName
     ): string {
-        $pdf = new Fpdi('l', 'pt');
-        $pdf->AddPage('l');
+        $pdf = new Fpdi('landscape', 'pt');
+        $pdf->AddPage('landscape');
 
         $pdf->AddFont('DejaVuSans', '', 'DejaVuSans.php');
         $pdf->AddFont('Georgia', '', 'Georgia.php');

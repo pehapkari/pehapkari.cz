@@ -307,4 +307,9 @@ class TrainingTerm implements UploadDestinationAwareInterface
     {
         return $this->getTrainer()->getName();
     }
+
+    public function getTrainerPosition()
+    {
+        return $this->getTrainer()->get();
+    }
 }

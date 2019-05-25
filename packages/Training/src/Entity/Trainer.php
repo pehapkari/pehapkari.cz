@@ -48,6 +48,18 @@ class Trainer
      * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
+    private $position;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $company;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
     private $website;
 
     /**
@@ -146,5 +158,25 @@ class Trainer
     public function setBio(string $bio): void
     {
         $this->bio = $bio;
+    }
+
+    public function getPosition(): ?string
+    {
+        return $this->position;
+    }
+
+    public function setPosition(string $position): void
+    {
+        $this->position = $position;
+    }
+
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
+
+    public function setCompany(string $company): void
+    {
+        $this->company = $company;
     }
 }

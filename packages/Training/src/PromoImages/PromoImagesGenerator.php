@@ -5,8 +5,9 @@ namespace Pehapkari\Training\PromoImages;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Pehapkari\Exception\ShouldNotHappenException;
+use Pehapkari\Pdf\PdfFactory;
+use Pehapkari\Pdf\RgbColor;
 use Pehapkari\Training\Entity\TrainingTerm;
-use Pehapkari\Training\Pdf\RgbColor;
 use setasign\Fpdi\Fpdi;
 
 final class PromoImagesGenerator
@@ -16,12 +17,15 @@ final class PromoImagesGenerator
      */
     private $promoImageOutputDirectory;
 
-    public function __construct(string $promoImageAssetsDirectory, string $promoImageOutputDirectory)
-    {
-        // required for Fpdi
-        define('FPDF_FONTPATH', $promoImageAssetsDirectory . '/fonts');
+    /**
+     * @var PdfFactory
+     */
+    private $pdfFactory;
 
+    public function __construct(string $promoImageOutputDirectory, PdfFactory $pdfFactory)
+    {
         $this->promoImageOutputDirectory = $promoImageOutputDirectory;
+        $this->pdfFactory = $pdfFactory;
     }
 
     /**
@@ -51,7 +55,7 @@ final class PromoImagesGenerator
         // @done
         $this->addTrainingImage($trainingTerm, $pdf);
         $this->addTrainerImage($trainingTerm, $pdf);
-        $this->addTrainerName($trainingTerm, $pdf);
+        $this->addTrainerNameAndPosition($trainingTerm, $pdf);
 
         $destination = $this->createFileDestination($trainingName, $trainingTerm);
 
@@ -66,14 +70,12 @@ final class PromoImagesGenerator
 
     private function createLandscapePdfWithFonts(): Fpdi
     {
-        $pdf = new Fpdi('landscape', 'pt');
-        $pdf->AddPage('landscape');
+        $fpdi = $this->pdfFactory->createHorizontal();
+        $fpdi->SetFont('OpenSans', '', 14);
 
-        $this->loadFontsToPdf($pdf);
+        $fpdi->setSourceFile(__DIR__ . '/../../../../public/assets/promo_image/promo_image.pdf');
 
-        $pdf->setSourceFile(__DIR__ . '/../../../../public/assets/promo_image/promo_image.pdf');
-
-        return $pdf;
+        return $fpdi;
     }
 
     private function addTrainingName(string $trainingName, Fpdi $fpdi): void
@@ -93,6 +95,9 @@ final class PromoImagesGenerator
         $fpdi->SetTextColor(...RgbColor::BLACK);
     }
 
+    /**
+     * @done
+     */
     private function addDate(string $date, Fpdi $fpdi): void
     {
         $this->writeTextInSizeToLocation($date, 20, 200, 255, $fpdi);
@@ -123,9 +128,13 @@ final class PromoImagesGenerator
         $fpdi->Image($trainerImage, 440, 230, $imageSquareSize, $imageSquareSize);
     }
 
-    private function addTrainerName(TrainingTerm $trainingTerm, Fpdi $fpdi): void
+    private function addTrainerNameAndPosition(TrainingTerm $trainingTerm, Fpdi $fpdi): void
     {
         $this->writeTextInSizeToLocation('školí ' . $trainingTerm->getTrainerName(), 20, 180, 310, $fpdi);
+
+        $trainingTerm->getTrainerPosition()
+
+        $this->writeTextInSizeToLocation('školí ' . $trainingTerm->getTrainerName(), 16, 180, 310, $fpdi);
     }
 
     private function createFileDestination(string $trainingName, TrainingTerm $trainingTerm): string
@@ -136,17 +145,6 @@ final class PromoImagesGenerator
                 Strings::webalize($trainingName),
                 Strings::webalize($trainingTerm->getStartDateTime()->format('Y-m-d'))
             );
-    }
-
-    /**
-     * Encode font here to get *.php and *.t versions: http://www.fpdf.org/makefont
-     * Use cp-1250
-     */
-    private function loadFontsToPdf(Fpdi $fpdi): void
-    {
-        $fpdi->AddFont('OpenSans', '', 'OpenSans-Regular.php');
-        $fpdi->AddFont('OpenSans', 'Bold', 'OpenSans-Bold.php');
-        $fpdi->SetFont('OpenSans', '', 14);
     }
 
     private function encode(string $string): string

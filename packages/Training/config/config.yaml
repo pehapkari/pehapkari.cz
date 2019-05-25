@@ -1,11 +1,8 @@
 parameters:
-    certificate_assets_directory: '%kernel.project_dir%/public/assets/certificate'
-    certificate_output_directory: '%kernel.project_dir%/public/generated/certificate'
-
-    zip_output_directory: '%kernel.project_dir%/public/generated/zips'
-
-    promo_image_assets_directory: '%kernel.project_dir%/public/assets/promo_image'
-    promo_image_output_directory: '%kernel.project_dir%/public/generated/promo_image'
+    generated_directory: '%kernel.project_dir%/public/generated'
+    certificate_output_directory: '%generated_directory%/certificate'
+    promo_image_output_directory: '%generated_directory%/promo_image'
+    zip_output_directory: '%generated_directory%/zips'
 
     # fakturoid API
     fakturoid_slug: '%env(FAKTUROID_SLUG)%'
