@@ -20,22 +20,13 @@ final class PromoImagesGenerator
      */
     private $promoImageOutputDirectory;
 
-    /**
-     * @var string
-     */
-    private $uploadDestination;
-
-    public function __construct(
-        string $promoImageAssetsDirectory,
-        string $promoImageOutputDirectory,
-        string $uploadDestination
-    ) {
+    public function __construct(string $promoImageAssetsDirectory, string $promoImageOutputDirectory)
+    {
         // required for Fpdi
         define('FPDF_FONTPATH', $promoImageAssetsDirectory . '/fonts');
 
         $this->promoImageAssetsDirectory = $promoImageAssetsDirectory;
         $this->promoImageOutputDirectory = $promoImageOutputDirectory;
-        $this->uploadDestination = $uploadDestination;
     }
 
     /**
@@ -122,11 +113,10 @@ final class PromoImagesGenerator
      */
     private function addTrainingImage(TrainingTerm $trainingTerm, Fpdi $fpdi): void
     {
-        $trainingImage = $this->uploadDestination . $trainingTerm->getTrainingImage();
+        $trainingImage = $trainingTerm->getTrainingImageAbsolutePath();
         $this->ensureFileExists($trainingImage);
 
         $imageSquareSize = 140;
-
         $fpdi->Image($trainingImage, 75, 60, $imageSquareSize, $imageSquareSize);
     }
 
@@ -135,7 +125,7 @@ final class PromoImagesGenerator
      */
     private function addTrainerImage(TrainingTerm $trainingTerm, Fpdi $fpdi): void
     {
-        $trainerImage = $this->uploadDestination . $trainingTerm->getTrainerImage();
+        $trainerImage = $trainingTerm->getTrainerImageAbsolutePath();
         $this->ensureFileExists($trainerImage);
 
         $imageSquareSize = 160;

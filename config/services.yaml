@@ -35,3 +35,8 @@ services:
 
     Symplify\Statie\Generator\RelatedItemsResolver:
         factory: ['@Pehapkari\DependencyInjection\StatieFactory', 'createRelatedItemsResolver']
+
+    # why this is not autoconfigured? :(
+    Pehapkari\Doctrine\EventSubscriber\SetUploadDestinationOnPostLoadEventSubscriber:
+        tags:
+            - { name: doctrine.event_subscriber }
