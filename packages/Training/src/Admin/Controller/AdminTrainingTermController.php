@@ -52,6 +52,8 @@ final class AdminTrainingTermController extends EasyAdminController
             $promoImagePaths[] = $this->promoImagesGenerator->generateForTrainingTerm($trainingTerm);
         }
 
+        return $this->file($promoImagePaths[0]);
+
         dump($promoImagePaths);
         die;
 

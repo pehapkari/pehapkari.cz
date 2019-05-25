@@ -225,7 +225,17 @@ class TrainingTerm
 
     public function getTrainer(): ?Trainer
     {
-        return $this->training ? $this->training->getTrainer() : null;
+        return $this->training->getTrainer();
+    }
+
+    public function getTrainerImage(): ?string
+    {
+        return $this->getTrainer() ? $this->getTrainer()->getImage() : null;
+    }
+
+    public function getTrainingImage(): ?string
+    {
+        return $this->training->getImage();
     }
 
     public function getPlace(): ?Place

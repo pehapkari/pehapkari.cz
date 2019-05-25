@@ -45,67 +45,67 @@ final class PromoImagesGenerator
     {
         $trainingName = $trainingTerm->getTrainingName();
         $date = $trainingTerm->getStartDateTime()->format('j. n. Y');
-        $participantName = $trainingTerm->getTrainingName();
 
-        return $this->generateForTrainingNameDateAndParticipantName(
-            $trainingName,
-            $date,
-            $participantName,
-            $trainingTerm
-        );
+        return $this->generateForTrainingNameDateAndParticipantName($trainingName, $date, $trainingTerm);
     }
 
     private function generateForTrainingNameDateAndParticipantName(
         string $trainingName,
         string $date,
-        string $userName,
         TrainingTerm $trainingTerm
     ): string {
-        $pdf = new Fpdi('l', 'pt');
-        $pdf->AddPage('l');
+        $pdf = $this->createLandscapePdfWithFonts();
+
+        $pageId = $pdf->importPage(1);
+        $pdf->useTemplate($pageId, 25, 0);
+
+        $width = (int) $pdf->GetPageWidth();
+
+        $this->addTrainingName($trainingName, $pdf);
+        $this->addDate($date, $pdf, $width);
+
+        // @done
+        $this->addTrainingImage($trainingTerm, $pdf);
+        $this->addTrainerImage($trainingTerm, $pdf);
+
+        $destination = $this->createFileDestination($trainingName, $trainingTerm);
+
+        // ensure directory exists
+        FileSystem::createDir(dirname($destination));
+
+        // F = filesystem
+        $pdf->Output('F', $destination);
+
+        return $destination;
+    }
+
+    private function createLandscapePdfWithFonts(): Fpdi
+    {
+        $pdf = new Fpdi('landscape', 'pt');
+        $pdf->AddPage('landscape');
 
         // encode font here - http://www.fpdf.org/makefont - cp-1250
         $pdf->AddFont('OpenSans', '', 'OpenSans-Regular.php');
         $pdf->SetFont('OpenSans', '', 14);
 
         $pdf->setSourceFile($this->promoImageAssetsDirectory . '/promo_image.pdf');
-        $tppl = $pdf->importPage(1);
-        $pdf->useTemplate($tppl, 25, 0);
 
-        $width = (int) $pdf->GetPageWidth();
-
-        $this->addTrainingName($trainingName, $pdf, $width);
-        $this->addDate($date, $pdf, $width);
-
-        // add training image
-        $trainingImage = $this->uploadDestination . $trainingTerm->getTraining()->getImage();
-        $this->ensureFileExists($trainingImage);
-        $pdf->Image($trainingImage, 100, 500);
-
-        // add trainer photo
-        $trainerImage = $this->uploadDestination . $trainingTerm->getTrainer()->getImage();
-        $this->ensureFileExists($trainerImage);
-        $pdf->Image($trainerImage, 40, 150);
-
-        $destination = $this->createDestination($trainingName, $userName);
-        // ensure directory exists
-        FileSystem::createDir(dirname($destination));
-
-        $pdf->Output('F', $destination);
-
-        return $destination;
+        return $pdf;
     }
 
-    private function addTrainingName(string $trainingName, Fpdi $fpdi, int $width): void
+    private function addTrainingName(string $trainingName, Fpdi $fpdi): void
     {
         $trainingName = $this->encode($trainingName);
 
         // resize for long lecture names
-        $fontSize = strlen($trainingName) < 40 ? 23 : strlen($trainingName) < 45 ? 21 : 18;
+        $fontSize = strlen($trainingName) < 45 ? 35 : strlen($trainingName) < 45 ? 24 : 22;
+        $fpdi->SetFontSize($fontSize);
 
-//        $fpdi->SetFont('OpenSans', '', $fontSize);
-        $fpdi->SetTextColor(0, 0, 0);
-        $fpdi->SetXY(($width / 2) - ($fpdi->GetStringWidth($trainingName) / 2), 350);
+        // @todo use BOLD here
+        $greenColorRGB = [143, 190, 0];
+        $fpdi->SetTextColor(...$greenColorRGB);
+
+        $fpdi->SetXY(260, 90);
         $fpdi->Write(0, $trainingName);
     }
 
@@ -117,6 +117,47 @@ final class PromoImagesGenerator
         $fpdi->Write(0, $date);
     }
 
+    /**
+     * @done
+     */
+    private function addTrainingImage(TrainingTerm $trainingTerm, Fpdi $fpdi): void
+    {
+        $trainingImage = $this->uploadDestination . $trainingTerm->getTrainingImage();
+        $this->ensureFileExists($trainingImage);
+
+        $imageSquareSize = 140;
+
+        $fpdi->Image($trainingImage, 75, 60, $imageSquareSize, $imageSquareSize);
+    }
+
+    /**
+     * @done
+     */
+    private function addTrainerImage(TrainingTerm $trainingTerm, Fpdi $fpdi): void
+    {
+        $trainerImage = $this->uploadDestination . $trainingTerm->getTrainerImage();
+        $this->ensureFileExists($trainerImage);
+
+        $imageSquareSize = 160;
+
+        $fpdi->Image($trainerImage, 440, 230, $imageSquareSize, $imageSquareSize);
+    }
+
+    private function createFileDestination(string $trainingName, TrainingTerm $trainingTerm): string
+    {
+        return $this->promoImageOutputDirectory . '/' .
+            sprintf(
+                'promo-image-%s-%s.pdf',
+                Strings::webalize($trainingName),
+                Strings::webalize($trainingTerm->getStartDateTime()->format('Y-m-d'))
+            );
+    }
+
+    private function encode(string $string): string
+    {
+        return (string) iconv('UTF-8', 'windows-1250', $string);
+    }
+
     private function ensureFileExists(string $trainingImage): void
     {
         if (file_exists($trainingImage)) {
@@ -124,16 +165,5 @@ final class PromoImagesGenerator
         }
 
         throw new ShouldNotHappenException(sprintf('File "%s" was not found.', $trainingImage));
-    }
-
-    private function createDestination(string $trainingName, string $participantName): string
-    {
-        return $this->promoImageOutputDirectory . '/' .
-            sprintf('promo-image-%s-%s.pdf', Strings::webalize($trainingName), Strings::webalize($participantName));
-    }
-
-    private function encode(string $string): string
-    {
-        return (string) iconv('UTF-8', 'windows-1250', $string);
     }
 }
