@@ -18,11 +18,11 @@ The author explains the importance of refactoring in a natural way - we realize 
 Also often emphasizes the importance of automated tests because we cannot refactor without a proper test suite.
 The first step of refactoring is to create tests and the book explains how to start with tests (but there are better sources for starting with tests like [TDD by Kent Beck](https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530?tag=uuid10-20)).
 
-Honestly, the important part of the book is the first 100 pages (of 400) and I recommend for every developer to read the first part of the book, the rest of the book is optional.
+Honestly, the important part of the book is the first 100 pages (of 400) and I recommend for every developer to read the first part of the book, the remaining part of the book is optional.
 
 ## Catalogue of Refactorings
 
-The rest 300 pages is a catalog of refactoring and you can find it [online](https://refactoring.com/catalog/).
+The remaining 300 pages is a catalog of refactoring and you can find it [online](https://refactoring.com/catalog/).
 Each refactoring includes motivation - when, mechanics - how - in step-by-step form, and examples.
 I like the step-by-step instructions when tests pass after each instruction.
 It is awkward to apply these steps for simple refactorings, and powerful to apply for complicated refactorings or refactorings that involves a lot of occurrences.
