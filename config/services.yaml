@@ -20,10 +20,6 @@ services:
         public: true
         autowire: true
         autoconfigure: true
-        bind:
-            $organizers: '%organizers%'
-            $authors: '%authors%'
-            $phpPrague: '%php_prague%'
 
     Pehapkari\:
         resource: '../src/'
