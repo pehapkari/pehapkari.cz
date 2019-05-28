@@ -22,7 +22,6 @@ parameters:
         - '#Return type \(array<array<string>>\) of method Pehapkari\\Statie\\Posts\\Year2017\\SymfonyValidatorConditionalConstraints\\Client::getGroupSequence\(\) should be compatible with return type \(array<string>\|Symfony\\Component\\Validator\\Constraints\\GroupSequence\) of method Symfony\\Component\\Validator\\GroupSequenceProviderInterface::getGroupSequence\(\)#'
 
         # known child
-        - '#Property Pehapkari\\Training\\Repository\\TrainingTermRepository::\$entityManager \(Doctrine\\ORM\\EntityManager\) does not accept Doctrine\\ORM\\EntityManagerInterface#'
         - '#Method Pehapkari\\Blog\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
 
         # desired sub-type
