@@ -12,8 +12,6 @@ parameters:
         - /statie/tests/
 
     ignoreErrors:
-        - '#^[a-zA-Z0-9\\]++::__construct\(\) does not call parent constructor from (?:Nette\\ComponentModel\\Component|Nette\\Application\\UI\\Presenter)#'
-
         # known value
         - '#Cannot call method render\(\) on Nette\\Application\\UI\\ITemplate\|stdClass#'
         - '#Method Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Infrastructure\\DoctrineCartRepository::find\(\) should  Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Domain\\Cart|null but returns object|null#'

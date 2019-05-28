@@ -61,6 +61,8 @@ final class CategoryPresenter extends Presenter
         $this->addToBasketControlFactory = $addToBasketControlFactory;
         $this->basketContentControlFactory = $basketContentControlFactory;
         $this->eventDispatcher = $eventDispatcher;
+
+        parent::__construct();
     }
 
     public function startup(): void
