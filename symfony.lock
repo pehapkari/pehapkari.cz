@@ -200,9 +200,6 @@
     "nette/bootstrap": {
         "version": "v2.4.6"
     },
-    "nette/caching": {
-        "version": "v3.0.0"
-    },
     "nette/component-model": {
         "version": "v2.4.0"
     },
@@ -224,11 +221,14 @@
     "nette/php-generator": {
         "version": "v3.0.5"
     },
-    "nette/reflection": {
-        "version": "v2.4.2"
-    },
     "nette/robot-loader": {
         "version": "v3.0.4"
+    },
+    "nette/routing": {
+        "version": "v3.0.0"
+    },
+    "nette/schema": {
+        "version": "v1.0.0"
     },
     "nette/security": {
         "version": "v3.0.0"
