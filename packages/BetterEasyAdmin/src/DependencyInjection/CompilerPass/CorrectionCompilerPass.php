@@ -11,6 +11,10 @@ final class CorrectionCompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $containerBuilder): void
     {
         foreach ($containerBuilder->getDefinitions() as $name => $definition) {
+            if (! is_string($definition->getClass())) {
+                continue;
+            }
+
             if (! Strings::contains($definition->getClass(), 'Propel')) {
                 continue;
             }

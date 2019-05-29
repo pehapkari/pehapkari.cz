@@ -3,6 +3,7 @@
 namespace Pehapkari\Statie\Posts\Year2018\Cart\Infrastructure;
 
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Pehapkari\Statie\Posts\Year2018\Cart\Domain\Cart;
 use Pehapkari\Statie\Posts\Year2018\Cart\Domain\CartNotFoundException;
 use Pehapkari\Statie\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
@@ -14,7 +15,7 @@ final class DoctrineCartRepository implements CartRepositoryInterface
      */
     private $entityManager;
 
-    public function __construct(EntityManager $entityManager)
+    public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }
