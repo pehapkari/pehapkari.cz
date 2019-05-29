@@ -21,7 +21,7 @@ final class HashPasswordCommand extends Command
     {
         $password = $input->getArgument('password');
 
-        $hashedPassword = Passwords::hash($password);
+        $hashedPassword = (new Passwords)->hash($password);
 
         $output->writeln(sprintf('Your hashed password is: <info>%s</info>', $hashedPassword));
 
