@@ -4,6 +4,7 @@ namespace Pehapkari\Training\Certificate;
 
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
+use Pehapkari\Pdf\PdfFactory;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use setasign\Fpdi\Fpdi;
 
@@ -12,20 +13,17 @@ final class CertificateGenerator
     /**
      * @var string
      */
-    private $certificateAssetsDirectory;
-
-    /**
-     * @var string
-     */
     private $certificateOutputDirectory;
 
-    public function __construct(string $certificateAssetsDirectory, string $certificateOutputDirectory)
-    {
-        // required for Fpdi
-        define('FPDF_FONTPATH', $certificateAssetsDirectory . '/fonts');
+    /**
+     * @var PdfFactory
+     */
+    private $pdfFactory;
 
-        $this->certificateAssetsDirectory = $certificateAssetsDirectory;
+    public function __construct(string $certificateOutputDirectory, PdfFactory $pdfFactory)
+    {
         $this->certificateOutputDirectory = $certificateOutputDirectory;
+        $this->pdfFactory = $pdfFactory;
     }
 
     /**
@@ -47,13 +45,10 @@ final class CertificateGenerator
         string $date,
         string $userName
     ): string {
-        $pdf = new Fpdi('l', 'pt');
-        $pdf->AddPage('l');
+        $pdf = $this->pdfFactory->createHorizontalWithTemplate(
+            __DIR__ . '/../../../../public/assets/pdf/certificate.pdf'
+        );
 
-        $pdf->AddFont('DejaVuSans', '', 'DejaVuSans.php');
-        $pdf->AddFont('Georgia', '', 'Georgia.php');
-
-        $pdf->setSourceFile($this->certificateAssetsDirectory . '/certificate.pdf');
         $tppl = $pdf->importPage(1);
         $pdf->useTemplate($tppl, 25, 0);
 

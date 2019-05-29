@@ -4,7 +4,6 @@ namespace Pehapkari\Training\Repository;
 
 use Doctrine\Common\Proxy\Proxy;
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Pehapkari\Training\Entity\TrainingTerm;
 
@@ -20,7 +19,7 @@ final class TrainingTermRepository
      */
     private $entityManager;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
         $this->entityRepository = $entityManager->getRepository(TrainingTerm::class);
@@ -84,5 +83,14 @@ final class TrainingTermRepository
     public function getReference($id)
     {
         return $this->entityManager->getReference(TrainingTerm::class, $id);
+    }
+
+    /**
+     * @param int[] $ids
+     * @return TrainingTerm[]
+     */
+    public function findByIds(array $ids): array
+    {
+        return $this->entityRepository->findBy(['id' => $ids]);
     }
 }

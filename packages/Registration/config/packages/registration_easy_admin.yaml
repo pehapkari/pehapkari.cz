@@ -2,8 +2,9 @@ easy_admin:
     entities:
         Registration:
             class: 'Pehapkari\Registration\Entity\TrainingRegistration'
-
+            controller: 'Pehapkari\Registration\Admin\Controller\AdminRegistrationController'
             list:
+                batch_actions: ['certificate', 'sendInvoices']
                 fields:
                     - 'name'
                     - 'email'

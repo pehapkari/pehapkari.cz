@@ -7,6 +7,8 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
+use Pehapkari\Doctrine\EventSubscriber\SetUploadDestinationOnPostLoadEventSubscriber;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -16,7 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @see https://github.com/EasyCorp/EasyAdminBundle/issues/2566
  */
-class TrainingTerm
+class TrainingTerm implements UploadDestinationAwareInterface
 {
     /**
      * @ORM\Id()
@@ -87,6 +89,11 @@ class TrainingTerm
      * @var TrainingRegistration[]|Collection
      */
     private $registrations;
+
+    /**
+     * @var string
+     */
+    private $uploadDestination;
 
     public function __construct()
     {
@@ -225,7 +232,27 @@ class TrainingTerm
 
     public function getTrainer(): ?Trainer
     {
-        return $this->training ? $this->training->getTrainer() : null;
+        return $this->training->getTrainer();
+    }
+
+    public function getTrainerImage(): ?string
+    {
+        return $this->getTrainer() ? $this->getTrainer()->getImage() : null;
+    }
+
+    public function getTrainerImageAbsolutePath(): ?string
+    {
+        return $this->getTrainerImage() ? $this->uploadDestination . $this->getTrainerImage() : null;
+    }
+
+    public function getTrainingImage(): ?string
+    {
+        return $this->training->getImage();
+    }
+
+    public function getTrainingImageAbsolutePath(): ?string
+    {
+        return $this->getTrainingImage() ? $this->uploadDestination . $this->getTrainingImage() : null;
     }
 
     public function getPlace(): ?Place
@@ -265,5 +292,29 @@ class TrainingTerm
     public function setMaxParticipantCount(?int $maxParticipantCount): void
     {
         $this->maxParticipantCount = $maxParticipantCount;
+    }
+
+    /**
+     * Parf of life cycle subscriber
+     * @see SetUploadDestinationOnPostLoadEventSubscriber
+     */
+    public function setUploadDestination(string $uploadDestination): void
+    {
+        $this->uploadDestination = $uploadDestination;
+    }
+
+    public function getTrainerName(): string
+    {
+        return $this->getTrainer()->getName();
+    }
+
+    public function getTrainerPosition(): ?string
+    {
+        return $this->getTrainer()->getPosition();
+    }
+
+    public function getTrainerCompany(): ?string
+    {
+        return $this->getTrainer()->getCompany();
     }
 }

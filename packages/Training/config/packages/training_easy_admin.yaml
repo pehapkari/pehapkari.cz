@@ -10,15 +10,15 @@ easy_admin:
         TrainingTerm:
             label: 'Training Term'
             class: 'Pehapkari\Training\Entity\TrainingTerm'
+            controller: 'Pehapkari\Training\Admin\Controller\AdminTrainingTermController'
             list:
+                batch_actions: ['generatePromoImages']
                 fields:
                     - 'training'
                     - 'startDateTime'
                     - 'registrations'
                     - 'isProvisionPaid'
                 actions:
-                    - { name: 'download_certificates', type: 'route', label: 'Stáhnout certifikáty',  css_class: 'btn btn-sm btn-info' }
-                    - { name: 'send_invoices', type: 'route', label: 'Poslat faktury',  css_class: 'btn btn-sm btn-danger' }
                     - { name: 'training_term_provision', type: 'route', label: 'Provize', css_class: 'btn btn-sm btn-warning' }
 
         Trainer:

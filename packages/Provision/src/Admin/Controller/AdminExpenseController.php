@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Pehapkari\Provision\Controller;
+namespace Pehapkari\Provision\Admin\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Pehapkari\Provision\Data\Partner;
@@ -13,7 +13,7 @@ use Symfony\Component\Form\FormInterface;
 /**
  * @see \Pehapkari\Provision\Entity\Expense
  */
-final class ExpenseController extends EasyAdminController
+final class AdminExpenseController extends EasyAdminController
 {
     /**
      * @var TrainingTermRepository

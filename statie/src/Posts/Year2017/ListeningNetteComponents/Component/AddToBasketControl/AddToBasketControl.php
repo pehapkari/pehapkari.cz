@@ -38,10 +38,8 @@ final class AddToBasketControl extends Control
             (string) $this->product['name'],
             (int) $this->product['price']
         );
-        $this->eventDispatcher->dispatch(
-            ProductAddedToBasketEvent::class,
-            $productAddedToBasketEvent
-        ); // vyvoláme událost!
+        $this->eventDispatcher->dispatch($productAddedToBasketEvent);
+        // vyvoláme událost!
     }
 
     public function render(): void

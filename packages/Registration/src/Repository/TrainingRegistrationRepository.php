@@ -41,12 +41,33 @@ final class TrainingRegistrationRepository
     }
 
     /**
+     * @param int[] $ids
+     * @return TrainingRegistration[]
+     */
+    public function findByIds(array $ids): array
+    {
+        return $this->entityRepository->findBy(['id' => $ids]);
+    }
+
+    /**
      * @return TrainingRegistration[]
      */
     public function getUnpaid(): array
     {
         return $this->entityRepository->findBy([
             'isPaid' => false,
+        ]);
+    }
+
+    /**
+     * @param int[] $ids
+     * @return TrainingRegistration[]
+     */
+    public function findWithoutInvoicesByIds(array $ids): array
+    {
+        return $this->entityRepository->findBy([
+            'id' => $ids,
+            'hasInvoice' => false,
         ]);
     }
 }

@@ -18,7 +18,7 @@ final class EventDispatchingWithEventTest extends TestCase
         $this->assertSame('', $eventAwareNotifyMeOnVideoPublishedEventSubscriber->getYoutuberUserName());
 
         $youtuberNameEvent = new YoutuberNameEvent('Jirka Král');
-        $eventDispatcher->dispatch('youtube.newVideoPublished', $youtuberNameEvent);
+        $eventDispatcher->dispatch($youtuberNameEvent);
 
         $this->assertSame(
             'Jirka Král',
