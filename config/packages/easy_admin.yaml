@@ -42,6 +42,10 @@ easy_admin:
                 icon: 'map-marker'
                 children: ['Trainer', 'Place']
             -
+                label: 'Marketing'
+                icon: 'mail-bulk'
+                children: ['MarketingCampaign']
+            -
                 label: 'Feedback and Watchdog'
                 icon: 'comment'
                 children: ['Feedback', 'Watchdog']
