@@ -22,7 +22,13 @@ final class MarketingEvent
      * @ORM\Column(type="string", length=255)
      * @var string
      */
-    private $name;
+    private $platform;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $action;
 
     /**
      * @ORM\Column(type="datetime")
@@ -47,19 +53,9 @@ final class MarketingEvent
         return $this->id;
     }
 
-    public function setId(?int $id)
+    public function setId(?int $id): void
     {
         $this->id = $id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     public function getMarketingCampaign(): ?MarketingCampaign
@@ -90,5 +86,25 @@ final class MarketingEvent
     public function setPlannedAt(?DateTimeInterface $plannedAt): void
     {
         $this->plannedAt = $plannedAt;
+    }
+
+    public function getPlatform(): ?string
+    {
+        return $this->platform;
+    }
+
+    public function getAction(): ?string
+    {
+        return $this->action;
+    }
+
+    public function setPlatform(?string $platform): void
+    {
+        $this->platform = $platform;
+    }
+
+    public function setAction(?string $action): void
+    {
+        $this->action = $action;
     }
 }

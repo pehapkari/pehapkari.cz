@@ -4,5 +4,5 @@ easy_admin:
             class: 'Pehapkari\Marketing\Entity\MarketingCampaign'
             controller: 'Pehapkari\Marketing\Admin\Controller\AdminMarketingController'
             list:
-                fields:
-                    - 'name'
+#                fields:
+#                    - 'name'

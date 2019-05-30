@@ -3,9 +3,9 @@
 namespace Pehapkari\Marketing\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 use Pehapkari\Training\Entity\TrainingTerm;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
@@ -23,19 +23,13 @@ final class MarketingCampaign
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm")
+     * @ORM\OneToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm")
      * @var TrainingTerm
      */
     private $trainingTerm;
 
     /**
-     * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", mappedBy="marketingCampaign")
+     * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", mappedBy="marketingCampaign", cascade={"persist"})
      * @var MarketingEvent[]
      */
     private $events = [];
@@ -47,22 +41,12 @@ final class MarketingCampaign
 
     public function __toString(): string
     {
-        return $this->name;
+        return 'Kampaň pro: ' . $this->trainingTerm;
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     public function getTrainingTerm(): ?TrainingTerm
@@ -81,5 +65,10 @@ final class MarketingCampaign
     public function getEvents()
     {
         return $this->events;
+    }
+
+    public function addEvent(MarketingEvent $marketingEvent): void
+    {
+        $this->events->add($marketingEvent);
     }
 }
