@@ -10,7 +10,7 @@ use Pehapkari\Training\Entity\TrainingTerm;
 /**
  * @ORM\Entity
  */
-final class MarketingCampaign
+class MarketingCampaign
 {
     use Timestampable;
 

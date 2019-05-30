@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-final class MarketingEvent
+class MarketingEvent
 {
     /**
      * @ORM\Id()
