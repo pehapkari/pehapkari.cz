@@ -2,7 +2,6 @@
 
 namespace Pehapkari\Controller;
 
-use Nette\Utils\Strings;
 use Pehapkari\Blog\PostsProvider;
 use Pehapkari\Exception\ShouldNotHappenException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -67,7 +66,7 @@ final class BlogController extends AbstractController
 
         /** @var PostFile $post */
         foreach ($posts as $post) {
-            if (Strings::startsWith($post->getRelativeUrl() . '/', 'blog/' . $postSlug)) {
+            if ($post->getRelativeUrl() . '/' === 'blog/' . $postSlug || $post->getRelativeUrl() === 'blog/' . $postSlug) {
                 return $post;
             }
         }
