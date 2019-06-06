@@ -1,7 +1,8 @@
 .DS_Store
 .idea/
 
-.env
+.env.local
+.env.*.local
 .gitlab-ci.yml
 .travis.yml
 .editorconfig
@@ -21,3 +22,6 @@ docker-compose.yml
 docker-compose.dist.yml
 
 public/generated
+
+vendor/
+node_modules/
