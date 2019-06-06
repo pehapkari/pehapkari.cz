@@ -41,10 +41,12 @@
         "symplify/autodiscovery": "^6.0",
         "symplify/flex-loader": "^6.0",
         "symplify/statie": "^6.0",
+        "symplify/package-builder": "dev-master",
         "twig/extensions": "^1.5",
         "vich/uploader-bundle": "^1.9"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-master",
         "phpstan/phpstan": "^0.11.8",
         "phpstan/phpstan-doctrine": "^0.11.4",
         "phpunit/phpunit": "^8.1",
