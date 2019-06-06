@@ -18,6 +18,7 @@
         "k0nias/fakturoid-api": "^0.1.1",
         "knplabs/doctrine-behaviors": "^1.6",
         "sensio/framework-extra-bundle": "^5.3",
+        "sentry/sentry-symfony": "^3.0",
         "setasign/fpdf": "^1.8",
         "setasign/fpdi": "^2.2",
         "stof/doctrine-extensions-bundle": "^1.3",

@@ -1,5 +1,4 @@
 /build/
-node_modules/
 npm-debug.log
 yarn-error.log
 
@@ -46,3 +45,13 @@ new-design/node_modules
 .phpunit.result.cache
 
 /public/adminer.php
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+###< symfony/framework-bundle ###
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
