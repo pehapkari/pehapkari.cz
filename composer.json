@@ -19,6 +19,7 @@
         "knplabs/doctrine-behaviors": "^1.6",
         "sensio/framework-extra-bundle": "^5.3",
         "sentry/sentry-symfony": "^3.0",
+        "sentry/sentry": "dev-master as 2.1.0",
         "setasign/fpdf": "^1.8",
         "setasign/fpdi": "^2.2",
         "stof/doctrine-extensions-bundle": "^1.3",
