@@ -50,7 +50,7 @@ final class BlogController extends AbstractController
     {
         $matchedPost = $this->matchPostSlug($postSlug);
         if ($matchedPost === null) {
-            throw new ShouldNotHappenException();
+            throw $this->createNotFoundException(sprintf("Post with slug '%s' not found", $postSlug));
         }
 
         return $this->render('blog/post.twig', [
