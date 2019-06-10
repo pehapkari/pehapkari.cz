@@ -30,8 +30,11 @@ final class TrainingRegistrationController extends AbstractController
      */
     private $mailer;
 
-    public function __construct(TrainingRegistrationRepository $trainingRegistrationRepository, Mailer $mailer, TrainingTermRepository $trainingTermRepository)
-    {
+    public function __construct(
+        TrainingRegistrationRepository $trainingRegistrationRepository,
+        Mailer $mailer,
+        TrainingTermRepository $trainingTermRepository
+    ) {
         $this->trainingTermRepository = $trainingTermRepository;
         $this->trainingRegistrationRepository = $trainingRegistrationRepository;
         $this->mailer = $mailer;
