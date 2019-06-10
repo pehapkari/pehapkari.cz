@@ -9,7 +9,7 @@
 
             <ul>
                 {% for playlist in meetup_playlists %}
-                    <li><a href=#{{ playlist.title|webalize }}"">{{ playlist.title }}</a></li>
+                    <li><a href="#{{ playlist.title|webalize }}">{{ playlist.title }}</a></li>
                 {% endfor %}
             </ul>
 

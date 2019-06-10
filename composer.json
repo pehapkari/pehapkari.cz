@@ -17,6 +17,7 @@
         "doctrine/doctrine-bundle": "^1.10",
         "doctrine/orm": "2.7.x-dev",
         "easycorp/easyadmin-bundle": "^2.1.4",
+        "facebook/graph-sdk": "^5.7",
         "fakturoid/fakturoid-php": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "j7mbo/twitter-api-php": "^1.0",

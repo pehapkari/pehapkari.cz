@@ -14,3 +14,8 @@ parameters:
     twitter_consumer_secret: '%env(TWITTER_CONSUMER_SECRET)%'
     twitter_oauth_access_token: '%env(TWITTER_OAUTH_ACCESS_TOKEN)%'
     twitter_oauth_access_token_secret: '%env(TWITTER_OAUTH_ACCESS_TOKEN_SECRET)%'
+
+    # facebook
+    facebook_app_id: '%env(FACEBOOK_APP_ID)%'
+    facebook_app_secret: '%env(FACEBOOK_APP_SECRET)%'
+    facebook_access_token: '%env(FACEBOOK_ACCESS_TOKEN)%'

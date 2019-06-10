@@ -3,11 +3,12 @@
 namespace Pehapkari\Marketing\Command;
 
 use DateTime;
-use DateTimeInterface;
 use Pehapkari\Marketing\Entity\MarketingEvent;
 use Pehapkari\Marketing\Repository\MarketingEventRepository;
+use Pehapkari\Marketing\Social\FacebookPublisher;
 use Pehapkari\Marketing\Social\TwitterPublisher;
 use Pehapkari\Marketing\SocialPlatform;
+use Pehapkari\Marketing\Utils\DateTimeUtils;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -37,16 +38,23 @@ final class PublishMarketingEventCommand extends Command
      */
     private $twitterPublisher;
 
+    /**
+     * @var FacebookPublisher
+     */
+    private $facebookPublisher;
+
     public function __construct(
         SymfonyStyle $symfonyStyle,
         MarketingEventRepository $marketingEventRepository,
-        TwitterPublisher $twitterPublisher
+        TwitterPublisher $twitterPublisher,
+        FacebookPublisher $facebookPublisher
     ) {
         $this->symfonyStyle = $symfonyStyle;
         $this->marketingEventRepository = $marketingEventRepository;
         $this->twitterPublisher = $twitterPublisher;
 
         parent::__construct();
+        $this->facebookPublisher = $facebookPublisher;
     }
 
     protected function configure(): void
@@ -93,7 +101,7 @@ final class PublishMarketingEventCommand extends Command
             return true;
         }
 
-        $hourDiffs = $this->getHourDifferenceBetweenDateTimes(
+        $hourDiffs = DateTimeUtils::getHourDifferenceBetweenDateTimes(
             $marketingEvent->getPlannedAt(),
             $latestPublishedEvent->getPublishedAt()
         );
@@ -105,24 +113,21 @@ final class PublishMarketingEventCommand extends Command
     {
         if ($marketingEvent->getPlatform() === SocialPlatform::PLATFORM_TWITTER) {
             $this->twitterPublisher->publishMarketingEvent($marketingEvent);
-
-            // save "when"
-            $marketingEvent->setPublishedAt(new DateTime());
-            $this->marketingEventRepository->save($marketingEvent);
-
-            $trainingName = $marketingEvent->getMarketingCampaign()->getTrainingTerm()->getTrainingName();
-            $this->symfonyStyle->success(sprintf('Event for Twitter and "%s" training was published.', $trainingName));
+        } elseif ($marketingEvent->getPlatform() === SocialPlatform::PLATFORM_FACEBOOK) {
+            $this->facebookPublisher->publishMarketingEvent($marketingEvent);
+            // @todo
         }
 
-        // @todo FB
-    }
+        // save "when"
+        $marketingEvent->setPublishedAt(new DateTime());
+        $this->marketingEventRepository->save($marketingEvent);
 
-    private function getHourDifferenceBetweenDateTimes(
-        DateTimeInterface $firstDateTime,
-        DateTimeInterface $secondDateTime
-    ): int {
-        $diff = $secondDateTime->diff($firstDateTime);
+        $trainingName = $marketingEvent->getMarketingCampaign()->getTrainingTerm()->getTrainingName();
 
-        return ($diff->y * 365 * 24) + ($diff->d * 24) + $diff->h;
+        $this->symfonyStyle->success(sprintf(
+            'Event for "%s" and "%s" training was published.',
+            lcfirst($marketingEvent->getPlatform()),
+            $trainingName
+        ));
     }
 }
