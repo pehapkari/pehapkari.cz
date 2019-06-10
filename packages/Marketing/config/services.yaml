@@ -8,3 +8,9 @@ services:
         resource: '../src/'
         exclude:
             - '../src/ValueObject/*'
+
+parameters:
+    twitter_consumer_key: '%env(TWITTER_CONSUMER_KEY)%'
+    twitter_consumer_secret: '%env(TWITTER_CONSUMER_SECRET)%'
+    twitter_oauth_access_token: '%env(TWITTER_OAUTH_ACCESS_TOKEN)%'
+    twitter_oauth_access_token_secret: '%env(TWITTER_OAUTH_ACCESS_TOKEN_SECRET)%'

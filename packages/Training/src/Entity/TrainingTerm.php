@@ -6,19 +6,24 @@ use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
 use Pehapkari\Doctrine\EventSubscriber\SetUploadDestinationOnPostLoadEventSubscriber;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
+ * @Vich\Uploadable
  *
  * @see https://github.com/EasyCorp/EasyAdminBundle/issues/2566
  */
 class TrainingTerm implements UploadDestinationAwareInterface
 {
+    use UploadableImageTrait;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -315,5 +320,10 @@ class TrainingTerm implements UploadDestinationAwareInterface
     public function getTrainerCompany(): ?string
     {
         return $this->getTrainer()->getCompany();
+    }
+
+    public function getTrainingTermImageAbsolutePath(): ?string
+    {
+        return $this->getImage() ? $this->uploadDestination . $this->getImage() : null;
     }
 }

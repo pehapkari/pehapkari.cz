@@ -52,6 +52,12 @@ class Training
     private $description;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $hashtags;
+
+    /**
      * @ORM\Column(type="integer")
      * @var int
      */
@@ -97,6 +103,16 @@ class Training
     public function __toString(): string
     {
         return $this->name;
+    }
+
+    public function getHashtags(): ?string
+    {
+        return $this->hashtags;
+    }
+
+    public function setHashtags(?string $hashtags): void
+    {
+        $this->hashtags = $hashtags;
     }
 
     public function getNearestTerm(): ?TrainingTerm

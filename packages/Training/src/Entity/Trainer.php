@@ -69,6 +69,12 @@ class Trainer
     private $bio;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $twitterName;
+
+    /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\Training", mappedBy="trainer")
      * @var Training[]|ArrayCollection
      */
@@ -82,6 +88,16 @@ class Trainer
     public function __toString(): string
     {
         return $this->name;
+    }
+
+    public function getTwitterName(): ?string
+    {
+        return $this->twitterName;
+    }
+
+    public function setTwitterName(?string $twitterName): void
+    {
+        $this->twitterName = $twitterName;
     }
 
     public function getId(): ?int
