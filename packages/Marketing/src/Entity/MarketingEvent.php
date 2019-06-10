@@ -37,6 +37,12 @@ class MarketingEvent
     private $plannedAt;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var DateTimeInterface|null
+     */
+    private $publishedAt;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Marketing\Entity\MarketingCampaign")
      * @var MarketingCampaign
      */
@@ -106,5 +112,15 @@ class MarketingEvent
     public function setAction(?string $action): void
     {
         $this->action = $action;
+    }
+
+    public function getPublishedAt(): ?DateTimeInterface
+    {
+        return $this->publishedAt;
+    }
+
+    public function setPublishedAt(?DateTimeInterface $publishedAt): void
+    {
+        $this->publishedAt = $publishedAt;
     }
 }

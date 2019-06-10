@@ -24,22 +24,34 @@ final class MarketingEventRepository
         $this->entityRepository = $entityManager->getRepository(MarketingEvent::class);
     }
 
-    /**
-     * @return MarketingEvent[]
-     */
-    public function findActive(): array
+    public function getNextActiveEvent(): ?MarketingEvent
     {
         return $this->entityRepository->createQueryBuilder('me')
             ->select()
-            ->andWhere('me.isDone = FALSE')
             ->andWhere('me.plannedAt <= CURRENT_DATE()')
+            ->andWhere('me.publishedAt IS NULL')
+            ->orderBy('me.plannedAt')
+            ->setMaxResults(1)
             ->getQuery()
-            ->getResult();
+            ->getOneOrNullResult();
     }
 
     public function save(MarketingEvent $marketingEvent): void
     {
         $this->entityManager->persist($marketingEvent);
         $this->entityManager->flush();
+    }
+
+    public function getLatestPublishedEventByPlatform(string $platform): ?MarketingEvent
+    {
+        return $this->entityRepository->createQueryBuilder('me')
+            ->select()
+            ->andWhere('me.platform = :platform')
+            ->andWhere('me.publishedAt IS NOT NULL')
+            ->orderBy('me.plannedAt', 'DESC')
+            ->setParameter('platform', $platform)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }
