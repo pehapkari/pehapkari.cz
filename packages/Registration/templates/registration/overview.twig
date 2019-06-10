@@ -1,0 +1,27 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+    <div id="trainings">
+        <div class="section">
+            <div class="container">
+                <h2>Počet registrovaných</h2>
+
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-inverse">
+                        <tr class="text-center">
+                            <th>Školení</th>
+                            <th>Registrací</th>
+                        </tr>
+                    </thead>
+                    {% for training_term in upcoming_training_terms %}
+                        <tr>
+                            {% set training = training_term.getTraining() %}
+                            <td>{{ training.getName()|raw }}</td>
+                            <td>{{ training_term.getRegistrationCount() }} registrací</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
