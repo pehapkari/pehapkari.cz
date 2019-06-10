@@ -295,4 +295,13 @@ class Training
     {
         return $this->trainingFeedbacks;
     }
+
+    public function getNearestTermPlace(): ?Place
+    {
+        if ($this->getNearestTerm() === null) {
+            return null;
+        }
+
+        return $this->getNearestTerm()->getPlace();
+    }
 }

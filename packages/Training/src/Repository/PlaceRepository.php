@@ -18,13 +18,6 @@ final class PlaceRepository
         $this->entityRepository = $entityManager->getRepository(Place::class);
     }
 
-    public function getMainPlace(): Place
-    {
-        $places = $this->entityRepository->findAll();
-
-        return array_pop($places);
-    }
-
     /**
      * @return Place[]
      */

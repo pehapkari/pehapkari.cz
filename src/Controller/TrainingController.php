@@ -78,7 +78,7 @@ final class TrainingController extends AbstractController
         return $this->render('training/detail.twig', [
             'training' => $training,
             'trainer' => $training->getTrainer(),
-            'place' => $this->placeRepository->getMainPlace(),
+            'place' => $training->getNearestTermPlace(),
         ]);
     }
 }

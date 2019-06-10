@@ -7,6 +7,7 @@ use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Form\TrainingRegistrationFormType;
 use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 use Pehapkari\Training\Entity\TrainingTerm;
+use Pehapkari\Training\Repository\TrainingTermRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,12 +21,18 @@ final class TrainingRegistrationController extends AbstractController
     private $trainingRegistrationRepository;
 
     /**
+     * @var TrainingTermRepository
+     */
+    private $trainingTermRepository;
+
+    /**
      * @var Mailer
      */
     private $mailer;
 
-    public function __construct(TrainingRegistrationRepository $trainingRegistrationRepository, Mailer $mailer)
+    public function __construct(TrainingRegistrationRepository $trainingRegistrationRepository, Mailer $mailer, TrainingTermRepository $trainingTermRepository)
     {
+        $this->trainingTermRepository = $trainingTermRepository;
         $this->trainingRegistrationRepository = $trainingRegistrationRepository;
         $this->mailer = $mailer;
     }
@@ -69,6 +76,16 @@ final class TrainingRegistrationController extends AbstractController
     {
         return $this->render('registration/thank_you_for_registration.twig', [
             'trainingTerm' => $trainingTerm,
+        ]);
+    }
+
+    /**
+     * @Route(path="/prehled-registraci/", name="registration-overview", methods={"GET"})
+     */
+    public function overview(): Response
+    {
+        return $this->render('registration/overview.twig', [
+            'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),
         ]);
     }
 }
