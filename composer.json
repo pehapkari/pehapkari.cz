@@ -9,8 +9,8 @@
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "alterphp/easyadmin-extension-bundle": "^2.1",
-        "composer/ca-bundle": "^1.0",
         "chumper/zipper": "^1.0",
+        "composer/ca-bundle": "^1.0",
         "dfridrich/ares": "^1.2",
         "doctrine/annotations": "^1.6",
         "doctrine/cache": "^1.8",
@@ -40,6 +40,7 @@
         "symfony/framework-bundle": "^4.3",
         "symfony/http-kernel": "^4.3",
         "symfony/intl": "^4.3",
+        "symfony/maker-bundle": "^1.11",
         "symfony/orm-pack": "^1.0",
         "symfony/security": "^4.3",
         "symfony/security-bundle": "^4.3",
@@ -50,28 +51,28 @@
         "symfony/twig-bundle": "^4.3",
         "symfony/validator": "4.3.*",
         "symfony/web-profiler-bundle": "^4.3",
+        "symfony/web-server-bundle": "^4.3",
         "symfony/yaml": "^4.3",
         "symplify/autodiscovery": "^6.0.3",
         "symplify/flex-loader": "^6.0.3",
         "symplify/package-builder": "^6.0.3",
         "symplify/statie": "^6.0.3",
         "twig/extensions": "^1.5",
-        "vich/uploader-bundle": "^1.9",
-        "symfony/maker-bundle": "^1.11",
-        "symfony/web-server-bundle": "^4.3"
+        "vich/uploader-bundle": "^1.9"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master",
+        "latte/latte": "^2.5",
+        "nette/application": "^3.0",
+        "nette/forms": "^3.0",
         "phpstan/phpstan": "^0.11.8",
         "phpstan/phpstan-doctrine": "^0.11.4",
         "phpunit/phpunit": "^8.1",
+        "roave/security-advisories": "dev-master",
         "symfony/browser-kit": "^4.3",
         "symplify/coding-standard": "^6.0.3",
         "symplify/easy-coding-standard": "^6.0.3",
         "symplify/phpstan-extensions": "^6.0.3",
-        "latte/latte": "^2.5",
-        "nette/application": "^3.0",
-        "nette/forms": "^3.0"
+        "tracy/tracy": "^2.6"
     },
     "autoload": {
         "psr-4": {
@@ -84,6 +85,7 @@
             "Pehapkari\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
             "Pehapkari\\User\\": "packages/User/src",
             "Pehapkari\\Mailer\\": "packages/Mailer/src",
+            "Pehapkari\\Youtube\\": "packages/Youtube/src",
             "Pehapkari\\Statie\\": "statie/src"
         }
     },

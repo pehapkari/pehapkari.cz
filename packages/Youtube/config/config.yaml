@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    Pehapkari\Youtube\:
+        resource: '../src/'
+
+parameters:
+    youtube_api_key: '%env(YOUTUBE_API_KEY)%'

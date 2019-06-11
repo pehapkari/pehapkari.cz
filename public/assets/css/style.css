@@ -560,3 +560,11 @@ header nav #top-menu-search {
 #tranings_without_term p {
     line-height: 2em;
 }
+
+#videos .card-title
+{
+    margin-top: .3em;
+    margin-bottom: .3em;
+    line-height: 1.5em;
+    font-weight: normal;
+}

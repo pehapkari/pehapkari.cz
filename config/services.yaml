@@ -35,3 +35,6 @@ services:
 
     Symplify\Statie\Generator\RelatedItemsResolver:
         factory: ['@Pehapkari\DependencyInjection\StatieFactory', 'createRelatedItemsResolver']
+
+    # latte filters in twig
+    Latte\Runtime\FilterExecutor: ~
