@@ -5,6 +5,7 @@
         "php": "^7.2",
         "ext-iconv": "*",
         "ext-intl": "*",
+        "ext-json": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "alterphp/easyadmin-extension-bundle": "^2.1",
