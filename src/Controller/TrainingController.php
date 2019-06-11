@@ -75,7 +75,7 @@ final class TrainingController extends AbstractController
      */
     public function detail(Training $training): Response
     {
-        return $this->render('training/detail.twig', [
+        return $this->render('training/training_detail.twig', [
             'training' => $training,
             'trainer' => $training->getTrainer(),
             'place' => $training->getNearestTermPlace(),
