@@ -12,7 +12,7 @@ easy_admin:
             class: 'Pehapkari\Training\Entity\TrainingTerm'
             controller: 'Pehapkari\Training\Admin\Controller\AdminTrainingTermController'
             list:
-                batch_actions: ['generatePromoImages', 'generateMarketingCampaign']
+                batch_actions: ['generateMarketingCampaign']
                 fields:
                     - 'training'
                     - 'startDateTime'
