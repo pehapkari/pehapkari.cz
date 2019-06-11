@@ -7,16 +7,12 @@ if [ "${1#-}" != "$1" ]; then
 fi
 
 if [ "$1" = 'apache2-foreground' ] || [ "$1" = 'bin/console' ] || [ "$1" = 'php' ]; then
-
-    ## If we are not on production, we install dev dependencies
-    # Temporarily disabled - we need dev dependencies on production too, because of debug bar
-	# if [ "$APP_ENV" != 'prod' ]; then
-	#	composer install --prefer-dist --no-progress --no-suggest --no-interaction
-	# fi
+	if [ "$APP_ENV" != 'prod' ]; then
+		composer install --prefer-dist --no-progress --no-suggest --no-interaction -o
+	fi
 
     php bin/console assets:install
     php bin/console cache:clear
-
 
     ## Check if variable DATABASE_HOST is set, if yes, we have database
     if [[ -v DATABASE_HOST ]]; then
