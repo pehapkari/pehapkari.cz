@@ -205,9 +205,14 @@ class TrainingTerm implements UploadDestinationAwareInterface
         return $this->registrations;
     }
 
-    public function getRegistrationCount(): int
+    public function getParticipationCount(): int
     {
-        return count($this->registrations);
+        $count = 0;
+        foreach ($this->registrations as $registration) {
+            $count += $registration->getParticipantCount();
+        }
+
+        return $count;
     }
 
     public function getSlug(): ?string

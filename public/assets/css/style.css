@@ -12,7 +12,11 @@ body {
 }
 
 h1, h2, h3, h4 {
-    font-family: Verdana, Tahoma, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h3 {
+    font-size: 2em;
 }
 
 p {
@@ -234,7 +238,8 @@ h1, h2, .h2, h3 {
 
 h3 {
     margin-top: 1.3em;
-    font-size: 1.25em;
+    margin-bottom: 1em;
+    font-size: 1.3em;
 }
 
 #article-content {
@@ -416,6 +421,10 @@ footer #posobota-logo, footer #pehapkari-logo {
     font-size: 1.8em;
 }
 
+#trainings q.blockquote {
+    line-height: 1.5em;
+}
+
 #trainings .term {
     color: #333;
     font-size: .7em;
@@ -546,4 +555,8 @@ header nav #top-menu-search {
     overflow: hidden;
     margin-top: .3em;
     margin-right: .9em;
+}
+
+#tranings_without_term p {
+    line-height: 2em;
 }

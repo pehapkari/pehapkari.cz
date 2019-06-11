@@ -3,12 +3,15 @@
 namespace Pehapkari\Training\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 
 /**
  * @ORM\Entity
  */
 class TrainingFeedback
 {
+    use Timestampable;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -42,14 +45,14 @@ class TrainingFeedback
     private $text;
 
     /**
-     * @ORM\Column(type="float")
-     * @var float
+     * @ORM\Column(type="float", nullable=true)
+     * @var float|null
      */
     private $ratingContent;
 
     /**
-     * @ORM\Column(type="float")
-     * @var float
+     * @ORM\Column(type="float", nullable=true)
+     * @var float|null
      */
     private $ratingOrganization;
 
@@ -64,6 +67,12 @@ class TrainingFeedback
      * @var bool
      */
     private $isAgreedWithPublishingName = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $isPublic = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingFeedbacks")
@@ -179,5 +188,15 @@ class TrainingFeedback
     public function setIsAgreedWithPublishingName(bool $isAgreedWithPublishingName): void
     {
         $this->isAgreedWithPublishingName = $isAgreedWithPublishingName;
+    }
+
+    public function isPublic(): bool
+    {
+        return $this->isPublic;
+    }
+
+    public function setIsPublic(bool $isPublic): void
+    {
+        $this->isPublic = $isPublic;
     }
 }

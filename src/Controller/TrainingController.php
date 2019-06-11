@@ -5,6 +5,7 @@ namespace Pehapkari\Controller;
 use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 use Pehapkari\Training\Entity\Training;
 use Pehapkari\Training\Repository\PlaceRepository;
+use Pehapkari\Training\Repository\TrainingFeedbackRepository;
 use Pehapkari\Training\Repository\TrainingRepository;
 use Pehapkari\Training\Repository\TrainingTermRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,14 +29,21 @@ final class TrainingController extends AbstractController
      */
     private $trainingTermRepository;
 
+    /**
+     * @var TrainingFeedbackRepository
+     */
+    private $trainingFeedbackRepository;
+
     public function __construct(
         TrainingTermRepository $trainingTermRepository,
         TrainingRepository $trainingRepository,
-        PlaceRepository $placeRepository
+        PlaceRepository $placeRepository,
+        TrainingFeedbackRepository $trainingFeedbackRepository
     ) {
         $this->trainingTermRepository = $trainingTermRepository;
         $this->trainingRepository = $trainingRepository;
         $this->placeRepository = $placeRepository;
+        $this->trainingFeedbackRepository = $trainingFeedbackRepository;
     }
 
     /**
@@ -45,7 +53,7 @@ final class TrainingController extends AbstractController
     {
         return $this->render('training/trainings.twig', [
             'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),
-            'trainings' => $this->trainingRepository->fetchAll(),
+            'inactive_trainings' => $this->trainingRepository->fetchInactiveTrainings(),
 
             // hardcoded till the db is up
             // 'finishedTrainingTermCount' => $this->trainingTermRepository->getFinishedCount(),
@@ -53,8 +61,9 @@ final class TrainingController extends AbstractController
             //  'finishedParticipantCount' => $this->trainingRegistrationRepository->getFinishedCount(),
             'total_participant_count' => 120,
 
-            // @todo is this needed?
-            'places' => $this->placeRepository->fetchAll(),
+            'feedbacks' => $this->trainingFeedbackRepository->getPublic(),
+
+            // @todo fix: 'places' => $this->placeRepository->fetchAll(),
             'past_terms' => $this->trainingTermRepository->fetchFinished(),
             'past_terms_count' => count($this->trainingTermRepository->fetchFinished()),
         ]);
