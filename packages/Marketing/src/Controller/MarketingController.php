@@ -13,8 +13,6 @@ final class MarketingController extends AbstractController
      */
     public function default(): Response
     {
-        // how to auto-complete:
-        // "/packages/Provision/templates/provision/default.twig"
         return $this->render('marketing/sponsoring.twig');
     }
 }

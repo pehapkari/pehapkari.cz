@@ -1,6 +1,6 @@
 parameters:
     # exclude globally, if not explicitly listed
-    easy_admin_exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy', 'trainingFeedbacks', 'trainingTerms', 'registrations', 'trainings', 'slug', 'isProvisionPaid']
+    easy_admin_exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy', 'trainingFeedbacks', 'trainingTerms', 'registrations', 'trainings', 'slug', 'isProvisionPaid', 'uploadDestination']
 
 easy_admin:
     site_name: "Trainings from Péhápkaři Community"
@@ -41,6 +41,10 @@ easy_admin:
                 label: 'Trainers and Places'
                 icon: 'map-marker'
                 children: ['Trainer', 'Place']
+            -
+                label: 'Marketing'
+                icon: 'mail-bulk'
+                children: ['MarketingCampaign']
             -
                 label: 'Feedback and Watchdog'
                 icon: 'comment'

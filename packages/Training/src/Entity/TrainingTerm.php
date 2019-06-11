@@ -3,23 +3,27 @@
 namespace Pehapkari\Training\Entity;
 
 use DateTime;
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
 use Pehapkari\Doctrine\EventSubscriber\SetUploadDestinationOnPostLoadEventSubscriber;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
+ * @Vich\Uploadable
  *
  * @see https://github.com/EasyCorp/EasyAdminBundle/issues/2566
  */
 class TrainingTerm implements UploadDestinationAwareInterface
 {
+    use UploadableImageTrait;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -68,19 +72,19 @@ class TrainingTerm implements UploadDestinationAwareInterface
 
     /**
      * @ORM\Column(type="datetime")
-     * @var DateTimeInterface
+     * @var DateTime
      */
     private $deadlineDateTime;
 
     /**
      * @ORM\Column(type="datetime")
-     * @var DateTimeInterface
+     * @var DateTime
      */
     private $startDateTime;
 
     /**
      * @ORM\Column(type="datetime")
-     * @var DateTimeInterface
+     * @var DateTime
      */
     private $endDateTime;
 
@@ -130,32 +134,32 @@ class TrainingTerm implements UploadDestinationAwareInterface
         return $this->startDateTime > new DateTime('now');
     }
 
-    public function getStartDateTime(): ?DateTimeInterface
+    public function getStartDateTime(): ?DateTime
     {
         return $this->startDateTime;
     }
 
-    public function setStartDateTime(DateTimeInterface $startDateTime): void
+    public function setStartDateTime(DateTime $startDateTime): void
     {
         $this->startDateTime = $startDateTime;
     }
 
-    public function getEndDateTime(): ?DateTimeInterface
+    public function getEndDateTime(): ?DateTime
     {
         return $this->endDateTime;
     }
 
-    public function setEndDateTime(DateTimeInterface $endDateTime): void
+    public function setEndDateTime(DateTime $endDateTime): void
     {
         $this->endDateTime = $endDateTime;
     }
 
-    public function getDeadlineDateTime(): ?DateTimeInterface
+    public function getDeadlineDateTime(): ?DateTime
     {
         return $this->deadlineDateTime;
     }
 
-    public function setDeadlineDateTime(DateTimeInterface $registrationDeadlineDateTime): void
+    public function setDeadlineDateTime(DateTime $registrationDeadlineDateTime): void
     {
         $this->deadlineDateTime = $registrationDeadlineDateTime;
     }
@@ -316,5 +320,10 @@ class TrainingTerm implements UploadDestinationAwareInterface
     public function getTrainerCompany(): ?string
     {
         return $this->getTrainer()->getCompany();
+    }
+
+    public function getTrainingTermImageAbsolutePath(): ?string
+    {
+        return $this->getImage() ? $this->uploadDestination . $this->getImage() : null;
     }
 }

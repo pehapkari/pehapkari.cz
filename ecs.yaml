@@ -72,3 +72,5 @@ parameters:
 
         SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff.UnusedVariable:
             - 'statie/tests/Posts/*.php'
+
+        Symplify\CodingStandard\Sniffs\ControlStructure\SprintfOverContactSniff: ~
