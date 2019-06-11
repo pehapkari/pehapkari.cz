@@ -2,7 +2,6 @@
 
 namespace Pehapkari\Statie\Posts\Year2017\SymfonyConsole\Command;
 
-use Nette\Security\Passwords;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -21,7 +20,7 @@ final class HashPasswordCommand extends Command
     {
         $password = $input->getArgument('password');
 
-        $hashedPassword = (new Passwords)->hash($password);
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         $output->writeln(sprintf('Your hashed password is: <info>%s</info>', $hashedPassword));
 

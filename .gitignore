@@ -55,3 +55,18 @@ new-design/node_modules
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###

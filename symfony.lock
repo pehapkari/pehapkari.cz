@@ -42,7 +42,7 @@
         "version": "v1.8.0"
     },
     "doctrine/collections": {
-        "version": "v1.6.1"
+        "version": "v1.6.2"
     },
     "doctrine/common": {
         "version": "v2.10.0"
@@ -91,10 +91,10 @@
         "version": "1.2.0"
     },
     "doctrine/lexer": {
-        "version": "v1.0.1"
+        "version": "1.0.2"
     },
     "doctrine/migrations": {
-        "version": "v2.0.2"
+        "version": "v2.1.0"
     },
     "doctrine/orm": {
         "version": "2.7.x-dev"
@@ -212,7 +212,7 @@
         "version": "1.9.1"
     },
     "nesbot/carbon": {
-        "version": "2.19.1"
+        "version": "2.19.2"
     },
     "nette/application": {
         "version": "v3.0.0"
@@ -249,9 +249,6 @@
     },
     "nette/schema": {
         "version": "v1.0.0"
-    },
-    "nette/security": {
-        "version": "v3.0.0"
     },
     "nette/utils": {
         "version": "v3.0.1"
@@ -311,7 +308,7 @@
         "version": "1.8.0"
     },
     "phpstan/phpdoc-parser": {
-        "version": "0.3.4"
+        "version": "0.3.5"
     },
     "phpstan/phpstan": {
         "version": "0.11.8"
@@ -329,7 +326,7 @@
         "version": "1.2.1"
     },
     "phpunit/php-timer": {
-        "version": "2.1.1"
+        "version": "2.1.2"
     },
     "phpunit/php-token-stream": {
         "version": "3.0.1"
@@ -410,7 +407,7 @@
         "version": "2.0.1"
     },
     "sebastian/type": {
-        "version": "1.1.0"
+        "version": "1.1.1"
     },
     "sebastian/version": {
         "version": "2.0.1"
@@ -431,7 +428,7 @@
         "version": "2.0.3"
     },
     "sentry/sentry": {
-        "version": "2.1.0"
+        "version": "2.0.x-dev"
     },
     "sentry/sentry-symfony": {
         "version": "3.0",
@@ -610,7 +607,7 @@
         }
     },
     "symfony/mime": {
-        "version": "v4.3.0-rc1"
+        "version": "v4.3.1"
     },
     "symfony/options-resolver": {
         "version": "v4.3.1"
@@ -780,25 +777,25 @@
         "version": "v4.3.1"
     },
     "symplify/autodiscovery": {
-        "version": "v6.0.2"
+        "version": "v6.0.3"
     },
     "symplify/coding-standard": {
-        "version": "v6.0.2"
+        "version": "v6.0.3"
     },
     "symplify/easy-coding-standard": {
-        "version": "v6.0.2"
+        "version": "v6.0.3"
     },
     "symplify/flex-loader": {
-        "version": "v6.0.2"
+        "version": "v6.0.3"
     },
     "symplify/package-builder": {
-        "version": "v6.0.2"
+        "version": "v6.0.3"
     },
     "symplify/phpstan-extensions": {
-        "version": "v6.0.2"
+        "version": "v6.0.3"
     },
     "symplify/statie": {
-        "version": "v6.0.2"
+        "version": "v6.0.3"
     },
     "theseer/tokenizer": {
         "version": "1.1.2"
