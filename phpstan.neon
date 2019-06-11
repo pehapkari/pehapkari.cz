@@ -20,7 +20,7 @@ parameters:
         - '#Return type \(array<array<string>>\) of method Pehapkari\\Statie\\Posts\\Year2017\\SymfonyValidatorConditionalConstraints\\Client::getGroupSequence\(\) should be compatible with return type \(array<string>\|Symfony\\Component\\Validator\\Constraints\\GroupSequence\) of method Symfony\\Component\\Validator\\GroupSequenceProviderInterface::getGroupSequence\(\)#'
 
         # known child
-        - '#Method Pehapkari\\Blog\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
+        - '#Method Pehapkari\\Statie\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
 
         # desired sub-type
         - '#Method Pehapkari\\DependencyInjection\\StatieFactory\:\:createStatieKernel\(\) should return Symfony\\Component\\DependencyInjection\\Container but returns Symfony\\Component\\DependencyInjection\\ContainerInterface#'
