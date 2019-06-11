@@ -68,8 +68,7 @@
         "symplify/phpstan-extensions": "^6.0.3",
         "latte/latte": "^2.5",
         "nette/application": "^3.0",
-        "nette/forms": "^3.0",
-        "nette/security": "^3.0"
+        "nette/forms": "^3.0"
     },
     "autoload": {
         "psr-4": {
