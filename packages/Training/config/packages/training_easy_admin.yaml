@@ -31,6 +31,15 @@ easy_admin:
 
         Feedback:
             class: 'Pehapkari\Training\Entity\TrainingFeedback'
+            list:
+                fields:
+                    - 'name'
+                    - 'text'
+                    - { property: 'text', template: 'snippet/admin/full_text.twig' }
+                    - 'ratingContent'
+                    - 'training'
+                    - 'isPublic'
+                sort: 'ratingContent'
 
         Watchdog:
             class: 'Pehapkari\Training\Entity\Watchdog'

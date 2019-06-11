@@ -32,6 +32,17 @@ final class TrainingFeedbackRepository
         return $this->entityRepository->findAll();
     }
 
+    /**
+     * @return TrainingFeedback[]
+     */
+    public function getPublic(): array
+    {
+        return $this->entityRepository->createQueryBuilder('tf')
+            ->where('tf.isPublic = TRUE')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function save(TrainingFeedback $trainingFeedback): void
     {
         $this->entityManager->persist($trainingFeedback);

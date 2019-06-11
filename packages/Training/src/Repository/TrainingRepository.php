@@ -39,7 +39,23 @@ final class TrainingRepository
             ->andWhere('tt.endDateTime < :weekAgo')
             ->setParameter(':weekAgo', DateTime::from('- 30 days'))
             ->groupBy('t.id')
+            ->orderBy('tt.startDateTime') // put more recent first
             ->getQuery()
             ->getResult();
+    }
+
+    /**
+     * @return Training[]
+     */
+    public function fetchInactiveTrainings(): array
+    {
+        $trainings = $this->entityRepository->createQueryBuilder('t')
+            ->orderBy('t.name')
+            ->getQuery()
+            ->getResult();
+
+        return array_filter($trainings, function (Training $training): bool {
+            return ! $training->isActive();
+        });
     }
 }

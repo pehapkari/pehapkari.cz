@@ -69,6 +69,12 @@ class TrainingFeedback
     private $isAgreedWithPublishingName = false;
 
     /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $isPublic = false;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingFeedbacks")
      * @var Training
      */
@@ -182,5 +188,15 @@ class TrainingFeedback
     public function setIsAgreedWithPublishingName(bool $isAgreedWithPublishingName): void
     {
         $this->isAgreedWithPublishingName = $isAgreedWithPublishingName;
+    }
+
+    public function isPublic(): bool
+    {
+        return $this->isPublic;
+    }
+
+    public function setIsPublic(bool $isPublic): void
+    {
+        $this->isPublic = $isPublic;
     }
 }

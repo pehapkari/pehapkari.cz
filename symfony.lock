@@ -5,6 +5,9 @@
     "beberlei/assert": {
         "version": "v2.9.9"
     },
+    "beberlei/doctrineextensions": {
+        "version": "v1.2.1"
+    },
     "behat/transliterator": {
         "version": "v1.2.0"
     },
