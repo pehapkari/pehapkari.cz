@@ -46,7 +46,8 @@
         "symplify/package-builder": "dev-master",
         "symplify/statie": "^6.0",
         "twig/extensions": "^1.5",
-        "vich/uploader-bundle": "^1.9"
+        "vich/uploader-bundle": "^1.9",
+        "symfony/debug-bundle": "^4.3"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
@@ -54,7 +55,6 @@
         "phpstan/phpstan-doctrine": "^0.11.4",
         "phpunit/phpunit": "^8.1",
         "symfony/browser-kit": "^4.3",
-        "symfony/debug-bundle": "^4.3",
         "symfony/maker-bundle": "^1.11",
         "symfony/validator": "4.3.*",
         "symfony/web-profiler-bundle": "^4.3",

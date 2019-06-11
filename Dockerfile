@@ -37,9 +37,7 @@ RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
 COPY composer.json phpunit.xml ./
 
-## For now installing including dev dependencies
-# RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
-RUN composer install --prefer-dist --no-autoloader --no-scripts --no-progress --no-suggest \
+RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
 
 COPY . .
@@ -47,13 +45,14 @@ COPY . .
 RUN mkdir -p ./var/cache \
     ./var/log \
     ./var/sessions \
-        # && composer dump-autoload --classmap-authoritative --no-dev \
-        && composer dump-autoload \
+        && composer dump-autoload -o --no-dev \
         && chown -R www-data ./var
 
 
 ## Local build with xdebug
 FROM production as dev
+
+RUN composer install --prefer-dist --no-scripts --no-progress --no-suggest
 
 COPY ./.docker/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
