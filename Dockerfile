@@ -35,7 +35,7 @@ RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress
 COPY ./.docker/docker-entrypoint.sh /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
-COPY composer.json phpunit.xml ./
+COPY composer.json phpunit.xml.dist ./
 
 RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
