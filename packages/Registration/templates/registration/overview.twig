@@ -4,7 +4,7 @@
     <div id="trainings">
         <div class="section">
             <div class="container">
-                <h2>Počet registrovaných</h2>
+                <h2 class="text-center">Počet registrovaných</h2>
 
                 <table class="table table-bordered table-striped">
                     <thead class="thead-inverse">
@@ -17,7 +17,7 @@
                         <tr>
                             {% set training = training_term.getTraining() %}
                             <td>{{ training.getName()|raw }}</td>
-                            <td>{{ training_term.getRegistrationCount() }} registrací</td>
+                            <td>{{ training_term.getParticipationCount() }} registrací</td>
                         </tr>
                     {% endfor %}
                 </table>
