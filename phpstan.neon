@@ -4,6 +4,7 @@ includes:
 
 parameters:
     level: max
+    reportUnmatchedIgnoredErrors: false
 
     excludes_analyse:
         - "*/Entity*"
@@ -13,7 +14,6 @@ parameters:
 
     ignoreErrors:
         # known value
-        - '#Cannot call method render\(\) on Nette\\Application\\UI\\ITemplate\|stdClass#'
         - '#Method Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Infrastructure\\DoctrineCartRepository::find\(\) should  Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Domain\\Cart|null but returns object|null#'
 
         # not sure about this
