@@ -35,6 +35,12 @@ phpunit:
     script:
         - docker run -e APP_ENV -e APP_DEBUG -e APP_SECRET $IMAGE:$CI_COMMIT_SHA php vendor/bin/phpunit
 
+prod container:
+    stage: test
+    extends: .docker-job
+    script:
+        - docker run -e APP_ENV=prod -e APP_SECRET $IMAGE:$CI_COMMIT_SHA php bin/console cache:warmup
+
 release:
     stage: release
     extends: .docker-job
