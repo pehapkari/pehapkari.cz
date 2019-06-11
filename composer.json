@@ -43,17 +43,18 @@
         "symfony/security-bundle": "^4.3",
         "symfony/swiftmailer-bundle": "^3.2",
         "symfony/templating": "^4.3",
+        "symfony/translation": "4.3.*",
         "symfony/twig-bridge": "^4.3",
         "symfony/twig-bundle": "^4.3",
         "symfony/validator": "4.3.*",
+        "symfony/web-profiler-bundle": "^4.3",
         "symfony/yaml": "^4.3",
         "symplify/autodiscovery": "^6.0.3",
         "symplify/flex-loader": "^6.0.3",
         "symplify/package-builder": "^6.0.3",
         "symplify/statie": "^6.0.3",
         "twig/extensions": "^1.5",
-        "vich/uploader-bundle": "^1.9",
-        "symfony/web-profiler-bundle": "^4.3"
+        "vich/uploader-bundle": "^1.9"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
