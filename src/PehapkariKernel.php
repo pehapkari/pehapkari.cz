@@ -15,7 +15,6 @@ use Symplify\FlexLoader\Flex\FlexLoader;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
-use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireSinglyImplementedCompilerPass;
 
 final class PehapkariKernel extends Kernel
 {
@@ -79,6 +78,5 @@ final class PehapkariKernel extends Kernel
         // autowiring
         $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
         $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
-        $containerBuilder->addCompilerPass(new AutowireSinglyImplementedCompilerPass());
     }
 }
