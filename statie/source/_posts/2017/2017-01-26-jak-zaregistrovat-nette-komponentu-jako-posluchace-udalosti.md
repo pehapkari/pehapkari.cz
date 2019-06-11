@@ -3,8 +3,7 @@ id: 16
 title: "Jak zaregistrovat Nette komponentu jako posluchače událostí"
 perex: "Dnes si povíme o tom, jak přimět Nette **komponenty poslouchat na události**, které nám vyvolává aplikace a umožnit jim se podle toho zachovat."
 author: 11
-tested: true
-test_slug: ListeningNetteComponents
+
 tweet: "Urodilo se na blogu: Jak zaregistrovat #NetteFW komponentu jako posluchače událostí #eventdispatcher #symfony"
 ---
 
