@@ -9,6 +9,7 @@
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "alterphp/easyadmin-extension-bundle": "^2.1",
+        "composer/ca-bundle": "^1.0",
         "chumper/zipper": "^1.0",
         "dfridrich/ares": "^1.2",
         "doctrine/annotations": "^1.6",
