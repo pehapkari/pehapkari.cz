@@ -14,7 +14,7 @@
         "doctrine/cache": "^1.8",
         "doctrine/doctrine-bundle": "^1.10",
         "doctrine/orm": "2.7.x-dev",
-        "easycorp/easyadmin-bundle": "dev-master",
+        "easycorp/easyadmin-bundle": "^2.1.4",
         "fakturoid/fakturoid-php": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "j7mbo/twitter-api-php": "^1.0",
