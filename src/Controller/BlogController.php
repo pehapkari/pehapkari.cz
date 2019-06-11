@@ -2,7 +2,7 @@
 
 namespace Pehapkari\Controller;
 
-use Pehapkari\Blog\PostsProvider;
+use Pehapkari\Statie\PostsProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
