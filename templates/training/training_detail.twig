@@ -116,32 +116,7 @@
                 <div class="col-md-8">
                     {{ training.getDescription()|markdown|raw }}
 
-                    {% if training.hasReferences() %}
-                        <hr>
-
-                        <h3>Kurzem už {{ word_by_count(training.getReferences()|length, ['prošel %d účastník', 'prošly %d účastníci', 'prošlo %d účastníků']) }} </h3>
-
-                        <div class="row">
-                            {% for reference in training.getReferences() %}
-                                <div class="col-md-6 text-left mb-4">
-                                    {% if reference.getUrl() %}
-                                        <a href="{{ reference.getUrl() }}">
-                                    {% endif %}
-
-                                    {{ reference.name }}
-
-                                    {% if reference.getUrl() %}
-                                        </a>
-                                    {% endif %}
-
-                                    <p class="mt-3">
-                                        <em>„{{ reference.getText()|raw }}“</em>
-                                    </p>
-                                </div>
-
-                            {% endfor %}
-                        </div>
-                    {% endif %}
+                    {% include('_snippets/training/training_refrences.twig') %}
                 </div>
             </div>
         </div>

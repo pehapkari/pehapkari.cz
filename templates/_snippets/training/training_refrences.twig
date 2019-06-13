@@ -1,0 +1,26 @@
+{% if training.hasReferences() %}
+    <hr>
+
+    <h3>Kurzem už {{ word_by_count(training.getReferenceCount(), ['prošel %d účastník', 'prošly %d účastníci', 'prošlo více než %d účastníků']) }} </h3>
+
+    <div class="row">
+        {% for reference in training.getPublicReferences() %}
+            <div class="col-md-12 text-left mb-4">
+                {% if reference.getUrl() %}
+                <a href="{{ reference.getUrl() }}">
+                    {% endif %}
+
+                    {{ reference.name }}
+
+                    {% if reference.getUrl() %}
+                </a>
+                {% endif %}
+
+                <p class="mt-3">
+                    <em>„{{ reference.getText()|raw }}“</em>
+                </p>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endif %}

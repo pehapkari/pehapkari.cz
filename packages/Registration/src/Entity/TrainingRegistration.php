@@ -98,6 +98,11 @@ class TrainingRegistration
      */
     private $trainingTerm;
 
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
     public function getPhone(): ?string
     {
         return $this->phone;
@@ -236,10 +241,5 @@ class TrainingRegistration
     public function setFakturoidInvoiceId(?int $fakturoidInvoiceId): void
     {
         $this->fakturoidInvoiceId = $fakturoidInvoiceId;
-    }
-
-    public function __toString(): string
-    {
-        return $this->name;
     }
 }
