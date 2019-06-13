@@ -9,12 +9,12 @@
 
             <ul>
                 {% for playlist in meetup_playlists %}
-                    <li><a href=#{{ playlist.title|webalize }}"">{{ playlist.title }}</a></li>
+                    <li><a href="#{{ playlist.title|webalize }}">{{ playlist.title }}</a></li>
                 {% endfor %}
             </ul>
 
             {% for playlist in meetup_playlists %}
-                <h2 id=#{{ playlist.title|webalize }}"">{{ playlist.title }}</h2>
+                <h2 id="{{ playlist.title|webalize }}">{{ playlist.title }}</h2>
 
                 <p>{{ playlist.published_at|date("j. n. Y") }}</p>
 

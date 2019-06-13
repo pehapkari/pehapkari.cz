@@ -2,6 +2,9 @@
 
 namespace Pehapkari\Youtube\Controller;
 
+use Facebook\Facebook;
+use Nette\Utils\Json;
+use Pehapkari\Marketing\Social\FacebookIds;
 use Pehapkari\Youtube\Command\ImportVideosFromYoutubeCommand;
 use Pehapkari\Youtube\Exception\FileDataNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,12 +20,18 @@ final class VideoController extends AbstractController
     private $youtubeVideos = [];
 
     /**
+     * @var Facebook
+     */
+    private $facebook;
+
+    /**
      * Get these data by running @see ImportVideosFromYoutubeCommand command
      * @param mixed[] $youtubeVideos
      */
-    public function __construct(array $youtubeVideos = [])
+    public function __construct(Facebook $facebook, array $youtubeVideos = [])
     {
         $this->youtubeVideos = $youtubeVideos;
+        $this->facebook = $facebook;
     }
 
     /**
@@ -30,12 +39,33 @@ final class VideoController extends AbstractController
      */
     public function videos(): Response
     {
+        $this->prepareYoutubeVideos();
+
         $this->ensureYoutubeDataExists();
 
         return $this->render('videos/videos.twig', [
             'meetup_playlists' => $this->youtubeVideos['meetup_playlists'],
             'livestream_playlist' => $this->youtubeVideos['livestream_playlist'],
         ]);
+    }
+
+    private function prepareYoutubeVideos(): void
+    {
+        return;
+
+        // https://developers.facebook.com/docs/graph-api/reference/page/video_lists/
+        $endPoint = FacebookIds::PEHAPKARI_PAGE_ID . '/video_lists';
+        $response = $this->facebook->get($endPoint);
+
+        $data = Json::decode($response->getBody(), Json::FORCE_ARRAY)['data'];
+
+        foreach ($data as $item) {
+            // https://developers.facebook.com/docs/graph-api/reference/video-list/
+            $endPoint = $item['id'] . '?fields=videos';
+            $response = $this->facebook->get($endPoint);
+
+            $data = Json::decode($response->getBody(), Json::FORCE_ARRAY);
+        }
     }
 
     private function ensureYoutubeDataExists(): void

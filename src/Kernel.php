@@ -8,7 +8,7 @@ use Pehapkari\BetterEasyAdmin\DependencyInjection\CompilerPass\CorrectionCompile
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\HttpKernel\Kernel as SymfonyKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symplify\Autodiscovery\Discovery;
 use Symplify\FlexLoader\Flex\FlexLoader;
@@ -16,7 +16,7 @@ use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersC
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
 
-final class PehapkariKernel extends Kernel
+final class Kernel extends SymfonyKernel
 {
     use MicroKernelTrait;
 

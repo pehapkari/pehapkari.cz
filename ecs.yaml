@@ -44,6 +44,9 @@ parameters:
         - 'src/Kernel.php'
         - 'statie/tests'
         - 'statie/tests/Posts/Year2017/NetteConfigObjects/ContainerFactory.php'
+        # temporary vides
+        - 'packages/Marketing/src/Social/FacebookPublisher.php'
+        - 'packages/Youtube/src/Controller/VideoController.php'
 
     skip:
         # on purpose - property order is reflected in forms in admin
@@ -74,3 +77,4 @@ parameters:
             - 'statie/tests/Posts/*.php'
 
         Symplify\CodingStandard\Sniffs\ControlStructure\SprintfOverContactSniff: ~
+

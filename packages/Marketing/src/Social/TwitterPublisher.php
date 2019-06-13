@@ -12,7 +12,6 @@ use Pehapkari\Training\Entity\Trainer;
 use Pehapkari\Training\Entity\Training;
 use Pehapkari\Training\Entity\TrainingFeedback;
 use Pehapkari\Training\Entity\TrainingTerm;
-use Symfony\Component\Routing\RouterInterface;
 use TwitterAPIExchange;
 
 final class TwitterPublisher
@@ -43,14 +42,14 @@ final class TwitterPublisher
     private $twitterAPIExchange;
 
     /**
-     * @var RouterInterface
+     * @var UrlFactory
      */
-    private $router;
+    private $urlFactory;
 
-    public function __construct(TwitterAPIExchange $twitterAPIExchange, RouterInterface $router)
+    public function __construct(TwitterAPIExchange $twitterAPIExchange, UrlFactory $urlFactory)
     {
         $this->twitterAPIExchange = $twitterAPIExchange;
-        $this->router = $router;
+        $this->urlFactory = $urlFactory;
     }
 
     public function publishMarketingEvent(MarketingEvent $marketingEvent): void
@@ -106,7 +105,7 @@ final class TwitterPublisher
     ): string {
         $message = '"' . $trainingFeedback . '"' . PHP_EOL . PHP_EOL;
         $message .= 'Přijď na školení od @' . $trainer->getTwitterName() . PHP_EOL;
-        $message .= $this->createAbsoluteTrainingUrl($trainingTerm) . PHP_EOL;
+        $message .= $this->urlFactory->createAbsoluteTrainingUrl($trainingTerm) . PHP_EOL;
 
         // @todo: už jen x dní do uzavření registrací
 
@@ -148,14 +147,6 @@ final class TwitterPublisher
             ->performRequest();
 
         return $this->decodeJson($jsonResponse);
-    }
-
-    private function createAbsoluteTrainingUrl(TrainingTerm $trainingTerm): string
-    {
-        return 'https://pehapkari.cz' . $this->router->generate(
-            'training_detail',
-            ['slug' => $trainingTerm->getTraining()->getSlug()]
-        );
     }
 
     /**

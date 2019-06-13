@@ -54,6 +54,14 @@ final class HomepageController extends AbstractController
     }
 
     /**
+     * @Route(path="/privacy-policy/", name="privacy_policy")
+     */
+    public function privacyPolicy(): Response
+    {
+        return $this->render('homepage/privacy_policy.twig');
+    }
+
+    /**
      * @Route(path="/contact/", name="contact")
      */
     public function contact(): Response

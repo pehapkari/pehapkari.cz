@@ -11,6 +11,9 @@ parameters:
         - '*/var/cache/*'
         - '*/var/log/*'
         - /statie/tests/
+        # temporary
+        - 'packages/Marketing/src/Social/FacebookPublisher.php'
+        - 'packages/Youtube/src/Controller/VideoController.php'
 
     ignoreErrors:
         # known value
