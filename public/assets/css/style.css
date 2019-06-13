@@ -568,3 +568,7 @@ header nav #top-menu-search {
     line-height: 1.5em;
     font-weight: normal;
 }
+
+.text-bigger {
+    font-size: 1.2em;
+}

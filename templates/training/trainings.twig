@@ -40,10 +40,13 @@
                         <p>{{ training.getPerex()|raw }}</p>
                     {% endif %}
 
-                    <p>Příští termín: <strong>{{ training.getNearestTermDateTime()|date }}</strong></p>
-                    <p class="text-danger">
-                        Uzavírka přihlášek: <strong>{{ training.getNearestTermDeadline()|date }}</strong>
-                    </p>
+                    <div class="mt-4 mb-4 text-bigger">
+                        <p>Příští termín: <strong>{{ training.getNearestTermDateTime()|date }}</strong></p>
+                        <p class="text-danger">
+                            Uzavírka přihlášek: <strong>{{ training.getNearestTermDeadline()|date }}</strong>
+                        </p>
+                    </div>
+
                     <p>
                         Lektor:
                         <strong>

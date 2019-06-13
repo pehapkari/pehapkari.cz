@@ -26,8 +26,7 @@ final class LatteFiltersExtension extends AbstractExtension
     {
         $twigFilters = [];
         foreach ($this->filterExecutor->getAll() as $name => $filter) {
-            // skip Twig filters
-            if ($name === 'replace') {
+            if ($this->shouldSkipAsDuplicatedInTwig($name)) {
                 continue;
             }
 
@@ -44,8 +43,7 @@ final class LatteFiltersExtension extends AbstractExtension
     {
         $twigFunctions = [];
         foreach ($this->filterExecutor->getAll() as $name => $filter) {
-            // skip Twig filters
-            if ($name === 'replace') {
+            if ($this->shouldSkipAsDuplicatedInTwig($name)) {
                 continue;
             }
 
@@ -53,5 +51,10 @@ final class LatteFiltersExtension extends AbstractExtension
         }
 
         return $twigFunctions;
+    }
+
+    private function shouldSkipAsDuplicatedInTwig(string $name): bool
+    {
+        return in_array($name, ['replace', 'date'], true);
     }
 }
