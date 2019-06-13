@@ -41,6 +41,9 @@
                     {% endif %}
 
                     <p>Příští termín: <strong>{{ training.getNearestTermDateTime()|date }}</strong></p>
+                    <p class="text-danger">
+                        Uzavírka přihlášek: <strong>{{ training.getNearestTermDeadline()|date }}</strong>
+                    </p>
                     <p>
                         Lektor:
                         <strong>
@@ -76,7 +79,7 @@
                     <a href="{{ path('training_detail', { 'slug': inactive_training.getSlug() }) }}/">
                         {{ inactive_training.getName()|raw }}
                     </a>
-                    {% if loop.last == false %}&nbsp;<em class="fas fa-grip-lines text-black-50"></em>&nbsp;{% endif %}
+                    {% if loop.last == false %}&nbsp;•&nbsp;{% endif %}
                 {% endfor %}
             </p>
         </div>
