@@ -81,7 +81,7 @@ final class TrainingTermRepository
      * @param mixed $id
      * @return bool|Proxy|object|null
      */
-    public function getReference($id)
+    public function getFeedback($id)
     {
         return $this->entityManager->getReference(TrainingTerm::class, $id);
     }

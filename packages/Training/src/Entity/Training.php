@@ -247,12 +247,12 @@ class Training
         $this->description = $description;
     }
 
-    public function hasReferences(): bool
+    public function hasFeedbacks(): bool
     {
-        return (bool) $this->getReferenceCount();
+        return (bool) $this->getFeedbackCount();
     }
 
-    public function getReferenceCount(): int
+    public function getFeedbackCount(): int
     {
         return count($this->trainingFeedbacks);
     }
@@ -260,7 +260,7 @@ class Training
     /**
      * @return TrainingFeedback[]|ArrayCollection
      */
-    public function getPublicReferences()
+    public function getPublicFeedbacks()
     {
         $criteria = Criteria::create()
             ->where(Criteria::expr()->eq('isPublic', true));

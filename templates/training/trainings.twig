@@ -97,29 +97,7 @@
             <div class="row narrower">
                 {% for feedback in feedbacks %}
                     <div class="col-md-12 mb-5">
-                        <q class="blockquote">{{ feedback.text }}</q>
-
-                        {% if feedback.ratingContent %}
-                            <div class="mb-3 mt-3">
-                                {% for i in 1..feedback.ratingContent %}
-                                    <em class="fas fa-2x fa-star text-warning"></em>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-
-                        <p class="mt-2">
-                            {% if feedback.isAgreedWithPublishingName %}
-                                {% if feedback.url %}<a href="{{ feedback.url }}">{% endif %}
-                                {{ feedback.name }} o
-                                {% if feedback.url %}</a>{% endif %}
-                            {% else %}
-                                Účastník školení
-                            {% endif %}
-
-                            <a href="{{ path('training_detail', {'slug': feedback.training.slug }) }}">
-                                {{ feedback.training.name }}
-                            </a>
-                        </p>
+                        {% include "_snippets/training/single_feedback.twig" %}
                     </div>
                 {% endfor %}
             </div>
