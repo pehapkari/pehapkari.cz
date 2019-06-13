@@ -51,6 +51,8 @@ final class TrainingController extends AbstractController
      */
     public function trainings(): Response
     {
+        $averageRating = $this->trainingFeedbackRepository->getAverageRating();
+
         return $this->render('training/trainings.twig', [
             'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),
             'inactive_trainings' => $this->trainingRepository->fetchInactiveTrainings(),
@@ -62,6 +64,9 @@ final class TrainingController extends AbstractController
             'total_participant_count' => 120,
 
             'feedbacks' => $this->trainingFeedbackRepository->getForMainPage(),
+
+            'average_training_rating' => $averageRating,
+            'average_training_rating_stars' => round($averageRating, 0),
 
             // @todo fix: 'places' => $this->placeRepository->fetchAll(),
             'past_terms' => $this->trainingTermRepository->fetchFinished(),

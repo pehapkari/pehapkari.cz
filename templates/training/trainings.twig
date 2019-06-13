@@ -96,6 +96,18 @@
                 Přes 120 spokojených účastníků
             </h2>
 
+            <div class="mb-3">
+                {% for i in 1..average_training_rating_stars %}
+                    <em class="fas fa-2x fa-star text-warning"></em>
+                {% endfor %}
+            </div>
+            <p class="bigger">
+                <strong>{{ average_training_rating }}</strong>
+            </p>
+
+            <p class="mb-5">Průměrné hodnocení školení</p>
+
+
             <div class="row narrower">
                 {% for feedback in feedbacks %}
                     <div class="col-md-12 mb-5">

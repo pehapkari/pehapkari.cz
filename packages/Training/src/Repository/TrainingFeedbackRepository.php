@@ -48,4 +48,15 @@ final class TrainingFeedbackRepository
         $this->entityManager->persist($trainingFeedback);
         $this->entityManager->flush();
     }
+
+    public function getAverageRating(): float
+    {
+        $averageRating = (float) $this->entityRepository->createQueryBuilder('tf')
+            ->select('AVG(tf.ratingContent) as average_rating')
+            ->where('tf.ratingContent IS NOT NULL')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        return round($averageRating, 2);
+    }
 }
