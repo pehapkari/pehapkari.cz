@@ -23,7 +23,7 @@ services:
 
     Pehapkari\:
         resource: '../src/'
-        exclude: '../src/{PehapkariKernel.php}'
+        exclude: '../src/{Kernel.php}'
 
     Defr\Ares: ~
     GuzzleHttp\Client: ~
