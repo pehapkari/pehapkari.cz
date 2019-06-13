@@ -20,6 +20,6 @@ final class DateTimeUtils
     {
         $diff = $dateTime->diff(DateTime::from('now'));
 
-        return ($diff->y * 365) + $diff->d + ($diff->h / 24);
+        return (int) (($diff->y * 365) + $diff->d + ($diff->h / 24));
     }
 }
