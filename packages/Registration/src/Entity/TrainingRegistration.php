@@ -98,6 +98,11 @@ class TrainingRegistration
      */
     private $trainingTerm;
 
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
     public function getPhone(): ?string
     {
         return $this->phone;

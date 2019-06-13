@@ -36,8 +36,9 @@ easy_admin:
                     - 'name'
                     - 'text'
                     - { property: 'text', template: 'snippet/admin/full_text.twig' }
-                    - 'ratingContent'
+                    - { property: 'ratingContent', label: 'Rating' }
                     - 'training'
+                    - { property: 'isShownOnMainPage', label: 'Main Page' }
                     - 'isPublic'
                 sort: 'ratingContent'
 

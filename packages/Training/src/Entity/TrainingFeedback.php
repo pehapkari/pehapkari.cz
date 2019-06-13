@@ -75,6 +75,12 @@ class TrainingFeedback
     private $isPublic = false;
 
     /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $isShownOnMainPage = false;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingFeedbacks")
      * @var Training
      */
@@ -198,5 +204,15 @@ class TrainingFeedback
     public function setIsPublic(bool $isPublic): void
     {
         $this->isPublic = $isPublic;
+    }
+
+    public function isShownOnMainPage(): bool
+    {
+        return $this->isShownOnMainPage;
+    }
+
+    public function setIsShownOnMainPage(bool $isShownOnMainPage): void
+    {
+        $this->isShownOnMainPage = $isShownOnMainPage;
     }
 }

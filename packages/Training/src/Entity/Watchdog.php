@@ -27,12 +27,6 @@ class Watchdog
     private $email;
 
     /**
-     * @ORM\Column(type="text", length=255, nullable=true)
-     * @var string
-     */
-    private $note;
-
-    /**
      * @ORM\Column(type="boolean")
      * @var bool
      */
@@ -72,16 +66,6 @@ class Watchdog
     public function setIsInformed(?bool $isInformed): void
     {
         $this->isInformed = $isInformed;
-    }
-
-    public function getNote(): ?string
-    {
-        return $this->note;
-    }
-
-    public function setNote(?string $note): void
-    {
-        $this->note = $note;
     }
 
     public function getTraining(): ?Training

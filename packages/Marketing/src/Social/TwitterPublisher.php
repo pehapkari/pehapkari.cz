@@ -64,7 +64,7 @@ final class TwitterPublisher
         $trainer = $trainingTerm->getTrainer();
 
         // make sure we have some references to tweet about
-        $reference = $training->getReferences()[0];
+        $reference = $training->getFeedbacks()[0];
         if ($reference === null) {
             throw new ShouldNotHappenException(sprintf(
                 'Complete some references for "%s" training first',

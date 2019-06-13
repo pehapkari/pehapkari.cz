@@ -86,40 +86,32 @@
                 {% endfor %}
             </p>
         </div>
+    </div>
 
-        <hr>
+    <hr>
 
+    <div>
         <div class="text-center">
             <h2 class="mb-5">
                 Přes 120 spokojených účastníků
             </h2>
 
+            <div class="mb-3">
+                {% for i in 1..average_training_rating_stars %}
+                    <em class="fas fa-2x fa-star text-warning"></em>
+                {% endfor %}
+            </div>
+            <p class="bigger">
+                <strong>{{ average_training_rating }}</strong>
+            </p>
+
+            <p class="mb-5">Průměrné hodnocení školení</p>
+
+
             <div class="row narrower">
                 {% for feedback in feedbacks %}
                     <div class="col-md-12 mb-5">
-                        <q class="blockquote">{{ feedback.text }}</q>
-
-                        {% if feedback.ratingContent %}
-                            <div class="mb-3 mt-3">
-                                {% for i in 1..feedback.ratingContent %}
-                                    <em class="fas fa-2x fa-star text-warning"></em>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-
-                        <p class="mt-2">
-                            {% if feedback.isAgreedWithPublishingName %}
-                                {% if feedback.url %}<a href="{{ feedback.url }}">{% endif %}
-                                {{ feedback.name }} o
-                                {% if feedback.url %}</a>{% endif %}
-                            {% else %}
-                                Účastník školení
-                            {% endif %}
-
-                            <a href="{{ path('training_detail', {'slug': feedback.training.slug }) }}">
-                                {{ feedback.training.name }}
-                            </a>
-                        </p>
+                        {% include "_snippets/training/single_feedback.twig" %}
                     </div>
                 {% endfor %}
             </div>
@@ -221,43 +213,5 @@
 
     <hr>
 
-    <h2 class="text-center">Partnerská školení</h2>
-
-    <div class="row" id="training_partners">
-        <div class="col-12 col-md-4">
-            <div class="text-center">
-                <img style="max-width: 7em" alt="" class="mb-3 rounded-circle img-thumbnail" src="https://pbs.twimg.com/profile_images/2486136032/48y4qlw7i7u0wed6q4ju_400x400.jpeg">
-            </div>
-
-            <p>
-                Vydrží tvoje aplikace útoky zákeřných hackerů?
-                <br>
-                Po školení <strong>security experta <a href="https://www.michalspacek.cz/skoleni">Michala Špačka</a></strong> si tím můžeš být téměř jistý.
-            </p>
-        </div>
-
-        <div class="col-12 col-md-4">
-            <div class="text-center">
-                <img style="max-width: 7em" alt="" class="mb-3 rounded-circle img-thumbnail" src="https://www.vzhurudolu.cz/assets/img/content/lectors/shoulders-martin-michalek.png">
-            </div>
-
-            <p>
-                Potřebuješ rychle načíst web, pochopit SVG, kódování newsletteru nebo Javascript?
-                <br>
-                Běž na <strong>frontendová školení ze <a href="https://www.vzhurudolu.cz/kurzy">Vzhůru dolů</a></strong>.
-            </p>
-        </div>
-
-        <div class="col-12 col-md-4">
-            <div class="text-center">
-                <img style="max-width: 7em" alt="" class="mb-3 rounded-circle img-thumbnail" src="https://avatars3.githubusercontent.com/u/353372?s=460&v=4">
-            </div>
-
-            <p>
-                Chceš si ujasnit objetové programování v PHP nebo se stát mistrem Symfony?
-                <br>
-                S tím <strong>ti pomůže <a href="https://www.martinhujer.cz/skoleni/">Martin Hujer</a></strong>.
-            </p>
-        </div>
-    </div>
+    {% include "training/_snippet/partner_trainings.twig" %}
 {% endblock %}

@@ -36,19 +36,34 @@ easy_admin:
             -
                 label: 'Trainings'
                 icon: 'graduation-cap'
-                children: ['Training', 'TrainingTerm', 'Registration', 'Expense']
+                entity: 'Training'
             -
-                label: 'Trainers and Places'
+                label: 'Terms'
+                icon: 'calendar'
+                entity: 'TrainingTerm'
+            -
+                icon: 'id-badge'
+                entity: 'Registration'
+            -
+                label: 'Trainers'
+                icon: 'train'
+                entity: 'Trainer'
+            -
+                entity: 'Place'
                 icon: 'map-marker'
-                children: ['Trainer', 'Place']
             -
                 label: 'Marketing'
                 icon: 'mail-bulk'
-                children: ['MarketingCampaign']
+                entity: 'MarketingCampaign'
             -
-                label: 'Feedback and Watchdog'
                 icon: 'comment'
-                children: ['Feedback', 'Watchdog']
+                entity: 'Feedback'
+            -
+                icon: 'dog'
+                entity: 'Watchdog'
+            -
+                icon: 'money'
+                entity: 'Expense'
             -
                 label: 'Back to Website'
                 icon: 'arrow-left'

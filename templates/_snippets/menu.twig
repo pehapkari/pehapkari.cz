@@ -15,17 +15,19 @@
 
                     <li>
                         <a href="{{ path('blog') }}" class="{{ active_item(['blog', 'post']) }}">
-                            <em class="fa fa-newspaper fa-fw"></em>
-                            &nbsp;
                             Blog
                         </a>
                     </li>
 
                     <li>
                         <a href="{{ path('trainings') }}" class="{{ active_item(['trainings', 'training-detail']) }}">
-                            <em class="fa fa-graduation-cap fa-fw"></em>
-                            &nbsp;
                             Školení
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('videos') }}" class="{{ active_item(['videos']) }}">
+                            Videa
                         </a>
                     </li>
                 </ul>

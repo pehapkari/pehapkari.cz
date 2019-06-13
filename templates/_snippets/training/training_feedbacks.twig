@@ -1,0 +1,16 @@
+{% if training.hasFeedbacks() %}
+    <hr>
+
+    <h3>Kurzem už {{ word_by_count(training.getFeedbackCount(), [
+            'prošel %d účastník', 'prošly %d účastníci', 'prošlo více než %d účastníků'
+        ]) }} </h3>
+
+    <div class="row">
+        {% for feedback in training.getPublicFeedbacks() %}
+            <div class="col-md-12 text-left mb-4">
+                {% include "_snippets/training/single_feedback.twig" with {"detail": true } %}
+            </div>
+
+        {% endfor %}
+    </div>
+{% endif %}

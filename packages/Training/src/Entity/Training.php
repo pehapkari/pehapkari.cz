@@ -4,6 +4,7 @@ namespace Pehapkari\Training\Entity;
 
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
@@ -246,17 +247,25 @@ class Training
         $this->description = $description;
     }
 
-    public function hasReferences(): bool
+    public function hasFeedbacks(): bool
     {
-        return (bool) count($this->trainingFeedbacks);
+        return (bool) $this->getFeedbackCount();
+    }
+
+    public function getFeedbackCount(): int
+    {
+        return count($this->trainingFeedbacks);
     }
 
     /**
      * @return TrainingFeedback[]|ArrayCollection
      */
-    public function getReferences()
+    public function getPublicFeedbacks()
     {
-        return $this->trainingFeedbacks;
+        $criteria = Criteria::create()
+            ->where(Criteria::expr()->eq('isPublic', true));
+
+        return $this->trainingFeedbacks->matching($criteria);
     }
 
     public function getSlug(): ?string
