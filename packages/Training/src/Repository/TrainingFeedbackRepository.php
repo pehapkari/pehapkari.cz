@@ -40,6 +40,7 @@ final class TrainingFeedbackRepository
         return $this->entityRepository->createQueryBuilder('tf')
             ->where('tf.isPublic = TRUE')
             ->getQuery()
+            ->setMaxResults(4)
             ->getResult();
     }
 
