@@ -237,4 +237,9 @@ class TrainingRegistration
     {
         $this->fakturoidInvoiceId = $fakturoidInvoiceId;
     }
+
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 }

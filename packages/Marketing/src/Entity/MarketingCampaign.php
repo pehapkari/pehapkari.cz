@@ -29,7 +29,7 @@ class MarketingCampaign
     private $trainingTerm;
 
     /**
-     * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", mappedBy="marketingCampaign", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", mappedBy="marketingCampaign", cascade={"persist", "remove"})
      * @var MarketingEvent[]
      */
     private $events = [];
