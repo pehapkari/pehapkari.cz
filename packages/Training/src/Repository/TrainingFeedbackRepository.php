@@ -35,12 +35,11 @@ final class TrainingFeedbackRepository
     /**
      * @return TrainingFeedback[]
      */
-    public function getPublic(): array
+    public function getForMainPage(): array
     {
         return $this->entityRepository->createQueryBuilder('tf')
-            ->where('tf.isPublic = TRUE')
+            ->where('tf.isShownOnMainPage = TRUE')
             ->getQuery()
-            ->setMaxResults(4)
             ->getResult();
     }
 

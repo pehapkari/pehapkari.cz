@@ -1,7 +1,9 @@
 {% if training.hasFeedbacks() %}
     <hr>
 
-    <h3>Kurzem už {{ word_by_count(training.getFeedbackCount(), ['prošel %d účastník', 'prošly %d účastníci', 'prošlo více než %d účastníků']) }} </h3>
+    <h3>Kurzem už {{ word_by_count(training.getFeedbackCount(), [
+            'prošel %d účastník', 'prošly %d účastníci', 'prošlo více než %d účastníků'
+        ]) }} </h3>
 
     <div class="row">
         {% for feedback in training.getPublicFeedbacks() %}

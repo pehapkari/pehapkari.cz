@@ -61,7 +61,7 @@ final class TrainingController extends AbstractController
             //  'finishedParticipantCount' => $this->trainingRegistrationRepository->getFinishedCount(),
             'total_participant_count' => 120,
 
-            'feedbacks' => $this->trainingFeedbackRepository->getPublic(),
+            'feedbacks' => $this->trainingFeedbackRepository->getForMainPage(),
 
             // @todo fix: 'places' => $this->placeRepository->fetchAll(),
             'past_terms' => $this->trainingTermRepository->fetchFinished(),
