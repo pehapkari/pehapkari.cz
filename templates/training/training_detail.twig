@@ -39,9 +39,12 @@
                     <div class="clearfix"></div>
 
                     {% if training.isActive() %}
+
+                        {% set training_term = training.getNearestTerm() %}
+
                         Příští termín:
 
-                        <strong>{{ training.getNearestTermDateTime()|date }}</strong>
+                        <strong>{{ training_term.getStartDateTime()|date }}</strong>
 
                         <br>
 
@@ -50,11 +53,11 @@
                             Přidat do kalendáře
                         </a>
 
-                        {% if training.getNearestTermDeadline() %}
+                        {% if training_term.isRegistrationOpen() %}
                             <div class="card border-warning mt-3 mb-4">
                                 <div class="card-body bg-warning">
                                     Uzavěrka přihlášek
-                                    <strong>{{ training.getNearestTermDeadline()|date }}</strong>
+                                    <strong>{{ training_term.getDeadlineDateTime()|date }}</strong>
                                 </div>
                             </div>
                         {% endif %}

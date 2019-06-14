@@ -5,6 +5,11 @@ namespace Pehapkari\Statie\Posts\Year2018\Cart\Domain;
 final class Item
 {
     /**
+     * @var int
+     */
+    private $generatedId;
+
+    /**
      * @var string
      */
     private $productId;
@@ -61,6 +66,11 @@ final class Item
     public function calculatePrice(): Price
     {
         return $this->unitPrice->multiply($this->amount);
+    }
+
+    public function getGeneratedId(): int
+    {
+        return $this->generatedId;
     }
 
     /**
