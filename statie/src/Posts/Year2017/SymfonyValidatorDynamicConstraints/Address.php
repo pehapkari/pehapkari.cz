@@ -14,13 +14,13 @@ final class Address
      * @Assert\NotBlank()
      * @Assert\Country()
      */
-    protected $country;
+    private $country;
 
     /**
      * @var string
      * @Assert\NotBlank()
      */
-    protected $zipcode;
+    private $zipcode;
 
     /**
      * @Assert\Callback(groups = "zipcode")

@@ -11,8 +11,8 @@ final class EventDispatchingWithEventTest extends TestCase
 {
     public function test(): void
     {
-        $eventDispatcher = new EventDispatcher;
-        $eventAwareNotifyMeOnVideoPublishedEventSubscriber = new EventAwareNotifyMeOnVideoPublishedEventSubscriber;
+        $eventDispatcher = new EventDispatcher();
+        $eventAwareNotifyMeOnVideoPublishedEventSubscriber = new EventAwareNotifyMeOnVideoPublishedEventSubscriber();
         $eventDispatcher->addSubscriber($eventAwareNotifyMeOnVideoPublishedEventSubscriber);
 
         $this->assertSame('', $eventAwareNotifyMeOnVideoPublishedEventSubscriber->getYoutuberUserName());

@@ -6,6 +6,7 @@ use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Nette\Utils\DateTime as NetteDateTime;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
 use Pehapkari\Doctrine\EventSubscriber\SetUploadDestinationOnPostLoadEventSubscriber;
@@ -330,5 +331,10 @@ class TrainingTerm implements UploadDestinationAwareInterface
     public function getTrainingTermImageAbsolutePath(): ?string
     {
         return $this->getImage() ? $this->uploadDestination . $this->getImage() : null;
+    }
+
+    public function isRegistrationOpen(): bool
+    {
+        return $this->getDeadlineDateTime() > NetteDateTime::from('now');
     }
 }

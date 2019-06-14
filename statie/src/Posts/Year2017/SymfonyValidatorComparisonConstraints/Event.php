@@ -11,14 +11,14 @@ final class Event
      * @var \DateTime
      * @Assert\Type("DateTime")
      */
-    protected $startDate;
+    private $startDate;
 
     /**
      * @var \DateTime
      * @Assert\Type("DateTime")
      * @Assert\Expression("value >= this.getStartDate()")
      */
-    protected $endDate;
+    private $endDate;
 
     public function getStartDate(): DateTime
     {

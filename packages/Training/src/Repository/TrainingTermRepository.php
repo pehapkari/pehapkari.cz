@@ -8,6 +8,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Pehapkari\Training\Entity\TrainingTerm;
 
+/**
+ * @see TrainingTerm
+ */
 final class TrainingTermRepository
 {
     /**

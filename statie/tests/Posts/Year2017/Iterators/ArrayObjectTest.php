@@ -10,7 +10,7 @@ final class ArrayObjectTest extends TestCase
     public function test(): void
     {
         // Arrange
-        $object = new ArrayObject;
+        $object = new ArrayObject();
         $object[0] = 'first-value';
         $object[1] = 'second-value';
 
@@ -36,7 +36,7 @@ final class ArrayObjectTest extends TestCase
     public function testNewIteratorIsReturnedEveryTime(): void
     {
         // Arrange
-        $object = new ArrayObject;
+        $object = new ArrayObject();
 
         // Act
         $iterator1 = $object->getIterator();

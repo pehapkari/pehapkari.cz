@@ -22,9 +22,6 @@ services:
             - 'Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository'
             - 'Doctrine\ORM\EntityRepository'
 
-    # class should be Abstact or Final
-    SlamCsFixer\FinalInternalClassFixer: ~
-
     Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
         extra_allowed_classes:
             - 'K0nias\FakturoidApi\*'
@@ -40,10 +37,7 @@ services:
 
 parameters:
     exclude_files:
-        - 'src/Form/RegisterToLectureFormType.php'
         - 'src/Kernel.php'
-        - 'statie/tests'
-        - 'statie/tests/Posts/Year2017/NetteConfigObjects/ContainerFactory.php'
         # temporary vides
         - 'packages/Marketing/src/Social/FacebookPublisher.php'
         - 'packages/Youtube/src/Controller/VideoController.php'
@@ -57,24 +51,16 @@ parameters:
         SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
             - 'packages/User/src/Security/PehapkariAuthenticator.php'
 
-        Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer:
-            - 'src/Posts/Year2018/Cart/Domain/Cart.php'
-
         # from symplify.yml set
         Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~
         Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenStaticFunctionSniff: ~
+        Symplify\CodingStandard\Sniffs\ControlStructure\SprintfOverContactSniff: ~
 
-        # from symfony.yml set
-        PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer: ~
-        PhpCsFixer\Fixer\Operator\NewWithBracesFixer: ~
+        # mutually excludes with other set
         PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
-        PhpCsFixer\Fixer\Phpdoc\PhpdocAlignFixer: ~
-        PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer: ~
-        PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer: ~
-        PhpCsFixer\Fixer\Phpdoc\PhpdocSeparationFixer: ~
+        PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer: ~
 
         SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff.UnusedVariable:
-            - 'statie/tests/Posts/*.php'
+            - 'statie/tests/Posts/Year2017/Iterators/*.php'
 
-        Symplify\CodingStandard\Sniffs\ControlStructure\SprintfOverContactSniff: ~
 

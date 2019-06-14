@@ -41,10 +41,17 @@
                     {% endif %}
 
                     <div class="mt-4 mb-4 text-bigger">
-                        <p>Příští termín: <strong>{{ training.getNearestTermDateTime()|date }}</strong></p>
-                        <p class="text-danger">
-                            Uzavírka přihlášek: <strong>{{ training.getNearestTermDeadline()|date }}</strong>
-                        </p>
+                        <p>Příští termín: <strong>{{ upcoming_training_term.getStartDateTime()|date }}</strong></p>
+
+                        {% if upcoming_training_term.isRegistrationOpen() %}
+                            <p class="text-danger">
+                                Uzavírka přihlášek: <strong>{{ upcoming_training_term.getDeadlineDateTime()|date }}</strong>
+                            </p>
+                        {% else %}
+                            <p class="text-black-50">
+                                Přihlášky byly uzavřeny {{ upcoming_training_term.getDeadlineDateTime()|date }}
+                            </p>
+                        {% endif %}
                     </div>
 
                     <p>
@@ -62,11 +69,14 @@
                         </strong>
                     </p>
 
-                    <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success btn-xs-block-only">
-                        <em class="fa fa-fw fa-handshake"></em>
-                        &nbsp;
-                        Přihlaš se
-                    </a>
+                    {% if upcoming_training_term.isRegistrationOpen() %}
+                        <a href="{{ path('registration', { 'slug': upcoming_training_term.getSlug() }) }}" class="btn btn-success btn-xs-block-only">
+                            <em class="fa fa-fw fa-handshake"></em>
+                            &nbsp;
+                            Přihlaš se
+                        </a>
+                    {% endif %}
+
                     <br>
                 </div>
             {% endfor %}
@@ -123,8 +133,9 @@
     <div class="text-center">
         <h2>Už {{ total_training_term_count }} proběhlých školení</h2>
 
-        {# @todo count unique trainers #}
-        <p>Od <strong>května 2017</strong> jsme zorganizovali {{ total_training_term_count }} veřejných školení od 5 odborných školitelů.</p>
+        <p>
+            Od <strong>května 2017</strong> jsme zorganizovali {{ total_training_term_count }} veřejných školení od 5 odborných školitelů.
+        </p>
 
         <br>
 
@@ -157,7 +168,6 @@
             </div>
         </div>
     </div>
-
 
     <br>
 

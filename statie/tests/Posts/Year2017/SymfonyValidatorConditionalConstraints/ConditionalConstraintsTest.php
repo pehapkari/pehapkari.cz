@@ -18,14 +18,14 @@ final class ConditionalConstraintsTest extends TestCase
 
     protected function setUp(): void
     {
-        $builder = new ValidatorBuilder;
+        $builder = new ValidatorBuilder();
         $builder->enableAnnotationMapping();
         $this->validator = $builder->getValidator();
     }
 
     public function testViolationsFromDefaultAndCustomGroup(): void
     {
-        $client = new Client;
+        $client = new Client();
 
         $this->assertViolations(
             [
@@ -38,7 +38,7 @@ final class ConditionalConstraintsTest extends TestCase
 
     public function testViolationsFromCompanyGroup(): void
     {
-        $client = new Client;
+        $client = new Client();
         $client->setType(Client::TYPE_COMPANY);
 
         $this->assertViolations(
@@ -51,7 +51,7 @@ final class ConditionalConstraintsTest extends TestCase
 
     public function testViolationsFromPersonGroup(): void
     {
-        $client = new Client;
+        $client = new Client();
         $client->setType(Client::TYPE_PERSON);
 
         $this->assertViolations(

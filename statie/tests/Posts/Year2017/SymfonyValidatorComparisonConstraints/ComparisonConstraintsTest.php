@@ -19,14 +19,14 @@ final class ComparisonConstraintsTest extends TestCase
 
     protected function setUp(): void
     {
-        $builder = new ValidatorBuilder;
+        $builder = new ValidatorBuilder();
         $builder->enableAnnotationMapping();
         $this->validator = $builder->getValidator();
     }
 
     public function testExpressionViolation(): void
     {
-        $event = new Event;
+        $event = new Event();
         $event->setStartDate(new DateTime('today'));
         $event->setEndDate(new DateTime('yesterday'));
 

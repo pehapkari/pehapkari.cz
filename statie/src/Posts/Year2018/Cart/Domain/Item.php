@@ -7,7 +7,7 @@ final class Item
     /**
      * @var int
      */
-    protected $generatedId;
+    private $generatedId;
 
     /**
      * @var string
@@ -66,6 +66,11 @@ final class Item
     public function calculatePrice(): Price
     {
         return $this->unitPrice->multiply($this->amount);
+    }
+
+    public function getGeneratedId(): int
+    {
+        return $this->generatedId;
     }
 
     /**
