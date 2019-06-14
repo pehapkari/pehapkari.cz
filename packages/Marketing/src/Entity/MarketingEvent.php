@@ -43,7 +43,7 @@ class MarketingEvent
     private $publishedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Pehapkari\Marketing\Entity\MarketingCampaign")
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Marketing\Entity\MarketingCampaign", inversedBy="events")
      * @var MarketingCampaign
      */
     private $marketingCampaign;

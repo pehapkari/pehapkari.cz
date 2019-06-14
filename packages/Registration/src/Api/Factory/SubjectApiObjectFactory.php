@@ -82,7 +82,8 @@ final class SubjectApiObjectFactory
 
         $resolvedAddress = $this->fullAddressResolver->resolve($address);
         $subjectOptionalParameters->street($resolvedAddress['road'] . ' ' . $resolvedAddress['house_number']);
-        $subjectOptionalParameters->city($resolvedAddress['city']);
+
+        $subjectOptionalParameters->city($resolvedAddress['city'] ?? $resolvedAddress['town']);
         $subjectOptionalParameters->zip($resolvedAddress['postcode']);
 
         return $subjectOptionalParameters;

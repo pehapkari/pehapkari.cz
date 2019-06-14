@@ -26,6 +26,7 @@ use K0nias\FakturoidApi\Model\Subject\Subject;
 use Pehapkari\Exception\FakturoidException;
 use Pehapkari\Registration\Api\Factory\SubjectApiObjectFactory;
 use Pehapkari\Registration\Entity\TrainingRegistration;
+use Pehapkari\Registration\Exception\MissingEnvValueException;
 
 /**
  * @see https://fakturoid.docs.apiary.io
@@ -38,6 +39,16 @@ final class FakturoidApi
     private const INVOICE_PAYMENT_DAYS_DUE = 7;
 
     /**
+     * @var string
+     */
+    private $fakturoidSlug;
+
+    /**
+     * @var string
+     */
+    private $fakturoidApiKey;
+
+    /**
      * @var Api
      */
     private $koniasFakturoidApi;
@@ -47,14 +58,22 @@ final class FakturoidApi
      */
     private $subjectApiObjectFactory;
 
-    public function __construct(Api $koniasFakturoidApi, SubjectApiObjectFactory $subjectApiObjectFactory)
-    {
+    public function __construct(
+        Api $koniasFakturoidApi,
+        SubjectApiObjectFactory $subjectApiObjectFactory,
+        string $fakturoidSlug,
+        string $fakturoidApiKey
+    ) {
         $this->koniasFakturoidApi = $koniasFakturoidApi;
         $this->subjectApiObjectFactory = $subjectApiObjectFactory;
+        $this->fakturoidSlug = $fakturoidSlug;
+        $this->fakturoidApiKey = $fakturoidApiKey;
     }
 
     public function createInvoice(TrainingRegistration $trainingRegistration): InvoiceId
     {
+        $this->ensureEnvsAreSet();
+
         $subjectId = $this->getSubjectIdExistingOrCreated($trainingRegistration);
 
         $paymentMethod = new Method(Method::BANK_METHOD);
@@ -97,6 +116,20 @@ final class FakturoidApi
         }
 
         return false;
+    }
+
+    private function ensureEnvsAreSet(): void
+    {
+        // ensure ENVs are set, the fakturoid 3rd arty package doesn't check this (pain)
+        if ($this->fakturoidSlug === '') {
+            throw new MissingEnvValueException(sprintf('Complete "%s" in ".env.local" for dev or', 'FAKTUROID_SLUG'));
+        }
+        if ($this->fakturoidApiKey === '') {
+            throw new MissingEnvValueException(sprintf(
+                'Complete "%s" in ".env.local" for dev or',
+                'FAKTUROID_API_KEY'
+            ));
+        }
     }
 
     private function getSubjectIdExistingOrCreated(TrainingRegistration $trainingRegistration): Id
@@ -145,10 +178,6 @@ final class FakturoidApi
         /** @var SearchSubjectsResponse $searchSubjectResponse */
         $searchSubjectResponse = $this->koniasFakturoidApi->process($searchSubjectsRequest);
 
-        if ($searchSubjectResponse->getSubjects()) {
-            return $searchSubjectResponse->getSubjects()[0];
-        }
-
-        return null;
+        return $searchSubjectResponse->getSubjects()[0] ?? null;
     }
 }
