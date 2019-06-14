@@ -42,6 +42,12 @@ This is example for running the project locally:
 
 *In some rare scenarios you might want to tweak `docker-compose.yml` file for your needs.*
 
+## Deploy
+
+- This repository is mirrored to [gitlab.com/pehapkari/pehapkari.cz](https://gitlab.com/pehapkari/pehapkari.cz/)
+- [CI Pipeline](https://gitlab.com/pehapkari/pehapkari.cz/pipelines) is run on Gitlab CI
+- When everything passes, it's deployed to our server in a Docker container 
+
 ## Thank You
 
 Our deploy from merge to production takes only 6 minutes thanks to [Jan Mikeš](https://janmikes.cz/). If you need CI-ready, Gitlab, Docker and DigitalOcean fully automated deploy, let him know.
