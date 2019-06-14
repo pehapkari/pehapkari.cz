@@ -38,10 +38,9 @@
 
                     <div class="clearfix"></div>
 
-                    {% if training.isActive() %}
+                    {% set training_term = training.getNearestTerm() %}
 
-                        {% set training_term = training.getNearestTerm() %}
-
+                    {% if training_term and training_term.isRegistrationOpen() %}
                         Příští termín:
 
                         <strong>{{ training_term.getStartDateTime()|date }}</strong>
@@ -82,19 +81,7 @@
                         Cena: <strong>{{ training.getPrice()|number_format }} Kč</strong>
                     </p>
 
-                    {% if trainer.getPhone() %}
-                        <p>
-                            <a href="tel:{{ trainer.getPhone() }}">{{ trainer.getPhone() }}</a>
-                        </p>
-                    {% endif %}
-
-                    {% if trainer.getEmail() %}
-                        <p>
-                            <a href="mailto:{{ trainer.getEmail() }}">{{ trainer.getEmail() }}</a>
-                        </p>
-                    {% endif %}
-
-                    {% if training.isActive() %}
+                    {% if training_term.isRegistrationOpen() %}
                         <div class="text-center">
                             <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success mt-4 mb-5">
                                 <em class="fa fa-fw fa-handshake"></em>
@@ -102,16 +89,20 @@
                                 Přihlaš se
                             </a>
                         </div>
+                        <br>
+                    {% elseif training_term %}
+                        <br>
+                        <p>Poslení školení bylo {{ training_term.getStartDateTime|date("j. n. Y") }}.</p>
                     {% endif %}
 
                     {# watchdog #}
                     <p>
-                        {% if training.isActive() %}
+                        {% if training_term.isRegistrationOpen() %}
                             Nehodí se ti termín?
                         {% else %}
                             Nechceš promeškat další termín?
                         {% endif %}
-
+                        <br>
                         <a href="{{ path('watchdog', { slug: training.getSlug() }) }}">Dej nám email a ozveme se ti</a>
                     </p>
                 </div>
