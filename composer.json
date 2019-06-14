@@ -18,7 +18,7 @@
         "doctrine/orm": "2.7.x-dev",
         "easycorp/easyadmin-bundle": "^2.1.4",
         "facebook/graph-sdk": "^5.7",
-        "fakturoid/fakturoid-php": "^1.0",
+        "fakturoid/fakturoid-php": "^1.0.1",
         "guzzlehttp/guzzle": "^6.3",
         "j7mbo/twitter-api-php": "^1.0",
         "k0nias/fakturoid-api": "^0.1.1",

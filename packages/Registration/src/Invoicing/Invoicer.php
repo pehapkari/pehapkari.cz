@@ -26,13 +26,11 @@ final class Invoicer
         $this->trainingRegistrationRepository = $trainingRegistrationRepository;
     }
 
-    public function sendInvoiceForRegistration(TrainingRegistration $trainingRegistration): void
+    public function createInvoiceForRegistration(TrainingRegistration $trainingRegistration): void
     {
-        // create invoice
         $invoiceId = $this->fakturoidApi->createInvoice($trainingRegistration);
 
-        // send email
-        $this->fakturoidApi->sendInvoiceEmail($invoiceId);
+        // $this->fakturoidApi->sendInvoiceEmail($invoiceId);
 
         // se we can pair paid invoices
         $trainingRegistration->setFakturoidInvoiceId($invoiceId->getId());
