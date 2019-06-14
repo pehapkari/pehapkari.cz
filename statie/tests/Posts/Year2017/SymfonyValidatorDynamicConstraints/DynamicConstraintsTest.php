@@ -18,14 +18,14 @@ final class DynamicConstraintsTest extends TestCase
 
     protected function setUp(): void
     {
-        $builder = new ValidatorBuilder;
+        $builder = new ValidatorBuilder();
         $builder->enableAnnotationMapping();
         $this->validator = $builder->getValidator();
     }
 
     public function testInvalidZipcode(): void
     {
-        $address = new Address;
+        $address = new Address();
         $address->setCountry('US');
         $address->setZipcode('123456');
 
@@ -39,7 +39,7 @@ final class DynamicConstraintsTest extends TestCase
 
     public function testValidZipcode(): void
     {
-        $address = new Address;
+        $address = new Address();
         $address->setCountry('US');
         $address->setZipcode('12345-6789');
 

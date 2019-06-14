@@ -31,7 +31,7 @@ final class InvoiceFormOld extends Control
 
     protected function createComponentInvoiceForm(): Form
     {
-        $form = new Form;
+        $form = new Form();
 
         $form->addText('maturity', 'Splatnost')
             ->setDefaultValue($this->config['defaultMaturity']);

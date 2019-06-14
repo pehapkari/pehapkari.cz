@@ -12,13 +12,13 @@ final class HashPasswordCommandTest extends TestCase
 {
     public function test(): void
     {
-        $application = new Application;
+        $application = new Application();
         $application->setAutoExit(false); // required for testing output
-        $application->add(new HashPasswordCommand);
+        $application->add(new HashPasswordCommand());
 
         // same as when you run "bin/console hash-password Y2Kheslo123"
         $input = new StringInput('hash-password Y2Kheslo123');
-        $output = new BufferedOutput;
+        $output = new BufferedOutput();
 
         $result = $application->run($input, $output);
         $this->assertSame(0, $result); // 0 = success, sth else = fail

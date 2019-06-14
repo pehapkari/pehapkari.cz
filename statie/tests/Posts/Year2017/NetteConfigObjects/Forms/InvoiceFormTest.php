@@ -24,7 +24,7 @@ final class InvoiceFormTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->container = (new ContainerFactory)->create();
+        $this->container = (new ContainerFactory())->create();
     }
 
     public function testOldForm(): void
