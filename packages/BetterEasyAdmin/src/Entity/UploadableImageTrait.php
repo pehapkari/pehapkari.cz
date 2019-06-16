@@ -29,9 +29,19 @@ trait UploadableImageTrait
      */
     private $imageUploadedAt;
 
+    /**
+     * @var string
+     */
+    private $relativeUploadDestination;
+
     public function getImage(): ?string
     {
         return $this->image;
+    }
+
+    public function getRelativeImagePath(): ?string
+    {
+        return $this->image ? ($this->relativeUploadDestination . $this->image) : null;
     }
 
     public function setImage(?string $image): void
@@ -65,5 +75,10 @@ trait UploadableImageTrait
     public function setImageUploadedAt(DateTime $imageUploadedAt): void
     {
         $this->imageUploadedAt = $imageUploadedAt;
+    }
+
+    public function setRelativeUploadDestination(string $relativeUploadDestination): void
+    {
+        $this->relativeUploadDestination = $relativeUploadDestination;
     }
 }

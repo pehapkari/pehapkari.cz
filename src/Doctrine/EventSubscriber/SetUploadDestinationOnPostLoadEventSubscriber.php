@@ -5,6 +5,7 @@ namespace Pehapkari\Doctrine\EventSubscriber;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Events;
+use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
 
 final class SetUploadDestinationOnPostLoadEventSubscriber implements EventSubscriber
@@ -14,9 +15,15 @@ final class SetUploadDestinationOnPostLoadEventSubscriber implements EventSubscr
      */
     private $uploadDestination;
 
-    public function __construct(string $uploadDestination)
+    /**
+     * @var string
+     */
+    private $relativeUploadDestination;
+
+    public function __construct(string $uploadDestination, string $relativeUploadDestination)
     {
         $this->uploadDestination = $uploadDestination;
+        $this->relativeUploadDestination = $relativeUploadDestination;
     }
 
     /**
@@ -30,10 +37,17 @@ final class SetUploadDestinationOnPostLoadEventSubscriber implements EventSubscr
     public function postLoad(LifecycleEventArgs $lifecycleEventArgs): void
     {
         $entity = $lifecycleEventArgs->getEntity();
-        if (! $entity instanceof UploadDestinationAwareInterface) {
-            return;
+
+        // for attaching files
+        if ($entity instanceof UploadDestinationAwareInterface) {
+            $entity->setUploadDestination($this->uploadDestination);
         }
 
-        $entity->setUploadDestination($this->uploadDestination);
+        // for public rendering
+        $traitsInClass = class_uses($entity);
+        if (isset($traitsInClass[UploadableImageTrait::class])) {
+            /** @var UploadableImageTrait $entity */
+            $entity->setRelativeUploadDestination($this->relativeUploadDestination);
+        }
     }
 }

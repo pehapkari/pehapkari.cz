@@ -35,3 +35,5 @@ parameters:
         - '#(.*)Doctrine\\ORM\\EntityManagerInterface#'
 
         - '#Parameter \#1 \$name of class Twig\\(TwigFilter|TwigFunction) constructor expects string, int\|string given#'
+        - '#Call to an undefined method object\:\:setRelativeUploadDestination\(\)#'
+

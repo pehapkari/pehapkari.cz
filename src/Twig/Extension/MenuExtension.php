@@ -27,7 +27,7 @@ final class MenuExtension extends AbstractExtension
      * @see https://stackoverflow.com/a/48136670/1348344
      *
      * @use "<a href="..." class="{{ active_item('blog']) }}">"
-     * @use "<a href="..." class="{{ active_item(['trainings', 'training-detail']) }}">"
+     * @use "<a href="..." class="{{ active_item(['trainings', 'training_detail']) }}">"
      */
     public function getFunctions(): array
     {

@@ -68,7 +68,7 @@ final class TrainingController extends AbstractController
             'average_training_rating' => $averageRating,
             'average_training_rating_stars' => round($averageRating, 0),
 
-            // @todo fix: 'places' => $this->placeRepository->fetchAll(),
+            'places' => $this->placeRepository->fetchActive(),
             'past_terms' => $this->trainingTermRepository->fetchFinished(),
             'past_terms_count' => count($this->trainingTermRepository->fetchFinished()),
         ]);
@@ -80,7 +80,7 @@ final class TrainingController extends AbstractController
     public function start(): Response
     {
         return $this->render('training/become_trainer.twig', [
-            'places' => $this->placeRepository->fetchAll(),
+            'places' => $this->placeRepository->fetchActive(),
         ]);
     }
 

@@ -3,7 +3,7 @@
         <a href="{{ feedback.url }}">{% if feedback.name is defined %}{{ feedback.name }}{% else %}Účastník{% endif %}</a>
     {% endif %}
 
-    na školení <a href="{{ path('training-detail', {'slug': feedback.getTrainingSlug() }) }}">{{ feedback.getTrainingName() }}</a>:
+    na školení <a href="{{ path('training_detail', {'slug': feedback.getTrainingSlug() }) }}">{{ feedback.getTrainingName() }}</a>:
 
     <p class="mt-3">
         <em>„{{ feedback.text|raw }}“</em>
