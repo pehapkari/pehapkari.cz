@@ -40,14 +40,14 @@ final class FeedbackFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
-        $formBuilder->add('name', TextType::class, [
-            'label' => 'Tvé jméno',
-        ]);
-
         $formBuilder->add('training', EntityType::class, [
             'label' => 'Vyber školení',
             'class' => Training::class,
             'choices' => $this->trainingRepository->fetchRecentlyActive(),
+        ]);
+
+        $formBuilder->add('name', TextType::class, [
+            'label' => 'Tvé jméno',
         ]);
 
         $formBuilder->add('pointOfEntry', TextType::class, [
@@ -82,6 +82,7 @@ final class FeedbackFormType extends AbstractType
 
         $formBuilder->add('isAgreedWithPublishingName', CheckboxType::class, [
             'label' => 'Souhlasím se zveřejněním jména u své odpovědi na stránkách Péhápkařů',
+            'required' => false,
         ]);
 
         $formBuilder->add('thingsToImprove', TextareaType::class, [
