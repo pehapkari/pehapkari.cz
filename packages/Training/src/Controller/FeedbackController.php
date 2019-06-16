@@ -29,6 +29,8 @@ final class FeedbackController extends AbstractController
     }
 
     /**
+     * @Route(path="/feedback/")
+     * @Route(path="/feedbacks/")
      * @Route(path="/jak-se-ti-libilo/", name="open_feedbacks")
      */
     public function openFeedbacks(Request $request): Response
