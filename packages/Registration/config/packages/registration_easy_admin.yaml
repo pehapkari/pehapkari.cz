@@ -4,14 +4,16 @@ easy_admin:
             class: 'Pehapkari\Registration\Entity\TrainingRegistration'
             controller: 'Pehapkari\Registration\Admin\Controller\AdminRegistrationController'
             list:
+                # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#built-in-dynamic-filters - still WIP progress, buggy
+#                filters:
+#                    - { property: 'trainingTerm', type: 'entity' }
                 batch_actions: ['certificate', 'createInvoices']
                 fields:
                     - 'name'
-                    - 'email'
                     - 'trainingTerm'
+                    - 'email'
                     - 'phone'
                     - 'ico'
                     - { property: 'participantCount', label: 'Persons?' }
                     - { property: 'hasInvoice', label: 'Invoice?' }
                     - { property: 'isPaid', label: 'Paid?' }
-                    - { property: 'agreesWithPersonalData', label: 'GDPR', type: 'boolean' }

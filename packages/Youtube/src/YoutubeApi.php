@@ -82,7 +82,7 @@ final class YoutubeApi
             $playlist['month'] = $this->resolvePlaylistMonth($item['snippet']['title']);
 
             if ($kind === self::KIND_LIVESTREAM) {
-                usort($playlist['videos'], function (array $firstVideo, array $secondVideo) {
+                usort($playlist['videos'], function (array $firstVideo, array $secondVideo): int {
                     // newest first
                     return $secondVideo['published_at'] <=> $firstVideo['published_at'];
                 });

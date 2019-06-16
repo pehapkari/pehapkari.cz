@@ -2,31 +2,17 @@
 
 namespace Pehapkari\Registration\Api;
 
-use K0nias\FakturoidApi\Api;
-use K0nias\FakturoidApi\Http\Request\Invoice\CreateInvoiceRequest;
-use K0nias\FakturoidApi\Http\Request\Invoice\GetInvoiceRequest;
-use K0nias\FakturoidApi\Http\Request\Message\CreateMessageRequest;
-use K0nias\FakturoidApi\Http\Request\Subject\CreateSubjectRequest;
-use K0nias\FakturoidApi\Http\Request\Subject\SearchSubjectsRequest;
-use K0nias\FakturoidApi\Http\Response\Invoice\CreateInvoiceResponse;
-use K0nias\FakturoidApi\Http\Response\Invoice\GetInvoiceResponse;
-use K0nias\FakturoidApi\Http\Response\Message\CreateMessageResponse;
-use K0nias\FakturoidApi\Http\Response\Subject\CreateSubjectResponse;
-use K0nias\FakturoidApi\Http\Response\Subject\SearchSubjectsResponse;
-use K0nias\FakturoidApi\Model\Filter\SearchParameters;
-use K0nias\FakturoidApi\Model\Invoice\Id as InvoiceId;
-use K0nias\FakturoidApi\Model\Invoice\Invoice;
-use K0nias\FakturoidApi\Model\Invoice\OptionalParameters as InvoiceOptionalParameters;
-use K0nias\FakturoidApi\Model\Line\Line;
-use K0nias\FakturoidApi\Model\Line\LineCollection;
-use K0nias\FakturoidApi\Model\Message\Message;
-use K0nias\FakturoidApi\Model\Payment\Method;
-use K0nias\FakturoidApi\Model\Subject\Id;
-use K0nias\FakturoidApi\Model\Subject\Subject;
+use GuzzleHttp\Client;
+use Nette\Utils\Json;
 use Pehapkari\Exception\FakturoidException;
-use Pehapkari\Registration\Api\Factory\SubjectApiObjectFactory;
+use Pehapkari\Exception\ShouldNotHappenException;
+use Pehapkari\Registration\Api\Factory\SubjectDataFactory;
+use Pehapkari\Registration\Api\Fakturoid\EndpointPaginator;
+use Pehapkari\Registration\Api\Fakturoid\FakturoidEndpoints;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Exception\MissingEnvValueException;
+use Psr\Http\Message\ResponseInterface;
+use function GuzzleHttp\Psr7\build_query;
 
 /**
  * @see https://fakturoid.docs.apiary.io
@@ -44,122 +30,169 @@ final class FakturoidApi
     private $fakturoidSlug;
 
     /**
-     * @var string
+     * @var Client
      */
-    private $fakturoidApiKey;
+    private $guzzleFakturoidClient;
 
     /**
-     * @var Api
+     * @var SubjectDataFactory
      */
-    private $koniasFakturoidApi;
+    private $subjectDataFactory;
 
     /**
-     * @var SubjectApiObjectFactory
+     * @var EndpointPaginator
      */
-    private $subjectApiObjectFactory;
+    private $endpointPaginator;
 
     public function __construct(
-        Api $koniasFakturoidApi,
-        SubjectApiObjectFactory $subjectApiObjectFactory,
         string $fakturoidSlug,
-        string $fakturoidApiKey
+        string $fakturoidApiKey,
+        SubjectDataFactory $subjectDataFactory,
+        EndpointPaginator $endpointPaginator
     ) {
-        $this->koniasFakturoidApi = $koniasFakturoidApi;
-        $this->subjectApiObjectFactory = $subjectApiObjectFactory;
+        $this->ensureEnvsAreSet($fakturoidSlug, $fakturoidApiKey);
+
         $this->fakturoidSlug = $fakturoidSlug;
-        $this->fakturoidApiKey = $fakturoidApiKey;
+        $this->subjectDataFactory = $subjectDataFactory;
+
+        $this->guzzleFakturoidClient = new Client([
+            'auth' => ['tomas.vot@gmail.com', $fakturoidApiKey],
+            'http_errors' => true,
+        ]);
+
+        $this->endpointPaginator = $endpointPaginator;
     }
 
-    public function createInvoice(TrainingRegistration $trainingRegistration): InvoiceId
+    public function createInvoice(TrainingRegistration $trainingRegistration): int
     {
-        $this->ensureEnvsAreSet();
+        $invoiceData = [
+            'subject_id' => $this->getSubjectIdExistingOrCreated($trainingRegistration),
+            'payment_method' => 'bank',
+            'due' => self::INVOICE_PAYMENT_DAYS_DUE, // number days to pay invoice in
+            'lines' => [
+                [
+                    'Školení ' . $trainingRegistration->getTrainingName(),
+                    (float) $trainingRegistration->getPrice(),
+                    (int) $trainingRegistration->getParticipantCount(),
+                    'osob',
+                ],
+            ],
+        ];
 
-        $subjectId = $this->getSubjectIdExistingOrCreated($trainingRegistration);
+        // @todo test
+        $endpoint = sprintf(FakturoidEndpoints::NEW_INVOICE, $this->fakturoidSlug);
+        $endpoint .= '?' . build_query($invoiceData);
 
-        $paymentMethod = new Method(Method::BANK_METHOD);
-        $lineCollection = $this->createInvoiceLines($trainingRegistration);
-        $invoiceOptionalParameters = new InvoiceOptionalParameters();
-        $invoiceOptionalParameters->due(self::INVOICE_PAYMENT_DAYS_DUE);
+        $response = $this->guzzleFakturoidClient->request('POST', $endpoint);
 
-        $invoice = new Invoice($subjectId, $paymentMethod, $lineCollection, $invoiceOptionalParameters);
-
-        /** @var CreateInvoiceResponse $createInvoiceResponse */
-        $createInvoiceResponse = $this->koniasFakturoidApi->process(new CreateInvoiceRequest($invoice));
-
-        return $createInvoiceResponse->getId();
+        return $this->getJsonFromResponse($response)['id'];
     }
 
-    public function sendInvoiceEmail(InvoiceId $invoiceId): void
+    public function sendInvoiceEmail(int $invoiceId): void
     {
-        $createMessageRequest = new CreateMessageRequest(new Message($invoiceId));
+        $endpoint = sprintf(FakturoidEndpoints::INVOICE_ACTION, $this->fakturoidSlug, $invoiceId);
+        $endpoint .= '?event=deliver';
 
-        /** @var CreateMessageResponse $createMessageResponse */
-        $createMessageResponse = $this->koniasFakturoidApi->process($createMessageRequest);
+        $response = $this->guzzleFakturoidClient->request('POST', $endpoint);
 
-        if ($createMessageResponse->hasError()) {
-            throw new FakturoidException(sprintf('Invoice email for invoice %d was not sent.', $invoiceId->getId()));
+        if ($response->getStatusCode() !== 200) {
+            throw new FakturoidException(sprintf('Invoice email for invoice %d was not sent.', $invoiceId));
         }
     }
 
     public function isInvoicePaid(int $invoiceId): bool
     {
-        $getInvoiceRequest = new GetInvoiceRequest(new InvoiceId($invoiceId));
+        $endpoint = sprintf(FakturoidEndpoints::INVOICE_DETAIL, $this->fakturoidSlug, $invoiceId);
 
-        /** @var GetInvoiceResponse $getInvoiceResponse */
-        $getInvoiceResponse = $this->koniasFakturoidApi->process($getInvoiceRequest);
-        $invoice = $getInvoiceResponse->getInvoice();
+        $response = $this->guzzleFakturoidClient->request('GET', $endpoint);
 
+        $invoice = $this->getJsonFromResponse($response);
         if (isset($invoice['paid_at']) && $invoice['paid_at']) {
-            if ((float) $invoice['paid_amount'] >= (float) $invoice['total']) {
-                return true;
-            }
+            return ((float) $invoice['paid_amount']) >= ((float) $invoice['total']);
         }
 
         return false;
     }
 
-    private function ensureEnvsAreSet(): void
+    /**
+     * @return mixed[]
+     */
+    public function getInvoicesBySlug(string $slug): array
+    {
+        $endpoint = sprintf(FakturoidEndpoints::INVOICES, $slug);
+
+        $invoices = [];
+        do {
+            $response = $this->guzzleFakturoidClient->request('GET', $endpoint);
+            $newInvoices = $this->getJsonFromResponse($response);
+
+            $invoices = array_merge($invoices, $newInvoices);
+
+            $endpoint = $this->endpointPaginator->resolveNextPageEndpoint($response);
+        } while ($endpoint !== null);
+
+        return $invoices;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function getSubjectByUrl(string $url): array
+    {
+        $response = $this->guzzleFakturoidClient->request('GET', $url);
+
+        return $this->getJsonFromResponse($response);
+    }
+
+    private function ensureEnvsAreSet(string $fakturoidSlug, string $fakturoidApiKey): void
     {
         // ensure ENVs are set, the fakturoid 3rd arty package doesn't check this (pain)
-        if ($this->fakturoidSlug === '') {
-            throw new MissingEnvValueException(sprintf('Complete "%s" in ".env.local" for dev or', 'FAKTUROID_SLUG'));
-        }
-        if ($this->fakturoidApiKey === '') {
+        if ($fakturoidSlug === '') {
             throw new MissingEnvValueException(sprintf(
-                'Complete "%s" in ".env.local" for dev or',
+                'Complete "%s" in ".env.local" for dev or to "docker-composer.yml" on production server',
+                'FAKTUROID_SLUG'
+            ));
+        }
+
+        if ($fakturoidApiKey === '') {
+            throw new MissingEnvValueException(sprintf(
+                'Complete "%s" in ".env.local" for dev or to "docker-composer.yml" on production server',
                 'FAKTUROID_API_KEY'
             ));
         }
     }
 
-    private function getSubjectIdExistingOrCreated(TrainingRegistration $trainingRegistration): Id
+    private function getSubjectIdExistingOrCreated(TrainingRegistration $trainingRegistration): int
     {
         // find subject by ICO
         $existingSubject = $this->findSubjectByIco($trainingRegistration->getIco());
 
         // we found the subject
         if ($existingSubject) {
-            return new Id($existingSubject['id']);
+            return (int) $existingSubject['id'];
         }
 
-        $subject = $this->subjectApiObjectFactory->createFromTrainingsRegistration($trainingRegistration);
+        $endpoint = sprintf(FakturoidEndpoints::NEW_CONTACT, $this->fakturoidSlug);
 
-        /** @var CreateSubjectResponse $createSubjectResponse */
-        $createSubjectResponse = $this->koniasFakturoidApi->process(new CreateSubjectRequest($subject));
+        $subjectData = $this->subjectDataFactory->createFromTrainingRegistration($trainingRegistration);
+        $endpoint .= build_query($subjectData);
 
-        return $createSubjectResponse->getSubjectId();
+        $response = $this->guzzleFakturoidClient->request('POST', $endpoint);
+
+        $data = $this->getJsonFromResponse($response);
+        if (! isset($data['id'])) {
+            throw new ShouldNotHappenException();
+        }
+
+        return (int) $data['id'];
     }
 
-    private function createInvoiceLines(TrainingRegistration $trainingRegistration): LineCollection
+    /**
+     * @return mixed[]
+     */
+    private function getJsonFromResponse(ResponseInterface $response): array
     {
-        return new LineCollection([
-            new Line(
-                'Školení ' . $trainingRegistration->getTrainingName(),
-                (float) $trainingRegistration->getPrice(),
-                (float) $trainingRegistration->getParticipantCount(),
-                'ks'
-            ),
-        ]);
+        return Json::decode($response->getBody()->getContents(), Json::FORCE_ARRAY);
     }
 
     /**
@@ -171,13 +204,9 @@ final class FakturoidApi
             return null;
         }
 
-        $searchParameters = new SearchParameters();
-        $searchParameters->query($ico);
-        $searchSubjectsRequest = new SearchSubjectsRequest($searchParameters);
+        $endpoint = sprintf(FakturoidEndpoints::SEARCH_CONTACT, $this->fakturoidSlug, $ico);
+        $response = $this->guzzleFakturoidClient->request('GET', $endpoint);
 
-        /** @var SearchSubjectsResponse $searchSubjectResponse */
-        $searchSubjectResponse = $this->koniasFakturoidApi->process($searchSubjectsRequest);
-
-        return $searchSubjectResponse->getSubjects()[0] ?? null;
+        return $this->getJsonFromResponse($response)['subjects'][0] ?? null;
     }
 }

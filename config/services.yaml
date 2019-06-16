@@ -3,7 +3,7 @@ imports:
     - { resource: '_data/*.yaml' }
 
 parameters:
-    locale: 'cs'
+    locale: 'en' # for easy admin bundle
     training_max_references_to_show: 3
     image_uploads: "/uploads/images/"
 
