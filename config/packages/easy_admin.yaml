@@ -1,6 +1,6 @@
 parameters:
     # exclude globally, if not explicitly listed
-    easy_admin_exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy', 'trainingFeedbacks', 'trainingTerms', 'registrations', 'trainings', 'slug', 'isProvisionPaid', 'uploadDestination']
+    easy_admin_exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy', 'trainingFeedbacks', 'trainingTerms', 'registrations', 'trainings', 'slug', 'isProvisionPaid', 'uploadDestination', 'relativeUploadDestination']
 
 easy_admin:
     site_name: "Trainings from Péhápkaři Community"

@@ -1,0 +1,45 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+    <h2 class="text-center mb-5">{{ place.name }}</h2>
+
+    <p class="text-center bigger mb-4">
+        {{ place.perex }}
+    </p>
+
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <h3>Jak se tam dostat?</h3>
+
+            {{ place.routeDescription|markdown|raw }}
+
+            <br>
+
+            {% if place.address %}
+                <p>Adresa: {{ place.address}}</p>
+            {% endif %}
+
+            <p>
+                {% if place.googleMapUrl %}
+                    <a href="{{ place.googleMapUrl }}">Google mapa</a>
+                {% endif %}
+
+                {% if place.seznamMapUrl %}
+                    &nbsp;<a href="{{ place.seznamMapUrl }}">Seznam mapa</a>
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="col-12 col-sm-6">
+            {% if place.image %}
+                <img src="{{ place.relativeImagePath }}" style="max-width: 30em" class="img-thumbnail">
+            {% endif %}
+        </div>
+    </div>
+
+    {% if place.iframeUrl %}
+        <div class="mt-5 text-center">
+            <iframe src="{{ place.iframeUrl }}" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    {% endif %}
+{% endblock %}

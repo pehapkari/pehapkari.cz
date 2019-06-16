@@ -1,6 +1,7 @@
 # https://symfony.com/doc/master/bundles/EasyAdminBundle/integration/vichuploaderbundle.html#configuring-the-uploading-of-image-files
 parameters:
-    upload_destination: '%kernel.project_dir%/public%image_uploads%'
+    relative_upload_destination: '%image_uploads%'
+    upload_destination: '%kernel.project_dir%/public/%image_uploads%'
 
 vich_uploader:
     db_driver: 'orm'
