@@ -35,9 +35,10 @@ final class TrainingRepository
     {
         return $this->entityRepository->createQueryBuilder('t')
             ->join('t.trainingTerms', 'tt')
-            ->andWhere('tt.startDateTime >= CURRENT_DATE()')
-            ->andWhere('tt.endDateTime < :weekAgo')
-            ->setParameter(':weekAgo', DateTime::from('- 30 days'))
+            ->andWhere('tt.startDateTime < :nextWeek')
+            ->andWhere('tt.endDateTime > :weekAgo')
+            ->setParameter(':weekAgo', DateTime::from('- 7 days'))
+            ->setParameter(':nextWeek', DateTime::from('+ 7 days'))
             ->groupBy('t.id')
             ->orderBy('tt.startDateTime') // put more recent first
             ->getQuery()

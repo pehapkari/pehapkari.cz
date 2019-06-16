@@ -111,11 +111,16 @@ final class FeedbackFormType extends AbstractType
     {
         return [
             # label => value
-            str_repeat(self::ELEPHANT_EMOJI, 1) => 1.0,
-            str_repeat(self::ELEPHANT_EMOJI, 2) => 2.0,
-            str_repeat(self::ELEPHANT_EMOJI, 3) => 3.0,
-            str_repeat(self::ELEPHANT_EMOJI, 4) => 4.0,
-            str_repeat(self::ELEPHANT_EMOJI, 5) => 5.0,
+            $this->createElephantLine(1) => 1.0,
+            $this->createElephantLine(2) => 2.0,
+            $this->createElephantLine(3) => 3.0,
+            $this->createElephantLine(4) => 4.0,
+            $this->createElephantLine(5) => 5.0,
         ];
+    }
+
+    private function createElephantLine(int $amount): string
+    {
+        return str_repeat(self::ELEPHANT_EMOJI, $amount);
     }
 }
