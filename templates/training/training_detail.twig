@@ -38,9 +38,9 @@
 
                     <div class="clearfix"></div>
 
-                    {% set training_term = training.getNearestTerm() %}
+                    {% if training.isActive() %}
+                        {% set training_term = training.getNearestTerm() %}
 
-                    {% if training_term and training_term.isRegistrationOpen() %}
                         Příští termín:
 
                         <strong>{{ training_term.getStartDateTime()|date }}</strong>
@@ -60,14 +60,14 @@
                                 </div>
                             </div>
                         {% endif %}
-                    {% endif %}
 
-                    <p>
-                        Místo:
-                        <strong>
-                            <a href="{{ training.getNearestTermPlaceMapUrl() }}">{{ training.getNearestTermPlaceName() }}</a>
-                        </strong>
-                    </p>
+                        <p>
+                            Místo:
+                            <strong>
+                                <a href="{{ training.getNearestTermPlaceMapUrl() }}">{{ training.getNearestTermPlaceName() }}</a>
+                            </strong>
+                        </p>
+                    {% endif %}
 
                     <p>
                         Délka: <strong>{{ word_by_count(training.getDuration(), ['hodin', 'hodiny', 'hodin']) }}</strong>
@@ -81,23 +81,26 @@
                         Cena: <strong>{{ training.getPrice()|number_format }} Kč</strong>
                     </p>
 
-                    {% if training_term.isRegistrationOpen() %}
-                        <div class="text-center">
-                            <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success mt-4 mb-5">
-                                <em class="fa fa-fw fa-handshake"></em>
-                                &nbsp;
-                                Přihlaš se
-                            </a>
-                        </div>
-                        <br>
-                    {% elseif training_term %}
+                    {% if training.isActive() %}
+                        {% set training_term = training.nearestTerm %}
+                        {% if training_term.isRegistrationOpen() %}
+                            <div class="text-center">
+                                <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success mt-4 mb-5">
+                                    <em class="fa fa-fw fa-handshake"></em>
+                                    &nbsp;
+                                    Přihlaš se
+                                </a>
+                            </div>
+                            <br>
+                        {% endif %}
+                    {% elseif training_term is defined %}
                         <br>
                         <p>Poslení školení bylo {{ training_term.getStartDateTime|date("j. n. Y") }}.</p>
                     {% endif %}
 
                     {# watchdog #}
                     <p>
-                        {% if training_term.isRegistrationOpen() %}
+                        {% if training.isActive() %}
                             Nehodí se ti termín?
                         {% else %}
                             Nechceš promeškat další termín?
