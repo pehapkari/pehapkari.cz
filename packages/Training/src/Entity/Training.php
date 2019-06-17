@@ -310,7 +310,7 @@ class Training
             return null;
         }
 
-        return $this->getNearestTerm()->getPlace()->getMapUrl();
+        return $this->getNearestTerm()->getPlace()->getGoogleMapUrl();
     }
 
     /**
