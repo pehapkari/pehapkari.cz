@@ -90,8 +90,8 @@ final class FeedbackFormType extends AbstractType
             'required' => false,
         ]);
 
-        $formBuilder->add('register', SubmitType::class, [
-            'label' => 'Odeslat přihlášku',
+        $formBuilder->add('submit', SubmitType::class, [
+            'label' => 'Odeslat feedback',
             'attr' => [
                 'class' => 'btn btn-success',
             ],
