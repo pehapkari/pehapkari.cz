@@ -135,10 +135,6 @@ h1, h2, .h2, h3 {
     }
 }
 
-.btn {
-    font-size: 1em;
-}
-
 @media (max-width: 768px) {
     .btn-xs-block-only {
         display: block;

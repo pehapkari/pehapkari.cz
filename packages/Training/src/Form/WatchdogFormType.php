@@ -18,18 +18,18 @@ final class WatchdogFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
-        $formBuilder->add('email', TextType::class, [
-            'label' => 'Email, kam ti máme dát vědět',
-            'required' => true,
-        ]);
-
         $formBuilder->add('training', EntityType::class, [
             'label' => 'Vyber školení',
             'class' => Training::class,
         ]);
 
+        $formBuilder->add('email', TextType::class, [
+            'label' => 'Tvůj email',
+            'required' => true,
+        ]);
+
         $formBuilder->add('submit', SubmitType::class, [
-            'label' => 'Poslat',
+            'label' => 'Dejte mi vědět, až bude',
             'attr' => [
                 'class' => 'btn btn-success',
             ],

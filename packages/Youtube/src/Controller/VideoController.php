@@ -2,11 +2,10 @@
 
 namespace Pehapkari\Youtube\Controller;
 
-use Facebook\Facebook;
-use Nette\Utils\Json;
-use Pehapkari\Marketing\Social\FacebookIds;
-use Pehapkari\Youtube\Command\ImportVideosFromYoutubeCommand;
+use Pehapkari\Youtube\Command\ImportVideosCommand;
 use Pehapkari\Youtube\Exception\FileDataNotFoundException;
+use Pehapkari\Youtube\Hydration\ArrayToValueObjectHydrator;
+use Pehapkari\Youtube\ValueObject\Video;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,18 +19,19 @@ final class VideoController extends AbstractController
     private $youtubeVideos = [];
 
     /**
-     * @var Facebook
+     * @var ArrayToValueObjectHydrator
      */
-    private $facebook;
+    private $arrayToValueObjectHydrator;
 
     /**
-     * Get these data by running @see ImportVideosFromYoutubeCommand command
+     * Get these data by running @param mixed[] $youtubeVideos
+     * @see ImportVideosCommand command
      * @param mixed[] $youtubeVideos
      */
-    public function __construct(Facebook $facebook, array $youtubeVideos = [])
+    public function __construct(ArrayToValueObjectHydrator $arrayToValueObjectHydrator, array $youtubeVideos = [])
     {
         $this->youtubeVideos = $youtubeVideos;
-        $this->facebook = $facebook;
+        $this->arrayToValueObjectHydrator = $arrayToValueObjectHydrator;
     }
 
     /**
@@ -39,33 +39,50 @@ final class VideoController extends AbstractController
      */
     public function videos(): Response
     {
-        $this->prepareYoutubeVideos();
-
         $this->ensureYoutubeDataExists();
 
+        $meetupPlaylists = $this->youtubeVideos['meetup_playlists'];
+
+        foreach ($meetupPlaylists as $key => $meetupPlaylist) {
+            $meetupPlaylists[$key]['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
+                $meetupPlaylist['videos'],
+                Video::class
+            );
+        }
+
         return $this->render('videos/videos.twig', [
-            'meetup_playlists' => $this->youtubeVideos['meetup_playlists'],
-            'livestream_playlist' => $this->youtubeVideos['livestream_playlist'],
+            'meetup_playlists' => $meetupPlaylists,
         ]);
     }
 
-    private function prepareYoutubeVideos(): void
+    /**
+     * @Route(path="/livestream/", name="livestream")
+     */
+    public function livestream(): Response
     {
-        return;
+        $this->ensureYoutubeDataExists();
 
-        // https://developers.facebook.com/docs/graph-api/reference/page/video_lists/
-        $endPoint = FacebookIds::PEHAPKARI_PAGE_ID . '/video_lists';
-        $response = $this->facebook->get($endPoint);
+        $livestreamPlaylist = $this->youtubeVideos['livestream_playlist'];
+        $livestreamPlaylist['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
+            $livestreamPlaylist['videos'],
+            Video::class
+        );
 
-        $data = Json::decode($response->getBody(), Json::FORCE_ARRAY)['data'];
+        return $this->render('videos/livestream.twig', [
+            'livestream_playlist' => $livestreamPlaylist,
+        ]);
+    }
 
-        foreach ($data as $item) {
-            // https://developers.facebook.com/docs/graph-api/reference/video-list/
-            $endPoint = $item['id'] . '?fields=videos';
-            $response = $this->facebook->get($endPoint);
+    /**
+     * @Route(path="/video/{slug}", name="video_detail")
+     */
+    public function videoDetail(string $slug): Response
+    {
+        $this->ensureYoutubeDataExists();
 
-            $data = Json::decode($response->getBody(), Json::FORCE_ARRAY);
-        }
+        return $this->render('videos/video_detail.twig', [
+            'video' => $this->getVideoBySlug($slug),
+        ]);
     }
 
     private function ensureYoutubeDataExists(): void
@@ -76,7 +93,26 @@ final class VideoController extends AbstractController
 
         throw new FileDataNotFoundException(sprintf(
             'Youtube data not found. Generate data by "%s" command first',
-            CommandNaming::classToName(ImportVideosFromYoutubeCommand::class)
+            CommandNaming::classToName(ImportVideosCommand::class)
         ));
+    }
+
+    private function getVideoBySlug(string $videoSlug): Video
+    {
+        foreach ($this->youtubeVideos['meetup_playlists'] as $meetupPlaylist) {
+            foreach ($meetupPlaylist['videos'] as $videoData) {
+                if ($videoData['slug'] === $videoSlug) {
+                    return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
+                }
+            }
+        }
+
+        foreach ($this->youtubeVideos['livestream_playlist']['videos'] as $videoData) {
+            if ($videoData['slug'] === $videoSlug) {
+                return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
+            }
+        }
+
+        throw $this->createNotFoundException(sprintf("Video with slug '%s' not found", $videoSlug));
     }
 }

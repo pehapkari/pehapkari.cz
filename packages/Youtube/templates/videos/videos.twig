@@ -18,24 +18,12 @@
 
                 <p>{{ playlist.published_at|date("j. n. Y") }}</p>
 
-                <div class="row">
-                    {% for video in playlist.videos %}
-                        {% include "_snippet/youtube_video.twig" %}
-                    {% endfor %}
-                </div>
+                {% for video in playlist.videos %}
+                    {% include "_snippet/video_row.twig" %}
+                {% endfor %}
 
                 <hr>
             {% endfor %}
-
-            <hr>
-
-            <h2>Listreamy</h2>
-
-            <div class="row">
-                {% for video in livestream_playlist.videos %}
-                    {% include "_snippet/youtube_video.twig" %}
-                {% endfor %}
-            </div>
         </div>
     </div>
 {% endblock %}

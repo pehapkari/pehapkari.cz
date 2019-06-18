@@ -95,7 +95,7 @@ final class TrainingController extends AbstractController
             'training' => $training,
             'training_term' => $nearestTerm,
             'trainer' => $training->getTrainer(),
-            'place' => $nearestTerm ? $nearestTerm->getPlace(): null,
+            'place' => $nearestTerm ? $nearestTerm->getPlace() : null,
         ]);
     }
 }

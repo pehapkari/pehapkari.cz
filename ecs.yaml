@@ -40,13 +40,15 @@ parameters:
         - 'src/Kernel.php'
         # temporary vides
         - 'packages/Marketing/src/Social/FacebookPublisher.php'
-        - 'packages/Youtube/src/Controller/VideoController.php'
+        - 'packages/Youtube/src/Command/ImportVideosCommand.php'
 
     skip:
         # on purpose - property order is reflected in forms in admin
         Symplify\CodingStandard\Fixer\Order\PropertyOrderByComplexityFixer:
             - '*Entity*'
 
+        Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff:
+            - 'packages/Youtube/src/Controller/VideoController.php'
         # 3rd party contract
         SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
             - 'packages/User/src/Security/PehapkariAuthenticator.php'
