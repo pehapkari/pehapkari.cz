@@ -89,10 +89,13 @@ final class TrainingController extends AbstractController
      */
     public function detail(Training $training): Response
     {
+        $nearestTerm = $training->getNearestTerm();
+
         return $this->render('training/training_detail.twig', [
             'training' => $training,
+            'training_term' => $nearestTerm,
             'trainer' => $training->getTrainer(),
-            'place' => $training->getNearestTermPlace(),
+            'place' => $nearestTerm ? $nearestTerm->getPlace(): null,
         ]);
     }
 }
