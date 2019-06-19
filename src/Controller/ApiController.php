@@ -36,7 +36,7 @@ final class ApiController extends AbstractController
     {
         $trainingsData = [];
 
-        foreach ($this->trainingRepository->fetchAll() as $training) {
+        foreach ($this->trainingRepository->fetchPublic() as $training) {
             $trainer = $training->getTrainer();
 
             $trainingData = [

@@ -85,18 +85,20 @@
 
         <br>
 
-        <div class="text-center text-smaller" id="tranings_without_term">
-            <p>Další kurzy, které teď nemají vypsaný termín:</p>
+        {% if inactive_trainings|length %}
+            <div class="text-center text-smaller" id="tranings_without_term">
+                <p>Další kurzy, které teď nemají vypsaný termín:</p>
 
-            <p>
-                {% for inactive_training in inactive_trainings %}
-                    <a href="{{ path('training_detail', { 'slug': inactive_training.getSlug() }) }}/">
-                        {{ inactive_training.getName()|raw }}
-                    </a>
-                    {% if loop.last == false %}&nbsp;•&nbsp;{% endif %}
-                {% endfor %}
-            </p>
-        </div>
+                <p>
+                    {% for inactive_training in inactive_trainings %}
+                        <a href="{{ path('training_detail', { 'slug': inactive_training.getSlug() }) }}/">
+                            {{ inactive_training.getName()|raw }}
+                        </a>
+                        {% if loop.last == false %}&nbsp;•&nbsp;{% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+        {% endif %}
     </div>
 
     <hr>
