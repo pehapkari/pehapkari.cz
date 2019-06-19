@@ -91,6 +91,12 @@ class Training
     private $trainer;
 
     /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $isLunchIncluded = false;
+
+    /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\TrainingTerm", mappedBy="training")
      * @var TrainingTerm[]|ArrayCollection
      */
@@ -281,5 +287,20 @@ class Training
     public function getTrainingFeedbacks()
     {
         return $this->trainingFeedbacks;
+    }
+
+    public function isLunchIncluded(): bool
+    {
+        return $this->isLunchIncluded;
+    }
+
+    public function setIsLunchIncluded(bool $isLunchIncluded): void
+    {
+        if ($isLunchIncluded) {
+            $this->isLunchIncluded = $isLunchIncluded;
+        } else {
+            // include lunch by default for every training longer than 4 hours
+            $this->isLunchIncluded = $this->duration > 4;
+        }
     }
 }
