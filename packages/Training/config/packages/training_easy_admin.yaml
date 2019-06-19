@@ -33,9 +33,6 @@ easy_admin:
         Trainer:
             class: 'Pehapkari\Training\Entity\Trainer'
 
-        Place:
-            class: 'Pehapkari\Training\Entity\Place'
-
         NewFeedback:
             class: 'Pehapkari\Training\Entity\TrainingFeedback'
             list:

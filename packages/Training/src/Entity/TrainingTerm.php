@@ -41,13 +41,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
     private $training;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Place")
-     * @Assert\NotNull
-     * @var Place
-     */
-    private $place;
-
-    /**
      * @ORM\Column(type="string", unique=true)
      * @var string
      */
@@ -263,16 +256,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
     public function getTrainingImageAbsolutePath(): ?string
     {
         return $this->getTrainingImage() ? $this->uploadDestination . $this->getTrainingImage() : null;
-    }
-
-    public function getPlace(): ?Place
-    {
-        return $this->place;
-    }
-
-    public function setPlace(?Place $place): void
-    {
-        $this->place = $place;
     }
 
     public function getPrice(): ?float

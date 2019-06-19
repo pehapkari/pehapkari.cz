@@ -2,9 +2,7 @@
 
 namespace Pehapkari\Controller;
 
-use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 use Pehapkari\Training\Entity\Training;
-use Pehapkari\Training\Repository\PlaceRepository;
 use Pehapkari\Training\Repository\TrainingFeedbackRepository;
 use Pehapkari\Training\Repository\TrainingRepository;
 use Pehapkari\Training\Repository\TrainingTermRepository;
@@ -14,11 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class TrainingController extends AbstractController
 {
-    /**
-     * @var PlaceRepository
-     */
-    private $placeRepository;
-
     /**
      * @var TrainingRepository
      */
@@ -37,12 +30,10 @@ final class TrainingController extends AbstractController
     public function __construct(
         TrainingTermRepository $trainingTermRepository,
         TrainingRepository $trainingRepository,
-        PlaceRepository $placeRepository,
         TrainingFeedbackRepository $trainingFeedbackRepository
     ) {
         $this->trainingTermRepository = $trainingTermRepository;
         $this->trainingRepository = $trainingRepository;
-        $this->placeRepository = $placeRepository;
         $this->trainingFeedbackRepository = $trainingFeedbackRepository;
     }
 
@@ -68,19 +59,8 @@ final class TrainingController extends AbstractController
             'average_training_rating' => $averageRating,
             'average_training_rating_stars' => round($averageRating, 0),
 
-            'places' => $this->placeRepository->fetchActive(),
             'past_terms' => $this->trainingTermRepository->fetchFinished(),
             'past_terms_count' => count($this->trainingTermRepository->fetchFinished()),
-        ]);
-    }
-
-    /**
-     * @Route(path="/zacni-skolit/", name="become_trainer")
-     */
-    public function start(): Response
-    {
-        return $this->render('training/become_trainer.twig', [
-            'places' => $this->placeRepository->fetchActive(),
         ]);
     }
 
@@ -95,7 +75,6 @@ final class TrainingController extends AbstractController
             'training' => $training,
             'training_term' => $nearestTerm,
             'trainer' => $training->getTrainer(),
-            'place' => $nearestTerm ? $nearestTerm->getPlace() : null,
         ]);
     }
 }

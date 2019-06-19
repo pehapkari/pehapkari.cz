@@ -1,45 +1,61 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <h2 class="text-center mb-5">{{ place.name }}</h2>
+    <h2 class="text-center mb-5">Jablotron v Holešovicích</h2>
 
     <p class="text-center bigger mb-4">
-        {{ place.perex }}
+        Školící místnost na kraji centra Prahy, dobře dostupné  MHD i autem.
     </p>
 
     <div class="row">
         <div class="col-12 col-sm-6">
-            <h3>Jak se tam dostat?</h3>
+            <h3 id="route">Jak se tam dostat?</h3>
 
-            {{ place.routeDescription|markdown|raw }}
+            <ul>
+                <li>červeným metrem C na Nádraží Holešovice, pak 6 minut pěšky</li>
+                <li>tramvají na Ortenovo náměstí, pak 4 minuty pěšky</li>
+            </ul>
+
+            <h3 id="parking">Kde zaparkovat?</h3>
+
+            <p>Jedete autem z daleka? Vyberte si</p>
+
+            <ul>
+                <li><a href="https://goo.gl/maps/gpATj2pEbKq7V87t8">hlídané parkoviště 1</a></li>
+                <li>nebo <a href="https://goo.gl/maps/qG6wRuTaReQyxEQr6">hlídané parkoviště 2</a> - cca 800 m pěšky</li>
+
+                <li>nebo <a href="https://goo.gl/maps/R8jGbhQTUzFfjPjm6">v ulici u Vody</a> či <a href="https://www.google.com/maps/place/Jankovcova,+170+00+Praha+7-Hole%C5%A1ovice/@50.1104384,14.4467463,18.06z/data=!4m5!3m4!1s0x470b94b397f73e47:0x91ec53c4393cb67!8m2!3d50.1074069!4d14.4546587">Jankovcova</a> - 100-200 m pěšky</li>
+            </ul>
+
+            <h3 id="lunch">Kam zajít na oběd?</h3>
+
+            <ul>
+                <li>
+                    pro větší skupiny s rezervací - <a href="https://goo.gl/maps/9qDfsSEvwdr65Txs6">Zlatá Kovadlina</a>
+                </li>
+                <li>
+                    pro 4-5 lidí bez rezervace - <a href="https://goo.gl/maps/qbPQYMQG2Yya6jRM7">U Holiše</a>
+                </li>
+            </ul>
+
+            <p>Obě restaurace jsou 8 minut pěšky od školící místnosti.</p>
 
             <br>
 
-            {% if place.address %}
-                <p>Adresa: {{ place.address}}</p>
-            {% endif %}
+            <p>Adresa: U Pergamenky 1145/12, Praha 7, 170 00</p>
 
             <p>
-                {% if place.googleMapUrl %}
-                    <a href="{{ place.googleMapUrl }}">Google mapa</a>
-                {% endif %}
-
-                {% if place.seznamMapUrl %}
-                    &nbsp;<a href="{{ place.seznamMapUrl }}">Seznam mapa</a>
-                {% endif %}
+                <a href="https://goo.gl/maps/uChdD843UbfzP6WdA">Google mapa</a>
+                &nbsp;<a href="https://en.mapy.cz/s/2UnpB">Seznam mapa</a>
             </p>
         </div>
 
         <div class="col-12 col-sm-6">
-            {% if place.image %}
-                <img src="{{ place.relativeImagePath }}" style="max-width: 30em" class="img-thumbnail">
-            {% endif %}
+            <img src="/assets/images/places/jablotron.jpg" style="max-width: 30em" class="img-thumbnail">
         </div>
     </div>
 
-    {% if place.iframeUrl %}
-        <div class="mt-5 text-center">
-            <iframe src="{{ place.iframeUrl }}" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
-    {% endif %}
+    <div class="mt-5 text-center">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.6701860179737!2d14.447086899999995!3d50.11118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470beb4b04ddf77d%3A0xd732edeb9bb14b22!2sU+Pergamenky+1145%2F12%2C+170+00+Praha+7-Hole%C5%A1ovice%2C+Czechia!5e0!3m2!1sen!2sat!4v1560682367729!5m2!1sen!2sat" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
 {% endblock %}

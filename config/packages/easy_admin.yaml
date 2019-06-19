@@ -49,9 +49,6 @@ easy_admin:
                 icon: 'train'
                 entity: 'Trainer'
             -
-                entity: 'Place'
-                icon: 'map-marker'
-            -
                 label: 'Marketing'
                 icon: 'mail-bulk'
                 entity: 'MarketingCampaign'
