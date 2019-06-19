@@ -1,11 +1,71 @@
-# this file was generated on 2019-06-19 14:56:35, do not edit it manually
+# this file was generated on 2019-06-19 17:42:06, do not edit it manually
 parameters:
     youtube_videos:
         meetup_playlists:
             -
                 title: '13. sraz přátel PHP v Praze, prosinec 2016'
                 published_at: 2019-06-18T22:37:36+00:00
-                videos: {  }
+                videos:
+                    -
+                        title: 'Novinky v Nette 2.4'
+                        speaker: 'Štepán Kocourek'
+                        description: 'Slajdy: https://dokumen.tips/technology/vanocni-rychlovky-novinky-v-nette-24.html'
+                        video_id: b05CIIRTKtY
+                        slug: stepan-kocourek-novinky-v-nette-2-4
+                        kind: meetup
+                        published_at: 2019-06-19T15:36:17+00:00
+                        slides: 'https://dokumen.tips/technology/vanocni-rychlovky-novinky-v-nette-24.html'
+                        thumbnail: 'https://i.ytimg.com/vi/b05CIIRTKtY/sddefault.jpg'
+                    -
+                        title: 'Pluginy v PHPStormu pro Symfony'
+                        speaker: 'Pavel Vondrášek'
+                        description: ''
+                        video_id: piRh1VrSdZM
+                        slug: pavel-vondrasek-pluginy-v-phpstormu-pro-symfony
+                        kind: meetup
+                        published_at: 2019-06-19T15:37:12+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/piRh1VrSdZM/sddefault.jpg'
+                    -
+                        title: 'Finanční transakce - Jak neztratit ani halíř'
+                        speaker: 'Jan Endel'
+                        description: 'Slajdy: https://www.slideshare.net/JanEndel/jan-neztratit-ani-halir'
+                        video_id: aov0_cAcJjI
+                        slug: jan-endel-financni-transakce-jak-neztratit-ani-halir
+                        kind: meetup
+                        published_at: 2019-06-19T15:37:57+00:00
+                        slides: 'https://www.slideshare.net/JanEndel/jan-neztratit-ani-halir'
+                        thumbnail: 'https://i.ytimg.com/vi/aov0_cAcJjI/sddefault.jpg'
+                    -
+                        title: 'Infrastructure as Code - Jak nahodit produkční mašinu a přitom o tom vědět prd'
+                        speaker: 'Václav Makeš'
+                        description: 'Slajdy: https://www.slideshare.net/pehapkari/vclav-make-infrastructure-as-code-jak-nahazovat-stroje-a-nic-moc-nevdt-13-sraz-ptel-php-v-praze?fbclid=IwAR17njDk_kpMweX4j8NL2jTofEMv7u_67njD5U6LCB7BMKXsrZmvfnMGLMQ'
+                        video_id: '--PglZpcyzg'
+                        slug: vaclav-makes-infrastructure-as-code-jak-nahodit-produkcni-masinu-a-pritom-o-tom-vedet-prd
+                        kind: meetup
+                        published_at: 2019-06-19T15:38:24+00:00
+                        slides: 'https://www.slideshare.net/pehapkari/vclav-make-infrastructure-as-code-jak-nahazovat-stroje-a-nic-moc-nevdt-13-sraz-ptel-php-v-praze'
+                        thumbnail: 'https://i.ytimg.com/vi/--PglZpcyzg/sddefault.jpg'
+                    -
+                        title: 'Implementace BitCoinut v praxi'
+                        speaker: 'Tom Klíma'
+                        description: 'Slajdy: https://www.slideshare.net/pehapkari/tom-klma-implementace-bitcoinut-v-praxi-13-sraz-ptel-php-v-praze'
+                        video_id: a4CUwNG1WRU
+                        slug: tom-klima-implementace-bitcoinut-v-praxi
+                        kind: meetup
+                        published_at: 2019-06-19T15:38:31+00:00
+                        slides: 'https://www.slideshare.net/pehapkari/tom-klma-implementace-bitcoinut-v-praxi-13-sraz-ptel-php-v-praze'
+                        thumbnail: 'https://i.ytimg.com/vi/a4CUwNG1WRU/sddefault.jpg'
+                    -
+                        title: 'Co mě překvapilo, když jsem pracoval v Anglii'
+                        speaker: 'Tomáš Fejfar'
+                        description: 'Slajdy: https://www.slideshare.net/tomas.fejfar/co-m-pekvapilo-v-uk-phpkai-22122016'
+                        video_id: Uw5qOam3Xa0
+                        slug: tomas-fejfar-co-me-prekvapilo-kdyz-jsem-pracoval-v-anglii
+                        kind: meetup
+                        published_at: 2019-06-19T15:41:53+00:00
+                        slides: 'https://www.slideshare.net/tomas.fejfar/co-m-pekvapilo-v-uk-phpkai-22122016'
+                        thumbnail: 'https://i.ytimg.com/vi/Uw5qOam3Xa0/sddefault.jpg'
             -
                 title: '20. sraz přátel PHP v Praze, srpen 2017'
                 published_at: 2017-08-21T13:59:17+00:00

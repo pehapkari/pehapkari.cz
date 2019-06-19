@@ -579,6 +579,6 @@ header nav #top-menu-search {
     display: block;
 }
 
-#videos iframe, #videos .row img {
+iframe, #videos .row img {
     border: 1px solid #BBB;
 }
