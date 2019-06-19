@@ -31,7 +31,10 @@ final class CertificateGenerator
      */
     public function generateForTrainingTermRegistration(TrainingRegistration $trainingRegistration): string
     {
-        $trainingName = $trainingRegistration->getTrainingName();
+        $training = $trainingRegistration->getTraining();
+
+        $trainingName = $training->getNameForCertificate();
+
         $date = $trainingRegistration->getTrainingTermDate()->format('j. n. Y');
         $participantName = (string) $trainingRegistration->getName();
 
@@ -52,6 +55,8 @@ final class CertificateGenerator
         $tppl = $pdf->importPage(1);
         $pdf->useTemplate($tppl, 25, 0);
 
+        $this->setBlackColor($pdf);
+
         $width = (int) $pdf->GetPageWidth();
 
         $this->addTrainingName($trainingName, $pdf, $width);
@@ -67,35 +72,41 @@ final class CertificateGenerator
         return $destination;
     }
 
+    private function setBlackColor(Fpdi $fpdi): void
+    {
+        $fpdi->SetTextColor(0, 0, 0);
+    }
+
     private function addTrainingName(string $trainingName, Fpdi $fpdi, int $width): void
     {
         $trainingName = $this->encode($trainingName);
-
-        // resize for long lecture names
-        $fontSize = strlen($trainingName) < 40 ? 23 : strlen($trainingName) < 45 ? 21 : 18;
+        $fontSize = 25;
 
         $fpdi->SetFont('DejaVuSans', '', $fontSize);
-        $fpdi->SetTextColor(0, 0, 0);
-        $fpdi->SetXY(($width / 2) - ($fpdi->GetStringWidth($trainingName) / 2), 350);
-        $fpdi->Write(0, $trainingName);
+
+        $fpdi->SetXY(0, 333);
+
+        // see http://www.fpdf.org/en/doc/multicell.htm
+        $lineHeight = 30;
+        $fpdi->MultiCell($width, $lineHeight, $trainingName, 0, 'C');
     }
 
     private function addDate(string $date, Fpdi $fpdi, int $width): void
     {
         $date = $this->encode($date);
         $fpdi->SetFont('Georgia', '', 13);
-        $fpdi->SetTextColor(0, 0, 0);
-        $fpdi->SetXY(($width / 2) - ($fpdi->GetStringWidth($date) / 2), 300);
-        $fpdi->Write(0, $date);
+
+        $fpdi->SetXY(0, 295);
+        $fpdi->MultiCell($width, 13, $date, 0, 'C');
     }
 
     private function addVisitorName(string $name, Fpdi $fpdi, int $width): void
     {
         $name = $this->encode($name);
         $fpdi->SetFont('Georgia', '', 32);
-        $fpdi->SetTextColor(0, 0, 0);
-        $fpdi->SetXY(($width / 2) - ($fpdi->GetStringWidth($name) / 2), 260);
-        $fpdi->Write(0, $name);
+
+        $fpdi->SetXY(0, 240);
+        $fpdi->MultiCell($width, 32, $name, 0, 'C');
     }
 
     private function createDestination(string $trainingName, string $participantName): string

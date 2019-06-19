@@ -18,7 +18,7 @@ final class AdminTrainingTermController extends EasyAdminController
     private $trainingTermRepository;
 
     /**
-     * @var \Pehapkari\Marketing\Repository\MarketingCampaignRepository
+     * @var MarketingCampaignRepository
      */
     private $marketingCampaignRepository;
 
