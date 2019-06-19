@@ -37,3 +37,6 @@ parameters:
         - '#Parameter \#1 \$name of class Twig\\(TwigFilter|TwigFunction) constructor expects string, int\|string given#'
         - '#Call to an undefined method object\:\:setRelativeUploadDestination\(\)#'
         - '#Method Pehapkari\\Youtube\\Controller\\VideoController\:\:getVideoBySlug\(\) should return Pehapkari\\Youtube\\ValueObject\\Video but returns object#'
+
+rules:
+    - Pehapkari\PHPStan\Rule\SelectWithGroupByRule
