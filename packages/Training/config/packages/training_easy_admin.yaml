@@ -11,7 +11,7 @@ easy_admin:
             form:
                 fields:
                     - 'name'
-                    - { property: 'certificateFormatedName', type_options: { attr: { rows: '2' } } }
+                    - { property: 'certificateFormattedName', type_options: { attr: { rows: '2' } } }
                     - 'perex'
                     - { property: 'description', label: 'Description (use Markdown)', type_options: { attr: { rows: '25' } } }
                     # TIP: custom template - with "{{ value }}" within
