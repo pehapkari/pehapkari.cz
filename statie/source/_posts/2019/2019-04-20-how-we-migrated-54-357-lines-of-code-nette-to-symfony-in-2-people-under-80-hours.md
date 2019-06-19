@@ -259,7 +259,7 @@ We also cannot forget the rename of events from Contribute\Events to Symfony [Ke
 
 ## From `RouterFactory` to Controller `@Route` annotation
 
-RouteFactory is [single class](https://github.com/nette/sandbox/blob/da9df83d6e07348d979f8673f15c512e984f4c53/app/router/RouterFactory.php%23L19) in Nette to define all routes for all controllers and their actions. In Symfony, this is quite the opposite. You define the routes directly at the Controller action. And to make matters worse it [uses annotation](https://symfony.com/doc/current/routing.html%23creating-routes).
+RouteFactory is [single class](https://github.com/nette/sandbox/blob/06a92123fb6a1d82de38037436ca06484afec8dc/app/Router/RouterFactory.php) in Nette to define all routes for all controllers and their actions. In Symfony, this is quite the opposite. You define the routes directly at the Controller action. And to make matters worse it [uses annotation](https://symfony.com/doc/current/routing.html%23creating-routes).
 
 What with this? Well, one option is to move one route at a time - **all 151**. To make it even more challenging, we had our own `RestRoute` and our own `RouteList`, including POST/GET/..., which Nette doesn't have.
 

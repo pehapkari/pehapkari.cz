@@ -36,7 +36,7 @@ function getUser() {
 
 Lepší, co? Takhle tomu PhpStorm porozumí a ví, že se z metody vrací `string` nebo `boolean`. Jak vidíte, tak **lepším popisováním kódu pomůžete nejen PhpStormu, ale i ostatním vývojářům**.
 
-Ať se nám to líbí nebo ne, tak spousta existujícího PHP kódu vypadá podobně jako ta ukázka nahoře. Ne každý má to štěstí, že může pracovat s kódem napsaným letos pro PHP 7.2 podle [DDD](/blog/2017/12/05/domain-driven-design-language/), naprosto striktně dodržujícím [SRP](/slovnicek/#solid) a používajícím [dependency injection](/blog/2017/01/15/jak-funguje-dependency-injection-v-symfony-a-v-nette/). Velmi pravděpodobně se naopak setkáte s kódem, který by mohl běžet i na PHP 5.3, není moc otestovaný a pochopit ho vám dá dost práce.
+Ať se nám to líbí nebo ne, tak spousta existujícího PHP kódu vypadá podobně jako ta ukázka nahoře. Ne každý má to štěstí, že může pracovat s kódem napsaným letos pro PHP 7.2 podle [DDD](/blog/2017/12/05/domain-driven-design-language/), naprosto striktně dodržujícím SRP a používajícím [dependency injection](/blog/2017/01/15/jak-funguje-dependency-injection-v-symfony-a-v-nette/). Velmi pravděpodobně se naopak setkáte s kódem, který by mohl běžet i na PHP 5.3, není moc otestovaný a pochopit ho vám dá dost práce.
 
 PhpStorm vám může velmi pomoct právě při správě takového legacy kódu. Může ale pracovat jen s tím, co mu dáte. A teď si ukážeme, jak mu dát těch informací co nejvíc.
 

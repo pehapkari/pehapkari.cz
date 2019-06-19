@@ -39,7 +39,7 @@ As I mentioned, Monolog has many handler which can output logs.
 And Logstash has many inputs, so there is not only one way to connect them, but we can choose from multiple options.
 
 ### Direct Output of Logs to Elasticseach.
-The most straightforward option is to bypass the Logstash and output logs directly to Elasticsearch by using [ElasticSearchHandler](https://github.com/Seldaek/monolog/blob/master/src/Monolog/Handler/ElasticSearchHandler.php).
+The most straightforward option is to bypass the Logstash and output logs directly to Elasticsearch by using [ElasticSearchHandler](https://github.com/Seldaek/monolog/blob/ebb804e432e8fe0fe96828f30d89c45581d36d07/src/Monolog/Handler/ElasticsearchHandler.php).
 This most simple approach is very easy to setup, but has some drawbacks when your infrastructure gets more complex.
 If your application runs in other server than your elasticsearch instance, you need to deal with authentication and security of Elasticsearch.
 

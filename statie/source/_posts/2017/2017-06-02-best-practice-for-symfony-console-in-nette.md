@@ -119,7 +119,7 @@ Another added benefit of switching to `bin/console` is automatic support of Symf
 
 ## Example of the refactoring
 
-If you'd like to see a real-life code, [Tomáš Votruba made PR on Github](https://github.com/eventigo/eventigo-web/pull/19/files) to [Eventigo.cz](https://eventigo.cz/) recently.
+If you'd like to see a real-life code, [Tomáš Votruba made PR on Github](https://github.com/eventigo/eventigo-web/pull/19/files) to Eventigo.cz recently.
 
 ## Conclusion
 

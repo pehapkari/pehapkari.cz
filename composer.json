@@ -105,7 +105,8 @@
         "check-cs": "vendor/bin/ecs check packages src statie",
         "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force",
-        "phpstan": "vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify"
+        "phpstan": "vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify",
+        "dead-links": "vendor/bin/http-status-check scan https://pehapkari.cz --output invalid-links.txt --ansi --dont-crawl-external-links"
     },
     "config": {
         "sort-packages": true
