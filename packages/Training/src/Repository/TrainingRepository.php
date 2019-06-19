@@ -35,6 +35,8 @@ final class TrainingRepository
     {
         /** @var Training[] $trainings */
         return $this->entityRepository->createQueryBuilder('t')
+            // https://stackoverflow.com/a/41887524/1348344
+            ->select('t')
             ->join('t.trainingTerms', 'tt')
             // pick only very recent trainings +/- 7 days
             ->andWhere('tt.startDateTime < :nextWeek')
