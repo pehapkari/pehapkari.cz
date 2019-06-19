@@ -1,6 +1,11 @@
 language: php
 
-php: 7.3
+matrix:
+    fast_finish: true
+    include:
+        - php: '7.3'
+          env: HTTP_STATUS_CHECK=true
+        - php: '7.3'
 
 before_install:
     # disable xdebug to fasten process
@@ -12,14 +17,18 @@ install:
     - composer update
 
 script:
-    - vendor/bin/phpunit
+    - if [[ HTTP_STATUS_CHECK == "" ]]; then vendor/bin/phpunit; fi
 
     # code analysis
-    - composer check-cs
-    - composer phpstan
+    - if [[ HTTP_STATUS_CHECK == "" ]]; then composer check-cs; fi
+    - if [[ HTTP_STATUS_CHECK == "" ]]; then composer phpstan; fi
 
-    - bin/console lint:yaml src packages
-    - bin/console lint:twig packages templates
+    # linting
+    - if [[ HTTP_STATUS_CHECK == "" ]]; then bin/console lint:yaml src packages; fi
+    - if [[ HTTP_STATUS_CHECK == "" ]]; then bin/console lint:twig packages templates; fi
+
+    # status check
+    - if [[ HTTP_STATUS_CHECK == true ]]; then vendor/bin/http-status-check scan https://pehapkari.cz --output invalid-links.txt --ansi; fi
 
     # tweets posts
     - if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then vendor/bin/statie tweet-post statie/source; fi
