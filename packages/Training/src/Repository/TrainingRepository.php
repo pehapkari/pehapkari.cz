@@ -22,9 +22,11 @@ final class TrainingRepository
     /**
      * @return Training[]
      */
-    public function fetchAll(): array
+    public function fetchPublic(): array
     {
-        return $this->entityRepository->findAll();
+        return $this->entityRepository->findBy([
+            'isPublic' => true,
+        ]);
     }
 
     /**
@@ -61,6 +63,7 @@ final class TrainingRepository
     public function fetchInactiveTrainings(): array
     {
         $trainings = $this->entityRepository->createQueryBuilder('t')
+            ->andWhere('t.isPublic = true')
             ->orderBy('t.name')
             ->getQuery()
             ->getResult();

@@ -17,6 +17,7 @@
 
         <div class="row">
             {% for upcoming_training_term in upcoming_training_terms %}
+                {# @var training \Pehapkari\Training\Entity\Training #}
                 {% set training = upcoming_training_term.getTraining() %}
                 <div class="flex col-md-6">
                     <h2>
@@ -57,13 +58,13 @@
                     <p>
                         Lektor:
                         <strong>
-                            {% if training.getTrainerWebsite() %}
-                            <a href="{{ training.getTrainerWebsite() }}">
+                            {% if training.trainer.website %}
+                            <a href="{{ training.trainer.website }}">
                                 {% endif %}
 
-                                {{ training.getTrainerName() }}
+                                {{ training.trainer.name }}
 
-                                {% if training.getTrainerWebsite() %}
+                                {% if training.trainer.website %}
                             </a>
                             {% endif %}
                         </strong>
@@ -84,18 +85,20 @@
 
         <br>
 
-        <div class="text-center text-smaller" id="tranings_without_term">
-            <p>Další kurzy, které teď nemají vypsaný termín:</p>
+        {% if inactive_trainings|length %}
+            <div class="text-center text-smaller" id="tranings_without_term">
+                <p>Další kurzy, které teď nemají vypsaný termín:</p>
 
-            <p>
-                {% for inactive_training in inactive_trainings %}
-                    <a href="{{ path('training_detail', { 'slug': inactive_training.getSlug() }) }}/">
-                        {{ inactive_training.getName()|raw }}
-                    </a>
-                    {% if loop.last == false %}&nbsp;•&nbsp;{% endif %}
-                {% endfor %}
-            </p>
-        </div>
+                <p>
+                    {% for inactive_training in inactive_trainings %}
+                        <a href="{{ path('training_detail', { 'slug': inactive_training.getSlug() }) }}/">
+                            {{ inactive_training.getName()|raw }}
+                        </a>
+                        {% if loop.last == false %}&nbsp;•&nbsp;{% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+        {% endif %}
     </div>
 
     <hr>

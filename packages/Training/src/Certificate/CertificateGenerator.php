@@ -7,6 +7,7 @@ use Nette\Utils\Strings;
 use Pehapkari\Pdf\PdfFactory;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use setasign\Fpdi\Fpdi;
+use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
 final class CertificateGenerator
 {
@@ -20,10 +21,24 @@ final class CertificateGenerator
      */
     private $pdfFactory;
 
-    public function __construct(string $certificateOutputDirectory, PdfFactory $pdfFactory)
-    {
+    /**
+     * @var Fpdi
+     */
+    private $fpdi;
+
+    /**
+     * @var PrivatesAccessor
+     */
+    private $privatesAccessor;
+
+    public function __construct(
+        string $certificateOutputDirectory,
+        PdfFactory $pdfFactory,
+        PrivatesAccessor $privatesAccessor
+    ) {
         $this->certificateOutputDirectory = $certificateOutputDirectory;
         $this->pdfFactory = $pdfFactory;
+        $this->privatesAccessor = $privatesAccessor;
     }
 
     /**
@@ -31,77 +46,99 @@ final class CertificateGenerator
      */
     public function generateForTrainingTermRegistration(TrainingRegistration $trainingRegistration): string
     {
-        $trainingName = $trainingRegistration->getTrainingName();
+        $training = $trainingRegistration->getTraining();
+        $trainer = $training->getTrainer();
+
+        $trainingName = $training->getNameForCertificate();
+
         $date = $trainingRegistration->getTrainingTermDate()->format('j. n. Y');
         $participantName = (string) $trainingRegistration->getName();
+        $trainerName = $trainer->getName();
 
-        // @todo add trainer as well!
-
-        return $this->generateForTrainingNameDateAndParticipantName($trainingName, $date, $participantName);
+        return $this->generateForTrainingNameDateAndParticipantName(
+            $trainingName,
+            $date,
+            $participantName,
+            $trainerName
+        );
     }
 
     private function generateForTrainingNameDateAndParticipantName(
         string $trainingName,
         string $date,
-        string $userName
+        string $participantName,
+        string $trainerName
     ): string {
-        $pdf = $this->pdfFactory->createHorizontalWithTemplate(
+        $this->fpdi = $this->pdfFactory->createHorizontalWithTemplate(
             __DIR__ . '/../../../../public/assets/pdf/certificate.pdf'
         );
 
-        $tppl = $pdf->importPage(1);
-        $pdf->useTemplate($tppl, 25, 0);
+        $tppl = $this->fpdi->importPage(1);
+        $this->fpdi->useTemplate($tppl, 25, 0);
 
-        $width = (int) $pdf->GetPageWidth();
+        $this->setBlackColor();
 
-        $this->addTrainingName($trainingName, $pdf, $width);
-        $this->addDate($date, $pdf, $width);
-        $this->addVisitorName($userName, $pdf, $width);
+        // in the order from the top to the bottom
+        $this->addParticipantName($participantName);
+        $this->addDate($date);
+        $this->addTrainingName($trainingName);
+        $this->addTrainerName($trainerName);
 
-        $destination = $this->createDestination($trainingName, $userName);
+        $destination = $this->createDestination($trainingName, $participantName);
         // ensure directory exists
         FileSystem::createDir(dirname($destination));
 
-        $pdf->Output('F', $destination);
+        $this->fpdi->Output('F', $destination);
 
         return $destination;
     }
 
-    private function addTrainingName(string $trainingName, Fpdi $fpdi, int $width): void
+    private function setBlackColor(): void
     {
-        $trainingName = $this->encode($trainingName);
-
-        // resize for long lecture names
-        $fontSize = strlen($trainingName) < 40 ? 23 : strlen($trainingName) < 45 ? 21 : 18;
-
-        $fpdi->SetFont('DejaVuSans', '', $fontSize);
-        $fpdi->SetTextColor(0, 0, 0);
-        $fpdi->SetXY(($width / 2) - ($fpdi->GetStringWidth($trainingName) / 2), 350);
-        $fpdi->Write(0, $trainingName);
+        $this->fpdi->SetTextColor(0, 0, 0);
     }
 
-    private function addDate(string $date, Fpdi $fpdi, int $width): void
+    private function addParticipantName(string $participantName): void
     {
-        $date = $this->encode($date);
-        $fpdi->SetFont('Georgia', '', 13);
-        $fpdi->SetTextColor(0, 0, 0);
-        $fpdi->SetXY(($width / 2) - ($fpdi->GetStringWidth($date) / 2), 300);
-        $fpdi->Write(0, $date);
+        $this->fpdi->SetFont('Georgia', '', 32);
+        $this->addTextToCenter($participantName, 240);
     }
 
-    private function addVisitorName(string $name, Fpdi $fpdi, int $width): void
+    private function addDate(string $date): void
     {
-        $name = $this->encode($name);
-        $fpdi->SetFont('Georgia', '', 32);
-        $fpdi->SetTextColor(0, 0, 0);
-        $fpdi->SetXY(($width / 2) - ($fpdi->GetStringWidth($name) / 2), 260);
-        $fpdi->Write(0, $name);
+        $this->fpdi->SetFont('Georgia', '', 13);
+        $this->addTextToCenter($date, 295);
+    }
+
+    private function addTrainingName(string $trainingName): void
+    {
+        $this->fpdi->SetFont('DejaVuSans', '', 25);
+        $this->addTextToCenter($trainingName, 333);
+    }
+
+    private function addTrainerName(string $trainerName): void
+    {
+        $this->fpdi->SetFont('Georgia', '', 18);
+        $this->addTextToCenter($trainerName, 455);
     }
 
     private function createDestination(string $trainingName, string $participantName): string
     {
         return $this->certificateOutputDirectory . '/' .
             sprintf('%s-%s.pdf', Strings::webalize($trainingName), Strings::webalize($participantName));
+    }
+
+    private function addTextToCenter(string $text, int $y): void
+    {
+        $text = $this->encode($text);
+
+        // set line-height to current font size
+        $fontSize = $this->privatesAccessor->getPrivateProperty($this->fpdi, 'FontSize');
+        $lineHeight = $fontSize + 5;
+
+        // see http://www.fpdf.org/en/doc/multicell.htm
+        $this->fpdi->SetXY(0, $y);
+        $this->fpdi->MultiCell($this->fpdi->GetPageWidth(), $lineHeight, $text, 0, 'C');
     }
 
     private function encode(string $string): string

@@ -5,6 +5,7 @@ namespace Pehapkari\Registration\Entity;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
+use Pehapkari\Training\Entity\Training;
 use Pehapkari\Training\Entity\TrainingTerm;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -241,5 +242,10 @@ class TrainingRegistration
     public function setFakturoidInvoiceId(?int $fakturoidInvoiceId): void
     {
         $this->fakturoidInvoiceId = $fakturoidInvoiceId;
+    }
+
+    public function getTraining(): ?Training
+    {
+        return $this->trainingTerm->getTraining();
     }
 }

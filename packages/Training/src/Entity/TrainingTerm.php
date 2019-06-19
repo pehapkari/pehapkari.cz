@@ -238,11 +238,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
         return $this->training->getTrainer();
     }
 
-    public function getTrainerImage(): ?string
-    {
-        return $this->getTrainer() ? $this->getTrainer()->getImage() : null;
-    }
-
     public function getTrainerImageAbsolutePath(): ?string
     {
         return $this->getTrainerImage() ? $this->uploadDestination . $this->getTrainerImage() : null;
@@ -296,21 +291,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
         $this->uploadDestination = $uploadDestination;
     }
 
-    public function getTrainerName(): string
-    {
-        return $this->getTrainer()->getName();
-    }
-
-    public function getTrainerPosition(): ?string
-    {
-        return $this->getTrainer()->getPosition();
-    }
-
-    public function getTrainerCompany(): ?string
-    {
-        return $this->getTrainer()->getCompany();
-    }
-
     public function getTrainingTermImageAbsolutePath(): ?string
     {
         return $this->getImage() ? $this->uploadDestination . $this->getImage() : null;
@@ -319,5 +299,10 @@ class TrainingTerm implements UploadDestinationAwareInterface
     public function isRegistrationOpen(): bool
     {
         return $this->getDeadlineDateTime() > NetteDateTime::from('now');
+    }
+
+    private function getTrainerImage(): ?string
+    {
+        return $this->getTrainer() ? $this->getTrainer()->getImage() : null;
     }
 }
