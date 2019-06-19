@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
+use Pehapkari\Doctrine\EntityBehavior\IsPublicTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -17,6 +18,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class Training
 {
     use UploadableImageTrait;
+    use IsPublicTrait;
 
     /**
      * @ORM\Id()
@@ -46,7 +48,7 @@ class Training
     private $perex;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      * @var string
      */
     private $description;

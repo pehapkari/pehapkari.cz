@@ -4,6 +4,7 @@ namespace Pehapkari\Training\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
+use Pehapkari\Doctrine\EntityBehavior\IsPublicTrait;
 
 /**
  * @ORM\Entity
@@ -11,6 +12,7 @@ use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 class TrainingFeedback
 {
     use Timestampable;
+    use IsPublicTrait;
 
     /**
      * @ORM\Id()
@@ -67,12 +69,6 @@ class TrainingFeedback
      * @var bool
      */
     private $isAgreedWithPublishingName = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     * @var bool
-     */
-    private $isPublic = false;
 
     /**
      * @ORM\Column(type="boolean")
@@ -194,16 +190,6 @@ class TrainingFeedback
     public function setIsAgreedWithPublishingName(bool $isAgreedWithPublishingName): void
     {
         $this->isAgreedWithPublishingName = $isAgreedWithPublishingName;
-    }
-
-    public function isPublic(): bool
-    {
-        return $this->isPublic;
-    }
-
-    public function setIsPublic(bool $isPublic): void
-    {
-        $this->isPublic = $isPublic;
     }
 
     public function isShownOnMainPage(): bool
