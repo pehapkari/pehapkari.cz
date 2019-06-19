@@ -39,7 +39,6 @@ final class TrainingRepository
             ->andWhere('tt.endDateTime > :weekAgo')
             ->setParameter(':weekAgo', DateTime::from('- 7 days'))
             ->setParameter(':nextWeek', DateTime::from('+ 7 days'))
-            ->groupBy('t.id')
             ->addGroupBy('tt.startDateTime')
             ->orderBy('tt.startDateTime') // put more recent first
             ->getQuery()
