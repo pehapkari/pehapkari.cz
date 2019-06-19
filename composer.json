@@ -69,6 +69,7 @@
         "phpstan/phpstan-doctrine": "^0.11.4",
         "phpunit/phpunit": "^8.1",
         "roave/security-advisories": "dev-master",
+        "spatie/http-status-check": "^3.1",
         "symfony/browser-kit": "^4.3",
         "symplify/coding-standard": "^6.0.3",
         "symplify/easy-coding-standard": "^6.0.3",

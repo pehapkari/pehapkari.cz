@@ -45,7 +45,7 @@
 
                         <br>
 
-                        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Lecture:+{{ training.getName() }}&dates={{ training.getNearestTerm()|google_calendar_link }}&details=Details:+https://pehapkari.cz/{{ path('training_detail', { 'slug': training.getSlug() }) }}&ctz=Europe/Prague&location={{ training.getNearestTermPlaceMapUrl() }}&sf=true&output=xml">
+                        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Lecture:+{{ training.getName() }}&dates={{ training.getNearestTerm()|google_calendar_link }}&details=Details:+https://pehapkari.cz/{{ path('training_detail', { 'slug': training.getSlug() }) }}&ctz=Europe/Prague&location=U Pergamenky 1145/12, 170 00 Praha 7-Holešovice, Czechia&sf=true&output=xml">
                             <em class="fa fa-fw fa-calendar"></em>
                             Přidat do kalendáře
                         </a>

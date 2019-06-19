@@ -43,6 +43,7 @@ final class TrainingRepository
             ->setParameter(':nextWeek', DateTime::from('+ 7 days'))
             // has at least one registration
             ->join('tt.registrations', 'tr')
+            // dual group is required, compatible for mysql + mariadb
             ->addGroupBy('t.id')
             ->addGroupBy('tt.startDateTime')
             // prefer closest to now - so people rating training at the day of training will get the date fo training :)
