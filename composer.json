@@ -87,6 +87,7 @@
             "Pehapkari\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
             "Pehapkari\\User\\": "packages/User/src",
             "Pehapkari\\Mailer\\": "packages/Mailer/src",
+            "Pehapkari\\PHPStan\\": "packages/PHPStan/src",
             "Pehapkari\\Youtube\\": "packages/Youtube/src",
             "Pehapkari\\Statie\\": "statie/src"
         }
