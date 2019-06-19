@@ -59,13 +59,6 @@ I my jsme si všimli, že je rok 2017, a sáhli jsme po moderních trendech. You
 
 Naposled jsme vysílali [workshop Filipa Procházky o Doctrine](https://www.facebook.com/pehapkari/videos/1258859380830536/) z Brna. **Díky [Honzo Kuchaři](https://github.com/jkuchar) za vysílání.**
 
-
-
-## Učíme se od sebe
-
-**Potřebuješ s někým probrat své pracovní postupy? Na webu najdeš [přes 20 mentorů](https://pehapkari.cz/mentori/)**, kteří ti pomůžou offline i online s širokou škálou témat. Každé 2 týdny se tam objeví někdo nový.
-
-
 ## PHP programátory baví psát
 
 Každý týden [vyjde na blogu](https://pehapkari.cz/blog/) aspoň jeden článek. Už na něj přispělo **přes 12 různých autorů** - **z toho přes 80 % tak napsalo svůj úplně první článek**. Respekt! Líbí se mi diverzita názorů a konstruktivní diskuse v komentářích.
@@ -96,7 +89,7 @@ Zatím prozradím, že se můžete těšit na [Ondru Mirtese](https://ondrej.mir
 Tento článek jsem začal psát na konci roku 2016 a mezitím přibyly další 2/3 obsahu.
 Kam to bude směřovat netuším, ale **jestli to půjde tímhle tempem, máme se na co těšit**.
 
-Ještě připomenu, že tento rok tě čeká **2. ročník konference [PHP Prague](https://pehapkari.cz/konference/php-prague-2016-v-paralelnim-polis/)**. Jestli překonáme 120 návštěv z minulého roku, tak opravdu nevím, kam se vejdeme :).
+Ještě připomenu, že tento rok tě čeká **2. ročník konference [PHP Prague](https://pehapkari.cz/php-prague/2016)**. Jestli překonáme 120 návštěv z minulého roku, tak opravdu nevím, kam se vejdeme :).
 
 
 ## A jak ovlivníš svět ty?

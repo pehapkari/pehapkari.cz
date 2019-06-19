@@ -73,7 +73,7 @@ Data transfer objects are not classic objects, we do not expect behavior, they s
 
 The article would be enormous if it contained all the code and the code would be difficult to navigate through.
 So please find the code on the GitHub:
-[https://github.com/pehapkari/pehapkari.cz/tree/master/src/Posts/Year2018/Cart/Domain](https://github.com/pehapkari/pehapkari.cz/tree/master/src/Posts/Year2018/Cart/Domain)
+[https://github.com/pehapkari/pehapkari.cz/tree/master/statie/tests/Posts/Year2018/Cart/Domain](https://github.com/pehapkari/pehapkari.cz/tree/master/src/Posts/Year2018/Cart/Domain)
 
 But comment it here, the code is a part of this article.
 
@@ -89,7 +89,7 @@ We can consider aggregate tests as unit tests because an aggregate is definitely
 But we can test whatever we want to, if there is an interesting internal class, it is a great idea to test it too.
 
 Please find tests on the GitHub:
-[https://github.com/pehapkari/pehapkari.cz/tree/master/tests/Posts/Year2018/Cart/Domain](https://github.com/pehapkari/pehapkari.cz/tree/master/tests/Posts/Year2018/Cart/Domain)
+[https://github.com/pehapkari/pehapkari.cz/tree/master/statie/tests/Posts/Year2018/Cart/Domain](https://github.com/pehapkari/pehapkari.cz/tree/master/tests/Posts/Year2018/Cart/Domain)
 
 ## Test-Driven Development
 

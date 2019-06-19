@@ -75,7 +75,7 @@ Krom funkcionality se zaměřil na perfomance testy, kde si komponenta vede obst
 
 [Tobias Nyholm](https://github.com/Nyholm) nás uvedl do nové [Workflow komponenty](https://github.com/symfony/workflow), představil principy a ukázky použití. Workflow komponenta by mohla být velmi užitečná v nejedné business aplikaci - **pro stavy uživatelů nebo řízení stavů objednávky**.
 
-**[Mrkni na slajdy](https://www.slideshare.net/TobiasNyholm/knowing-your-state-machines)**
+**[Mrkni na přednášku](https://www.youtube.com/watch?v=S87111sM7y4)**
 
 
 ## A Year of Symfony

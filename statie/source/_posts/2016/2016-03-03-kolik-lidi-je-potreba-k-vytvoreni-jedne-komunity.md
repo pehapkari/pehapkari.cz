@@ -39,7 +39,7 @@ Během dubna 2015 jsem pak napsal [Martinovi Mayerovi](https://twitter.com/mayer
 
 Pak nastal zvrat. V květnu jsem se neplánovaně stěhoval do Prahy. Nad brněnskou Symfony komunitou tak zůstal viset velký otazník.
 
-Dozvěděl jsem se, že v Symfony dělá [Jirka Koutný](https://twitter.com/kutny). Ten mi řekl o [Zend srazu](http://srazy.info/prvni-zf-meetup-praha/5472). Tam jsem potkal dalších 10 lidí, které Symfony zajímá.
+Dozvěděl jsem se, že v Symfony dělá [Jirka Koutný](https://twitter.com/kutny). Ten mi řekl o Zend srazu. Tam jsem potkal dalších 10 lidí, které Symfony zajímá.
 
 *Díky Jirko za první kontakt s Prahou! Hodně mě to nakoplo.*
 
@@ -97,7 +97,7 @@ Už jsme docela slušně rozjetí, takže dál už jen stručně:
 - Díky [Kačce Bláhové](https://www.linkedin.com/in/ka%C4%8Dka-bl%C3%A1hov%C3%A1-828677a6) za inspiraci a rozšíření obzorů, kam dál je možné komunitu vést!
 - Díky [Honzovi Klatovi](https://twitter.com/klatys) za nápad na Symfony foundation, za to, že se mnou půjde přednášet na [Devel konferenci](http://devel.cz/konference), a taky za to, že dává do kupy první českou Symfony konferenci!
 - Díky [Davidovi Matějkovi](https://twitter.com/matej_21), že i když patří mezi nejaktivnější přispěvatele na Nette fóru, tak si ve svém srdci našel kus místa i pro Symfony!
-- Díky [Martinovi Zemanovi](https://twitter.com/zemistr) za shánění speakerů, dodávání přednášek pro začátečníky, nápad využít [sli.do](https://www.sli.do/home) a [vytvoření skupiny na pracovní nabídky](https://www.facebook.com/groups/ceska.symfony.komunita.prace)!
+- Díky [Martinovi Zemanovi](https://www.zemistr.eu/) za shánění speakerů, dodávání přednášek pro začátečníky, nápad využít [sli.do](https://www.sli.do/home) a [vytvoření skupiny na pracovní nabídky](https://www.facebook.com/groups/ceska.symfony.komunita.prace)!
 - Díky [Jirkovi Kneslovi](http://www.knesl.com/) za možnost jít školit Symfony do firem!
 - Díky [Nikole Ježkové](https://twitter.com/roxtri_cz) za zařizování prvního srazu v Českých Budějovicích!
 - Díky [VímVíc.cz](https://www.vimvic.cz/) a [Monice Vrbové](https://www.instagram.com/monikavrbova) za [krásné promo video](https://www.facebook.com/symfonisti/videos/969858443063966/)!

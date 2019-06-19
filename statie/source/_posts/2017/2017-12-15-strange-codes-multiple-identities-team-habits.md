@@ -17,7 +17,7 @@ Even though the PHP language is improving and [the next version](https://wiki.ph
 
 > ...unexpected T_PAAMAYIM_NEKUDOTAYIM
 
-"What?" a junior programmer might ask. But it happens that also advanced techies could be left speechless. Well, probably you can just check [StackOverflow](https://stackoverflow.com/a/592326/5549874). Or, of course, could start [learning Hebrew to know](https://philsturgeon.uk/php/2013/09/09/t-paamayim-nekudotayim-v-sanity/) what's going on.
+"What?" a junior programmer might ask. But it happens that also advanced techies could be left speechless. Well, probably you can just check [StackOverflow](https://stackoverflow.com/a/592326/5549874). Or, of course, could start [learning Hebrew to know](https://phil.tech/php/2013/09/09/t-paamayim-nekudotayim-v-sanity/) what's going on.
 
 Thankfully, there is [Urban Dictionary](http://www.urbandictionary.com/define.php?term=TGI(A)F) for all other unknown acronyms and phrases.
 

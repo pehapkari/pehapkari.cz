@@ -72,7 +72,7 @@ Any tips? [Add new issue](https://github.com/TomasVotruba/friendsofphp.org/issue
 
 ## How Does the Website Work?
 
-Meetups are downloaded every day by Travis CRON job from Meetup.com for each of [1023 groups](https://friendsofphp.org/groups/). You'll find them manually added in [this YAML file in repository](https://github.com/TomasVotruba/friendsofphp.org/blob/master/source/_data/groups.yml). No surprise **it runs on [Statie](https://www.statie.org/) and is fully [open-sourced on Github](https://github.com/tomasvotruba/friendsofphp.org)**.
+Meetups are downloaded every day by Travis CRON job from Meetup.com for each of [1023 groups](https://friendsofphp.org/groups/). You'll find them manually added in [this YAML file in repository](https://github.com/TomasVotruba/friendsofphp.org/blob/master/source/_data/groups.yaml). No surprise **it runs on [Statie](https://www.statie.org/) and is fully [open-sourced on Github](https://github.com/tomasvotruba/friendsofphp.org)**.
 
 Although there [Meetup API](https://www.meetup.com/meetup_api/) often works as documented, it's not possible to find all PHP groups with it. There is [an issue](https://github.com/meetup/api/issues/249) **when you search for groups in a specific location, it ignores the location and sets back to your origin city**. Pity, that exactly what we need here.
 

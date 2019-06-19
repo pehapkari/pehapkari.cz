@@ -66,7 +66,7 @@ Práce v CLI je stejná v každém OS, ale i v každé technologii. Je jedno jes
 
 A abyste si nemysleli, že jsem na GUI úplně zanevřel, existuje use-case, kde mi dává GUI smysl. Jsou jím diffy. Zkoumání rozdílů v GUI, minimálně pro začátek, je o mnoho přehlednější.
 
-Nejčastěji používáným GUI právě pro zkoumání rozdílů jsou služby typu GitHub, BitBucket a GitLab. Jejich výhodou je jejich webové rozhraní a tudíž možné rychlé vyzkoušení. Podívejte se na [ukázku](https://github.com/pehapkari/pehapkari.cz/commit/3ff82cc7eabe4e96bb54a92858e21d0f1af9f8fb?diff=split) z webu pehapkari.cz.
+Nejčastěji používáným GUI právě pro zkoumání rozdílů jsou služby typu GitHub, BitBucket a GitLab. Jejich výhodou je jejich webové rozhraní a tudíž možné rychlé vyzkoušení. Podívejte se na [ukázku](https://github.com/pehapkari/pehapkari.cz-old/commit/3ff82cc7eabe4e96bb54a92858e21d0f1af9f8fb) z webu pehapkari.cz.
 
 ## Zápory použití příkazové řádky
 

@@ -57,6 +57,8 @@ The Doctrine can generate a unique identifier by itself, and the only thing need
 So the item now contains a new field just for the Doctrine.
 
 ```php
+<?php
+
 // Item.php
 
 namespace Simara\Cart\Domain;
@@ -72,19 +74,20 @@ class Item
 ### Collection
 
 Doctrine doesn't hydrate an object collection as an array, it hydrates
-the [PersistentCollection](https://github.com/doctrine/doctrine2/blob/2.6/lib/Doctrine/ORM/PersistentCollection.php).
+the [PersistentCollection](https://github.com/doctrine/orm/blob/becf73050ea19c7e8f72329450b862c9cc668c23/lib/Doctrine/ORM/PersistentCollection.php).
 
 So the type hint in the cart is not right.
 This is important for working with the collection - an array is passed as a copy but an object is passed as a reference.
 And what is worse, the persistent collection has so many responsibilities so it would become difficult to understand.
 
-Persistent collection implements the [Collection](https://github.com/doctrine/collections/blob/1.5/lib/Doctrine/Common/Collections/Collection.php)
+Persistent collection implements the [Collection](https://github.com/doctrine/collections/blob/635f782a0a5384202cb21c1d2d8b959763493b46/lib/Doctrine/Common/Collections/Collection.php)
 interface and we can use this fact in the code.
 If we declare that the collection is not the `PersistentCollection` but an abstract `Collection`, we can initialize it in the constructor with
-an [ArrayCollection](https://github.com/doctrine/collections/blob/1.5/lib/Doctrine/Common/Collections/ArrayCollection.php).
+an [ArrayCollection](https://github.com/doctrine/collections/blob/635f782a0a5384202cb21c1d2d8b959763493b46/lib/Doctrine/Common/Collections/ArrayCollection.php).
 So the type hint is true if the object is new - `ArrayCollection`, and it is also true if the object is hydrated by the Doctrine -`PersistentCollection`.
 
 ```php
+<?php
 // Cart.php
 
 namespace Simara\Cart\Domain;
@@ -120,6 +123,8 @@ class Cart
 The Doctrine repository is an infrastructure for the domain, so it is implemented in the infrastructure layer.
 
 ```php
+<?php
+
 // DoctrineCartRepository.php
 
 namespace Simara\Cart\Infrastructure;
@@ -241,6 +246,8 @@ We test against a real database so we can catch problems that we face in the pro
 The code below allows us to test against MySQL and PostgreSQL.
 
 ```php
+<?php
+
 // DoctrineCartRepositoryTest.php
 
 namespace Simara\Cart\Infrastructure;
@@ -310,7 +317,10 @@ class DoctrineCartRepositoryTest extends CartRepositoryTest
 
 In the beginning, we need a connection and an empty database.
 This is done by the `ConnectionManager`.
+
 ```php
+<?php
+
 // ConnectionManager.php
 
 namespace Simara\Cart\Utils;
@@ -418,6 +428,8 @@ The factory defines the mapping location, forbids proxy generation and returns t
 It also uses the `SchemaTool` to create a database schema.
 
 ```php
+<?php
+
 // EntityManagerFactory.php
 
 namespace Simara\Cart\Utils;
@@ -473,6 +485,8 @@ We prepared also SQLite tests because they are fast and help us to find early ma
 Creating the SQLite memory connection is easy because it doesn't require any credentials.
 
 ```php
+<?php
+
 // DoctrineCartRepositoryTest.php
 
 class DoctrineCartRepositoryTest extends CartRepositoryTest

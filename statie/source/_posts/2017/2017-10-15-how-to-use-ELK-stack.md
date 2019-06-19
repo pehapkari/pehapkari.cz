@@ -91,9 +91,9 @@ because using publicly accessible passwords does not offer much security.
 ### Searchguard Configuration - Changing Passwords
 
 When you run the ELK stack with searchguard, it already contains some predefined users with configured privileges.
-You can see these users [in searchguard documentation](https://github.com/floragunncom/search-guard-docs/blob/master/configuration_internalusers.md).
+You can see these users [in searchguard documentation](https://github.com/floragunncom/search-guard-docs/blob/f12e3b27c87b0e2bc4e0bd33f44dee5e4d7f19e6/_docs/configuration_internalusers.md).
 
-Searchguard users are stored in file [elasticsearch/config/sg_internal_users.yml](https://github.com/deviantony/docker-elk/blob/searchguard/elasticsearch/config/sg_internal_users.yml).
+Searchguard users are stored in file `elasticsearch/config/sg_internal_users.yml`:
 
 Contents of this file is
 ```yaml

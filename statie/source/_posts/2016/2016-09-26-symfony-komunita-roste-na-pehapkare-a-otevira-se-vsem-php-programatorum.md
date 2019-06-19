@@ -14,8 +14,8 @@ Vítáme tak všechny, kteří **jakkoliv dělají s PHP**, v České republice 
 
 ## Čeho se to týká
 
-- Přejmenovali jsme Twitter na **[@pehapkari](http://twitter.com/pehapkari)**
-- Twitter hashtag na [#pehapkari](http://twitter.com/#pehapkari)
+- Přejmenovali jsme Twitter na **[@pehapkari](https://twitter.com/pehapkari)**
+- Twitter hashtag na [#pehapkari](https://twitter.com/#pehapkari)
 - A Facebook stránku na **[Péhápkaři](https://www.facebook.com/pehapkari)**
 - Symfony srazy budou PHP srazy
 
@@ -62,7 +62,8 @@ Podobné to bylo v Ostravě a Brně. Nemluvilo se jen o Symfony, ale taky o:
 Pojali jsme tedy podezření: "že by lidi zajímal více ekosystém PHP než Symfony"?
 
 Abychom to ověřili, uspořádali jsme s pár přáteli konferenci PHP Prague,
-kde bylo téma *PHP bez frameworků*. I když jsme akci propagovali jen 2-3 týdny dopředu, **dorazilo na ni [přes 120 lidí](http://srazy.info/PHPPrague/6496)**.
+kde bylo téma *PHP bez frameworků*. I když jsme akci propagovali jen 2-3 týdny dopředu, **dorazilo na ni přes 120 lidí**.
+
 Včetně bratrů ze Slovenska!
 
 
