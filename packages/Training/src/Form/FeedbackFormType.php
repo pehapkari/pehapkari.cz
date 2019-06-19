@@ -84,7 +84,7 @@ final class FeedbackFormType extends AbstractType
             'label' => 'Souhlasím se zveřejněním jména u své odpovědi na stránkách Péhápkařů',
             'required' => false,
             // prefer default
-            'data' => true
+            'data' => true,
         ]);
 
         $formBuilder->add('thingsToImprove', TextareaType::class, [

@@ -5,13 +5,13 @@
         <div class="section">
             <h1 class="text-center">Livestream</h1>
 
-            Kuba organizoval mezi X a Y livestreamy, tady všechny najdeš
+            <p>Kuba organizoval mezi X a Y livestreamy, tady všechny najdeš.</p>
 
-            <h2>Listreamy</h2>
-
-            {% for video in livestream_playlist.videos %}
-                {% include "_snippet/video_row.twig" %}
-            {% endfor %}
+            <div class="row">
+                {% for video in livestream_playlist.videos %}
+                    {% include "_snippet/video_row.twig" %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

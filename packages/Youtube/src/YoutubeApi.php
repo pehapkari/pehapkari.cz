@@ -150,7 +150,7 @@ final class YoutubeApi
                 'published_at' => DateTime::from($videoItem['snippet']['publishedAt']),
             ];
 
-            $match = Strings::match($video['description'], '#Slajdy(.*?): (?<slides>.*?)$#');
+            $match = Strings::match($video['description'], '#(Slajdy|Slidy)(.*?): (?<slides>[\w:\/\.\-\_]+)#s');
             $video['slides'] = $match['slides'] ?? '';
 
             $thumbnails = $videoItem['snippet']['thumbnails'];

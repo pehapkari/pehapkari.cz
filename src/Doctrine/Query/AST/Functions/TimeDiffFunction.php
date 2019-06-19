@@ -2,8 +2,9 @@
 
 namespace Pehapkari\Doctrine\Query\AST\Functions;
 
-use Doctrine\ORM\Query\Lexer;
 use Doctrine\ORM\Query\AST\Functions\FunctionNode;
+use Doctrine\ORM\Query\AST\PathExpression;
+use Doctrine\ORM\Query\Lexer;
 use Doctrine\ORM\Query\Parser;
 use Doctrine\ORM\Query\SqlWalker;
 
@@ -16,12 +17,12 @@ use Doctrine\ORM\Query\SqlWalker;
 final class TimeDiffFunction extends FunctionNode
 {
     /**
-     * @var string
+     * @var PathExpression
      */
     public $dateTime1;
 
     /**
-     * @var string
+     * @var PathExpression
      */
     public $dateTime2;
 

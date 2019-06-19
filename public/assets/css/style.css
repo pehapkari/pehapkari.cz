@@ -568,3 +568,17 @@ header nav #top-menu-search {
 .text-bigger {
     font-size: 1.2em;
 }
+
+.video-row-item {
+    margin-top: .4em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.video-row-item a {
+    display: block;
+}
+
+#videos iframe, #videos .row img {
+    border: 1px solid #BBB;
+}

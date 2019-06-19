@@ -5,6 +5,8 @@
         <div class="section">
             <h1 class="text-center">Přehraj si přednášku z minulého srazu</h1>
 
+            <a href="{{ path('livestream') }}">Livestreamy</a>
+
             <h2>Meetupy</h2>
 
             <ul>
@@ -14,13 +16,13 @@
             </ul>
 
             {% for playlist in meetup_playlists %}
-                <h2 id="{{ playlist.title|webalize }}">{{ playlist.title }}</h2>
+                <h2 id="{{ playlist.title|webalize }}" class="text-center">{{ playlist.title }}</h2>
 
-                <p>{{ playlist.published_at|date("j. n. Y") }}</p>
-
-                {% for video in playlist.videos %}
-                    {% include "_snippet/video_row.twig" %}
-                {% endfor %}
+                <div class="row">
+                    {% for video in playlist.videos %}
+                        {% include "_snippet/video_row.twig" %}
+                    {% endfor %}
+                </div>
 
                 <hr>
             {% endfor %}

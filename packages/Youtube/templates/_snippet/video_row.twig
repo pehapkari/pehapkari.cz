@@ -1,40 +1,7 @@
-
-
-<div class="row">
-    <div class="mb-4">
-        <h2>
-            <a href="{{ path('video_detail', {'slug': video.slug }) }}">
-                {{ video.title }}
-            </a>
-        </h2>
-
-        <p>
-            {{ video.speaker }}
-        </p>
-
-        {# @var video \Pehapkari\Youtube\ValueObject\Video #}
-        <p>
-            <em class="fas fa-calendar-alt"></em>
-            &nbsp;
-            {{ video.publishedAt|date }}
-        </p>
-
-        <div class="row">
-            <div class="col-4">
-                <a href="{{ path('video_detail', {'slug': video.slug }) }}">
-                    <img src="{{ video.thumbnail }}" alt="" style="max-width: 100%" class="img-thumbnail">
-                </a>
-            </div>
-            <div class="col-8">
-                {{ video.description|truncate(300)|markdown|raw }}
-
-                <a href="{{ path('place_detail', {'slug': video.slug }) }}" class="btn btn-danger">
-                    Otevři video
-                    &nbsp;
-                    <em class="fas fa-play"></em>
-                </a>
-            </div>
-
-        </div>
-    </div>
+{# @var video \Pehapkari\Youtube\ValueObject\Video #}
+<div class="col-4 mb-5 video-row-item">
+    <a href="{{ path('video_detail', {'slug': video.slug }) }}">
+        <img src="{{ video.thumbnail }}" alt="" style="max-width: 100%" class="mb-2">
+        {{ video.speaker }} - {{ video.title }}
+    </a>
 </div>

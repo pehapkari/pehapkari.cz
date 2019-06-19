@@ -1,4 +1,4 @@
-# this file was generated on 2019-06-19 12:44:41, do not edit it manually
+# this file was generated on 2019-06-19 14:56:35, do not edit it manually
 parameters:
     youtube_videos:
         meetup_playlists:
@@ -180,7 +180,7 @@ parameters:
                         slug: petr-pavel-co-musi-programator-umet-krome-programovani
                         kind: meetup
                         published_at: 2017-02-28T09:51:24+00:00
-                        slides: ''
+                        slides: 'http://pepa.info/prednasky/co-musi-programator-umet.pdf'
                         thumbnail: 'https://i.ytimg.com/vi/tDHSRE7qgrU/sddefault.jpg'
                     -
                         title: 'Když si dva vývojáři založí s.r.o.'
@@ -204,7 +204,7 @@ parameters:
                         slug: martin-sojka-propel-orm
                         kind: meetup
                         published_at: 2016-12-11T16:37:42+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/php-evening-1-propel-orm-martin-sojka'
                         thumbnail: 'https://i.ytimg.com/vi/B78czQt_v14/sddefault.jpg'
                     -
                         title: Automatizace
@@ -214,7 +214,7 @@ parameters:
                         slug: jan-klat-automatizace
                         kind: meetup
                         published_at: 2016-12-11T16:37:42+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/php-evening-1-automatizace-jan-klat'
                         thumbnail: 'https://i.ytimg.com/vi/WusZdZ-_ryk/sddefault.jpg'
             -
                 title: '8. sraz přátel PHP v Praze, květen 2016'
@@ -262,7 +262,7 @@ parameters:
                         slug: jozef-lami-ako-nespalit-server-za-vyuziti-monitu
                         kind: meetup
                         published_at: 2016-05-20T22:15:37+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/ako-nespli-server-monit-jozef-lami-7-sraz-praha'
                         thumbnail: 'https://i.ytimg.com/vi/9EyZmx2XgcQ/sddefault.jpg'
                     -
                         title: 'Doctrine - Jak si užít s DQL a kde se entity nehodí'
@@ -272,7 +272,7 @@ parameters:
                         slug: filip-prochazka-doctrine-jak-si-uzit-s-dql-a-kde-se-entity-nehodi
                         kind: meetup
                         published_at: 2016-05-20T22:15:37+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/doctrine-co-dlat-kdy-entity-nesta-filip-prochzka-7-sraz-praha'
                         thumbnail: 'https://i.ytimg.com/vi/6mWS2NVtXs0/sddefault.jpg'
                     -
                         title: 'Blackfire.io - Fire up your PHP app performance'
@@ -282,7 +282,7 @@ parameters:
                         slug: jan-kopp-blackfire-io-fire-up-your-php-app-performance
                         kind: meetup
                         published_at: 2016-05-20T22:15:37+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/blackfireio-fire-up-your-php-app-performance-jan-kopp-7-sraz-praha'
                         thumbnail: 'https://i.ytimg.com/vi/YuuzZxaahIY/sddefault.jpg'
             -
                 title: '6. sraz přátel PHP v Praze, březen 2016'
@@ -388,7 +388,7 @@ parameters:
                         slug: martin-zeman-zemistr-moje-prvni-aplikace-v-symfony-3
                         kind: meetup
                         published_at: 2016-02-05T12:58:28+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/martin-zeman-moje-prvn-aplikace-v-symfony-3-4-sraz-ptel-symfony-v-praze'
                         thumbnail: 'https://i.ytimg.com/vi/Et7x3MHJSCY/sddefault.jpg'
                     -
                         title: 'ELK - víc než jen logy'
@@ -398,7 +398,7 @@ parameters:
                         slug: tomas-fejfar-elk-vic-nez-jen-logy
                         kind: meetup
                         published_at: 2016-02-05T00:26:01+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/tom-fejfar-elk-vc-ne-jen-logy-4-sraz-ptel-symfony-v-praze'
                         thumbnail: 'https://i.ytimg.com/vi/9-Q4QU0Wtoc/sddefault.jpg'
                     -
                         title: 'WordPress + Laravel = ♥'
@@ -408,7 +408,7 @@ parameters:
                         slug: karel-skopek-wordpress-laravel
                         kind: meetup
                         published_at: 2016-02-05T00:10:50+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/karel-kopek-wordpress-laravel-lt3-4-sraz-ptel-symfony-v-praze'
                         thumbnail: 'https://i.ytimg.com/vi/WH0MkR1yD_k/sddefault.jpg'
             -
                 title: '2. sraz přátel PHP v Praze, listopad 2015'
@@ -432,7 +432,7 @@ parameters:
                         slug: jan-klat-jak-rozjet-nejvetsi-vyhledavac-slev-na-symfony
                         kind: meetup
                         published_at: 2016-01-14T12:14:34+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/jan-klat-skrzcz-jak-rozjet-nejvt-vyhledva-slev-na-symfony'
                         thumbnail: 'https://i.ytimg.com/vi/r0QePVGTNd0/sddefault.jpg'
                     -
                         title: 'Optimalizace Symfony na devu'
@@ -442,7 +442,7 @@ parameters:
                         slug: vasek-purchart-optimalizace-symfony-na-devu
                         kind: meetup
                         published_at: 2016-01-14T12:15:28+00:00
-                        slides: ''
+                        slides: 'https://www.slideshare.net/pehapkari/vaek-purchart-optimalizace-symfony-na-devu-2-sraz-ptel-symfony-v-praze'
                         thumbnail: 'https://i.ytimg.com/vi/f93mNBJ-IUA/sddefault.jpg'
             -
                 title: '1. sraz přátel PHP v Praze, říjen 2015'
@@ -456,7 +456,7 @@ parameters:
                         slug: tomas-votruba-jak-prezit-symfony-3
                         kind: meetup
                         published_at: 2015-11-11T16:33:26+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/tom-votruba-jak-pet-symfony-3-1-sraz-ptel-symfony-v-praze'
                         thumbnail: 'https://i.ytimg.com/vi/N-4HIjWfRQ0/sddefault.jpg'
                     -
                         title: 'Jak jsme přepisovali Jobs.cz na Symfony'
@@ -466,7 +466,7 @@ parameters:
                         slug: ondrej-machulda-jak-jsme-prepisovali-jobs-cz-na-symfony
                         kind: meetup
                         published_at: 2015-11-11T18:18:53+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/ondra-machulda-jak-jsme-pepisovali-jobscz-na-symfony-1-sraz-ptel-symfony-v-praze'
                         thumbnail: 'https://i.ytimg.com/vi/u6PA7EUO0WA/sddefault.jpg'
                     -
                         title: 'ReactPHP + Symfony = PROFIT'
@@ -476,7 +476,7 @@ parameters:
                         slug: jakub-kulhan-reactphp-symfony-profit
                         kind: meetup
                         published_at: 2015-11-12T10:08:43+00:00
-                        slides: ''
+                        slides: 'http://www.slideshare.net/pehapkari/jakub-kulhn-reactphp-symfony-profit-1-sraz-ptel-symfony-v-praze'
                         thumbnail: 'https://i.ytimg.com/vi/MwYaLr5fqos/sddefault.jpg'
         php_prague_playlist:
             title: 'PHP Prague 2016'
@@ -647,11 +647,11 @@ parameters:
                     slides: ''
                     thumbnail: 'https://i.ytimg.com/vi/Hy7f-by_6Nk/sddefault.jpg'
                 -
-                    title: 'Nástroj pro rychlý vývoj webů (Michal Katuščák)'
-                    speaker: Gephart
+                    title: 'Gephart - Nástroj pro rychlý vývoj webů'
+                    speaker: 'Michal Katuščák'
                     description: "Měl jsem potřebu vytvořit framework, který bude fungovat přesně tak, jak chci, a aby neobsahoval věci, které nepotřebuji.\n\nGephart stavím s tím, aby byl co nejrychlejší (na vývoj i na běh) a nejmenší, ale aby si zároveň zachoval čistý kód.\n\nNa livestreamu ukážu, jak si usnadňuji práci svým frameworkem:\n- Co je to Gephart Framework?\n- Instalace frameworku s balíčkem pro generování kódu\n- Napojení šablony na framework\n\nMichal je webový vývojář z Českých Budějovic, pracující v NexGen IT. Programátor každým coulem, co i rád fotí a cestuje.\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-07-25-gephart"
                     video_id: y0wIHwm-pyM
-                    slug: gephart-nastroj-pro-rychly-vyvoj-webu-michal-katuscak
+                    slug: michal-katuscak-gephart-nastroj-pro-rychly-vyvoj-webu
                     kind: livestream
                     published_at: 2017-07-28T08:19:40+00:00
                     slides: ''

@@ -3,11 +3,7 @@
 {% block main %}
     <div id="videos">
         <div class="section">
-            <h1 class="text-center">{{ video.title }}</h1>
-
-            <p>
-                {{ video.speaker }}
-            </p>
+            <h1 class="text-center">{{ video.speaker }} - {{ video.title }}</h1>
 
             {% if video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_LIVESTREAM') %}
                 <a href="{{ path('livestream') }}" class="btn btn-info btn-sm">
