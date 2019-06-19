@@ -5,6 +5,7 @@ namespace Pehapkari\Training\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 use Pehapkari\Doctrine\EntityBehavior\IsPublicTrait;
+use Pehapkari\Doctrine\EntityBehavior\IsRevisedTrait;
 
 /**
  * @ORM\Entity
@@ -13,6 +14,7 @@ class TrainingFeedback
 {
     use Timestampable;
     use IsPublicTrait;
+    use IsRevisedTrait;
 
     /**
      * @ORM\Id()

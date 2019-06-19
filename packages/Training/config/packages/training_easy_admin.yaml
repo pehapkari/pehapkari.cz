@@ -36,9 +36,17 @@ easy_admin:
         Place:
             class: 'Pehapkari\Training\Entity\Place'
 
+        NewFeedback:
+            class: 'Pehapkari\Training\Entity\TrainingFeedback'
+            list:
+                # see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#static-filters-dql-filter-option
+                dql_filter: 'entity.isRevised = FALSE'
+                sort: 'createdAt'
+
         Feedback:
             class: 'Pehapkari\Training\Entity\TrainingFeedback'
             list:
+                dql_filter: 'entity.isRevised = TRUE'
                 fields:
                     - 'name'
                     - 'text'

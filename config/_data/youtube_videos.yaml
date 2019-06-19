@@ -1,9 +1,9 @@
-# this file was generated on 2019-06-19 11:57:44, do not edit it manually
+# this file was generated on 2019-06-19 12:44:41, do not edit it manually
 parameters:
     youtube_videos:
         meetup_playlists:
             -
-                title: '13. sraz přátel PHP v Praze'
+                title: '13. sraz přátel PHP v Praze, prosinec 2016'
                 published_at: 2019-06-18T22:37:36+00:00
                 videos: {  }
             -
@@ -159,7 +159,7 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/IVsonhyufPc/sddefault.jpg'
             -
-                title: '2. sraz přátel PHP v Praze, listopad 2016'
+                title: '12. sraz přátel PHP v Praze, listopad 2016'
                 published_at: 2017-02-27T19:58:38+00:00
                 videos:
                     -
@@ -193,7 +193,7 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/CjPKJshkZeY/sddefault.jpg'
             -
-                title: 'PHP Evening #1, ČB, 24. 11. 2016'
+                title: 'PHP Evening #1, ČB, listopad 2016'
                 published_at: 2016-11-28T17:37:27+00:00
                 videos:
                     -

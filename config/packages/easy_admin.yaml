@@ -57,6 +57,9 @@ easy_admin:
                 entity: 'MarketingCampaign'
             -
                 icon: 'comment'
+                entity: 'NewFeedback'
+            -
+                icon: 'comment'
                 entity: 'Feedback'
             -
                 icon: 'dog'
