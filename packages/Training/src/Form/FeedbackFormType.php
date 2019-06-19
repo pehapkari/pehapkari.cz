@@ -83,6 +83,8 @@ final class FeedbackFormType extends AbstractType
         $formBuilder->add('isAgreedWithPublishingName', CheckboxType::class, [
             'label' => 'Souhlasím se zveřejněním jména u své odpovědi na stránkách Péhápkařů',
             'required' => false,
+            // prefer default
+            'data' => true,
         ]);
 
         $formBuilder->add('thingsToImprove', TextareaType::class, [

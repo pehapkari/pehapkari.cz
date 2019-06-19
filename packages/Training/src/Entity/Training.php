@@ -2,12 +2,12 @@
 
 namespace Pehapkari\Training\Entity;
 
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
+use Pehapkari\Doctrine\EntityBehavior\IsPublicTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -18,6 +18,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class Training
 {
     use UploadableImageTrait;
+    use IsPublicTrait;
 
     /**
      * @ORM\Id()
@@ -47,7 +48,7 @@ class Training
     private $perex;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      * @var string
      */
     private $description;
@@ -118,6 +119,7 @@ class Training
 
     public function getNearestTerm(): ?TrainingTerm
     {
+        // @todo sort by datetime - what if there are 2 past active terms? or 2 future?
         foreach ($this->trainingTerms as $trainingTerm) {
             if ($trainingTerm->isActive()) {
                 return $trainingTerm;
@@ -125,22 +127,6 @@ class Training
         }
 
         return null;
-    }
-
-    public function getNearestTermDateTime(): ?DateTimeInterface
-    {
-        foreach ($this->trainingTerms as $trainingTerm) {
-            if ($trainingTerm->isActive()) {
-                return $trainingTerm->getStartDateTime();
-            }
-        }
-
-        return null;
-    }
-
-    public function getNearestTermDeadline(): ?DateTimeInterface
-    {
-        return $this->getNearestTerm() ? $this->getNearestTerm()->getDeadlineDateTime() : null;
     }
 
     public function getId(): ?int
@@ -278,55 +264,11 @@ class Training
         $this->slug = $slug;
     }
 
-    public function getNearestTermSlug(): ?string
-    {
-        if (! $this->getNearestTerm()) {
-            return null;
-        }
-
-        return $this->getNearestTerm()->getSlug();
-    }
-
-    public function getNearestTermPlaceName(): ?string
-    {
-        if ($this->getNearestTerm() === null) {
-            return null;
-        }
-
-        if ($this->getNearestTerm()->getPlace() === null) {
-            return null;
-        }
-
-        return $this->getNearestTerm()->getPlace()->getName();
-    }
-
-    public function getNearestTermPlaceMapUrl(): ?string
-    {
-        if ($this->getNearestTerm() === null) {
-            return null;
-        }
-
-        if ($this->getNearestTerm()->getPlace() === null) {
-            return null;
-        }
-
-        return $this->getNearestTerm()->getPlace()->getGoogleMapUrl();
-    }
-
     /**
      * @return TrainingFeedback[]|ArrayCollection
      */
     public function getTrainingFeedbacks()
     {
         return $this->trainingFeedbacks;
-    }
-
-    public function getNearestTermPlace(): ?Place
-    {
-        if ($this->getNearestTerm() === null) {
-            return null;
-        }
-
-        return $this->getNearestTerm()->getPlace();
     }
 }

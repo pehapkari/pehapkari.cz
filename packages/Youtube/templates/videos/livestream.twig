@@ -1,0 +1,17 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+    <div id="videos">
+        <div class="section">
+            <h1 class="text-center">Livestreamy</h1>
+
+            <p>Kuba organizoval mezi X a Y livestreamy, tady všechny najdeš.</p>
+
+            <div class="row">
+                {% for video in livestream_playlist.videos %}
+                    {% include "_snippet/video_row.twig" %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

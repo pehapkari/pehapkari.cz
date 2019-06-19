@@ -14,6 +14,21 @@ final class YoutubeApi
     /**
      * @var string
      */
+    public const KIND_LIVESTREAM = 'livestream';
+
+    /**
+     * @var string
+     */
+    public const KIND_PHP_PRAGUE_CONFERENCE = 'php_prague_conference';
+
+    /**
+     * @var string
+     */
+    public const KIND_MEETUP = 'meetup';
+
+    /**
+     * @var string
+     */
     private const PEHAPKARI_CHANNEL_ID = 'UCTBgI1P8xIn2pp2BBHbv5mg';
 
     /**
@@ -23,9 +38,10 @@ final class YoutubeApi
     private const ENDPOINT_VIDEOS_BY_PLAYLIST = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=%s&maxResults=50';
 
     /**
+     * 50 is allowed maximum
      * @var string
      */
-    private const ENPOINT_PLAYLISTS_BY_CHANNEL = 'https://www.googleapis.com/youtube/v3/playlists?part=snippet,contentDetails&channelId=%s&maxResults=50'; // 50 is allowed maximum
+    private const ENPOINT_PLAYLISTS_BY_CHANNEL = 'https://www.googleapis.com/youtube/v3/playlists?part=snippet,contentDetails&channelId=%s&maxResults=50';
 
     /**
      * @var string
@@ -58,13 +74,14 @@ final class YoutubeApi
         foreach ($playlistsData['items'] as $item) {
             $videosInPlaylistData = $this->getVideosByPlaylist($item);
 
-            $videos = $this->createVideos($videosInPlaylistData);
+            $kind = $this->resolveVideoKind($item['snippet']['title']);
+
+            $videos = $this->createVideos($videosInPlaylistData, $kind);
             $playlist = $this->createPlaylist($item, $videos);
 
-            $playlistTitle = $item['snippet']['title'];
-            if ($playlistTitle === 'Twitch Livestream') {
+            if ($kind === self::KIND_LIVESTREAM) {
                 $playlists['livestream_playlist'] = $playlist;
-            } elseif (Strings::match($playlistTitle, '#PHP( )?Prague#i')) {
+            } elseif ($kind === self::KIND_PHP_PRAGUE_CONFERENCE) {
                 $playlists['php_prague_playlist'] = $playlist;
             } else {
                 $playlists['meetup_playlists'][] = $playlist;
@@ -93,11 +110,24 @@ final class YoutubeApi
         return $this->getData($url);
     }
 
+    private function resolveVideoKind(string $playlistTitle): string
+    {
+        if ($playlistTitle === 'Twitch Livestream') {
+            return self::KIND_LIVESTREAM;
+        }
+
+        if (Strings::match($playlistTitle, '#PHP( )?Prague#i')) {
+            return self::KIND_PHP_PRAGUE_CONFERENCE;
+        }
+
+        return self::KIND_MEETUP;
+    }
+
     /**
      * @param mixed[] $videoItems
      * @return mixed[]
      */
-    private function createVideos(array $videoItems): array
+    private function createVideos(array $videoItems, string $kind): array
     {
         $videos = [];
 
@@ -107,11 +137,21 @@ final class YoutubeApi
                 continue;
             }
 
+            $title = $videoItem['snippet']['title'];
+            $match = Strings::match($title, '#(?<name>.*?) - (?<title>.*?)$#');
+
             $video = [
-                'title' => $videoItem['snippet']['title'],
+                'title' => $match['title'] ?? $title,
+                'speaker' => $match['name'] ?? '',
                 'description' => $videoItem['snippet']['description'],
                 'video_id' => $videoItem['snippet']['resourceId']['videoId'],
+                'slug' => Strings::webalize($title),
+                'kind' => $kind,
+                'published_at' => DateTime::from($videoItem['snippet']['publishedAt']),
             ];
+
+            $match = Strings::match($video['description'], '#(Slajdy|Slidy)(.*?): (?<slides>[\w:\/\.\-\_]+)#s');
+            $video['slides'] = $match['slides'] ?? '';
 
             $thumbnails = $videoItem['snippet']['thumbnails'];
             if (isset($thumbnails['standard'])) {

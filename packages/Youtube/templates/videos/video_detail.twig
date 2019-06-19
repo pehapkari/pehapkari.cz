@@ -1,0 +1,30 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+    <div id="videos">
+        <div class="section">
+            <h1 class="text-center">{{ video.speaker }} - {{ video.title }}</h1>
+
+            {% if video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_LIVESTREAM') %}
+                <a href="{{ path('livestream') }}" class="btn btn-info btn-sm">
+                    <em class="fas fa-fast-backward"></em>
+                    &nbsp;
+                    Zpátky na livestreamy
+                </a>
+            {% endif %}
+
+            <p class="mt-5">
+                {{ video.description|markdown|raw }}
+            </p>
+
+            <iframe width="640" height="480" src="https://www.youtube.com/embed/{{ video.videoId }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <h2 class="mt-5">Dotazy?</h2>
+
+            <div class="container">
+                {% include "_snippets/disqus_comments.twig" %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

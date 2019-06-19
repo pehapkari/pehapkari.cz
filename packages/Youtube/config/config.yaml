@@ -6,6 +6,9 @@ services:
 
     Pehapkari\Youtube\:
         resource: '../src/'
+        exclude: '../src/ValueObject'
+
+    Symplify\PackageBuilder\Strings\StringFormatConverter: ~
 
 parameters:
     youtube_api_key: '%env(YOUTUBE_API_KEY)%'

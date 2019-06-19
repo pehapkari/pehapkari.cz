@@ -135,10 +135,6 @@ h1, h2, .h2, h3 {
     }
 }
 
-.btn {
-    font-size: 1em;
-}
-
 @media (max-width: 768px) {
     .btn-xs-block-only {
         display: block;
@@ -571,4 +567,18 @@ header nav #top-menu-search {
 
 .text-bigger {
     font-size: 1.2em;
+}
+
+.video-row-item {
+    margin-top: .4em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.video-row-item a {
+    display: block;
+}
+
+iframe, #videos .row img {
+    border: 1px solid #BBB;
 }

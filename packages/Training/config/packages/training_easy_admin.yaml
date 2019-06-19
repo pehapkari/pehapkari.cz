@@ -2,10 +2,17 @@ easy_admin:
     entities:
         Training:
             class: 'Pehapkari\Training\Entity\Training'
+            list:
+                fields:
+                    - 'name'
+                    - 'duration'
+                    - 'price'
+                    - 'isPublic'
             form:
                 fields:
                     - 'name'
-                    - { property: 'description', type_options: { attr: { rows: '25' } } }
+                    - 'perex'
+                    - { property: 'description', label: 'Description (use Markdown)', type_options: { attr: { rows: '25' } } }
                     # TIP: custom template - with "{{ value }}" within
                     # - { property: 'ibu', template: 'EasyAdmin/Beer/fields/ibu.html.twig' }
 
@@ -26,12 +33,17 @@ easy_admin:
         Trainer:
             class: 'Pehapkari\Training\Entity\Trainer'
 
-        Place:
-            class: 'Pehapkari\Training\Entity\Place'
+        NewFeedback:
+            class: 'Pehapkari\Training\Entity\TrainingFeedback'
+            list:
+                # see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#static-filters-dql-filter-option
+                dql_filter: 'entity.isRevised = FALSE'
+                sort: 'createdAt'
 
         Feedback:
             class: 'Pehapkari\Training\Entity\TrainingFeedback'
             list:
+                dql_filter: 'entity.isRevised = TRUE'
                 fields:
                     - 'name'
                     - 'text'

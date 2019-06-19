@@ -23,7 +23,9 @@ services:
 
     Pehapkari\:
         resource: '../src/'
-        exclude: '../src/{Kernel.php}'
+        exclude:
+            - '../src/{Kernel.php}'
+            - '../src/Doctrine/Query'
 
     Defr\Ares: ~
     GuzzleHttp\Client: ~

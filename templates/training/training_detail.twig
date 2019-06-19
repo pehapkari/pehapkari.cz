@@ -38,9 +38,7 @@
 
                     <div class="clearfix"></div>
 
-                    {% if training.isActive() %}
-                        {% set training_term = training.getNearestTerm() %}
-
+                    {% if training_term is not null %}
                         Příští termín:
 
                         <strong>{{ training_term.getStartDateTime()|date }}</strong>
@@ -64,7 +62,9 @@
                         <p>
                             Místo:
                             <strong>
-                                <a href="{{ training.getNearestTermPlaceMapUrl() }}">{{ training.getNearestTermPlaceName() }}</a>
+                                <a href="{{ path('place_detail') }}">
+                                    školící centrum Jablotron v Holešovicích
+                                </a>
                             </strong>
                         </p>
                     {% endif %}
@@ -82,10 +82,9 @@
                     </p>
 
                     {% if training.isActive() %}
-                        {% set training_term = training.nearestTerm %}
                         {% if training_term.isRegistrationOpen() %}
                             <div class="text-center">
-                                <a href="{{ path('registration', { 'slug': training.getNearestTermSlug() }) }}" class="btn btn-success mt-4 mb-5">
+                                <a href="{{ path('registration', { 'slug': training_term.slug }) }}" class="btn btn-success mt-4 mb-5">
                                     <em class="fa fa-fw fa-handshake"></em>
                                     &nbsp;
                                     Přihlaš se
@@ -93,7 +92,7 @@
                             </div>
                             <br>
                         {% endif %}
-                    {% elseif training_term is defined %}
+                    {% elseif training_term is not null %}
                         <br>
                         <p>Poslení školení bylo {{ training_term.getStartDateTime|date("j. n. Y") }}.</p>
                     {% endif %}
