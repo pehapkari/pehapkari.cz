@@ -45,7 +45,7 @@ class Training
      * @ORM\Column(type="text", nullable=true)
      * @var string
      */
-    private $certificateFormatedName;
+    private $certificateFormattedName;
 
     /**
      * @ORM\Column(type="text")
@@ -255,19 +255,19 @@ class Training
         return $this->slug;
     }
 
-    public function getCertificateFormatedName(): ?string
+    public function getCertificateFormattedName(): ?string
     {
-        return $this->certificateFormatedName;
+        return $this->certificateFormattedName;
     }
 
     public function getNameForCertificate(): ?string
     {
-        return $this->certificateFormatedName ?? $this->name;
+        return $this->certificateFormattedName ?? $this->name;
     }
 
-    public function setCertificateFormatedName(?string $certificateFormatedName): void
+    public function setCertificateFormattedName(?string $certificateFormattedName): void
     {
-        $this->certificateFormatedName = $certificateFormatedName;
+        $this->certificateFormattedName = $certificateFormattedName;
     }
 
     public function setSlug(?string $slug): void

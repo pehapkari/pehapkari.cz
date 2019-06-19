@@ -17,7 +17,10 @@
                 {{ video.description|markdown|raw }}
             </p>
 
-            <iframe width="640" height="480" src="https://www.youtube.com/embed/{{ video.videoId }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {# see https://getbootstrap.com/docs/4.0/utilities/embed/ #}
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="https://www.youtube.com/embed/{{ video.videoId }}" class="embed-responsive-item" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
 
             <h2 class="mt-5">Dotazy?</h2>
 
