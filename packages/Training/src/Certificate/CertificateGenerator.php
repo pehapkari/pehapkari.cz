@@ -7,6 +7,7 @@ use Nette\Utils\Strings;
 use Pehapkari\Pdf\PdfFactory;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use setasign\Fpdi\Fpdi;
+use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
 final class CertificateGenerator
 {
@@ -20,10 +21,24 @@ final class CertificateGenerator
      */
     private $pdfFactory;
 
-    public function __construct(string $certificateOutputDirectory, PdfFactory $pdfFactory)
-    {
+    /**
+     * @var Fpdi
+     */
+    private $fpdi;
+
+    /**
+     * @var PrivatesAccessor
+     */
+    private $privatesAccessor;
+
+    public function __construct(
+        string $certificateOutputDirectory,
+        PdfFactory $pdfFactory,
+        PrivatesAccessor $privatesAccessor
+    ) {
         $this->certificateOutputDirectory = $certificateOutputDirectory;
         $this->pdfFactory = $pdfFactory;
+        $this->privatesAccessor = $privatesAccessor;
     }
 
     /**
@@ -32,87 +47,98 @@ final class CertificateGenerator
     public function generateForTrainingTermRegistration(TrainingRegistration $trainingRegistration): string
     {
         $training = $trainingRegistration->getTraining();
+        $trainer = $training->getTrainer();
 
         $trainingName = $training->getNameForCertificate();
 
         $date = $trainingRegistration->getTrainingTermDate()->format('j. n. Y');
         $participantName = (string) $trainingRegistration->getName();
+        $trainerName = $trainer->getName();
 
-        // @todo add trainer as well!
-
-        return $this->generateForTrainingNameDateAndParticipantName($trainingName, $date, $participantName);
+        return $this->generateForTrainingNameDateAndParticipantName(
+            $trainingName,
+            $date,
+            $participantName,
+            $trainerName
+        );
     }
 
     private function generateForTrainingNameDateAndParticipantName(
         string $trainingName,
         string $date,
-        string $userName
+        string $participantName,
+        string $trainerName
     ): string {
-        $pdf = $this->pdfFactory->createHorizontalWithTemplate(
+        $this->fpdi = $this->pdfFactory->createHorizontalWithTemplate(
             __DIR__ . '/../../../../public/assets/pdf/certificate.pdf'
         );
 
-        $tppl = $pdf->importPage(1);
-        $pdf->useTemplate($tppl, 25, 0);
+        $tppl = $this->fpdi->importPage(1);
+        $this->fpdi->useTemplate($tppl, 25, 0);
 
-        $this->setBlackColor($pdf);
+        $this->setBlackColor();
 
-        $width = (int) $pdf->GetPageWidth();
+        // in the order from the top to the bottom
+        $this->addParticipantName($participantName);
+        $this->addDate($date);
+        $this->addTrainingName($trainingName);
+        $this->addTrainerName($trainerName);
 
-        $this->addTrainingName($trainingName, $pdf, $width);
-        $this->addDate($date, $pdf, $width);
-        $this->addVisitorName($userName, $pdf, $width);
-
-        $destination = $this->createDestination($trainingName, $userName);
+        $destination = $this->createDestination($trainingName, $participantName);
         // ensure directory exists
         FileSystem::createDir(dirname($destination));
 
-        $pdf->Output('F', $destination);
+        $this->fpdi->Output('F', $destination);
 
         return $destination;
     }
 
-    private function setBlackColor(Fpdi $fpdi): void
+    private function setBlackColor(): void
     {
-        $fpdi->SetTextColor(0, 0, 0);
+        $this->fpdi->SetTextColor(0, 0, 0);
     }
 
-    private function addTrainingName(string $trainingName, Fpdi $fpdi, int $width): void
+    private function addParticipantName(string $participantName): void
     {
-        $trainingName = $this->encode($trainingName);
-        $fontSize = 25;
-
-        $fpdi->SetFont('DejaVuSans', '', $fontSize);
-
-        $fpdi->SetXY(0, 333);
-
-        // see http://www.fpdf.org/en/doc/multicell.htm
-        $lineHeight = 30;
-        $fpdi->MultiCell($width, $lineHeight, $trainingName, 0, 'C');
+        $this->fpdi->SetFont('Georgia', '', 32);
+        $this->addTextToCenter($participantName, 240);
     }
 
-    private function addDate(string $date, Fpdi $fpdi, int $width): void
+    private function addDate(string $date): void
     {
-        $date = $this->encode($date);
-        $fpdi->SetFont('Georgia', '', 13);
-
-        $fpdi->SetXY(0, 295);
-        $fpdi->MultiCell($width, 13, $date, 0, 'C');
+        $this->fpdi->SetFont('Georgia', '', 13);
+        $this->addTextToCenter($date, 295);
     }
 
-    private function addVisitorName(string $name, Fpdi $fpdi, int $width): void
+    private function addTrainingName(string $trainingName): void
     {
-        $name = $this->encode($name);
-        $fpdi->SetFont('Georgia', '', 32);
+        $this->fpdi->SetFont('DejaVuSans', '', 25);
+        $this->addTextToCenter($trainingName, 333);
+    }
 
-        $fpdi->SetXY(0, 240);
-        $fpdi->MultiCell($width, 32, $name, 0, 'C');
+    private function addTrainerName(string $trainerName): void
+    {
+        $this->fpdi->SetFont('Georgia', '', 18);
+        $this->addTextToCenter($trainerName, 455);
     }
 
     private function createDestination(string $trainingName, string $participantName): string
     {
         return $this->certificateOutputDirectory . '/' .
             sprintf('%s-%s.pdf', Strings::webalize($trainingName), Strings::webalize($participantName));
+    }
+
+    private function addTextToCenter(string $text, int $y): void
+    {
+        $text = $this->encode($text);
+
+        // set line-height to current font size
+        $fontSize = $this->privatesAccessor->getPrivateProperty($this->fpdi, 'FontSize');
+        $lineHeight = $fontSize + 5;
+
+        // see http://www.fpdf.org/en/doc/multicell.htm
+        $this->fpdi->SetXY(0, $y);
+        $this->fpdi->MultiCell($this->fpdi->GetPageWidth(), $lineHeight, $text, 0, 'C');
     }
 
     private function encode(string $string): string

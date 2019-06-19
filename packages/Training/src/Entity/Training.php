@@ -219,16 +219,6 @@ class Training
         $this->perex = $perex;
     }
 
-    public function getTrainerWebsite(): ?string
-    {
-        return $this->trainer->getWebsite();
-    }
-
-    public function getTrainerName(): ?string
-    {
-        return $this->trainer->getName();
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
