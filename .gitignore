@@ -44,7 +44,7 @@ new-design/node_modules
 # PHPUnit 8+
 .phpunit.result.cache
 
-/public/adminer.php
+/public/adminer/
 
 ###> symfony/framework-bundle ###
 /.env.local
