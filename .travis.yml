@@ -28,7 +28,7 @@ script:
     - if [[ HTTP_STATUS_CHECK == "" ]]; then bin/console lint:twig packages templates; fi
 
     # status check
-    - if [[ HTTP_STATUS_CHECK == true ]]; then composer dead-links; fi
+    # - if [[ HTTP_STATUS_CHECK == true ]]; then composer dead-links; fi
 
     # tweets posts
     - if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then vendor/bin/statie tweet-post statie/source; fi
