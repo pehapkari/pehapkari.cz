@@ -1,5 +1,7 @@
 # Web of Czech PHP Community
 
+[![Build Status](https://img.shields.io/travis/pehapkari/pehapkari.cz/master.svg?style=flat-square)](https://travis-ci.org/pehapkari/pehapkari.cz)
+
 We're family of PHP developers from the Czech Republic, learning from each other on meetups and trainings.
 We meet once a month in Prague, Brno and less often 4 other cities.
 
