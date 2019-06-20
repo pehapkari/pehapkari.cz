@@ -1,71 +1,7 @@
-# this file was generated on 2019-06-19 17:42:06, do not edit it manually
+# this file was generated on 2019-06-20 14:15:30, do not edit it manually
 parameters:
     youtube_videos:
         meetup_playlists:
-            -
-                title: '13. sraz přátel PHP v Praze, prosinec 2016'
-                published_at: 2019-06-18T22:37:36+00:00
-                videos:
-                    -
-                        title: 'Novinky v Nette 2.4'
-                        speaker: 'Štepán Kocourek'
-                        description: 'Slajdy: https://dokumen.tips/technology/vanocni-rychlovky-novinky-v-nette-24.html'
-                        video_id: b05CIIRTKtY
-                        slug: stepan-kocourek-novinky-v-nette-2-4
-                        kind: meetup
-                        published_at: 2019-06-19T15:36:17+00:00
-                        slides: 'https://dokumen.tips/technology/vanocni-rychlovky-novinky-v-nette-24.html'
-                        thumbnail: 'https://i.ytimg.com/vi/b05CIIRTKtY/sddefault.jpg'
-                    -
-                        title: 'Pluginy v PHPStormu pro Symfony'
-                        speaker: 'Pavel Vondrášek'
-                        description: ''
-                        video_id: piRh1VrSdZM
-                        slug: pavel-vondrasek-pluginy-v-phpstormu-pro-symfony
-                        kind: meetup
-                        published_at: 2019-06-19T15:37:12+00:00
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/piRh1VrSdZM/sddefault.jpg'
-                    -
-                        title: 'Finanční transakce - Jak neztratit ani halíř'
-                        speaker: 'Jan Endel'
-                        description: 'Slajdy: https://www.slideshare.net/JanEndel/jan-neztratit-ani-halir'
-                        video_id: aov0_cAcJjI
-                        slug: jan-endel-financni-transakce-jak-neztratit-ani-halir
-                        kind: meetup
-                        published_at: 2019-06-19T15:37:57+00:00
-                        slides: 'https://www.slideshare.net/JanEndel/jan-neztratit-ani-halir'
-                        thumbnail: 'https://i.ytimg.com/vi/aov0_cAcJjI/sddefault.jpg'
-                    -
-                        title: 'Infrastructure as Code - Jak nahodit produkční mašinu a přitom o tom vědět prd'
-                        speaker: 'Václav Makeš'
-                        description: 'Slajdy: https://www.slideshare.net/pehapkari/vclav-make-infrastructure-as-code-jak-nahazovat-stroje-a-nic-moc-nevdt-13-sraz-ptel-php-v-praze?fbclid=IwAR17njDk_kpMweX4j8NL2jTofEMv7u_67njD5U6LCB7BMKXsrZmvfnMGLMQ'
-                        video_id: '--PglZpcyzg'
-                        slug: vaclav-makes-infrastructure-as-code-jak-nahodit-produkcni-masinu-a-pritom-o-tom-vedet-prd
-                        kind: meetup
-                        published_at: 2019-06-19T15:38:24+00:00
-                        slides: 'https://www.slideshare.net/pehapkari/vclav-make-infrastructure-as-code-jak-nahazovat-stroje-a-nic-moc-nevdt-13-sraz-ptel-php-v-praze'
-                        thumbnail: 'https://i.ytimg.com/vi/--PglZpcyzg/sddefault.jpg'
-                    -
-                        title: 'Implementace BitCoinut v praxi'
-                        speaker: 'Tom Klíma'
-                        description: 'Slajdy: https://www.slideshare.net/pehapkari/tom-klma-implementace-bitcoinut-v-praxi-13-sraz-ptel-php-v-praze'
-                        video_id: a4CUwNG1WRU
-                        slug: tom-klima-implementace-bitcoinut-v-praxi
-                        kind: meetup
-                        published_at: 2019-06-19T15:38:31+00:00
-                        slides: 'https://www.slideshare.net/pehapkari/tom-klma-implementace-bitcoinut-v-praxi-13-sraz-ptel-php-v-praze'
-                        thumbnail: 'https://i.ytimg.com/vi/a4CUwNG1WRU/sddefault.jpg'
-                    -
-                        title: 'Co mě překvapilo, když jsem pracoval v Anglii'
-                        speaker: 'Tomáš Fejfar'
-                        description: 'Slajdy: https://www.slideshare.net/tomas.fejfar/co-m-pekvapilo-v-uk-phpkai-22122016'
-                        video_id: Uw5qOam3Xa0
-                        slug: tomas-fejfar-co-me-prekvapilo-kdyz-jsem-pracoval-v-anglii
-                        kind: meetup
-                        published_at: 2019-06-19T15:41:53+00:00
-                        slides: 'https://www.slideshare.net/tomas.fejfar/co-m-pekvapilo-v-uk-phpkai-22122016'
-                        thumbnail: 'https://i.ytimg.com/vi/Uw5qOam3Xa0/sddefault.jpg'
             -
                 title: '20. sraz přátel PHP v Praze, srpen 2017'
                 published_at: 2017-08-21T13:59:17+00:00
@@ -100,6 +36,7 @@ parameters:
                         published_at: 2017-08-21T14:02:28+00:00
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/VbodO1PmMFA/sddefault.jpg'
+                month: 2017-8
             -
                 title: '15. sraz přátel PHP v Praze, duben 2017'
                 published_at: 2017-03-21T15:39:10+00:00
@@ -164,6 +101,246 @@ parameters:
                         published_at: 2017-03-21T16:44:48+00:00
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/YE2v6m_F9bI/sddefault.jpg'
+                month: 2017-4
+            -
+                title: '7. sraz přátel PHP v Praze, duben 2016'
+                published_at: 2016-05-17T20:34:23+00:00
+                videos:
+                    -
+                        title: 'Ako nespáliť server za využití Monitu'
+                        speaker: 'Jozef Lami'
+                        description: "Slajdy: http://www.slideshare.net/pehapkari/ako-nespli-server-monit-jozef-lami-7-sraz-praha\n\nPozrieme sa na škálovanie Symfony procesov (RabbitMQ consumers)."
+                        video_id: 9EyZmx2XgcQ
+                        slug: jozef-lami-ako-nespalit-server-za-vyuziti-monitu
+                        kind: meetup
+                        published_at: 2016-05-20T22:15:37+00:00
+                        slides: 'http://www.slideshare.net/pehapkari/ako-nespli-server-monit-jozef-lami-7-sraz-praha'
+                        thumbnail: 'https://i.ytimg.com/vi/9EyZmx2XgcQ/sddefault.jpg'
+                    -
+                        title: 'Doctrine - Jak si užít s DQL a kde se entity nehodí'
+                        speaker: 'Filip Procházka'
+                        description: "Slajdy: http://www.slideshare.net/pehapkari/doctrine-co-dlat-kdy-entity-nesta-filip-prochzka-7-sraz-praha\n\nUkážeme si, že Doctrine není jenom ORMko a kdy jít o vrstvu níž. Jak DQL naučit věci, které v základu neumí, ale vaše databáze ano. A pár dalších tipů, jak nemít z databáze úplně hloupé úložiště."
+                        video_id: 6mWS2NVtXs0
+                        slug: filip-prochazka-doctrine-jak-si-uzit-s-dql-a-kde-se-entity-nehodi
+                        kind: meetup
+                        published_at: 2016-05-20T22:15:37+00:00
+                        slides: 'http://www.slideshare.net/pehapkari/doctrine-co-dlat-kdy-entity-nesta-filip-prochzka-7-sraz-praha'
+                        thumbnail: 'https://i.ytimg.com/vi/6mWS2NVtXs0/sddefault.jpg'
+                    -
+                        title: 'Blackfire.io - Fire up your PHP app performance'
+                        speaker: 'Jan Kopp'
+                        description: "Slajdy: http://www.slideshare.net/pehapkari/blackfireio-fire-up-your-php-app-performance-jan-kopp-7-sraz-praha\n\nMáte problémy s výkonem vašich aplikací? Pomalé načítání stránek obtěžuje vás i uživatele? Testujte výkonnost PHP aplikací pomocí Blackfire.io nástroje od SensioLabs."
+                        video_id: YuuzZxaahIY
+                        slug: jan-kopp-blackfire-io-fire-up-your-php-app-performance
+                        kind: meetup
+                        published_at: 2016-05-20T22:15:37+00:00
+                        slides: 'http://www.slideshare.net/pehapkari/blackfireio-fire-up-your-php-app-performance-jan-kopp-7-sraz-praha'
+                        thumbnail: 'https://i.ytimg.com/vi/YuuzZxaahIY/sddefault.jpg'
+                month: 2016-4
+            -
+                title: '13. sraz přátel PHP v Praze, prosinec 2016'
+                published_at: 2019-06-18T22:37:36+00:00
+                videos:
+                    -
+                        title: 'Novinky v Nette 2.4'
+                        speaker: 'Štepán Kocourek'
+                        description: 'Slajdy: https://dokumen.tips/technology/vanocni-rychlovky-novinky-v-nette-24.html'
+                        video_id: b05CIIRTKtY
+                        slug: stepan-kocourek-novinky-v-nette-2-4
+                        kind: meetup
+                        published_at: 2019-06-19T15:36:17+00:00
+                        slides: 'https://dokumen.tips/technology/vanocni-rychlovky-novinky-v-nette-24.html'
+                        thumbnail: 'https://i.ytimg.com/vi/b05CIIRTKtY/sddefault.jpg'
+                    -
+                        title: 'Pluginy v PHPStormu pro Symfony'
+                        speaker: 'Pavel Vondrášek'
+                        description: ''
+                        video_id: piRh1VrSdZM
+                        slug: pavel-vondrasek-pluginy-v-phpstormu-pro-symfony
+                        kind: meetup
+                        published_at: 2019-06-19T15:37:12+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/piRh1VrSdZM/sddefault.jpg'
+                    -
+                        title: 'Finanční transakce - Jak neztratit ani halíř'
+                        speaker: 'Jan Endel'
+                        description: 'Slajdy: https://www.slideshare.net/JanEndel/jan-neztratit-ani-halir'
+                        video_id: aov0_cAcJjI
+                        slug: jan-endel-financni-transakce-jak-neztratit-ani-halir
+                        kind: meetup
+                        published_at: 2019-06-19T15:37:57+00:00
+                        slides: 'https://www.slideshare.net/JanEndel/jan-neztratit-ani-halir'
+                        thumbnail: 'https://i.ytimg.com/vi/aov0_cAcJjI/sddefault.jpg'
+                    -
+                        title: 'Infrastructure as Code - Jak nahodit produkční mašinu a přitom o tom vědět prd'
+                        speaker: 'Václav Makeš'
+                        description: 'Slajdy: https://www.slideshare.net/pehapkari/vclav-make-infrastructure-as-code-jak-nahazovat-stroje-a-nic-moc-nevdt-13-sraz-ptel-php-v-praze?fbclid=IwAR17njDk_kpMweX4j8NL2jTofEMv7u_67njD5U6LCB7BMKXsrZmvfnMGLMQ'
+                        video_id: '--PglZpcyzg'
+                        slug: vaclav-makes-infrastructure-as-code-jak-nahodit-produkcni-masinu-a-pritom-o-tom-vedet-prd
+                        kind: meetup
+                        published_at: 2019-06-19T15:38:24+00:00
+                        slides: 'https://www.slideshare.net/pehapkari/vclav-make-infrastructure-as-code-jak-nahazovat-stroje-a-nic-moc-nevdt-13-sraz-ptel-php-v-praze'
+                        thumbnail: 'https://i.ytimg.com/vi/--PglZpcyzg/sddefault.jpg'
+                    -
+                        title: 'Deleted video'
+                        speaker: ''
+                        description: 'This video is unavailable.'
+                        video_id: a4CUwNG1WRU
+                        slug: deleted-video
+                        kind: meetup
+                        published_at: 2019-06-19T15:38:31+00:00
+                        slides: ''
+                    -
+                        title: 'Co mě překvapilo, když jsem pracoval v Anglii'
+                        speaker: 'Tomáš Fejfar'
+                        description: 'Slajdy: https://www.slideshare.net/tomas.fejfar/co-m-pekvapilo-v-uk-phpkai-22122016'
+                        video_id: Uw5qOam3Xa0
+                        slug: tomas-fejfar-co-me-prekvapilo-kdyz-jsem-pracoval-v-anglii
+                        kind: meetup
+                        published_at: 2019-06-19T15:41:53+00:00
+                        slides: 'https://www.slideshare.net/tomas.fejfar/co-m-pekvapilo-v-uk-phpkai-22122016'
+                        thumbnail: 'https://i.ytimg.com/vi/Uw5qOam3Xa0/sddefault.jpg'
+                    -
+                        title: 'Implementace BitCoinut v praxi'
+                        speaker: 'Tom Klíma'
+                        description: 'Slajdy: https://www.slideshare.net/pehapkari/tom-klma-implementace-bitcoinut-v-praxi-13-sraz-ptel-php-v-praze'
+                        video_id: '-6vPz2jhf2s'
+                        slug: tom-klima-implementace-bitcoinut-v-praxi
+                        kind: meetup
+                        published_at: 2019-06-19T17:58:31+00:00
+                        slides: 'https://www.slideshare.net/pehapkari/tom-klma-implementace-bitcoinut-v-praxi-13-sraz-ptel-php-v-praze'
+                        thumbnail: 'https://i.ytimg.com/vi/-6vPz2jhf2s/sddefault.jpg'
+                month: 2016-12
+            -
+                title: '12. sraz přátel PHP v Praze, listopad 2016'
+                published_at: 2017-02-27T19:58:38+00:00
+                videos:
+                    -
+                        title: 'Jsme přece vývojáři, né textaři!'
+                        speaker: 'Tomáš Kazatel'
+                        description: 'O copywritingu, přesahu do programování, co mi znalost copy dala a proč bychom se o něj měli sakra vůbec zajímat.'
+                        video_id: M-fxcctYjKQ
+                        slug: tomas-kazatel-jsme-prece-vyvojari-ne-textari
+                        kind: meetup
+                        published_at: 2017-02-28T09:51:24+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/M-fxcctYjKQ/sddefault.jpg'
+                    -
+                        title: 'Co musí programátor umět kromě programování'
+                        speaker: 'Petr Pavel'
+                        description: "Slajdy: http://pepa.info/prednasky/co-musi-programator-umet.pdf\n\nEkonomický přínos a jak ho dosáhnout. Zákazník potřebuje víc než jen aplikaci nebo web. Zkušenosti z 10+ let na volné noze."
+                        video_id: tDHSRE7qgrU
+                        slug: petr-pavel-co-musi-programator-umet-krome-programovani
+                        kind: meetup
+                        published_at: 2017-02-28T09:51:24+00:00
+                        slides: 'http://pepa.info/prednasky/co-musi-programator-umet.pdf'
+                        thumbnail: 'https://i.ytimg.com/vi/tDHSRE7qgrU/sddefault.jpg'
+                    -
+                        title: 'Když si dva vývojáři založí s.r.o.'
+                        speaker: 'Jakub Kratina'
+                        description: 'Jaké to je, když se dva programátoři rozhodnou založit vývojářskou firmu při škole a dostanou se na 10 zaměstnanců.'
+                        video_id: CjPKJshkZeY
+                        slug: jakub-kratina-kdyz-si-dva-vyvojari-zalozi-s-r-o
+                        kind: meetup
+                        published_at: 2017-02-28T21:06:19+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/CjPKJshkZeY/sddefault.jpg'
+                month: 2016-11
+            -
+                title: 'PHP Evening #1, ČB, listopad 2016'
+                published_at: 2016-11-28T17:37:27+00:00
+                videos:
+                    -
+                        title: 'Propel ORM'
+                        speaker: 'Martin Sojka'
+                        description: "Slajdy: http://www.slideshare.net/pehapkari/php-evening-1-propel-orm-martin-sojka\n\nMartin sojka představuje Propel ORM ve srovnání s Doctrine včetně vstupů přímo v kódu."
+                        video_id: B78czQt_v14
+                        slug: martin-sojka-propel-orm
+                        kind: meetup
+                        published_at: 2016-12-11T16:37:42+00:00
+                        slides: 'http://www.slideshare.net/pehapkari/php-evening-1-propel-orm-martin-sojka'
+                        thumbnail: 'https://i.ytimg.com/vi/B78czQt_v14/sddefault.jpg'
+                    -
+                        title: Automatizace
+                        speaker: 'Jan Klat'
+                        description: "Slajdy: http://www.slideshare.net/pehapkari/php-evening-1-automatizace-jan-klat\n\nHonza Klat ze Skrz.cz ukazuje tipy co a jak při vývoji zautomatizovat."
+                        video_id: WusZdZ-_ryk
+                        slug: jan-klat-automatizace
+                        kind: meetup
+                        published_at: 2016-12-11T16:37:42+00:00
+                        slides: 'http://www.slideshare.net/pehapkari/php-evening-1-automatizace-jan-klat'
+                        thumbnail: 'https://i.ytimg.com/vi/WusZdZ-_ryk/sddefault.jpg'
+                month: 2016-11
+            -
+                title: '4. sraz přátel PHP v Praze, leden 2016'
+                published_at: 2016-02-04T19:39:06+00:00
+                videos:
+                    -
+                        title: 'Moje první aplikace v Symfony 3'
+                        speaker: 'Martin Zeman (Zemistr)'
+                        description: "Slajdy k přednášce zde: http://www.slideshare.net/pehapkari/martin-zeman-moje-prvn-aplikace-v-symfony-3-4-sraz-ptel-symfony-v-praze\n\n\"90% webových aplikací funguje stylem \"získám uživatelská data, uložím si je do nějakého storage a pak si je prohlédnu na bezpečné stránce\". Se Symfony 3 je tohle otázka pár minut. Jestli vás zajímá jak na to, přijďte se podívat. :)\""
+                        video_id: Et7x3MHJSCY
+                        slug: martin-zeman-zemistr-moje-prvni-aplikace-v-symfony-3
+                        kind: meetup
+                        published_at: 2016-02-05T12:58:28+00:00
+                        slides: 'http://www.slideshare.net/pehapkari/martin-zeman-moje-prvn-aplikace-v-symfony-3-4-sraz-ptel-symfony-v-praze'
+                        thumbnail: 'https://i.ytimg.com/vi/Et7x3MHJSCY/sddefault.jpg'
+                    -
+                        title: 'ELK - víc než jen logy'
+                        speaker: 'Tomáš Fejfar'
+                        description: "Slajdy k přednášce: http://www.slideshare.net/pehapkari/tom-fejfar-elk-vc-ne-jen-logy-4-sraz-ptel-symfony-v-praze\n\n\"Jakmile máte větší aplikaci rozdělenou na více workerů nebo oddělené microservices běžící jako samostatné aplikace brzy se přestanete orientovat v množství logů, které servery generují. Navíc co se nedá měřit, to se nedá řídit. A logy se měřit dají. A já vám ukážu jak.\""
+                        video_id: 9-Q4QU0Wtoc
+                        slug: tomas-fejfar-elk-vic-nez-jen-logy
+                        kind: meetup
+                        published_at: 2016-02-05T00:26:01+00:00
+                        slides: 'http://www.slideshare.net/pehapkari/tom-fejfar-elk-vc-ne-jen-logy-4-sraz-ptel-symfony-v-praze'
+                        thumbnail: 'https://i.ytimg.com/vi/9-Q4QU0Wtoc/sddefault.jpg'
+                    -
+                        title: 'WordPress + Laravel = ♥'
+                        speaker: 'Karel Škopek'
+                        description: "Slajdy: http://www.slideshare.net/pehapkari/karel-kopek-wordpress-laravel-lt3-4-sraz-ptel-symfony-v-praze\n\n\"Může Laravel obstát v konkurenci Zendu a Symfony? Je konvence nad konfigurací skutečně výhoda? A co teprve ve spojení s WordPress v roli headless CMS? Toto všechno z pohledu posedlého front-end developera.\""
+                        video_id: WH0MkR1yD_k
+                        slug: karel-skopek-wordpress-laravel
+                        kind: meetup
+                        published_at: 2016-02-05T00:10:50+00:00
+                        slides: 'http://www.slideshare.net/pehapkari/karel-kopek-wordpress-laravel-lt3-4-sraz-ptel-symfony-v-praze'
+                        thumbnail: 'https://i.ytimg.com/vi/WH0MkR1yD_k/sddefault.jpg'
+                month: 2016-1
+            -
+                title: '2. sraz přátel PHP v Praze, listopad 2015'
+                published_at: 2016-01-13T10:17:11+00:00
+                videos:
+                    -
+                        title: 'RabbitMQ - spolehlivé zpracování dat na pozadí'
+                        speaker: 'Jiří Koutný'
+                        description: "Prezentace k dispozici na http://www.slideshare.net/pehapkari/ji-koutn-rabbitmq-spolehliv-zpracovn-dat-na-pozad-2-sraz-ptel-symfony-v-praze\n\n\"V Collabimu potřebujeme denně zpracovávat miliony záznamů na pozadí. Dříve jsme to dělali cronem, ale bylo to pomalé a nespolehlivé. Na přednášce vám ukážu, jak to s RabbitMQ dělat mnohem lépe.\""
+                        video_id: j7EMYUnyk44
+                        slug: jiri-koutny-rabbitmq-spolehlive-zpracovani-dat-na-pozadi
+                        kind: meetup
+                        published_at: 2016-01-13T10:17:16+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/j7EMYUnyk44/sddefault.jpg'
+                    -
+                        title: 'Jak rozjet největší vyhledávač slev na Symfony?'
+                        speaker: 'Jan Klat'
+                        description: 'Slidy k přednášce: http://www.slideshare.net/pehapkari/jan-klat-skrzcz-jak-rozjet-nejvt-vyhledva-slev-na-symfony'
+                        video_id: r0QePVGTNd0
+                        slug: jan-klat-jak-rozjet-nejvetsi-vyhledavac-slev-na-symfony
+                        kind: meetup
+                        published_at: 2016-01-14T12:14:34+00:00
+                        slides: 'http://www.slideshare.net/pehapkari/jan-klat-skrzcz-jak-rozjet-nejvt-vyhledva-slev-na-symfony'
+                        thumbnail: 'https://i.ytimg.com/vi/r0QePVGTNd0/sddefault.jpg'
+                    -
+                        title: 'Optimalizace Symfony na devu'
+                        speaker: 'Vašek Purchart'
+                        description: 'Slidy k přednášce: https://www.slideshare.net/pehapkari/vaek-purchart-optimalizace-symfony-na-devu-2-sraz-ptel-symfony-v-praze'
+                        video_id: f93mNBJ-IUA
+                        slug: vasek-purchart-optimalizace-symfony-na-devu
+                        kind: meetup
+                        published_at: 2016-01-14T12:15:28+00:00
+                        slides: 'https://www.slideshare.net/pehapkari/vaek-purchart-optimalizace-symfony-na-devu-2-sraz-ptel-symfony-v-praze'
+                        thumbnail: 'https://i.ytimg.com/vi/f93mNBJ-IUA/sddefault.jpg'
+                month: 2015-11
             -
                 title: '14. sraz přátel PHP v Praze, březen 2017'
                 published_at: 2017-03-01T11:17:45+00:00
@@ -218,64 +395,7 @@ parameters:
                         published_at: 2017-03-01T11:48:07+00:00
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/IVsonhyufPc/sddefault.jpg'
-            -
-                title: '12. sraz přátel PHP v Praze, listopad 2016'
-                published_at: 2017-02-27T19:58:38+00:00
-                videos:
-                    -
-                        title: 'Jsme přece vývojáři, né textaři!'
-                        speaker: 'Tomáš Kazatel'
-                        description: 'O copywritingu, přesahu do programování, co mi znalost copy dala a proč bychom se o něj měli sakra vůbec zajímat.'
-                        video_id: M-fxcctYjKQ
-                        slug: tomas-kazatel-jsme-prece-vyvojari-ne-textari
-                        kind: meetup
-                        published_at: 2017-02-28T09:51:24+00:00
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/M-fxcctYjKQ/sddefault.jpg'
-                    -
-                        title: 'Co musí programátor umět kromě programování'
-                        speaker: 'Petr Pavel'
-                        description: "Slajdy: http://pepa.info/prednasky/co-musi-programator-umet.pdf\n\nEkonomický přínos a jak ho dosáhnout. Zákazník potřebuje víc než jen aplikaci nebo web. Zkušenosti z 10+ let na volné noze."
-                        video_id: tDHSRE7qgrU
-                        slug: petr-pavel-co-musi-programator-umet-krome-programovani
-                        kind: meetup
-                        published_at: 2017-02-28T09:51:24+00:00
-                        slides: 'http://pepa.info/prednasky/co-musi-programator-umet.pdf'
-                        thumbnail: 'https://i.ytimg.com/vi/tDHSRE7qgrU/sddefault.jpg'
-                    -
-                        title: 'Když si dva vývojáři založí s.r.o.'
-                        speaker: 'Jakub Kratina'
-                        description: 'Jaké to je, když se dva programátoři rozhodnou založit vývojářskou firmu při škole a dostanou se na 10 zaměstnanců.'
-                        video_id: CjPKJshkZeY
-                        slug: jakub-kratina-kdyz-si-dva-vyvojari-zalozi-s-r-o
-                        kind: meetup
-                        published_at: 2017-02-28T21:06:19+00:00
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/CjPKJshkZeY/sddefault.jpg'
-            -
-                title: 'PHP Evening #1, ČB, listopad 2016'
-                published_at: 2016-11-28T17:37:27+00:00
-                videos:
-                    -
-                        title: 'Propel ORM'
-                        speaker: 'Martin Sojka'
-                        description: "Slajdy: http://www.slideshare.net/pehapkari/php-evening-1-propel-orm-martin-sojka\n\nMartin sojka představuje Propel ORM ve srovnání s Doctrine včetně vstupů přímo v kódu."
-                        video_id: B78czQt_v14
-                        slug: martin-sojka-propel-orm
-                        kind: meetup
-                        published_at: 2016-12-11T16:37:42+00:00
-                        slides: 'http://www.slideshare.net/pehapkari/php-evening-1-propel-orm-martin-sojka'
-                        thumbnail: 'https://i.ytimg.com/vi/B78czQt_v14/sddefault.jpg'
-                    -
-                        title: Automatizace
-                        speaker: 'Jan Klat'
-                        description: "Slajdy: http://www.slideshare.net/pehapkari/php-evening-1-automatizace-jan-klat\n\nHonza Klat ze Skrz.cz ukazuje tipy co a jak při vývoji zautomatizovat."
-                        video_id: WusZdZ-_ryk
-                        slug: jan-klat-automatizace
-                        kind: meetup
-                        published_at: 2016-12-11T16:37:42+00:00
-                        slides: 'http://www.slideshare.net/pehapkari/php-evening-1-automatizace-jan-klat'
-                        thumbnail: 'https://i.ytimg.com/vi/WusZdZ-_ryk/sddefault.jpg'
+                month: ''
             -
                 title: '8. sraz přátel PHP v Praze, květen 2016'
                 published_at: 2016-06-25T19:55:22+00:00
@@ -310,40 +430,7 @@ parameters:
                         published_at: 2016-07-10T16:10:34+00:00
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/MJ92vn8z2XE/sddefault.jpg'
-            -
-                title: '7. sraz přátel PHP v Praze, duben 2016'
-                published_at: 2016-05-17T20:34:23+00:00
-                videos:
-                    -
-                        title: 'Ako nespáliť server za využití Monitu'
-                        speaker: 'Jozef Lami'
-                        description: "Slajdy: http://www.slideshare.net/pehapkari/ako-nespli-server-monit-jozef-lami-7-sraz-praha\n\nPozrieme sa na škálovanie Symfony procesov (RabbitMQ consumers)."
-                        video_id: 9EyZmx2XgcQ
-                        slug: jozef-lami-ako-nespalit-server-za-vyuziti-monitu
-                        kind: meetup
-                        published_at: 2016-05-20T22:15:37+00:00
-                        slides: 'http://www.slideshare.net/pehapkari/ako-nespli-server-monit-jozef-lami-7-sraz-praha'
-                        thumbnail: 'https://i.ytimg.com/vi/9EyZmx2XgcQ/sddefault.jpg'
-                    -
-                        title: 'Doctrine - Jak si užít s DQL a kde se entity nehodí'
-                        speaker: 'Filip Procházka'
-                        description: "Slajdy: http://www.slideshare.net/pehapkari/doctrine-co-dlat-kdy-entity-nesta-filip-prochzka-7-sraz-praha\n\nUkážeme si, že Doctrine není jenom ORMko a kdy jít o vrstvu níž. Jak DQL naučit věci, které v základu neumí, ale vaše databáze ano. A pár dalších tipů, jak nemít z databáze úplně hloupé úložiště."
-                        video_id: 6mWS2NVtXs0
-                        slug: filip-prochazka-doctrine-jak-si-uzit-s-dql-a-kde-se-entity-nehodi
-                        kind: meetup
-                        published_at: 2016-05-20T22:15:37+00:00
-                        slides: 'http://www.slideshare.net/pehapkari/doctrine-co-dlat-kdy-entity-nesta-filip-prochzka-7-sraz-praha'
-                        thumbnail: 'https://i.ytimg.com/vi/6mWS2NVtXs0/sddefault.jpg'
-                    -
-                        title: 'Blackfire.io - Fire up your PHP app performance'
-                        speaker: 'Jan Kopp'
-                        description: "Slajdy: http://www.slideshare.net/pehapkari/blackfireio-fire-up-your-php-app-performance-jan-kopp-7-sraz-praha\n\nMáte problémy s výkonem vašich aplikací? Pomalé načítání stránek obtěžuje vás i uživatele? Testujte výkonnost PHP aplikací pomocí Blackfire.io nástroje od SensioLabs."
-                        video_id: YuuzZxaahIY
-                        slug: jan-kopp-blackfire-io-fire-up-your-php-app-performance
-                        kind: meetup
-                        published_at: 2016-05-20T22:15:37+00:00
-                        slides: 'http://www.slideshare.net/pehapkari/blackfireio-fire-up-your-php-app-performance-jan-kopp-7-sraz-praha'
-                        thumbnail: 'https://i.ytimg.com/vi/YuuzZxaahIY/sddefault.jpg'
+                month: ''
             -
                 title: '6. sraz přátel PHP v Praze, březen 2016'
                 published_at: 2016-04-08T13:52:28+00:00
@@ -378,6 +465,7 @@ parameters:
                         published_at: 2016-04-12T12:58:57+00:00
                         slides: 'http://www.slideshare.net/Symfonycz/automatizace-jednodue-martin-zeman-6-sraz-praha-3132016'
                         thumbnail: 'https://i.ytimg.com/vi/WRHkrqxCiZE/sddefault.jpg'
+                month: ''
             -
                 title: '1. sraz přátel PHP v Ostravě, únor 2016'
                 published_at: 2016-03-14T17:37:12+00:00
@@ -402,6 +490,7 @@ parameters:
                         published_at: 2016-03-14T17:38:04+00:00
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/TiRs1OimnDM/sddefault.jpg'
+                month: ''
             -
                 title: '5. sraz přátel PHP v Praze, únor 2016'
                 published_at: 2016-03-06T18:21:02+00:00
@@ -436,74 +525,7 @@ parameters:
                         published_at: 2016-03-06T19:05:33+00:00
                         slides: 'http://www.slideshare.net/pehapkari/ji-koutn-collabim-jak-scrapujeme-700-000-strnek-vyhledva-denn'
                         thumbnail: 'https://i.ytimg.com/vi/0VQXnLrGhqw/sddefault.jpg'
-            -
-                title: '4. sraz přátel PHP v Praze, leden 2016'
-                published_at: 2016-02-04T19:39:06+00:00
-                videos:
-                    -
-                        title: 'Moje první aplikace v Symfony 3'
-                        speaker: 'Martin Zeman (Zemistr)'
-                        description: "Slajdy k přednášce zde: http://www.slideshare.net/pehapkari/martin-zeman-moje-prvn-aplikace-v-symfony-3-4-sraz-ptel-symfony-v-praze\n\n\"90% webových aplikací funguje stylem \"získám uživatelská data, uložím si je do nějakého storage a pak si je prohlédnu na bezpečné stránce\". Se Symfony 3 je tohle otázka pár minut. Jestli vás zajímá jak na to, přijďte se podívat. :)\""
-                        video_id: Et7x3MHJSCY
-                        slug: martin-zeman-zemistr-moje-prvni-aplikace-v-symfony-3
-                        kind: meetup
-                        published_at: 2016-02-05T12:58:28+00:00
-                        slides: 'http://www.slideshare.net/pehapkari/martin-zeman-moje-prvn-aplikace-v-symfony-3-4-sraz-ptel-symfony-v-praze'
-                        thumbnail: 'https://i.ytimg.com/vi/Et7x3MHJSCY/sddefault.jpg'
-                    -
-                        title: 'ELK - víc než jen logy'
-                        speaker: 'Tomáš Fejfar'
-                        description: "Slajdy k přednášce: http://www.slideshare.net/pehapkari/tom-fejfar-elk-vc-ne-jen-logy-4-sraz-ptel-symfony-v-praze\n\n\"Jakmile máte větší aplikaci rozdělenou na více workerů nebo oddělené microservices běžící jako samostatné aplikace brzy se přestanete orientovat v množství logů, které servery generují. Navíc co se nedá měřit, to se nedá řídit. A logy se měřit dají. A já vám ukážu jak.\""
-                        video_id: 9-Q4QU0Wtoc
-                        slug: tomas-fejfar-elk-vic-nez-jen-logy
-                        kind: meetup
-                        published_at: 2016-02-05T00:26:01+00:00
-                        slides: 'http://www.slideshare.net/pehapkari/tom-fejfar-elk-vc-ne-jen-logy-4-sraz-ptel-symfony-v-praze'
-                        thumbnail: 'https://i.ytimg.com/vi/9-Q4QU0Wtoc/sddefault.jpg'
-                    -
-                        title: 'WordPress + Laravel = ♥'
-                        speaker: 'Karel Škopek'
-                        description: "Slajdy: http://www.slideshare.net/pehapkari/karel-kopek-wordpress-laravel-lt3-4-sraz-ptel-symfony-v-praze\n\n\"Může Laravel obstát v konkurenci Zendu a Symfony? Je konvence nad konfigurací skutečně výhoda? A co teprve ve spojení s WordPress v roli headless CMS? Toto všechno z pohledu posedlého front-end developera.\""
-                        video_id: WH0MkR1yD_k
-                        slug: karel-skopek-wordpress-laravel
-                        kind: meetup
-                        published_at: 2016-02-05T00:10:50+00:00
-                        slides: 'http://www.slideshare.net/pehapkari/karel-kopek-wordpress-laravel-lt3-4-sraz-ptel-symfony-v-praze'
-                        thumbnail: 'https://i.ytimg.com/vi/WH0MkR1yD_k/sddefault.jpg'
-            -
-                title: '2. sraz přátel PHP v Praze, listopad 2015'
-                published_at: 2016-01-13T10:17:11+00:00
-                videos:
-                    -
-                        title: 'RabbitMQ - spolehlivé zpracování dat na pozadí'
-                        speaker: 'Jiří Koutný'
-                        description: "Prezentace k dispozici na http://www.slideshare.net/pehapkari/ji-koutn-rabbitmq-spolehliv-zpracovn-dat-na-pozad-2-sraz-ptel-symfony-v-praze\n\n\"V Collabimu potřebujeme denně zpracovávat miliony záznamů na pozadí. Dříve jsme to dělali cronem, ale bylo to pomalé a nespolehlivé. Na přednášce vám ukážu, jak to s RabbitMQ dělat mnohem lépe.\""
-                        video_id: j7EMYUnyk44
-                        slug: jiri-koutny-rabbitmq-spolehlive-zpracovani-dat-na-pozadi
-                        kind: meetup
-                        published_at: 2016-01-13T10:17:16+00:00
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/j7EMYUnyk44/sddefault.jpg'
-                    -
-                        title: 'Jak rozjet největší vyhledávač slev na Symfony?'
-                        speaker: 'Jan Klat'
-                        description: 'Slidy k přednášce: http://www.slideshare.net/pehapkari/jan-klat-skrzcz-jak-rozjet-nejvt-vyhledva-slev-na-symfony'
-                        video_id: r0QePVGTNd0
-                        slug: jan-klat-jak-rozjet-nejvetsi-vyhledavac-slev-na-symfony
-                        kind: meetup
-                        published_at: 2016-01-14T12:14:34+00:00
-                        slides: 'http://www.slideshare.net/pehapkari/jan-klat-skrzcz-jak-rozjet-nejvt-vyhledva-slev-na-symfony'
-                        thumbnail: 'https://i.ytimg.com/vi/r0QePVGTNd0/sddefault.jpg'
-                    -
-                        title: 'Optimalizace Symfony na devu'
-                        speaker: 'Vašek Purchart'
-                        description: 'Slidy k přednášce: https://www.slideshare.net/pehapkari/vaek-purchart-optimalizace-symfony-na-devu-2-sraz-ptel-symfony-v-praze'
-                        video_id: f93mNBJ-IUA
-                        slug: vasek-purchart-optimalizace-symfony-na-devu
-                        kind: meetup
-                        published_at: 2016-01-14T12:15:28+00:00
-                        slides: 'https://www.slideshare.net/pehapkari/vaek-purchart-optimalizace-symfony-na-devu-2-sraz-ptel-symfony-v-praze'
-                        thumbnail: 'https://i.ytimg.com/vi/f93mNBJ-IUA/sddefault.jpg'
+                month: ''
             -
                 title: '1. sraz přátel PHP v Praze, říjen 2015'
                 published_at: 2015-11-11T13:09:31+00:00
@@ -538,6 +560,7 @@ parameters:
                         published_at: 2015-11-12T10:08:43+00:00
                         slides: 'http://www.slideshare.net/pehapkari/jakub-kulhn-reactphp-symfony-profit-1-sraz-ptel-symfony-v-praze'
                         thumbnail: 'https://i.ytimg.com/vi/MwYaLr5fqos/sddefault.jpg'
+                month: ''
         php_prague_playlist:
             title: 'PHP Prague 2016'
             published_at: 2017-04-06T10:43:24+00:00
@@ -612,6 +635,7 @@ parameters:
                     published_at: 2017-04-07T08:43:45+00:00
                     slides: ''
                     thumbnail: 'https://i.ytimg.com/vi/Zi06BaFw0vw/sddefault.jpg'
+            month: ''
         livestream_playlist:
             title: 'Twitch Livestream'
             published_at: 2017-03-21T20:10:21+00:00
@@ -669,7 +693,7 @@ parameters:
                 -
                     title: 'Jak zvýšit svoji cenu při hledání práce'
                     speaker: 'Jakub Kratina'
-                    description: "Jakub ti poví, co můžeš udělat pro to, aby sis mohl říct o větší plat, jaké jsou možnosti a modely práce a jak k nim přistupovat.\n\nOdkazy:\n- Efektivita práce (https://www.youtube.com/watch?v=GhhRDpR_7gU),\n- https://www.linkedin.com/in/bc-jakub-kratina-b5972549/\n- http://www.jobs.cz/poradna/video-jak-znite-kdyz-si-rikate-o-vyssi-plat/\n- http://www.jobs.cz/poradna/21-otazek-na-ktere-na-pohovoru-polozte-vy/\n- https://devel.cz/otazka/jak-se-pracuje-za-cool-people\n- www.olap.cz\n- www.toptal.com\n- https://www.oreilly.com/ideas/2016-2017-web-salary-survey\n- http://honzajavorek.cz/blog/how-corporations-can-attract-good-engineers"
+                    description: "Jakub ti poví, co můžeš udělat pro to, aby sis mohl říct o větší plat, jaké jsou možnosti a modely práce a jak k nim přistupovat.\n\nOdkazy:\n- Efektivita práce (https://www.youtube.com/watch?v=GhhRDpR_7gU),\n- https://cz.linkedin.com/in/jakub-kratina-b5972549\n- http://www.jobs.cz/poradna/video-jak-znite-kdyz-si-rikate-o-vyssi-plat/\n- http://www.jobs.cz/poradna/21-otazek-na-ktere-na-pohovoru-polozte-vy/\n- https://devel.cz/otazka/jak-se-pracuje-za-cool-people\n- www.toptal.com\n- https://www.oreilly.com/ideas/2016-2017-web-salary-survey\n- http://honzajavorek.cz/blog/how-corporations-can-attract-good-engineers"
                     video_id: i59-IYvW38A
                     slug: jakub-kratina-jak-zvysit-svoji-cenu-pri-hledani-prace
                     kind: livestream
@@ -876,3 +900,4 @@ parameters:
                     published_at: 2018-07-16T09:27:56+00:00
                     slides: ''
                     thumbnail: 'https://i.ytimg.com/vi/qAGSVpZsBWM/sddefault.jpg'
+            month: ''

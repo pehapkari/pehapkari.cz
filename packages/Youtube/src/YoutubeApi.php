@@ -79,6 +79,8 @@ final class YoutubeApi
             $videos = $this->createVideos($videosInPlaylistData, $kind);
             $playlist = $this->createPlaylist($item, $videos);
 
+            $playlist['month'] = $this->resolvePlaylistMonth($item['snippet']['title']);
+
             if ($kind === self::KIND_LIVESTREAM) {
                 $playlists['livestream_playlist'] = $playlist;
             } elseif ($kind === self::KIND_PHP_PRAGUE_CONFERENCE) {
@@ -86,6 +88,13 @@ final class YoutubeApi
             } else {
                 $playlists['meetup_playlists'][] = $playlist;
             }
+        }
+
+        // sort playlists by month, newest up
+        if (isset($playlists['meetup_playlists'])) {
+            usort($playlists['meetup_playlists'], function (array $firstPlaylist, array $secondPlaylist): int {
+                return $secondPlaylist['month'] <=> $firstPlaylist['month'];
+            });
         }
 
         return $playlists;
@@ -153,7 +162,7 @@ final class YoutubeApi
             $match = Strings::match($video['description'], '#(Slajdy|Slidy)(.*?): (?<slides>[\w:\/\.\-\_]+)#s');
             $video['slides'] = $match['slides'] ?? '';
 
-            $thumbnails = $videoItem['snippet']['thumbnails'];
+            $thumbnails = $videoItem['snippet']['thumbnails'] ?? null;
             if (isset($thumbnails['standard'])) {
                 $video['thumbnail'] = $thumbnails['standard']['url'];
             } elseif (isset($thumbnails['high'])) {
@@ -178,6 +187,26 @@ final class YoutubeApi
             'published_at' => DateTime::from($item['snippet']['publishedAt']),
             'videos' => $videos,
         ];
+    }
+
+    private function resolvePlaylistMonth(string $playlistTitle): string
+    {
+        $match = Strings::match($playlistTitle, '#\, (?<month>\w+) (?<year>\d+)$#');
+        if (! isset($match['month']) || ! isset($match['year'])) {
+            return '';
+        }
+        // replace Czech string month by number
+        $numberToMonth = [1 => 'leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'];
+        $monthToNumber = array_flip($numberToMonth);
+
+        $month = $monthToNumber[$match['month']] ?? null;
+        $year = $match['year'];
+
+        if ($month && $year) {
+            return $year . '-' . $month;
+        }
+
+        return '';
     }
 
     /**

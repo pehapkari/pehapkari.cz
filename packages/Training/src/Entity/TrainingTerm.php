@@ -26,6 +26,11 @@ class TrainingTerm implements UploadDestinationAwareInterface
     use UploadableImageTrait;
 
     /**
+     * @var int
+     */
+    private const DEADLINE_DAYS_AHEAD = 7;
+
+    /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -63,12 +68,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
      * @var int
      */
     private $maxParticipantCount;
-
-    /**
-     * @ORM\Column(type="datetime")
-     * @var DateTime
-     */
-    private $deadlineDateTime;
 
     /**
      * @ORM\Column(type="datetime")
@@ -150,12 +149,14 @@ class TrainingTerm implements UploadDestinationAwareInterface
 
     public function getDeadlineDateTime(): ?DateTime
     {
-        return $this->deadlineDateTime;
-    }
+        if ($this->startDateTime === null) {
+            return null;
+        }
 
-    public function setDeadlineDateTime(DateTime $registrationDeadlineDateTime): void
-    {
-        $this->deadlineDateTime = $registrationDeadlineDateTime;
+        $deadLineDateTime = clone $this->startDateTime;
+        $deadLineDateTime->setTime(23, 59);
+
+        return $deadLineDateTime->modify(sprintf('- %d days', self::DEADLINE_DAYS_AHEAD));
     }
 
     public function getStartDateTimeInFormat(string $format): string
