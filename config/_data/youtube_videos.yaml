@@ -1,4 +1,4 @@
-# this file was generated on 2019-06-20 14:15:30, do not edit it manually
+# this file was generated on 2019-06-21 23:08:23, do not edit it manually
 parameters:
     youtube_videos:
         meetup_playlists:
@@ -181,15 +181,6 @@ parameters:
                         published_at: 2019-06-19T15:38:24+00:00
                         slides: 'https://www.slideshare.net/pehapkari/vclav-make-infrastructure-as-code-jak-nahazovat-stroje-a-nic-moc-nevdt-13-sraz-ptel-php-v-praze'
                         thumbnail: 'https://i.ytimg.com/vi/--PglZpcyzg/sddefault.jpg'
-                    -
-                        title: 'Deleted video'
-                        speaker: ''
-                        description: 'This video is unavailable.'
-                        video_id: a4CUwNG1WRU
-                        slug: deleted-video
-                        kind: meetup
-                        published_at: 2019-06-19T15:38:31+00:00
-                        slides: ''
                     -
                         title: 'Co mě překvapilo, když jsem pracoval v Anglii'
                         speaker: 'Tomáš Fejfar'
@@ -561,325 +552,181 @@ parameters:
                         slides: 'http://www.slideshare.net/pehapkari/jakub-kulhn-reactphp-symfony-profit-1-sraz-ptel-symfony-v-praze'
                         thumbnail: 'https://i.ytimg.com/vi/MwYaLr5fqos/sddefault.jpg'
                 month: ''
-        php_prague_playlist:
-            title: 'PHP Prague 2016'
-            published_at: 2017-04-06T10:43:24+00:00
-            videos:
-                -
-                    title: 'Automate All The Things!'
-                    speaker: 'Jan Klat'
-                    description: ''
-                    video_id: 1Az2Qlcv8TI
-                    slug: jan-klat-automate-all-the-things
-                    kind: php_prague_conference
-                    published_at: 2017-04-06T10:43:40+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/1Az2Qlcv8TI/sddefault.jpg'
-                -
-                    title: 'Coding standard'
-                    speaker: 'Ondřej Mirtes'
-                    description: ''
-                    video_id: i31zPp0sz-g
-                    slug: ondrej-mirtes-coding-standard
-                    kind: php_prague_conference
-                    published_at: 2017-04-06T10:43:40+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/i31zPp0sz-g/sddefault.jpg'
-                -
-                    title: 'Framework less code'
-                    speaker: 'Martin Hujer'
-                    description: ''
-                    video_id: v7i-v_phDUc
-                    slug: martin-hujer-framework-less-code
-                    kind: php_prague_conference
-                    published_at: 2017-04-07T08:43:45+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/v7i-v_phDUc/sddefault.jpg'
-                -
-                    title: PSR-7
-                    speaker: 'Marek Gach'
-                    description: ''
-                    video_id: iuMZ4rvqLQk
-                    slug: marek-gach-psr-7
-                    kind: php_prague_conference
-                    published_at: 2017-04-06T18:07:04+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/iuMZ4rvqLQk/sddefault.jpg'
-                -
-                    title: 'Proč by sakra někdo chtěl dělat eshop'
-                    speaker: 'Tomáš Strejček'
-                    description: ''
-                    video_id: 6NKUixKxyPI
-                    slug: tomas-strejcek-proc-by-sakra-nekdo-chtel-delat-eshop
-                    kind: php_prague_conference
-                    published_at: 2017-04-07T08:43:45+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/6NKUixKxyPI/sddefault.jpg'
-                -
-                    title: PhpStorm
-                    speaker: 'Tomáš Fejfar'
-                    description: ''
-                    video_id: Uq4o_tbvqIw
-                    slug: tomas-fejfar-phpstorm
-                    kind: php_prague_conference
-                    published_at: 2017-04-07T08:43:45+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/Uq4o_tbvqIw/sddefault.jpg'
-                -
-                    title: 'PHP WTF'
-                    speaker: 'Michal Špaček'
-                    description: ''
-                    video_id: Zi06BaFw0vw
-                    slug: michal-spacek-php-wtf
-                    kind: php_prague_conference
-                    published_at: 2017-04-07T08:43:45+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/Zi06BaFw0vw/sddefault.jpg'
-            month: ''
+        php_prague_playlists:
+            -
+                title: 'PHP Prague 2018'
+                published_at: 2018-08-19T19:39:42+00:00
+                videos:
+                    -
+                        title: 'How To Love Git'
+                        speaker: 'Matous Czerner'
+                        description: 'Slides: https://docs.google.com/presentation/d/1sPYeOwIe6CvqHhSSltQCASX4j_gpGTFNEKWttCATmao/edit?ts=5b33af80'
+                        video_id: EOn_VDZ9ep8
+                        slug: matous-czerner-how-to-love-git
+                        kind: php_prague_conference
+                        published_at: 2018-08-19T19:41:40+00:00
+                        slides: 'https://docs.google.com/presentation/d/1sPYeOwIe6CvqHhSSltQCASX4j_gpGTFNEKWttCATmao/edit'
+                        thumbnail: 'https://i.ytimg.com/vi/EOn_VDZ9ep8/sddefault.jpg'
+                    -
+                        title: 'Total Recall - The application that never forgets'
+                        speaker: 'Holger Woltersdorf'
+                        description: 'Slides: https://speakerdeck.com/hollodotme/total-recall-the-application-that-never-forgets-2'
+                        video_id: lD9oa5huoyA
+                        slug: holger-woltersdorf-total-recall-the-application-that-never-forgets
+                        kind: php_prague_conference
+                        published_at: 2018-08-19T19:42:48+00:00
+                        slides: 'https://speakerdeck.com/hollodotme/total-recall-the-application-that-never-forgets-2'
+                        thumbnail: 'https://i.ytimg.com/vi/lD9oa5huoyA/sddefault.jpg'
+                    -
+                        title: 'MVP: How we fucked-up despite a training in Rocketspace, San Francisco'
+                        speaker: 'David Velvethy'
+                        description: 'Slides: https://docs.google.com/presentation/d/10rTcSTNBHEEv_7Dc5vJ8kpdc_iphtgYJQMOTxciQKwA/edit?ts=5b2e59a4'
+                        video_id: l3FY0BENmqs
+                        slug: david-velvethy-mvp-how-we-fucked-up-despite-a-training-in-rocketspace-san-francisco
+                        kind: php_prague_conference
+                        published_at: 2018-08-19T19:42:48+00:00
+                        slides: 'https://docs.google.com/presentation/d/10rTcSTNBHEEv_7Dc5vJ8kpdc_iphtgYJQMOTxciQKwA/edit'
+                        thumbnail: 'https://i.ytimg.com/vi/l3FY0BENmqs/sddefault.jpg'
+                    -
+                        title: 'What’s new in PHPStan'
+                        speaker: 'Ondřej Mirtes'
+                        description: ''
+                        video_id: nfq2zsazpZM
+                        slug: ondrej-mirtes-what-s-new-in-phpstan
+                        kind: php_prague_conference
+                        published_at: 2018-08-19T19:42:48+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/nfq2zsazpZM/sddefault.jpg'
+                    -
+                        title: 'The Simplest Gitlab CI Pipeline Ever'
+                        speaker: 'Jan Mikeš'
+                        description: 'Slides: https://www.slideshare.net/JanMike3/php-prague-2018-the-simplest-gitlab-ci-pipeline-ever'
+                        video_id: HG0HgeUDbR8
+                        slug: jan-mikes-the-simplest-gitlab-ci-pipeline-ever
+                        kind: php_prague_conference
+                        published_at: 2018-08-19T19:42:48+00:00
+                        slides: 'https://www.slideshare.net/JanMike3/php-prague-2018-the-simplest-gitlab-ci-pipeline-ever'
+                        thumbnail: 'https://i.ytimg.com/vi/HG0HgeUDbR8/sddefault.jpg'
+                    -
+                        title: 'Transactions in Distributed System'
+                        speaker: 'Jindřich Kubát'
+                        description: 'Slides: https://www.slideshare.net/JindichKubt/php-conference-transactions-in-distributed-system'
+                        video_id: AIBzp38sAOs
+                        slug: jindrich-kubat-transactions-in-distributed-system
+                        kind: php_prague_conference
+                        published_at: 2018-08-19T19:42:48+00:00
+                        slides: 'https://www.slideshare.net/JindichKubt/php-conference-transactions-in-distributed-system'
+                        thumbnail: 'https://i.ytimg.com/vi/AIBzp38sAOs/sddefault.jpg'
+                    -
+                        title: 'Docker for PHP developers - Tips, Tricks & Lessons learned'
+                        speaker: 'Vladimir Kriška'
+                        description: 'Slides:  https://speakerdeck.com/ujovlado/docker-for-php-developers-tips-tricks-and-lessons-learned'
+                        video_id: zk2waYlEY8A
+                        slug: vladimir-kriska-docker-for-php-developers-tips-tricks-lessons-learned
+                        kind: php_prague_conference
+                        published_at: 2018-08-19T19:42:48+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/zk2waYlEY8A/sddefault.jpg'
+                    -
+                        title: 'Why Your Company Loses Money By Not-Open-Sourcing -'
+                        speaker: 'Tomáš Votruba'
+                        description: 'Slides: https://docs.google.com/presentation/d/1kYpsn_ZAR_Q2A7WYqBIjeVIjdKe67W_d0PTHVgsvMo4/edit?usp=sharing'
+                        video_id: suscn1HeRAc
+                        slug: tomas-votruba-why-your-company-loses-money-by-not-open-sourcing
+                        kind: php_prague_conference
+                        published_at: 2018-09-19T12:42:15+00:00
+                        slides: 'https://docs.google.com/presentation/d/1kYpsn_ZAR_Q2A7WYqBIjeVIjdKe67W_d0PTHVgsvMo4/edit'
+                        thumbnail: 'https://i.ytimg.com/vi/suscn1HeRAc/sddefault.jpg'
+                month: ''
+            -
+                title: 'PHP Prague 2016'
+                published_at: 2017-04-06T10:43:24+00:00
+                videos:
+                    -
+                        title: 'Automate All The Things!'
+                        speaker: 'Jan Klat'
+                        description: ''
+                        video_id: 1Az2Qlcv8TI
+                        slug: jan-klat-automate-all-the-things
+                        kind: php_prague_conference
+                        published_at: 2017-04-06T10:43:40+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/1Az2Qlcv8TI/sddefault.jpg'
+                    -
+                        title: 'Coding standard'
+                        speaker: 'Ondřej Mirtes'
+                        description: ''
+                        video_id: i31zPp0sz-g
+                        slug: ondrej-mirtes-coding-standard
+                        kind: php_prague_conference
+                        published_at: 2017-04-06T10:43:40+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/i31zPp0sz-g/sddefault.jpg'
+                    -
+                        title: 'Framework less code'
+                        speaker: 'Martin Hujer'
+                        description: ''
+                        video_id: v7i-v_phDUc
+                        slug: martin-hujer-framework-less-code
+                        kind: php_prague_conference
+                        published_at: 2017-04-07T08:43:45+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/v7i-v_phDUc/sddefault.jpg'
+                    -
+                        title: PSR-7
+                        speaker: 'Marek Gach'
+                        description: ''
+                        video_id: iuMZ4rvqLQk
+                        slug: marek-gach-psr-7
+                        kind: php_prague_conference
+                        published_at: 2017-04-06T18:07:04+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/iuMZ4rvqLQk/sddefault.jpg'
+                    -
+                        title: 'Proč by sakra někdo chtěl dělat eshop'
+                        speaker: 'Tomáš Strejček'
+                        description: ''
+                        video_id: 6NKUixKxyPI
+                        slug: tomas-strejcek-proc-by-sakra-nekdo-chtel-delat-eshop
+                        kind: php_prague_conference
+                        published_at: 2017-04-07T08:43:45+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/6NKUixKxyPI/sddefault.jpg'
+                    -
+                        title: PhpStorm
+                        speaker: 'Tomáš Fejfar'
+                        description: ''
+                        video_id: Uq4o_tbvqIw
+                        slug: tomas-fejfar-phpstorm
+                        kind: php_prague_conference
+                        published_at: 2017-04-07T08:43:45+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/Uq4o_tbvqIw/sddefault.jpg'
+                    -
+                        title: 'PHP WTF'
+                        speaker: 'Michal Špaček'
+                        description: ''
+                        video_id: Zi06BaFw0vw
+                        slug: michal-spacek-php-wtf
+                        kind: php_prague_conference
+                        published_at: 2017-04-07T08:43:45+00:00
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/Zi06BaFw0vw/sddefault.jpg'
+                month: ''
         livestream_playlist:
             title: 'Twitch Livestream'
             published_at: 2017-03-21T20:10:21+00:00
             videos:
                 -
-                    title: 'Laravel workflow inspirované Laravel Spark'
-                    speaker: 'Jakub Kratina'
-                    description: 'Jakub Kratina vám ukáže, jak pracuje v Laravelu a jaké výhody má workflow inspirované Laravel Spark od Taylora Otwella'
-                    video_id: WubTcL7wILI
-                    slug: jakub-kratina-laravel-workflow-inspirovane-laravel-spark
+                    title: 'Největší problémy během spolupráce s vývojáři z pohledu UX'
+                    speaker: 'Honza Kvasnička'
+                    description: "Podklady použité ve videu: https://docs.google.com/document/d/13DKToqot5qv1qa0O8-4fezwNFA25GB7uTDI6kDrJ2zU\n\n---\n\nUrčitě to všichni znáte a problémů během tvorby webu/e-shopu vzniká opravdu hodně. \n\nZ pohledu UX a návrhu webu to nevnímám jinak, ale naštěstí spousta problémům se dá předejít. \n\n- Podíváme se na checklisty, které pro tvorbu webu využívám nejčastěji. \n- Dále si řekneme jaké nástroje nám \"hlídají\" správnost řešení vývojářů a jak často bychom je měli kontrolovat. \n- Následně se podíváme na přístup k tvorbě webu, plánování a tvorbu priorit. Zde si ukážeme jednoduchou tabulku, jak určit, který úkol je pro nás ten hlavní a jak najít naše nízko visící jablka.\n\nNa livestreamu probereme:\n\n- checklisty, proč je děláme a kdo do toho vstupuje, především pak checklist pro nasazení webu a jak si je kontrolovat a opravovat\n- nástroje pro hlídání, marketing miner, pro rychlost webu, bugy, pád serveru, spolehlivost, zátěž webu atd. \n- tvorba webu, plánování, jak si určit, co bude v MVP, jak to pak zvládnout, jak to kontrolovat\n- sprint vs agile vývoj\n- prioritní tabulka pro optimalizace, jak si určit, co se bude zapracováavt jako první\n- vývojáři mají velký vliv na chod byznysu a je potřeba, aby se co nejvíce zapojili \n\n---\n\nHonza se zabývá UX, použitelností webu, zvyšováním konverzních poměrů a návrhem, tvorbou a testováním webových aplikací. Spolupracuje s předními společnostmi zejména v oblasti e-commerce. Je zastáncem a propagátorem myšlenky „Nenuťte uživatele přemýšlet.“ Vyžívá se v uživatelském testování, během kterého získává zpětnou vazbu a pokřivené pohledy návštěvníků na weby. www.kvasnickajan.cz"
+                    video_id: qAGSVpZsBWM
+                    slug: honza-kvasnicka-nejvetsi-problemy-behem-spoluprace-s-vyvojari-z-pohledu-ux
                     kind: livestream
-                    published_at: 2017-03-21T20:11:11+00:00
+                    published_at: 2018-07-16T09:27:56+00:00
                     slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/WubTcL7wILI/sddefault.jpg'
-                -
-                    title: 'Bezbolestné continuous deployment s buddy.works'
-                    speaker: 'Jakub Kratina'
-                    description: "14 dnů bojoval s tím, jak co nejvíce a nejpohodlněji nahrávat změny na server. A nejen to. Jak nainstalovat závislosti. Cachovat. Testovat. Udělat změnu. Pushnout. A znova.\n\nCílem bylo najít nejjednodušší řešení, ideálně \"one click\". To se sice nepodařilo, ale s výsledkem je nadmíru spokojený!"
-                    video_id: sqiW86fTes4
-                    slug: jakub-kratina-bezbolestne-continuous-deployment-s-buddy-works
-                    kind: livestream
-                    published_at: 2017-04-11T08:53:04+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/sqiW86fTes4/sddefault.jpg'
-                -
-                    title: 'Asynchronní PHP'
-                    speaker: 'Ondřej Mirtes'
-                    description: "Asynchronní kód už dávno není doménou jen Node.js. Abyste si vyzkoušeli psát a provozovat aplikaci, která dokáže dělat více věcí naráz, nemusíte se učit programovat v jiné technologii, vystačíte si s PHP, které vás příjemně překvapí svým výkonem a možnostmi.\n\nVysvětlíme si, co přesně asynchronnost znamená, kde všude se s ní dá setkat a kdy se vyplatí ji použít. Ukážeme si, jak přesně fungují promises a napíšeme si kód, který je využívá a poskytuje.\n\nV druhé polovině livestreamu pak předvedu konkrétní knihovny a postupy pro nejčastější I/O potřeby, tedy asynchronní HTTP požadavky, SQL dotazy a přístupy na filesystém"
-                    video_id: ktfyEKUrabw
-                    slug: ondrej-mirtes-asynchronni-php
-                    kind: livestream
-                    published_at: 2017-04-19T16:46:24+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/ktfyEKUrabw/sddefault.jpg'
-                -
-                    title: 'Stromové struktury v SQL'
-                    speaker: 'Pavel Vondrášek'
-                    description: 'Pavel Vondrášek ti ukáže několik různých způsobů, jak lze ukládat stromové struktury (kategorie, adresářovou strukturu apod.) v SQL databázi. Parent list zná snad každý, ale o dalších způsobech jako je MPTT nebo closure table se toho již tolik neví. Cílem livestreamu bude ukázat jednotlivé možnosti a zvolit nejvhodnější řešení'
-                    video_id: hVjhKHftj0E
-                    slug: pavel-vondrasek-stromove-struktury-v-sql
-                    kind: livestream
-                    published_at: 2017-05-04T18:12:38+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/hVjhKHftj0E/sddefault.jpg'
-                -
-                    title: 'Efektivita práce'
-                    speaker: 'Lukáš Fronc'
-                    description: "S Lukášem se zaměříme na zvýšení vaší efektivity práce, zejména pokud vyvíjíte na Macu. Na své si přijdou částečně i Oknaři a Linuxáci.\n\nPřipravovaná osnova je vývojářsky zaměřeným destilátem kurzu 200% Mac (https://www.naucmese.cz/kurz/200-mac), který vede pod platformou Naučmese.cz.\n\nPodíváme se společně na:\n- nativní verzování pod macOS\n- snipety nezávislé na IDE (Xplatform)\n- QuickLook pluginy pro vývojáře\n- zrychlení práce pomocí dropování a zástupci ve Finderu\n- soft-skills pro zvýšení produktivity a boji s prokrastinací (Xplatform)\n\nOdkazy použité ve videu:\n- https://www.trankynam.com/atext/\n- https://smilesoftware.com/textexpander\n- https://emmet.io/\n- https://www.brain.fm/\n- http://www.quicklookplugins.com/"
-                    video_id: GhhRDpR_7gU
-                    slug: lukas-fronc-efektivita-prace
-                    kind: livestream
-                    published_at: 2017-05-18T20:03:26+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/GhhRDpR_7gU/sddefault.jpg'
-                -
-                    title: 'Jak zvýšit svoji cenu při hledání práce'
-                    speaker: 'Jakub Kratina'
-                    description: "Jakub ti poví, co můžeš udělat pro to, aby sis mohl říct o větší plat, jaké jsou možnosti a modely práce a jak k nim přistupovat.\n\nOdkazy:\n- Efektivita práce (https://www.youtube.com/watch?v=GhhRDpR_7gU),\n- https://cz.linkedin.com/in/jakub-kratina-b5972549\n- http://www.jobs.cz/poradna/video-jak-znite-kdyz-si-rikate-o-vyssi-plat/\n- http://www.jobs.cz/poradna/21-otazek-na-ktere-na-pohovoru-polozte-vy/\n- https://devel.cz/otazka/jak-se-pracuje-za-cool-people\n- www.toptal.com\n- https://www.oreilly.com/ideas/2016-2017-web-salary-survey\n- http://honzajavorek.cz/blog/how-corporations-can-attract-good-engineers"
-                    video_id: i59-IYvW38A
-                    slug: jakub-kratina-jak-zvysit-svoji-cenu-pri-hledani-prace
-                    kind: livestream
-                    published_at: 2017-05-20T14:16:31+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/i59-IYvW38A/sddefault.jpg'
-                -
-                    title: 'Docker 101'
-                    speaker: 'Jakub Kratina'
-                    description: "Určitě jsi někdy slyšel o Dockeru. Chceš se o něm dozvědět víc a naučit se s ním pracovat? Tak právě pro tebe je určen tento livestream.\n\nNa livestreamu si ukážeme:\n- co je to Docker a jak funguje,\n- jak ho nainstalujeme,\n- k čemu slouží Dockerfile a docker compose file,\n- vysvětlíme si syntax,\n- zdokerizujeme PHP aplikaci,\n- nahrajeme Docker image na hub.docker.com a zautomatizujeme deployment aplikace na server pomocí buddy.works\n\n- https://www.docker.com/\n- https://hub.docker.com/\n- http://container-solutions.com/understanding-volumes-docker/\n\nOmlouvám se za formát videa.\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-05-30-docker-101"
-                    video_id: cV0HFt0QGEA
-                    slug: jakub-kratina-docker-101
-                    kind: livestream
-                    published_at: 2017-06-05T14:42:32+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/cV0HFt0QGEA/sddefault.jpg'
-                -
-                    title: 'Moje první iOS aplikace v Xamarinu'
-                    speaker: 'Pavel Vondrášek & Jakub Kratina'
-                    description: "Vždy mě zajímalo, jak se tvoří iOS aplikace. Co je k tomu potřeba, jak to funguje? Sice jsme PéHápkaři, ale věřím, že je důležité si rozšiřovat obzory a právě proto jsme si pro vás s Pavlem Vondráškem připravili tento livestream.\n\nVytvoříme si jednoduchou logistickou iOS aplikaci pomocí Xamarinu, C# a REST API.\n\nXamarin je nástroj pro vývoj cross-platform aplikací. Díky němu můžeš vyvíjet nativní aplikace pro iOS, Android a Windows najednou.\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-06-27-xamarin"
-                    video_id: F-_ZQhMJQiY
-                    slug: pavel-vondrasek-jakub-kratina-moje-prvni-ios-aplikace-v-xamarinu
-                    kind: livestream
-                    published_at: 2017-06-30T19:03:50+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/F-_ZQhMJQiY/sddefault.jpg'
-                -
-                    title: 'Laravel API'
-                    speaker: 'Jakub Kratina'
-                    description: "Na praktickém příkladu si ukážeme, jak je jednoduché, rychlé a efektivní postavit nad Laravelem REST API pomocí Dingo API s autentizací pomocí JWT.\n\nTaké si ukážeme, jak se pracuje s Fractalem od The PHP League (resources, serializers a transformers), nasadíme stránkování a postaráme se o CORS.\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-07-11-laravel-api"
-                    video_id: Hy7f-by_6Nk
-                    slug: jakub-kratina-laravel-api
-                    kind: livestream
-                    published_at: 2017-07-17T20:37:17+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/Hy7f-by_6Nk/sddefault.jpg'
-                -
-                    title: 'Gephart - Nástroj pro rychlý vývoj webů'
-                    speaker: 'Michal Katuščák'
-                    description: "Měl jsem potřebu vytvořit framework, který bude fungovat přesně tak, jak chci, a aby neobsahoval věci, které nepotřebuji.\n\nGephart stavím s tím, aby byl co nejrychlejší (na vývoj i na běh) a nejmenší, ale aby si zároveň zachoval čistý kód.\n\nNa livestreamu ukážu, jak si usnadňuji práci svým frameworkem:\n- Co je to Gephart Framework?\n- Instalace frameworku s balíčkem pro generování kódu\n- Napojení šablony na framework\n\nMichal je webový vývojář z Českých Budějovic, pracující v NexGen IT. Programátor každým coulem, co i rád fotí a cestuje.\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-07-25-gephart"
-                    video_id: y0wIHwm-pyM
-                    slug: michal-katuscak-gephart-nastroj-pro-rychly-vyvoj-webu
-                    kind: livestream
-                    published_at: 2017-07-28T08:19:40+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/y0wIHwm-pyM/sddefault.jpg'
-                -
-                    title: 'Amazon Web Services (English)'
-                    speaker: 'Dennis Kopp'
-                    description: "In this stream, I will show how to run PHP applications on Amazon Web Services, as well as how to integrate it with services such as Lambda and DynamoDB. \n\nWe will start with a simple PHP application that stores orders made by the user and displays the current order status. \n\nWe will then develop a Lambda function which processes these orders asynchronously and updates them in the database.\n\nDennis has been using PHP professionally for ten years now. After spending 8 years in the games industry, he is now developing applications for customers like Audi and Telefónica at SinnerSchrader. In his free time, he likes to dance to swing music and to ride his bike.\n\nCode: https://github.com/pehapkari/livestream/tree/master/2017-08-08-aws"
-                    video_id: LCYLQezmWqQ
-                    slug: dennis-kopp-amazon-web-services-english
-                    kind: livestream
-                    published_at: 2017-08-11T08:39:01+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/LCYLQezmWqQ/sddefault.jpg'
-                -
-                    title: '3D na webu pomocí BabylonJS'
-                    speaker: 'Pavol Hejný'
-                    description: "V rámci streamu bych vám rád ukázal, jak můžete 3D na webu začít používat pomocí WebGl frameworku BabylonJS. Dostal bych se k nějakému jednoduchému, ale funkčnímu miniprojektu.\n\nDělal jsem několik podobných workshopů, kde jsme v rámci cca. dvou hodin vytvořili 3D hada nebo malování(ve 2D) na webu. Pokud vás napadne konkrétní věc, kterou chceme vytvořit, můžeme udělat před streamem hlasování.\n\nAť už chcete mít na svém eshopu 3D náhledy produktů nebo si chcete vytvořit vlastní 3D webovou hru, určitě se na stream připojte!\n\nWebové stránky a aplikace vyvíjím přes 10 let. Prošel jsem si vývojem Flash aplikací, PHP stránek, a dnes vyvíjím převážně v TypeScriptu pomocí knihoven React+Redux.\nDlouhou dobu jsem vytvářel a provozoval online hru Towns.cz, na které jsem se naučil snad všechny chyby, kterým by se měl programátor vyhnout.\n\nDnes pracuji v České společnosti ornitologické, kde vyrábím aplikace na sběr a zpracování dat. Také mám několik svých vlastních webových projektů, kde využívám vygenerovanou 2D a 3D grafiku. Většinu z nich mám na své stránce https://www.pavolhejny.com/.\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-08-15-3d-babylon-js"
-                    video_id: Qu7Zckx9yC4
-                    slug: pavol-hejny-3d-na-webu-pomoci-babylonjs
-                    kind: livestream
-                    published_at: 2017-08-18T13:44:52+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/Qu7Zckx9yC4/sddefault.jpg'
-                -
-                    title: 'Docker #2'
-                    speaker: 'Daniel Plakinger'
-                    description: "O dockery sme už počuli viacerý, ale čo môžeme vyťažiť s používania Docker? Ako využívať docker efektívne pre lokálny vývoj?\n\nV tomto streame si ukážeme, ako čo najjednoduhšie pridať k projektu v Laravely docker-compose a ako ho v taktom projekte naplno využiť najmä pre lokálny vývoj. Vytvoríme si viaceré prostredia ako produkčné, lokálne a testovacie, tak aby sme ich mohli spúštať naraz. Využijeme env súbory pre jednotlivé služby (services v docker-compose) a na záver si ukážeme ako využiť docker-compose pri testovaní resources pre aplikáciu. Tento stream je pokračovaním streamu Docker 101 (https://www.youtube.com/watch?v=cV0HFt0QGEA&t=4s).\n\n---\n\nVždy ma fascinovali nové technológie a keď sa objavíte niečo ako je Docker, potom niet cesty spať a chcete mať dockerizované všetko. S dockerom som začal pri projekte, keď som potreboval PHP 5.3 a nemal som veľmi chuť sa trápiť s compilovaním, tak som narazil na túto super vecičku, používam ju do dnes a neviem si ju vynachváliť. Momentálne, všade kde pracujem zanesiem docker.\n\n--- \n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-08-22-docker-2"
-                    video_id: x_jsNPW6ixQ
-                    slug: daniel-plakinger-docker-2
-                    kind: livestream
-                    published_at: 2017-08-24T11:18:16+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/x_jsNPW6ixQ/hqdefault.jpg'
-                -
-                    title: Refactoring
-                    speaker: 'Jakub Kratina'
-                    description: "Velká dávka kódu, se kterým si pohrajeme a ukážeme si, jak můžete zdokonalit svůj kód pomocí různých metod refactoringu. Nezávisle na frameworku, který používáte.\n\nRozjedeme to ve velkým a projdeme: \n- Presenter inside a model\n- Collections\n- Strategizing\n- Value Objects\n- Traits\n- Steps\n- Too many parameters\n- Strongly-typed code\n- Decorating\n- Fluent interfaces\n- Repositories\n- Transformers\n\nBude to pořádná nalejvárna, tak se na to připravte :)\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-08-29-refactoring\n\nOdkazy použíté ve videu:\n- https://laracasts.com/series/whip-monstrous-code-into-shape\n- https://github.com/tightenco/collect\n- https://laravel.com/docs/5.4/collections\n- https://www.csie.ntu.edu.tw/~r95004/Refactoring_improving_the_design_of_existing_code.pdf\n- https://slideslive.com/38900570/usnadnete-si-praci-silne-typovanym-kodem-a-statickou-analyzou"
-                    video_id: WcbmBzAWR84
-                    slug: jakub-kratina-refactoring
-                    kind: livestream
-                    published_at: 2017-08-31T12:10:33+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/WcbmBzAWR84/sddefault.jpg'
-                -
-                    title: Elasticsearch
-                    speaker: 'Matěj Račinský'
-                    description: "Určitě jsi někdy postřehl, že kromě SQL databází se používají i NoSQL databáze. \n\nJedna z nejznámějších je Elasticsearch.\n\nNa tomhle streamu se s ním seznámíme a:\n- povíme si, kdy a proč ho používat a kdy už SQL databáze nestačí,\n- ukážeme si, jak si jej zprovoznit v dockeru,\n- napíšeme si jednoduchou aplikaci v PHP, která bude s Elasticsearchem pracovat,\n- jak jej používat pro fulltext search nad objekty, které máme v SQL databázi\n\nMatěj studuje umělou inteligenci na FEL, ČVUT, ale během školy vyvíjí webové aplikace v PHP a zajímá se o novinky na poli webového vývoje.\n\nSlovníky: https://issues.apache.org/jira/browse/LUCENE-4311\nKód: https://github.com/pehapkari/livestream/tree/master/2017-09-05-elasticsearch"
-                    video_id: 7rnUc8fno4s
-                    slug: matej-racinsky-elasticsearch
-                    kind: livestream
-                    published_at: 2017-09-07T17:12:59+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/7rnUc8fno4s/sddefault.jpg'
-                -
-                    title: 'IoT u vás doma'
-                    speaker: 'Karol Danko'
-                    description: "Internet vecí je vzrušujúca myšlienka ktorá - rovnako ako internet samotný - mení a určite zmení náš pohľad na svet. \n\nSkrýva v sebe veľké množstvo príležitostí pre nás programátorov a jednou z možností ako naskočiť na vlnu IoT je zbastliť si niečo doma. A presne o tom bude tento stream. \n\nV tomto streame si povieme o tom:\n- čo to je IoT a prečo to chceš\n- ako vybrať \"hackovateľné\" IoT produkty\n- ako si vyrobiť vlastnú IoT vec (ESP8266)\n- ako si poskladať smart home - prakticky\n- prečo nezabudnúť na bezpečnosť a súkromie\n\nKarol o sobě: Cez deň pracujem ako Node.js vývojár v Livesporte (Livesport), kde vediem vývoj našich interných data APIs. Cez noc sa ale venujem niečomu úplne inému aby som si rozšíril obzory. A tu prichádza na radu práve IoT a smart home.\n\nhttps://github.com/pehapkari/livestream/tree/master/2017-09-19-IoT"
-                    video_id: GN4VENUfV8M
-                    slug: karol-danko-iot-u-vas-doma
-                    kind: livestream
-                    published_at: 2017-09-22T18:19:51+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/GN4VENUfV8M/sddefault.jpg'
-                -
-                    title: 'Doctrine: performance'
-                    speaker: 'Filip Procházka'
-                    description: "Doctrine ORM je skvělý sluha ale zlý pán - stačí chvilka nepozornosti a hned máte na produkci performance problém, který se nemusí měsíce projevit, ale pak vás zradí v nejméně vhodnou chvíli.\n\nUkážeme si, jak načítat data efektivně, jak psát DQL aby fungovaly spolehlivě i v případě, že začnou v produkci přibývat data a jak to celé udělat co nejvíce elegantně. A vezmene to pěkně od začátku, včetně architektury repozitářů.\n\nFilip má s Doctrine dlouholeté zkušenosti a rád lidem ukazuje, že ORM nemusí být jen pomalý moloch, ale spíš efektivní nástroj díky kterému je možné psát čisté, opravdu objektově orientované aplikace. Pokud vás zajímá něco víc, koukněte na https://filip-prochazka.com/.\n\nhttps://github.com/fprochazka/doctrine-performance-pehapkari-2017-09"
-                    video_id: CTZFx6kMbO8
-                    slug: filip-prochazka-doctrine-performance
-                    kind: livestream
-                    published_at: 2017-09-25T10:29:23+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/CTZFx6kMbO8/sddefault.jpg'
-                -
-                    title: 'Úvod do Vue.js'
-                    speaker: 'Jakub Krupka'
-                    description: "Chtěli jste se naučit React, ale připadá vám příliš složitý a odlišný od běžně psaného Javascriptu na frontendu? Pak se vám možná bude líbit Vue, mladá knihovna pro renderování reaktivních UI. \n\nPřestaňte řešit DOM, a začněte se starat o model, metody a komponenty. Vue je ideální pro psaní větších single-page aplikací, stejně tak i pro psaní malých zapouzdřených komponent. \n\nUkážeme si následující:\n- jak co nejrychleji začít s Vue\n- data-binding, atributy a props\n- event listenery\n- metody, computed properties\n- Vue devtools\n- komponenty, jejich kompozice a lifecycle\n- předávání dat pomocí props a global events\n- sloty\n- webpack a vue-cli, single-file komponenty, hot reloading\n- ajax pomocí Axios\n- formuláře\n- pokud bude čas, nakousneme: vue-router, sdílený state pomocí Vuex, code-splitting\n\nVše si ukážeme na praktických příkladech, postupně vytvoříme malou SPA aplikaci. \n\nBudeme psát v ES6, takže pokud neznáte, doporučuju si projít minimálně arrow functions, method definitions, destructuring, template literals (https://github.com/lukehoban/es6features).\n\nJakub o sobě: Jsem UI/UX developer a frontend competence leader ve společnosti Inventi. Pracoval jsem na velkých projektech např. pro ČSOB, Global Payments, Raiffeisen Bank nebo na startupech Angelcam, Tuddy Tuddy, Mámvybráno.cz\n\ncheatsheet: https://vuejs-tips.github.io/cheatsheet/\nLaracasts tutorial: https://laracasts.com/series/learn-vue-2-step-by-step\nBulma: https://bulma.io/ (edited)\n\nhttps://github.com/pehapkari/livestream/tree/master/2017-10-24-vue-js"
-                    video_id: vMicd97Z7CY
-                    slug: jakub-krupka-uvod-do-vue-js
-                    kind: livestream
-                    published_at: 2017-10-26T09:47:18+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/vMicd97Z7CY/sddefault.jpg'
-                -
-                    title: 'Message broker RabbitMQ'
-                    speaker: 'Jan Blaško'
-                    description: "Možná jste již slyšeli o slovech jako AMQP a message broker, ale nevěděli jste co to přesně je a k čemu je možné ho používat? \n\nZamýšleli jste se někdy nad asychronním zpracováním zpráv a tím možnosti škálování, nad komunikací mezi různými systémy pomocí zpráv? \n\nPak je tento stream právě pro vás, kde se podíváme na message broker RabbitMQ.\n\nCo nás čeká:\n- úvod do problematiky, motivační use case\n- základní popis co je exchange, fronta, producer a consumer typy exchanges (fanout, direct, topic), binding a routování\n- potvrzování a reject zpráv\n- životní cyklus zpráv - message TTL, dead letter exchange, prioritní fronty\n\nVše se vám pokusím ukázat na praktických příkladech.\n\nStream je určen pro začátečníky a středně pokročilé. \n\nHonza o sobě: Pracuji ve společnosti MallGroup jako Team Leader a Senior programátor. V posledním roce se nejvíce zajímám o Elasticsearch a všechny ostatní produkty společnosti elastic.co (Kibana, Logstash, Beats,…). Náš tým v MallGroup je odpovědný zejména za business critical služby jako jsou např. produktový katalog (beží právě na Elasticsearch) a availability service pro všechny naše eshopy ve střední evropě jako jsou mall.cz, mall.sk, mall.hu, mall.hr, mall.pl a mimovrste.com.\n\nhttps://github.com/pehapkari/livestream/tree/master/2017-11-07-rabbitmq"
-                    video_id: moLrQJ6USaQ
-                    slug: jan-blasko-message-broker-rabbitmq
-                    kind: livestream
-                    published_at: 2017-11-13T18:56:56+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/moLrQJ6USaQ/sddefault.jpg'
-                -
-                    title: 'Git pro každodenní používání'
-                    speaker: 'Václav Makeš'
-                    description: "(omlouváme se za nekvalitní zvuk)\n\nVerzovacích systémů je celá řada, ale jeden z nich vyčnívá - Git. Pojďme společně projít jak s ním pracovat a co využívat, aby práce s ním byla přínosná nejen týmu ale hlavně vám samotným.\n\nVe streamu projdeme:\n- konfiguraci (co se vyplatí minimálně nastavit)\n- ukážeme si běžné situace při verzování\n- vyzkoušíme si jak lze vývoj pomocí Gitu zrychlit a zpříjemnit\n- především si vyzkoušíme základní příkazy jako například `git commit | log | checkout | merge`, ale alespoň mírně nakousneme `rebase` či práci se vzdálenými repositáři\n\nStream je určen pro začátečníky či středně pokročilé, jenž se chtějí ujistit základech.\n\nVašek primárně řeší správné sestavení dílečků v startupu SupportBox. Má rád otestovaný kód, na který se mohou zákazníci spolehnout. A přestože projekt roste, usiluje o to, aby z projektu nebylo monstrum, nýbrž poslušný a hodný mazlíček."
-                    video_id: Ecpcgs12P_c
-                    slug: vaclav-makes-git-pro-kazdodenni-pouzivani
-                    kind: livestream
-                    published_at: 2017-11-14T18:55:28+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/Ecpcgs12P_c/sddefault.jpg'
-                -
-                    title: 'Mistrem v PhpStormu'
-                    speaker: 'Jakub Kratina'
-                    description: "Většina z nás s PhpStormem pracuje. Umíte ho ale efektivně využívat? PhpStorm toho nabízí opravdu mnoho pro naši rychlejší, pohodlnější a efektivnější práci.\n\nV tomto livestreamu si ukážeme, co můžete udělat pro to, abyste se stali lepšími vývojáři a mistry v PhpStormu.\n\nProbereme následující témata:\n- minimalism,\n- theming,\n- constructor dependencies,\n- searching,\n- usages,\n- live & file templates,\n- refactoring,\n- testing,\n- multiple cursors,\n- windows splits,\n- quick preview,\n- useful plugins\n\nOdkazy použité ve videu:\n- laracasts.com\n- https://www.facebook.com/pehapkari/videos/1502500786466393/\n- http://daylerees.github.io/\n- https://github.com/daylerees/colour-schemes\n- https://pehapkari.cz/vzdelavej-se/"
-                    video_id: 62QZ3rX3a_c
-                    slug: jakub-kratina-mistrem-v-phpstormu
-                    kind: livestream
-                    published_at: 2017-11-22T20:09:58+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/62QZ3rX3a_c/sddefault.jpg'
-                -
-                    title: PHPStan
-                    speaker: 'Ondřej Mirtes'
-                    description: "Jakmile poznáte PHPStan, vývoj si bez něj už nebudete umět představit. Odhalí za vás řadu bugů ještě před tím, než kód poprvé pustíte nebo na něj napíšete test. Ušetří vám mnoho času i peněz! Během livestreamu si ukážeme:\n\n* Zprovoznění PHPStanu a první krůčky\n* Strukturování kódu, abychom z PHPStanu vytěžili maximum\n* Psaní vlastního pravidla na kontrolu kódu\n* Psaní rozšíření pro popis magického chování skrze __get, __set, __call\n* Psaní rozšíření pro dynamický return type na základě vstupu metody (typicky Container::getService() nebo EntityManager::find()).\n\nPokud si o PHPStanu chcete přečíst ještě před livestreamem, mrkněte na následující odkazy:\n\n* Úvodní článek: https://medium.com/@ondrejmirtes/phpstan-2939cd0ad0e3\n* Co v přibylo v aktuální verzi 0.9: https://medium.com/@ondrejmirtes/phpstan-0-9-a-huge-leap-forward-1e9b0872d1cc\n* GitHub repo: https://github.com/phpstan/phpstan (2 925 stars)\n* https://medium.com/@ondrejmirtes/phpstan-0-9-a-huge-leap-forward-1e9b0872d1cc\n* https://github.com/phpstan/phpstan-strict-rules\n* https://github.com/phpstan/phpdoc-parser/tree/pr/wip"
-                    video_id: D4iqWpBedJk
-                    slug: ondrej-mirtes-phpstan
-                    kind: livestream
-                    published_at: 2018-01-14T21:46:03+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/D4iqWpBedJk/sddefault.jpg'
-                -
-                    title: 'Hesla - ukládání a lámání'
-                    speaker: 'Michal Špaček'
-                    description: "Doporučení „hashovat“ je hezké, ale je to rada podobná jako „máte žízeň? pijte průhlednou tekutinu“. Jak hesla správně ukládat a proč, jak uživatelé vytváří hesla a jak toho pak využívají útočníci při lámání („crackování“) hesel. A k čemu se taková cracknutá hesla hodí? \n\nŘekneme si i něco o upgrade na „lepší“ ukládání, vzpomeneme si i na správné obnovení hesla při jeho zapomenutí. A možná přijde i kouzelník v podobě správce hesel. \n\nNavíc podobně jako hesla mají celkem omezený počet možností i IP adresy a další identifikátory, při ukládání je tedy nestačí jen „zahashovat“.\n\nDozvíte se:\n• Jaké jsou známé úniky hesel\n• Jak se kradou databáze\n• Co je to a jak probíhá lámání („crackování“) hesel\n• Jaká pravidla pro vytváření hesel uživatelé používají\n• Jak by se měla hesla ukládat v aplikacích\n• Řešení zapomenutých hesla\n• ... něco o ukládání dalších údajů jako např. IP adres\n\nMichal o sobě: Vyvíjím webové aplikace (aktuálně report-uri.com, předtím Skype, Slevomat, Apiary.io), zajímá mě jejich bezpečnost. Nebojím se o tom mluvit veřejně, hledám hranice tak, že je posouvám. Chci naučit webové vývojáře stavět bezpečnější weby a aplikace. Pořádám školení na bezpečnost a bezpečný vývoj a o stejných tématech jsem také přednášel např. na WebExpu nebo (čtyřikrát za sebou) v Las Vegas. Více o mě na https://www.michalspacek.cz/\n\nOdkazy použité ve videu:\n\nZkontrolujte si, jestli váš e-mail není v nějakém známém úniku dat:\nhttps://haveibeenpwned.com/\n\nNezapomeňte si nastavit notifikace (i na celou doménu):\nhttps://haveibeenpwned.com/NotifyMe\nhttps://haveibeenpwned.com/DomainSearch\n\nNěkteré české úniky dat\nNevyhazujto: https://www.lupa.cz/clanky/unik-dat-z-nevyhazujto-cz/\nCzechia: https://www.lupa.cz/aktuality/hostingu-czechia-od-firmy-zoner-unikly-prihlasovaci-udaje-zakazniku/\nMall.cz: https://www.lupa.cz/aktuality/mall-cz-resetuje-hesla-k-casti-databaze-se-mohli-dostat-hackeri/\nJabbim: https://www.root.cz/zpravicky/jabbim-cz-byla-ukradena-uzivatelska-hesla/\n\nVyzkoušejte si SQL Injection:\nhttps://exploited.cz/sql/products.php\nNávod: https://www.michalspacek.cz/prednasky/webova-bezpecnost-gdgscl\nZdroják: https://github.com/spaze/exploited.cz/blob/master/site/sql/products.php\n\nPředpočítané tabulky hashů ke stažení, i k prohledání online:\nhttps://crackstation.net/\n\nPřednáška o ukládání hesel s příkladem lámání pomocí CrackStation:\nhttps://www.michalspacek.cz/prednasky/zahashovat-heslo-ulozit-profit-develcz\n\nAnalýzy některých úniků:\nSkTorrent: https://gist.github.com/spaze/7d89613cc69d61e03eb4\nXZone.cz: https://gist.github.com/spaze/44b252134c9350723c8611115aff3d93\nPomocí programu Pipal: https://digi.ninja/projects/pipal.php\n\nCrackování hesel z Mallu:\nhttps://www.michalspacek.cz/crackovani-hesel-z-uniku-mall.cz\n\nProgramy na crackování hesel:\nhashcat: https://hashcat.net/\nJohn the Ripper: http://www.openwall.com/john/\n\nFirma stavějící crackovací servery a clustery\nhttps://sagitta.pw/\n\nWordlisty ke stažení:\nhttps://wiki.skullsecurity.org/Passwords\n\nPRINCE generátor kandidátů:\nhttps://github.com/hashcat/princeprocessor\n\nJak na změnu hashování existujích hesel (z MD5 apod. na bcrypt např.):\nhttps://www.michalspacek.cz/zmena-hashovani-existujicich-hesel\n\nMůj projekt na sledování způsobu ukládání hesel:\nhttps://pulse.michalspacek.cz/passwords/storages\nZpůsob známkování: https://pulse.michalspacek.cz/passwords/storages/rating#guide\nPřednáška s představením toho projektu: https://www.michalspacek.com/talks/disclosing-password-hashing-policies-passwords\n\nSprávci hesel:\n1Password: https://1password.com/\nLastPass: https://www.lastpass.com/\nKeePass: https://keepass.info/\n\nO jednom úniku z LastPass: https://www.lupa.cz/clanky/co-se-stalo-lastpass-a-jak-vytvaret-silna-a-zapamatovatelna-hesla/\nDiceware, metoda na generování zapamatovatelných a silných hesel: http://world.std.com/~reinhold/diceware.html\n\nSeznam Twitter účtů, které se nějak věnují heslům:\nhttps://twitter.com/spazef0rze/lists/passwords\n\nKnihovna na šifrování dat v PHP (používá libsodium, umí použít paragonie/sodium_compat):\nhttps://github.com/paragonie/halite\n\nDalší knihovna na šifrování (použijte jen pokud nemůžete použít halite/libsodium, méně výkonná, nepoužívá libsodium, výsledek nelze použít pro jiné platformy)\nhttps://github.com/defuse/php-encryption\n\nMá školení bezpečnosti:\nhttps://www.michalspacek.cz/skoleni/bezpecnost-php-aplikaci\nhttps://www.michalspacek.cz/skoleni/https-pro-vyvojare-a-spravce\n\nTwitter: https://twitter.com/spazef0rze\nFacebook: https://www.facebook.com/spaze\nWeb: https://www.michalspacek.cz/"
-                    video_id: qTbHMiH7UFo
-                    slug: michal-spacek-hesla-ukladani-a-lamani
-                    kind: livestream
-                    published_at: 2018-02-09T16:32:29+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/qTbHMiH7UFo/sddefault.jpg'
-                -
-                    title: 'Profilování a zrychlování aplikace s Blackfire.io'
-                    speaker: 'Honza Mikeš'
-                    description: "Rychlost aplikace je jednou z důležitých věcí, na které je při produčním nasazení potřeba myslet.\nMůže velmi negativně ovlivnit uživatelský zážitek z návštěvy vašeho pomalého webu a občas můžete takového návštěvníka i odradit.\n\nNa streamu si ukážeme, jak pomocí nástroje Blackfire profilovat a určit místa nutná ke zrychlení. Poté přejdeme k samotné optimalizaci. Každou změnu samozřejmě budeme měřit opět Blackfirem, abychom měli vše pod kontrolou a měli přehled o tom, jestli zrychlujeme nebo zpomalujeme 🙂\n\nOptimalizovat budeme REST API živé aplikaci Entry.do a pokud se povede, tak v průběhu večera pushneme i do produkce.\nZaměříme se především na výkonnostní problémy s Doctrine.\n\nStream bude interaktivní - dobré rady a tipy na zrychlení (nebo i refactoring) budou rovnou v reálném čase implementovány.\n\nPokud se vám zdá některá z vašich aplikací pomalá a chcete najít způsob, jak ji změřit a zrychlit, určitě přijďte!\n\nHonza Mikeš:\nS programováním se kamarádím už přes 10 let, za tu dobu jsem se podíval pracovně například do Bangkoku nebo San Francisca. Mám obrovskou touhu psát čistý a dobře testovatelný kód, bohužel se to občas (asi jako každému) nedaří 🙂. Jsem CTO v Entrydo a aby toho nebylo málo, tak jsem od února součástí backend týmu v Apploud.\n\nLinky použité během streamu: \n- blackfire.io\n- https://github.com/rectorphp/rector\n- https://github.com/Tharos/Schematic"
-                    video_id: wFJEOclHcnc
-                    slug: honza-mikes-profilovani-a-zrychlovani-aplikace-s-blackfire-io
-                    kind: livestream
-                    published_at: 2018-03-12T10:46:55+00:00
-                    slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/wFJEOclHcnc/sddefault.jpg'
+                    thumbnail: 'https://i.ytimg.com/vi/qAGSVpZsBWM/sddefault.jpg'
                 -
                     title: Postman
                     speaker: 'Jakub Kratina'
@@ -891,13 +738,243 @@ parameters:
                     slides: ''
                     thumbnail: 'https://i.ytimg.com/vi/9n1UsV1NpO0/sddefault.jpg'
                 -
-                    title: 'Největší problémy během spolupráce s vývojáři z pohledu UX'
-                    speaker: 'Honza Kvasnička'
-                    description: "Podklady použité ve videu: https://docs.google.com/document/d/13DKToqot5qv1qa0O8-4fezwNFA25GB7uTDI6kDrJ2zU\n\n---\n\nUrčitě to všichni znáte a problémů během tvorby webu/e-shopu vzniká opravdu hodně. \n\nZ pohledu UX a návrhu webu to nevnímám jinak, ale naštěstí spousta problémům se dá předejít. \n\n- Podíváme se na checklisty, které pro tvorbu webu využívám nejčastěji. \n- Dále si řekneme jaké nástroje nám \"hlídají\" správnost řešení vývojářů a jak často bychom je měli kontrolovat. \n- Následně se podíváme na přístup k tvorbě webu, plánování a tvorbu priorit. Zde si ukážeme jednoduchou tabulku, jak určit, který úkol je pro nás ten hlavní a jak najít naše nízko visící jablka.\n\nNa livestreamu probereme:\n\n- checklisty, proč je děláme a kdo do toho vstupuje, především pak checklist pro nasazení webu a jak si je kontrolovat a opravovat\n- nástroje pro hlídání, marketing miner, pro rychlost webu, bugy, pád serveru, spolehlivost, zátěž webu atd. \n- tvorba webu, plánování, jak si určit, co bude v MVP, jak to pak zvládnout, jak to kontrolovat\n- sprint vs agile vývoj\n- prioritní tabulka pro optimalizace, jak si určit, co se bude zapracováavt jako první\n- vývojáři mají velký vliv na chod byznysu a je potřeba, aby se co nejvíce zapojili \n\n---\n\nHonza se zabývá UX, použitelností webu, zvyšováním konverzních poměrů a návrhem, tvorbou a testováním webových aplikací. Spolupracuje s předními společnostmi zejména v oblasti e-commerce. Je zastáncem a propagátorem myšlenky „Nenuťte uživatele přemýšlet.“ Vyžívá se v uživatelském testování, během kterého získává zpětnou vazbu a pokřivené pohledy návštěvníků na weby. www.kvasnickajan.cz"
-                    video_id: qAGSVpZsBWM
-                    slug: honza-kvasnicka-nejvetsi-problemy-behem-spoluprace-s-vyvojari-z-pohledu-ux
+                    title: 'Profilování a zrychlování aplikace s Blackfire.io'
+                    speaker: 'Honza Mikeš'
+                    description: "Rychlost aplikace je jednou z důležitých věcí, na které je při produčním nasazení potřeba myslet.\nMůže velmi negativně ovlivnit uživatelský zážitek z návštěvy vašeho pomalého webu a občas můžete takového návštěvníka i odradit.\n\nNa streamu si ukážeme, jak pomocí nástroje Blackfire profilovat a určit místa nutná ke zrychlení. Poté přejdeme k samotné optimalizaci. Každou změnu samozřejmě budeme měřit opět Blackfirem, abychom měli vše pod kontrolou a měli přehled o tom, jestli zrychlujeme nebo zpomalujeme 🙂\n\nOptimalizovat budeme REST API živé aplikaci Entry.do a pokud se povede, tak v průběhu večera pushneme i do produkce.\nZaměříme se především na výkonnostní problémy s Doctrine.\n\nStream bude interaktivní - dobré rady a tipy na zrychlení (nebo i refactoring) budou rovnou v reálném čase implementovány.\n\nPokud se vám zdá některá z vašich aplikací pomalá a chcete najít způsob, jak ji změřit a zrychlit, určitě přijďte!\n\nHonza Mikeš:\nS programováním se kamarádím už přes 10 let, za tu dobu jsem se podíval pracovně například do Bangkoku nebo San Francisca. Mám obrovskou touhu psát čistý a dobře testovatelný kód, bohužel se to občas (asi jako každému) nedaří 🙂. Jsem CTO v Entrydo a aby toho nebylo málo, tak jsem od února součástí backend týmu v Apploud.\n\nLinky použité během streamu: \n- blackfire.io\n- https://github.com/rectorphp/rector\n- https://github.com/Tharos/Schematic"
+                    video_id: wFJEOclHcnc
+                    slug: honza-mikes-profilovani-a-zrychlovani-aplikace-s-blackfire-io
                     kind: livestream
-                    published_at: 2018-07-16T09:27:56+00:00
+                    published_at: 2018-03-12T10:46:55+00:00
                     slides: ''
-                    thumbnail: 'https://i.ytimg.com/vi/qAGSVpZsBWM/sddefault.jpg'
+                    thumbnail: 'https://i.ytimg.com/vi/wFJEOclHcnc/sddefault.jpg'
+                -
+                    title: 'Hesla - ukládání a lámání'
+                    speaker: 'Michal Špaček'
+                    description: "Doporučení „hashovat“ je hezké, ale je to rada podobná jako „máte žízeň? pijte průhlednou tekutinu“. Jak hesla správně ukládat a proč, jak uživatelé vytváří hesla a jak toho pak využívají útočníci při lámání („crackování“) hesel. A k čemu se taková cracknutá hesla hodí? \n\nŘekneme si i něco o upgrade na „lepší“ ukládání, vzpomeneme si i na správné obnovení hesla při jeho zapomenutí. A možná přijde i kouzelník v podobě správce hesel. \n\nNavíc podobně jako hesla mají celkem omezený počet možností i IP adresy a další identifikátory, při ukládání je tedy nestačí jen „zahashovat“.\n\nDozvíte se:\n• Jaké jsou známé úniky hesel\n• Jak se kradou databáze\n• Co je to a jak probíhá lámání („crackování“) hesel\n• Jaká pravidla pro vytváření hesel uživatelé používají\n• Jak by se měla hesla ukládat v aplikacích\n• Řešení zapomenutých hesla\n• ... něco o ukládání dalších údajů jako např. IP adres\n\nMichal o sobě: Vyvíjím webové aplikace (aktuálně report-uri.com, předtím Skype, Slevomat, Apiary.io), zajímá mě jejich bezpečnost. Nebojím se o tom mluvit veřejně, hledám hranice tak, že je posouvám. Chci naučit webové vývojáře stavět bezpečnější weby a aplikace. Pořádám školení na bezpečnost a bezpečný vývoj a o stejných tématech jsem také přednášel např. na WebExpu nebo (čtyřikrát za sebou) v Las Vegas. Více o mě na https://www.michalspacek.cz/\n\nOdkazy použité ve videu:\n\nZkontrolujte si, jestli váš e-mail není v nějakém známém úniku dat:\nhttps://haveibeenpwned.com/\n\nNezapomeňte si nastavit notifikace (i na celou doménu):\nhttps://haveibeenpwned.com/NotifyMe\nhttps://haveibeenpwned.com/DomainSearch\n\nNěkteré české úniky dat\nNevyhazujto: https://www.lupa.cz/clanky/unik-dat-z-nevyhazujto-cz/\nCzechia: https://www.lupa.cz/aktuality/hostingu-czechia-od-firmy-zoner-unikly-prihlasovaci-udaje-zakazniku/\nMall.cz: https://www.lupa.cz/aktuality/mall-cz-resetuje-hesla-k-casti-databaze-se-mohli-dostat-hackeri/\nJabbim: https://www.root.cz/zpravicky/jabbim-cz-byla-ukradena-uzivatelska-hesla/\n\nVyzkoušejte si SQL Injection:\nhttps://exploited.cz/sql/products.php\nNávod: https://www.michalspacek.cz/prednasky/webova-bezpecnost-gdgscl\nZdroják: https://github.com/spaze/exploited.cz/blob/master/site/sql/products.php\n\nPředpočítané tabulky hashů ke stažení, i k prohledání online:\nhttps://crackstation.net/\n\nPřednáška o ukládání hesel s příkladem lámání pomocí CrackStation:\nhttps://www.michalspacek.cz/prednasky/zahashovat-heslo-ulozit-profit-develcz\n\nAnalýzy některých úniků:\nSkTorrent: https://gist.github.com/spaze/7d89613cc69d61e03eb4\nXZone.cz: https://gist.github.com/spaze/44b252134c9350723c8611115aff3d93\nPomocí programu Pipal: https://digi.ninja/projects/pipal.php\n\nCrackování hesel z Mallu:\nhttps://www.michalspacek.cz/crackovani-hesel-z-uniku-mall.cz\n\nProgramy na crackování hesel:\nhashcat: https://hashcat.net/\nJohn the Ripper: http://www.openwall.com/john/\n\nFirma stavějící crackovací servery a clustery\nhttps://sagitta.pw/\n\nWordlisty ke stažení:\nhttps://wiki.skullsecurity.org/Passwords\n\nPRINCE generátor kandidátů:\nhttps://github.com/hashcat/princeprocessor\n\nJak na změnu hashování existujích hesel (z MD5 apod. na bcrypt např.):\nhttps://www.michalspacek.cz/zmena-hashovani-existujicich-hesel\n\nMůj projekt na sledování způsobu ukládání hesel:\nhttps://pulse.michalspacek.cz/passwords/storages\nZpůsob známkování: https://pulse.michalspacek.cz/passwords/storages/rating#guide\nPřednáška s představením toho projektu: https://www.michalspacek.com/talks/disclosing-password-hashing-policies-passwords\n\nSprávci hesel:\n1Password: https://1password.com/\nLastPass: https://www.lastpass.com/\nKeePass: https://keepass.info/\n\nO jednom úniku z LastPass: https://www.lupa.cz/clanky/co-se-stalo-lastpass-a-jak-vytvaret-silna-a-zapamatovatelna-hesla/\nDiceware, metoda na generování zapamatovatelných a silných hesel: http://world.std.com/~reinhold/diceware.html\n\nSeznam Twitter účtů, které se nějak věnují heslům:\nhttps://twitter.com/spazef0rze/lists/passwords\n\nKnihovna na šifrování dat v PHP (používá libsodium, umí použít paragonie/sodium_compat):\nhttps://github.com/paragonie/halite\n\nDalší knihovna na šifrování (použijte jen pokud nemůžete použít halite/libsodium, méně výkonná, nepoužívá libsodium, výsledek nelze použít pro jiné platformy)\nhttps://github.com/defuse/php-encryption\n\nMá školení bezpečnosti:\nhttps://www.michalspacek.cz/skoleni/bezpecnost-php-aplikaci\nhttps://www.michalspacek.cz/skoleni/https-pro-vyvojare-a-spravce\n\nTwitter: https://twitter.com/spazef0rze\nFacebook: https://www.facebook.com/spaze\nWeb: https://www.michalspacek.cz/"
+                    video_id: qTbHMiH7UFo
+                    slug: michal-spacek-hesla-ukladani-a-lamani
+                    kind: livestream
+                    published_at: 2018-02-09T16:32:29+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/qTbHMiH7UFo/sddefault.jpg'
+                -
+                    title: PHPStan
+                    speaker: 'Ondřej Mirtes'
+                    description: "Jakmile poznáte PHPStan, vývoj si bez něj už nebudete umět představit. Odhalí za vás řadu bugů ještě před tím, než kód poprvé pustíte nebo na něj napíšete test. Ušetří vám mnoho času i peněz! Během livestreamu si ukážeme:\n\n* Zprovoznění PHPStanu a první krůčky\n* Strukturování kódu, abychom z PHPStanu vytěžili maximum\n* Psaní vlastního pravidla na kontrolu kódu\n* Psaní rozšíření pro popis magického chování skrze __get, __set, __call\n* Psaní rozšíření pro dynamický return type na základě vstupu metody (typicky Container::getService() nebo EntityManager::find()).\n\nPokud si o PHPStanu chcete přečíst ještě před livestreamem, mrkněte na následující odkazy:\n\n* Úvodní článek: https://medium.com/@ondrejmirtes/phpstan-2939cd0ad0e3\n* Co v přibylo v aktuální verzi 0.9: https://medium.com/@ondrejmirtes/phpstan-0-9-a-huge-leap-forward-1e9b0872d1cc\n* GitHub repo: https://github.com/phpstan/phpstan (2 925 stars)\n* https://medium.com/@ondrejmirtes/phpstan-0-9-a-huge-leap-forward-1e9b0872d1cc\n* https://github.com/phpstan/phpstan-strict-rules\n* https://github.com/phpstan/phpdoc-parser/tree/pr/wip"
+                    video_id: D4iqWpBedJk
+                    slug: ondrej-mirtes-phpstan
+                    kind: livestream
+                    published_at: 2018-01-14T21:46:03+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/D4iqWpBedJk/sddefault.jpg'
+                -
+                    title: 'Mistrem v PhpStormu'
+                    speaker: 'Jakub Kratina'
+                    description: "Většina z nás s PhpStormem pracuje. Umíte ho ale efektivně využívat? PhpStorm toho nabízí opravdu mnoho pro naši rychlejší, pohodlnější a efektivnější práci.\n\nV tomto livestreamu si ukážeme, co můžete udělat pro to, abyste se stali lepšími vývojáři a mistry v PhpStormu.\n\nProbereme následující témata:\n- minimalism,\n- theming,\n- constructor dependencies,\n- searching,\n- usages,\n- live & file templates,\n- refactoring,\n- testing,\n- multiple cursors,\n- windows splits,\n- quick preview,\n- useful plugins\n\nOdkazy použité ve videu:\n- laracasts.com\n- https://www.facebook.com/pehapkari/videos/1502500786466393/\n- http://daylerees.github.io/\n- https://github.com/daylerees/colour-schemes\n- https://pehapkari.cz/vzdelavej-se/"
+                    video_id: 62QZ3rX3a_c
+                    slug: jakub-kratina-mistrem-v-phpstormu
+                    kind: livestream
+                    published_at: 2017-11-22T20:09:58+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/62QZ3rX3a_c/sddefault.jpg'
+                -
+                    title: 'Git pro každodenní používání'
+                    speaker: 'Václav Makeš'
+                    description: "(omlouváme se za nekvalitní zvuk)\n\nVerzovacích systémů je celá řada, ale jeden z nich vyčnívá - Git. Pojďme společně projít jak s ním pracovat a co využívat, aby práce s ním byla přínosná nejen týmu ale hlavně vám samotným.\n\nVe streamu projdeme:\n- konfiguraci (co se vyplatí minimálně nastavit)\n- ukážeme si běžné situace při verzování\n- vyzkoušíme si jak lze vývoj pomocí Gitu zrychlit a zpříjemnit\n- především si vyzkoušíme základní příkazy jako například `git commit | log | checkout | merge`, ale alespoň mírně nakousneme `rebase` či práci se vzdálenými repositáři\n\nStream je určen pro začátečníky či středně pokročilé, jenž se chtějí ujistit základech.\n\nVašek primárně řeší správné sestavení dílečků v startupu SupportBox. Má rád otestovaný kód, na který se mohou zákazníci spolehnout. A přestože projekt roste, usiluje o to, aby z projektu nebylo monstrum, nýbrž poslušný a hodný mazlíček."
+                    video_id: Ecpcgs12P_c
+                    slug: vaclav-makes-git-pro-kazdodenni-pouzivani
+                    kind: livestream
+                    published_at: 2017-11-14T18:55:28+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/Ecpcgs12P_c/sddefault.jpg'
+                -
+                    title: 'Message broker RabbitMQ'
+                    speaker: 'Jan Blaško'
+                    description: "Možná jste již slyšeli o slovech jako AMQP a message broker, ale nevěděli jste co to přesně je a k čemu je možné ho používat? \n\nZamýšleli jste se někdy nad asychronním zpracováním zpráv a tím možnosti škálování, nad komunikací mezi různými systémy pomocí zpráv? \n\nPak je tento stream právě pro vás, kde se podíváme na message broker RabbitMQ.\n\nCo nás čeká:\n- úvod do problematiky, motivační use case\n- základní popis co je exchange, fronta, producer a consumer typy exchanges (fanout, direct, topic), binding a routování\n- potvrzování a reject zpráv\n- životní cyklus zpráv - message TTL, dead letter exchange, prioritní fronty\n\nVše se vám pokusím ukázat na praktických příkladech.\n\nStream je určen pro začátečníky a středně pokročilé. \n\nHonza o sobě: Pracuji ve společnosti MallGroup jako Team Leader a Senior programátor. V posledním roce se nejvíce zajímám o Elasticsearch a všechny ostatní produkty společnosti elastic.co (Kibana, Logstash, Beats,…). Náš tým v MallGroup je odpovědný zejména za business critical služby jako jsou např. produktový katalog (beží právě na Elasticsearch) a availability service pro všechny naše eshopy ve střední evropě jako jsou mall.cz, mall.sk, mall.hu, mall.hr, mall.pl a mimovrste.com.\n\nhttps://github.com/pehapkari/livestream/tree/master/2017-11-07-rabbitmq"
+                    video_id: moLrQJ6USaQ
+                    slug: jan-blasko-message-broker-rabbitmq
+                    kind: livestream
+                    published_at: 2017-11-13T18:56:56+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/moLrQJ6USaQ/sddefault.jpg'
+                -
+                    title: 'Úvod do Vue.js'
+                    speaker: 'Jakub Krupka'
+                    description: "Chtěli jste se naučit React, ale připadá vám příliš složitý a odlišný od běžně psaného Javascriptu na frontendu? Pak se vám možná bude líbit Vue, mladá knihovna pro renderování reaktivních UI. \n\nPřestaňte řešit DOM, a začněte se starat o model, metody a komponenty. Vue je ideální pro psaní větších single-page aplikací, stejně tak i pro psaní malých zapouzdřených komponent. \n\nUkážeme si následující:\n- jak co nejrychleji začít s Vue\n- data-binding, atributy a props\n- event listenery\n- metody, computed properties\n- Vue devtools\n- komponenty, jejich kompozice a lifecycle\n- předávání dat pomocí props a global events\n- sloty\n- webpack a vue-cli, single-file komponenty, hot reloading\n- ajax pomocí Axios\n- formuláře\n- pokud bude čas, nakousneme: vue-router, sdílený state pomocí Vuex, code-splitting\n\nVše si ukážeme na praktických příkladech, postupně vytvoříme malou SPA aplikaci. \n\nBudeme psát v ES6, takže pokud neznáte, doporučuju si projít minimálně arrow functions, method definitions, destructuring, template literals (https://github.com/lukehoban/es6features).\n\nJakub o sobě: Jsem UI/UX developer a frontend competence leader ve společnosti Inventi. Pracoval jsem na velkých projektech např. pro ČSOB, Global Payments, Raiffeisen Bank nebo na startupech Angelcam, Tuddy Tuddy, Mámvybráno.cz\n\ncheatsheet: https://vuejs-tips.github.io/cheatsheet/\nLaracasts tutorial: https://laracasts.com/series/learn-vue-2-step-by-step\nBulma: https://bulma.io/ (edited)\n\nhttps://github.com/pehapkari/livestream/tree/master/2017-10-24-vue-js"
+                    video_id: vMicd97Z7CY
+                    slug: jakub-krupka-uvod-do-vue-js
+                    kind: livestream
+                    published_at: 2017-10-26T09:47:18+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/vMicd97Z7CY/sddefault.jpg'
+                -
+                    title: 'Doctrine: performance'
+                    speaker: 'Filip Procházka'
+                    description: "Doctrine ORM je skvělý sluha ale zlý pán - stačí chvilka nepozornosti a hned máte na produkci performance problém, který se nemusí měsíce projevit, ale pak vás zradí v nejméně vhodnou chvíli.\n\nUkážeme si, jak načítat data efektivně, jak psát DQL aby fungovaly spolehlivě i v případě, že začnou v produkci přibývat data a jak to celé udělat co nejvíce elegantně. A vezmene to pěkně od začátku, včetně architektury repozitářů.\n\nFilip má s Doctrine dlouholeté zkušenosti a rád lidem ukazuje, že ORM nemusí být jen pomalý moloch, ale spíš efektivní nástroj díky kterému je možné psát čisté, opravdu objektově orientované aplikace. Pokud vás zajímá něco víc, koukněte na https://filip-prochazka.com/.\n\nhttps://github.com/fprochazka/doctrine-performance-pehapkari-2017-09"
+                    video_id: CTZFx6kMbO8
+                    slug: filip-prochazka-doctrine-performance
+                    kind: livestream
+                    published_at: 2017-09-25T10:29:23+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/CTZFx6kMbO8/sddefault.jpg'
+                -
+                    title: 'IoT u vás doma'
+                    speaker: 'Karol Danko'
+                    description: "Internet vecí je vzrušujúca myšlienka ktorá - rovnako ako internet samotný - mení a určite zmení náš pohľad na svet. \n\nSkrýva v sebe veľké množstvo príležitostí pre nás programátorov a jednou z možností ako naskočiť na vlnu IoT je zbastliť si niečo doma. A presne o tom bude tento stream. \n\nV tomto streame si povieme o tom:\n- čo to je IoT a prečo to chceš\n- ako vybrať \"hackovateľné\" IoT produkty\n- ako si vyrobiť vlastnú IoT vec (ESP8266)\n- ako si poskladať smart home - prakticky\n- prečo nezabudnúť na bezpečnosť a súkromie\n\nKarol o sobě: Cez deň pracujem ako Node.js vývojár v Livesporte (Livesport), kde vediem vývoj našich interných data APIs. Cez noc sa ale venujem niečomu úplne inému aby som si rozšíril obzory. A tu prichádza na radu práve IoT a smart home.\n\nhttps://github.com/pehapkari/livestream/tree/master/2017-09-19-IoT"
+                    video_id: GN4VENUfV8M
+                    slug: karol-danko-iot-u-vas-doma
+                    kind: livestream
+                    published_at: 2017-09-22T18:19:51+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/GN4VENUfV8M/sddefault.jpg'
+                -
+                    title: Elasticsearch
+                    speaker: 'Matěj Račinský'
+                    description: "Určitě jsi někdy postřehl, že kromě SQL databází se používají i NoSQL databáze. \n\nJedna z nejznámějších je Elasticsearch.\n\nNa tomhle streamu se s ním seznámíme a:\n- povíme si, kdy a proč ho používat a kdy už SQL databáze nestačí,\n- ukážeme si, jak si jej zprovoznit v dockeru,\n- napíšeme si jednoduchou aplikaci v PHP, která bude s Elasticsearchem pracovat,\n- jak jej používat pro fulltext search nad objekty, které máme v SQL databázi\n\nMatěj studuje umělou inteligenci na FEL, ČVUT, ale během školy vyvíjí webové aplikace v PHP a zajímá se o novinky na poli webového vývoje.\n\nSlovníky: https://issues.apache.org/jira/browse/LUCENE-4311\nKód: https://github.com/pehapkari/livestream/tree/master/2017-09-05-elasticsearch"
+                    video_id: 7rnUc8fno4s
+                    slug: matej-racinsky-elasticsearch
+                    kind: livestream
+                    published_at: 2017-09-07T17:12:59+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/7rnUc8fno4s/sddefault.jpg'
+                -
+                    title: Refactoring
+                    speaker: 'Jakub Kratina'
+                    description: "Velká dávka kódu, se kterým si pohrajeme a ukážeme si, jak můžete zdokonalit svůj kód pomocí různých metod refactoringu. Nezávisle na frameworku, který používáte.\n\nRozjedeme to ve velkým a projdeme: \n- Presenter inside a model\n- Collections\n- Strategizing\n- Value Objects\n- Traits\n- Steps\n- Too many parameters\n- Strongly-typed code\n- Decorating\n- Fluent interfaces\n- Repositories\n- Transformers\n\nBude to pořádná nalejvárna, tak se na to připravte :)\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-08-29-refactoring\n\nOdkazy použíté ve videu:\n- https://laracasts.com/series/whip-monstrous-code-into-shape\n- https://github.com/tightenco/collect\n- https://laravel.com/docs/5.4/collections\n- https://www.csie.ntu.edu.tw/~r95004/Refactoring_improving_the_design_of_existing_code.pdf\n- https://slideslive.com/38900570/usnadnete-si-praci-silne-typovanym-kodem-a-statickou-analyzou"
+                    video_id: WcbmBzAWR84
+                    slug: jakub-kratina-refactoring
+                    kind: livestream
+                    published_at: 2017-08-31T12:10:33+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/WcbmBzAWR84/sddefault.jpg'
+                -
+                    title: 'Docker #2'
+                    speaker: 'Daniel Plakinger'
+                    description: "O dockery sme už počuli viacerý, ale čo môžeme vyťažiť s používania Docker? Ako využívať docker efektívne pre lokálny vývoj?\n\nV tomto streame si ukážeme, ako čo najjednoduhšie pridať k projektu v Laravely docker-compose a ako ho v taktom projekte naplno využiť najmä pre lokálny vývoj. Vytvoríme si viaceré prostredia ako produkčné, lokálne a testovacie, tak aby sme ich mohli spúštať naraz. Využijeme env súbory pre jednotlivé služby (services v docker-compose) a na záver si ukážeme ako využiť docker-compose pri testovaní resources pre aplikáciu. Tento stream je pokračovaním streamu Docker 101 (https://www.youtube.com/watch?v=cV0HFt0QGEA&t=4s).\n\n---\n\nVždy ma fascinovali nové technológie a keď sa objavíte niečo ako je Docker, potom niet cesty spať a chcete mať dockerizované všetko. S dockerom som začal pri projekte, keď som potreboval PHP 5.3 a nemal som veľmi chuť sa trápiť s compilovaním, tak som narazil na túto super vecičku, používam ju do dnes a neviem si ju vynachváliť. Momentálne, všade kde pracujem zanesiem docker.\n\n--- \n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-08-22-docker-2"
+                    video_id: x_jsNPW6ixQ
+                    slug: daniel-plakinger-docker-2
+                    kind: livestream
+                    published_at: 2017-08-24T11:18:16+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/x_jsNPW6ixQ/hqdefault.jpg'
+                -
+                    title: '3D na webu pomocí BabylonJS'
+                    speaker: 'Pavol Hejný'
+                    description: "V rámci streamu bych vám rád ukázal, jak můžete 3D na webu začít používat pomocí WebGl frameworku BabylonJS. Dostal bych se k nějakému jednoduchému, ale funkčnímu miniprojektu.\n\nDělal jsem několik podobných workshopů, kde jsme v rámci cca. dvou hodin vytvořili 3D hada nebo malování(ve 2D) na webu. Pokud vás napadne konkrétní věc, kterou chceme vytvořit, můžeme udělat před streamem hlasování.\n\nAť už chcete mít na svém eshopu 3D náhledy produktů nebo si chcete vytvořit vlastní 3D webovou hru, určitě se na stream připojte!\n\nWebové stránky a aplikace vyvíjím přes 10 let. Prošel jsem si vývojem Flash aplikací, PHP stránek, a dnes vyvíjím převážně v TypeScriptu pomocí knihoven React+Redux.\nDlouhou dobu jsem vytvářel a provozoval online hru Towns.cz, na které jsem se naučil snad všechny chyby, kterým by se měl programátor vyhnout.\n\nDnes pracuji v České společnosti ornitologické, kde vyrábím aplikace na sběr a zpracování dat. Také mám několik svých vlastních webových projektů, kde využívám vygenerovanou 2D a 3D grafiku. Většinu z nich mám na své stránce https://www.pavolhejny.com/.\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-08-15-3d-babylon-js"
+                    video_id: Qu7Zckx9yC4
+                    slug: pavol-hejny-3d-na-webu-pomoci-babylonjs
+                    kind: livestream
+                    published_at: 2017-08-18T13:44:52+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/Qu7Zckx9yC4/sddefault.jpg'
+                -
+                    title: 'Amazon Web Services (English)'
+                    speaker: 'Dennis Kopp'
+                    description: "In this stream, I will show how to run PHP applications on Amazon Web Services, as well as how to integrate it with services such as Lambda and DynamoDB. \n\nWe will start with a simple PHP application that stores orders made by the user and displays the current order status. \n\nWe will then develop a Lambda function which processes these orders asynchronously and updates them in the database.\n\nDennis has been using PHP professionally for ten years now. After spending 8 years in the games industry, he is now developing applications for customers like Audi and Telefónica at SinnerSchrader. In his free time, he likes to dance to swing music and to ride his bike.\n\nCode: https://github.com/pehapkari/livestream/tree/master/2017-08-08-aws"
+                    video_id: LCYLQezmWqQ
+                    slug: dennis-kopp-amazon-web-services-english
+                    kind: livestream
+                    published_at: 2017-08-11T08:39:01+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/LCYLQezmWqQ/sddefault.jpg'
+                -
+                    title: 'Gephart - Nástroj pro rychlý vývoj webů'
+                    speaker: 'Michal Katuščák'
+                    description: "Měl jsem potřebu vytvořit framework, který bude fungovat přesně tak, jak chci, a aby neobsahoval věci, které nepotřebuji.\n\nGephart stavím s tím, aby byl co nejrychlejší (na vývoj i na běh) a nejmenší, ale aby si zároveň zachoval čistý kód.\n\nNa livestreamu ukážu, jak si usnadňuji práci svým frameworkem:\n- Co je to Gephart Framework?\n- Instalace frameworku s balíčkem pro generování kódu\n- Napojení šablony na framework\n\nMichal je webový vývojář z Českých Budějovic, pracující v NexGen IT. Programátor každým coulem, co i rád fotí a cestuje.\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-07-25-gephart"
+                    video_id: y0wIHwm-pyM
+                    slug: michal-katuscak-gephart-nastroj-pro-rychly-vyvoj-webu
+                    kind: livestream
+                    published_at: 2017-07-28T08:19:40+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/y0wIHwm-pyM/sddefault.jpg'
+                -
+                    title: 'Laravel API'
+                    speaker: 'Jakub Kratina'
+                    description: "Na praktickém příkladu si ukážeme, jak je jednoduché, rychlé a efektivní postavit nad Laravelem REST API pomocí Dingo API s autentizací pomocí JWT.\n\nTaké si ukážeme, jak se pracuje s Fractalem od The PHP League (resources, serializers a transformers), nasadíme stránkování a postaráme se o CORS.\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-07-11-laravel-api"
+                    video_id: Hy7f-by_6Nk
+                    slug: jakub-kratina-laravel-api
+                    kind: livestream
+                    published_at: 2017-07-17T20:37:17+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/Hy7f-by_6Nk/sddefault.jpg'
+                -
+                    title: 'Moje první iOS aplikace v Xamarinu'
+                    speaker: 'Pavel Vondrášek & Jakub Kratina'
+                    description: "Vždy mě zajímalo, jak se tvoří iOS aplikace. Co je k tomu potřeba, jak to funguje? Sice jsme PéHápkaři, ale věřím, že je důležité si rozšiřovat obzory a právě proto jsme si pro vás s Pavlem Vondráškem připravili tento livestream.\n\nVytvoříme si jednoduchou logistickou iOS aplikaci pomocí Xamarinu, C# a REST API.\n\nXamarin je nástroj pro vývoj cross-platform aplikací. Díky němu můžeš vyvíjet nativní aplikace pro iOS, Android a Windows najednou.\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-06-27-xamarin"
+                    video_id: F-_ZQhMJQiY
+                    slug: pavel-vondrasek-jakub-kratina-moje-prvni-ios-aplikace-v-xamarinu
+                    kind: livestream
+                    published_at: 2017-06-30T19:03:50+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/F-_ZQhMJQiY/sddefault.jpg'
+                -
+                    title: 'Docker 101'
+                    speaker: 'Jakub Kratina'
+                    description: "Určitě jsi někdy slyšel o Dockeru. Chceš se o něm dozvědět víc a naučit se s ním pracovat? Tak právě pro tebe je určen tento livestream.\n\nNa livestreamu si ukážeme:\n- co je to Docker a jak funguje,\n- jak ho nainstalujeme,\n- k čemu slouží Dockerfile a docker compose file,\n- vysvětlíme si syntax,\n- zdokerizujeme PHP aplikaci,\n- nahrajeme Docker image na hub.docker.com a zautomatizujeme deployment aplikace na server pomocí buddy.works\n\n- https://www.docker.com/\n- https://hub.docker.com/\n- http://container-solutions.com/understanding-volumes-docker/\n\nOmlouvám se za formát videa.\n\nKód: https://github.com/pehapkari/livestream/tree/master/2017-05-30-docker-101"
+                    video_id: cV0HFt0QGEA
+                    slug: jakub-kratina-docker-101
+                    kind: livestream
+                    published_at: 2017-06-05T14:42:32+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/cV0HFt0QGEA/sddefault.jpg'
+                -
+                    title: 'Jak zvýšit svoji cenu při hledání práce'
+                    speaker: 'Jakub Kratina'
+                    description: "Jakub ti poví, co můžeš udělat pro to, aby sis mohl říct o větší plat, jaké jsou možnosti a modely práce a jak k nim přistupovat.\n\nOdkazy:\n- Efektivita práce (https://www.youtube.com/watch?v=GhhRDpR_7gU),\n- https://cz.linkedin.com/in/jakub-kratina-b5972549\n- http://www.jobs.cz/poradna/video-jak-znite-kdyz-si-rikate-o-vyssi-plat/\n- http://www.jobs.cz/poradna/21-otazek-na-ktere-na-pohovoru-polozte-vy/\n- https://devel.cz/otazka/jak-se-pracuje-za-cool-people\n- www.toptal.com\n- https://www.oreilly.com/ideas/2016-2017-web-salary-survey\n- http://honzajavorek.cz/blog/how-corporations-can-attract-good-engineers"
+                    video_id: i59-IYvW38A
+                    slug: jakub-kratina-jak-zvysit-svoji-cenu-pri-hledani-prace
+                    kind: livestream
+                    published_at: 2017-05-20T14:16:31+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/i59-IYvW38A/sddefault.jpg'
+                -
+                    title: 'Efektivita práce'
+                    speaker: 'Lukáš Fronc'
+                    description: "S Lukášem se zaměříme na zvýšení vaší efektivity práce, zejména pokud vyvíjíte na Macu. Na své si přijdou částečně i Oknaři a Linuxáci.\n\nPřipravovaná osnova je vývojářsky zaměřeným destilátem kurzu 200% Mac (https://www.naucmese.cz/kurz/200-mac), který vede pod platformou Naučmese.cz.\n\nPodíváme se společně na:\n- nativní verzování pod macOS\n- snipety nezávislé na IDE (Xplatform)\n- QuickLook pluginy pro vývojáře\n- zrychlení práce pomocí dropování a zástupci ve Finderu\n- soft-skills pro zvýšení produktivity a boji s prokrastinací (Xplatform)\n\nOdkazy použité ve videu:\n- https://www.trankynam.com/atext/\n- https://smilesoftware.com/textexpander\n- https://emmet.io/\n- https://www.brain.fm/\n- http://www.quicklookplugins.com/"
+                    video_id: GhhRDpR_7gU
+                    slug: lukas-fronc-efektivita-prace
+                    kind: livestream
+                    published_at: 2017-05-18T20:03:26+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/GhhRDpR_7gU/sddefault.jpg'
+                -
+                    title: 'Stromové struktury v SQL'
+                    speaker: 'Pavel Vondrášek'
+                    description: 'Pavel Vondrášek ti ukáže několik různých způsobů, jak lze ukládat stromové struktury (kategorie, adresářovou strukturu apod.) v SQL databázi. Parent list zná snad každý, ale o dalších způsobech jako je MPTT nebo closure table se toho již tolik neví. Cílem livestreamu bude ukázat jednotlivé možnosti a zvolit nejvhodnější řešení'
+                    video_id: hVjhKHftj0E
+                    slug: pavel-vondrasek-stromove-struktury-v-sql
+                    kind: livestream
+                    published_at: 2017-05-04T18:12:38+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/hVjhKHftj0E/sddefault.jpg'
+                -
+                    title: 'Asynchronní PHP'
+                    speaker: 'Ondřej Mirtes'
+                    description: "Asynchronní kód už dávno není doménou jen Node.js. Abyste si vyzkoušeli psát a provozovat aplikaci, která dokáže dělat více věcí naráz, nemusíte se učit programovat v jiné technologii, vystačíte si s PHP, které vás příjemně překvapí svým výkonem a možnostmi.\n\nVysvětlíme si, co přesně asynchronnost znamená, kde všude se s ní dá setkat a kdy se vyplatí ji použít. Ukážeme si, jak přesně fungují promises a napíšeme si kód, který je využívá a poskytuje.\n\nV druhé polovině livestreamu pak předvedu konkrétní knihovny a postupy pro nejčastější I/O potřeby, tedy asynchronní HTTP požadavky, SQL dotazy a přístupy na filesystém"
+                    video_id: ktfyEKUrabw
+                    slug: ondrej-mirtes-asynchronni-php
+                    kind: livestream
+                    published_at: 2017-04-19T16:46:24+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/ktfyEKUrabw/sddefault.jpg'
+                -
+                    title: 'Bezbolestné continuous deployment s buddy.works'
+                    speaker: 'Jakub Kratina'
+                    description: "14 dnů bojoval s tím, jak co nejvíce a nejpohodlněji nahrávat změny na server. A nejen to. Jak nainstalovat závislosti. Cachovat. Testovat. Udělat změnu. Pushnout. A znova.\n\nCílem bylo najít nejjednodušší řešení, ideálně \"one click\". To se sice nepodařilo, ale s výsledkem je nadmíru spokojený!"
+                    video_id: sqiW86fTes4
+                    slug: jakub-kratina-bezbolestne-continuous-deployment-s-buddy-works
+                    kind: livestream
+                    published_at: 2017-04-11T08:53:04+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/sqiW86fTes4/sddefault.jpg'
+                -
+                    title: 'Laravel workflow inspirované Laravel Spark'
+                    speaker: 'Jakub Kratina'
+                    description: 'Jakub Kratina vám ukáže, jak pracuje v Laravelu a jaké výhody má workflow inspirované Laravel Spark od Taylora Otwella'
+                    video_id: WubTcL7wILI
+                    slug: jakub-kratina-laravel-workflow-inspirovane-laravel-spark
+                    kind: livestream
+                    published_at: 2017-03-21T20:11:11+00:00
+                    slides: ''
+                    thumbnail: 'https://i.ytimg.com/vi/WubTcL7wILI/sddefault.jpg'
             month: ''

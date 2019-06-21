@@ -42,6 +42,11 @@ final class Video
     private $speaker;
 
     /**
+     * @var string
+     */
+    private $slides;
+
+    /**
      * @var DateTimeInterface
      */
     private $publishedAt;
@@ -54,6 +59,7 @@ final class Video
         string $slug,
         string $thumbnail,
         string $kind,
+        string $slides,
         DateTimeInterface $publishedAt
     ) {
         $this->title = $title;
@@ -65,6 +71,7 @@ final class Video
 
         $this->publishedAt = $publishedAt;
         $this->speaker = $speaker;
+        $this->slides = $slides;
     }
 
     public function getTitle(): string
@@ -105,5 +112,10 @@ final class Video
     public function getSpeaker(): string
     {
         return $this->speaker;
+    }
+
+    public function getSlides(): string
+    {
+        return $this->slides;
     }
 }
