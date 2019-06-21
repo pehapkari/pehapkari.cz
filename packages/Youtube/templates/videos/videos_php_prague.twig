@@ -1,0 +1,21 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+    <div id="videos">
+        <div class="section">
+            <h1 class="text-center">PHP Prague</h1>
+
+            <p>We organize international PHP conference in Prague every 2 years.</p>
+
+            {% for playlist in playlists %}
+                <h2>{{ playlist.title }}</h2>
+
+                <div class="row">
+                    {% for video in playlist.videos %}
+                        {% include "_snippet/video_row.twig" %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

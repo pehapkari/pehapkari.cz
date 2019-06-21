@@ -85,6 +85,18 @@ final class VideoController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route(path="/videos/php-prague", name="videos_php_prague")
+     */
+    public function videoPhpPrague(): Response
+    {
+        $this->ensureYoutubeDataExists();
+
+        return $this->render('videos/videos_php_prague.twig', [
+            'playlists' => $this->youtubeVideos['php_prague_playlists'],
+        ]);
+    }
+
     private function ensureYoutubeDataExists(): void
     {
         if ($this->youtubeVideos && isset($this->youtubeVideos['livestream_playlist'], $this->youtubeVideos['meetup_playlists'])) {
@@ -99,8 +111,16 @@ final class VideoController extends AbstractController
 
     private function getVideoBySlug(string $videoSlug): Video
     {
-        foreach ($this->youtubeVideos['meetup_playlists'] as $meetupPlaylist) {
-            foreach ($meetupPlaylist['videos'] as $videoData) {
+        foreach ($this->youtubeVideos['php_prague_playlists'] as $playlist) {
+            foreach ($playlist['videos'] as $videoData) {
+                if ($videoData['slug'] === $videoSlug) {
+                    return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
+                }
+            }
+        }
+
+        foreach ($this->youtubeVideos['meetup_playlists'] as $playlist) {
+            foreach ($playlist['videos'] as $videoData) {
                 if ($videoData['slug'] === $videoSlug) {
                     return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
                 }

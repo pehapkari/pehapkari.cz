@@ -82,9 +82,13 @@ final class YoutubeApi
             $playlist['month'] = $this->resolvePlaylistMonth($item['snippet']['title']);
 
             if ($kind === self::KIND_LIVESTREAM) {
+                usort($playlist['videos'], function (array $firstVideo, array $secondVideo) {
+                    // newest first
+                    return $secondVideo['published_at'] <=> $firstVideo['published_at'];
+                });
                 $playlists['livestream_playlist'] = $playlist;
             } elseif ($kind === self::KIND_PHP_PRAGUE_CONFERENCE) {
-                $playlists['php_prague_playlist'] = $playlist;
+                $playlists['php_prague_playlists'][] = $playlist;
             } else {
                 $playlists['meetup_playlists'][] = $playlist;
             }
@@ -159,7 +163,7 @@ final class YoutubeApi
                 'published_at' => DateTime::from($videoItem['snippet']['publishedAt']),
             ];
 
-            $match = Strings::match($video['description'], '#(Slajdy|Slidy)(.*?): (?<slides>[\w:\/\.\-\_]+)#s');
+            $match = Strings::match($video['description'], '#(Slides|Slajdy|Slidy)(.*?): (?<slides>[\w:\/\.\-\_]+)#s');
             $video['slides'] = $match['slides'] ?? '';
 
             $thumbnails = $videoItem['snippet']['thumbnails'] ?? null;

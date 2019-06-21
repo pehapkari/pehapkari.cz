@@ -3,24 +3,49 @@
 {% block main %}
     <div id="videos">
         <div class="section">
-            <h1 class="text-center">{{ video.speaker }} - {{ video.title }}</h1>
+            <h1 class="text-center">
+                {{ video.speaker }} - {{ video.title }}
+                {% if video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_LIVESTREAM') %}
+                    <br>
+                    <small>(natočeno {{ video.publishedAt|date("Y-m") }})</small>
+                {% endif %}
+            </h1>
 
             {% if video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_LIVESTREAM') %}
-                <a href="{{ path('livestream') }}" class="btn btn-info btn-sm">
+                <a href="{{ path('livestream') }}" class="btn btn-info">
                     <em class="fas fa-fast-backward"></em>
                     &nbsp;
                     Zpátky na livestreamy
                 </a>
+            {% elseif video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_MEETUP') %}
+                <a href="{{ path('videos') }}" class="btn btn-info">
+                    <em class="fas fa-fast-backward"></em>
+                    &nbsp;
+                    Zpátky na meetupy
+                </a>
+            {% elseif video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_PHP_PRAGUE_CONFERENCE') %}
+                <a href="{{ path('videos') }}" class="btn btn-info">
+                    <em class="fas fa-fast-backward"></em>
+                    &nbsp;
+                    Zpátky na PHP Prague
+                </a>
             {% endif %}
+
+            {% if video.slides %}
+                <a href="{{ video.slides }}" class="btn btn-warning ml-2">
+                    <em class="fab fa-fw fa-slideshare"></em>
+                    Slides
+                </a>
+            {% endif %}
+
+            {# see https://getbootstrap.com/docs/4.0/utilities/embed/ #}
+            <div class="embed-responsive embed-responsive-16by9 mt-3">
+                <iframe src="https://www.youtube.com/embed/{{ video.videoId }}" class="embed-responsive-item" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
 
             <p class="mt-5">
                 {{ video.description|markdown|raw }}
             </p>
-
-            {# see https://getbootstrap.com/docs/4.0/utilities/embed/ #}
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe src="https://www.youtube.com/embed/{{ video.videoId }}" class="embed-responsive-item" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
 
             <h2 class="mt-5">Dotazy?</h2>
 

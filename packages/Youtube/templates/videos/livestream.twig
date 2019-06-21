@@ -5,7 +5,9 @@
         <div class="section">
             <h1 class="text-center">Livestreamy</h1>
 
-            <p>Kuba organizoval mezi X a Y livestreamy, tady všechny najdeš.</p>
+            <p>Jakub Kratina natočil spolu s vámi {{ livestream_playlist.videos|length }} livestreamů. Tady si je všechny může přehrát.</p>
+
+            <br>
 
             <div class="row">
                 {% for video in livestream_playlist.videos %}
