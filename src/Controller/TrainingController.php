@@ -2,6 +2,7 @@
 
 namespace Pehapkari\Controller;
 
+use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 use Pehapkari\Training\Entity\Training;
 use Pehapkari\Training\Repository\TrainingFeedbackRepository;
 use Pehapkari\Training\Repository\TrainingRepository;
@@ -27,14 +28,21 @@ final class TrainingController extends AbstractController
      */
     private $trainingFeedbackRepository;
 
+    /**
+     * @var TrainingRegistrationRepository
+     */
+    private $trainingRegistrationRepository;
+
     public function __construct(
         TrainingTermRepository $trainingTermRepository,
         TrainingRepository $trainingRepository,
-        TrainingFeedbackRepository $trainingFeedbackRepository
+        TrainingFeedbackRepository $trainingFeedbackRepository,
+        TrainingRegistrationRepository $trainingRegistrationRepository
     ) {
         $this->trainingTermRepository = $trainingTermRepository;
         $this->trainingRepository = $trainingRepository;
         $this->trainingFeedbackRepository = $trainingFeedbackRepository;
+        $this->trainingRegistrationRepository = $trainingRegistrationRepository;
     }
 
     /**
@@ -49,8 +57,7 @@ final class TrainingController extends AbstractController
             'inactive_trainings' => $this->trainingRepository->fetchInactiveTrainings(),
 
             'total_training_term_count' => $this->trainingTermRepository->getFinishedCount(),
-            //  'finishedParticipantCount' => $this->trainingRegistrationRepository->getFinishedCount(),
-            'total_participant_count' => 120,
+            'total_participant_count' => $this->trainingRegistrationRepository->getFinishedCount(),
 
             'feedbacks' => $this->trainingFeedbackRepository->getForMainPage(),
 

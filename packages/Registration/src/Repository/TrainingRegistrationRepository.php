@@ -33,9 +33,10 @@ final class TrainingRegistrationRepository
     public function getFinishedCount(): int
     {
         return (int) $this->entityRepository->createQueryBuilder('tr')
+            ->andWhere('tr.isPaid = true')
             ->join('tr.trainingTerm', 'tt')
             ->select('count(tr.id)')
-            ->andWhere('tt.endDateTime < CURRENT_DATE()')
+            ->andWhere('tt.startDateTime < CURRENT_DATE()')
             ->getQuery()
             ->getSingleScalarResult();
     }
@@ -69,5 +70,15 @@ final class TrainingRegistrationRepository
             'id' => $ids,
             'hasInvoice' => false,
         ]);
+    }
+
+    public function getParticipantCount(): int
+    {
+        return (int) $this->entityRepository->createQueryBuilder('tr')
+            ->join('tr.trainingTerm', 'tt')
+            ->select('count(tr.id)')
+            ->andWhere('tt.startDateTime < CURRENT_DATE()')
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 }
