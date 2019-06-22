@@ -71,7 +71,7 @@ final class AdminExpenseController extends EasyAdminController
         $trainingTermId = $this->request->get('trainingTerm');
         $expense = new Expense();
         if ($trainingTermId) {
-            $trainingTerm = $this->trainingTermRepository->getFeedback($trainingTermId);
+            $trainingTerm = $this->trainingTermRepository->getReference($trainingTermId);
             if ($trainingTerm instanceof TrainingTerm) {
                 $expense->setTrainingTerm($trainingTerm);
             }

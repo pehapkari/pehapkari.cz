@@ -32,12 +32,13 @@ final class TrainingTermRepository
     /**
      * @return TrainingTerm[]
      */
-    public function fetchFinished(): array
+    public function fetchFinishedAndEmpty(): array
     {
-        return $this->entityRepository->createQueryBuilder('tt')
-            ->where('tt.startDateTime < CURRENT_DATE()')
-            ->getQuery()
-            ->getResult();
+        $finishedTrainingTerms = $this->fetchFinished();
+
+        return array_filter($finishedTrainingTerms, function (TrainingTerm $trainingTerm): bool {
+            return $trainingTerm->getParticipantCount() < 2;
+        });
     }
 
     /**
@@ -54,11 +55,7 @@ final class TrainingTermRepository
 
     public function getFinishedCount(): int
     {
-        return (int) $this->entityRepository->createQueryBuilder('tt')
-            ->select('count(tt.id)')
-            ->andWhere('tt.startDateTime < CURRENT_DATE()')
-            ->getQuery()
-            ->getSingleScalarResult();
+        return count($this->fetchFinished());
     }
 
     public function findBySlug(string $slug): ?TrainingTerm
@@ -84,7 +81,7 @@ final class TrainingTermRepository
      * @param mixed $id
      * @return bool|Proxy|object|null
      */
-    public function getFeedback($id)
+    public function getReference($id)
     {
         return $this->entityManager->getReference(TrainingTerm::class, $id);
     }
@@ -96,5 +93,23 @@ final class TrainingTermRepository
     public function findByIds(array $ids): array
     {
         return $this->entityRepository->findBy(['id' => $ids]);
+    }
+
+    public function delete(TrainingTerm $trainingTerm): void
+    {
+        $this->entityManager->remove($trainingTerm);
+        $this->entityManager->flush();
+    }
+
+    /**
+     * @return TrainingTerm[]
+     */
+    private function fetchFinished(): array
+    {
+        return $this->entityRepository->createQueryBuilder('tt')
+            ->where('tt.startDateTime < CURRENT_DATE()')
+            ->andWhere('tt.isProvisionPaid = true')
+            ->getQuery()
+            ->getResult();
     }
 }

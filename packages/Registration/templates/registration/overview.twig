@@ -17,7 +17,7 @@
                         <tr>
                             {% set training = training_term.getTraining() %}
                             <td>{{ training.getName()|raw }}</td>
-                            <td>{{ training_term.getParticipationCount() }} registrací</td>
+                            <td>{{ training_term.participantCount() }} registrací</td>
                         </tr>
                     {% endfor %}
                 </table>

@@ -42,7 +42,7 @@ final class TrainingRepository
             ->join('t.trainingTerms', 'tt')
             // pick only very recent trainings +/- 7 days
             ->andWhere('tt.startDateTime < :nextWeek')
-            ->andWhere('tt.endDateTime > :weekAgo')
+            ->andWhere('tt.startDateTime > :weekAgo')
             ->setParameter(':weekAgo', DateTime::from('- 7 days'))
             ->setParameter(':nextWeek', DateTime::from('+ 7 days'))
             // has at least one registration

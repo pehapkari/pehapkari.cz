@@ -2,6 +2,7 @@
 
 namespace Pehapkari\Controller;
 
+use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 use Pehapkari\Training\Entity\Training;
 use Pehapkari\Training\Repository\TrainingFeedbackRepository;
 use Pehapkari\Training\Repository\TrainingRepository;
@@ -27,14 +28,21 @@ final class TrainingController extends AbstractController
      */
     private $trainingFeedbackRepository;
 
+    /**
+     * @var TrainingRegistrationRepository
+     */
+    private $trainingRegistrationRepository;
+
     public function __construct(
         TrainingTermRepository $trainingTermRepository,
         TrainingRepository $trainingRepository,
-        TrainingFeedbackRepository $trainingFeedbackRepository
+        TrainingFeedbackRepository $trainingFeedbackRepository,
+        TrainingRegistrationRepository $trainingRegistrationRepository
     ) {
         $this->trainingTermRepository = $trainingTermRepository;
         $this->trainingRepository = $trainingRepository;
         $this->trainingFeedbackRepository = $trainingFeedbackRepository;
+        $this->trainingRegistrationRepository = $trainingRegistrationRepository;
     }
 
     /**
@@ -48,19 +56,16 @@ final class TrainingController extends AbstractController
             'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),
             'inactive_trainings' => $this->trainingRepository->fetchInactiveTrainings(),
 
-            // hardcoded till the db is up
-            // 'finishedTrainingTermCount' => $this->trainingTermRepository->getFinishedCount(),
-            'total_training_term_count' => 15,
-            //  'finishedParticipantCount' => $this->trainingRegistrationRepository->getFinishedCount(),
-            'total_participant_count' => 120,
+            'total_training_term_count' => $this->trainingTermRepository->getFinishedCount(),
+            'total_participant_count' => $this->trainingRegistrationRepository->getFinishedCount(),
 
             'feedbacks' => $this->trainingFeedbackRepository->getForMainPage(),
 
             'average_training_rating' => $averageRating,
             'average_training_rating_stars' => round($averageRating, 0),
 
-            'past_terms' => $this->trainingTermRepository->fetchFinished(),
-            'past_terms_count' => count($this->trainingTermRepository->fetchFinished()),
+            'past_terms' => $this->trainingTermRepository->fetchFinishedAndEmpty(),
+            'past_terms_count' => count($this->trainingTermRepository->fetchFinishedAndEmpty()),
         ]);
     }
 

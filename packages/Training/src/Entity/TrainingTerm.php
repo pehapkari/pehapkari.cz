@@ -190,16 +190,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
         return $this->registrations;
     }
 
-    public function getParticipationCount(): int
-    {
-        $count = 0;
-        foreach ($this->registrations as $registration) {
-            $count += $registration->getParticipantCount();
-        }
-
-        return $count;
-    }
-
     public function getSlug(): ?string
     {
         return $this->slug;
@@ -212,7 +202,12 @@ class TrainingTerm implements UploadDestinationAwareInterface
 
     public function getParticipantCount(): int
     {
-        return count($this->registrations);
+        $count = 0;
+        foreach ($this->registrations as $registration) {
+            $count += $registration->getParticipantCount();
+        }
+
+        return $count;
     }
 
     /**
