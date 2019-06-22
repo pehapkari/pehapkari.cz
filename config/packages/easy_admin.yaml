@@ -42,6 +42,10 @@ easy_admin:
                 icon: 'calendar'
                 entity: 'TrainingTerm'
             -
+                label: 'New Registrations'
+                icon: 'id-badge'
+                entity: 'NewRegistration'
+            -
                 icon: 'id-badge'
                 entity: 'Registration'
             -
