@@ -22,7 +22,10 @@ easy_admin:
             class: 'Pehapkari\Training\Entity\TrainingTerm'
             controller: 'Pehapkari\Training\Admin\Controller\AdminTrainingTermController'
             list:
+                sort: ['startDateTime', 'DESC']
                 batch_actions: ['generateMarketingCampaign']
+                # show only those without paid provision
+                dql_filter: 'entity.isProvisionPaid = FALSE'
                 fields:
                     - 'training'
                     - 'startDateTime'

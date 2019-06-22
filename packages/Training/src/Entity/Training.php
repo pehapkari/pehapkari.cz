@@ -237,12 +237,18 @@ class Training
 
     public function hasFeedbacks(): bool
     {
-        return (bool) $this->getFeedbackCount();
+        return (bool) count($this->trainingFeedbacks);
     }
 
-    public function getFeedbackCount(): int
+    public function getParticipantCount(): int
     {
-        return count($this->trainingFeedbacks);
+        $participantCount = 0;
+
+        foreach ($this->trainingTerms as $trainingTerm) {
+            $participantCount += $trainingTerm->getParticipantCount();
+        }
+
+        return $participantCount;
     }
 
     /**

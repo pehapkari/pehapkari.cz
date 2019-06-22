@@ -76,12 +76,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
     private $startDateTime;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
-     * @var DateTime
-     */
-    private $endDateTime;
-
-    /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Registration\Entity\TrainingRegistration", mappedBy="trainingTerm")
      * @var TrainingRegistration[]|Collection
      */
@@ -139,12 +133,18 @@ class TrainingTerm implements UploadDestinationAwareInterface
 
     public function getEndDateTime(): ?DateTime
     {
-        return $this->endDateTime;
-    }
+        if ($this->training->getDuration() === null) {
+            return null;
+        }
 
-    public function setEndDateTime(DateTime $endDateTime): void
-    {
-        $this->endDateTime = $endDateTime;
+        if ($this->startDateTime === null) {
+            return null;
+        }
+
+        $endDateTime = clone $this->startDateTime;
+        $endDateTime->modify('+' . $this->training->getDuration() . ' hours');
+
+        return $endDateTime;
     }
 
     public function getDeadlineDateTime(): ?DateTime
@@ -157,16 +157,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
         $deadLineDateTime->setTime(23, 59);
 
         return $deadLineDateTime->modify(sprintf('- %d days', self::DEADLINE_DAYS_AHEAD));
-    }
-
-    public function getStartDateTimeInFormat(string $format): string
-    {
-        return $this->startDateTime->format($format);
-    }
-
-    public function getEndDateTimeInFormat(string $format): string
-    {
-        return $this->endDateTime->format($format);
     }
 
     public function isProvisionPaid(): ?bool
