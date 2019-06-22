@@ -2,7 +2,6 @@
 
 namespace Pehapkari\Training\Twig;
 
-use DateTimeInterface;
 use Pehapkari\Training\Entity\TrainingTerm;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -16,14 +15,10 @@ final class TrainingExtension extends AbstractExtension
     {
         return [
             new TwigFilter('from_to', function (TrainingTerm $trainingTerm): string {
-                if ($trainingTerm->getStartDateTime()->format('Y-m-d') === $trainingTerm->getEndDateTime()->format('Y-m-d')) {
-                    // same day
-
-                    return $trainingTerm->getStartDateTime()->format('j. n. Y H:i - ') .
-                        $trainingTerm->getEndDateTime()->format('H:i');
-                }
-
-                // differnt day :(
+                // @note for 1-day trainings only
+                return $trainingTerm->getStartDateTime()->format('Y-m-d H:i')
+                    . ' - '
+                    . $trainingTerm->getEndDateTime()->format('H:i');
             }),
         ];
     }
