@@ -24,7 +24,6 @@ services:
 
     Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
         extra_allowed_classes:
-            - 'K0nias\FakturoidApi\*'
             - 'setasign\Fpdi\*'
             - 'Pehapkari\Provision\Data\*'
             - 'App\Request\*Request'

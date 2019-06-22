@@ -190,8 +190,8 @@
     "jms/metadata": {
         "version": "2.0.0"
     },
-    "k0nias/fakturoid-api": {
-        "version": "0.1.1"
+    "kevinrob/guzzle-cache-middleware": {
+        "version": "v3.2.1"
     },
     "knplabs/doctrine-behaviors": {
         "version": "1.6.0"
@@ -620,6 +620,12 @@
             "src/Controller/.gitignore",
             "src/Kernel.php"
         ]
+    },
+    "symfony/http-client": {
+        "version": "v4.3.1"
+    },
+    "symfony/http-client-contracts": {
+        "version": "v1.1.5"
     },
     "symfony/http-foundation": {
         "version": "v4.3.1"

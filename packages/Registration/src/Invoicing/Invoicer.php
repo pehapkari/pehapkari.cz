@@ -33,7 +33,7 @@ final class Invoicer
         // $this->fakturoidApi->sendInvoiceEmail($invoiceId);
 
         // se we can pair paid invoices
-        $trainingRegistration->setFakturoidInvoiceId($invoiceId->getId());
+        $trainingRegistration->setFakturoidInvoiceId($invoiceId);
 
         // update registration about invoice
         $trainingRegistration->setHasInvoice(true);
