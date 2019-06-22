@@ -56,7 +56,7 @@ final class TrainingTermRepository
     {
         return (int) $this->entityRepository->createQueryBuilder('tt')
             ->select('count(tt.id)')
-            ->andWhere('tt.startDateTime < CURRENT_DATE()')
+            ->andWhere('tt.isProvisionPaid = true')
             ->getQuery()
             ->getSingleScalarResult();
     }
@@ -84,7 +84,7 @@ final class TrainingTermRepository
      * @param mixed $id
      * @return bool|Proxy|object|null
      */
-    public function getFeedback($id)
+    public function getReference($id)
     {
         return $this->entityManager->getReference(TrainingTerm::class, $id);
     }

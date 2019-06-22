@@ -48,9 +48,7 @@ final class TrainingController extends AbstractController
             'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),
             'inactive_trainings' => $this->trainingRepository->fetchInactiveTrainings(),
 
-            // hardcoded till the db is up
-            // 'finishedTrainingTermCount' => $this->trainingTermRepository->getFinishedCount(),
-            'total_training_term_count' => 15,
+            'total_training_term_count' => $this->trainingTermRepository->getFinishedCount(),
             //  'finishedParticipantCount' => $this->trainingRegistrationRepository->getFinishedCount(),
             'total_participant_count' => 120,
 
