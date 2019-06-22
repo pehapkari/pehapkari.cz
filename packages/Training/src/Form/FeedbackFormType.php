@@ -23,7 +23,7 @@ final class FeedbackFormType extends AbstractType
     /**
      * @var string
      */
-    private const ELEPHANT_EMOJI = '🐘';
+    private const STAR = '⭐';
 
     /**
      * @var TrainingRepository
@@ -114,16 +114,16 @@ final class FeedbackFormType extends AbstractType
     {
         return [
             # label => value
-            $this->createElephantLine(1) => 1.0,
-            $this->createElephantLine(2) => 2.0,
-            $this->createElephantLine(3) => 3.0,
-            $this->createElephantLine(4) => 4.0,
-            $this->createElephantLine(5) => 5.0,
+            $this->createRatingLine(1) => 1.0,
+            $this->createRatingLine(2) => 2.0,
+            $this->createRatingLine(3) => 3.0,
+            $this->createRatingLine(4) => 4.0,
+            $this->createRatingLine(5) => 5.0,
         ];
     }
 
-    private function createElephantLine(int $amount): string
+    private function createRatingLine(int $amount): string
     {
-        return str_repeat(self::ELEPHANT_EMOJI, $amount);
+        return str_repeat(self::STAR, $amount);
     }
 }
