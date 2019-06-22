@@ -64,8 +64,8 @@ final class TrainingController extends AbstractController
             'average_training_rating' => $averageRating,
             'average_training_rating_stars' => round($averageRating, 0),
 
-            'past_terms' => $this->trainingTermRepository->fetchFinished(),
-            'past_terms_count' => count($this->trainingTermRepository->fetchFinished()),
+            'past_terms' => $this->trainingTermRepository->fetchFinishedAndEmpty(),
+            'past_terms_count' => count($this->trainingTermRepository->fetchFinishedAndEmpty()),
         ]);
     }
 
