@@ -6,7 +6,7 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-4 offset-4 mt-5">
-                <h1 class="mb-4 mt-4">Vítej zpátky</h1>
+                <h1 class="mb-4 mt-4">Welcome back!</h1>
 
                 {% if error %}
                     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -22,7 +22,7 @@
                     {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                    <button class="btn btn-lg btn-primary btn-block mt-2 mb-2" type="submit">Přihlásit se</button>
+                    <button class="btn btn-lg btn-primary btn-block mt-2 mb-2" type="submit">Get in</button>
                 </form>
             </div>
         </div>
