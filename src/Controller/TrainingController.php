@@ -64,8 +64,8 @@ final class TrainingController extends AbstractController
             'average_training_rating' => $averageRating,
             'average_training_rating_stars' => round($averageRating, 0),
 
-            'past_terms' => $this->trainingTermRepository->fetchFinishedAndEmpty(),
-            'past_terms_count' => count($this->trainingTermRepository->fetchFinishedAndEmpty()),
+            'past_terms' => $this->trainingTermRepository->getFinishedAndEmpty(),
+            'past_terms_count' => count($this->trainingTermRepository->getFinishedAndEmpty()),
         ]);
     }
 
@@ -74,11 +74,9 @@ final class TrainingController extends AbstractController
      */
     public function detail(Training $training): Response
     {
-        $nearestTerm = $training->getNearestTerm();
-
         return $this->render('training/training_detail.twig', [
             'training' => $training,
-            'training_term' => $nearestTerm,
+            'training_term' => $training->getNearestTerm(),
             'trainer' => $training->getTrainer(),
         ]);
     }

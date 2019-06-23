@@ -76,3 +76,7 @@ easy_admin:
                 label: 'Back na Feedback form'
                 icon: 'arrow-left'
                 route: 'open_feedbacks'
+            -
+                label: 'Create Certificate'
+                icon: 'plus'
+                route: 'create_certificate'

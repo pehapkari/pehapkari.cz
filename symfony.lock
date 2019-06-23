@@ -199,6 +199,9 @@
     "latte/latte": {
         "version": "v2.5.1"
     },
+    "league/flysystem": {
+        "version": "1.0.53"
+    },
     "league/glide": {
         "version": "1.5.0"
     },

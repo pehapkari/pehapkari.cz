@@ -32,7 +32,7 @@ final class TrainingTermRepository
     /**
      * @return TrainingTerm[]
      */
-    public function fetchFinishedAndEmpty(): array
+    public function getFinishedAndEmpty(): array
     {
         $finishedTrainingTerms = $this->fetchFinished();
 
@@ -44,7 +44,7 @@ final class TrainingTermRepository
     /**
      * @return TrainingTerm[]
      */
-    public function fetchFinishedWithoutPaidProvision(): array
+    public function getFinishedWithoutPaidProvision(): array
     {
         return $this->entityRepository->createQueryBuilder('tt')
             ->andWhere('tt.startDateTime < CURRENT_DATE()')
