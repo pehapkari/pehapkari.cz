@@ -37,7 +37,7 @@ final class GenerateCertificateFormType extends AbstractType
         $formBuilder->add('training_term', EntityType::class, [
             'label' => 'Vyber termín školení',
             'class' => TrainingTerm::class,
-            'choices' => $this->trainingTermRepository->getFinishedAndEmpty(),
+            'choices' => $this->trainingTermRepository->getRecentlyActive(),
         ]);
 
         $formBuilder->add('submit', SubmitType::class, [
