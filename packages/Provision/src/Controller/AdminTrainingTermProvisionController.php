@@ -5,23 +5,26 @@ namespace Pehapkari\Provision\Controller;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Pehapkari\Provision\Repository\ExpenseRepository;
 use Pehapkari\Training\Entity\TrainingTerm;
+use Pehapkari\Training\Repository\TrainingTermRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * Mimics
- * @see https://docs.google.com/spreadsheets/d/1ubuko63ZEXPMzbOM87ouLYfUXTR1_yQcppxR7zsyZvA/edit#gid=1800966876
- */
-final class TrainingTermProvisionController extends EasyAdminController
+final class AdminTrainingTermProvisionController extends EasyAdminController
 {
     /**
      * @var ExpenseRepository
      */
     private $expenseRepository;
 
-    public function __construct(ExpenseRepository $expenseRepository)
+    /**
+     * @var TrainingTermRepository
+     */
+    private $trainingTermRepository;
+
+    public function __construct(ExpenseRepository $expenseRepository, TrainingTermRepository $trainingTermRepository)
     {
         $this->expenseRepository = $expenseRepository;
+        $this->trainingTermRepository = $trainingTermRepository;
     }
 
     /**
@@ -33,22 +36,23 @@ final class TrainingTermProvisionController extends EasyAdminController
 
         $profit = $trainingTerm->getIncome() - $trainingTermExpense->getTotal();
 
+        $previouslyFinishedTrainingCount = $this->trainingTermRepository->getCountOfPreviousTrainingTermsByTrainer(
+            $trainingTerm
+        );
+
         // trainer
-        $trainerProvisionRate = 50.0; // počítat pro daný termín!
+        $trainerProvisionRate = $previouslyFinishedTrainingCount >= 5 ? 70.0 : 50.0;
         $trainerProvision = ceil($profit * ($trainerProvisionRate / 100.0)); // be nice with ceil :)
         $trainerProvisionWithExpense = $trainerProvision + $trainingTermExpense->getTrainerExpense();
 
-        // organizer
-        $organizerProvisionRate = (100.0 - $trainerProvisionRate) / 2;
-        $organizerProvision = ceil($profit * ($organizerProvisionRate / 100)); // be nice with ceil :)
-        $organizerProvisionWithExpense = $organizerProvision + $trainingTermExpense->getOrganizerExpense();
-
         // owner (the rest)
-        $ownerProvisionRate = 100.0 - $trainerProvisionRate - $organizerProvisionRate;
-        $ownerProvision = $profit - $trainerProvision - $organizerProvision;
+        $ownerProvisionRate = 100.0 - $trainerProvisionRate;
+        $ownerProvision = $profit - $trainerProvision;
 
         return $this->render('provision/training_term_provision.twig', [
             'trainer' => $trainingTerm->getTrainer(),
+            'finished_training_count' => $previouslyFinishedTrainingCount,
+
             'training' => $trainingTerm->getTraining(),
             'trainingTerm' => $trainingTerm,
             // numbers
@@ -64,10 +68,7 @@ final class TrainingTermProvisionController extends EasyAdminController
             'trainerProvisionRate' => $trainerProvisionRate,
             'trainerProvision' => $trainerProvision,
             'trainerProvisionWithExpense' => $trainerProvisionWithExpense,
-            // organizer
-            'organizerProvisionRate' => $organizerProvisionRate,
-            'organizerProvision' => $organizerProvision,
-            'organizerProvisionWithExpense' => $organizerProvisionWithExpense,
+
             // owner
             'ownerProvisionRate' => $ownerProvisionRate,
             'ownerProvision' => $ownerProvision,

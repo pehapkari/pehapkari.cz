@@ -5,7 +5,7 @@ easy_admin:
             list:
                 dql_filter: 'entity.isPaid = FALSE'
                 batch_actions: ['certificate', 'createInvoices']
-                fields:
+                fields: &registrationFields
                     - 'name'
                     - 'trainingTerm'
                     - 'email'
@@ -14,23 +14,14 @@ easy_admin:
                     - { property: 'participantCount', label: 'Persons?' }
                     - { property: 'hasInvoice', label: 'Invoice?' }
                     - { property: 'isPaid', label: 'Paid?' }
+        # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#built-in-dynamic-filters - still WIP progress, buggy#                filters:
+#                    - { property: 'trainingTerm' }
 
         Registration:
             class: 'Pehapkari\Registration\Entity\TrainingRegistration'
             controller: 'Pehapkari\Registration\Admin\Controller\AdminRegistrationController'
             list:
                 dql_filter: 'entity.isPaid = TRUE'
-                # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#built-in-dynamic-filters - still WIP progress, buggy
-#                filters:
-#                    - { property: 'trainingTerm', type: 'entity' }
                 sort: ['createdAt', 'DESC']
                 batch_actions: ['certificate', 'createInvoices']
-                fields:
-                    - 'name'
-                    - 'trainingTerm'
-                    - 'email'
-                    - 'phone'
-                    - 'ico'
-                    - { property: 'participantCount', label: 'Persons?' }
-                    - { property: 'hasInvoice', label: 'Invoice?' }
-                    - { property: 'isPaid', label: 'Paid?' }
+                fields: *registrationFields

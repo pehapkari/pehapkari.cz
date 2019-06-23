@@ -30,9 +30,19 @@ easy_admin:
                     - 'training'
                     - 'startDateTime'
                     - 'registrations'
+
+        TrainingTermProvision:
+            class: 'Pehapkari\Training\Entity\TrainingTerm'
+            controller: 'Pehapkari\Training\Admin\Controller\AdminTrainingTermController'
+            list:
+                sort: ['startDateTime', 'DESC']
+                fields:
+                    - 'training'
+                    - 'participantCount'
+                    - 'startDateTime'
                     - 'isProvisionPaid'
                 actions:
-                    - { name: 'training_term_provision', type: 'route', label: 'Provize', css_class: 'btn btn-sm btn-warning' }
+                    - { name: 'training_term_provision', type: 'route', label: 'Provision', css_class: 'btn btn-sm btn-warning' }
 
         Trainer:
             class: 'Pehapkari\Training\Entity\Trainer'
@@ -43,12 +53,8 @@ easy_admin:
                 # see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#static-filters-dql-filter-option
                 dql_filter: 'entity.isRevised = FALSE'
                 sort: 'createdAt'
-
-        Feedback:
-            class: 'Pehapkari\Training\Entity\TrainingFeedback'
-            list:
-                dql_filter: 'entity.isRevised = TRUE'
-                fields:
+                fields: &feedbackFields
+                    - 'isRevised'
                     - 'name'
                     - 'text'
                     - { property: 'text', template: 'snippet/admin/full_text.twig' }
@@ -56,6 +62,12 @@ easy_admin:
                     - 'training'
                     - { property: 'isShownOnMainPage', label: 'Main Page' }
                     - 'isPublic'
+
+        Feedback:
+            class: 'Pehapkari\Training\Entity\TrainingFeedback'
+            list:
+                dql_filter: 'entity.isRevised = TRUE'
+                fields: *feedbackFields
                 sort: 'ratingContent'
 
         Watchdog:
@@ -63,7 +75,6 @@ easy_admin:
             list:
                 fields:
                     - 'email'
-                    - 'note'
                     - 'training'
                     - 'createdAt'
                     - 'isInformed'

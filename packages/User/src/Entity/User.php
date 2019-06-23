@@ -5,9 +5,6 @@ namespace Pehapkari\User\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-// @todo add custom edit method to set password!!!
-// custom safe: https://symfony.com/doc/master/bundles/EasyAdminBundle/tutorials/custom-actions.html
-
 /**
  * @ORM\Entity
  *

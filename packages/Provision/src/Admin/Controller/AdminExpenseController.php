@@ -59,9 +59,8 @@ final class AdminExpenseController extends EasyAdminController
         $form->add('partner', ChoiceType::class, [
             'choices' => [
                 // label => value
-                'Organizátor' => Partner::ORGANIZER,
-                'Školitel' => Partner::TRAINER,
-                'Vlastník' => Partner::OWNER,
+                'Trainer' => Partner::TRAINER,
+                'Edukai, s. r. o.' => Partner::OWNER,
             ],
         ]);
     }

@@ -31,19 +31,19 @@ final class GenerateCertificateFormType extends AbstractType
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
         $formBuilder->add('name', TextType::class, [
-            'label' => 'Jméno účastníka',
+            'label' => 'Participant Name',
         ]);
 
         $formBuilder->add('training_term', EntityType::class, [
-            'label' => 'Vyber termín školení',
+            'label' => 'Training Term',
             'class' => TrainingTerm::class,
             'choices' => $this->trainingTermRepository->getRecentlyActive(),
         ]);
 
         $formBuilder->add('submit', SubmitType::class, [
-            'label' => 'Vytvořit certifikát',
+            'label' => 'Generate',
             'attr' => [
-                'class' => 'btn btn-success',
+                'class' => 'btn btn-success btn-lg',
             ],
         ]);
     }
