@@ -3,120 +3,81 @@
 {% block main %}
     <div class="pt-4 pb-4 pl-4 pr-4">
         <h2 class="text-center">
-            Provize ze školení <strong>{{ trainingTerm }}</strong>
+            Provision for <strong>{{ trainingTerm }}</strong>
         </h2>
-
-        <p class="text-center">Školil <strong>{{ trainer.getName() }}</strong></p>
 
         <br>
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-4">
                 <table class="table table-bordered">
                     <thead class="bg-success text-white text-center">
                         <tr>
-                            <th colspan="2">Vyúčtování</th>
+                            <th colspan="2">Summary</th>
                         </tr>
                     </thead>
                     <tr>
-                        <td>Učastníků x cena školení</td>
-                        <td class="text-right">
-                            {# @todo add fakturováno #}
-                            {# @todo add zaplaceno - tabulka vpravo pro work in progress #}
-                            {# @todo add odkaz na sync faktur #}
-
-                            {{ trainingTerm.getParticipantCount() }} x
-                            {{ training.getPrice()|number_format }} Kč
+                        <td>
+                            Income from {{ trainingTerm.getParticipantCount() }} participants
+                        </td>
+                        <td class="text-right text-success">
+                            {{ income|number_format }} Kč
                         </td>
                     </tr>
                     <tr>
-                        <td>Příjem</td>
-                        <td class="text-right text-success">{{ income|number_format }} Kč</td>
-                    </tr>
-                    <tr>
                         <td>
-                            Náklady
-
-                            <a class="btn btn-info btn-sm pull-right" href="{{ path('easyadmin', {action: 'new', entity: 'Expense', trainingTerm: trainingTerm.getId() }) }}">Přidat náklad</a>
-                            {# todo link přímo na náklad tohoto termínu šklení, slug! #}
-
+                            Expenses
+                            <a class="btn btn-danger ml-2" href="{{ path('easyadmin', {action: 'new', entity: 'Expense', trainingTerm: trainingTerm.getId() }) }}">Add</a>
                         </td>
                         <td class="text-right text-danger">- {{ expense|number_format }} Kč</td>
                     </tr>
 
                     <tr class="bg-dark text-light">
-                        <th>Zisk</th>
+                        <th>Profit</th>
                         <th class="text-right">{{ profit|number_format }} Kč</th>
                     </tr>
                 </table>
             </div>
-        </div>
 
-        <br>
-        <hr>
-
-        <h3 class="text-center mt-1 mb-3">Provize</h3>
-
-        <div class="row">
             <div class="col-4">
                 <table class="table table-bordered">
                     <thead class="bg-warning text-white text-center">
                         <tr>
-                            <th colspan="2">Školitel</th>
+                            <th colspan="2">
+                                Trainer {{ trainer.getName() }}
+                            </th>
                         </tr>
                     </thead>
                     <tr>
-                        <td>Podíl ze zisku</td>
-                        <td class="text-right">{{ trainerProvisionRate }} %</td>
+                        <td>
+                            Finished trainings
+                        </td>
+                        <td class="text-right">
+                            {{ finished_training_count }}
+                        </td>
                     </tr>
                     <tr>
-                        <td>Podíl</td>
-                        <td class="text-right">{{ trainerProvision|number_format }} Kč</td>
+                        <td>Provision Rate</td>
+                        <td class="text-right">
+                            {{ trainerProvisionRate }} %
+                        </td>
                     </tr>
                     <tr>
-                        <td>Náklady <span class="text-muted">(oběd)</span></td>
+                        <td>Expenses <span class="text-muted">(lunch)</span></td>
                         <td class="text-right">{{ trainerExpense|number_format }} Kč</td>
                     </tr>
                     <tr>
-                        <th>Celkem poslat</th>
+                        <td>Provision</td>
+                        <td class="text-right">{{ trainerProvision|number_format }} Kč</td>
+                    </tr>
+                    <tr class="bg-dark text-light">
+                        <th>Provision + Expense Coverage</th>
                         <th class="text-right">{{ trainerProvisionWithExpense|number_format }} Kč</th>
                     </tr>
                     <tr>
                         <td colspan="2" class="text-center">
                             <a href="..." class="btn btn-lg btn-info">
-                                Poslat žádost o fakturu mailem
-                            </a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-4">
-                <table class="table table-bordered">
-                    <thead class="bg-warning text-white text-center">
-                    <tr>
-                        <th colspan="2">Organizátor</th>
-                    </tr>
-                    </thead>
-                    <tr>
-                        <td>Podíl ze zisku</td>
-                        <td class="text-right">{{ organizerProvisionRate }} %</td>
-                    </tr>
-                    <tr>
-                        <td>Podíl</td>
-                        <td class="text-right">{{ organizerProvision|number_format }} Kč</td>
-                    </tr>
-                    <tr>
-                        <td>Náklady <span class="text-muted">(tisk, občerstvení)</span></td>
-                        <td class="text-right">{{ organizerExpense|number_format }} Kč</td>
-                    </tr>
-                    <tr>
-                        <th>Celkem poslat</th>
-                        <th class="text-right">{{ organizerProvisionWithExpense|number_format }} Kč</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="text-center">
-                            <a href="..." class="btn btn-lg btn-info">
-                                Poslat žádost o fakturu mailem
+                                Ask for Invoice by mail @todo
                             </a>
                         </td>
                     </tr>
@@ -127,24 +88,25 @@
                 <table class="table table-bordered">
                     <thead class="bg-warning text-white text-center">
                     <tr>
-                        <th colspan="2">Vlastík</th>
+                        <th colspan="2">Edukai, s. r. o.</th>
                     </tr>
                     </thead>
                     <tr>
-                        <td>Podíl ze zisku</td>
+                        <td>Provision Rate</td>
                         <td class="text-right">{{ ownerProvisionRate }} %</td>
                     </tr>
                     <tr>
-                        <th>Podíl</th>
-                        <th class="text-right">{{ ownerProvision|number_format }} Kč</th>
-                    </tr>
-                    <tr>
                         <td>
-                            Náklady
-                            <span class="text-muted">(nájem)</span>
+                            Expenses
+                            <span class="text-muted">(rent)</span>
                         </td>
                         <td class="text-right">{{ ownerExpense|number_format }} Kč</td>
                     </tr>
+                    <tr class="bg-dark text-light">
+                        <th>Provision</th>
+                        <th class="text-right">{{ ownerProvision|number_format }} Kč</th>
+                    </tr>
+
                 </table>
             </div>
         </div>

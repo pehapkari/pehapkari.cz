@@ -120,6 +120,23 @@ final class TrainingTermRepository
     }
 
     /**
+     * To resolve provision
+     */
+    public function getCountOfPreviousTrainingTermsByTrainer(TrainingTerm $trainingTerm): int
+    {
+        return (int) $this->entityRepository->createQueryBuilder('tt')
+            ->select('count(tt.id)')
+            ->join('tt.training', 't')
+            ->andWhere('tt.startDateTime < :currentDate')
+            ->andWhere('tt.isProvisionPaid = true')
+            ->andWhere('t.trainer = :currentTrainer')
+            ->setParameter('currentDate', $trainingTerm->getStartDateTime())
+            ->setParameter('currentTrainer', $trainingTerm->getTrainer())
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    /**
      * @return TrainingTerm[]
      */
     private function getFinished(): array

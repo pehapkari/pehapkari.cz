@@ -67,18 +67,21 @@ easy_admin:
             -
                 icon: 'dog'
                 entity: 'Watchdog'
+
             -
+                label: 'Money'
                 icon: 'money'
-                entity: 'Expense'
+                children:
+                    - { label: 'Provisions', entity: 'TrainingTermProvision' }
+                    - { label: 'Expenses', entity: 'Expense' }
+
+            -
+                label: 'Helpers'
+                icon: 'plus'
+                children:
+                    - { label: 'Generate Certificate', route: 'create_certificate' }
+
             -
                 label: 'Back to Website'
                 icon: 'arrow-left'
                 route: 'trainings'
-            -
-                label: 'Back na Feedback form'
-                icon: 'arrow-left'
-                route: 'open_feedbacks'
-            -
-                label: 'Create Certificate'
-                icon: 'plus'
-                route: 'create_certificate'
