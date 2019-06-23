@@ -32,9 +32,9 @@ final class TrainingTermRepository
     /**
      * @return TrainingTerm[]
      */
-    public function fetchFinishedAndEmpty(): array
+    public function getFinishedAndEmpty(): array
     {
-        $finishedTrainingTerms = $this->fetchFinished();
+        $finishedTrainingTerms = $this->getFinished();
 
         return array_filter($finishedTrainingTerms, function (TrainingTerm $trainingTerm): bool {
             return $trainingTerm->getParticipantCount() < 2;
@@ -44,7 +44,7 @@ final class TrainingTermRepository
     /**
      * @return TrainingTerm[]
      */
-    public function fetchFinishedWithoutPaidProvision(): array
+    public function getFinishedWithoutPaidProvision(): array
     {
         return $this->entityRepository->createQueryBuilder('tt')
             ->andWhere('tt.startDateTime < CURRENT_DATE()')
@@ -55,7 +55,7 @@ final class TrainingTermRepository
 
     public function getFinishedCount(): int
     {
-        return count($this->fetchFinished());
+        return count($this->getFinished());
     }
 
     public function findBySlug(string $slug): ?TrainingTerm
@@ -104,7 +104,7 @@ final class TrainingTermRepository
     /**
      * @return TrainingTerm[]
      */
-    private function fetchFinished(): array
+    private function getFinished(): array
     {
         return $this->entityRepository->createQueryBuilder('tt')
             ->where('tt.startDateTime < CURRENT_DATE()')

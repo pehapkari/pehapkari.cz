@@ -6,6 +6,7 @@ use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Pehapkari\Pdf\PdfFactory;
 use Pehapkari\Registration\Entity\TrainingRegistration;
+use Pehapkari\Training\Entity\TrainingTerm;
 use setasign\Fpdi\Fpdi;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
@@ -39,6 +40,27 @@ final class CertificateGenerator
         $this->certificateOutputDirectory = $certificateOutputDirectory;
         $this->pdfFactory = $pdfFactory;
         $this->privatesAccessor = $privatesAccessor;
+    }
+
+    /**
+     * @return string File path to temp certificate
+     */
+    public function generateForTrainingTermAndName(TrainingTerm $trainingTerm, string $participantName): string
+    {
+        $training = $trainingTerm->getTraining();
+        $trainer = $training->getTrainer();
+
+        $trainingName = $training->getNameForCertificate();
+
+        $date = $trainingTerm->getStartDateTime()->format('j. n. Y');
+        $trainerName = $trainer->getName();
+
+        return $this->generateForTrainingNameDateAndParticipantName(
+            $trainingName,
+            $date,
+            $participantName,
+            $trainerName
+        );
     }
 
     /**

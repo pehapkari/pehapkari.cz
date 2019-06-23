@@ -33,7 +33,7 @@ final class TrainingRepository
      * Trainings with active term today - last 30 days
      * @return Training[]
      */
-    public function fetchRecentlyActive(): array
+    public function getRecentlyActive(): array
     {
         /** @var Training[] $trainings */
         return $this->entityRepository->createQueryBuilder('t')
@@ -60,7 +60,7 @@ final class TrainingRepository
     /**
      * @return Training[]
      */
-    public function fetchInactiveTrainings(): array
+    public function getInactiveTrainings(): array
     {
         $trainings = $this->entityRepository->createQueryBuilder('t')
             ->andWhere('t.isPublic = true')

@@ -42,7 +42,7 @@ final class DeleteEmptyTrainingTermsCommand extends Command
     {
         $this->symfonyStyle->warning('Deleting old training terms with 0 participants');
 
-        $finishedAndEmptyTrainingTerms = $this->trainingTermRepository->fetchFinishedAndEmpty();
+        $finishedAndEmptyTrainingTerms = $this->trainingTermRepository->getFinishedAndEmpty();
         if (count($finishedAndEmptyTrainingTerms) === 0) {
             $this->symfonyStyle->success('Nothing to delete');
 
