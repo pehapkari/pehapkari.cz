@@ -43,7 +43,7 @@ final class FeedbackFormType extends AbstractType
         $formBuilder->add('training', EntityType::class, [
             'label' => 'Vyber školení',
             'class' => Training::class,
-            'choices' => $this->trainingRepository->fetchRecentlyActive(),
+            'choices' => $this->trainingRepository->getRecentlyActive(),
         ]);
 
         $formBuilder->add('name', TextType::class, [

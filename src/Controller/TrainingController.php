@@ -54,7 +54,7 @@ final class TrainingController extends AbstractController
 
         return $this->render('training/trainings.twig', [
             'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),
-            'inactive_trainings' => $this->trainingRepository->fetchInactiveTrainings(),
+            'inactive_trainings' => $this->trainingRepository->getInactiveTrainings(),
 
             'total_training_term_count' => $this->trainingTermRepository->getFinishedCount(),
             'total_participant_count' => $this->trainingRegistrationRepository->getFinishedCount(),

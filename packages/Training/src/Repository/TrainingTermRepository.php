@@ -34,7 +34,7 @@ final class TrainingTermRepository
      */
     public function getFinishedAndEmpty(): array
     {
-        $finishedTrainingTerms = $this->fetchFinished();
+        $finishedTrainingTerms = $this->getFinished();
 
         return array_filter($finishedTrainingTerms, function (TrainingTerm $trainingTerm): bool {
             return $trainingTerm->getParticipantCount() < 2;
@@ -55,7 +55,7 @@ final class TrainingTermRepository
 
     public function getFinishedCount(): int
     {
-        return count($this->fetchFinished());
+        return count($this->getFinished());
     }
 
     public function findBySlug(string $slug): ?TrainingTerm
@@ -104,7 +104,7 @@ final class TrainingTermRepository
     /**
      * @return TrainingTerm[]
      */
-    private function fetchFinished(): array
+    private function getFinished(): array
     {
         return $this->entityRepository->createQueryBuilder('tt')
             ->where('tt.startDateTime < CURRENT_DATE()')
