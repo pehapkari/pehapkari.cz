@@ -4,7 +4,7 @@
     <div id="videos">
         <div class="section">
             <h1 class="text-center">
-                {{ video.speaker }} - {{ video.title }}
+                {{ video.title }}
                 {% if video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_LIVESTREAM') %}
                     <br>
                     <small>(natočeno {{ video.publishedAt|date("Y-m") }})</small>

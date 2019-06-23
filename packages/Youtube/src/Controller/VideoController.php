@@ -41,7 +41,7 @@ final class VideoController extends AbstractController
     {
         $this->ensureYoutubeDataExists();
 
-        $meetupPlaylists = $this->youtubeVideos['meetup_playlists'];
+        $meetupPlaylists = $this->youtubeVideos['meetups'];
 
         foreach ($meetupPlaylists as $key => $meetupPlaylist) {
             $meetupPlaylists[$key]['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
@@ -62,7 +62,7 @@ final class VideoController extends AbstractController
     {
         $this->ensureYoutubeDataExists();
 
-        $livestreamPlaylist = $this->youtubeVideos['livestream_playlist'];
+        $livestreamPlaylist = $this->youtubeVideos['livestream'];
         $livestreamPlaylist['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
             $livestreamPlaylist['videos'],
             Video::class
@@ -99,7 +99,7 @@ final class VideoController extends AbstractController
 
     private function ensureYoutubeDataExists(): void
     {
-        if ($this->youtubeVideos && isset($this->youtubeVideos['livestream_playlist'], $this->youtubeVideos['meetup_playlists'])) {
+        if ($this->youtubeVideos && isset($this->youtubeVideos['livestream'], $this->youtubeVideos['meetups'])) {
             return;
         }
 
@@ -111,7 +111,7 @@ final class VideoController extends AbstractController
 
     private function getVideoBySlug(string $videoSlug): Video
     {
-        foreach ($this->youtubeVideos['php_prague_playlists'] as $playlist) {
+        foreach ($this->youtubeVideos['php_prague'] as $playlist) {
             foreach ($playlist['videos'] as $videoData) {
                 if ($videoData['slug'] === $videoSlug) {
                     return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
@@ -119,7 +119,7 @@ final class VideoController extends AbstractController
             }
         }
 
-        foreach ($this->youtubeVideos['meetup_playlists'] as $playlist) {
+        foreach ($this->youtubeVideos['meetups'] as $playlist) {
             foreach ($playlist['videos'] as $videoData) {
                 if ($videoData['slug'] === $videoSlug) {
                     return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
@@ -127,7 +127,7 @@ final class VideoController extends AbstractController
             }
         }
 
-        foreach ($this->youtubeVideos['livestream_playlist']['videos'] as $videoData) {
+        foreach ($this->youtubeVideos['livestream']['videos'] as $videoData) {
             if ($videoData['slug'] === $videoSlug) {
                 return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
             }

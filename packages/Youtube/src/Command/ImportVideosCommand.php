@@ -4,8 +4,11 @@ namespace Pehapkari\Youtube\Command;
 
 use Nette\Utils\Json;
 use Pehapkari\Marketing\Social\FacebookIds;
+use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\Yaml\YamlFileGenerator;
 use Pehapkari\Youtube\YoutubeApi;
+use Pehapkari\Youtube\YoutubeVideosProvider\PeckaDesignYoutubeVideosProvider;
+use Pehapkari\Youtube\YoutubeVideosProvider\PehapkariMeetupsYoutubeVideosProvider;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -34,17 +37,36 @@ final class ImportVideosCommand extends Command
      * @var YamlFileGenerator
      */
     private $yamlFileGenerator;
+    /**
+     * @var PeckaDesignYoutubeVideosProvider
+     */
+    private $peckaDesignYoutubeVideosProvider;
+    /**
+     * @var PehapkariMeetupsYoutubeVideosProvider
+     */
+    private $pehapkariYoutubeVideosProvider;
+    /**
+     * @var array|YoutubeVideosProviderInterface[]
+     */
+    private $youtubeVideosProviders;
 
+    /**
+     * @param YoutubeVideosProviderInterface[] $youtubeVideosProviders
+     */
     public function __construct(
-        YoutubeApi $youtubeApi,
         SymfonyStyle $symfonyStyle,
-        YamlFileGenerator $yamlFileGenerator
+        YamlFileGenerator $yamlFileGenerator,
+        PeckaDesignYoutubeVideosProvider $peckaDesignYoutubeVideosProvider,
+        PehapkariMeetupsYoutubeVideosProvider $pehapkariYoutubeVideosProvider,
+        array $youtubeVideosProviders
     ) {
-        $this->youtubeApi = $youtubeApi;
         $this->symfonyStyle = $symfonyStyle;
         $this->yamlFileGenerator = $yamlFileGenerator;
+        $this->peckaDesignYoutubeVideosProvider = $peckaDesignYoutubeVideosProvider;
 
         parent::__construct();
+        $this->pehapkariYoutubeVideosProvider = $pehapkariYoutubeVideosProvider;
+        $this->youtubeVideosProviders = $youtubeVideosProviders;
     }
 
     protected function configure(): void
@@ -54,9 +76,23 @@ final class ImportVideosCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->symfonyStyle->note('Importing videos from Pehapkari Youtube...');
+        $youtubeVideosData = [];
+        foreach ($this->youtubeVideosProviders as $youtubeVideosProvider) {
+            $name = $youtubeVideosProvider->getName();
+            $this->symfonyStyle->note(sprintf('Importing playlists for "%s"', $name));
 
-        $data['parameters']['youtube_videos'] = $this->youtubeApi->getMeetupPlaylistsAndLivestreamPlaylist();
+            $playlists = $youtubeVideosProvider->providePlaylists();
+            $youtubeVideosData[$name] = array_merge($playlists, $youtubeVideosData[$name] ?? []);
+        }
+
+        // sort meetup playlists by month, the newest first
+        if (isset($youtubeVideosData['meetups'])) {
+            usort($youtubeVideosData['meetups'], function (array $firstPlaylist, array $secondPlaylist): int {
+                return $secondPlaylist['month'] <=> $firstPlaylist['month'];
+            });
+        }
+
+        $data['parameters']['youtube_videos'] = $youtubeVideosData;
 
         $this->yamlFileGenerator->generate($data, self::YOUTUBE_FILES_DATA);
         $this->symfonyStyle->success('Videos were successfully imported!');
