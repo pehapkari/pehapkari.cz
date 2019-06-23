@@ -6,6 +6,8 @@ use Doctrine\Common\Proxy\Proxy;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
+use Nette\Utils\DateTime;
+use Pehapkari\Training\Entity\Training;
 use Pehapkari\Training\Entity\TrainingTerm;
 
 /**
@@ -99,6 +101,22 @@ final class TrainingTermRepository
     {
         $this->entityManager->remove($trainingTerm);
         $this->entityManager->flush();
+    }
+
+    /**
+     * @return Training[]
+     */
+    public function getRecentlyActive(): array
+    {
+        /** @var Training[] $trainings */
+        return $this->entityRepository->createQueryBuilder('tt')
+            ->select('tt')
+            ->andWhere('tt.startDateTime < :nextMonth')
+            ->andWhere('tt.startDateTime > :weekAgo')
+            ->setParameter(':weekAgo', DateTime::from('- 7 days'))
+            ->setParameter(':nextMonth', DateTime::from('+ 30 days'))
+            ->getQuery()
+            ->getResult();
     }
 
     /**
