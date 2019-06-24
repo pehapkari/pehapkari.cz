@@ -2,7 +2,6 @@
 
 namespace Pehapkari\Youtube\YoutubeVideosProvider;
 
-use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
 use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
@@ -50,10 +49,9 @@ final class PeckaDesignYoutubeVideosProvider implements YoutubeVideosProviderInt
             $video['title'] = $this->normalizeVideoTitle($video['title']);
 
             $uniqueHash = md5(Strings::webalize($playlistMonth . $meetupTitle));
-//            dump($playlistMonth, $meetupTitle, $uniqueHash);
 
             // group to playlist by meetup date
-            $playlists[$uniqueHash]['title'] = $meetupTitle;
+            $playlists[$uniqueHash]['title'] = $this->createMeetupTitleWithMonth($meetupTitle, $playlistMonth);
             $playlists[$uniqueHash]['videos'][] = $video;
             $playlists[$uniqueHash]['month'] = $playlistMonth;
         }
@@ -123,6 +121,15 @@ final class PeckaDesignYoutubeVideosProvider implements YoutubeVideosProviderInt
         return trim($videoTitle);
     }
 
+    private function createMeetupTitleWithMonth(string $meetupTitle, string $playlistMonth): string
+    {
+        [$year, $month] = explode('-', $playlistMonth);
+
+        $monthName = $this->getMonthNameFromNumber((int) $month);
+
+        return $meetupTitle . ', ' . $monthName . ' ' . $year;
+    }
+
     private function resolveMeetupRank(string $videoTitle, string $videoDescription): int
     {
         $match = Strings::match($videoDescription, '#Přednáška\s+z\s+(?<rank>\d+)#i');
@@ -153,5 +160,12 @@ final class PeckaDesignYoutubeVideosProvider implements YoutubeVideosProviderInt
         }
 
         throw new ShouldNotHappenException('Complete new rank for PeckaDesign meetup');
+    }
+
+    private function getMonthNameFromNumber(int $monthNumber): string
+    {
+        $numberToMonth = [1 => 'leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'];
+
+        return $numberToMonth[$monthNumber];
     }
 }

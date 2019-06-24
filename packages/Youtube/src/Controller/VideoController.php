@@ -93,7 +93,7 @@ final class VideoController extends AbstractController
         $this->ensureYoutubeDataExists();
 
         return $this->render('videos/videos_php_prague.twig', [
-            'playlists' => $this->youtubeVideos['php_prague_playlists'],
+            'playlists' => $this->youtubeVideos['php_prague'],
         ]);
     }
 

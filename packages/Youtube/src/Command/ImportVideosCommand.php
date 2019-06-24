@@ -5,6 +5,7 @@ namespace Pehapkari\Youtube\Command;
 use Nette\Utils\Json;
 use Pehapkari\Marketing\Social\FacebookIds;
 use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
+use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\Yaml\YamlFileGenerator;
 use Pehapkari\Youtube\YoutubeApi;
 use Pehapkari\Youtube\YoutubeVideosProvider\PeckaDesignYoutubeVideosProvider;
@@ -24,11 +25,6 @@ final class ImportVideosCommand extends Command
     private const YOUTUBE_FILES_DATA = __DIR__ . '/../../../../config/_data/youtube_videos.yaml';
 
     /**
-     * @var YoutubeApi
-     */
-    private $youtubeApi;
-
-    /**
      * @var SymfonyStyle
      */
     private $symfonyStyle;
@@ -37,18 +33,15 @@ final class ImportVideosCommand extends Command
      * @var YamlFileGenerator
      */
     private $yamlFileGenerator;
+
     /**
-     * @var PeckaDesignYoutubeVideosProvider
+     * @var YoutubeVideosProviderInterface[]
      */
-    private $peckaDesignYoutubeVideosProvider;
+    private $youtubeVideosProviders = [];
     /**
-     * @var PehapkariMeetupsYoutubeVideosProvider
+     * @var ArrayByDateTimeSorter
      */
-    private $pehapkariYoutubeVideosProvider;
-    /**
-     * @var array|YoutubeVideosProviderInterface[]
-     */
-    private $youtubeVideosProviders;
+    private $arrayByDateTimeSorter;
 
     /**
      * @param YoutubeVideosProviderInterface[] $youtubeVideosProviders
@@ -56,17 +49,15 @@ final class ImportVideosCommand extends Command
     public function __construct(
         SymfonyStyle $symfonyStyle,
         YamlFileGenerator $yamlFileGenerator,
-        PeckaDesignYoutubeVideosProvider $peckaDesignYoutubeVideosProvider,
-        PehapkariMeetupsYoutubeVideosProvider $pehapkariYoutubeVideosProvider,
+        ArrayByDateTimeSorter $arrayByDateTimeSorter,
         array $youtubeVideosProviders
     ) {
         $this->symfonyStyle = $symfonyStyle;
         $this->yamlFileGenerator = $yamlFileGenerator;
-        $this->peckaDesignYoutubeVideosProvider = $peckaDesignYoutubeVideosProvider;
+        $this->youtubeVideosProviders = $youtubeVideosProviders;
+        $this->arrayByDateTimeSorter = $arrayByDateTimeSorter;
 
         parent::__construct();
-        $this->pehapkariYoutubeVideosProvider = $pehapkariYoutubeVideosProvider;
-        $this->youtubeVideosProviders = $youtubeVideosProviders;
     }
 
     protected function configure(): void
@@ -87,9 +78,7 @@ final class ImportVideosCommand extends Command
 
         // sort meetup playlists by month, the newest first
         if (isset($youtubeVideosData['meetups'])) {
-            usort($youtubeVideosData['meetups'], function (array $firstPlaylist, array $secondPlaylist): int {
-                return $secondPlaylist['month'] <=> $firstPlaylist['month'];
-            });
+            $youtubeVideosData['meetups'] = $this->arrayByDateTimeSorter->sortByKey($youtubeVideosData['meetups'], 'month');
         }
 
         $data['parameters']['youtube_videos'] = $youtubeVideosData;

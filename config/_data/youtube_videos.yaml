@@ -1,9 +1,9 @@
-# this file was generated on 2019-06-24 14:14:40, do not edit it manually
+# this file was generated on 2019-06-24 16:06:12, do not edit it manually
 parameters:
     youtube_videos:
         meetups:
             -
-                title: '28. sraz přátel PHP v Brně'
+                title: '28. sraz přátel PHP v Brně, květen 2019'
                 videos:
                     -
                         title: 'Marek Hučík - Každodenní problémy s implementací Facebook Api'
@@ -31,7 +31,7 @@ parameters:
                         thumbnail: 'https://i.ytimg.com/vi/mqq8DphkOdw/sddefault.jpg'
                 month: 2019-05
             -
-                title: '27. sraz přátel PHP v Brně'
+                title: '27. sraz přátel PHP v Brně, duben 2019'
                 videos:
                     -
                         title: 'Milan Pála - Jak jsme neposlali pull request do PHP'
@@ -59,7 +59,7 @@ parameters:
                         thumbnail: 'https://i.ytimg.com/vi/vVf8eGrF0FU/sddefault.jpg'
                 month: 2019-04
             -
-                title: '25. sraz přátel PHP v Brně'
+                title: '25. sraz přátel PHP v Brně, únor 2019'
                 videos:
                     -
                         title: 'Jan Kadeřábek - Zend Expressive: PSR framework který vás dostane'
@@ -95,7 +95,7 @@ parameters:
                         thumbnail: 'https://i.ytimg.com/vi/HZds_P4LBxQ/sddefault.jpg'
                 month: 2019-02
             -
-                title: '24. sraz přátel PHP v Brně'
+                title: '24. sraz přátel PHP v Brně, leden 2019'
                 videos:
                     -
                         title: 'Jakub Englický - Chytrý deploy na hloupý hosting'
@@ -107,7 +107,7 @@ parameters:
                         thumbnail: 'https://i.ytimg.com/vi/dKnajHKw664/sddefault.jpg'
                 month: 2019-01
             -
-                title: '23. sraz přátel PHP v Brně'
+                title: '23. sraz přátel PHP v Brně, listopad 2018'
                 videos:
                     -
                         title: 'Václav Čevela - Validujte vstupní data pomocí objektů'
@@ -127,7 +127,7 @@ parameters:
                         thumbnail: 'https://i.ytimg.com/vi/Wpr-tfPXGbo/sddefault.jpg'
                 month: 2018-11
             -
-                title: '22. sraz přátel PHP v Brně'
+                title: '22. sraz přátel PHP v Brně, říjen 2018'
                 videos:
                     -
                         title: 'Milan Pála - PeckaDesign/ Monitoring'
@@ -155,7 +155,7 @@ parameters:
                         thumbnail: 'https://i.ytimg.com/vi/-Fy9sApe088/sddefault.jpg'
                 month: 2018-10
             -
-                title: '20. sraz přátel PHP v Brně'
+                title: '20. sraz přátel PHP v Brně, červen 2018'
                 videos:
                     -
                         title: 'Milan Pála - PeckaDesign/CIServer'
@@ -183,7 +183,7 @@ parameters:
                         thumbnail: 'https://i.ytimg.com/vi/Pp1DVj-ar9c/sddefault.jpg'
                 month: 2018-06
             -
-                title: '19. sraz přátel PHP v Brně'
+                title: '19. sraz přátel PHP v Brně, květen 2018'
                 videos:
                     -
                         title: 'Jan Kadeřábek - phpDay2018 Verona'
@@ -211,7 +211,7 @@ parameters:
                         thumbnail: 'https://i.ytimg.com/vi/jwBLDhhYYnA/hqdefault.jpg'
                 month: 2018-05
             -
-                title: '18. sraz přátel PHP v Brně'
+                title: '18. sraz přátel PHP v Brně, duben 2018'
                 videos:
                     -
                         title: 'Milan Otáhal - Jak přistupovat k validaci Nette formulářů'
@@ -238,6 +238,30 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/WNwUjFu2DXM/sddefault.jpg'
                 month: 2018-04
+            -
+                title: '16. sraz přátel PHP v Brně, listopad 2017'
+                videos:
+                    -
+                        title: 'Honza Kadeřábek 22.11.2017 - Jak bylo na SymfonyConu'
+                        description: ''
+                        video_id: X_27FkIlq0Y
+                        slug: pehapkari-cz-jak-bylo-na-symfonyconu-honza-kaderabek-22-11-2017
+                        month: 2018-04
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/X_27FkIlq0Y/sddefault.jpg'
+                month: 2017-11
+            -
+                title: '23. sraz přátel PHP v Brně, listopad 2017'
+                videos:
+                    -
+                        title: 'Christopher Fuchs - A refactoring Journey - From Legacy to Laravel'
+                        description: "▶️ A Refactoring Journey – From Legacy to Laravel\nSo you have a large, often messy, sometimes convoluted legacy PHP code base.There's no framework, no routing, no templates. Hard to maintain, even harder to extend.\n\nSo, how do you clean up your act?\nA complete rewrite? Almost certainly doomed to fail at a startup with limited resources, financial pressure and endless feature requests.\nExtract things step by step? Really hard with an entangled code base without sane boundaries.\n\nPrezentace\n▶️ https://www.slideshare.net/peckadesign/pehapkari-v-pecce-a-refactoring-journey-from-legacy-to-laravel-christopher-fuchs-14-11"
+                        video_id: bk6kzHL1PXQ
+                        slug: pehapkari-v-pecce-a-refactoring-journey-from-legacy-to-laravel-christopher-fuchs-14-11
+                        month: 2018-11
+                        slides: 'https://www.slideshare.net/peckadesign/pehapkari-v-pecce-a-refactoring-journey-from-legacy-to-laravel-christopher-fuchs-14-11'
+                        thumbnail: 'https://i.ytimg.com/vi/bk6kzHL1PXQ/sddefault.jpg'
+                month: 2017-11
             -
                 title: '20. sraz přátel PHP v Praze, srpen 2017'
                 videos:
@@ -319,57 +343,49 @@ parameters:
                         thumbnail: 'https://i.ytimg.com/vi/YE2v6m_F9bI/sddefault.jpg'
                 month: 2017-4
             -
-                title: '16. sraz přátel PHP v Brně'
+                title: '14. sraz přátel PHP v Praze, březen 2017'
                 videos:
                     -
-                        title: 'Honza Kadeřábek 22.11.2017 - Jak bylo na SymfonyConu'
+                        title: 'Václav Makeš - Git - Verzuj i malé projekty'
                         description: ''
-                        video_id: X_27FkIlq0Y
-                        slug: pehapkari-cz-jak-bylo-na-symfonyconu-honza-kaderabek-22-11-2017
-                        month: 2018-04
+                        video_id: qX-iHofcWNE
+                        slug: vaclav-makes-git-verzuj-i-male-projekty
+                        month: 2017-03
                         slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/X_27FkIlq0Y/sddefault.jpg'
-                month: 2017-11
-            -
-                title: '23. sraz přátel PHP v Brně'
-                videos:
+                        thumbnail: 'https://i.ytimg.com/vi/qX-iHofcWNE/sddefault.jpg'
                     -
-                        title: 'Christopher Fuchs - A refactoring Journey - From Legacy to Laravel'
-                        description: "▶️ A Refactoring Journey – From Legacy to Laravel\nSo you have a large, often messy, sometimes convoluted legacy PHP code base.There's no framework, no routing, no templates. Hard to maintain, even harder to extend.\n\nSo, how do you clean up your act?\nA complete rewrite? Almost certainly doomed to fail at a startup with limited resources, financial pressure and endless feature requests.\nExtract things step by step? Really hard with an entangled code base without sane boundaries.\n\nPrezentace\n▶️ https://www.slideshare.net/peckadesign/pehapkari-v-pecce-a-refactoring-journey-from-legacy-to-laravel-christopher-fuchs-14-11"
-                        video_id: bk6kzHL1PXQ
-                        slug: pehapkari-v-pecce-a-refactoring-journey-from-legacy-to-laravel-christopher-fuchs-14-11
-                        month: 2018-11
-                        slides: 'https://www.slideshare.net/peckadesign/pehapkari-v-pecce-a-refactoring-journey-from-legacy-to-laravel-christopher-fuchs-14-11'
-                        thumbnail: 'https://i.ytimg.com/vi/bk6kzHL1PXQ/sddefault.jpg'
-                month: 2017-11
-            -
-                title: '7. sraz přátel PHP v Praze, duben 2016'
-                videos:
+                        title: 'Jakub Kratina - Ahoj, já jsem Laravel'
+                        description: ''
+                        video_id: n6OgKW3ZcFs
+                        slug: jakub-kratina-ahoj-ja-jsem-laravel
+                        month: 2017-03
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/n6OgKW3ZcFs/sddefault.jpg'
                     -
-                        title: 'Jozef Lami - Ako nespáliť server za využití Monitu'
-                        description: "Slajdy: http://www.slideshare.net/pehapkari/ako-nespli-server-monit-jozef-lami-7-sraz-praha\n\nPozrieme sa na škálovanie Symfony procesov (RabbitMQ consumers)."
-                        video_id: 9EyZmx2XgcQ
-                        slug: jozef-lami-ako-nespalit-server-za-vyuziti-monitu
-                        month: 2016-05
-                        slides: 'http://www.slideshare.net/pehapkari/ako-nespli-server-monit-jozef-lami-7-sraz-praha'
-                        thumbnail: 'https://i.ytimg.com/vi/9EyZmx2XgcQ/sddefault.jpg'
+                        title: 'Petr Fidler - Jak komunikovat s projekťákem / zákazníkem a dospět k zadání'
+                        description: ''
+                        video_id: _HcggJ6ah2Y
+                        slug: petr-fidler-jak-komunikovat-s-projektakem-zakaznikem-a-dospet-k-zadani
+                        month: 2017-03
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/_HcggJ6ah2Y/sddefault.jpg'
                     -
-                        title: 'Filip Procházka - Doctrine - Jak si užít s DQL a kde se entity nehodí'
-                        description: "Slajdy: http://www.slideshare.net/pehapkari/doctrine-co-dlat-kdy-entity-nesta-filip-prochzka-7-sraz-praha\n\nUkážeme si, že Doctrine není jenom ORMko a kdy jít o vrstvu níž. Jak DQL naučit věci, které v základu neumí, ale vaše databáze ano. A pár dalších tipů, jak nemít z databáze úplně hloupé úložiště."
-                        video_id: 6mWS2NVtXs0
-                        slug: filip-prochazka-doctrine-jak-si-uzit-s-dql-a-kde-se-entity-nehodi
-                        month: 2016-05
-                        slides: 'http://www.slideshare.net/pehapkari/doctrine-co-dlat-kdy-entity-nesta-filip-prochzka-7-sraz-praha'
-                        thumbnail: 'https://i.ytimg.com/vi/6mWS2NVtXs0/sddefault.jpg'
+                        title: 'Pavel Vondrášek​ - EasyAdminBundle - Tvoříme adminko s minimem úsilí'
+                        description: ''
+                        video_id: gOQBhpPbIHY
+                        slug: pavel-vondrasek-easyadminbundle-tvorime-adminko-s-minimem-usili
+                        month: 2017-03
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/gOQBhpPbIHY/sddefault.jpg'
                     -
-                        title: 'Jan Kopp - Blackfire.io - Fire up your PHP app performance'
-                        description: "Slajdy: http://www.slideshare.net/pehapkari/blackfireio-fire-up-your-php-app-performance-jan-kopp-7-sraz-praha\n\nMáte problémy s výkonem vašich aplikací? Pomalé načítání stránek obtěžuje vás i uživatele? Testujte výkonnost PHP aplikací pomocí Blackfire.io nástroje od SensioLabs."
-                        video_id: YuuzZxaahIY
-                        slug: jan-kopp-blackfire-io-fire-up-your-php-app-performance
-                        month: 2016-05
-                        slides: 'http://www.slideshare.net/pehapkari/blackfireio-fire-up-your-php-app-performance-jan-kopp-7-sraz-praha'
-                        thumbnail: 'https://i.ytimg.com/vi/YuuzZxaahIY/sddefault.jpg'
-                month: 2016-4
+                        title: 'Martin Froněk - Jak získat lepší práci a větší plat'
+                        description: ''
+                        video_id: IVsonhyufPc
+                        slug: martin-fronek-jak-ziskat-lepsi-praci-a-vetsi-plat
+                        month: 2017-03
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/IVsonhyufPc/sddefault.jpg'
+                month: 2017-3
             -
                 title: '13. sraz přátel PHP v Praze, prosinec 2016'
                 videos:
@@ -471,6 +487,138 @@ parameters:
                         thumbnail: 'https://i.ytimg.com/vi/WusZdZ-_ryk/sddefault.jpg'
                 month: 2016-11
             -
+                title: '8. sraz přátel PHP v Praze, květen 2016'
+                videos:
+                    -
+                        title: 'Václav Makeš - Efektivní práce s PHPStorm'
+                        description: ''
+                        video_id: PUE12JXS9u8
+                        slug: vaclav-makes-efektivni-prace-s-phpstorm
+                        month: 2016-07
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/PUE12JXS9u8/sddefault.jpg'
+                    -
+                        title: 'Jiří Koutný - Jak zkřížit slona s delfínem?'
+                        description: ''
+                        video_id: I52TCa_2M9Y
+                        slug: jiri-koutny-jak-zkrizit-slona-s-delfinem
+                        month: 2016-07
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/I52TCa_2M9Y/sddefault.jpg'
+                    -
+                        title: 'Martin Voldřich - Instalace Symfony app na Roští.cz'
+                        description: ''
+                        video_id: MJ92vn8z2XE
+                        slug: martin-voldrich-instalace-symfony-app-na-rosti-cz
+                        month: 2016-07
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/MJ92vn8z2XE/sddefault.jpg'
+                month: 2016-5
+            -
+                title: '7. sraz přátel PHP v Praze, duben 2016'
+                videos:
+                    -
+                        title: 'Jozef Lami - Ako nespáliť server za využití Monitu'
+                        description: "Slajdy: http://www.slideshare.net/pehapkari/ako-nespli-server-monit-jozef-lami-7-sraz-praha\n\nPozrieme sa na škálovanie Symfony procesov (RabbitMQ consumers)."
+                        video_id: 9EyZmx2XgcQ
+                        slug: jozef-lami-ako-nespalit-server-za-vyuziti-monitu
+                        month: 2016-05
+                        slides: 'http://www.slideshare.net/pehapkari/ako-nespli-server-monit-jozef-lami-7-sraz-praha'
+                        thumbnail: 'https://i.ytimg.com/vi/9EyZmx2XgcQ/sddefault.jpg'
+                    -
+                        title: 'Filip Procházka - Doctrine - Jak si užít s DQL a kde se entity nehodí'
+                        description: "Slajdy: http://www.slideshare.net/pehapkari/doctrine-co-dlat-kdy-entity-nesta-filip-prochzka-7-sraz-praha\n\nUkážeme si, že Doctrine není jenom ORMko a kdy jít o vrstvu níž. Jak DQL naučit věci, které v základu neumí, ale vaše databáze ano. A pár dalších tipů, jak nemít z databáze úplně hloupé úložiště."
+                        video_id: 6mWS2NVtXs0
+                        slug: filip-prochazka-doctrine-jak-si-uzit-s-dql-a-kde-se-entity-nehodi
+                        month: 2016-05
+                        slides: 'http://www.slideshare.net/pehapkari/doctrine-co-dlat-kdy-entity-nesta-filip-prochzka-7-sraz-praha'
+                        thumbnail: 'https://i.ytimg.com/vi/6mWS2NVtXs0/sddefault.jpg'
+                    -
+                        title: 'Jan Kopp - Blackfire.io - Fire up your PHP app performance'
+                        description: "Slajdy: http://www.slideshare.net/pehapkari/blackfireio-fire-up-your-php-app-performance-jan-kopp-7-sraz-praha\n\nMáte problémy s výkonem vašich aplikací? Pomalé načítání stránek obtěžuje vás i uživatele? Testujte výkonnost PHP aplikací pomocí Blackfire.io nástroje od SensioLabs."
+                        video_id: YuuzZxaahIY
+                        slug: jan-kopp-blackfire-io-fire-up-your-php-app-performance
+                        month: 2016-05
+                        slides: 'http://www.slideshare.net/pehapkari/blackfireio-fire-up-your-php-app-performance-jan-kopp-7-sraz-praha'
+                        thumbnail: 'https://i.ytimg.com/vi/YuuzZxaahIY/sddefault.jpg'
+                month: 2016-4
+            -
+                title: '6. sraz přátel PHP v Praze, březen 2016'
+                videos:
+                    -
+                        title: 'Václav Boch - Jak se Bonami vešlo do kontejneru'
+                        description: 'Prezentace: http://www.slideshare.net/pehapkari/jak-se-bonami-velo-do-kontejneru-vclav-boch-6-sraz-praha-3132016'
+                        video_id: wTuwTPhxbkU
+                        slug: vaclav-boch-jak-se-bonami-veslo-do-kontejneru
+                        month: 2016-04
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/wTuwTPhxbkU/sddefault.jpg'
+                    -
+                        title: 'Jakub Kulhan - Kubernetes'
+                        description: 'Prezentace: http://www.slideshare.net/pehapkari/kubernetes-jakub-kulhan-6-sraz-praha-3132016'
+                        video_id: 3L4_xNw_ZE8
+                        slug: jakub-kulhan-kubernetes
+                        month: 2016-04
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/3L4_xNw_ZE8/sddefault.jpg'
+                    -
+                        title: 'Martin Zeman (Zemistr) - Automatizace jednoduše'
+                        description: 'Slajdy: http://www.slideshare.net/Symfonycz/automatizace-jednodue-martin-zeman-6-sraz-praha-3132016'
+                        video_id: WRHkrqxCiZE
+                        slug: martin-zeman-zemistr-automatizace-jednoduse
+                        month: 2016-04
+                        slides: 'http://www.slideshare.net/Symfonycz/automatizace-jednodue-martin-zeman-6-sraz-praha-3132016'
+                        thumbnail: 'https://i.ytimg.com/vi/WRHkrqxCiZE/sddefault.jpg'
+                month: 2016-3
+            -
+                title: '5. sraz přátel PHP v Praze, únor 2016'
+                videos:
+                    -
+                        title: 'Martin Zeman (Zemistr) - MicroKernel - aneb špatný název pro helper'
+                        description: 'Slajdy: http://www.slideshare.net/Zemistr/microkernel-aneb-spatny-nazev-pro-helper-5-sraz-pratel-symfony'
+                        video_id: Nyyf3fRhE8k
+                        slug: martin-zeman-zemistr-microkernel-aneb-spatny-nazev-pro-helper
+                        month: 2016-03
+                        slides: 'http://www.slideshare.net/Zemistr/microkernel-aneb-spatny-nazev-pro-helper-5-sraz-pratel-symfony'
+                        thumbnail: 'https://i.ytimg.com/vi/Nyyf3fRhE8k/sddefault.jpg'
+                    -
+                        title: 'Lukáš Huňka - Atoto.cz - Do pekla pro data a zpět'
+                        description: 'Slajdy: http://www.slideshare.net/pehapkari/atotocz-do-pekla-pro-data-a-zpt-luk-huka-5-sraz-praha-1822016'
+                        video_id: QZ-Fu-W3iUo
+                        slug: lukas-hunka-atoto-cz-do-pekla-pro-data-a-zpet
+                        month: 2016-03
+                        slides: 'http://www.slideshare.net/pehapkari/atotocz-do-pekla-pro-data-a-zpt-luk-huka-5-sraz-praha-1822016'
+                        thumbnail: 'https://i.ytimg.com/vi/QZ-Fu-W3iUo/sddefault.jpg'
+                    -
+                        title: 'Jiří Koutný - Jak scrapujeme 700 000 stránek vyhledávačů denně'
+                        description: 'Slajdy: http://www.slideshare.net/pehapkari/ji-koutn-collabim-jak-scrapujeme-700-000-strnek-vyhledva-denn'
+                        video_id: 0VQXnLrGhqw
+                        slug: jiri-koutny-jak-scrapujeme-700-000-stranek-vyhledavacu-denne
+                        month: 2016-03
+                        slides: 'http://www.slideshare.net/pehapkari/ji-koutn-collabim-jak-scrapujeme-700-000-strnek-vyhledva-denn'
+                        thumbnail: 'https://i.ytimg.com/vi/0VQXnLrGhqw/sddefault.jpg'
+                month: 2016-2
+            -
+                title: '1. sraz přátel PHP v Ostravě, únor 2016'
+                videos:
+                    -
+                        title: 'Mirek Šustek - Z nuly na Symfony za 30 minut'
+                        description: ''
+                        video_id: KPJrcDreJ3I
+                        slug: mirek-sustek-z-nuly-na-symfony-za-30-minut
+                        month: 2016-03
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/KPJrcDreJ3I/sddefault.jpg'
+                    -
+                        title: 'Honza Pobořil - Jak využít Drupal a moc se nenadřít'
+                        description: ''
+                        video_id: TiRs1OimnDM
+                        slug: honza-poboril-jak-vyuzit-drupal-a-moc-se-nenadrit
+                        month: 2016-03
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/TiRs1OimnDM/sddefault.jpg'
+                month: 2016-2
+            -
                 title: '4. sraz přátel PHP v Praze, leden 2016'
                 videos:
                     -
@@ -553,283 +701,7 @@ parameters:
                         month: 2015-11
                         slides: 'http://www.slideshare.net/pehapkari/jakub-kulhn-reactphp-symfony-profit-1-sraz-ptel-symfony-v-praze'
                         thumbnail: 'https://i.ytimg.com/vi/MwYaLr5fqos/sddefault.jpg'
-                month: ''
-            -
-                title: 'PHP Prague 2018'
-                videos:
-                    -
-                        title: 'Matous Czerner - How To Love Git'
-                        description: 'Slides: https://docs.google.com/presentation/d/1sPYeOwIe6CvqHhSSltQCASX4j_gpGTFNEKWttCATmao/edit?ts=5b33af80'
-                        video_id: EOn_VDZ9ep8
-                        slug: matous-czerner-how-to-love-git
-                        month: 2018-08
-                        slides: 'https://docs.google.com/presentation/d/1sPYeOwIe6CvqHhSSltQCASX4j_gpGTFNEKWttCATmao/edit'
-                        thumbnail: 'https://i.ytimg.com/vi/EOn_VDZ9ep8/sddefault.jpg'
-                    -
-                        title: 'Holger Woltersdorf - Total Recall - The application that never forgets'
-                        description: 'Slides: https://speakerdeck.com/hollodotme/total-recall-the-application-that-never-forgets-2'
-                        video_id: lD9oa5huoyA
-                        slug: holger-woltersdorf-total-recall-the-application-that-never-forgets
-                        month: 2018-08
-                        slides: 'https://speakerdeck.com/hollodotme/total-recall-the-application-that-never-forgets-2'
-                        thumbnail: 'https://i.ytimg.com/vi/lD9oa5huoyA/sddefault.jpg'
-                    -
-                        title: 'David Velvethy - MVP: How we fucked-up despite a training in Rocketspace, San Francisco'
-                        description: 'Slides: https://docs.google.com/presentation/d/10rTcSTNBHEEv_7Dc5vJ8kpdc_iphtgYJQMOTxciQKwA/edit?ts=5b2e59a4'
-                        video_id: l3FY0BENmqs
-                        slug: david-velvethy-mvp-how-we-fucked-up-despite-a-training-in-rocketspace-san-francisco
-                        month: 2018-08
-                        slides: 'https://docs.google.com/presentation/d/10rTcSTNBHEEv_7Dc5vJ8kpdc_iphtgYJQMOTxciQKwA/edit'
-                        thumbnail: 'https://i.ytimg.com/vi/l3FY0BENmqs/sddefault.jpg'
-                    -
-                        title: 'Ondřej Mirtes - What’s new in PHPStan'
-                        description: ''
-                        video_id: nfq2zsazpZM
-                        slug: ondrej-mirtes-what-s-new-in-phpstan
-                        month: 2018-08
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/nfq2zsazpZM/sddefault.jpg'
-                    -
-                        title: 'Jan Mikeš - The Simplest Gitlab CI Pipeline Ever'
-                        description: 'Slides: https://www.slideshare.net/JanMike3/php-prague-2018-the-simplest-gitlab-ci-pipeline-ever'
-                        video_id: HG0HgeUDbR8
-                        slug: jan-mikes-the-simplest-gitlab-ci-pipeline-ever
-                        month: 2018-08
-                        slides: 'https://www.slideshare.net/JanMike3/php-prague-2018-the-simplest-gitlab-ci-pipeline-ever'
-                        thumbnail: 'https://i.ytimg.com/vi/HG0HgeUDbR8/sddefault.jpg'
-                    -
-                        title: 'Jindřich Kubát - Transactions in Distributed System'
-                        description: 'Slides: https://www.slideshare.net/JindichKubt/php-conference-transactions-in-distributed-system'
-                        video_id: AIBzp38sAOs
-                        slug: jindrich-kubat-transactions-in-distributed-system
-                        month: 2018-08
-                        slides: 'https://www.slideshare.net/JindichKubt/php-conference-transactions-in-distributed-system'
-                        thumbnail: 'https://i.ytimg.com/vi/AIBzp38sAOs/sddefault.jpg'
-                    -
-                        title: 'Vladimir Kriška - Docker for PHP developers - Tips, Tricks & Lessons learned'
-                        description: 'Slides:  https://speakerdeck.com/ujovlado/docker-for-php-developers-tips-tricks-and-lessons-learned'
-                        video_id: zk2waYlEY8A
-                        slug: vladimir-kriska-docker-for-php-developers-tips-tricks-lessons-learned
-                        month: 2018-08
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/zk2waYlEY8A/sddefault.jpg'
-                    -
-                        title: 'Tomáš Votruba - Why Your Company Loses Money By Not-Open-Sourcing -'
-                        description: 'Slides: https://docs.google.com/presentation/d/1kYpsn_ZAR_Q2A7WYqBIjeVIjdKe67W_d0PTHVgsvMo4/edit?usp=sharing'
-                        video_id: suscn1HeRAc
-                        slug: tomas-votruba-why-your-company-loses-money-by-not-open-sourcing
-                        month: 2018-09
-                        slides: 'https://docs.google.com/presentation/d/1kYpsn_ZAR_Q2A7WYqBIjeVIjdKe67W_d0PTHVgsvMo4/edit'
-                        thumbnail: 'https://i.ytimg.com/vi/suscn1HeRAc/sddefault.jpg'
-                month: ''
-            -
-                title: '5. sraz přátel PHP v Praze, únor 2016'
-                videos:
-                    -
-                        title: 'Martin Zeman (Zemistr) - MicroKernel - aneb špatný název pro helper'
-                        description: 'Slajdy: http://www.slideshare.net/Zemistr/microkernel-aneb-spatny-nazev-pro-helper-5-sraz-pratel-symfony'
-                        video_id: Nyyf3fRhE8k
-                        slug: martin-zeman-zemistr-microkernel-aneb-spatny-nazev-pro-helper
-                        month: 2016-03
-                        slides: 'http://www.slideshare.net/Zemistr/microkernel-aneb-spatny-nazev-pro-helper-5-sraz-pratel-symfony'
-                        thumbnail: 'https://i.ytimg.com/vi/Nyyf3fRhE8k/sddefault.jpg'
-                    -
-                        title: 'Lukáš Huňka - Atoto.cz - Do pekla pro data a zpět'
-                        description: 'Slajdy: http://www.slideshare.net/pehapkari/atotocz-do-pekla-pro-data-a-zpt-luk-huka-5-sraz-praha-1822016'
-                        video_id: QZ-Fu-W3iUo
-                        slug: lukas-hunka-atoto-cz-do-pekla-pro-data-a-zpet
-                        month: 2016-03
-                        slides: 'http://www.slideshare.net/pehapkari/atotocz-do-pekla-pro-data-a-zpt-luk-huka-5-sraz-praha-1822016'
-                        thumbnail: 'https://i.ytimg.com/vi/QZ-Fu-W3iUo/sddefault.jpg'
-                    -
-                        title: 'Jiří Koutný - Jak scrapujeme 700 000 stránek vyhledávačů denně'
-                        description: 'Slajdy: http://www.slideshare.net/pehapkari/ji-koutn-collabim-jak-scrapujeme-700-000-strnek-vyhledva-denn'
-                        video_id: 0VQXnLrGhqw
-                        slug: jiri-koutny-jak-scrapujeme-700-000-stranek-vyhledavacu-denne
-                        month: 2016-03
-                        slides: 'http://www.slideshare.net/pehapkari/ji-koutn-collabim-jak-scrapujeme-700-000-strnek-vyhledva-denn'
-                        thumbnail: 'https://i.ytimg.com/vi/0VQXnLrGhqw/sddefault.jpg'
-                month: ''
-            -
-                title: '1. sraz přátel PHP v Ostravě, únor 2016'
-                videos:
-                    -
-                        title: 'Mirek Šustek - Z nuly na Symfony za 30 minut'
-                        description: ''
-                        video_id: KPJrcDreJ3I
-                        slug: mirek-sustek-z-nuly-na-symfony-za-30-minut
-                        month: 2016-03
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/KPJrcDreJ3I/sddefault.jpg'
-                    -
-                        title: 'Honza Pobořil - Jak využít Drupal a moc se nenadřít'
-                        description: ''
-                        video_id: TiRs1OimnDM
-                        slug: honza-poboril-jak-vyuzit-drupal-a-moc-se-nenadrit
-                        month: 2016-03
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/TiRs1OimnDM/sddefault.jpg'
-                month: ''
-            -
-                title: '6. sraz přátel PHP v Praze, březen 2016'
-                videos:
-                    -
-                        title: 'Václav Boch - Jak se Bonami vešlo do kontejneru'
-                        description: 'Prezentace: http://www.slideshare.net/pehapkari/jak-se-bonami-velo-do-kontejneru-vclav-boch-6-sraz-praha-3132016'
-                        video_id: wTuwTPhxbkU
-                        slug: vaclav-boch-jak-se-bonami-veslo-do-kontejneru
-                        month: 2016-04
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/wTuwTPhxbkU/sddefault.jpg'
-                    -
-                        title: 'Jakub Kulhan - Kubernetes'
-                        description: 'Prezentace: http://www.slideshare.net/pehapkari/kubernetes-jakub-kulhan-6-sraz-praha-3132016'
-                        video_id: 3L4_xNw_ZE8
-                        slug: jakub-kulhan-kubernetes
-                        month: 2016-04
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/3L4_xNw_ZE8/sddefault.jpg'
-                    -
-                        title: 'Martin Zeman (Zemistr) - Automatizace jednoduše'
-                        description: 'Slajdy: http://www.slideshare.net/Symfonycz/automatizace-jednodue-martin-zeman-6-sraz-praha-3132016'
-                        video_id: WRHkrqxCiZE
-                        slug: martin-zeman-zemistr-automatizace-jednoduse
-                        month: 2016-04
-                        slides: 'http://www.slideshare.net/Symfonycz/automatizace-jednodue-martin-zeman-6-sraz-praha-3132016'
-                        thumbnail: 'https://i.ytimg.com/vi/WRHkrqxCiZE/sddefault.jpg'
-                month: ''
-            -
-                title: '8. sraz přátel PHP v Praze, květen 2016'
-                videos:
-                    -
-                        title: 'Václav Makeš - Efektivní práce s PHPStorm'
-                        description: ''
-                        video_id: PUE12JXS9u8
-                        slug: vaclav-makes-efektivni-prace-s-phpstorm
-                        month: 2016-07
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/PUE12JXS9u8/sddefault.jpg'
-                    -
-                        title: 'Jiří Koutný - Jak zkřížit slona s delfínem?'
-                        description: ''
-                        video_id: I52TCa_2M9Y
-                        slug: jiri-koutny-jak-zkrizit-slona-s-delfinem
-                        month: 2016-07
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/I52TCa_2M9Y/sddefault.jpg'
-                    -
-                        title: 'Martin Voldřich - Instalace Symfony app na Roští.cz'
-                        description: ''
-                        video_id: MJ92vn8z2XE
-                        slug: martin-voldrich-instalace-symfony-app-na-rosti-cz
-                        month: 2016-07
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/MJ92vn8z2XE/sddefault.jpg'
-                month: ''
-            -
-                title: '14. sraz přátel PHP v Praze, březen 2017'
-                videos:
-                    -
-                        title: 'Václav Makeš - Git - Verzuj i malé projekty'
-                        description: ''
-                        video_id: qX-iHofcWNE
-                        slug: vaclav-makes-git-verzuj-i-male-projekty
-                        month: 2017-03
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/qX-iHofcWNE/sddefault.jpg'
-                    -
-                        title: 'Jakub Kratina - Ahoj, já jsem Laravel'
-                        description: ''
-                        video_id: n6OgKW3ZcFs
-                        slug: jakub-kratina-ahoj-ja-jsem-laravel
-                        month: 2017-03
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/n6OgKW3ZcFs/sddefault.jpg'
-                    -
-                        title: 'Petr Fidler - Jak komunikovat s projekťákem / zákazníkem a dospět k zadání'
-                        description: ''
-                        video_id: _HcggJ6ah2Y
-                        slug: petr-fidler-jak-komunikovat-s-projektakem-zakaznikem-a-dospet-k-zadani
-                        month: 2017-03
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/_HcggJ6ah2Y/sddefault.jpg'
-                    -
-                        title: 'Pavel Vondrášek​ - EasyAdminBundle - Tvoříme adminko s minimem úsilí'
-                        description: ''
-                        video_id: gOQBhpPbIHY
-                        slug: pavel-vondrasek-easyadminbundle-tvorime-adminko-s-minimem-usili
-                        month: 2017-03
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/gOQBhpPbIHY/sddefault.jpg'
-                    -
-                        title: 'Martin Froněk​ - Jak získat lepší práci a větší plat'
-                        description: ''
-                        video_id: IVsonhyufPc
-                        slug: martin-fronek-jak-ziskat-lepsi-praci-a-vetsi-plat
-                        month: 2017-03
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/IVsonhyufPc/sddefault.jpg'
-                month: ''
-            -
-                title: 'PHP Prague 2016'
-                videos:
-                    -
-                        title: 'Jan Klat - Automate All The Things!'
-                        description: ''
-                        video_id: 1Az2Qlcv8TI
-                        slug: jan-klat-automate-all-the-things
-                        month: 2017-04
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/1Az2Qlcv8TI/sddefault.jpg'
-                    -
-                        title: 'Ondřej Mirtes - Coding standard'
-                        description: ''
-                        video_id: i31zPp0sz-g
-                        slug: ondrej-mirtes-coding-standard
-                        month: 2017-04
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/i31zPp0sz-g/sddefault.jpg'
-                    -
-                        title: 'Martin Hujer - Framework less code'
-                        description: ''
-                        video_id: v7i-v_phDUc
-                        slug: martin-hujer-framework-less-code
-                        month: 2017-04
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/v7i-v_phDUc/sddefault.jpg'
-                    -
-                        title: 'Marek Gach - PSR-7'
-                        description: ''
-                        video_id: iuMZ4rvqLQk
-                        slug: marek-gach-psr-7
-                        month: 2017-04
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/iuMZ4rvqLQk/sddefault.jpg'
-                    -
-                        title: 'Tomáš Strejček - Proč by sakra někdo chtěl dělat eshop'
-                        description: ''
-                        video_id: 6NKUixKxyPI
-                        slug: tomas-strejcek-proc-by-sakra-nekdo-chtel-delat-eshop
-                        month: 2017-04
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/6NKUixKxyPI/sddefault.jpg'
-                    -
-                        title: 'Tomáš Fejfar - PhpStorm'
-                        description: ''
-                        video_id: Uq4o_tbvqIw
-                        slug: tomas-fejfar-phpstorm
-                        month: 2017-04
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/Uq4o_tbvqIw/sddefault.jpg'
-                    -
-                        title: 'Michal Špaček - PHP WTF'
-                        description: ''
-                        video_id: Zi06BaFw0vw
-                        slug: michal-spacek-php-wtf
-                        month: 2017-04
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/Zi06BaFw0vw/sddefault.jpg'
-                month: ''
+                month: 2015-10
         livestream:
             title: Livestreamy
             videos:
