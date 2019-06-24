@@ -47,9 +47,9 @@ final class Video
     private $slides;
 
     /**
-     * @var DateTimeInterface
+     * @var string
      */
-    private $publishedAt;
+    private $month;
 
     public function __construct(
         string $title,
@@ -60,7 +60,7 @@ final class Video
         string $thumbnail,
         string $kind,
         string $slides,
-        DateTimeInterface $publishedAt
+        string $month
     ) {
         $this->title = $title;
         $this->description = $description;
@@ -69,7 +69,7 @@ final class Video
         $this->thumbnail = $thumbnail;
         $this->kind = $kind;
 
-        $this->publishedAt = $publishedAt;
+        $this->month = $month;
         $this->speaker = $speaker;
         $this->slides = $slides;
     }
@@ -104,9 +104,9 @@ final class Video
         return $this->kind;
     }
 
-    public function getPublishedAt(): DateTimeInterface
+    public function getMonth(): string
     {
-        return $this->publishedAt;
+        return $this->month;
     }
 
     public function getSpeaker(): string
