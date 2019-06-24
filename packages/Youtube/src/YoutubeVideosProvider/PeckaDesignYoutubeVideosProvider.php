@@ -72,7 +72,7 @@ final class PeckaDesignYoutubeVideosProvider implements YoutubeVideosProviderInt
         }
 
         if (Strings::match($videoTitle, '#A refactoring Journey – From Legacy to Laravel#')) {
-            return '2017-11';
+            return '2018-11';
         }
 
         if (Strings::match(
