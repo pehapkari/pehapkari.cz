@@ -1,7 +1,18 @@
 {# @var video \Pehapkari\Youtube\ValueObject\Video #}
-<div class="col-12 col-sm-6 col-md-4 mb-5 video-row-item">
+<div class="col-sm-6 col-md-4 mb-5 video-row-item hidden-sm-down">
     <a href="{{ path('video_detail', {'slug': video.slug }) }}">
         <img src="{{ video.thumbnail }}" alt="" style="max-width: 100%" class="mb-2">
+        {{ video.title }}
+    </a>
+</div>
+
+<div class="col-6 hidden-md-up">
+    <a href="{{ path('video_detail', {'slug': video.slug }) }}">
+        <img src="{{ video.thumbnail }}" alt="" style="max-width: 100%" class="mb-5 ml-2">
+    </a>
+</div>
+<div class="col-6 hidden-md-up">
+    <a href="{{ path('video_detail', {'slug': video.slug }) }}">
         {{ video.title }}
     </a>
 </div>

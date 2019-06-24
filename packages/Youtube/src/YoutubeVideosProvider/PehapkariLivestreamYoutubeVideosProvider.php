@@ -4,6 +4,7 @@ namespace Pehapkari\Youtube\YoutubeVideosProvider;
 
 use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\DataTransformer\VideosFactory;
+use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\YoutubeApi;
 use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PehapkariPlaylistsProvider;
 
@@ -24,14 +25,21 @@ final class PehapkariLivestreamYoutubeVideosProvider implements YoutubeVideosPro
      */
     private $pehapkariPlaylistsProvider;
 
+    /**
+     * @var ArrayByDateTimeSorter
+     */
+    private $arraySorter;
+
     public function __construct(
         YoutubeApi $youtubeApi,
         PehapkariPlaylistsProvider $pehapkariPlaylistsProvider,
-        VideosFactory $videosFactory
+        VideosFactory $videosFactory,
+        ArrayByDateTimeSorter $arraySorter
     ) {
         $this->videosFactory = $videosFactory;
         $this->pehapkariPlaylistsProvider = $pehapkariPlaylistsProvider;
         $this->youtubeApi = $youtubeApi;
+        $this->arraySorter = $arraySorter;
     }
 
     public function getName(): string
@@ -56,24 +64,10 @@ final class PehapkariLivestreamYoutubeVideosProvider implements YoutubeVideosPro
 
             return [
                 'title' => 'Livestreamy',
-                'videos' => $this->sortByNewestFirst($videos),
+                'videos' => $this->arraySorter->sortByKey($videos, 'month'),
             ];
         }
 
         return [];
-    }
-
-    /**
-     * @param mixed[] $videos
-     * @return mixed[]
-     */
-    private function sortByNewestFirst(array $videos): array
-    {
-        usort($videos, function (array $firstVideo, array $secondVideo): int {
-            // newest first
-            return $secondVideo['month'] <=> $firstVideo['month'];
-        });
-
-        return $videos;
     }
 }

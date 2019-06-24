@@ -2,8 +2,6 @@
 
 namespace Pehapkari\Youtube\ValueObject;
 
-use DateTimeInterface;
-
 final class Video
 {
     /**
