@@ -5,31 +5,31 @@
         <div class="section">
             <h1 class="text-center">
                 {{ video.title }}
-                {% if video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_LIVESTREAM') %}
-                    <br>
-                    <small>(natočeno {{ video.publishedAt|date("Y-m") }})</small>
-                {% endif %}
+{#                {% if video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_LIVESTREAM') %}#}
+{#                    <br>#}
+{#                    <small>(natočeno {{ video.publishedAt|date("Y-m") }})</small>#}
+{#                {% endif %}#}
             </h1>
 
-            {% if video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_LIVESTREAM') %}
-                <a href="{{ path('livestream') }}" class="btn btn-info">
-                    <em class="fas fa-fast-backward"></em>
-                    &nbsp;
-                    Zpátky na livestreamy
-                </a>
-            {% elseif video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_MEETUP') %}
-                <a href="{{ path('videos') }}" class="btn btn-info">
-                    <em class="fas fa-fast-backward"></em>
-                    &nbsp;
-                    Zpátky na meetupy
-                </a>
-            {% elseif video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_PHP_PRAGUE_CONFERENCE') %}
-                <a href="{{ path('videos') }}" class="btn btn-info">
-                    <em class="fas fa-fast-backward"></em>
-                    &nbsp;
-                    Zpátky na PHP Prague
-                </a>
-            {% endif %}
+{#            {% if video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_LIVESTREAM') %}#}
+{#                <a href="{{ path('livestream') }}" class="btn btn-info">#}
+{#                    <em class="fas fa-fast-backward"></em>#}
+{#                    &nbsp;#}
+{#                    Zpátky na livestreamy#}
+{#                </a>#}
+{#            {% elseif video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_MEETUP') %}#}
+{#                <a href="{{ path('videos') }}" class="btn btn-info">#}
+{#                    <em class="fas fa-fast-backward"></em>#}
+{#                    &nbsp;#}
+{#                    Zpátky na meetupy#}
+{#                </a>#}
+{#            {% elseif video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_PHP_PRAGUE_CONFERENCE') %}#}
+{#                <a href="{{ path('videos') }}" class="btn btn-info">#}
+{#                    <em class="fas fa-fast-backward"></em>#}
+{#                    &nbsp;#}
+{#                    Zpátky na PHP Prague#}
+{#                </a>#}
+{#            {% endif %}#}
 
             {% if video.slides %}
                 <a href="{{ video.slides }}" class="btn btn-warning ml-2">
