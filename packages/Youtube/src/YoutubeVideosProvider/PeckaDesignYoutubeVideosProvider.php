@@ -45,15 +45,17 @@ final class PeckaDesignYoutubeVideosProvider implements YoutubeVideosProviderInt
         $playlists = [];
         foreach ($videos as $video) {
             $playlistMonth = $this->resolvePlaylistMonth($video['title']);
-            $title = $this->resolveMeetupName($video);
-            $title = $this->normalizeVideoTitle($title);
+            $meetupTitle = $this->resolveMeetupName($video);
 
-            $uniqueHash = Strings::webalize($playlistMonth . $title);
+            $video['title'] = $this->normalizeVideoTitle($video['title']);
+
+            $uniqueHash = md5(Strings::webalize($playlistMonth . $meetupTitle));
+//            dump($playlistMonth, $meetupTitle, $uniqueHash);
 
             // group to playlist by meetup date
-            $playlists[$uniqueHash]['title'] = $title;
+            $playlists[$uniqueHash]['title'] = $meetupTitle;
             $playlists[$uniqueHash]['videos'][] = $video;
-            $playlists[$uniqueHash]['month'] = $playlistMonth ? DateTime::from($playlistMonth) : null;
+            $playlists[$uniqueHash]['month'] = $playlistMonth;
         }
 
         return $playlists;
@@ -68,7 +70,7 @@ final class PeckaDesignYoutubeVideosProvider implements YoutubeVideosProviderInt
     {
         $match = Strings::match($videoTitle, '#[\d]{1,2}\.(\s+)?(?<month>[\d]{1,2}).(\s+)?(?<year>[\d]{4})#');
         if (isset($match['month']) && isset($match['year'])) {
-            return $match['year'] . '-' . $match['month'];
+            return $match['year'] . '-' . Strings::padLeft($match['month'], 2, '0');
         }
 
         if (Strings::match($videoTitle, '#A refactoring Journey – From Legacy to Laravel#')) {
@@ -93,6 +95,32 @@ final class PeckaDesignYoutubeVideosProvider implements YoutubeVideosProviderInt
         $rank = $this->resolveMeetupRank($video['title'], $video['description']);
 
         return $rank . '. sraz přátel PHP v Brně';
+    }
+
+    private function normalizeVideoTitle(string $videoTitle): string
+    {
+        // normalize dashes
+        $videoTitle = Strings::replace($videoTitle, '#–#', '-');
+
+        // remove prefix
+        $videoTitle = Strings::replace(
+            $videoTitle,
+            '#(Péhápkaři v Pecce: |Péhápkaři v Pecce: |Péhápkaři.cz - |Péhápkaři v Pecce: )#'
+        );
+        $videoTitle = Strings::replace($videoTitle, '# - Péhápkaři v Pecce#');
+
+        // remove date
+        $videoTitle = Strings::replace($videoTitle, '#( - )?\d{1,2}\.(\s+)?\d{1,2}\.(\s+)\d{4}?#');
+
+        // make speaker first
+        if (Strings::contains($videoTitle, 'A refactoring Journey - From Legacy to Laravel - Christopher Fuchs')) {
+            $videoTitle = 'Christopher Fuchs - A refactoring Journey - From Legacy to Laravel';
+        } elseif (Strings::contains($videoTitle, ' - ')) {
+            [$talk, $speaker] = explode(' - ', $videoTitle);
+            $videoTitle = $speaker . ' - ' . $talk;
+        }
+
+        return trim($videoTitle);
     }
 
     private function resolveMeetupRank(string $videoTitle, string $videoDescription): int
@@ -125,28 +153,5 @@ final class PeckaDesignYoutubeVideosProvider implements YoutubeVideosProviderInt
         }
 
         throw new ShouldNotHappenException('Complete new rank for PeckaDesign meetup');
-    }
-
-    private function normalizeVideoTitle(string $videoTitle): string
-    {
-        // remove prefix
-        $videoTitle = Strings::replace($videoTitle, '#(Péhápkaři v Pecce: |Péhápkaři v Pecce: |Péhápkaři.cz - |Péhápkaři v Pecce: )#');
-        $videoTitle = Strings::replace($videoTitle, '# - Péhápkaři v Pecce#');
-
-        // remove date
-        $videoTitle = Strings::replace($videoTitle, '#( – )?\d{1,2}\.(\s+)?\d{1,2}\.(\s+)\d{4}?#');
-
-        // make speaker first
-        if (Strings::contains($videoTitle, 'A refactoring Journey – From Legacy to Laravel – Christopher Fuchs')) {
-            $videoTitle = 'Christopher Fuchs - A refactoring Journey – From Legacy to Laravel';
-        } elseif (Strings::contains($videoTitle, ' – ')) {
-            [$talk, $speaker] = explode(' – ', $videoTitle);
-            $videoTitle = $speaker . ' - ' . $talk;
-        } elseif (Strings::contains($videoTitle, ' - ')) {
-            [$talk, $speaker] = explode(' - ', $videoTitle);
-            $videoTitle = $speaker . ' - ' . $talk;
-        }
-
-        return trim($videoTitle);
     }
 }

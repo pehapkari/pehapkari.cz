@@ -1,4 +1,4 @@
-# this file was generated on 2019-06-24 02:32:33, do not edit it manually
+# this file was generated on 2019-06-24 14:14:40, do not edit it manually
 parameters:
     youtube_videos:
         meetups:
@@ -6,7 +6,7 @@ parameters:
                 title: '28. sraz přátel PHP v Brně'
                 videos:
                     -
-                        title: 'Péhápkaři v Pecce: Každodenní problémy s implementací Facebook Api – Marek Hučík – 15. 5. 2019'
+                        title: 'Marek Hučík - Každodenní problémy s implementací Facebook Api'
                         description: ''
                         video_id: CYVmoXsIrK8
                         slug: pehapkari-v-pecce-kazdodenni-problemy-s-implementaci-facebook-api-marek-hucik-15-5-2019
@@ -14,7 +14,7 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/CYVmoXsIrK8/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Neplavte v desetinné čárce – Jiří Pudil – 15. 5. 2019'
+                        title: 'Jiří Pudil - Neplavte v desetinné čárce'
                         description: ''
                         video_id: YK_iGgzId3Y
                         slug: pehapkari-v-pecce-neplavte-v-desetinne-carce-jiri-pudil-15-5-2019
@@ -22,31 +22,19 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/YK_iGgzId3Y/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: AWS Fargate – Zdeněk Sotolář – 15. 5. 2019'
+                        title: 'Zdeněk Sotolář - AWS Fargate'
                         description: ''
                         video_id: mqq8DphkOdw
                         slug: pehapkari-v-pecce-aws-fargate-zdenek-sotolar-15-5-2019
                         month: 2019-06
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/mqq8DphkOdw/sddefault.jpg'
-                month: 2019-05-01T00:00:00+02:00
+                month: 2019-05
             -
                 title: '27. sraz přátel PHP v Brně'
                 videos:
                     -
-                        title: 'Péhápkaři v Pecce: Čtyři hlavní příčiny dysfunkčních návyků v týmu – Michal Abaffy'
-                        description: 'Mám pro vás seznam se stovkou typických kulturních a sociálních nedostatků v týmech, které podkopávají pracovní výkony, náladu i morálku. Většinu z nich můžete s jednoduchými tipy a nenáročnou prací na čtyřech základních příčinách minimalizovat, ale i navždy smazat z povrchu programátorského.'
-                        video_id: vVf8eGrF0FU
-                        slug: pehapkari-v-pecce-ctyri-hlavni-priciny-dysfunkcnich-navyku-v-tymu-michal-abaffy
-                        month: 2019-05
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/vVf8eGrF0FU/sddefault.jpg'
-                month: 2019-04-01T00:00:00+02:00
-            -
-                title: '27. sraz přátel PHP v Brně'
-                videos:
-                    -
-                        title: 'Péhápkaři v Pecce: Jak jsme neposlali pull request do PHP –  Milan Pála – 17. 4. 2019'
+                        title: 'Milan Pála - Jak jsme neposlali pull request do PHP'
                         description: 'Zjistili jsme, že nám v PHP chybí určitá funkcionalita, která by tam podle nás být měla. Připravili jsme PR, odeslali a až potom se podívali, proč ho vlastně před námi neposlal někdo jiný. :) Podělím se s vámi alespoň o zkušenosti s úpravami v PHP.'
                         video_id: assib0jm-5o
                         slug: pehapkari-v-pecce-jak-jsme-neposlali-pull-request-do-php-milan-pala-17-4-2019
@@ -54,19 +42,27 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/assib0jm-5o/hqdefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Jak si lokálně spustit Travis CI Build – Jakub Englický – 17. 4. 2019'
+                        title: 'Jakub Englický - Jak si lokálně spustit Travis CI Build'
                         description: 'Buďte za profíka a odevzdejte PR na první dobrou. Vše si nejdřív nanečisto pustíme lokálně skrz lokální Travis CI a poté už build na Travisu bude hračka.'
                         video_id: VvWNZJCO0sw
                         slug: pehapkari-v-pecce-jak-si-lokalne-spustit-travis-ci-build-jakub-englicky-17-4-2019
                         month: 2019-05
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/VvWNZJCO0sw/sddefault.jpg'
-                month: 2019-04-01T00:00:00+02:00
+                    -
+                        title: 'Michal Abaffy - Čtyři hlavní příčiny dysfunkčních návyků v týmu'
+                        description: 'Mám pro vás seznam se stovkou typických kulturních a sociálních nedostatků v týmech, které podkopávají pracovní výkony, náladu i morálku. Většinu z nich můžete s jednoduchými tipy a nenáročnou prací na čtyřech základních příčinách minimalizovat, ale i navždy smazat z povrchu programátorského.'
+                        video_id: vVf8eGrF0FU
+                        slug: pehapkari-v-pecce-ctyri-hlavni-priciny-dysfunkcnich-navyku-v-tymu-michal-abaffy
+                        month: 2019-05
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/vVf8eGrF0FU/sddefault.jpg'
+                month: 2019-04
             -
                 title: '25. sraz přátel PHP v Brně'
                 videos:
                     -
-                        title: 'Péhápkaři v Pecce: Zend Expressive: PSR framework který vás dostane – Jan Kadeřábek – 20. 2. 2019'
+                        title: 'Jan Kadeřábek - Zend Expressive: PSR framework který vás dostane'
                         description: "Přednáška z 25. Srazu Přátel PHP\n▶️  Honza představíuje PHP microframework s plnou podporou standardu PSR, který je velmi jednoduchý a zároveň dokonalý. Přidává i pár tipů pro validaci příchozích requestů, end-to-end testování bez nutnosti poslat HTTP request a ukázku, jak je možné integrovat Expressive do existující aplikace a využít její modelovou vrstvu."
                         video_id: uS3yKQt9hG0
                         slug: pehapkari-v-pecce-zend-expressive-psr-framework-ktery-vas-dostane-jan-kaderabek-20-2-2019
@@ -74,7 +70,7 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/uS3yKQt9hG0/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Git: Feature branching done right – Filip Procházka – 20. 2. 2019'
+                        title: 'Filip Procházka - Git: Feature branching done right'
                         description: "Přednáška z 25. Srazu Přátel PHP\n▶️  Filip připomíná, že Trunk Based Development není silver bullet a Feature Branching není přežitá technika. Ukazuje, jak na krásné větve, které nás nebudou brzdit při vývoji, ale pomohou zachovat kontrolu nad kvalitou kódu, co jde na produkci."
                         video_id: XsqbqyrNu1w
                         slug: pehapkari-v-pecce-git-feature-branching-done-right-filip-prochazka-20-2-2019
@@ -82,7 +78,7 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/XsqbqyrNu1w/hqdefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Rector: Automatický upgrade z PHP 5.3 na 7.4 – Tomáš Votruba – 20. 2. 2019'
+                        title: 'Tomáš Votruba - Rector: Automatický upgrade z PHP 5.3 na 7.4'
                         description: "Přednáška z 25. Srazu Přátel PHP\n▶️  Tomáš nám na demu ukazuje, jak automaticky provádět upgrade codebase pomocí nástroje rector/rector."
                         video_id: '-fUvpYENdqE'
                         slug: pehapkari-v-pecce-rector-automaticky-upgrade-z-php-5-3-na-7-4-tomas-votruba-20-2-2019
@@ -90,31 +86,31 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/-fUvpYENdqE/hqdefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: HTTP client v PHPStormu (bonusová, krátká přednáška) – Jiří Pudil – 20. 2. 2019'
+                        title: 'Jiří Pudil - HTTP client v PHPStormu (bonusová, krátká přednáška)'
                         description: "Přednáška z 25. Srazu Přátel PHP\n▶️ Jirka nám představuje co je to – a jak se ovládá HTTP client v PHPStormu."
                         video_id: HZds_P4LBxQ
                         slug: pehapkari-v-pecce-http-client-v-phpstormu-bonusova-kratka-prednaska-jiri-pudil-20-2-2019
                         month: 2019-02
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/HZds_P4LBxQ/sddefault.jpg'
-                month: 2019-02-01T00:00:00+01:00
+                month: 2019-02
             -
                 title: '24. sraz přátel PHP v Brně'
                 videos:
                     -
-                        title: 'Péhápkaři v Pecce: Chytrý deploy na hloupý hosting – Jakub Englický – 23. 1. 2019'
+                        title: 'Jakub Englický - Chytrý deploy na hloupý hosting'
                         description: "Přednáška z 24. Srazu Přátel PHP\n▶️ V přednášce se dozvíte, že i malá aplikace si zaslouží pořádný deploy. V příjemném rozhraní Buddy.Works si jednoduše nastavíte prvky a spojíte technologie, do procesu, který by měl mít každý správný deploy.\n\nPrezentace\n▶️ https://www.slideshare.net/peckadesign/phpkai-v-pecce-chytr-deploy-na-hloup-hosting-jakub-englick-23-1-2019"
                         video_id: dKnajHKw664
                         slug: pehapkari-v-pecce-chytry-deploy-na-hloupy-hosting-jakub-englicky-23-1-2019
                         month: 2019-01
                         slides: 'https://www.slideshare.net/peckadesign/phpkai-v-pecce-chytr-deploy-na-hloup-hosting-jakub-englick-23-1-2019'
                         thumbnail: 'https://i.ytimg.com/vi/dKnajHKw664/sddefault.jpg'
-                month: 2019-01-01T00:00:00+01:00
+                month: 2019-01
             -
                 title: '23. sraz přátel PHP v Brně'
                 videos:
                     -
-                        title: 'Péhápkaři v Pecce: Validujte vstupní data pomocí objektů – Václav Čevela – 14. 11. 2018'
+                        title: 'Václav Čevela - Validujte vstupní data pomocí objektů'
                         description: "Přednáška z 23. Srazu Péhápkařů\n▶️ Validujte vstupní data pomocí objektů\nUrčitě už jste museli někdy zpracovat xml, csv nebo podobná data. Co když chybí pole, cena je o řád nižší nebo jen není vyplněno jméno produktu? Václav vám ukáže několik triků a postupů jak z nejistých dat vždy dostat správný výsledek.\n\nMateriály k přednášce:\n▶️ https://github.com/VBoss/ObjectValidationPehapkari\n\nPrezentace\n▶️ https://www.slideshare.net/peckadesign/pehapkari-v-pecce-validujte-vstupni-data-pomoci-objektu-vaclav-cevela-14-11-2018"
                         video_id: c9ZyL4l-2Cs
                         slug: pehapkari-v-pecce-validujte-vstupni-data-pomoci-objektu-vaclav-cevela-14-11-2018
@@ -122,19 +118,19 @@ parameters:
                         slides: 'https://www.slideshare.net/peckadesign/pehapkari-v-pecce-validujte-vstupni-data-pomoci-objektu-vaclav-cevela-14-11-2018'
                         thumbnail: 'https://i.ytimg.com/vi/c9ZyL4l-2Cs/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Test Driven Development v praxi – Zbyněk Rybička – 14. 11. 2018'
+                        title: 'Zbyněk Rybička - Test Driven Development v praxi'
                         description: "▶️ Test Driven Development v praxi\nJak psát a používat testy v nových i stávajících projektech. V testování nám pomůže end to end testovací framework Cypress a javascriptový testovací framework Mocha and Chai."
                         video_id: Wpr-tfPXGbo
                         slug: pehapkari-v-pecce-test-driven-development-v-praxi-zbynek-rybicka-14-11-2018
                         month: 2018-11
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/Wpr-tfPXGbo/sddefault.jpg'
-                month: 2018-11-01T00:00:00+01:00
+                month: 2018-11
             -
                 title: '22. sraz přátel PHP v Brně'
                 videos:
                     -
-                        title: 'Péhápkaři v Pecce: PeckaDesign/ Monitoring – Milan Pála – 17. 10.  2018'
+                        title: 'Milan Pála - PeckaDesign/ Monitoring'
                         description: "Přednáška z 22. Srazu Péhápkařů\n▶️  PeckaDesign/Monitoring - open source nástroj pro sledování webu\nV PeckaDesign jsme hledali optimální nástroj na sledování funkčnosti webových stránek. Vyzkoušeli jsme komerční nástroje a nakonec skončili u vlastního open source řešení, které vám Milan představí.\n\nMateriály k přednášce:\n▶️ SlideShare: http://bit.ly/Milan-Pala-PeckaDesign-Monitoring\n Jak to vypadalo na akci?\n▶️ http://bit.ly/Fotky-z-22-Srazu-Pehapkaru-v-Brne"
                         video_id: YXLHH5GSxc8
                         slug: pehapkari-v-pecce-peckadesign-monitoring-milan-pala-17-10-2018
@@ -142,7 +138,7 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/YXLHH5GSxc8/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Jak rozmluvit Tracy? – Milan Otáhal – 17. 10. 2018'
+                        title: 'Milan Otáhal - Jak rozmluvit Tracy?'
                         description: "Přednáška z 22. Srazu Péhápkařů\n▶️ Jak rozmluvit Tracy?\nAneb Tracy vám toho dokáže říct daleko víc, než si myslíte.\n\nMateriály k přednášce:\n▶️ https://github.com/milous/tracy-extension-example\nJak to vypadalo na akci?\n▶️ http://bit.ly/Fotky-z-22-Srazu-Pehapkaru-v-Brne"
                         video_id: JpicmBnrslo
                         slug: pehapkari-v-pecce-jak-rozmluvit-tracy-milan-otahal-17-10-2018
@@ -150,19 +146,19 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/JpicmBnrslo/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Nasazení dockeru do produkce – Tomáš Kozák – 17.  10.  2018'
+                        title: 'Tomáš Kozák - Nasazení dockeru do produkce'
                         description: "Přednáška z 22. Srazu Péhápkařů\n▶️ Od teorie na co musíte připravit aplikaci, přes sestavení dockerfile, až po ukázku jak by to v provozu mohlo fungovat. Dostali jsme se i k CD z Gitlab pipeline.\n\nMateriály k přednášce:\n▶️ SlideShare: http://bit.ly/Tomas-Kozak-Nasazeni-dockeru-do-produkce\n▶️ https://gitlab.com/kozaktomas/pehapkari.cz\n Jak to vypadalo na akci?\n▶️ http://bit.ly/Fotky-z-22-Srazu-Pehapkaru-v-Brne"
                         video_id: '-Fy9sApe088'
                         slug: pehapkari-v-pecce-nasazeni-dockeru-do-produkce-tomas-kozak-17-10-2018
                         month: 2018-10
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/-Fy9sApe088/sddefault.jpg'
-                month: 2018-10-01T00:00:00+02:00
+                month: 2018-10
             -
                 title: '20. sraz přátel PHP v Brně'
                 videos:
                     -
-                        title: 'Péhápkaři v Pecce: PeckaDesign/CIServer - Milan Pála - 20. 6. 2018'
+                        title: 'Milan Pála - PeckaDesign/CIServer'
                         description: '1. přednáška z 20. Srazu Péhápkařů v Brně.'
                         video_id: pDiZOBuC4Fo
                         slug: pehapkari-v-pecce-peckadesign-ciserver-milan-pala-20-6-2018
@@ -170,7 +166,7 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/pDiZOBuC4Fo/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Message queues: jak odložit těžkou práci na jindy - Jiří Pudil - 20. 6. 2018'
+                        title: 'Jiří Pudil - Message queues: jak odložit těžkou práci na jindy'
                         description: '2. přednáška z 20. Srazu Péhápkařů v Brně.'
                         video_id: _KJ-IiSOhdA
                         slug: pehapkari-v-pecce-message-queues-jak-odlozit-tezkou-praci-na-jindy-jiri-pudil-20-6-2018
@@ -178,19 +174,19 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/_KJ-IiSOhdA/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: V gitu se nic neztratí - Filip Procházka - 20. 6. 2018'
+                        title: 'Filip Procházka - V gitu se nic neztratí'
                         description: '3. přednáška z 20. Srazu Péhápkařů v Brně.'
                         video_id: Pp1DVj-ar9c
                         slug: pehapkari-v-pecce-v-gitu-se-nic-neztrati-filip-prochazka-20-6-2018
                         month: 2018-06
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/Pp1DVj-ar9c/sddefault.jpg'
-                month: 2018-06-01T00:00:00+02:00
+                month: 2018-06
             -
                 title: '19. sraz přátel PHP v Brně'
                 videos:
                     -
-                        title: 'Péhápkaři v Pecce: phpDay2018 Verona - Jan Kadeřábek - 16. 5. 2018'
+                        title: 'Jan Kadeřábek - phpDay2018 Verona'
                         description: '1. přednáška z 19. Srazu Péhápkařů v Brně.'
                         video_id: c1R3lwYz3l4
                         slug: pehapkari-v-pecce-phpday2018-verona-jan-kaderabek-16-5-2018
@@ -198,7 +194,7 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/c1R3lwYz3l4/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Jak se připravit na technický pohovor - Jan Fabík - 16. 5. 2018'
+                        title: 'Jan Fabík - Jak se připravit na technický pohovor'
                         description: '2. přednáška z 19. Srazu Péhápkařů v Brně.'
                         video_id: PbcQvSz3QCs
                         slug: pehapkari-v-pecce-jak-se-pripravit-na-technicky-pohovor-jan-fabik-16-5-2018
@@ -206,19 +202,19 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/PbcQvSz3QCs/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Na pomezí PHP a VueJS - Martin Hasoň - 16. 5. 2018'
+                        title: 'Martin Hasoň - Na pomezí PHP a VueJS'
                         description: '3. přednáška z 19. Srazu Péhápkařů v Brně.'
                         video_id: jwBLDhhYYnA
                         slug: pehapkari-v-pecce-na-pomezi-php-a-vuejs-martin-hason-16-5-2018
                         month: 2018-05
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/jwBLDhhYYnA/hqdefault.jpg'
-                month: 2018-05-01T00:00:00+02:00
+                month: 2018-05
             -
                 title: '18. sraz přátel PHP v Brně'
                 videos:
                     -
-                        title: 'Péhápkaři v Pecce: Jak přistupovat k validaci Nette formulářů - Milan Otáhal - 18. 4. 2018'
+                        title: 'Milan Otáhal - Jak přistupovat k validaci Nette formulářů'
                         description: '1. přednáška z 18. Srazu Péhápkařů v Brně.'
                         video_id: EWrXusUdXAg
                         slug: pehapkari-v-pecce-jak-pristupovat-k-validaci-nette-formularu-milan-otahal-18-4-2018
@@ -226,7 +222,7 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/EWrXusUdXAg/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Domain-Driven Design - Svaťa Šimara - 18. 4. 2018'
+                        title: 'Svaťa Šimara - Domain-Driven Design'
                         description: '2. přednáška z 18. Srazu Péhápkařů v Brně.'
                         video_id: kcnbPbzoTyA
                         slug: pehapkari-v-pecce-domain-driven-design-svata-simara-18-4-2018
@@ -234,14 +230,14 @@ parameters:
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/kcnbPbzoTyA/sddefault.jpg'
                     -
-                        title: 'Péhápkaři v Pecce: Jak na Jenkins CI pro aplikaci v Dockeru - Matouš Czerner - 18. 4. 2018'
+                        title: 'Matouš Czerner - Jak na Jenkins CI pro aplikaci v Dockeru'
                         description: '3. přednáška z 18. Srazu Péhápkařů v Brně.'
                         video_id: WNwUjFu2DXM
                         slug: pehapkari-v-pecce-jak-na-jenkins-ci-pro-aplikaci-v-dockeru-matous-czerner-18-4-2018
                         month: 2018-04
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/WNwUjFu2DXM/sddefault.jpg'
-                month: 2018-04-01T00:00:00+02:00
+                month: 2018-04
             -
                 title: '20. sraz přátel PHP v Praze, srpen 2017'
                 videos:
@@ -326,26 +322,26 @@ parameters:
                 title: '16. sraz přátel PHP v Brně'
                 videos:
                     -
-                        title: 'Péhápkaři.cz - Jak bylo na SymfonyConu - Honza Kadeřábek 22.11.2017'
+                        title: 'Honza Kadeřábek 22.11.2017 - Jak bylo na SymfonyConu'
                         description: ''
                         video_id: X_27FkIlq0Y
                         slug: pehapkari-cz-jak-bylo-na-symfonyconu-honza-kaderabek-22-11-2017
                         month: 2018-04
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/X_27FkIlq0Y/sddefault.jpg'
-                month: 2017-11-01T00:00:00+01:00
+                month: 2017-11
             -
                 title: '23. sraz přátel PHP v Brně'
                 videos:
                     -
-                        title: 'Péhápkaři v Pecce: A refactoring Journey – From Legacy to Laravel – Christopher Fuchs – 14. 11.'
+                        title: 'Christopher Fuchs - A refactoring Journey - From Legacy to Laravel'
                         description: "▶️ A Refactoring Journey – From Legacy to Laravel\nSo you have a large, often messy, sometimes convoluted legacy PHP code base.There's no framework, no routing, no templates. Hard to maintain, even harder to extend.\n\nSo, how do you clean up your act?\nA complete rewrite? Almost certainly doomed to fail at a startup with limited resources, financial pressure and endless feature requests.\nExtract things step by step? Really hard with an entangled code base without sane boundaries.\n\nPrezentace\n▶️ https://www.slideshare.net/peckadesign/pehapkari-v-pecce-a-refactoring-journey-from-legacy-to-laravel-christopher-fuchs-14-11"
                         video_id: bk6kzHL1PXQ
                         slug: pehapkari-v-pecce-a-refactoring-journey-from-legacy-to-laravel-christopher-fuchs-14-11
                         month: 2018-11
                         slides: 'https://www.slideshare.net/peckadesign/pehapkari-v-pecce-a-refactoring-journey-from-legacy-to-laravel-christopher-fuchs-14-11'
                         thumbnail: 'https://i.ytimg.com/vi/bk6kzHL1PXQ/sddefault.jpg'
-                month: 2017-11-01T00:00:00+01:00
+                month: 2017-11
             -
                 title: '7. sraz přátel PHP v Praze, duben 2016'
                 videos:
