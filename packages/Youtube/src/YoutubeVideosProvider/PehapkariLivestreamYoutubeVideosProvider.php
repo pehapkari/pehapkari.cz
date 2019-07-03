@@ -6,7 +6,8 @@ use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterf
 use Pehapkari\Youtube\DataTransformer\VideosFactory;
 use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\YoutubeApi;
-use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PehapkariPlaylistsProvider;
+use Pehapkari\Youtube\YoutubeVideosProvider\Channel\ChannelList;
+use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PlaylistsProvider;
 
 final class PehapkariLivestreamYoutubeVideosProvider implements YoutubeVideosProviderInterface
 {
@@ -21,9 +22,9 @@ final class PehapkariLivestreamYoutubeVideosProvider implements YoutubeVideosPro
     private $videosFactory;
 
     /**
-     * @var PehapkariPlaylistsProvider
+     * @var PlaylistsProvider
      */
-    private $pehapkariPlaylistsProvider;
+    private $playlistsProvider;
 
     /**
      * @var ArrayByDateTimeSorter
@@ -32,12 +33,12 @@ final class PehapkariLivestreamYoutubeVideosProvider implements YoutubeVideosPro
 
     public function __construct(
         YoutubeApi $youtubeApi,
-        PehapkariPlaylistsProvider $pehapkariPlaylistsProvider,
+        PlaylistsProvider $playlistsProvider,
         VideosFactory $videosFactory,
         ArrayByDateTimeSorter $arraySorter
     ) {
         $this->videosFactory = $videosFactory;
-        $this->pehapkariPlaylistsProvider = $pehapkariPlaylistsProvider;
+        $this->playlistsProvider = $playlistsProvider;
         $this->youtubeApi = $youtubeApi;
         $this->arraySorter = $arraySorter;
     }
@@ -52,7 +53,7 @@ final class PehapkariLivestreamYoutubeVideosProvider implements YoutubeVideosPro
      */
     public function providePlaylists(): array
     {
-        $playlistsData = $this->pehapkariPlaylistsProvider->provide();
+        $playlistsData = $this->playlistsProvider->provideForChannel(ChannelList::PEHAPKARI_CHANNEL_ID);
 
         foreach ($playlistsData['items'] as $playlistItemData) {
             if ($playlistItemData['snippet']['title'] !== 'Twitch Livestream') {

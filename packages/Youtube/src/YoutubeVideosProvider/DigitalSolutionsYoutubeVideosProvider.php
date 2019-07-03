@@ -3,14 +3,14 @@
 namespace Pehapkari\Youtube\YoutubeVideosProvider;
 
 use Nette\Utils\Strings;
-use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\DataTransformer\VideosFactory;
+use Pehapkari\Youtube\MeetupNaming\MeetupNaming;
 use Pehapkari\Youtube\YoutubeApi;
 use Pehapkari\Youtube\YoutubeVideosProvider\Channel\ChannelList;
 use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PlaylistsProvider;
 
-final class PehapkariMeetupsYoutubeVideosProvider implements YoutubeVideosProviderInterface
+final class DigitalSolutionsYoutubeVideosProvider implements YoutubeVideosProviderInterface
 {
     /**
      * @var YoutubeApi
@@ -27,14 +27,21 @@ final class PehapkariMeetupsYoutubeVideosProvider implements YoutubeVideosProvid
      */
     private $playlistsProvider;
 
+    /**
+     * @var MeetupNaming
+     */
+    private $meetupNaming;
+
     public function __construct(
         YoutubeApi $youtubeApi,
+        PlaylistsProvider $playlistsProvider,
         VideosFactory $videosFactory,
-        PlaylistsProvider $playlistsProvider
+        MeetupNaming $meetupNaming
     ) {
-        $this->youtubeApi = $youtubeApi;
         $this->videosFactory = $videosFactory;
         $this->playlistsProvider = $playlistsProvider;
+        $this->youtubeApi = $youtubeApi;
+        $this->meetupNaming = $meetupNaming;
     }
 
     public function getName(): string
@@ -47,7 +54,7 @@ final class PehapkariMeetupsYoutubeVideosProvider implements YoutubeVideosProvid
      */
     public function providePlaylists(): array
     {
-        $playlistsData = $this->playlistsProvider->provideForChannel(ChannelList::PEHAPKARI_CHANNEL_ID);
+        $playlistsData = $this->playlistsProvider->provideForChannel(ChannelList::DIGITAL_SOLUTIONS_CHANNEL_ID);
 
         $playlists = [];
 
@@ -55,37 +62,40 @@ final class PehapkariMeetupsYoutubeVideosProvider implements YoutubeVideosProvid
             $videosInPlaylistData = $this->youtubeApi->getVideosByPlaylistId($playlistItemData['id']);
 
             $playlistTitle = $playlistItemData['snippet']['title'];
-            if (Strings::match($playlistTitle, '#(livestream|php(\s+)?prague)#i')) {
-                continue;
-            }
+
+            $month = $this->resolvePlaylistMonth($playlistTitle);
 
             $playlists[] = [
-                'title' => $playlistTitle,
+                'title' => $month ? $this->meetupNaming->createMeetupTitleWithMonth(
+                    $playlistTitle,
+                    $month
+                ) : $playlistTitle,
                 'videos' => $this->videosFactory->createVideos($videosInPlaylistData),
-                'month' => $this->resolvePlaylistMonth($playlistItemData['snippet']['title']),
+                'month' => $month,
             ];
         }
 
         return $playlists;
     }
 
-    private function resolvePlaylistMonth(string $playlistTitle): string
+    private function resolvePlaylistMonth(string $playlistTitle): ?string
     {
-        $match = Strings::match($playlistTitle, '#\, (?<month>\w+) (?<year>\d+)$#u');
-        if (! isset($match['month']) || ! isset($match['year'])) {
-            throw new ShouldNotHappenException(sprintf('Complete month for playlist "%s"', $playlistTitle));
+        if (Strings::startsWith($playlistTitle, '9. sraz')) {
+            return '2019-06';
         }
 
-        // replace Czech string month by number
-        $numberToMonth = [
-            1 => 'leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec',
-        ];
+        if (Strings::startsWith($playlistTitle, '8. sraz')) {
+            return '2018-11';
+        }
 
-        $monthToNumber = array_flip($numberToMonth);
+        if (Strings::startsWith($playlistTitle, '7. sraz')) {
+            return '2018-06';
+        }
 
-        $month = $monthToNumber[$match['month']] ?? null;
-        $year = $match['year'];
+        if (Strings::startsWith($playlistTitle, '6. sraz')) {
+            return '2017-06';
+        }
 
-        return $year . '-' . $month;
+        return null;
     }
 }

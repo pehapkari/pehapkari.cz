@@ -5,7 +5,7 @@
         <div class="section">
             <h1 class="text-center">Přehraj si přednášku z minulého srazu</h1>
 
-            <a href="{{ path('livestream') }}" class="btn btn-danger mr-2">Livestreamy</a>
+            <a href="{{ path('livestream') }}" class="btn btn-danger mr-2">{{ livestream_playlist.videos|length }} livestreamů</a>
             <a href="{{ path('videos_php_prague') }}" class="btn btn-danger">PHP Prague</a>
 
             <br>

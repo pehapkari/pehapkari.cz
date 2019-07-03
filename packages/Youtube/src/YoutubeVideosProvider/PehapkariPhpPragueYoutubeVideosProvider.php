@@ -6,7 +6,8 @@ use Nette\Utils\Strings;
 use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\DataTransformer\VideosFactory;
 use Pehapkari\Youtube\YoutubeApi;
-use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PehapkariPlaylistsProvider;
+use Pehapkari\Youtube\YoutubeVideosProvider\Channel\ChannelList;
+use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PlaylistsProvider;
 
 final class PehapkariPhpPragueYoutubeVideosProvider implements YoutubeVideosProviderInterface
 {
@@ -21,17 +22,17 @@ final class PehapkariPhpPragueYoutubeVideosProvider implements YoutubeVideosProv
     private $videosFactory;
 
     /**
-     * @var PehapkariPlaylistsProvider
+     * @var PlaylistsProvider
      */
-    private $pehapkariPlaylistsProvider;
+    private $playlistsProvider;
 
     public function __construct(
         YoutubeApi $youtubeApi,
-        PehapkariPlaylistsProvider $pehapkariPlaylistsProvider,
+        PlaylistsProvider $playlistsProvider,
         VideosFactory $videosFactory
     ) {
         $this->videosFactory = $videosFactory;
-        $this->pehapkariPlaylistsProvider = $pehapkariPlaylistsProvider;
+        $this->playlistsProvider = $playlistsProvider;
         $this->youtubeApi = $youtubeApi;
     }
 
@@ -45,7 +46,7 @@ final class PehapkariPhpPragueYoutubeVideosProvider implements YoutubeVideosProv
      */
     public function providePlaylists(): array
     {
-        $playlistsData = $this->pehapkariPlaylistsProvider->provide();
+        $playlistsData = $this->playlistsProvider->provideForChannel(ChannelList::DIGITAL_SOLUTIONS_CHANNEL_ID);
 
         $playlists = [];
         foreach ($playlistsData['items'] as $playlistItemData) {

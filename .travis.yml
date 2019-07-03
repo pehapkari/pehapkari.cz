@@ -14,7 +14,7 @@ before_install:
     - set -e
 
 install:
-    - composer update
+    - COMPOSER_MEMORY_LIMIT=-1 composer update
 
 script:
     - if [[ $HTTP_STATUS_CHECK == "" ]]; then vendor/bin/phpunit; fi
