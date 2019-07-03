@@ -7,7 +7,8 @@ use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\DataTransformer\VideosFactory;
 use Pehapkari\Youtube\YoutubeApi;
-use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PehapkariPlaylistsProvider;
+use Pehapkari\Youtube\YoutubeVideosProvider\Channel\ChannelList;
+use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PlaylistsProvider;
 
 final class PehapkariMeetupsYoutubeVideosProvider implements YoutubeVideosProviderInterface
 {
@@ -22,18 +23,18 @@ final class PehapkariMeetupsYoutubeVideosProvider implements YoutubeVideosProvid
     private $videosFactory;
 
     /**
-     * @var PehapkariPlaylistsProvider
+     * @var PlaylistsProvider
      */
-    private $pehapkariPlaylistsProvider;
+    private $playlistsProvider;
 
     public function __construct(
         YoutubeApi $youtubeApi,
         VideosFactory $videosFactory,
-        PehapkariPlaylistsProvider $pehapkariPlaylistsProvider
+        PlaylistsProvider $playlistsProvider
     ) {
         $this->youtubeApi = $youtubeApi;
         $this->videosFactory = $videosFactory;
-        $this->pehapkariPlaylistsProvider = $pehapkariPlaylistsProvider;
+        $this->playlistsProvider = $playlistsProvider;
     }
 
     public function getName(): string
@@ -46,7 +47,7 @@ final class PehapkariMeetupsYoutubeVideosProvider implements YoutubeVideosProvid
      */
     public function providePlaylists(): array
     {
-        $playlistsData = $this->pehapkariPlaylistsProvider->provide();
+        $playlistsData = $this->playlistsProvider->provideForChannel(ChannelList::PEHAPKARI_CHANNEL_ID);
 
         $playlists = [];
 

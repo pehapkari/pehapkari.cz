@@ -3,12 +3,12 @@
 namespace Pehapkari\Youtube\YoutubeVideosProvider;
 
 use Nette\Utils\Strings;
-use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\DataTransformer\VideosFactory;
 use Pehapkari\Youtube\MeetupNaming\MeetupNaming;
 use Pehapkari\Youtube\YoutubeApi;
-use Pehapkari\Youtube\YoutubeVideosProvider\Channel\DigitalSolutionsPlaylistsProvider;
+use Pehapkari\Youtube\YoutubeVideosProvider\Channel\ChannelList;
+use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PlaylistsProvider;
 
 final class DigitalSolutionsYoutubeVideosProvider implements YoutubeVideosProviderInterface
 {
@@ -23,9 +23,9 @@ final class DigitalSolutionsYoutubeVideosProvider implements YoutubeVideosProvid
     private $videosFactory;
 
     /**
-     * @var DigitalSolutionsPlaylistsProvider
+     * @var PlaylistsProvider
      */
-    private $digitalSolutionsPlaylistsProvider;
+    private $playlistsProvider;
 
     /**
      * @var MeetupNaming
@@ -34,12 +34,12 @@ final class DigitalSolutionsYoutubeVideosProvider implements YoutubeVideosProvid
 
     public function __construct(
         YoutubeApi $youtubeApi,
-        DigitalSolutionsPlaylistsProvider $digitalSolutionsPlaylistsProvider,
+        PlaylistsProvider $playlistsProvider,
         VideosFactory $videosFactory,
         MeetupNaming $meetupNaming
     ) {
         $this->videosFactory = $videosFactory;
-        $this->digitalSolutionsPlaylistsProvider = $digitalSolutionsPlaylistsProvider;
+        $this->playlistsProvider = $playlistsProvider;
         $this->youtubeApi = $youtubeApi;
         $this->meetupNaming = $meetupNaming;
     }
@@ -54,7 +54,7 @@ final class DigitalSolutionsYoutubeVideosProvider implements YoutubeVideosProvid
      */
     public function providePlaylists(): array
     {
-        $playlistsData = $this->digitalSolutionsPlaylistsProvider->provide();
+        $playlistsData = $this->playlistsProvider->provideForChannel(ChannelList::DIGITAL_SOLUTIONS_CHANNEL_ID);
 
         $playlists = [];
 
@@ -66,7 +66,10 @@ final class DigitalSolutionsYoutubeVideosProvider implements YoutubeVideosProvid
             $month = $this->resolvePlaylistMonth($playlistTitle);
 
             $playlists[] = [
-                'title' => $this->meetupNaming->createMeetupTitleWithMonth($playlistTitle, $month),
+                'title' => $month ? $this->meetupNaming->createMeetupTitleWithMonth(
+                    $playlistTitle,
+                    $month
+                ) : $playlistTitle,
                 'videos' => $this->videosFactory->createVideos($videosInPlaylistData),
                 'month' => $month,
             ];
@@ -75,7 +78,7 @@ final class DigitalSolutionsYoutubeVideosProvider implements YoutubeVideosProvid
         return $playlists;
     }
 
-    private function resolvePlaylistMonth(string $playlistTitle): string
+    private function resolvePlaylistMonth(string $playlistTitle): ?string
     {
         if (Strings::startsWith($playlistTitle, '9. sraz')) {
             return '2019-06';
@@ -93,6 +96,6 @@ final class DigitalSolutionsYoutubeVideosProvider implements YoutubeVideosProvid
             return '2017-06';
         }
 
-        throw new ShouldNotHappenException();
+        return null;
     }
 }

@@ -7,7 +7,6 @@ use Pehapkari\Youtube\DataTransformer\VideosFactory;
 use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\YoutubeApi;
 use Pehapkari\Youtube\YoutubeVideosProvider\Channel\ChannelList;
-use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PehapkariPlaylistsProvider;
 use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PlaylistsProvider;
 
 final class PehapkariLivestreamYoutubeVideosProvider implements YoutubeVideosProviderInterface
