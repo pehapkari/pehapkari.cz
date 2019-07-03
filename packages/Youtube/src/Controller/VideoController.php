@@ -52,6 +52,7 @@ final class VideoController extends AbstractController
 
         return $this->render('videos/videos.twig', [
             'meetup_playlists' => $meetupPlaylists,
+            'livestream_playlist' => $this->getLivestreamVideos()
         ]);
     }
 
@@ -62,14 +63,8 @@ final class VideoController extends AbstractController
     {
         $this->ensureYoutubeDataExists();
 
-        $livestreamPlaylist = $this->youtubeVideos['livestream'];
-        $livestreamPlaylist['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
-            $livestreamPlaylist['videos'],
-            Video::class
-        );
-
         return $this->render('videos/livestream.twig', [
-            'livestream_playlist' => $livestreamPlaylist,
+            'livestream_playlist' => $this->getLivestreamVideos(),
         ]);
     }
 
@@ -134,5 +129,19 @@ final class VideoController extends AbstractController
         }
 
         throw $this->createNotFoundException(sprintf("Video with slug '%s' not found", $videoSlug));
+    }
+
+    /**
+     * @return Video[]
+     */
+    private function getLivestreamVideos(): array
+    {
+        $livestreamPlaylist = $this->youtubeVideos['livestream'];
+        $livestreamPlaylist['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
+            $livestreamPlaylist['videos'],
+            Video::class
+        );
+
+        return $livestreamPlaylist;
     }
 }
