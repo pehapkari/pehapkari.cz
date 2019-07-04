@@ -46,7 +46,7 @@ final class PehapkariPhpPragueYoutubeVideosProvider implements YoutubeVideosProv
      */
     public function providePlaylists(): array
     {
-        $playlistsData = $this->playlistsProvider->provideForChannel(ChannelList::DIGITAL_SOLUTIONS_CHANNEL_ID);
+        $playlistsData = $this->playlistsProvider->provideForChannel(ChannelList::PEHAPKARI_CHANNEL_ID);
 
         $playlists = [];
         foreach ($playlistsData['items'] as $playlistItemData) {

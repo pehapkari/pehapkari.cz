@@ -12,7 +12,7 @@ parameters:
         - '*/var/log/*'
         - /statie/tests/
         # temporary
-        - 'packages/Youtube/src/Command/ImportVideosCommand.php'
+        - 'packages/Youtube/src/FacebookVideosProvider/PehapkariFacebookPageVideosProvider.php'
         - 'packages/Marketing/src/Social/FacebookPublisher.php'
 
     ignoreErrors:

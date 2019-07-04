@@ -52,7 +52,9 @@ final class VideoController extends AbstractController
 
         return $this->render('videos/videos.twig', [
             'meetup_playlists' => $meetupPlaylists,
-            'livestream_playlist' => $this->getLivestreamVideos(),
+            'livestream_count' => count($this->getLivestreamVideos()),
+            'meetup_count' => count($meetupPlaylists),
+            'video_count' => $this->getVideoCount($meetupPlaylists),
         ]);
     }
 
@@ -64,7 +66,7 @@ final class VideoController extends AbstractController
         $this->ensureYoutubeDataExists();
 
         return $this->render('videos/livestream.twig', [
-            'livestream_playlist' => $this->getLivestreamVideos(),
+            'livestream_videos' => $this->getLivestreamVideos(),
         ]);
     }
 
@@ -115,7 +117,21 @@ final class VideoController extends AbstractController
             Video::class
         );
 
-        return $livestreamPlaylist;
+        return $livestreamPlaylist['videos'];
+    }
+
+    /**
+     * @param mixed[] $meetupPlaylists
+     */
+    private function getVideoCount(array $meetupPlaylists): int
+    {
+        $videoCount = 0;
+
+        foreach ($meetupPlaylists as $meetupPlaylist) {
+            $videoCount += count($meetupPlaylist['videos'] ?? []);
+        }
+
+        return $videoCount;
     }
 
     private function getVideoBySlug(string $videoSlug): Video

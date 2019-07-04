@@ -5,7 +5,13 @@
         <div class="section">
             <h1 class="text-center">Přehraj si přednášku z minulého srazu</h1>
 
-            <a href="{{ path('livestream') }}" class="btn btn-danger mr-2">{{ livestream_playlist.videos|length }} livestreamů</a>
+            <p class="bigger text-center mb-5">
+                Od prvního srazu přátel PHP v říjnu 2015 jsme úspěšně nahráli <strong>{{ video_count }} záznamů</strong> z <strong>{{ meetup_count }} srazů</strong>.
+
+                Tady je najdeš všechny pěkně na jednom místě.
+            </p>
+
+            <a href="{{ path('livestream') }}" class="btn btn-danger mr-2">{{ livestream_count }} livestreamů</a>
             <a href="{{ path('videos_php_prague') }}" class="btn btn-danger">PHP Prague</a>
 
             <br>
