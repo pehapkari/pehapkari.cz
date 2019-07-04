@@ -5,3 +5,13 @@
 #main h1 {
     margin-bottom: 1em;
 }
+
+.page a {
+    color: #28a745;
+    text-decoration: underline;
+}
+
+.page a:hover {
+    color: #000;
+    text-decoration: none;
+}
