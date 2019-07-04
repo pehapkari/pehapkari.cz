@@ -22,18 +22,12 @@ final class HomepageController extends AbstractController
     private $authors = [];
 
     /**
-     * @var PostsProvider
-     */
-    private $postsProvider;
-
-    /**
      * @param mixed[] $organizers
      * @param mixed[] $authors
      */
-    public function __construct(array $organizers, PostsProvider $postsProvider, array $authors)
+    public function __construct(array $organizers, array $authors)
     {
         $this->organizers = $organizers;
-        $this->postsProvider = $postsProvider;
         $this->authors = $authors;
     }
 
@@ -45,6 +39,14 @@ final class HomepageController extends AbstractController
         return $this->render('homepage/homepage.twig', [
             'organizers' => $this->organizers,
         ]);
+    }
+
+    /**
+     * @Route(path="/about/", name="about")
+     */
+    public function about(): Response
+    {
+        return $this->render('homepage/about.twig');
     }
 
     /**
@@ -74,10 +76,10 @@ final class HomepageController extends AbstractController
     /**
      * @Route(path="/rss.xml", name="rss")
      */
-    public function rss(): Response
+    public function rss(PostsProvider $postsProvider): Response
     {
         $response = $this->render('homepage/rss.xml.twig', [
-            'posts' => $this->postsProvider->provide(),
+            'posts' => $postsProvider->provide(),
             'authors' => $this->authors,
         ]);
 

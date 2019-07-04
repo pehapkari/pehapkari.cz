@@ -1,64 +1,111 @@
-<header>
-    {# normal menu #}
-    <div class="hidden-sm-down">
-        <div class="container-fluid">
-            <a href="/"><img src="{{ asset('/assets/images/logo-header.svg') }}" alt="" height="50"></a>
-            <nav class="navbar float-right">
-                <ul>
-                    <li id="top-menu-search">
-                        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
-                            <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
-                            <input name="sitesearch" value="pehapkari.cz" type="hidden"/>
-                            <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Napiš co hledáš..." autocomplete="off"/>
-                        </form>
-                    </li>
-
-                    <li>
-                        <a href="{{ path('blog') }}" class="{{ active_item(['blog', 'post']) }}">
-                            Blog
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ path('trainings') }}" class="{{ active_item(['trainings', 'place_detail', 'training_detail']) }}">
-                            Školení
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ path('videos') }}" class="{{ active_item(['videos', 'livestream', 'videos_php_prague', 'video_detail']) }}">
-                            Videa
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+<nav id="ph-nav" class="navbar fixed-top navbar-expand-lg navbar-light bg-light ph-nav">
+    <div class="container">
+        <a class="ph-nav__logo navbar-brand" href="{{ path('homepage') }}">
+            <img src="/assets/icons/logo/logo_blue.svg" alt="logo" title="">
+            <p class="ml-2">Péhápkaři</p>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ph-nav__menu ml-auto">
+                <li class="ph-nav__menu-item nav-item">
+                    <a class="ph-nav__menu-item-link ph-nav__menu-item-link__big nav-link" href="{{ path('meetups') }}">
+                        Meetups
+                    </a>
+                </li>
+                <li class="ph-nav__menu-item nav-item">
+                    <a class="ph-nav__menu-item-link  ph-nav__menu-item-link__big nav-link" href="{{ path('trainings') }}">
+                        Courses
+                    </a>
+                </li>
+                <li class="ph-nav__menu-item nav-item">
+                    <a class="ph-nav__menu-item-link ph-nav__menu-item-link__big nav-link" href="{{ path('livestream') }}">
+                        Livestreams
+                    </a>
+                </li>
+                <li class="ph-nav__menu-item nav-item">
+                    <a class="ph-nav__menu-item-link ph-nav__menu-item-link__big nav-link" href="{{ path('blog') }}">
+                        Blog
+                    </a>
+                </li>
+                <li class="ph-nav__menu-item nav-item">
+                    <a class="ph-nav__menu-item-link nav-link" href="{{ path('about') }}">
+                        About
+                    </a>
+                </li>
+                <li class="ph-nav__menu-item nav-item pr-lg-0">
+                    <a class="ph-nav__menu-item-link nav-link" href="{{ path('contact') }}">
+                        Contact
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
+</nav>
 
-    {# mobile menu #}
-    <div id="mobile-menu" class="text-center hidden-md-up">
-        <div class="row ml-0 mr-0">
-            <a href="/" class="col-3 {{ active_item('homepage') }}">
-                <em class="fas fa-home"></em>
-                <br>
-                Home
-            </a>
-            <a href="{{ path('blog') }}" class="col-3 {{ active_item(['blog', 'post_detail'])}}">
-                <em class="fas fa-book fa-fw"></em>
-                <br>
-                Blog
-            </a>
-            <a href="{{ path('trainings') }}" class="col-3 {{ active_item(['trainings', 'training_detail'])}}">
-                <em class="fas fa-graduation-cap fa-fw"></em>
-                <br>
-                Školení
-            </a>
 
-            <a href="{{ path('videos') }}" class="col-3 {{ active_item(['videos', 'livestream', 'videos_php_prague', 'video_detail']) }}">
-                <em class="fab fa-youtube fa-fw"></em>
-                <br>
-                Videa
-            </a>
-        </div>
-    </div>
-</header>
+{#<header>#}
+{#    #}{# normal menu #}
+{#    <div class="hidden-sm-down">#}
+{#        <div class="container-fluid">#}
+{#            <a href="/"><img src="{{ asset('/assets/images/logo-header.svg') }}" alt="" height="50"></a>#}
+{#            <nav class="navbar float-right">#}
+{#                <ul>#}
+{#                    <li id="top-menu-search">#}
+{#                        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">#}
+{#                            <meta itemprop="target" content="https://www.google.com/search?q={q}"/>#}
+{#                            <input name="sitesearch" value="pehapkari.cz" type="hidden"/>#}
+{#                            <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Napiš co hledáš..." autocomplete="off"/>#}
+{#                        </form>#}
+{#                    </li>#}
+
+{#                    <li>#}
+{#                        <a href="{{ path('blog') }}" class="{{ active_item(['blog', 'post']) }}">#}
+{#                            Blog#}
+{#                        </a>#}
+{#                    </li>#}
+
+{#                    <li>#}
+{#                        <a href="{{ path('trainings') }}" class="{{ active_item(['trainings', 'place_detail', 'training_detail']) }}">#}
+{#                            Školení#}
+{#                        </a>#}
+{#                    </li>#}
+
+{#                    <li>#}
+{#                        <a href="{{ path('videos') }}" class="{{ active_item(['videos', 'livestream', 'videos_php_prague', 'video_detail']) }}">#}
+{#                            Videa#}
+{#                        </a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </nav>#}
+{#        </div>#}
+{#    </div>#}
+
+{#    #}{# mobile menu #}
+{#    <div id="mobile-menu" class="text-center hidden-md-up">#}
+{#        <div class="row ml-0 mr-0">#}
+{#            <a href="/" class="col-3 {{ active_item('homepage') }}">#}
+{#                <em class="fas fa-home"></em>#}
+{#                <br>#}
+{#                Home#}
+{#            </a>#}
+{#            <a href="{{ path('blog') }}" class="col-3 {{ active_item(['blog', 'post_detail'])}}">#}
+{#                <em class="fas fa-book fa-fw"></em>#}
+{#                <br>#}
+{#                Blog#}
+{#            </a>#}
+{#            <a href="{{ path('trainings') }}" class="col-3 {{ active_item(['trainings', 'training_detail'])}}">#}
+{#                <em class="fas fa-graduation-cap fa-fw"></em>#}
+{#                <br>#}
+{#                Školení#}
+{#            </a>#}
+
+{#            <a href="{{ path('videos') }}" class="col-3 {{ active_item(['videos', 'livestream', 'videos_php_prague', 'video_detail']) }}">#}
+{#                <em class="fab fa-youtube fa-fw"></em>#}
+{#                <br>#}
+{#                Videa#}
+{#            </a>#}
+{#        </div>#}
+{#    </div>#}
+{#</header>#}
