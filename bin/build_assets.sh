@@ -14,13 +14,11 @@ npm install --no-optional # due to bug on Xubuntu: https://stackoverflow.com/a/3
 # 3. generate app.css + app.js files
 npm run production
 
+# 4. get back to the root directory
 cd ..
 
-# 4. copy assets
+# 5. copy build assets to "/public" in Symfony application
 cp new-design/dist/app.css public/assets/css/app.css
 cp new-design/dist/app.js public/assets/js/app.js
 cp -rf new-design/src/icons public/assets
 cp -rf new-design/src/images public/assets
-
-# 5. update paths ("src/images" => "assets/images")
-sed -i -e 's/src\/images/assets\/images/g' source/assets/css/app.css

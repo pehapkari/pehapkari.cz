@@ -1,120 +1,307 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <div class="container first-section text-center">
-        <div class="row text-center">
-            <div class="col-12">
-                <img src="/assets/images/slon/basic.png" alt="Slon" class="main-logo">
-            </div>
-        </div>
-
-        <div class="lead">
-            <p>
-                Na <strong>PHP</strong> běží <a href="https://w3techs.com/technologies/details/pl-php/all/all"><strong>79 %</strong> všech webů</a>.
-            </p>
-            <p>
-                Tady najdeš komunitu lidí with kteří jej mají rádi a pracují s&nbsp;ním. Můžeš mezi nimi <strong>najít nové přátele</strong> s&nbsp;podobnými zájmy with ukážou ti <strong>moderní technologie</strong> with které ti usnadní práci, a&nbsp;nebo tu <strong>najdeš práci s fajn lidmi</strong>.
-            </p>
-        </div>
-    </div>
-
-    {#<h2 class="text-center">Sleduj díl za dílem</h2>#}
-
-    {#<div class="row">#}
-    {#<div class="col-md-6">#}
-    {#<h3>Ze srazů</h3>#}
-    {# consider facebook videos rss parsing #}
-    {# FB api video list manual: https://developers.facebook.com/docs/graph-api/reference/page/video_lists/ #}
-    {# more inspiration: https://stackoverflow.com/a/9778635/1348344, #}
-    {#</div>#}
-
-    {#<div class="col-md-6">#}
-    {#<h3>Záznamy z livestreamů</h3>#}
-    {# consider youtube rss parsing #}
-    {# livestream playlist: https://www.youtube.com/feeds/videos.xml?playlist_id=PLpPdQMJWIciF6kjVUkkSoK0tEpreS2FZt #}
-    {#</div>#}
-    {#</div>#}
-    {#</div>#}
-
-    <div class="intermezzo">
-        <div class="container text-center">
-            <em class="fab fa-meetup fa-fw"></em>
-            Jsme na Meetup.com - <strong>sleduj <a href="https://www.meetup.com/friends-of-php-prague/">Prahu</a> a <a href="https://www.meetup.com/Pehapkari-Brno/">Brno</a></strong> - jednou za měsíc od 18 hod.
-        </div>
-    </div>
-
-    <div class="container" id="meetups">
-        <h2 class="text-center">Kdy a kde se potkáváme?</h2>
-
-        <br>
-
-        <div class="row">
-            <div class="col-md-6 text-center hidden-xs">
-                <img src="/assets/images/meetup.jpg" alt="Přijď na sraz">
-            </div>
-            <div class="col-md-6">
-                <p>
-                    Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a>.
-                </p>
-
-                <p>
-                    Typický sraz začíná v 18 hod. Pak promluví 2-3 speakři a nakonec jdeme diskutovat nad pivem.
-                </p>
-
-                <h3 class="mt-5">Kde se o nich dozvíš?</h3>
-
-                <ol class="manual-list">
-                    <li>Lajkni <a href="https://www.facebook.com/pehapkari/events">naši Facebook stránku</a></li>
-                    <li><strong>subscribni <a href="https://www.meetup.com/friends-of-php-prague">na Meetup.com</a></strong></li>
-                    <li>odebírej <a href="http://bit.ly/pehapkari-newsletter">newsletter</a></li>
-                    <li>nebo importuj <a href="https://calendar.google.com/calendar/embed?src=07ofvjdfhg9ko1vm9jrodqnpl8%40group.calendar.google.com&ctz=Europe/Prague">Google kalendář</a></li>
-                </ol>
-            </div>
-        </div>
-    </div>
-
-    <div class="intermezzo">
-        <div class="container text-center">
-            <em class="fab fa-youtube fa-fw"></em>
-            &nbsp;
-            Podívej se na <a href="{{ path('videos') }}">záznamy přednášek a livestreamů</a>
-        </div>
-    </div>
-
-    <div class="container text-center" id="team">
-        <h2>Organizační Tým</h2>
-
-        <br>
-
-        <div class="row" id="organizers">
-            {% for organizer in organizers %}
-                <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-5">
-                    {% set photoUrl %}{% if organizer.photo matches "#http#" %}{{ organizer.photo }}{% else %}/assets/images/people/{{ organizer.photo }}{% endif %}{% endset %}
-
-                    <img src="{{ photoUrl }}" class="rounded-circle" width="150" height="150">
-                    <h3>
-                        {% if organizer.url is defined %}<a href="{{ organizer.url }}">{% endif %}
-                            {{ organizer.name }}
-                            {% if organizer.url is defined %}</a>{% endif %}
-                    </h3>
-                    <p>
-                        {{ organizer.responsibility|raw }}
-                    </p>
-
-                    {% if organizer.work_email is defined %}
-                        <p>
-                            <a href="mailto:{{ organizer.work_email }}">{{ organizer.work_email }}</a>
-                        </p>
-                    {% endif %}
+    <div class="homepage">
+        <section class="ph-section-first">
+            <div class="position-relative">
+                <div class="container">
+                    <div class="ph-heading">
+                        <div class="row position-relative">
+                            <div class="col-xl-7 ph-heading_col">
+                                <div class="ph-heading__title">
+                                    <h1>Děláš&nbsp;v&nbsp;PHP? Jsi&nbsp;jedním&nbsp;z&nbsp;nás</h1>
+                                </div>
+                                <div class="ph-heading__subtitle">
+                                    <p>We are a group of over 2000 people interested in PHP, active on Facebook, Twitter, Slack, YouTube and Twitch.</p>
+                                </div>
+                                <a href="#" class="ph-button ph-button-primary">
+                                    see what we do
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+            <div class="ph-heading__background">
+            </div>
+        </section>
+        <section class="ph-section">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-4 ph-flex-column">
+                        <div class="ph-par">
+                            <h2 class="ph-par__title">
+                                Attend a meetup
+                            </h2>
+                            <p class="ph-par__body">
+                                Everybody knows that our Slack community rocks. PHPStorm, Nette, Docker, Doctrine, Drupal, you name it, we’ve got it.
+                            </p>
+                        </div>
+                        <a href="#" class="ph-button ph-button-secondary d-none d-lg-block">
+                            see all 3 meetups
+                            <span><img src="/assets/icons/arrows/arrow_right_dark.svg" alt="arrow" title=""></span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-6 pt-md-3">
+                        <a href="#">
+                            <div class="ph-card card-calendar">
+                                <img class="card-calendar__img-top" src="/assets/images/homepage/1.jpg" alt="card-image" title="">
+                                <div class="card-calendar__body">
+                                    <h6 class="card-calendar__body-title">PHP Pivo 2018/4 - Pardubice</h6>
+                                    <a href="#" class="card-calendar__body-address">
+                                        KoPlac, Příkop 2, 60200 Brno
+                                        <img src="/assets/icons/arrows/arrow_upright.svg" alt="arrow" title="">
+                                    </a>
+                                    <div class="ph-card__body-date">
+                                        <span class="ph-card__body-date-day">4</span>
+                                        <span class="ph-card__body-date-month">APR</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="ph-button ph-button-secondary d-block d-lg-none">
+                            see all 3 meetups
+                            <span><img src="/assets/icons/arrows/arrow_right_dark.svg" alt="arrow" title=""></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ph-section ph-bg-banner">
+            <div class="container ph-reverse-section">
+                <div class="row justify-content-between flex-wrap-reverse">
+                    <div class="col-lg-6 ph-counter-col">
+                        <div class="d-flex flex-wrap w-100">
+                            <div class="ph-counter">
+                                <h2 class="ph-counter__number mb-0">600 +</h2>
+                                <p class="ph-counter__body">
+                                    members active weekly
+                                </p>
+                            </div>
+                            <div class="ph-counter">
+                                <h2 class="ph-counter__number mb-0">55 +</h2>
+                                <p class="ph-counter__body">
+                                    channels, including #beer
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex ph-justify-flex-end">
+                        <div>
+                            <div class="ph-par">
+                                <h2 class="ph-par__title">
+                                    Join our Slack
+                                </h2>
+                                <p class="ph-par__body">
+                                    Everybody knows that our Slack community rocks. PHPStorm, Nette, Docker, Doctrine, Drupal, you name it, we’ve got it.
+                                </p>
+                            </div>
+                            <a href="#" class="ph-button ph-button-secondary d-none d-lg-block">
+                                Invite yourself
+                                <span><img src="/assets/icons/arrows/arrow_right_dark.svg"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="ph-button ph-button-secondary d-block d-lg-none">
+                    Invite yourself
+                    <span><img src="/assets/icons/arrows/arrow_right_dark.svg"></span>
+                </a>
+            </div>
+        </section>
+        <section class="ph-section">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-4">
+                        <div class="ph-par">
+                            <h2 class="ph-par__title">
+                                Watch a <br> livestream
+                            </h2>
+                            <p class="ph-par__body">
+                                Everybody knows that our Slack community rocks.
+                            </p>
+                        </div>
+                        <a href="#" class="ph-button ph-button-secondary d-none d-lg-block">
+                            More about livestreams
+                            <span><img src="/assets/icons/arrows/arrow_right_dark.svg" alt="arrow" title=""></span>
+                        </a>
+                    </div>
+                    <div class="col-lg-7 ph-column align-self-end">
+                        <div class="ph-column__wrapper">
+                            <div class="ph-card card-livestream">
+                                <div class="ph-card__body d-flex justify-content-start">
+                                    <div class="ph-card__body-date-col">
+                                        <div class="ph-card__body-date">
+                                            <span class="ph-card__body-date-day">4</span>
+                                            <span class="ph-card__body-date-month">APR</span>
+                                        </div>
+                                    </div>
+                                    <div class="ph-card__body-main">
+                                        <h3 class="ph-card__body-title">Postman - (Jakub Kratina)</h3>
+                                        <p class="ph-card__body-time">19:00 - 21:00</p>
+                                        <a class="ph-card__body-link" href="#">
+                                            Go to facebook event detail
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="ph-button ph-button-secondary d-block d-lg-none ml-3">
+                        More about livestreams
+                        <span><img src="/assets/icons/arrows/arrow_right_dark.svg" alt="arrow" title=""></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="ph-section">
+            <div class="container">
+                <h2>Follow us on social media</h2>
+                <div class="row ph-icon-row">
+                    <div class="col-6 col-xl-3 ph-icon-col">
+                        <a href="https://www.facebook.com/pehapkari/" target="_blank" class="ph-icon-social">
+                            <img src="/assets/icons/social/fb_white.svg" alt="fb-icon" title=""/>
+                        </a>
+                    </div>
+                    <div class="col-6 col-xl-3 ph-icon-col">
+                        <a href="#" target="_blank" class="ph-icon-social">
+                            <img src="/assets/icons/social/twitter_white.svg" alt="twitter-icon" title=""/>
+                        </a>
+                    </div>
+                    <div class="col-6 col-xl-3 ph-icon-col">
+                        <a href="#" target="_blank" class="ph-icon-social">
+                            <img src="/assets/icons/social/twitch_white.svg" alt="twitch-icon" title=""/>
+                        </a>
+                    </div>
+                    <div class="col-6 col-xl-3 ph-icon-col">
+                        <a href="#" target="_blank" class="ph-icon-social">
+                            <img src="/assets/icons/social/youtube_white.svg" alt="youtube-icon" title=""/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <div class="intermezzo">
-        <div class="container text-center">
-            <em class="fab fa-slack fa-fw"></em>
-            Potřebuješ poradit? Na Slacku najdeš přes <strong>1400 kamarádů</strong> - <a href="https://pehapkari.herokuapp.com/">stačí se pozvat</a> a seš <a href="https://pehapkari.slack.com/">tam</a> taky
-        </div>
-    </div>
+{#    <div class="container first-section text-center">#}
+{#        <div class="row text-center">#}
+{#            <div class="col-12">#}
+{#                <h1>Děláš v PHP? Jsi jedním z nás</h1>#}
+
+{#                <img src="/assets/images/slon/basic.png" alt="Slon" class="main-logo">#}
+{#            </div>#}
+{#        </div>#}
+
+{#        <div class="lead">#}
+{#            <p>#}
+{#                Na <strong>PHP</strong> běží <a href="https://w3techs.com/technologies/details/pl-php/all/all"><strong>79 %</strong> všech webů</a>.#}
+{#            </p>#}
+{#            <p>#}
+{#                Tady najdeš komunitu lidí with kteří jej mají rádi a pracují s&nbsp;ním. Můžeš mezi nimi <strong>najít nové přátele</strong> s&nbsp;podobnými zájmy with ukážou ti <strong>moderní technologie</strong> with které ti usnadní práci, a&nbsp;nebo tu <strong>najdeš práci s fajn lidmi</strong>.#}
+{#            </p>#}
+{#        </div>#}
+{#    </div>#}
+
+{#    #}{#<h2 class="text-center">Sleduj díl za dílem</h2>#}
+
+{#    #}{#<div class="row">#}
+{#    #}{#<div class="col-md-6">#}
+{#    #}{#<h3>Ze srazů</h3>#}
+{#    #}{# consider facebook videos rss parsing #}
+{#    #}{# FB api video list manual: https://developers.facebook.com/docs/graph-api/reference/page/video_lists/ #}
+{#    #}{# more inspiration: https://stackoverflow.com/a/9778635/1348344, #}
+{#    #}{#</div>#}
+
+{#    #}{#<div class="col-md-6">#}
+{#    #}{#<h3>Záznamy z livestreamů</h3>#}
+{#    #}{# consider youtube rss parsing #}
+{#    #}{# livestream playlist: https://www.youtube.com/feeds/videos.xml?playlist_id=PLpPdQMJWIciF6kjVUkkSoK0tEpreS2FZt #}
+{#    #}{#</div>#}
+{#    #}{#</div>#}
+{#    #}{#</div>#}
+
+{#    <div class="intermezzo">#}
+{#        <div class="container text-center">#}
+{#            <em class="fab fa-meetup fa-fw"></em>#}
+{#            Jsme na Meetup.com - <strong>sleduj <a href="https://www.meetup.com/friends-of-php-prague/">Prahu</a> a <a href="https://www.meetup.com/Pehapkari-Brno/">Brno</a></strong> - jednou za měsíc od 18 hod.#}
+{#        </div>#}
+{#    </div>#}
+
+{#    <div class="container" id="meetups">#}
+{#        <h2 class="text-center">Kdy a kde se potkáváme?</h2>#}
+
+{#        <br>#}
+
+{#        <div class="row">#}
+{#            <div class="col-md-6 text-center hidden-xs">#}
+{#                <img src="/assets/images/meetup.jpg" alt="Přijď na sraz">#}
+{#            </div>#}
+{#            <div class="col-md-6">#}
+{#                <p>#}
+{#                    Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a>.#}
+{#                </p>#}
+
+{#                <p>#}
+{#                    Typický sraz začíná v 18 hod. Pak promluví 2-3 speakři a nakonec jdeme diskutovat nad pivem.#}
+{#                </p>#}
+
+{#                <h3 class="mt-5">Kde se o nich dozvíš?</h3>#}
+
+{#                <ol class="manual-list">#}
+{#                    <li>Lajkni <a href="https://www.facebook.com/pehapkari/events">naši Facebook stránku</a></li>#}
+{#                    <li><strong>subscribni <a href="https://www.meetup.com/friends-of-php-prague">na Meetup.com</a></strong></li>#}
+{#                    <li>odebírej <a href="http://bit.ly/pehapkari-newsletter">newsletter</a></li>#}
+{#                    <li>nebo importuj <a href="https://calendar.google.com/calendar/embed?src=07ofvjdfhg9ko1vm9jrodqnpl8%40group.calendar.google.com&ctz=Europe/Prague">Google kalendář</a></li>#}
+{#                </ol>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+{#    <div class="intermezzo">#}
+{#        <div class="container text-center">#}
+{#            <em class="fab fa-youtube fa-fw"></em>#}
+{#            &nbsp;#}
+{#            Podívej se na <a href="{{ path('videos') }}">záznamy přednášek a livestreamů</a>#}
+{#        </div>#}
+{#    </div>#}
+
+{#    <div class="container text-center" id="team">#}
+{#        <h2>Organizační Tým</h2>#}
+
+{#        <br>#}
+
+{#        <div class="row" id="organizers">#}
+{#            {% for organizer in organizers %}#}
+{#                <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-5">#}
+{#                    {% set photoUrl %}{% if organizer.photo matches "#http#" %}{{ organizer.photo }}{% else %}/assets/images/people/{{ organizer.photo }}{% endif %}{% endset %}#}
+
+{#                    <img src="{{ photoUrl }}" class="rounded-circle" width="150" height="150">#}
+{#                    <h3>#}
+{#                        {% if organizer.url is defined %}<a href="{{ organizer.url }}">{% endif %}#}
+{#                            {{ organizer.name }}#}
+{#                            {% if organizer.url is defined %}</a>{% endif %}#}
+{#                    </h3>#}
+{#                    <p>#}
+{#                        {{ organizer.responsibility|raw }}#}
+{#                    </p>#}
+
+{#                    {% if organizer.work_email is defined %}#}
+{#                        <p>#}
+{#                            <a href="mailto:{{ organizer.work_email }}">{{ organizer.work_email }}</a>#}
+{#                        </p>#}
+{#                    {% endif %}#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+
+{#    <div class="intermezzo">#}
+{#        <div class="container text-center">#}
+{#            <em class="fab fa-slack fa-fw"></em>#}
+{#            Potřebuješ poradit?#}
+
+{#            Na Slacku najdeš přes <strong>1400 kamarádů</strong> - <a href="https://pehapkari.herokuapp.com/">stačí se pozvat</a> a seš <a href="https://pehapkari.slack.com/">tam</a> taky#}
+{#        </div>#}
+{#    </div>#}
 {% endblock %}

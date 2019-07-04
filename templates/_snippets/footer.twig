@@ -264,7 +264,7 @@
                                 Pro firmy
                             </li>
                             <li class="ph-footer__body-menu-item-subtitle">
-                                <a class="ph-footer__body-menu-item-subtitle-link" href="#">Pojďte na meetup</a>
+                                <a class="ph-footer__body-menu-item-subtitle-link" href="#">Uděláme sraz u vás</a>
                                 {# {{ @todo přesuout nabídkový list sem - FB post, newsletter a meetup }} #}
                             </li>
                         </ul>
@@ -277,9 +277,9 @@
                             <li class="ph-footer__body-menu-item-subtitle">
                                 <a class="ph-footer__body-menu-item-subtitle-link" href="{{ path('trainings') }}">Nauč se na školení</a>
                             </li>
-                            <li class="ph-footer__body-menu-item-subtitle">
-                                <a class="ph-footer__body-menu-item-subtitle-link" href="{{ path('meetups') }}">Přijď na sraz</a>
-                            </li>
+{#                            <li class="ph-footer__body-menu-item-subtitle">#}
+{#                                <a class="ph-footer__body-menu-item-subtitle-link" href="{{ path('meetups') }}">Přijď na sraz</a>#}
+{#                            </li>#}
                             <li class="ph-footer__body-menu-item-subtitle">
                                 <a class="ph-footer__body-menu-item-subtitle-link" href="{{ path('livestream') }}">Pusť si livestreamy</a>
                             </li>
@@ -304,6 +304,9 @@
                             <li class="ph-footer__body-menu-item-subtitle">
                                 <a class="ph-footer__body-menu-item-subtitle-link" href="{{ path('press') }}">Stáhni si logo</a>
                             </li>
+                            <li class="ph-footer__body-menu-item-subtitle">
+                                <a class="ph-footer__body-menu-item-subtitle-link" href="{{ path('privacy_policy') }}">Ochrana soukromí</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -314,13 +317,16 @@
                 </div>
                 <div class="ph-footer__footer-sponsor d-flex">
                     <a href="https://www.jetbrains.com/" target="_blank" class="mr-4">
-                        <img src="assets/icons/partners/jetbrains_blackandwhite.svg" alt="jetbrains" title="">
+                        <img src="/assets/icons/partners/jetbrains_blackandwhite.svg" alt="jetbrains" title="">
                     </a>
                     <a href="https://www.posobota.cz/" target="_blank">
-                        <img src="assets/icons/partners/posledni_sobota.svg" alt="posledni_sobota" title="">
+                        <img src="/assets/icons/partners/posledni_sobota.svg" alt="posledni_sobota" title="">
                     </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{# to highlight code in blog posts and trainings #}
+<script src="/assets/prism/prism.js"></script>

@@ -100,7 +100,7 @@
                 <div class="col-lg-6 pt-md-3">
                     <a href="#">
                         <div class="ph-card card-calendar">
-                            <img class="card-calendar__img-top" src="src/images/homepage/1.jpg" alt="card-image" title="">
+                            <img class="card-calendar__img-top" src="assets/images/homepage/1.jpg" alt="card-image" title="">
                             <div class="card-calendar__body">
                                 <h6 class="card-calendar__body-title">PHP Pivo 2018/4 - Pardubice</h6>
                                 <a href="#" class="card-calendar__body-address">
