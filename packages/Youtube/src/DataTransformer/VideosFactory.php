@@ -16,16 +16,14 @@ final class VideosFactory
         $videos = [];
 
         foreach ($videoItems['items'] as $videoItem) {
-            // skip private and deleted videos
-            if ($videoItem['snippet']['title'] === 'Private video' || $videoItem['snippet']['title'] === 'Deleted video') {
+            $videoTitle = $videoItem['snippet']['title'];
+            if ($this->shouldSkipVideo($videoTitle)) {
                 continue;
             }
 
-            $videoTitle = $videoItem['snippet']['title'];
-
             $video = [
                 'title' => $videoTitle,
-                'description' => $videoItem['snippet']['description'],
+                'description' => $this->normalizeDescription($videoItem['snippet']['description']),
                 'video_id' => $videoItem['snippet']['resourceId']['videoId'],
                 'slug' => Strings::webalize($videoTitle),
 
@@ -40,6 +38,32 @@ final class VideosFactory
         }
 
         return $videos;
+    }
+
+    private function shouldSkipVideo(string $videoTitle): bool
+    {
+        if ($videoTitle === 'Private video') {
+            return true;
+        }
+
+        if ($videoTitle === 'Deleted video') {
+            return true;
+        }
+
+        // These are short promo-videos by DigitalSolutions, not talks that people look for
+        if (Strings::match($videoTitle, '#\d+\. sraz#')) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Remove #hashtags, which would cause markdown to render headlines
+     */
+    private function normalizeDescription(string $description): string
+    {
+        return Strings::replace($description, '#\#([a-z]+)\s+#i');
     }
 
     private function resolveSlides(string $description): string

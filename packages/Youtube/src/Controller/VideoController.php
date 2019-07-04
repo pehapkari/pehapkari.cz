@@ -66,7 +66,7 @@ final class VideoController extends AbstractController
         $this->ensureYoutubeDataExists();
 
         return $this->render('videos/livestream.twig', [
-            'livestream_playlist' => $this->getLivestreamVideos(),
+            'livestream_videos' => $this->getLivestreamVideos(),
         ]);
     }
 

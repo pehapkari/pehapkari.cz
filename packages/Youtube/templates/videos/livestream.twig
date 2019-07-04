@@ -5,12 +5,12 @@
         <div class="section">
             <h1 class="text-center">Livestreamy</h1>
 
-            <p>Jakub Kratina natočil spolu s vámi {{ livestream_playlist.videos|length }} livestreamů. Tady si je všechny může přehrát.</p>
+            <p>Jakub Kratina natočil spolu s vámi {{ livestream_videos|length }} livestreamů. Tady si je všechny může přehrát.</p>
 
             <br>
 
             <div class="row">
-                {% for video in livestream_playlist.videos %}
+                {% for video in livestream_videos %}
                     {% include "_snippet/video_row.twig" %}
                 {% endfor %}
             </div>

@@ -72,7 +72,10 @@ final class ImportVideosCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $this->symfonyStyle->section('Importing videos from Youtube');
         $data['parameters']['youtube_videos'] = $this->importYoutubeVideosData();
+
+        $this->symfonyStyle->section('Importing videos from Facebook');
         $data['parameters']['facebook_videos'] = $this->importFacebookVideosData();
 
         $this->yamlFileGenerator->generate($data, self::YOUTUBE_FILES_DATA);
@@ -121,12 +124,14 @@ final class ImportVideosCommand extends Command
      */
     private function sortMeetupPlaylistsByMonthFromRecentToOld(array $youtubeVideosData): array
     {
-        if (isset($youtubeVideosData['meetups'])) {
-            $youtubeVideosData['meetups'] = $this->arrayByDateTimeSorter->sortByKey(
-                $youtubeVideosData['meetups'],
-                'month'
-            );
+        if (! isset($youtubeVideosData['meetups'])) {
+            return $youtubeVideosData;
         }
+
+        $youtubeVideosData['meetups'] = $this->arrayByDateTimeSorter->sortByKey(
+            $youtubeVideosData['meetups'],
+            'month'
+        );
 
         return $youtubeVideosData;
     }

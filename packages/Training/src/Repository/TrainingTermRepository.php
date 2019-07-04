@@ -108,7 +108,6 @@ final class TrainingTermRepository
      */
     public function getRecentlyActive(): array
     {
-        /** @var Training[] $trainings */
         return $this->entityRepository->createQueryBuilder('tt')
             ->select('tt')
             ->andWhere('tt.startDateTime < :nextMonth')

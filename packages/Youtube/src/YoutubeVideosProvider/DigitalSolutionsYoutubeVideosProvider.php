@@ -62,14 +62,10 @@ final class DigitalSolutionsYoutubeVideosProvider implements YoutubeVideosProvid
             $videosInPlaylistData = $this->youtubeApi->getVideosByPlaylistId($playlistItemData['id']);
 
             $playlistTitle = $playlistItemData['snippet']['title'];
-
             $month = $this->resolvePlaylistMonth($playlistTitle);
 
             $playlists[] = [
-                'title' => $month ? $this->meetupNaming->createMeetupTitleWithMonth(
-                    $playlistTitle,
-                    $month
-                ) : $playlistTitle,
+                'title' => $this->createTitle($month, $playlistTitle),
                 'videos' => $this->videosFactory->createVideos($videosInPlaylistData),
                 'month' => $month,
             ];
@@ -97,5 +93,14 @@ final class DigitalSolutionsYoutubeVideosProvider implements YoutubeVideosProvid
         }
 
         return null;
+    }
+
+    private function createTitle(?string $month, string $playlistTitle): string
+    {
+        if ($month) {
+            return $this->meetupNaming->createMeetupTitleWithMonth($playlistTitle, $month);
+        }
+
+        return $playlistTitle;
     }
 }

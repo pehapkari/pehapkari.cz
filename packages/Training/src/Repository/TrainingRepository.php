@@ -35,7 +35,6 @@ final class TrainingRepository
      */
     public function getRecentlyActive(): array
     {
-        /** @var Training[] $trainings */
         return $this->entityRepository->createQueryBuilder('t')
             // https://stackoverflow.com/a/41887524/1348344
             ->select('t')
