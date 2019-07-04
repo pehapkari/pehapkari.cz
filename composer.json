@@ -112,6 +112,7 @@
         "dead-links": "vendor/bin/http-status-check scan https://pehapkari.cz --output invalid-links.txt --ansi --dont-crawl-external-links",
         "rector": "vendor/bin/rector process src tests --ansi",
         "rector-dry": "vendor/bin/rector process src tests --ansi --dry-run"
+        "build-assets": "bin/build_assets.sh"
     },
     "config": {
         "sort-packages": true
