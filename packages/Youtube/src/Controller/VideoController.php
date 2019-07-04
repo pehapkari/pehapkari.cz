@@ -81,7 +81,7 @@ final class VideoController extends AbstractController
     }
 
     /**
-     * @Route(path="/livestream/", name="livestream")
+     * @Route(path="/livestreamy/", name="livestream")
      */
     public function livestream(): Response
     {
