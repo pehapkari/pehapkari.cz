@@ -39,7 +39,6 @@ parameters:
         - 'src/Kernel.php'
         # temporary vides
         - 'packages/Marketing/src/Social/FacebookPublisher.php'
-        - 'packages/Youtube/src/Command/ImportVideosCommand.php'
 
     skip:
         # on purpose - property order is reflected in forms in admin

@@ -2,8 +2,7 @@
 
 namespace Pehapkari\Youtube\Command;
 
-use Nette\Utils\Json;
-use Pehapkari\Marketing\Social\FacebookIds;
+use Pehapkari\Youtube\Contract\FacebookVideosProvider\FacebookVideosProviderInterface;
 use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\Yaml\YamlFileGenerator;
@@ -22,6 +21,16 @@ final class ImportVideosCommand extends Command
     private const YOUTUBE_FILES_DATA = __DIR__ . '/../../../../config/_data/youtube_videos.yaml';
 
     /**
+     * @var YoutubeVideosProviderInterface[]
+     */
+    private $youtubeVideosProviders = [];
+
+    /**
+     * @var FacebookVideosProviderInterface[]
+     */
+    private $facebookVideosProviders = [];
+
+    /**
      * @var SymfonyStyle
      */
     private $symfonyStyle;
@@ -32,27 +41,26 @@ final class ImportVideosCommand extends Command
     private $yamlFileGenerator;
 
     /**
-     * @var YoutubeVideosProviderInterface[]
-     */
-    private $youtubeVideosProviders = [];
-    /**
      * @var ArrayByDateTimeSorter
      */
     private $arrayByDateTimeSorter;
 
     /**
      * @param YoutubeVideosProviderInterface[] $youtubeVideosProviders
+     * @param FacebookVideosProviderInterface[] $facebookVideosProviders
      */
     public function __construct(
         SymfonyStyle $symfonyStyle,
         YamlFileGenerator $yamlFileGenerator,
         ArrayByDateTimeSorter $arrayByDateTimeSorter,
-        array $youtubeVideosProviders
+        array $youtubeVideosProviders,
+        array $facebookVideosProviders
     ) {
         $this->symfonyStyle = $symfonyStyle;
         $this->yamlFileGenerator = $yamlFileGenerator;
         $this->youtubeVideosProviders = $youtubeVideosProviders;
         $this->arrayByDateTimeSorter = $arrayByDateTimeSorter;
+        $this->facebookVideosProviders = $facebookVideosProviders;
 
         parent::__construct();
     }
@@ -64,21 +72,8 @@ final class ImportVideosCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $youtubeVideosData = [];
-        foreach ($this->youtubeVideosProviders as $youtubeVideosProvider) {
-            $name = $youtubeVideosProvider->getName();
-            $this->symfonyStyle->note(sprintf('Importing playlists for "%s"', $name));
-
-            $playlists = $youtubeVideosProvider->providePlaylists();
-            $youtubeVideosData[$name] = array_merge($playlists, $youtubeVideosData[$name] ?? []);
-        }
-
-        // sort meetup playlists by month, the newest first
-        if (isset($youtubeVideosData['meetups'])) {
-            $youtubeVideosData['meetups'] = $this->arrayByDateTimeSorter->sortByKey($youtubeVideosData['meetups'], 'month');
-        }
-
-        $data['parameters']['youtube_videos'] = $youtubeVideosData;
+        $data['parameters']['youtube_videos'] = $this->importYoutubeVideosData();
+        $data['parameters']['facebook_videos'] = $this->importFacebookVideosData();
 
         $this->yamlFileGenerator->generate($data, self::YOUTUBE_FILES_DATA);
         $this->symfonyStyle->success('Videos were successfully imported!');
@@ -87,24 +82,52 @@ final class ImportVideosCommand extends Command
     }
 
     /**
-     * @todo push application so it gets accepted by FB
+     * @return mixed[]
      */
-    private function prepareFacebookVideos(): void
+    private function importYoutubeVideosData(): array
     {
-        return;
+        $youtubeVideosData = [];
+        foreach ($this->youtubeVideosProviders as $youtubeVideosProvider) {
+            $name = $youtubeVideosProvider->getName();
+            $this->symfonyStyle->note(sprintf('Importing Youtube videos for "%s"', $name));
 
-        // https://developers.facebook.com/docs/graph-api/reference/page/video_lists/
-        $endPoint = FacebookIds::PEHAPKARI_PAGE_ID . '/video_lists';
-        $response = $this->facebook->get($endPoint);
-
-        $data = Json::decode($response->getBody(), Json::FORCE_ARRAY)['data'];
-
-        foreach ($data as $item) {
-            // https://developers.facebook.com/docs/graph-api/reference/video-list/
-            $endPoint = $item['id'] . '?fields=videos';
-            $response = $this->facebook->get($endPoint);
-
-            $data = Json::decode($response->getBody(), Json::FORCE_ARRAY);
+            $playlists = $youtubeVideosProvider->providePlaylists();
+            $youtubeVideosData[$name] = array_merge($playlists, $youtubeVideosData[$name] ?? []);
         }
+
+        return $this->sortMeetupPlaylistsByMonthFromRecentToOld($youtubeVideosData);
+    }
+
+    /**
+     * @return mixed[]
+     */
+    private function importFacebookVideosData(): array
+    {
+        $videosData = [];
+        foreach ($this->facebookVideosProviders as $facebookVideosProvider) {
+            $name = $facebookVideosProvider->getName();
+            $this->symfonyStyle->note(sprintf('Importing Facebook videos for "%s"', $name));
+
+            $playlists = $facebookVideosProvider->providePlaylists();
+            $videosData[$name] = array_merge($playlists, $videosData[$name] ?? []);
+        }
+
+        return $videosData;
+    }
+
+    /**
+     * @param mixed[] $youtubeVideosData
+     * @return mixed[]
+     */
+    private function sortMeetupPlaylistsByMonthFromRecentToOld(array $youtubeVideosData): array
+    {
+        if (isset($youtubeVideosData['meetups'])) {
+            $youtubeVideosData['meetups'] = $this->arrayByDateTimeSorter->sortByKey(
+                $youtubeVideosData['meetups'],
+                'month'
+            );
+        }
+
+        return $youtubeVideosData;
     }
 }
