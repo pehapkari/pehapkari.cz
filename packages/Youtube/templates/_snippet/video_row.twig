@@ -1,18 +1,28 @@
 {# @var video \Pehapkari\Youtube\ValueObject\Video #}
 <div class="col-sm-6 col-md-4 mb-5 video-row-item hidden-sm-down">
     <a href="{{ path('video_detail', {'slug': video.slug }) }}">
-        <img src="{{ video.thumbnail }}" alt="" style="max-width: 100%" class="mb-2">
-        {{ video.title }}
+        {% if video.thumbnail %}
+            <img src="{{ video.thumbnail }}" alt="" style="max-width: 100%" class="mb-2">
+        {% endif %}
+
+        {% if video.thumbnail == '' %}<div class="no_thumbnail_video_square"><span class="align-middle">{% endif %}
+            {{ video.title }}
+        {% if video.thumbnail == '' %}</span></div>{% endif %}
     </a>
 </div>
 
+{% if video.thumbnail %}
+    <div class="col-6 hidden-md-up">
+        <a href="{{ path('video_detail', {'slug': video.slug }) }}">
+            <img src="{{ video.thumbnail }}" alt="" style="max-width: 100%" class="mb-5 ml-2">
+        </a>
+    </div>
+{% endif %}
+
 <div class="col-6 hidden-md-up">
     <a href="{{ path('video_detail', {'slug': video.slug }) }}">
-        <img src="{{ video.thumbnail }}" alt="" style="max-width: 100%" class="mb-5 ml-2">
-    </a>
-</div>
-<div class="col-6 hidden-md-up">
-    <a href="{{ path('video_detail', {'slug': video.slug }) }}">
-        {{ video.title }}
+        {% if video.thumbnail == '' %}<div class="no_thumbnail_video_square align-middle">{% endif %}
+            {{ video.title }}
+        {% if video.thumbnail == '' %}</div>{% endif %}
     </a>
 </div>

@@ -582,3 +582,11 @@ header nav #top-menu-search {
 iframe, #videos .row img {
     border: 1px solid #BBB;
 }
+
+.no_thumbnail_video_square {
+    padding: 1.1em .8em;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #DDD;
+    font-size: 1.2em;
+}

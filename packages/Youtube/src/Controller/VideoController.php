@@ -5,6 +5,7 @@ namespace Pehapkari\Youtube\Controller;
 use Pehapkari\Youtube\Command\ImportVideosCommand;
 use Pehapkari\Youtube\Exception\FileDataNotFoundException;
 use Pehapkari\Youtube\Hydration\ArrayToValueObjectHydrator;
+use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\ValueObject\Video;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,19 +20,36 @@ final class VideoController extends AbstractController
     private $youtubeVideos = [];
 
     /**
+     * @var mixed[]
+     */
+    private $facebookVideos = [];
+
+    /**
      * @var ArrayToValueObjectHydrator
      */
     private $arrayToValueObjectHydrator;
 
     /**
+     * @var ArrayByDateTimeSorter
+     */
+    private $arrayByDateTimeSorter;
+
+    /**
      * Get these data by running @param mixed[] $youtubeVideos
      * @see ImportVideosCommand command
      * @param mixed[] $youtubeVideos
+     * @param mixed[] $facebookVideos
      */
-    public function __construct(ArrayToValueObjectHydrator $arrayToValueObjectHydrator, array $youtubeVideos = [])
-    {
+    public function __construct(
+        ArrayToValueObjectHydrator $arrayToValueObjectHydrator,
+        ArrayByDateTimeSorter $arrayByDateTimeSorter,
+        array $youtubeVideos = [],
+        array $facebookVideos = []
+    ) {
         $this->youtubeVideos = $youtubeVideos;
         $this->arrayToValueObjectHydrator = $arrayToValueObjectHydrator;
+        $this->facebookVideos = $facebookVideos;
+        $this->arrayByDateTimeSorter = $arrayByDateTimeSorter;
     }
 
     /**
@@ -41,8 +59,12 @@ final class VideoController extends AbstractController
     {
         $this->ensureYoutubeDataExists();
 
-        $meetupPlaylists = $this->youtubeVideos['meetups'];
+        $meetupPlaylists = array_merge($this->youtubeVideos['meetups'], $this->facebookVideos['meetups']);
 
+        // sort meetups by month
+        $meetupPlaylists = $this->arrayByDateTimeSorter->sortByKey($meetupPlaylists, 'month');
+
+        // sort by month :)
         foreach ($meetupPlaylists as $key => $meetupPlaylist) {
             $meetupPlaylists[$key]['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
                 $meetupPlaylist['videos'],
@@ -155,6 +177,14 @@ final class VideoController extends AbstractController
         foreach ($this->youtubeVideos['livestream']['videos'] as $videoData) {
             if ($videoData['slug'] === $videoSlug) {
                 return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
+            }
+        }
+
+        foreach ($this->facebookVideos['meetups'] as $playlist) {
+            foreach ($playlist['videos'] as $videoData) {
+                if ($videoData['slug'] === $videoSlug) {
+                    return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
+                }
             }
         }
 

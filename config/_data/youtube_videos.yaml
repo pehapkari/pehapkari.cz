@@ -1180,5 +1180,3 @@ parameters:
                         month: 2017-04
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/Zi06BaFw0vw/sddefault.jpg'
-    facebook_videos:
-        videos: {  }
