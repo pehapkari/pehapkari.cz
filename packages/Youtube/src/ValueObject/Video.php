@@ -49,20 +49,27 @@ final class Video
      */
     private $month;
 
+    /**
+     * @var string
+     */
+    private $link;
+
     public function __construct(
         string $title,
         string $speaker,
         string $description,
-        string $videoId,
         string $slug,
         string $thumbnail,
         string $kind,
         string $slides,
-        string $month
+        string $month,
+        // youtube specific
+        string $videoId = '',
+        // facebook
+        string $link = ''
     ) {
         $this->title = $title;
         $this->description = $description;
-        $this->videoId = $videoId;
         $this->slug = $slug;
         $this->thumbnail = $thumbnail;
         $this->kind = $kind;
@@ -70,6 +77,12 @@ final class Video
         $this->month = $month;
         $this->speaker = $speaker;
         $this->slides = $slides;
+
+        // youtube specific
+        $this->videoId = $videoId;
+
+        // facebook specific
+        $this->link = $link;
     }
 
     public function getTitle(): string
@@ -115,5 +128,10 @@ final class Video
     public function getSlides(): string
     {
         return $this->slides;
+    }
+
+    public function getLink(): string
+    {
+        return $this->link;
     }
 }

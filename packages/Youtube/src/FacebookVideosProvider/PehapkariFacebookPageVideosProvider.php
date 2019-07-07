@@ -10,7 +10,7 @@ use Pehapkari\Youtube\Contract\FacebookVideosProvider\FacebookVideosProviderInte
 /**
  * @todo finish after FB api token for page is accepted
  */
-final class PehapkariFacebookPageVideosProvider implements FacebookVideosProviderInterface
+final class PehapkariFacebookPageVideosProvider // implements FacebookVideosProviderInterface
 {
     /**
      * @var Facebook

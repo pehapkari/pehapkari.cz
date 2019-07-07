@@ -5,31 +5,7 @@
         <div class="section">
             <h1 class="text-center">
                 {{ video.title }}
-{#                {% if video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_LIVESTREAM') %}#}
-{#                    <br>#}
-{#                    <small>(natočeno {{ video.publishedAt|date("Y-m") }})</small>#}
-{#                {% endif %}#}
             </h1>
-
-{#            {% if video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_LIVESTREAM') %}#}
-{#                <a href="{{ path('livestream') }}" class="btn btn-info">#}
-{#                    <em class="fas fa-fast-backward"></em>#}
-{#                    &nbsp;#}
-{#                    Zpátky na livestreamy#}
-{#                </a>#}
-{#            {% elseif video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_MEETUP') %}#}
-{#                <a href="{{ path('videos') }}" class="btn btn-info">#}
-{#                    <em class="fas fa-fast-backward"></em>#}
-{#                    &nbsp;#}
-{#                    Zpátky na meetupy#}
-{#                </a>#}
-{#            {% elseif video.kind == constant('\Pehapkari\\Youtube\\YoutubeApi::KIND_PHP_PRAGUE_CONFERENCE') %}#}
-{#                <a href="{{ path('videos') }}" class="btn btn-info">#}
-{#                    <em class="fas fa-fast-backward"></em>#}
-{#                    &nbsp;#}
-{#                    Zpátky na PHP Prague#}
-{#                </a>#}
-{#            {% endif %}#}
 
             {% if video.slides %}
                 <a href="{{ video.slides }}" class="btn btn-warning ml-2">
@@ -40,7 +16,13 @@
 
             {# see https://getbootstrap.com/docs/4.0/utilities/embed/ #}
             <div class="embed-responsive embed-responsive-16by9 mt-3">
-                <iframe src="https://www.youtube.com/embed/{{ video.videoId }}" class="embed-responsive-item" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {# youtube! #}
+                {% if video.videoId != '' %}
+                    <iframe src="https://www.youtube.com/embed/{{ video.videoId }}" class="embed-responsive-item" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {% else %}
+                    {# facebook! #}
+                    <iframe src="https://www.facebook.com/plugins/video.php?href={{ video.link }}show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+                {% endif %}
             </div>
 
             <p class="mt-5">
