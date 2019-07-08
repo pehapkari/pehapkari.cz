@@ -13,10 +13,6 @@ framework:
     fragments: { enabled: true }
     php_errors:
         log: true
-    assets:
-        # use modern manifest later https://symfony.com/doc/current/reference/configuration/framework.html#reference-assets-json-manifest-path
-#        json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'
-        version: 'v3'
 
     cache:
         # this value is used as part of the "namespace" generated for the cache item keys

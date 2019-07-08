@@ -13,11 +13,6 @@ One of the main advantages of Sylius from the software engineer perspective is t
 High productivity and fast iteration loops are essential for us.
 That being said, SOLID and DRY are fundamental principles at our work.
 
-## TL;DR
-
-SyliusResourceBundle can boost you CRUD develepment, you should try it out.
-You can also join the [Getting started with Sylius training](https://pehapkari.cz/kurz/getting-started-with-sylius/) in Prague and see it in action live.
-
 ## Ok, but what does it mean regarding an e-commerce framework?
 
 Let’s take a look at administrator panel of a typical e-commerce website.
@@ -259,4 +254,3 @@ If you would like to read a little bit more about ResourceBundle itself you can 
 
 Furthermore, you can join me on May 11th in Prague for 8-hour training.
 I will show you how easy it is to add custom logic to Sylius based on a class we have just created.
-If you are interested, you can read more about the training itself [here](https://pehapkari.cz/kurz/getting-started-with-sylius/).

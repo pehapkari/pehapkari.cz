@@ -45,9 +45,10 @@ p {
 }
 
 a {
-    color: $black;
+    color: $green;
 
     &:hover {
+        color: $black;
         text-decoration-color: $black;
     }
 }
