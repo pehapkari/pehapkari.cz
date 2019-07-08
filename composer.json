@@ -56,6 +56,7 @@
         "symfony/validator": "^4.4",
         "symfony/web-profiler-bundle": "^4.4",
         "symfony/web-server-bundle": "^4.4",
+        "symfony/webpack-encore-bundle": "^1.6",
         "symfony/yaml": "^4.4",
         "symplify/autodiscovery": "^6.1",
         "symplify/flex-loader": "^6.1",
@@ -111,7 +112,7 @@
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify --ansi",
         "dead-links": "vendor/bin/http-status-check scan https://pehapkari.cz --output invalid-links.txt --ansi --dont-crawl-external-links",
         "rector": "vendor/bin/rector process src tests --ansi",
-        "rector-dry": "vendor/bin/rector process src tests --ansi --dry-run"
+        "rector-dry": "vendor/bin/rector process src tests --ansi --dry-run",
         "build-assets": "bin/build_assets.sh"
     },
     "config": {

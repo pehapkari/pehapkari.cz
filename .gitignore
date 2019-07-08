@@ -71,5 +71,9 @@ new-design/node_modules
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 
-# builds assets
-/public/build
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###

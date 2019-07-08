@@ -57,7 +57,7 @@ deploy:
     before_script:
         # build assets: is this the right place? :)
         - npm install --no-optional
-        - composer build-assets
+        - npm run prod
 
         - eval $(ssh-agent -s)
         - mkdir -p ~/.ssh
