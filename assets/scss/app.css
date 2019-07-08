@@ -1,4 +1,0 @@
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~bootstrap/scss/variables.\A         on line 3 of app.scss\A \A 1: @import \"abstracts/bootstrap\";\A 2: \A 3: @import \"~bootstrap/scss/variables\";\A 4: @import \"~bootstrap/scss/mixins\";\A 5: @import \"~bootstrap/scss/grid\";\A 6: @import \"~bootstrap/scss/navbar\";\A 7: @import \"~bootstrap/scss/nav\";\A 8: "; }

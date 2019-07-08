@@ -82,11 +82,9 @@
             <div class="ph-footer__body">
                 <div class="ph-footer__body-left-column">
                     <p>Web Péhápkaři.cz pohání <a href="https://symfony.com/">Symfony</a> a najdeš ho na <a href="https://github.com/pehapkari/pehapkari.cz">Githubu</a>.</p>
-                    <p>Našel jsi chybu? <br>
-                        <a href="https://github.com/pehapkari/pehapkari.cz">Oprav nám ji prosím</a>.
-                        {{ github_edit_url() }}
-                        {# @todo make context aware twig function - with link to exact file! #}
-                        {# e.g. <a href="{{ github_edit_link($this) }}">Oprav nám ji prosím</a>  #}
+                    <p>
+                        Našel jsi chybu?<br>
+                        <a href="{{ github_edit_url() }}">Oprav nám ji prosím</a>.
                     </p>
                 </div>
                 <div class="ph-footer__body-right-column">

@@ -14,7 +14,7 @@ final class GithubEditUrlExtension extends AbstractExtension
     /**
      * @var string
      */
-    private const GITHUB_EDIT_PREFIX = 'https://github.com/pehapkari/pehapkari.cz/edit/master/';
+    private const GITHUB_EDIT_PREFIX = 'https://github.com/pehapkari/pehapkari.cz/edit/master/templates/';
 
     /**
      * @var ResolvedTemplateNameCollector

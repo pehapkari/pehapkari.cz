@@ -4,38 +4,35 @@
             <img src="/assets/icons/logo/logo_blue.svg" alt="logo" title="">
             <p class="ml-2">Péhápkaři</p>
         </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ph-nav__menu ml-auto">
-{#                <li class="ph-nav__menu-item nav-item">#}
-{#                    <a class="ph-nav__menu-item-link ph-nav__menu-item-link__big nav-link" href="{{ path('meetups') }}">#}
-{#                        Meetupy#}
-{#                    </a>#}
-{#                </li>#}
-                <li class="ph-nav__menu-item nav-item">
-                    <a class="ph-nav__menu-item-link ph-nav__menu-item-link__big nav-link" href="{{ path('videos') }}">
-                        Videa
-                    </a>
-                </li>
-                <li class="ph-nav__menu-item nav-item">
-                    <a class="ph-nav__menu-item-link  ph-nav__menu-item-link__big nav-link" href="{{ path('trainings') }}">
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto" id="menu">
+                <li>
+                    <a class="{{ active_item(['trainings', 'trainings_detail']) }}" href="{{ path('trainings') }}">
                         Školení
                     </a>
                 </li>
-                <li class="ph-nav__menu-item nav-item">
-                    <a class="ph-nav__menu-item-link ph-nav__menu-item-link__big nav-link" href="{{ path('blog') }}">
+                <li>
+                    <a class="{{ active_item(['blog', 'post_detail']) }}" href="{{ path('blog') }}">
                         Blog
                     </a>
                 </li>
-{#                <li class="ph-nav__menu-item nav-item">#}
+                <li>
+                    <a class="{{ active_item(['videos', 'livestream']) }}" href="{{ path('videos') }}">
+                        Videa
+                    </a>
+                </li>
+                {#                <li class="ph-nav__menu-item nav-item">#}
 {#                    <a class="ph-nav__menu-item-link nav-link" href="{{ path('about') }}">#}
 {#                        Co jsou Péhápkaři#}
 {#                    </a>#}
 {#                </li>#}
-                <li class="ph-nav__menu-item nav-item pr-lg-0">
-                    <a class="ph-nav__menu-item-link nav-link" href="{{ path('contact') }}">
+                <li class="pr-0">
+                    <a class="{{ active_item('contact') }}" href="{{ path('contact') }}">
                         Kontakt
                     </a>
                 </li>
