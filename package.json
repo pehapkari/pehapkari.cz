@@ -1,42 +1,33 @@
 {
     "name": "pehapkari-cz",
-    "version": "1.0.0",
-    "main": "index.js",
     "dependencies": {
-        "ajv": "^6.5.2",
-        "bootstrap": "^4.1.3",
-        "jquery": "^3.3.1",
-        "popper.js": "^1.14.4",
-        "child_process": "^1.0.2"
+        "ajv": "^6.10.1",
+        "bootstrap": "^4.3.1",
+        "jquery": "^3.4.1"
     },
     "devDependencies": {
-        "@symfony/webpack-encore": "^0.9.1",
-        "bloodhound-js": "^1.2.1",
-        "bootstrap-sass": "^3.3.7",
-        "bootstrap-tagsinput": "^0.7.1",
-        "bootswatch": "^3.3.7",
-        "eonasdan-bootstrap-datetimepicker": "^4.17.47",
-        "font-awesome": "^4.7.0",
+        "@fortawesome/fontawesome-free": "^5.8.1",
+        "@symfony/webpack-encore": "^0.27.0",
+        "bloodhound-js": "^1.2.3",
+        "bootstrap-sass": "^3.4.1",
+        "bootswatch": "^3.4.1",
         "highlight.js": "^9.12.0",
-        "imports-loader": "^0.7.1",
-        "jquery": "^3.2.1",
+        "imports-loader": "^0.8.0",
         "lato-font": "^3.0.0",
-        "node-sass": "^4.5.3",
-        "sass-loader": "^6.0.5",
-        "typeahead.js": "^0.11.1",
-        "child_process": "^1.0.2",
-        "gulp": "^3.9.1",
-        "gulp-util": "^3.0.8",
-        "gulp-watch": "^4.3.11",
-        "browser-sync": "^2.24.6",
-        "browser-sync-webpack-plugin": "^2.0.1",
-        "cross-env": "^5.2.0",
-        "laravel-mix": "^2.1.11"
+        "node-sass": "^4.12.0",
+        "sass-loader": "^7.1.0",
+        "typeahead.js": "^0.11.1"
     },
     "scripts": {
-        "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "license": "UNLICENSED",
+    "private": "true",
+    "repository": {
+        "type": "website",
+        "url": "github.com/pehapkari/pehapkari.cz"
     }
 }

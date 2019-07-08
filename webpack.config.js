@@ -10,12 +10,7 @@ Encore
         "jQuery.tagsinput": "bootstrap-tagsinput"
     })
     .enableSassLoader()
-    .enableVersioning(false)
-    .createSharedEntry('js/common', ['jquery'])
-    .addEntry('js/app', './assets/js/app.js')
-    .addEntry('js/login', './assets/js/login.js')
-    .addEntry('js/admin', './assets/js/admin.js')
-    .addEntry('js/search', './assets/js/search.js')
+    .enableVersioning()
     .addStyleEntry('css/app', ['./assets/scss/app.scss'])
     .addStyleEntry('css/admin', ['./assets/scss/admin.scss'])
 ;

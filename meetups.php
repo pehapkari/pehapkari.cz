@@ -13,7 +13,7 @@
 <nav id="ph-nav" class="navbar fixed-top navbar-expand-lg navbar-light bg-light ph-nav">
     <div class="container">
         <a class="ph-nav__logo navbar-brand" href="homepage.php">
-            <img src="src/icons/logo/logo_blue.svg" alt="logo" title="">
+            <img src="assets/icons/logo/logo_blue.svg" alt="logo" title="">
             <p class="ml-2">Péhápkáři</p>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@
                                 <h6 class="card-calendar__body-title">PHP Pivo 2018/4 - Pardubice</h6>
                                 <a href="#" class="card-calendar__body-address">
                                     KoPlac, Příkop 2, 60200 Brno
-                                    <img src="src/icons/arrows/arrow_upright.svg" alt="arrow" title="">
+                                    <img src="assets/icons/arrows/arrow_upright.svg" alt="arrow" title="">
                                 </a>
                                 <div class="ph-card__body-date">
                                     <span class="ph-card__body-date-day">4</span>
@@ -98,7 +98,7 @@
                                 <h6 class="card-calendar__body-title">PHP Pivo 2018/4 - Pardubice</h6>
                                 <a href="#" class="card-calendar__body-address">
                                     KoPlac, Příkop 2, 60200 Brno
-                                    <img src="src/icons/arrows/arrow_upright.svg" alt="arrow" title="">
+                                    <img src="assets/icons/arrows/arrow_upright.svg" alt="arrow" title="">
                                 </a>
                                 <div class="ph-card__body-date">
                                     <span class="ph-card__body-date-day">4</span>
@@ -116,7 +116,7 @@
                                 <h6 class="card-calendar__body-title">PHP Pivo 2018/4 - Pardubice</h6>
                                 <a href="#" class="card-calendar__body-address">
                                     KoPlac, Příkop 2, 60200 Brno
-                                    <img src="src/icons/arrows/arrow_upright.svg" alt="arrow" title="">
+                                    <img src="assets/icons/arrows/arrow_upright.svg" alt="arrow" title="">
                                 </a>
                                 <div class="ph-card__body-date">
                                     <span class="ph-card__body-date-day">4</span>
@@ -379,10 +379,10 @@
                 </div>
                 <div class="ph-footer__footer-sponsor d-flex">
                     <a href="https://www.jetbrains.com/" target="_blank">
-                        <img src="src/icons/partners/jetbrains_blackandwhite.svg" alt="jetbrains" title="">
+                        <img src="assets/icons/partners/jetbrains_blackandwhite.svg" alt="jetbrains" title="">
                     </a>
                     <a href="https://www.posobota.cz/" target="_blank">
-                        <img src="src/icons/partners/posledni_sobota.svg" alt="posledni_sobota" title="">
+                        <img src="assets/icons/partners/posledni_sobota.svg" alt="posledni_sobota" title="">
                     </a>
                 </div>
             </div>

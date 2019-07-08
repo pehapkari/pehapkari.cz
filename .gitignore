@@ -8,7 +8,7 @@ vendor/
 
 var
 public/bundles/
-public/build/*/glyphicons-*
+public/build/
 
 public/uploads
 public/generated
