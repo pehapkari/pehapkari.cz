@@ -3,11 +3,12 @@
 {% block main %}
     <div id="videos">
         <div class="section">
-            <h1 class="text-center">Přehraj si přednášku z minulého srazu</h1>
+            <h1 class="text-center">Pust si přednášku cestou do práce</h1>
 
             <p class="bigger text-center mb-5">
                 Od prvního srazu přátel PHP v říjnu 2015 jsme úspěšně nahráli <strong>{{ video_count }} záznamů</strong> z <strong>{{ meetup_count }} srazů</strong>.
 
+                <br>
                 Tady je najdeš všechny pěkně na jednom místě.
             </p>
 
@@ -18,7 +19,7 @@
             <br>
 
             {% for playlist in meetup_playlists %}
-                <h2 class="text-center">{{ playlist.title }}</h2>
+                <h2 class="text-center mt-4">{{ playlist.title }}</h2>
 
                 <div class="row">
                     {% for video in playlist.videos %}

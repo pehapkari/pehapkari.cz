@@ -3,6 +3,7 @@
 namespace Pehapkari\Utils\PHPStan\Rule;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Identifier;
 use PHPStan\Analyser\Scope;
@@ -13,12 +14,12 @@ use PHPStan\Rules\RuleErrors\RuleErrorWithMessage;
 final class SelectWithGroupByRule implements Rule
 {
     /**
-     * @var Node\Expr[]|MethodCall[]
+     * @var Expr[]|MethodCall[]
      */
     private $reportedParentMethodCallNodes = [];
 
     /**
-     * @var Node\Expr|MethodCall
+     * @var Expr|MethodCall
      */
     private $parentMethodCallNode;
 
