@@ -4,7 +4,10 @@ namespace Pehapkari\NodeVisitor;
 
 use Pehapkari\Exception\ShouldNotHappenException;
 use PhpParser\Node;
+use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Scalar\String_;
+use PhpParser\Node\Stmt\ClassMethod;
+use PhpParser\Node\Stmt\Return_;
 use PhpParser\NodeVisitorAbstract;
 
 final class DetectRenderArgumentNodeVisitor extends NodeVisitorAbstract
@@ -31,11 +34,9 @@ final class DetectRenderArgumentNodeVisitor extends NodeVisitorAbstract
 
     public function enterNode(Node $node): ?Node
     {
-        if ($this->methodName === '') {
-            throw new ShouldNotHappenException();
-        }
+        $this->ensureMethodNameIsSet();
 
-        if (! $node instanceof Node\Stmt\ClassMethod) {
+        if (! $node instanceof ClassMethod) {
             return null;
         }
 
@@ -44,11 +45,11 @@ final class DetectRenderArgumentNodeVisitor extends NodeVisitorAbstract
         }
 
         foreach ((array) $node->stmts as $stmt) {
-            if (! $stmt instanceof Node\Stmt\Return_) {
+            if (! $stmt instanceof Return_) {
                 continue;
             }
 
-            if (! $stmt->expr instanceof Node\Expr\MethodCall) {
+            if (! $stmt->expr instanceof MethodCall) {
                 continue;
             }
 
@@ -57,17 +58,31 @@ final class DetectRenderArgumentNodeVisitor extends NodeVisitorAbstract
                 continue;
             }
 
-            $templateNameString = $stmt->expr->args[0]->value;
-            if (! $templateNameString instanceof String_) {
-                throw new ShouldNotHappenException();
-            }
+            $this->resolveFirstRenderArgument($stmt->expr);
 
-            $this->resolvedTemplateNameCollector->setValue($templateNameString->value);
-
-            // final :)
             return null;
         }
 
         return null;
+    }
+
+    private function ensureMethodNameIsSet(): void
+    {
+        if ($this->methodName === '') {
+            throw new ShouldNotHappenException(
+                'Configuure method name via "$nodeVisitor->setMethodName(<name>)" first'
+            );
+        }
+    }
+
+    private function resolveFirstRenderArgument(MethodCall $methodCall): void
+    {
+        $templateNameString = $methodCall->args[0]->value;
+
+        if (! $templateNameString instanceof String_) {
+            throw new ShouldNotHappenException();
+        }
+
+        $this->resolvedTemplateNameCollector->setValue($templateNameString->value);
     }
 }

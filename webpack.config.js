@@ -11,6 +11,7 @@ Encore.setOutputPath('public/build/')
     })
     .enableSassLoader()
     .enableVersioning()
+    .addEntry('js/app', './assets/js/app.js')
     .addStyleEntry('css/app', './assets/scss/app.scss');
 
 module.exports = Encore.getWebpackConfig();

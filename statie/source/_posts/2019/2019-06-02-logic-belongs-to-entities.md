@@ -15,6 +15,13 @@ _Something more_ could be a different module, external system, database, ...
 
 ## Example
 
+
+```html
+<strong>asdfadsf</strong>
+```
+
+<pre><code class="html"><strong>asdfadsf</strong></code></pre>
+
 We have a Cart in the online store system, the Cart is responsible for handling items (add, remove) but not prices.
 Once we want to show the total price of the Cart, we have to use fresh prices from the database because product prices are changed often.
 
