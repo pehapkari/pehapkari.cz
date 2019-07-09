@@ -70,17 +70,39 @@ body {
 }
 
 .article {
-    box-shadow: 0 7px 8px rgba(100, 100, 100, .3);
+    box-shadow: 0 4px 15px rgba(100, 100, 100, .2);
     border: 0;
 
-    .card-body {
-        min-height: 17em;
-        border: 0;
-        font-size: $font-size-default;
+    a {
+        display: block;
+
+        .card-footer {
+            color: $black;
+        }
+
+        &:hover {
+            text-decoration: none;
+
+            h2 {
+                text-decoration: underline;
+            }
+        }
+
+        &:hover .card-footer,
+        &:hover .author {
+            text-decoration: none;
+        }
     }
 
     .author {
         color: $black;
+    }
+
+    .card-body {
+        min-height: 14em;
+        border: 0;
+        font-size: $font-size-default;
+        padding-top: 2em;
     }
 
     .card-footer {
@@ -88,6 +110,11 @@ body {
         background: $white;
         padding-bottom: 1.5em;
         font-size: $font-size-default;
+    }
+
+    .card-footer, .card-body {
+        padding-left: 1.8em;
+        padding-right: 1.8em;
     }
 
     .metadataLine {
@@ -456,10 +483,6 @@ p.bigger {
     font-size: 1.4em;
 }
 
-#tranings_without_term p {
-    line-height: 2em;
-}
-
 #videos .card-title
 {
     margin-top: .3em;
@@ -493,4 +516,8 @@ iframe, #videos .row img {
     text-align: center;
     border: 1px solid #DDD;
     font-size: 1.2em;
+}
+
+.pull-right {
+    float: right;
 }

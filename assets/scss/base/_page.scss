@@ -1,16 +1,3 @@
-.ph-section {
-    padding: 87px 0;
-}
-
-.ph-section-first {
-    padding: 150px 0 87px 0;
-}
-
-.ph-section-footer {
-    padding-top: 113px;
-    padding-bottom: 0;
-}
-
 .ph-justify-flex-end {
     justify-content: flex-end;
 }
@@ -21,7 +8,6 @@
 }
 
 @include media-breakpoint-up(lg) {
-
     .ph-section {
         padding: 140px 0;
     }
