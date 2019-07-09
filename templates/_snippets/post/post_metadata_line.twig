@@ -9,7 +9,13 @@
     {% endif %}
 
     <p>
-        <strong>{{ authors[post.author].name }}</strong>
+        <strong>
+            {% if post.author matches '#^\\d+$#' %}
+                {{ authors[post.author].name }}
+            {% else %}
+                {{ post.author }}
+            {% endif %}
+        </strong>
 
         &ndash;
 
