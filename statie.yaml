@@ -3,6 +3,7 @@ parameters:
     generators:
         posts:
             layout: '' # no layout, already included in application templates
+            has_headline_anchors: false
 
     # for post tweeting, command: "vendor/bin/statie tweet-post"
     twitter_name: 'Pehapkari'

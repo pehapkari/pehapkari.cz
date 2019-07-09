@@ -11,21 +11,13 @@
 
         {% block body %}
             <div id="main">
-                <div class="container">
-                    {% include '_snippets/flash_messages.twig' %}
+                {% include '_snippets/flash_messages.twig' %}
 
-                    {% block main %}{% endblock %}
-                </div>
+                {% block main %}{% endblock %}
             </div>
         {% endblock %}
 
         {% include "_snippets/footer.twig" %}
         {% include "_snippets/google_analytics.twig" %}
-
-{#        {% block javascripts %}#}
-{#            <script src="{{ asset('build/manifest.js') }}"></script>#}
-{#            <script src="{{ asset('build/js/common.js') }}"></script>#}
-{#            <script src="{{ asset('build/js/app.js') }}"></script>#}
-{#        {% endblock %}#}
     </body>
 </html>

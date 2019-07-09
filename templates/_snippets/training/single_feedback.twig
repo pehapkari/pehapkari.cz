@@ -3,16 +3,17 @@
 {% endif %}
 
 <q class="blockquote">{{ feedback.text }}</q>
+<span class="arrow"></span>
 
 {% if feedback.ratingContent %}
-    <div class="mb-3 mt-3">
+    <div class="mb-3 text-smaller">
         {% for i in 1..feedback.ratingContent %}
             <em class="fas fa-2x fa-star text-warning"></em>
         {% endfor %}
     </div>
 {% endif %}
 
-<p class="mt-2">
+<p class="text-left ml-4">
     {% if feedback.isAgreedWithPublishingName %}
         {% if feedback.url %}<a href="{{ feedback.url }}">{% endif %}
         {{ feedback.name }}

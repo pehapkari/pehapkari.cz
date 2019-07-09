@@ -36,12 +36,13 @@ final class BlogController extends AbstractController
      */
     public function blog(): Response
     {
-        $values = [
+        return $this->render('blog/blog.twig', [
             'posts' => $this->postsProvider->provide(),
             'authors' => $this->authors,
-        ];
-
-        return $this->render('blog/blog.twig', $values);
+            'author_count' => count(
+                $this->authors
+            ), // @todo resolve better later to include authors that are in string in posts
+        ]);
     }
 
     /**

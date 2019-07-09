@@ -11,7 +11,7 @@ h1 {
     font-family: $font-family-secondary;
     font-weight: 600;
     opacity: $font-opacity-low;
-    line-height: 3em;
+    line-height: 1.5em;
     margin-top: 2em;
 }
 
@@ -39,7 +39,6 @@ h6 {
 }
 
 p {
-    font-size: $font-size-default-mobile;
     line-height: 32px;
     opacity: $font-opacity-high;
     margin-bottom: 0;
@@ -64,10 +63,6 @@ a {
     h2 {
         font-size: $font-size-xl;
         line-height: 48px;
-    }
-
-    p {
-        font-size: $font-size-default;
     }
 
     h3 {

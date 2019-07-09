@@ -1,11 +1,9 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <div id="videos">
-        <div class="section">
-            <h1 class="text-center">
-                {{ video.title }}
-            </h1>
+    <div class="container" id="videos">
+        <div class="page-header">
+            <h1>{{ video.title }}</h1>
 
             {% if video.slides %}
                 <a href="{{ video.slides }}" class="btn btn-warning ml-2">
@@ -25,16 +23,12 @@
                 {% endif %}
             </div>
 
-            <p class="mt-5">
+            <p class="mt-5 text-left">
                 {{ video.description|markdown|raw }}
             </p>
 
             <h2 class="mt-5">Dotazy?</h2>
-
-            <div class="container">
-                {% include "_snippets/disqus_comments.twig" %}
-            </div>
-
+            {% include "_snippets/disqus_comments.twig" %}
         </div>
     </div>
 {% endblock %}

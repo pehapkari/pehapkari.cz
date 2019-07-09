@@ -1,6 +1,5 @@
-/build/
-npm-debug.log
-yarn-error.log
+# not really needed
+yarn.lock
 
 vendor/
 

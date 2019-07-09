@@ -14,11 +14,12 @@ O PHP a jeho ekosystému - git, Github, PHPStorm, Doctrine, Latte, Symfony, Lara
 
 ## Jak napsat článek?
 
-
-> "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."
->
-> – *Antoine de Saint Exupery*
-
+<blockquote class="blockquote">
+    Perfection is achieved, not when there is nothing more to add,<br>
+    but when there is nothing left to take away
+    
+    <footer class="blockquote-footer">Antoine de Saint Exupery</footer>
+</blockquote>
 
 ### 1. Tvoje práce
 

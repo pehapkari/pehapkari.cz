@@ -1,23 +1,21 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <div id="trainings">
-        <div class="section">
+    <div id="trainings" class="container">
+        <div class="page-header">
+            {% if training.getImage() %}
+                <img src="{{ image_uploads }}/{{ training.getImage() }}" width="150" class="mt-5 ml-3 pull-right">
+            {% endif %}
 
-        {% if training.getImage() %}
-            <p class="text-center mt-5 d-none d-sm-block">
-                <img src="{{ image_uploads }}/{{ training.getImage() }}" width="150">
-            </p>
-        {% endif %}
-
-        <h1 class="text-center">{{ training.getName() }}</h1>
+            <h1>{{ training.getName() }}</h1>
+        </div>
 
             <div class="row">
                 <div class="col-md-4">
                     <div class="row">
                         <div class="col-md-4">
                             {% if trainer.getImage() %}
-                                <img width="100" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-left mr-3">
+                                <img width="80" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-left mr-3">
                             {% endif %}
                         </div>
 

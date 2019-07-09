@@ -17,8 +17,9 @@ Anything around PHP and its ecosystem - git, Github, PHPStorm, Doctrine, Symfony
 
 ## How To Write a Post?
 
-<blockquote class="blockquote mb-5 mt-5 text-center">
-    <p>"Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."</p>
+<blockquote class="blockquote">
+    Perfection is achieved, not when there is nothing more to add,<br>
+    but when there is nothing left to take away
     <p class="blockquote-footer">Antoine de Saint Exupery</p>
 </blockquote>
 

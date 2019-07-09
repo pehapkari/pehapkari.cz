@@ -4,6 +4,7 @@ namespace Pehapkari\NodeVisitor;
 
 use Pehapkari\Exception\ShouldNotHappenException;
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt\ClassMethod;
@@ -53,7 +54,11 @@ final class DetectRenderArgumentNodeVisitor extends NodeVisitorAbstract
                 continue;
             }
 
-            // the render methdo :)
+            // the render method :)
+            if ($stmt->expr->name instanceof Expr) {
+                continue;
+            }
+
             if ((string) $stmt->expr->name !== 'render') {
                 continue;
             }

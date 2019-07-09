@@ -1,27 +1,23 @@
 #main {
     margin-top: 5em;
-}
 
-#main h1 {
-    margin-bottom: 1em;
+    h1 {
+        margin-bottom: 1em;
+    }
 }
 
 .page a {
     color: #28a745;
     text-decoration: underline;
-}
 
-.page a:hover {
-    color: #000;
-    text-decoration: none;
-}
-
-.h1 {
-    letter-spacing: 1px;
+    &:hover {
+        color: #000;
+        text-decoration: none;
+    }
 }
 
 h2 {
-    margin: .8em 0 .5em 0;
+    margin: 1em 0 .7em 0;
 }
 
 .ph-heading__background {
@@ -52,7 +48,7 @@ h2 {
 
 /* color palette: http://www.colourlovers.com/palette/46688/fresh_cut_day */
 body {
-    font-size: 16px;
+    //font-size: 16px;
     color: #222;
 }
 
@@ -62,11 +58,16 @@ body {
 }
 
 .page-header {
-    margin: 10em 0 4em 0;
+    margin: 7em 0 4em 0;
+
+    p {
+        font-size: 1.2em;
+    }
 }
 
 .page-header h1 {
-    margin: 0;
+    margin-top: 2.3em;
+    margin-bottom: 1em;
 }
 
 .article {
@@ -120,12 +121,6 @@ body {
     .metadataLine {
         color: $black;
     }
-
-    h2 {
-        margin-top: 0;
-        font-size: $font-size-l;
-        line-height: 1.2em;
-    }
 }
 
 //@media (max-width: 768px) {
@@ -152,27 +147,6 @@ body {
 }
 
 
-///* nicer, less-wide container */
-//@media (min-width: 768px) {
-//    .container {
-//        max-width: 100%;
-//    }
-//
-//    .container-fluid {
-//        max-width: 100%;
-//    }
-//}
-//
-//@media (min-width: 992px) {
-//    .container {
-//        max-width: 940px;
-//    }
-//
-//    .container-fluid {
-//        max-width: 940px;
-//    }
-//}
-
 /* for blog.twig, _layout/post.twig */
 #blog .perex {
     line-height: 1.5em;
@@ -189,10 +163,6 @@ body {
     margin-top: .4em;
     margin-bottom: .6em;
     line-height: 2.5em;
-}
-
-#article {
-    padding-top: 1em;
 }
 
 #article h2, h3 {
@@ -237,11 +207,6 @@ h3 {
     font-size: 1.2em;
 }
 
-#article blockquote {
-    margin: 2em 1em;
-    font-size: 1.3em;
-}
-
 pre {
     font-size: 1em;
     background-color: #fdf6e3;
@@ -262,34 +227,12 @@ pre[class*="language-"] {
     color: #8FBE00;
 }
 
-/* anchors for post headlines */
-.anchor {
-    padding-right: .3em;
-    float: left;
-    margin-left: -.9em;
-}
-
-.anchor, .anchor:hover {
-    text-decoration: none;
-}
-
-h1 .anchor .anchor-icon, h2 .anchor .anchor-icon, h3 .anchor .anchor-icon, h4 .anchor .anchor-icon {
-    visibility: hidden;
-}
-
-h1:hover .anchor-icon, h2:hover .anchor-icon, h3:hover .anchor-icon, h4:hover .anchor-icon {
-    visibility: inherit;
-}
-
-.anchor-icon {
-    display: inline-block;
-}
-
 .vertical-align {
     vertical-align: middle !important;
 }
 
 #article ol, #article ul {
+    font-size: $font-size-default;
     margin-bottom: .7em;
 }
 
@@ -377,8 +320,20 @@ footer .rounded-circle {
     margin-top: -1em;
 }
 
-#gallery .col-md-3, #gallery .col-sm-4, #gallery .col-6 {
-    padding: 0 1px 1px 0;
+
+
+#gallery {
+    width: 40em;
+    margin: auto;
+
+    // null padding between photos
+    & [class^="col-"] {
+        padding: 0;
+    }
+
+    img {
+        padding: .3em;
+    }
 }
 
 .subtitle {
@@ -386,25 +341,22 @@ footer .rounded-circle {
     line-height: 1.6em;
 }
 
-.narrower {
-    max-width: 49em;
-    margin: auto;
-}
+.training-card {
+    h3 {
+        margin-top: 0;
+    }
 
-.training-card h3 {
-    margin-top: 0;
-}
+    p {
+        margin: 0;
+        line-height: 150%;
+    }
 
-.training-card p {
-    margin: 0;
-    line-height: 150%;
-}
-
-.training-card img {
-    position: absolute;
-    right: 10px;
-    bottom: 10%;
-    margin-bottom: 15px;
+    img {
+        position: absolute;
+        right: 10px;
+        bottom: 10%;
+        margin-bottom: 15px;
+    }
 }
 
 .lector-info-item strong {
@@ -412,44 +364,10 @@ footer .rounded-circle {
     min-width: 75px;
 }
 
-//@media (min-width: 768px) {
-//    .training-card .card-text {
-//        text-align: right;
-//    }
-//
-//    .training-card .card-text br {
-//        display: none;
-//    }
-//
-//    .training-card .card-text br + strong {
-//        margin-left: 20px;
-//    }
-//
-//    .lector-name {
-//        float: left;
-//    }
-//
-//    .training-card .card-text strong {
-//        min-width: auto;
-//        margin-right: 5px;
-//    }
-//
-//    .training-card img {
-//        position: absolute;
-//        bottom: 50%;
-//        margin-bottom: -30px;
-//        left: 20px;
-//        right: auto;
-//    }
-//
-//    .training-card {
-//        padding-left: 85px;
-//    }
-//}
-
 .text-smaller {
     color: #555;
-    font-size: 0.9em;
+    font-size: .8em;
+    line-height: .9em;
 }
 
 /* @see https://stackoverflow.com/a/50174132/1348344 */
@@ -461,17 +379,12 @@ footer .rounded-circle {
     margin-bottom: 0;
 }
 
-#contact h2 {
-    margin-top: 2em;
-}
+#training_partners {
+    margin-top: 4em;
 
-#contact p {
-    font-size: 1.5em;
-    line-height: 2em;
-}
-
-#training_partners p {
-    line-height: 1.8em;
+    p {
+        line-height: 2em;
+    }
 }
 
 #talks_table h3 {
@@ -521,3 +434,117 @@ iframe, #videos .row img {
 .pull-right {
     float: right;
 }
+
+.blockquote {
+    font-size: 1.5em;
+    line-height: 1.2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: center;
+
+    .blockquote-footer {
+        margin-top: .7em;
+    }
+}
+
+// black + underline links
+.black_underline_links {
+    a {
+        color: $black;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.shadow-card {
+    border: 0;
+    box-shadow: 0 4px 15px rgba(100, 100, 100, .2);
+}
+
+.incognito-link-just-header {
+    a {
+        color: $black;
+        text-decoration: none;
+
+        h2 {
+            color: $green;
+            text-decoration: none;
+        }
+
+        &:hover {
+            text-decoration: none;
+
+            h2 {
+                color: $black;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+#first_post {
+    h2 {
+        font-size: 2.3em;
+    }
+}
+
+#article .perex, .article .perex {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+h4 {
+    font-size: 1.2em;
+    margin-top: 1em;
+    font-family: "sofia-pro";
+    font-weight: 300;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: $font-size-l;
+    line-height: 1.2em;
+}
+
+.training-face {
+    position: absolute;
+    margin-top: 2.2em;
+}
+
+.background-grey {
+    margin: 2em 0;
+    padding: .7em 0;
+    background: rgb(253, 246, 227);
+}
+
+#feedbacks {
+    max-width: 50em;
+
+    // borrowed from https://www.vzhurudolu.cz/kurzy
+    q.blockquote {
+        text-align: left;
+        font-size: 1.2em;
+        line-height: 1.3em;
+        display: block;
+        background: $white;
+        margin: 0;
+        padding: 1.3rem 1.5rem 1.5rem 1.5rem;
+        border-radius: 4px;
+        background-color: $white;
+    }
+
+    .arrow {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 1em 1em 0 1em;
+        border-color: $white transparent transparent transparent;
+        margin: 0 0 0 2.5em;
+    }
+}
+

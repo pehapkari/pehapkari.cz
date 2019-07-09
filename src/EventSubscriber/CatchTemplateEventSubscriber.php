@@ -5,6 +5,7 @@ namespace Pehapkari\EventSubscriber;
 use Nette\Utils\FileSystem;
 use Pehapkari\NodeVisitor\DetectRenderArgumentNodeVisitor;
 use PhpParser\NodeTraverser;
+use PhpParser\Parser;
 use PhpParser\ParserFactory;
 use ReflectionClass;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -33,17 +34,21 @@ final class CatchTemplateEventSubscriber implements EventSubscriberInterface
 
     public function controller(ControllerEvent $controllerEvent): void
     {
-        $controllerClass = get_class($controllerEvent->getController()[0]);
+        /** @var string[] $controllerCallable */
+        $controllerCallable = $controllerEvent->getController();
+
+        $controllerClass = $controllerCallable[0];
         $controllerReflection = new ReflectionClass($controllerClass);
 
+        /** @var string $controllerFileName */
         $controllerFileName = $controllerReflection->getFileName();
 
-        $phpParser = (new ParserFactory())->create(ParserFactory::ONLY_PHP7);
+        $phpParser = $this->getPhpParser();
         $controllerNodes = $phpParser->parse(FileSystem::read($controllerFileName));
 
         // extract $this->render('$value')
         /** @var string $controllerMethod */
-        $controllerMethod = $controllerEvent->getController()[1];
+        $controllerMethod = $controllerCallable[1];
 
         $nodeTraverser = new NodeTraverser();
 
@@ -51,5 +56,10 @@ final class CatchTemplateEventSubscriber implements EventSubscriberInterface
 
         $nodeTraverser->addVisitor($this->detectRenderArgumentNodeVisitor);
         $nodeTraverser->traverse($controllerNodes);
+    }
+
+    private function getPhpParser(): Parser
+    {
+        return (new ParserFactory())->create(ParserFactory::ONLY_PHP7);
     }
 }

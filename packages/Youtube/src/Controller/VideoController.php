@@ -72,11 +72,17 @@ final class VideoController extends AbstractController
             );
         }
 
+        $phpPragueCount = 0;
+        foreach ($this->youtubeVideos['php_prague'] as $phpPrague) {
+            $phpPragueCount += count($phpPrague['videos']);
+        }
+
         return $this->render('videos/videos.twig', [
             'meetup_playlists' => $meetupPlaylists,
             'livestream_count' => count($this->getLivestreamVideos()),
             'meetup_count' => count($meetupPlaylists),
             'video_count' => $this->getVideoCount($meetupPlaylists),
+            'php_prague_count' => $phpPragueCount,
         ]);
     }
 

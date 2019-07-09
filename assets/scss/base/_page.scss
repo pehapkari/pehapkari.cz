@@ -3,8 +3,8 @@
 }
 
 .container {
-    padding-left: 52px;
-    padding-right: 52px;
+    padding-left: .5em;
+    padding-right: .5em;
 }
 
 @include media-breakpoint-up(lg) {
