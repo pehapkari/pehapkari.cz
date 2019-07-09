@@ -61,8 +61,44 @@ body {
     padding-bottom: 3em;
 }
 
-.section.first-section {
-    padding-top: 1em;
+.page-header {
+    margin: 10em 0 4em 0;
+}
+
+.page-header h1 {
+    margin: 0;
+}
+
+.article {
+    box-shadow: 0 7px 8px rgba(100, 100, 100, .3);
+    border: 0;
+
+    .card-body {
+        min-height: 17em;
+        border: 0;
+        font-size: $font-size-default;
+    }
+
+    .author {
+        color: $black;
+    }
+
+    .card-footer {
+        border: 0;
+        background: $white;
+        padding-bottom: 1.5em;
+        font-size: $font-size-default;
+    }
+
+    .metadataLine {
+        color: $black;
+    }
+
+    h2 {
+        margin-top: 0;
+        font-size: $font-size-l;
+        line-height: 1.2em;
+    }
 }
 
 //@media (max-width: 768px) {

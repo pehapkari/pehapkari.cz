@@ -16,11 +16,11 @@
                 {{ post.author }}
             {% endif %}
         </strong>
+    </p>
 
-        &ndash;
-
+    <div class="card-footer post-date">
         <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
             {{ post.getDateInFormat('j. n. Y') }}
         </time>
-    </p>
+    </div>
 </div>

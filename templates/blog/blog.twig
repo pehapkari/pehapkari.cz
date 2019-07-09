@@ -12,27 +12,53 @@
             <br>
         </div>
 
-        <hr>
+        {# show only posts not in the future date #}
+        {% set was_first_post_marked = false %}
 
-        {% for post in posts %}
-            {% if post.getDateInFormat('Y-m-d') <= "now"|date('Y-m-d') %}
-                <div class="article mb-5">
-                    <h2>
-                        <a href="/{{ post|link }}/">{{ post.title }}</a>
-                    </h2>
+{#        <div class="card-columns">#}
+            {% for post in posts if post.getDateInFormat('Y-m-d') <= "now"|date('Y-m-d')  %}
+                {% if was_first_post_marked == false %}
+                    {# special case for first post - full width #}
+                    <div class="article mb-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2>
+                                    <a href="/{{ post|link }}/">{{ post.title }}</a>
+                                </h2>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            {% include "_snippets/post/post_metadata_line.twig" with { "post": post } %}
+                                {% include "_snippets/post/post_metadata_line.twig" with { "post": post } %}
+
+                                <p class="perex text-left">{{ post.perex|raw }}</p>
+                            </div>
                         </div>
                     </div>
 
-                    <p class="perex text-left">{{ post.perex|raw }}</p>
-                </div>
-                {% if loop.last == false %}<hr>{% endif %}
-            {% endif %}
-        {% endfor %}
-        <br>
-    </div>
+                   <div class="card-columns">
+            {% else %}
+                    <div class="article mb-5 card">
+                        <div class="card-body">
+                            <h2>
+                                <a href="/{{ post|link }}/">{{ post.title }}</a>
+                            </h2>
 
+                            <div class="author">
+                                {% if post.author matches '#^\\d+$#' %}
+                                    {{ authors[post.author].name }}
+                                {% else %}
+                                    {{ post.author }}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="card-footer post-date">
+                            <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
+                                {{ post.getDateInFormat('j. n. Y') }}
+                            </time>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% set was_first_post_marked = true %}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
