@@ -25,8 +25,8 @@ build image:
     variables:
         GIT_STRATEGY: clone
     script:
-        - docker pull $IMAGE:$CI_COMMIT_REF_NAME || true
-        - docker build --cache-from $IMAGE -t $IMAGE:$CI_COMMIT_REF_NAME -t $IMAGE:$CI_COMMIT_SHA --target production -f Dockerfile .
+        - docker pull $IMAGE:$CI_COMMIT_REF_SLUG || true
+        - docker build --cache-from $IMAGE -t $IMAGE:$CI_COMMIT_REF_SLUG -t $IMAGE:$CI_COMMIT_SHA --target production -f Dockerfile .
         - docker push $IMAGE
 
 phpunit:
