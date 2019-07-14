@@ -70,3 +70,6 @@ new-design/node_modules
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+
+# builds assets
+/public/build
