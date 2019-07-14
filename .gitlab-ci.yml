@@ -1,4 +1,4 @@
-image: docker:18-09-git
+image: docker:18.09-git
 
 stages:
     - build
@@ -15,7 +15,7 @@ variables:
 
 .docker-job:
     services:
-        - docker:18-09-dind
+        - docker:18.09-dind
     before_script:
         - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
 
