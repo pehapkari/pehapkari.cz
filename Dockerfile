@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
         git \
         unzip \
         g++ \
-        mysql-client \
+        default-mysql-client \
         zlib1g-dev \
         libicu-dev \
         libzip-dev \
