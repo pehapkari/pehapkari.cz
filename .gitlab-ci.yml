@@ -25,8 +25,8 @@ build image:
     variables:
         GIT_STRATEGY: clone
     script:
-        - docker pull $IMAGE || true
-        - docker build --cache-from $IMAGE -t $IMAGE:$CI_COMMIT_SHA --target production -f Dockerfile .
+        - docker pull $IMAGE:$CI_COMMIT_REF_SLUG || true
+        - docker build --cache-from $IMAGE -t $IMAGE:$CI_COMMIT_REF_SLUG -t $IMAGE:$CI_COMMIT_SHA --target production -f Dockerfile .
         - docker push $IMAGE
 
 phpunit:
@@ -65,3 +65,18 @@ deploy:
         url: https://pehapkari.cz
     only:
         - master
+
+deploy new design:
+    stage: deploy
+    before_script:
+        - eval $(ssh-agent -s)
+        - mkdir -p ~/.ssh
+        - ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
+        - echo "$DEPLOY_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    script:
+        - ssh root@$DEPLOY_HOST "cd /projects/pehapkari.cz && ./run-new.sh"
+    environment:
+        name: new-design
+        url: https://new.pehapkari.cz
+    only:
+        - design-in-a-day
