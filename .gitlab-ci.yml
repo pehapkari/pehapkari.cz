@@ -1,4 +1,4 @@
-image: docker:git
+image: docker:18-09-git
 
 stages:
     - build
@@ -15,7 +15,7 @@ variables:
 
 .docker-job:
     services:
-        - docker:dind
+        - docker:18-09-dind
     before_script:
         - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
 
@@ -25,6 +25,7 @@ build image:
     variables:
         GIT_STRATEGY: clone
     script:
+        - docker info
         - docker pull $IMAGE:$CI_COMMIT_REF_SLUG || true
         - docker build --cache-from $IMAGE -t $IMAGE:$CI_COMMIT_REF_SLUG -t $IMAGE:$CI_COMMIT_SHA --target production -f Dockerfile .
         - docker push $IMAGE
