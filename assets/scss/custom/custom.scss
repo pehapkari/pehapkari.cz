@@ -58,10 +58,11 @@ body {
 }
 
 .page-header {
-    margin: 7em 0 4em 0;
+    margin: 6em 0 4em 0;
 
     p {
         font-size: 1.2em;
+        line-height: 1.6em;
     }
 }
 
@@ -524,16 +525,28 @@ h4 {
     max-width: 50em;
 
     // borrowed from https://www.vzhurudolu.cz/kurzy
-    q.blockquote {
+    .blockquote {
         text-align: left;
-        font-size: 1.2em;
-        line-height: 1.3em;
+        font-size: 1em;
+        line-height: 1.5em;
         display: block;
         background: $white;
         margin: 0;
         padding: 1.3rem 1.5rem 1.5rem 1.5rem;
         border-radius: 4px;
         background-color: $white;
+    }
+
+    .rating_stars {
+        margin-top: .1em;
+        margin-bottom: -.3em;
+        font-size: .9em;
+    }
+
+    .big_rating_stars {
+        margin-top: -.5em;
+        margin-bottom: .1em;
+        font-size: 1.3em;
     }
 
     .arrow {
@@ -545,6 +558,23 @@ h4 {
         border-width: 1em 1em 0 1em;
         border-color: $white transparent transparent transparent;
         margin: 0 0 0 2.5em;
+    }
+
+    h2 {
+        font-size: 1.7em;
+    }
+}
+
+#training_trainer_card {
+    margin: 2em 0 4em 0;
+    text-align: center;
+
+    h2 {
+        margin-top: 0;
+    }
+
+    p {
+        margin: auto;
     }
 }
 

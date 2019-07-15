@@ -40,7 +40,7 @@ class Expense
     private $partner;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm")
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm", inversedBy="expenses")
      * @var TrainingTerm
      * @Assert\NotNull
      */

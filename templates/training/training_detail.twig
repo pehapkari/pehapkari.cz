@@ -2,20 +2,22 @@
 
 {% block main %}
     <div id="trainings" class="container">
-        <div class="page-header">
+        <div class="section">
+
             {% if training.getImage() %}
-                <img src="{{ image_uploads }}/{{ training.getImage() }}" width="150" class="mt-5 ml-3 pull-right">
+                <p class="text-center mt-2">
+                    <img src="{{ image_uploads }}/{{ training.getImage() }}" width="150">
+                </p>
             {% endif %}
 
-            <h1>{{ training.getName() }}</h1>
-        </div>
+            <h1 class="text-center mt-4">{{ training.getName() }}</h1>
 
             <div class="row">
                 <div class="col-md-4">
                     <div class="row">
                         <div class="col-md-4">
                             {% if trainer.getImage() %}
-                                <img width="80" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-left mr-3">
+                                <img width="100" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-left mr-3">
                             {% endif %}
                         </div>
 
@@ -24,9 +26,9 @@
 
                             {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
 
-                            {{ trainer.getName() }}
+                                {{ trainer.getName() }}
 
-                            {% if trainer.getWebsite() %}</a>{% endif %}
+                                {% if trainer.getWebsite() %}</a>{% endif %}
 
                             {% if trainer.getBio() %}
                                 <p>„{{ trainer.getBio()|raw }}“</p>

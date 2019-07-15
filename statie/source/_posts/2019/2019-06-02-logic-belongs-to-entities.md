@@ -15,13 +15,6 @@ _Something more_ could be a different module, external system, database, ...
 
 ## Example
 
-
-```html
-<strong>asdfadsf</strong>
-```
-
-<pre><code class="html"><strong>asdfadsf</strong></code></pre>
-
 We have a Cart in the online store system, the Cart is responsible for handling items (add, remove) but not prices.
 Once we want to show the total price of the Cart, we have to use fresh prices from the database because product prices are changed often.
 
@@ -60,7 +53,7 @@ class Cart {
      * @return Item[]
      */
     public function getItems(): array;
-    
+
     // constructor
 }
 
@@ -69,19 +62,19 @@ class CartTotalPriceService {
      * @var PDO
      */
     private $pdo;
-    
+
     // constructor
-    
+
     public function calculate(Cart $cart): Money {
         $prices = [];
         foreach ($cart->getItems() as $item) {
             $price = $this->refreshPrice($item->getProductId());
             $prices[] = $price->multiply($item->getAmount());
         }
-        
+
         return Money::sum($prices);
     }
-    
+
     private function refreshPrice(int $productId): Money {
         $statement = $this->pdo->query("SELECT price FROM product WHERE id = :id");
         $statement->bindParam(':id', $productId);
@@ -138,7 +131,7 @@ class Cart {
      * var Item[]
      */
     private $items;
-    
+
     // constructor
 
     public function calculateTotalPrice(ProductPrices $productPrices): Money {
@@ -147,7 +140,7 @@ class Cart {
             $price = $productPrices->refreshPrice($item->getProductId());
             $prices[] = $price->multiply($item->getAmount());
         }
-        
+
         return Money::sum($prices);
     }
 }
@@ -172,9 +165,9 @@ class PDOProductPrices implements ProductPrices {
      * @var PDO
      */
     private $pdo;
-    
+
     // constructor
-    
+
     public function refreshPrice(int $productId): Money {
         $statement = $this->pdo->query("SELECT price FROM product WHERE id = :id");
         $statement->bindParam(':id', $productId);
@@ -233,7 +226,7 @@ class Cart {
      * var Item[]
      */
     private $items;
-    
+
     // constructor
 
     public function calculateTotalPrice(ProductPrices $productPrices): Money {
@@ -241,7 +234,7 @@ class Cart {
         foreach ($this->items as $item) {
             $prices[] = $item->calculatePrice($productPrices);
         }
-        
+
         return Money::sum($prices);
     }
 }

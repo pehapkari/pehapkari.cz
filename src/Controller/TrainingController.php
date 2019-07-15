@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Pehapkari\Controller;
 
+use Nette\Utils\DateTime;
 use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
+use Pehapkari\Repository\TrainerRepository;
 use Pehapkari\Training\Entity\Training;
-use Pehapkari\Training\Repository\TrainerRepository;
 use Pehapkari\Training\Repository\TrainingFeedbackRepository;
 use Pehapkari\Training\Repository\TrainingRepository;
 use Pehapkari\Training\Repository\TrainingTermRepository;
@@ -86,10 +87,31 @@ final class TrainingController extends AbstractController
      */
     public function detail(Training $training): Response
     {
+        $averageRating = $this->trainingFeedbackRepository->getAverageTrainingRating($training);
+
         return $this->render('training/training_detail.twig', [
             'training' => $training,
             'training_term' => $training->getNearestTerm(),
             'trainer' => $training->getTrainer(),
+            'should_display_deadline' => $this->shouldDisplayDeadline($training),
+
+            // rating
+            'feedbacks' => $training->getPublicFeedbacks(),
+            'average_training_rating' => $averageRating,
+            'average_training_rating_stars' => round($averageRating, 0),
         ]);
+    }
+
+    private function shouldDisplayDeadline(Training $training): bool
+    {
+        $nearestTerm = $training->getNearestTerm();
+        if ($nearestTerm === null) {
+            return false;
+        }
+
+        // show only on nearest X days
+        $weekBackDateTime = (new DateTime())->modify(' - 14 days');
+
+        return $nearestTerm->getDeadlineDateTime() < $weekBackDateTime;
     }
 }

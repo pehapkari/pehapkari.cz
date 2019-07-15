@@ -63,3 +63,13 @@
 
 // text highlight
 @import "~highlight.js/styles/solarized-light.css";
+
+
+
+#top-menu-search input {
+    /*float: none;*/
+    overflow: hidden;
+    margin-left: 15em;
+    font-size: .8em;
+    max-width: 15em;
+}

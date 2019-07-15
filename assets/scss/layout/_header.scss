@@ -31,39 +31,6 @@
         outline: none;
     }
 
-    .ph-nav__logo {
-        float: left;
-        margin-right: auto;
-        display: flex;
-        align-items: center;
-        opacity: 1;
-
-        &:hover {
-            text-decoration: none;
-        }
-
-        p {
-            display: none;
-        }
-    }
-
-    .ph-nav__logo {
-        p {
-            align-items: center;
-            opacity: 0.7;
-            color: $black;
-            display: inline;
-            font-size: $font-size-xs;
-            padding: .3em .3em;
-
-            &:hover {
-                text-decoration: none;
-                color: $black;
-                opacity: 1;
-            }
-        }
-    }
-
     #menu {
         list-style-type: none;
         margin-bottom: 0;
@@ -169,3 +136,44 @@
 //        }
 //    }
 //}
+
+// useful for header and footer
+.ph-nav__logo {
+    float: left;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    opacity: 1;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    p {
+        align-items: center;
+        opacity: 0.7;
+        color: $black;
+        display: inline;
+        font-size: $font-size-xs;
+        padding: .3em .3em;
+
+        &:hover {
+            text-decoration: none;
+            color: $black;
+            opacity: 1;
+        }
+    }
+}
+
+#footer {
+    p {
+        opacity: 1;
+        color: $grey;
+
+        a {
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}

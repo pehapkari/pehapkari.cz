@@ -1,149 +1,111 @@
-{#{% block footer %}#}
-{#    <footer>#}
-{#        <div class="container-fluid pt-3 pb-3">#}
-{#            <div class="row">#}
-{#                <div class="col-md-3 col-6">#}
-{#                    <h3 class="text-light">Přidej se</h3>#}
-{#                    <ul>#}
-{#                        <li>#}
-{#                            <a href="http://bit.ly/pehapkari-newsletter">Newsletter</a>#}
-{#                            (<a href="http://us8.campaign-archive.com/home/?u=dcf4beafc191796bf6c47321f&id=c4f7564a7b">všechny</a>)#}
-{#                        </li>#}
-{#                        <li><a href="https://www.fio.cz/ib2/transparent?a=2301196632">Transparentní účet</a></li>#}
-{#                        <li><a href="{{ path('contact') }}">Kontakt</a></li>#}
-{#                    </ul>#}
-{#                </div>#}
-
-{#                <div class="col-md-3 col-6">#}
-{#                    <h3 class="text-light">Pracujeme</h3>#}
-{#                    <ul>#}
-{#                        <li><a href="{{ path('trainings') }}">Školíme</a></li>#}
-{#                        #}{#<li><a href="{{ path('become_trainer') }}">Začni taky školit</a></li>#}
-{#                        <li><a href="{{ path('php_prague', {'year': 2018}) }}">PHP Prague 2018</a></li>#}
-{#                        <li><a href="{{ path('php_prague', {'year': 2016}) }}">PHP Prague 2016</a></li>#}
-{#                    </ul>#}
-{#                </div>#}
-{#    </footer>#}
-{#{% endblock %}#}
-
-
-<section class="ph-section-footer">
-    <div class="ph-footer">
-        <div class="container">
-            <div class="ph-footer__header">
-                <div class="ph-footer__header-left-col">
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="ph-nav__logo">
                     <img src="/assets/icons/logo/logo_green.svg" alt="logo" title="">
-                    <div class="ph-footer__header-brand">Péhápkaři</div>
+                    <p class="ml-2">Péhápkaři</p>
                 </div>
-                <div class="ph-footer__header-right-col">
-                    <ul class="ph-footer__header-menu">
-                        <li class="ph-footer__header-menu-item">
-                            <a href="https://facebook.com/pehapkari" class="p-1 btn ph-footer__header-menu-item-link">
-                                <em class="fab fa-2x fa-facebook"></em>
-                            </a>
-                        </li>
+            </div>
 
-                        <li class="ph-footer__header-menu-item">
-                            <a href="https://twitter.com/pehapkari" class="p-1 btn ph-footer__header-menu-item-link">
-                                <em class="fab fa-2x fa-twitter"></em>
-                            </a>
-                        </li>
+            <div class="col-8">
+                <ul id="socials" class="pull-right">
+                    <li>
+                        <a href="https://facebook.com/pehapkari">
+                            <em class="fab fa-2x fa-facebook"></em>
+                        </a>
+                    </li>
 
-                        <li class="ph-footer__header-menu-item">
-                            <a href="https://meetup.com/friends-of-php-prague/" class="p-1 btn ph-footer__header-menu-item-link">
-                                <em class="fab fa-2x fa-meetup"></em>
-                                <br>
-                                <span>Praha</span>
-                            </a>
-                        </li>
+                    <li>
+                        <a href="https://twitter.com/pehapkari">
+                            <em class="fab fa-2x fa-twitter"></em>
+                        </a>
+                    </li>
 
-                        <li class="ph-footer__header-menu-item">
-                            <a href="https://meetup.com/Pehapkari-Brno/" class="p-1 btn ph-footer__header-menu-item-link">
-                                <em class="fab fa-2x fa-meetup"></em>
-                                <br>
-                                <span>Brno</span>
-                            </a>
-                        </li>
+                    <li>
+                        <a href="https://meetup.com/friends-of-php-prague/">
+                            <em class="fab fa-2x fa-meetup"></em>
+                            <p>Praha</p>
+                        </a>
+                    </li>
 
-                        <li class="ph-footer__header-menu-item">
-                            <a href="https://github.com/pehapkari" class="p-1 btn ph-footer__header-menu-item-link">
-                                <em class="fab fa-2x fa-github"></em>
-                            </a>
-                        </li>
+                    <li>
+                        <a href="https://meetup.com/Pehapkari-Brno/">
+                            <em class="fab fa-2x fa-meetup"></em>
+                            <p>Brno</p>
+                        </a>
+                    </li>
 
-                        <li class="ph-footer__header-menu-item">
-                            <a href="https://pehapkari.slack.com" class="p-1 btn ph-footer__header-menu-item-link">
-                                <em class="fab fa-2x fa-slack"></em>
-                            </a>
+                    <li>
+                        <a href="https://github.com/pehapkari">
+                            <em class="fab fa-2x fa-github"></em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://pehapkari.slack.com">
+                            <em class="fab fa-2x fa-slack"></em>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer_body">
+            <div class="row" >
+                <div class="col-6">
+                    <p class="mb-2">Web Péhápkaři.cz pohání <a href="https://symfony.com/">Symfony</a> a najdeš ho na <a href="https://github.com/pehapkari/pehapkari.cz">Githubu</a>.</p>
+                </div>
+                <div class="col-6">
+                    <p>
+                        Našel jsi chybu? → <a href="{{ github_edit_url() }}">Oprav nám ji prosím</a>.
+                    </p>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-6">
+{#                                Pro firmy#}
+{#                                <a class="ph-footer__body-menu-item-subtitle-link" href="#">Chcete sraz?</a>#}
+{#                                #}{# {{ @todo přesuout nabídkový list sem - FB post, newsletter a meetup }} #}
+                    {#                        #}{#<li><a href="{{ path('become_trainer') }}">Začni taky školit</a></li>#}
+
+
+                    <ul class="bottom_menu">
+                        <li>
+                            <a href="{{ path('contact') }}">Kontakt</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('rss') }}">RSS blogu</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('for_speakers') }}">Pro speakry</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6">
+                    <ul class="bottom_menu">
+                        <li>
+                            <a href="http://bit.ly/pehapkari-newsletter">Newsletter</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('privacy_policy') }}">Ochrana soukromí</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('press') }}">Stáhni si logo</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="ph-footer__body">
-                <div class="ph-footer__body-left-column">
-                    <p>Web Péhápkaři.cz pohání <a href="https://symfony.com/">Symfony</a> a najdeš ho na <a href="https://github.com/pehapkari/pehapkari.cz">Githubu</a>.</p>
-                    <p>
-                        Našel jsi chybu?<br>
-                        <a href="{{ github_edit_url() }}">Oprav nám ji prosím</a>.
-                    </p>
-                </div>
-                <div class="ph-footer__body-right-column">
-{#                    <div class="ph-footer__body-menu ph-footer__body-menu-first">#}
-{#                        <ul class="ph-footer__body-menu-item">#}
-{#                            <li class="ph-footer__body-menu-item-title">#}
-{#                                Pro firmy#}
-{#                            </li>#}
-{#                            <li class="ph-footer__body-menu-item-subtitle">#}
-{#                                <a class="ph-footer__body-menu-item-subtitle-link" href="#">Chcete sraz?</a>#}
-{#                                #}{# {{ @todo přesuout nabídkový list sem - FB post, newsletter a meetup }} #}
-{#                            </li>#}
-{#                        </ul>#}
-{#                    </div>#}
-                    <div class="ph-footer__body-menu">
-                        <ul class="ph-footer__body-menu-item">
-                            <li class="ph-footer__body-menu-item-title">
-                                O nás
-                            </li>
-                            {# <li class="ph-footer__body-menu-item-subtitle">#}
-                            {# <a class="ph-footer__body-menu-item-subtitle-link" href=""></a>#}
-                            {# </li>#}
-{#                            <li class="ph-footer__body-menu-item-subtitle">#}
-{#                                <a class="ph-footer__body-menu-item-subtitle-link" href="{{ path('contact') }}">Napiš nám</a>#}
-{#                            </li>#}
-                            <li class="ph-footer__body-menu-item-subtitle">
-                                <a class="ph-footer__body-menu-item-subtitle-link" href="{{ path('press') }}">Stáhni si logo</a>
-                            </li>
-
-                            <li class="ph-footer__body-menu-item-subtitle">
-                                <a class="ph-footer__body-menu-item-subtitle-link" href="{{ path('rss') }}">RSS blogu</a>
-                            </li>
-
-                            <li class="ph-footer__body-menu-item-subtitle">
-                                <a class="ph-footer__body-menu-item-subtitle-link" href="{{ path('privacy_policy') }}">Ochrana soukromí</a>
-                            </li>
-                            <li class="ph-footer__body-menu-item-subtitle">
-                                <a class="ph-footer__body-menu-item-subtitle-link" href="{{ path('for_speakers') }}">Pro speakry</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="ph-footer__footer d-flex">
-                <div class="align-items-center d-none d-md-flex">
-                    <p>Naši kamarádi</p>
-                </div>
-                <div class="ph-footer__footer-sponsor d-flex">
-                    <a href="https://www.jetbrains.com/" target="_blank" class="mr-4">
-                        <img src="/assets/icons/partners/jetbrains_blackandwhite.svg" alt="jetbrains" title="">
-                    </a>
-                    <a href="https://www.posobota.cz/" target="_blank">
-                        <img src="/assets/icons/partners/posledni_sobota.svg" alt="posledni_sobota" title="">
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
-</section>
+</div>
 
 {# to highlight code in blog posts and trainings #}
 <script src="{{ asset('build/js/app.js') }}"></script>
+
+<script src="{{ asset('assets/prism/prism.js') }}"></script>

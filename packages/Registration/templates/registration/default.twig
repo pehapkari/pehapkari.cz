@@ -1,33 +1,33 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <div id="trainings">
-        <div class="section">
-            <div class="container">
-                <h1 class="text-center">Přihláška na školení {{ training.getName() }}</h1>
+    <div id="trainings" class="container">
+        <div class="page-header">
+            <h1>Přihláška na školení</h1>
 
-                {# table? #}
-                <div class="row text-center mt-4 mb-4">
-                    <div class="col-4">
-                        Kdy? <strong>{{ trainingTerm|from_to }}</strong>
-                    </div>
-                    <div class="col-4">
-                        Kde? <a href="{{ path('place_detail') }}">
-                            <strong>Jablotron v Holešovicích</strong>
-                        </a>
-                    </div>
-                    <div class="col-4">
-                        Za kolik? <strong>{{ trainingTerm.price|number_format }} Kč</strong>
-                    </div>
-                </div>
+            <p>{{ training.getName() }}</p>
+        </div>
 
-                <br>
-
-                {# this alternative theme is also available #}
-                {% form_theme form 'bootstrap_4_layout.html.twig' %}
-
-                {{ form(form) }}
+        {# table? #}
+        <div class="row text-center mt-4 mb-4">
+            <div class="col-4">
+                Kdy? <strong>{{ trainingTerm|from_to }}</strong>
+            </div>
+            <div class="col-4">
+                Kde? <a href="{{ path('place_detail') }}">
+                    <strong>Jablotron v Holešovicích</strong>
+                </a>
+            </div>
+            <div class="col-4">
+                Za kolik? <strong>{{ trainingTerm.price|number_format }} Kč</strong>
             </div>
         </div>
+
+        <br>
+
+        {# this alternative theme is also available #}
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+        {{ form(form) }}
     </div>
 {% endblock %}

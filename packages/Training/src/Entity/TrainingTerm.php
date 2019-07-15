@@ -81,7 +81,7 @@ class TrainingTerm
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Provision\Entity\Expense", cascade={"remove"}, mappedBy="trainingTerm")
-     * @var Expense[]
+     * @var Expense[]|Collection
      */
     private $expenses = [];
 

@@ -1,24 +1,10 @@
 .homepage {
     .ph-heading__background {
         height: 400px;
-        margin-top: 46px;
+        margin-top: 1em;
         background-image: url(/assets/images/homepage/1@2x.jpg);
         background-size: cover;
         background-repeat: no-repeat;
-    }
-
-    .ph-heading {
-        .ph-heading__title {
-            margin-bottom: 45px;
-        }
-
-        .ph-heading__subtitle {
-            max-width: 350px;
-        }
-
-        .ph-button {
-            display: none;
-        }
     }
 
     .ph-first-col {

@@ -1,9 +1,13 @@
 <nav id="ph-nav" class="navbar fixed-top navbar-expand-lg navbar-light bg-light ph-nav border-bottom">
     <div class="container">
-        <a class="ph-nav__logo navbar-brand" href="{{ path('homepage') }}">
+        <a class="ph-nav__logo" href="{{ path('homepage') }}">
             <img src="/assets/icons/logo/logo_blue.svg" alt="logo" title="">
             <p class="ml-2">Péhápkaři</p>
         </a>
+
+        <div id="top-menu-search">
+            {% include "_snippets/search_form.twig" %}
+        </div>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,7 +16,7 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto" id="menu">
                 <li>
-                    <a class="{{ active_item(['trainings', 'training_detail', 'place_detail']) }}" href="{{ path('trainings') }}">
+                    <a class="{{ active_item(['trainings', 'training_detail', 'place_detail', 'registration']) }}" href="{{ path('trainings') }}">
                         Školení
                     </a>
                 </li>

@@ -12,16 +12,16 @@
         "chumper/zipper": "^1.0",
         "composer/ca-bundle": "^1.2",
         "dfridrich/ares": "^1.2",
-        "doctrine/annotations": "^1.7",
+        "doctrine/annotations": "^1.8",
         "doctrine/cache": "^1.8",
         "doctrine/doctrine-bundle": "^1.11",
         "doctrine/orm": "2.7.x-dev",
         "easycorp/easyadmin-bundle": "^2.3",
-        "fakturoid/fakturoid-php": "^1.0.1",
+        "fakturoid/fakturoid-php": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "j7mbo/twitter-api-php": "^1.0",
         "knplabs/doctrine-behaviors": "^1.6",
-        "sensio/framework-extra-bundle": "^5.4",
+        "sensio/framework-extra-bundle": "^5.5",
         "sentry/sentry": "^2.2",
         "sentry/sentry-symfony": "^3.2",
         "setasign/fpdf": "^1.8",
@@ -71,7 +71,7 @@
         "nette/forms": "^3.0",
         "phpstan/phpstan": "^0.11.16",
         "phpstan/phpstan-doctrine": "^0.11.6",
-        "phpunit/phpunit": "^8.3",
+        "phpunit/phpunit": "^8.4",
         "rector/rector": "dev-master",
         "roave/security-advisories": "dev-master",
         "spatie/http-status-check": "^3.1",
@@ -80,7 +80,7 @@
         "symplify/coding-standard": "^6.1",
         "symplify/easy-coding-standard": "^6.1",
         "symplify/phpstan-extensions": "^6.1",
-        "tracy/tracy": "^2.6"
+        "tracy/tracy": "^2.7"
     },
     "autoload": {
         "psr-4": {
@@ -112,8 +112,7 @@
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify --ansi",
         "dead-links": "vendor/bin/http-status-check scan https://pehapkari.cz --output invalid-links.txt --ansi --dont-crawl-external-links",
         "rector": "vendor/bin/rector process src tests --ansi",
-        "rector-dry": "vendor/bin/rector process src tests --ansi --dry-run",
-        "build-assets": "bin/build_assets.sh"
+        "rector-dry": "vendor/bin/rector process src tests --ansi --dry-run"
     },
     "config": {
         "sort-packages": true
