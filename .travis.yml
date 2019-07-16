@@ -9,28 +9,18 @@ jobs:
               - docker build --cache-from pehapkari/pehapkari.cz -t pehapkari/pehapkari.cz:$TRAVIS_COMMIT --target production -f Dockerfile .
               - docker push pehapkari/pehapkari.cz
 
-# before_install:
-#    - docker pull pehapkari/pehapkari.cz || true
-#    - docker build --cache-from pehapkari/pehapkari.cz -t pehapkari/pehapkari.cz:$TRAVIS_COMMIT --target production -f Dockerfile .
-# - docker push pehapkari/pehapkari.cz
+        - stage: test
+          script: docker run pehapkari/pehapkari.cz composer check-cs
+        - script: docker run pehapkari/pehapkari.cz composer phpstan
+        - script: docker run pehapkari/pehapkari.cz vendor/bin/phpunit
+        - script: docker run pehapkari/pehapkari.cz bin/console lint:yaml src packages
+        - script: docker run pehapkari/pehapkari.cz bin/console bin/console lint:twig packages templates
+        - script: docker run pehapkari/pehapkari.cz bin/console composer dead-links
+
+        # - stage: deploy
+        #  script:
 
 # script:
-#    - docker run pehapkari/pehapkari.cz composer check-cs
-#    - docker run pehapkari/pehapkari.cz composer phpstan
-
-#    - if [[ $HTTP_STATUS_CHECK == "" ]]; then vendor/bin/phpunit; fi
-
-    # code analysis
-#    - if [[ $HTTP_STATUS_CHECK == "" ]]; then composer check-cs; fi
-#    - if [[ $HTTP_STATUS_CHECK == "" ]]; then composer phpstan; fi
-
-    # linting
-#    - if [[ $HTTP_STATUS_CHECK == "" ]]; then bin/console lint:yaml src packages; fi
-#    - if [[ $HTTP_STATUS_CHECK == "" ]]; then bin/console lint:twig packages templates; fi
-
-    # status check
-#    - if [[ $HTTP_STATUS_CHECK == true ]]; then composer dead-links; fi
-
     # tweets posts
 #    - if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then vendor/bin/statie tweet-post statie/source; fi
 
