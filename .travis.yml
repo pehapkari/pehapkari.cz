@@ -1,16 +1,22 @@
-language: php
+dist: trusty
 
-services:
-    - docker
+jobs:
+    include:
+        - stage: build docker image
+          script:
+              - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+              - docker pull pehapkari/pehapkari.cz || true
+              - docker build --cache-from pehapkari/pehapkari.cz -t pehapkari/pehapkari.cz:$TRAVIS_COMMIT --target production -f Dockerfile .
+              - docker push pehapkari/pehapkari.cz
 
-before_install:
-    - docker pull pehapkari/pehapkari.cz || true
-    - docker build --cache-from pehapkari/pehapkari.cz -t pehapkari/pehapkari.cz:$TRAVIS_COMMIT --target production -f Dockerfile .
-    # - docker push pehapkari/pehapkari.cz
+# before_install:
+#    - docker pull pehapkari/pehapkari.cz || true
+#    - docker build --cache-from pehapkari/pehapkari.cz -t pehapkari/pehapkari.cz:$TRAVIS_COMMIT --target production -f Dockerfile .
+# - docker push pehapkari/pehapkari.cz
 
-script:
-    - docker run pehapkari/pehapkari.cz composer check-cs
-    - docker run pehapkari/pehapkari.cz composer phpstan
+# script:
+#    - docker run pehapkari/pehapkari.cz composer check-cs
+#    - docker run pehapkari/pehapkari.cz composer phpstan
 
 #    - if [[ $HTTP_STATUS_CHECK == "" ]]; then vendor/bin/phpunit; fi
 
