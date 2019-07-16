@@ -17,8 +17,13 @@ jobs:
         - script: docker run pehapkari/pehapkari.cz bin/console bin/console lint:twig packages templates
         - script: docker run pehapkari/pehapkari.cz bin/console composer dead-links
 
-        # - stage: deploy
-        #  script:
+        - stage: deploy
+          script:
+            -  eval $(ssh-agent -s)
+            - mkdir -p ~/.ssh
+            - ssh-keyscan -H pehapkari.cz >> ~/.ssh/known_hosts
+            - echo "$DEPLOY_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+            - ssh root@pehapkari.cz "cd /projects/pehapkari.cz && ./run.sh"
 
 # script:
     # tweets posts
