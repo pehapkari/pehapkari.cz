@@ -1,13 +1,14 @@
 {% extends '@!EasyAdmin/default/layout.html.twig' %}
 
+{% block content_header %}
+    <h2>
+        Provision for <strong>{{ trainingTerm }}</strong>
+    </h2>
+
+{% endblock %}
+
 {% block main %}
     <div class="pt-4 pb-4 pl-4 pr-4">
-        <h2 class="text-center">
-            Provision for <strong>{{ trainingTerm }}</strong>
-        </h2>
-
-        <br>
-
         <div class="row">
             <div class="col-4">
                 <table class="table table-bordered">
@@ -29,12 +30,21 @@
                             Expenses
                             <a class="btn btn-danger ml-2" href="{{ path('easyadmin', {action: 'new', entity: 'Expense', trainingTerm: trainingTerm.getId() }) }}">Add</a>
                         </td>
-                        <td class="text-right text-danger">- {{ expense|number_format }} Kč</td>
+                        <td class="text-right text-danger">
+                            - {{ expense|number_format }} Kč
+                            <br>
+
+                            {% for single_expense in trainingTerm.expe %}
+                                {
+                            {% endfor %}
+                        </td>
                     </tr>
 
                     <tr class="bg-dark text-light">
                         <th>Profit</th>
-                        <th class="text-right">{{ profit|number_format }} Kč</th>
+                        <th class="text-right text-nowrap">
+                            {{ profit|number_format }} Kč
+                        </th>
                     </tr>
                 </table>
             </div>
@@ -63,8 +73,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Expenses <span class="text-muted">(lunch)</span></td>
-                        <td class="text-right">{{ trainerExpense|number_format }} Kč</td>
+                        <td>
+                            Expenses <span class="text-muted">(lunch)</span>
+                        </td>
+                        <td class="text-right text-nowrap">
+                            {{ trainerExpense|number_format }} Kč
+                        </td>
                     </tr>
                     <tr>
                         <td>Provision</td>
@@ -72,7 +86,9 @@
                     </tr>
                     <tr class="bg-dark text-light">
                         <th>Provision + Expense Coverage</th>
-                        <th class="text-right">{{ trainerProvisionWithExpense|number_format }} Kč</th>
+                        <th class="text-right text-nowrap">
+                            {{ trainerProvisionWithExpense|number_format }} Kč
+                        </th>
                     </tr>
                     <tr>
                         <td colspan="2" class="text-center">

@@ -2,12 +2,11 @@
 
 namespace Pehapkari\Marketing;
 
-use Pehapkari\Marketing\Entity\MarketingCampaign;
 use Pehapkari\Marketing\Entity\MarketingEvent;
 use Pehapkari\Marketing\ValueObject\MarketingCampaignPlanItem;
 use Pehapkari\Training\Entity\TrainingTerm;
 
-final class MarketingCampaignFactory
+final class MarketingEventsFactory
 {
     /**
      * @var MarketingCampaignPlanProvider
@@ -19,18 +18,20 @@ final class MarketingCampaignFactory
         $this->marketingCampaignPlanProvider = $marketingCampaignPlanProvider;
     }
 
-    public function createMarketingCampaign(TrainingTerm $trainingTerm): MarketingCampaign
+    /**
+     * @return MarketingEvent[]
+     */
+    public function createMarketingEvents(TrainingTerm $trainingTerm): array
     {
-        $marketingCampaign = new MarketingCampaign();
-        $marketingCampaign->setTrainingTerm($trainingTerm);
+        $marketingCampaignEvents = [];
 
         foreach ($this->marketingCampaignPlanProvider->provide() as $marketingCampaignPlanItem) {
             $marketingCampaignEvent = $this->createMarketingEvent($trainingTerm, $marketingCampaignPlanItem);
-            $marketingCampaign->addEvent($marketingCampaignEvent);
-            $marketingCampaignEvent->setMarketingCampaign($marketingCampaign);
+            $marketingCampaignEvent->setTrainingTerm($trainingTerm);
+            $marketingCampaignEvents[] = $marketingCampaignEvent;
         }
 
-        return $marketingCampaign;
+        return $marketingCampaignEvents;
     }
 
     private function createMarketingEvent(

@@ -24,13 +24,13 @@ final class ExpenseRepository
     public function getExpensesByTrainingTerm(TrainingTerm $trainingTerm): TrainingTermExpenses
     {
         return new TrainingTermExpenses(
-            $this->getExpesnseByTrainingTermAndPartner($trainingTerm, Partner::TRAINER),
-            $this->getExpesnseByTrainingTermAndPartner($trainingTerm, Partner::ORGANIZER),
-            $this->getExpesnseByTrainingTermAndPartner($trainingTerm, Partner::OWNER)
+            $this->getExpensesByTrainingTermAndPartner($trainingTerm, Partner::TRAINER),
+            $this->getExpensesByTrainingTermAndPartner($trainingTerm, Partner::ORGANIZER),
+            $this->getExpensesByTrainingTermAndPartner($trainingTerm, Partner::OWNER)
         );
     }
 
-    private function getExpesnseByTrainingTermAndPartner(TrainingTerm $trainingTerm, string $partner): float
+    private function getExpensesByTrainingTermAndPartner(TrainingTerm $trainingTerm, string $partner): float
     {
         return (float) $this->entityRepository->createQueryBuilder('e')
             ->select('SUM(e.amount) as expense')

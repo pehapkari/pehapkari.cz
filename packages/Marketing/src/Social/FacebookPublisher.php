@@ -32,7 +32,7 @@ final class FacebookPublisher
 
     public function publishMarketingEvent(MarketingEvent $marketingEvent): void
     {
-        $trainingTerm = $marketingEvent->getMarketingCampaign()->getTrainingTerm();
+        $trainingTerm = $marketingEvent->getTrainingTerm();
         if ($trainingTerm === null) {
             throw new ShouldNotHappenException();
         }

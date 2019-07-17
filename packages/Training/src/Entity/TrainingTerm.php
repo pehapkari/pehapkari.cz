@@ -10,6 +10,8 @@ use Nette\Utils\DateTime as NetteDateTime;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
 use Pehapkari\Doctrine\EventSubscriber\SetUploadDestinationOnPostLoadEventSubscriber;
+use Pehapkari\Marketing\Entity\MarketingEvent;
+use Pehapkari\Provision\Data\TrainingTermExpenses;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -82,6 +84,18 @@ class TrainingTerm implements UploadDestinationAwareInterface
     private $registrations;
 
     /**
+     * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", cascade={"remove"}, mappedBy="trainingTerm")
+     * @var MarketingEvent[]
+     */
+    private $marketingEvents = [];
+
+    /**
+     * @ORM\OneToMany(targetEntity="Pehapkari\Provision\Data\TrainingTermExpenses", cascade={"remove"}, mappedBy="trainingTerm")
+     * @var TrainingTermExpenses[]
+     */
+    private $trainingExpenses = [];
+
+    /**
      * @var string
      */
     private $uploadDestination;
@@ -89,6 +103,8 @@ class TrainingTerm implements UploadDestinationAwareInterface
     public function __construct()
     {
         $this->registrations = new ArrayCollection();
+        $this->marketingEvents = new ArrayCollection();
+        $this->trainingExpenses = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -174,9 +190,11 @@ class TrainingTerm implements UploadDestinationAwareInterface
         $income = 0.0;
 
         foreach ($this->registrations as $registration) {
-            if ($registration->isPaid()) {
-                $income += $registration->getPrice();
+            if (! $registration->isPaid()) {
+                continue;
             }
+
+            $income += $registration->getPrice() * $registration->getParticipantCount();
         }
 
         return $income;
@@ -285,6 +303,35 @@ class TrainingTerm implements UploadDestinationAwareInterface
     public function isRegistrationOpen(): bool
     {
         return $this->getDeadlineDateTime() > NetteDateTime::from('now');
+    }
+
+    /**
+     * @return ArrayCollection|MarketingEvent[]
+     */
+    public function getMarketingEvents()
+    {
+        return $this->marketingEvents;
+    }
+
+    /**
+     * @param MarketingEvent[] $marketingEvents
+     */
+    public function setMarketingEvents(array $marketingEvents): void
+    {
+        $this->marketingEvents = $marketingEvents;
+    }
+
+    public function hasMarketingEvents(): bool
+    {
+        return (bool) $this->marketingEvents;
+    }
+
+    /**
+     * @return ArrayCollection|TrainingTermExpenses[]
+     */
+    public function getTrainingExpenses()
+    {
+        return $this->trainingExpenses;
     }
 
     private function getTrainerImage(): ?string

@@ -122,7 +122,7 @@ final class PublishMarketingEventCommand extends Command
         $marketingEvent->setPublishedAt(new DateTime());
         $this->marketingEventRepository->save($marketingEvent);
 
-        $trainingName = $marketingEvent->getMarketingCampaign()->getTrainingTerm()->getTrainingName();
+        $trainingName = $marketingEvent->getTrainingTerm()->getTrainingName();
 
         $this->symfonyStyle->success(sprintf(
             'Event for "%s" and "%s" training was published.',
