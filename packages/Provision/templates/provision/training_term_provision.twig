@@ -83,31 +83,37 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            Expenses <span class="text-muted">(lunch)</span>
-                        </td>
-                        <td class="text-right text-nowrap">
-                            {{ trainer_expense_total|number_format }} Kč
-                        </td>
-                    </tr>
-                    <tr>
                         <td>Provision</td>
                         <td class="text-right">{{ trainerProvision|number_format }} Kč</td>
                     </tr>
+
+                    {% if trainer_expense_total %}
+                        <tr>
+                            <td>
+                                Expenses <span class="text-muted">(e.g. lunch)</span>
+                            </td>
+                            <td class="text-right text-nowrap{% if trainer_expense_total %} text-success{% endif %}">
+                                {% if trainer_expense_total %}+ {% endif %}
+                                {{ trainer_expense_total|number_format }} Kč
+                            </td>
+                        </tr>
+                    {% endif %}
+
                     <tr class="bg-dark text-light">
-                        <th>Provision + Expense Coverage</th>
+                        <th>Total Amount to Pay</th>
                         <th class="text-right text-nowrap">
                             {{ trainerProvisionWithExpense|number_format }} Kč
                         </th>
                     </tr>
-                    <tr>
-                        <td colspan="2" class="text-center">
-                            <a href="..." class="btn btn-lg btn-info">
-                                Ask for Invoice by mail @todo
-                            </a>
-                        </td>
-                    </tr>
                 </table>
+
+                {% if trainingTerm.provisionPaid == false %}
+                    <div class="text-center mt-4">
+                        <a href="..." class="btn btn-lg btn-info">
+                            Ask for Invoice by mail @todo
+                        </a>
+                    </div>
+                {% endif %}
             </div>
 
             <div class="col-4">
@@ -121,18 +127,10 @@
                         <td>Provision Rate</td>
                         <td class="text-right">{{ ownerProvisionRate }} %</td>
                     </tr>
-                    <tr>
-                        <td>
-                            Expenses
-                            <span class="text-muted">(rent)</span>
-                        </td>
-                        <td class="text-right">{{ owner_expense_total|number_format }} Kč</td>
-                    </tr>
                     <tr class="bg-dark text-light">
                         <th>Provision</th>
                         <th class="text-right">{{ ownerProvision|number_format }} Kč</th>
                     </tr>
-
                 </table>
             </div>
         </div>

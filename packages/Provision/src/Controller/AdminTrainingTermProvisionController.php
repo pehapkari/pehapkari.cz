@@ -52,7 +52,6 @@ final class AdminTrainingTermProvisionController extends EasyAdminController
             'profit' => $profit,
 
             // expense
-            'owner_expense_total' => $trainingTerm->getOwnerExpenseTotal(),
             'trainer_expense_total' => $trainingTerm->getTrainerExpenseTotal(),
 
             // trainer
