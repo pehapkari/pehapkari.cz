@@ -7,11 +7,6 @@ final class Partner
     /**
      * @var string
      */
-    public const ORGANIZER = 'organizer';
-
-    /**
-     * @var string
-     */
     public const TRAINER = 'trainer';
 
     /**

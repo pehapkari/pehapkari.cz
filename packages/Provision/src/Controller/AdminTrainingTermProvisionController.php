@@ -3,7 +3,6 @@
 namespace Pehapkari\Provision\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
-use Pehapkari\Provision\Repository\ExpenseRepository;
 use Pehapkari\Training\Entity\TrainingTerm;
 use Pehapkari\Training\Repository\TrainingTermRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,18 +11,12 @@ use Symfony\Component\Routing\Annotation\Route;
 final class AdminTrainingTermProvisionController extends EasyAdminController
 {
     /**
-     * @var ExpenseRepository
-     */
-    private $expenseRepository;
-
-    /**
      * @var TrainingTermRepository
      */
     private $trainingTermRepository;
 
-    public function __construct(ExpenseRepository $expenseRepository, TrainingTermRepository $trainingTermRepository)
+    public function __construct(TrainingTermRepository $trainingTermRepository)
     {
-        $this->expenseRepository = $expenseRepository;
         $this->trainingTermRepository = $trainingTermRepository;
     }
 
@@ -32,9 +25,7 @@ final class AdminTrainingTermProvisionController extends EasyAdminController
      */
     public function trainingTermProvision(TrainingTerm $trainingTerm): Response
     {
-        $trainingTermExpense = $this->expenseRepository->getExpensesByTrainingTerm($trainingTerm);
-
-        $profit = $trainingTerm->getIncome() - $trainingTermExpense->getTotal();
+        $profit = $trainingTerm->getIncome() - $trainingTerm->getExpensesTotal();
 
         $previouslyFinishedTrainingCount = $this->trainingTermRepository->getCountOfPreviousTrainingTermsByTrainer(
             $trainingTerm
@@ -43,7 +34,7 @@ final class AdminTrainingTermProvisionController extends EasyAdminController
         // trainer
         $trainerProvisionRate = $previouslyFinishedTrainingCount >= 5 ? 70.0 : 50.0;
         $trainerProvision = ceil($profit * ($trainerProvisionRate / 100.0)); // be nice with ceil :)
-        $trainerProvisionWithExpense = $trainerProvision + $trainingTermExpense->getTrainerExpense();
+        $trainerProvisionWithExpense = $trainerProvision + $trainingTerm->getTrainerExpenseTotal();
 
         // owner (the rest)
         $ownerProvisionRate = 100.0 - $trainerProvisionRate;
@@ -57,12 +48,12 @@ final class AdminTrainingTermProvisionController extends EasyAdminController
             'trainingTerm' => $trainingTerm,
             // numbers
             'income' => $trainingTerm->getIncome(),
-            'expense' => $trainingTermExpense->getTotal(),
+            'expenses_total' => $trainingTerm->getExpensesTotal(),
             'profit' => $profit,
+
             // expense
-            'ownerExpense' => $trainingTermExpense->getOwnerExpense(),
-            'organizerExpense' => $trainingTermExpense->getOrganizerExpense(),
-            'trainerExpense' => $trainingTermExpense->getTrainerExpense(),
+            'owner_expense_total' => $trainingTerm->getOwnerExpenseTotal(),
+            'trainer_expense_total' => $trainingTerm->getTrainerExpenseTotal(),
 
             // trainer
             'trainerProvisionRate' => $trainerProvisionRate,

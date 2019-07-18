@@ -11,7 +11,8 @@ use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
 use Pehapkari\Doctrine\EventSubscriber\SetUploadDestinationOnPostLoadEventSubscriber;
 use Pehapkari\Marketing\Entity\MarketingEvent;
-use Pehapkari\Provision\Data\TrainingTermExpenses;
+use Pehapkari\Provision\Data\Partner;
+use Pehapkari\Provision\Entity\Expense;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -84,16 +85,16 @@ class TrainingTerm implements UploadDestinationAwareInterface
     private $registrations;
 
     /**
-     * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", cascade={"remove"}, mappedBy="trainingTerm")
+     * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", cascade={"persist", "remove"}, mappedBy="trainingTerm")
      * @var MarketingEvent[]
      */
     private $marketingEvents = [];
 
     /**
-     * @ORM\OneToMany(targetEntity="Pehapkari\Provision\Data\TrainingTermExpenses", cascade={"remove"}, mappedBy="trainingTerm")
-     * @var TrainingTermExpenses[]
+     * @ORM\OneToMany(targetEntity="Pehapkari\Provision\Entity\Expense", cascade={"remove"}, mappedBy="trainingTerm")
+     * @var Expense[]
      */
-    private $trainingExpenses = [];
+    private $expenses = [];
 
     /**
      * @var string
@@ -104,7 +105,7 @@ class TrainingTerm implements UploadDestinationAwareInterface
     {
         $this->registrations = new ArrayCollection();
         $this->marketingEvents = new ArrayCollection();
-        $this->trainingExpenses = new ArrayCollection();
+        $this->expenses = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -327,15 +328,51 @@ class TrainingTerm implements UploadDestinationAwareInterface
     }
 
     /**
-     * @return ArrayCollection|TrainingTermExpenses[]
+     * @return ArrayCollection|Expense[]
      */
-    public function getTrainingExpenses()
+    public function getExpenses()
     {
-        return $this->trainingExpenses;
+        return $this->expenses;
+    }
+
+    public function getOwnerExpenseTotal(): float
+    {
+        return $this->getExpenseTotalByPartner(Partner::OWNER);
+    }
+
+    public function getTrainerExpenseTotal(): float
+    {
+        return $this->getExpenseTotalByPartner(Partner::TRAINER);
+    }
+
+    public function getExpensesTotal(): float
+    {
+        $amount = 0.0;
+
+        foreach ($this->expenses as $expense) {
+            $amount += $expense->getAmount();
+        }
+
+        return $amount;
     }
 
     private function getTrainerImage(): ?string
     {
         return $this->getTrainer() ? $this->getTrainer()->getImage() : null;
+    }
+
+    private function getExpenseTotalByPartner(string $partnerKind): float
+    {
+        $amount = 0.0;
+
+        foreach ($this->expenses as $expense) {
+            if ($expense->getPartner() !== $partnerKind) {
+                continue;
+            }
+
+            $amount += $expense->getAmount();
+        }
+
+        return $amount;
     }
 }

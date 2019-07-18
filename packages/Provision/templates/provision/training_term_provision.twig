@@ -31,14 +31,24 @@
                             <a class="btn btn-danger ml-2" href="{{ path('easyadmin', {action: 'new', entity: 'Expense', trainingTerm: trainingTerm.getId() }) }}">Add</a>
                         </td>
                         <td class="text-right text-danger">
-                            - {{ expense|number_format }} Kč
-                            <br>
-
-                            {% for single_expense in trainingTerm.expe %}
-                                {
-                            {% endfor %}
+                            - {{ expenses_total|number_format }} Kč
                         </td>
                     </tr>
+
+                    {% if trainingTerm.expenses %}
+                        <tr>
+                            <td colspan="2">
+                                <table class="table">
+                                    {% for expense in trainingTerm.expenses %}
+                                        <tr>
+                                            <td>{{ expense.note }}</td>
+                                            <td class="text-right text-danger">- {{ expense.amount|number_format }} Kč</td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </td>
+                        </tr>
+                    {% endif %}
 
                     <tr class="bg-dark text-light">
                         <th>Profit</th>
@@ -77,7 +87,7 @@
                             Expenses <span class="text-muted">(lunch)</span>
                         </td>
                         <td class="text-right text-nowrap">
-                            {{ trainerExpense|number_format }} Kč
+                            {{ trainer_expense_total|number_format }} Kč
                         </td>
                     </tr>
                     <tr>
@@ -116,7 +126,7 @@
                             Expenses
                             <span class="text-muted">(rent)</span>
                         </td>
-                        <td class="text-right">{{ ownerExpense|number_format }} Kč</td>
+                        <td class="text-right">{{ owner_expense_total|number_format }} Kč</td>
                     </tr>
                     <tr class="bg-dark text-light">
                         <th>Provision</th>
