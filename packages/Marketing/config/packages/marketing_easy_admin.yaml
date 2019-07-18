@@ -1,8 +1,0 @@
-easy_admin:
-    entities:
-        MarketingCampaign:
-            class: 'Pehapkari\Marketing\Entity\MarketingCampaign'
-            controller: 'Pehapkari\Marketing\Admin\Controller\AdminMarketingController'
-            list:
-#                fields:
-#                    - 'name'

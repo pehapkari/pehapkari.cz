@@ -4,12 +4,16 @@ namespace Pehapkari\Marketing\Entity;
 
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\Timestampable;
+use Pehapkari\Training\Entity\TrainingTerm;
 
 /**
  * @ORM\Entity
  */
 class MarketingEvent
 {
+    use Timestampable;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -43,10 +47,10 @@ class MarketingEvent
     private $publishedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Pehapkari\Marketing\Entity\MarketingCampaign", inversedBy="events")
-     * @var MarketingCampaign
+     * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm", inversedBy="marketingEvents")
+     * @var TrainingTerm
      */
-    private $marketingCampaign;
+    private $trainingTerm;
 
     /**
      * @ORM\Column(type="boolean")
@@ -62,16 +66,6 @@ class MarketingEvent
     public function setId(?int $id): void
     {
         $this->id = $id;
-    }
-
-    public function getMarketingCampaign(): ?MarketingCampaign
-    {
-        return $this->marketingCampaign;
-    }
-
-    public function setMarketingCampaign(?MarketingCampaign $marketingCampaign): void
-    {
-        $this->marketingCampaign = $marketingCampaign;
     }
 
     public function isDone(): ?bool
@@ -122,5 +116,15 @@ class MarketingEvent
     public function setPublishedAt(?DateTimeInterface $publishedAt): void
     {
         $this->publishedAt = $publishedAt;
+    }
+
+    public function getTrainingTerm(): ?TrainingTerm
+    {
+        return $this->trainingTerm;
+    }
+
+    public function setTrainingTerm(?TrainingTerm $trainingTerm): void
+    {
+        $this->trainingTerm = $trainingTerm;
     }
 }

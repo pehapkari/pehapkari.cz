@@ -4,8 +4,6 @@ namespace Pehapkari\Provision\Admin\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Pehapkari\Provision\Data\Partner;
-use Pehapkari\Provision\Entity\Expense;
-use Pehapkari\Training\Entity\TrainingTerm;
 use Pehapkari\Training\Repository\TrainingTermRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormInterface;
@@ -31,7 +29,7 @@ final class AdminExpenseController extends EasyAdminController
     protected function createEditForm($entity, array $entityProperties): FormInterface
     {
         $editForm = parent::createEditForm($entity, $entityProperties);
-        $this->decorateForm($editForm);
+        $this->addPartnerConstantChoices($editForm);
         return $editForm;
     }
 
@@ -42,40 +40,33 @@ final class AdminExpenseController extends EasyAdminController
     {
         $newForm = parent::createNewForm($entity, $entityProperties);
 
-        $this->decorateForm($newForm);
+        $this->selectTrainingTermBasedOnUrl($newForm);
+        $this->addPartnerConstantChoices($newForm);
+
         return $newForm;
     }
 
-    protected function createExpenseEntityForm(): FormInterface
-    {
-        $expense = $this->createExpenseFromRequest();
-        $formBuilder = $this->createEntityFormBuilder($expense, 'new');
-
-        return $formBuilder->getForm();
-    }
-
-    private function decorateForm(FormInterface $form): void
+    private function addPartnerConstantChoices(FormInterface $form): void
     {
         $form->add('partner', ChoiceType::class, [
             'choices' => [
                 // label => value
-                'Trainer' => Partner::TRAINER,
                 'Edukai, s. r. o.' => Partner::OWNER,
+                'Trainer' => Partner::TRAINER,
             ],
         ]);
     }
 
-    private function createExpenseFromRequest(): Expense
+    private function selectTrainingTermBasedOnUrl(FormInterface $form): void
     {
         $trainingTermId = $this->request->get('trainingTerm');
-        $expense = new Expense();
-        if ($trainingTermId) {
-            $trainingTerm = $this->trainingTermRepository->getReference($trainingTermId);
-            if ($trainingTerm instanceof TrainingTerm) {
-                $expense->setTrainingTerm($trainingTerm);
-            }
+        if ($trainingTermId === null) {
+            return;
         }
 
-        return $expense;
+        $trainingTerm = $this->trainingTermRepository->getReference($trainingTermId);
+
+        $expense = $form->getData();
+        $expense->setTrainingTerm($trainingTerm);
     }
 }

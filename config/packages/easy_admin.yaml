@@ -56,7 +56,7 @@ easy_admin:
             -
                 label: 'Marketing'
                 icon: 'mail-bulk'
-                entity: 'MarketingCampaign'
+                entity: 'MarketingEvent'
             -
                 icon: 'comment'
                 label: 'Feedback to Revise'

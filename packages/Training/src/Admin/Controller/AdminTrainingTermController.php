@@ -3,8 +3,7 @@
 namespace Pehapkari\Training\Admin\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
-use Pehapkari\Marketing\MarketingCampaignFactory;
-use Pehapkari\Marketing\Repository\MarketingCampaignRepository;
+use Pehapkari\Marketing\MarketingEventsFactory;
 use Pehapkari\Training\Repository\TrainingTermRepository;
 
 /**
@@ -18,41 +17,35 @@ final class AdminTrainingTermController extends EasyAdminController
     private $trainingTermRepository;
 
     /**
-     * @var MarketingCampaignRepository
+     * @var MarketingEventsFactory
      */
-    private $marketingCampaignRepository;
-
-    /**
-     * @var MarketingCampaignFactory
-     */
-    private $marketingCampaignFactory;
+    private $marketingEventsFactory;
 
     public function __construct(
         TrainingTermRepository $trainingTermRepository,
-        MarketingCampaignRepository $marketingCampaignRepository,
-        MarketingCampaignFactory $marketingCampaignFactory
+        MarketingEventsFactory $marketingEventsFactory
     ) {
         $this->trainingTermRepository = $trainingTermRepository;
-        $this->marketingCampaignRepository = $marketingCampaignRepository;
-        $this->marketingCampaignFactory = $marketingCampaignFactory;
+        $this->marketingEventsFactory = $marketingEventsFactory;
     }
 
     /**
      * @param int[] $ids
      */
-    public function generateMarketingCampaignBatchAction(array $ids): void
+    public function generateMarketingEventsBatchAction(array $ids): void
     {
         $trainingTerms = $this->trainingTermRepository->findByIds($ids);
 
         foreach ($trainingTerms as $trainingTerm) {
-            if ($this->marketingCampaignRepository->hasTrainingTermMarketingCampaign($trainingTerm)) {
+            if ($trainingTerm->hasMarketingEvents()) {
                 $this->addFlash('warning', sprintf('Kampaň pro termín "%s" už existuje', (string) $trainingTerm));
                 continue;
             }
 
-            $marketingCampaign = $this->marketingCampaignFactory->createMarketingCampaign($trainingTerm);
+            $marketingEvents = $this->marketingEventsFactory->createMarketingEvents($trainingTerm);
+            $trainingTerm->setMarketingEvents($marketingEvents);
 
-            $this->marketingCampaignRepository->save($marketingCampaign);
+            $this->trainingTermRepository->save($trainingTerm);
 
             $this->addFlash('success', sprintf('Kampaň pro "%s" byla vytvořena', (string) $trainingTerm));
         }

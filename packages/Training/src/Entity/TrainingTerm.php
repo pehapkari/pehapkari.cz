@@ -10,6 +10,9 @@ use Nette\Utils\DateTime as NetteDateTime;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
 use Pehapkari\Doctrine\EventSubscriber\SetUploadDestinationOnPostLoadEventSubscriber;
+use Pehapkari\Marketing\Entity\MarketingEvent;
+use Pehapkari\Provision\Data\Partner;
+use Pehapkari\Provision\Entity\Expense;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -82,6 +85,18 @@ class TrainingTerm implements UploadDestinationAwareInterface
     private $registrations;
 
     /**
+     * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", cascade={"persist", "remove"}, mappedBy="trainingTerm")
+     * @var MarketingEvent[]
+     */
+    private $marketingEvents = [];
+
+    /**
+     * @ORM\OneToMany(targetEntity="Pehapkari\Provision\Entity\Expense", cascade={"remove"}, mappedBy="trainingTerm")
+     * @var Expense[]
+     */
+    private $expenses = [];
+
+    /**
      * @var string
      */
     private $uploadDestination;
@@ -89,6 +104,8 @@ class TrainingTerm implements UploadDestinationAwareInterface
     public function __construct()
     {
         $this->registrations = new ArrayCollection();
+        $this->marketingEvents = new ArrayCollection();
+        $this->expenses = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -174,9 +191,11 @@ class TrainingTerm implements UploadDestinationAwareInterface
         $income = 0.0;
 
         foreach ($this->registrations as $registration) {
-            if ($registration->isPaid()) {
-                $income += $registration->getPrice();
+            if (! $registration->isPaid()) {
+                continue;
             }
+
+            $income += $registration->getPrice() * $registration->getParticipantCount();
         }
 
         return $income;
@@ -287,8 +306,73 @@ class TrainingTerm implements UploadDestinationAwareInterface
         return $this->getDeadlineDateTime() > NetteDateTime::from('now');
     }
 
+    /**
+     * @return ArrayCollection|MarketingEvent[]
+     */
+    public function getMarketingEvents()
+    {
+        return $this->marketingEvents;
+    }
+
+    /**
+     * @param MarketingEvent[] $marketingEvents
+     */
+    public function setMarketingEvents(array $marketingEvents): void
+    {
+        $this->marketingEvents = $marketingEvents;
+    }
+
+    public function hasMarketingEvents(): bool
+    {
+        return (bool) $this->marketingEvents;
+    }
+
+    /**
+     * @return ArrayCollection|Expense[]
+     */
+    public function getExpenses()
+    {
+        return $this->expenses;
+    }
+
+    public function getOwnerExpenseTotal(): float
+    {
+        return $this->getExpenseTotalByPartner(Partner::OWNER);
+    }
+
+    public function getTrainerExpenseTotal(): float
+    {
+        return $this->getExpenseTotalByPartner(Partner::TRAINER);
+    }
+
+    public function getExpensesTotal(): float
+    {
+        $amount = 0.0;
+
+        foreach ($this->expenses as $expense) {
+            $amount += $expense->getAmount();
+        }
+
+        return $amount;
+    }
+
     private function getTrainerImage(): ?string
     {
         return $this->getTrainer() ? $this->getTrainer()->getImage() : null;
+    }
+
+    private function getExpenseTotalByPartner(string $partnerKind): float
+    {
+        $amount = 0.0;
+
+        foreach ($this->expenses as $expense) {
+            if ($expense->getPartner() !== $partnerKind) {
+                continue;
+            }
+
+            $amount += $expense->getAmount();
+        }
+
+        return $amount;
     }
 }

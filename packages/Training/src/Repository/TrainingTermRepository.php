@@ -135,6 +135,12 @@ final class TrainingTermRepository
             ->getSingleScalarResult();
     }
 
+    public function save(TrainingTerm $trainingTerm): void
+    {
+        $this->entityManager->persist($trainingTerm);
+        $this->entityManager->flush();
+    }
+
     /**
      * @return TrainingTerm[]
      */
