@@ -10,12 +10,12 @@ jobs:
               - docker push pehapkari/pehapkari.cz
 
         - stage: test
-          script: docker run pehapkari/pehapkari.cz composer check-cs
-        - script: docker run pehapkari/pehapkari.cz composer phpstan
-        - script: docker run pehapkari/pehapkari.cz vendor/bin/phpunit
-        - script: docker run pehapkari/pehapkari.cz bin/console lint:yaml src packages
-        - script: docker run pehapkari/pehapkari.cz bin/console bin/console lint:twig packages templates
-        - script: docker run pehapkari/pehapkari.cz bin/console composer dead-links
+          script: docker run pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer check-cs
+        - script: docker run pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer phpstan
+        - script: docker run pehapkari/pehapkari.cz:$TRAVIS_COMMIT vendor/bin/phpunit
+        - script: docker run pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console lint:yaml src packages
+        - script: docker run pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console bin/console lint:twig packages templates
+        - script: docker run pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console composer dead-links
 
         - stage: deploy
           script:
