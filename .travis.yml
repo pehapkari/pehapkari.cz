@@ -2,11 +2,6 @@ dist: trusty
 
 jobs:
     include:
-        - stage: test key
-          script:
-              - echo $DEPLOY_PRIVATE_KEY
-              - echo "$DEPLOY_PRIVATE_KEY"
-
         - stage: build docker image
           script:
               - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
