@@ -30,6 +30,7 @@ jobs:
         - stage: deploy
           name: Deploy to pehapkari.cz
           if: branch = master AND type = push
+          script: skip
           deploy:
               - provider: script
                 script: sh bin/deploy.sh
@@ -38,6 +39,7 @@ jobs:
         - stage: deploy
           name: Deploy to new.pehapkari.cz
           if: branch = design-in-a-day
+          script: skip
           deploy:
             - provider: script
               script: sh bin/deploy-new.sh
