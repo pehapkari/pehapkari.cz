@@ -109,8 +109,8 @@
 
                 {% if trainingTerm.provisionPaid == false %}
                     <div class="text-center mt-4">
-                        <a href="..." class="btn btn-lg btn-info">
-                            Ask for Invoice by mail @todo
+                        <a href="{{ path('send_email_to_trainer_with_amount_to_invoice', {'id': trainingTerm.id }) }}" class="btn btn-lg btn-info">
+                            Send Mail with Amount to Invoice
                         </a>
                     </div>
                 {% endif %}
