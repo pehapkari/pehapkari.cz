@@ -2,7 +2,8 @@ dist: trusty
 
 jobs:
     include:
-        - stage: build docker image
+        - stage: build
+          name: Build docker image
           script:
               - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
               - docker pull pehapkari/pehapkari.cz || true
@@ -24,12 +25,32 @@ jobs:
           name: Dead links
 
         - stage: deploy
+          name: Deploy to pehapkari.cz
+          if: branch = master
           script:
-            -  eval $(ssh-agent -s)
+            - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+            - docker pull pehapkari/pehapkari.cz:$TRAVIS_COMMIT
+            - docker tag pehapkari/pehapkari.cz:$TRAVIS_COMMIT pehapkari/pehapkari.cz:latest
+            - docker push pehapkari/pehapkari.cz
+            - eval $(ssh-agent -s)
             - mkdir -p ~/.ssh
             - ssh-keyscan -H pehapkari.cz >> ~/.ssh/known_hosts
             - echo "$DEPLOY_PRIVATE_KEY" | ssh-add - > /dev/null
             - ssh root@pehapkari.cz "cd /projects/pehapkari.cz && ./run.sh"
+
+        - stage: deploy
+          name: Deploy to new.pehapkari.cz
+          if: branch = design-in-a-day
+          script:
+            - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+            - docker pull pehapkari/pehapkari.cz:$TRAVIS_COMMIT
+            - docker tag pehapkari/pehapkari.cz:$TRAVIS_COMMIT pehapkari/pehapkari.cz:design-in-a-day
+            - docker push pehapkari/pehapkari.cz
+            - eval $(ssh-agent -s)
+            - mkdir -p ~/.ssh
+            - ssh-keyscan -H pehapkari.cz >> ~/.ssh/known_hosts
+            - echo "$DEPLOY_PRIVATE_KEY" | ssh-add - > /dev/null
+            - ssh root@pehapkari.cz "cd /projects/pehapkari.cz && ./run-new.sh"
 
 # script:
     # tweets posts
