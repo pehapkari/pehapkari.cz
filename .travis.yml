@@ -26,7 +26,7 @@ jobs:
 
         - stage: deploy
           name: Deploy to pehapkari.cz
-          if: branch = master
+          if: branch = master AND type = push
           script:
             - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             - docker pull pehapkari/pehapkari.cz:$TRAVIS_COMMIT
@@ -40,7 +40,7 @@ jobs:
 
         - stage: deploy
           name: Deploy to new.pehapkari.cz
-          if: branch = design-in-a-day
+          if: branch = design-in-a-day AND type = push
           script:
             - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             - docker pull pehapkari/pehapkari.cz:$TRAVIS_COMMIT
@@ -52,9 +52,10 @@ jobs:
             - echo "$DEPLOY_PRIVATE_KEY" | ssh-add - > /dev/null
             - ssh root@pehapkari.cz "cd /projects/pehapkari.cz && ./run-new.sh"
 
-# script:
-    # tweets posts
-#    - if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then vendor/bin/statie tweet-post statie/source; fi
+        - stage: after build
+          name: tweet posts
+          if: branch = master AND type = cron
+          script: vendor/bin/statie tweet-post statie/source
 
 # do not send success notifications, they have no value
 notifications:
