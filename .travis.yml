@@ -29,33 +29,32 @@ jobs:
 
         - stage: deploy
           name: Deploy to pehapkari.cz
-          if: branch = master AND type = push
-          before_script:
+          script:
             - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             - docker pull pehapkari/pehapkari.cz:$TRAVIS_COMMIT
             - docker tag pehapkari/pehapkari.cz:$TRAVIS_COMMIT pehapkari/pehapkari.cz:latest
             - docker push pehapkari/pehapkari.cz
-          script:
-            - eval $(ssh-agent -s)
-            - mkdir -p ~/.ssh
-            - ssh-keyscan -H pehapkari.cz >> ~/.ssh/known_hosts
-            - echo "$DEPLOY_PRIVATE_KEY" | ssh-add - > /dev/null
-            - ssh root@pehapkari.cz "cd /projects/pehapkari.cz && ./run.sh"
+          deploy:
+              - provider: script
+                script: sh bin/deploy.sh
+                skip_cleanup: true
+                on:
+                    branch: master
 
         - stage: deploy
           name: Deploy to new.pehapkari.cz
-          if: branch = design-in-a-day
-          before_script:
+          script:
             - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             - docker pull pehapkari/pehapkari.cz:$TRAVIS_COMMIT
             - docker tag pehapkari/pehapkari.cz:$TRAVIS_COMMIT pehapkari/pehapkari.cz:design-in-a-day
             - docker push pehapkari/pehapkari.cz
-          script:
-            - eval $(ssh-agent -s)
-            - mkdir -p ~/.ssh
-            - ssh-keyscan -H pehapkari.cz >> ~/.ssh/known_hosts
-            - echo "$DEPLOY_PRIVATE_KEY" | ssh-add - > /dev/null
-            - ssh root@pehapkari.cz "cd /projects/pehapkari.cz && ./run-new.sh"
+          deploy:
+            - provider: script
+              script: sh bin/deploy-new.sh
+              skip_cleanup: true
+              on:
+                branch: design-in-a-day
+
 
         - stage: after build
           name: tweet posts
