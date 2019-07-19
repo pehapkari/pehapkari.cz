@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+docker pull pehapkari/pehapkari.cz:$TRAVIS_COMMIT
+docker tag pehapkari/pehapkari.cz:$TRAVIS_COMMIT pehapkari/pehapkari.cz:latest
+docker push pehapkari/pehapkari.cz
+
 eval $(ssh-agent -s)
 mkdir -p ~/.ssh
 ssh-keyscan -H pehapkari.cz >> ~/.ssh/known_hosts
