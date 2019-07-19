@@ -29,25 +29,17 @@ jobs:
 
         - stage: deploy
           name: Deploy to pehapkari.cz
-          script:
-            - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-            - docker pull pehapkari/pehapkari.cz:$TRAVIS_COMMIT
-            - docker tag pehapkari/pehapkari.cz:$TRAVIS_COMMIT pehapkari/pehapkari.cz:latest
-            - docker push pehapkari/pehapkari.cz
+          if: branch = master AND type = push
+          script: skip
           deploy:
               - provider: script
                 script: sh bin/deploy.sh
                 skip_cleanup: true
-                on:
-                    branch: master
 
         - stage: deploy
           name: Deploy to new.pehapkari.cz
-          script:
-            - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-            - docker pull pehapkari/pehapkari.cz:$TRAVIS_COMMIT
-            - docker tag pehapkari/pehapkari.cz:$TRAVIS_COMMIT pehapkari/pehapkari.cz:design-in-a-day
-            - docker push pehapkari/pehapkari.cz
+          if: branch = design-in-a-day
+          script: skip
           deploy:
             - provider: script
               script: sh bin/deploy-new.sh
@@ -55,8 +47,7 @@ jobs:
               on:
                 branch: design-in-a-day
 
-
-        - stage: after build
+        - stage: crons
           name: tweet posts
           if: branch = master AND type = cron
           script: vendor/bin/statie tweet-post statie/source
