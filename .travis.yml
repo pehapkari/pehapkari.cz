@@ -24,6 +24,8 @@ jobs:
           name: Lint templates
         - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer dead-links
           name: Dead links
+        - script: docker run --rm -e APP_ENV=prod pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console cache:warmup
+          name: Prod cache warmup
 
         - stage: deploy
           name: Deploy to pehapkari.cz
