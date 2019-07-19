@@ -3,6 +3,7 @@ dist: trusty
 jobs:
     include:
         - stage: build
+          if: NOT type = cron
           name: Build docker image
           script:
               - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -27,11 +28,12 @@ jobs:
         - stage: deploy
           name: Deploy to pehapkari.cz
           if: branch = master AND type = push
-          script:
+          before_script:
             - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             - docker pull pehapkari/pehapkari.cz:$TRAVIS_COMMIT
             - docker tag pehapkari/pehapkari.cz:$TRAVIS_COMMIT pehapkari/pehapkari.cz:latest
             - docker push pehapkari/pehapkari.cz
+          script:
             - eval $(ssh-agent -s)
             - mkdir -p ~/.ssh
             - ssh-keyscan -H pehapkari.cz >> ~/.ssh/known_hosts
@@ -40,12 +42,13 @@ jobs:
 
         - stage: deploy
           name: Deploy to new.pehapkari.cz
-          if: branch = design-in-a-day AND type = push
-          script:
+          if: branch = design-in-a-day
+          before_script:
             - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             - docker pull pehapkari/pehapkari.cz:$TRAVIS_COMMIT
             - docker tag pehapkari/pehapkari.cz:$TRAVIS_COMMIT pehapkari/pehapkari.cz:design-in-a-day
             - docker push pehapkari/pehapkari.cz
+          script:
             - eval $(ssh-agent -s)
             - mkdir -p ~/.ssh
             - ssh-keyscan -H pehapkari.cz >> ~/.ssh/known_hosts
