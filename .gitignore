@@ -10,7 +10,7 @@ var
 public/bundles/
 public/build/*/glyphicons-*
 
-# public/uploads/images
+public/uploads
 public/generated
 composer.lock
 
