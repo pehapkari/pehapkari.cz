@@ -5,3 +5,4 @@ sentry:
         excluded_exceptions:
             - 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException'
             - 'Symfony\Component\Routing\Exception\ResourceNotFoundException'
+            - 'Symfony\Component\Security\Core\Exception\AccessDeniedException'
