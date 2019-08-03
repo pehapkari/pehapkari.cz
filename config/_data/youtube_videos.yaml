@@ -1,4 +1,4 @@
-# this file was generated on 2019-07-04 13:16:27, do not edit it manually
+# this file was generated on 2019-08-03 17:47:57, do not edit it manually
 parameters:
     youtube_videos:
         meetups:
@@ -16,27 +16,27 @@ parameters:
                     -
                         title: 'Psaní vlastních PHPStan pravidel - Ondřej Mirtes'
                         description: "9. sraz přátel PHP v Pardubicích - Jak psát vlastní pravidlav PHPStanu? PHPStan dokáže v základu odhalit celou řadu chyb, které jsou společné napříč všemi PHP aplikacemi. Existují však další typy chyb, které mohou být specifické pro vaši proprietární codebase. Pokud se nějaká metoda smí volat jen odněkud či pouze určitým způsobem, nebo pokud chcete postupně přestat používat nějakou třídu, PHPStan vám dokáže pomoci.\n...\n5.6.2019 Koupaliště Cihelna, Pardubice\n\nPartneři akce:\nPéhapkaři, Digital Solutions, JetBrains\n\nMade by: Daniel Bek"
-                        video_id: _BVLCHeDDd8
+                        video_id: 2c6AcpQfJy0
                         slug: psani-vlastnich-phpstan-pravidel-ondrej-mirtes
                         month: 2019-07
                         slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/_BVLCHeDDd8/sddefault.jpg'
-                    -
-                        title: 'ZEIT: Deploy Serverless Microservices Right Now - Milan Felix Šulc'
-                        description: "9. sraz přátel PHP v Pardubicích - Detailně se podíváme na firmu ZEIT a její nástroj Now, který vám změní pohled na cloud. Nastavíme si DNS záznamy, mrkneme na nejbližsí CDN, vygenerujeme si statický web a nahrajeme ho na cloud, napíšeme si něco v PHP a TypeScriptu, vygenerujeme obrázky a PDF.\n...\n5.6.2019 Koupaliště Cihelna, Pardubice\n\nPartneři akce:\nPéhapkaři, Digital Solutions, JetBrains\n\nMade by: Daniel Bek"
-                        video_id: 1JgxFI-Vkao
-                        slug: zeit-deploy-serverless-microservices-right-now-milan-felix-sulc
-                        month: 2019-07
-                        slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/1JgxFI-Vkao/sddefault.jpg'
+                        thumbnail: 'https://i.ytimg.com/vi/2c6AcpQfJy0/sddefault.jpg'
                     -
                         title: 'LATTE VERSUS ZBYTEK SVĚTA - David Grudl'
                         description: "9. sraz přátel PHP v Pardubicích - Srovnání šablon Latte s dalšími populárními alternativami. Pohled na bezpečnost, výkon a další důležité parametry pro správný výběr nejvhodnějšího šablonovacího systému.\n...\n5.6.2019 Koupaliště Cihelna, Pardubice\n\nPartneři akce:\nPéhapkaři, Digital Solutions, JetBrains\n\nMade by: Daniel Bek"
-                        video_id: MKsCjL8eFog
+                        video_id: aQY9FfSBGPw
                         slug: latte-versus-zbytek-sveta-david-grudl
                         month: 2019-07
                         slides: ''
-                        thumbnail: 'https://i.ytimg.com/vi/MKsCjL8eFog/sddefault.jpg'
+                        thumbnail: 'https://i.ytimg.com/vi/aQY9FfSBGPw/sddefault.jpg'
+                    -
+                        title: 'ZEIT: Deploy Serverless Microservices Right Now - Milan Felix Šulc'
+                        description: "9. sraz přátel PHP v Pardubicích - Detailně se podíváme na firmu ZEIT a její nástroj Now, který vám změní pohled na cloud. Nastavíme si DNS záznamy, mrkneme na nejbližsí CDN, vygenerujeme si statický web a nahrajeme ho na cloud, napíšeme si něco v PHP a TypeScriptu, vygenerujeme obrázky a PDF.\n...\n5.6.2019 Koupaliště Cihelna, Pardubice\n\nPartneři akce:\nPéhapkaři, Digital Solutions, JetBrains\n\nMade by: Daniel Bek"
+                        video_id: IwhEGNDx3aE
+                        slug: zeit-deploy-serverless-microservices-right-now-milan-felix-sulc
+                        month: 2019-07
+                        slides: ''
+                        thumbnail: 'https://i.ytimg.com/vi/IwhEGNDx3aE/sddefault.jpg'
                 month: 2019-06
             -
                 title: '28. sraz přátel PHP v Brně, květen 2019'
@@ -431,7 +431,7 @@ parameters:
                         thumbnail: 'https://i.ytimg.com/vi/GNdQX8fsGOU/sddefault.jpg'
                 month: 2017-06
             -
-                title: '15. sraz přátel PHP v Praze, duben 2017'
+                title: '15. sraz přátel PHP v Praze, únor 2017'
                 videos:
                     -
                         title: 'Josef Kříž - Asynchronně v PHP'
@@ -481,9 +481,9 @@ parameters:
                         month: 2017-03
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/YE2v6m_F9bI/sddefault.jpg'
-                month: 2017-4
+                month: 2017-2
             -
-                title: '14. sraz přátel PHP v Praze, březen 2017'
+                title: '14. sraz přátel PHP v Praze, leden 2017'
                 videos:
                     -
                         title: 'Václav Makeš - Git - Verzuj i malé projekty'
@@ -525,7 +525,7 @@ parameters:
                         month: 2017-03
                         slides: ''
                         thumbnail: 'https://i.ytimg.com/vi/IVsonhyufPc/sddefault.jpg'
-                month: 2017-3
+                month: 2017-1
             -
                 title: '13. sraz přátel PHP v Praze, prosinec 2016'
                 videos:

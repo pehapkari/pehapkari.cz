@@ -75,8 +75,9 @@ final class ImportVideosCommand extends Command
         $this->symfonyStyle->section('Importing videos from Youtube');
         $data['parameters']['youtube_videos'] = $this->importYoutubeVideosData();
 
-        $this->symfonyStyle->section('Importing videos from Facebook');
-        $data['parameters']['facebook_videos'] = $this->importFacebookVideosData();
+        // needed manual work
+        // $this->symfonyStyle->section('Importing videos from Facebook');
+        // $data['parameters']['facebook_videos'] = $this->importFacebookVideosData();
 
         $this->yamlFileGenerator->generate($data, self::YOUTUBE_FILES_DATA);
         $this->symfonyStyle->success('Videos were successfully imported!');

@@ -51,7 +51,7 @@ final class VideosFactory
         }
 
         // These are short promo-videos by DigitalSolutions, not talks that people look for
-        if (Strings::match($videoTitle, '#\d+\. sraz#')) {
+        if (Strings::match($videoTitle, '#\d+\. sraz#i')) {
             return true;
         }
 
