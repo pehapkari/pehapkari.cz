@@ -2,7 +2,6 @@
 
 namespace Pehapkari\Youtube\Command;
 
-use Pehapkari\Youtube\Contract\FacebookVideosProvider\FacebookVideosProviderInterface;
 use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\Yaml\YamlFileGenerator;
@@ -26,11 +25,6 @@ final class ImportVideosCommand extends Command
     private $youtubeVideosProviders = [];
 
     /**
-     * @var FacebookVideosProviderInterface[]
-     */
-    private $facebookVideosProviders = [];
-
-    /**
      * @var SymfonyStyle
      */
     private $symfonyStyle;
@@ -47,20 +41,17 @@ final class ImportVideosCommand extends Command
 
     /**
      * @param YoutubeVideosProviderInterface[] $youtubeVideosProviders
-     * @param FacebookVideosProviderInterface[] $facebookVideosProviders
      */
     public function __construct(
         SymfonyStyle $symfonyStyle,
         YamlFileGenerator $yamlFileGenerator,
         ArrayByDateTimeSorter $arrayByDateTimeSorter,
-        array $youtubeVideosProviders,
-        array $facebookVideosProviders
+        array $youtubeVideosProviders
     ) {
         $this->symfonyStyle = $symfonyStyle;
         $this->yamlFileGenerator = $yamlFileGenerator;
         $this->youtubeVideosProviders = $youtubeVideosProviders;
         $this->arrayByDateTimeSorter = $arrayByDateTimeSorter;
-        $this->facebookVideosProviders = $facebookVideosProviders;
 
         parent::__construct();
     }
@@ -74,10 +65,6 @@ final class ImportVideosCommand extends Command
     {
         $this->symfonyStyle->section('Importing videos from Youtube');
         $data['parameters']['youtube_videos'] = $this->importYoutubeVideosData();
-
-        // needed manual work
-        // $this->symfonyStyle->section('Importing videos from Facebook');
-        // $data['parameters']['facebook_videos'] = $this->importFacebookVideosData();
 
         $this->yamlFileGenerator->generate($data, self::YOUTUBE_FILES_DATA);
         $this->symfonyStyle->success('Videos were successfully imported!');
@@ -100,23 +87,6 @@ final class ImportVideosCommand extends Command
         }
 
         return $this->sortMeetupPlaylistsByMonthFromRecentToOld($youtubeVideosData);
-    }
-
-    /**
-     * @return mixed[]
-     */
-    private function importFacebookVideosData(): array
-    {
-        $videosData = [];
-        foreach ($this->facebookVideosProviders as $facebookVideosProvider) {
-            $name = $facebookVideosProvider->getName();
-            $this->symfonyStyle->note(sprintf('Importing Facebook videos for "%s"', $name));
-
-            $playlists = $facebookVideosProvider->providePlaylists();
-            $videosData[$name] = array_merge($playlists, $videosData[$name] ?? []);
-        }
-
-        return $videosData;
     }
 
     /**
