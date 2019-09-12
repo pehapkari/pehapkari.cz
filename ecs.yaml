@@ -37,8 +37,6 @@ services:
 parameters:
     exclude_files:
         - 'src/Kernel.php'
-        # temporary vides
-        - 'packages/Marketing/src/Social/FacebookPublisher.php'
 
     skip:
         # on purpose - property order is reflected in forms in admin
@@ -62,5 +60,3 @@ parameters:
 
         SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff.UnusedVariable:
             - 'statie/tests/Posts/Year2017/Iterators/*.php'
-
-

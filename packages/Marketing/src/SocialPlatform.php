@@ -7,10 +7,5 @@ final class SocialPlatform
     /**
      * @var string
      */
-    public const PLATFORM_FACEBOOK = 'facebook';
-
-    /**
-     * @var string
-     */
     public const PLATFORM_TWITTER = 'twitter';
 }

@@ -3,9 +3,9 @@
 namespace Pehapkari\Marketing\Command;
 
 use DateTime;
+use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Marketing\Entity\MarketingEvent;
 use Pehapkari\Marketing\Repository\MarketingEventRepository;
-use Pehapkari\Marketing\Social\FacebookPublisher;
 use Pehapkari\Marketing\Social\TwitterPublisher;
 use Pehapkari\Marketing\SocialPlatform;
 use Pehapkari\Marketing\Utils\DateTimeUtils;
@@ -38,23 +38,16 @@ final class PublishMarketingEventCommand extends Command
      */
     private $twitterPublisher;
 
-    /**
-     * @var FacebookPublisher
-     */
-    private $facebookPublisher;
-
     public function __construct(
         SymfonyStyle $symfonyStyle,
         MarketingEventRepository $marketingEventRepository,
-        TwitterPublisher $twitterPublisher,
-        FacebookPublisher $facebookPublisher
+        TwitterPublisher $twitterPublisher
     ) {
         $this->symfonyStyle = $symfonyStyle;
         $this->marketingEventRepository = $marketingEventRepository;
         $this->twitterPublisher = $twitterPublisher;
 
         parent::__construct();
-        $this->facebookPublisher = $facebookPublisher;
     }
 
     protected function configure(): void
@@ -113,9 +106,11 @@ final class PublishMarketingEventCommand extends Command
     {
         if ($marketingEvent->getPlatform() === SocialPlatform::PLATFORM_TWITTER) {
             $this->twitterPublisher->publishMarketingEvent($marketingEvent);
-        } elseif ($marketingEvent->getPlatform() === SocialPlatform::PLATFORM_FACEBOOK) {
-            $this->facebookPublisher->publishMarketingEvent($marketingEvent);
-            // @todo
+        } else {
+            throw new ShouldNotHappenException(sprintf(
+                'Platform "%s" is not supported',
+                $marketingEvent->getPlatform()
+            ));
         }
 
         // save "when"

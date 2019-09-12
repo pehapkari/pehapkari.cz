@@ -13,7 +13,6 @@ final class MarketingCampaignPlanProvider
     {
         $plan = [];
 
-        $plan[] = new MarketingCampaignPlanItem(SocialPlatform::PLATFORM_FACEBOOK, 'training_feedback', 30);
         $plan[] = new MarketingCampaignPlanItem(SocialPlatform::PLATFORM_TWITTER, 'training_feedback', 30);
 
         return $plan;
