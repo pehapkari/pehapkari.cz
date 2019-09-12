@@ -44,6 +44,11 @@ class Expense
      */
     private $trainingTerm;
 
+    public function __toString(): string
+    {
+        return (string) $this->amount;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
