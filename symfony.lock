@@ -133,9 +133,6 @@
     "fabpot/goutte": {
         "version": "v3.2.3"
     },
-    "facebook/graph-sdk": {
-        "version": "5.7.0"
-    },
     "fakturoid/fakturoid-php": {
         "version": "v1.0.1"
     },

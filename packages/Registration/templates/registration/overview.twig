@@ -10,6 +10,7 @@
                     <thead class="thead-inverse">
                         <tr class="text-center">
                             <th>Školení</th>
+                            <th>Termín</th>
                             <th>Registrací</th>
                         </tr>
                     </thead>
@@ -17,6 +18,10 @@
                         <tr>
                             {% set training = training_term.getTraining() %}
                             <td>{{ training.getName()|raw }}</td>
+                            <td>
+                                {{ training_term.startDateTime()|date("Y-m-d H:i") }}
+                                - {{ training_term.endDateTime()|date("H:i") }}
+                            </td>
                             <td>{{ training_term.participantCount() }} registrací</td>
                         </tr>
                     {% endfor %}
