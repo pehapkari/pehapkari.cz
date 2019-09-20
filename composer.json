@@ -79,12 +79,10 @@
             "Pehapkari\\": "src",
             "Pehapkari\\Provision\\": "packages/Provision/src",
             "Pehapkari\\Registration\\": "packages/Registration/src",
-            "Pehapkari\\KnowHow\\": "packages/KnowHow/src",
             "Pehapkari\\Training\\": "packages/Training/src",
             "Pehapkari\\Marketing\\": "packages/Marketing/src",
             "Pehapkari\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
             "Pehapkari\\User\\": "packages/User/src",
-            "Pehapkari\\Mailer\\": "packages/Mailer/src",
             "Pehapkari\\Youtube\\": "packages/Youtube/src",
             "Pehapkari\\Statie\\": "statie/src"
         }

@@ -1,0 +1,15 @@
+easy_admin:
+    entities:
+        TrainingTerm:
+            label: 'Training Term'
+            class: 'Pehapkari\Training\Entity\TrainingTerm'
+            controller: 'Pehapkari\Training\Admin\Controller\AdminTrainingTermController'
+            list:
+                sort: ['startDateTime', 'DESC']
+                batch_actions: ['generateMarketingEvents']
+                # show only those without paid provision
+                dql_filter: 'entity.isProvisionPaid = FALSE'
+                fields:
+                    - 'training'
+                    - 'startDateTime'
+                    - 'registrations'

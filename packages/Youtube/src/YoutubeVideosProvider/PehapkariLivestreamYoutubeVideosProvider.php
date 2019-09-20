@@ -2,7 +2,7 @@
 
 namespace Pehapkari\Youtube\YoutubeVideosProvider;
 
-use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
+use Pehapkari\Youtube\Contract\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\DataTransformer\VideosFactory;
 use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\YoutubeApi;

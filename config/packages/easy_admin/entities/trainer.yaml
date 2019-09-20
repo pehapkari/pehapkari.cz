@@ -1,0 +1,4 @@
+easy_admin:
+    entities:
+        Trainer:
+            class: 'Pehapkari\Training\Entity\Trainer'

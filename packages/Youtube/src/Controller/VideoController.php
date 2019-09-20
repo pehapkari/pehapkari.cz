@@ -35,7 +35,6 @@ final class VideoController extends AbstractController
     private $arrayByDateTimeSorter;
 
     /**
-     * Get these data by running @param mixed[] $youtubeVideos
      * @see ImportVideosCommand command
      * @param mixed[] $youtubeVideos
      * @param mixed[] $facebookVideos
@@ -64,7 +63,6 @@ final class VideoController extends AbstractController
         // sort meetups by month
         $meetupPlaylists = $this->arrayByDateTimeSorter->sortByKey($meetupPlaylists, 'month');
 
-        // sort by month :)
         foreach ($meetupPlaylists as $key => $meetupPlaylist) {
             $meetupPlaylists[$key]['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
                 $meetupPlaylist['videos'],

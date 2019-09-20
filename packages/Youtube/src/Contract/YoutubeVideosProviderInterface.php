@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Pehapkari\Youtube\Contract\YoutubeVideosProvider;
+namespace Pehapkari\Youtube\Contract;
 
 interface YoutubeVideosProviderInterface
 {

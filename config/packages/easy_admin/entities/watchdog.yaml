@@ -1,0 +1,10 @@
+easy_admin:
+    entities:
+        Watchdog:
+            class: 'Pehapkari\Training\Entity\Watchdog'
+            list:
+                fields:
+                    - 'email'
+                    - 'training'
+                    - 'createdAt'
+                    - 'isInformed'
