@@ -3,6 +3,8 @@
 namespace Pehapkari\Registration\Api\Factory;
 
 use Defr\Ares;
+use Defr\Ares\AresException;
+use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 
 final class SubjectDataFactory
@@ -54,7 +56,15 @@ final class SubjectDataFactory
     private function createName(TrainingRegistration $trainingRegistration): string
     {
         if (is_numeric($trainingRegistration->getIco())) { // probably ICO
-            $aresRecord = $this->ares->findByIdentificationNumber($trainingRegistration->getIco());
+            try {
+                $aresRecord = $this->ares->findByIdentificationNumber($trainingRegistration->getIco());
+            } catch (AresException $aresException) {
+                throw new ShouldNotHappenException(sprintf(
+                    'Ares lookup failed for ID "%s": "%s"',
+                    $trainingRegistration->getIco(),
+                    $aresException->getMessage()
+                ), $aresException->getCode(), $aresException);
+            }
 
             // prefer company name in ARES
             return $aresRecord->getCompanyName();

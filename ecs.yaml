@@ -48,6 +48,7 @@ parameters:
         # 3rd party contract
         SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
             - 'packages/User/src/Security/PehapkariAuthenticator.php'
+            - 'packages/Registration/src/Api/FakturoidClient.php'
 
         # from symplify.yml set
         Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~
