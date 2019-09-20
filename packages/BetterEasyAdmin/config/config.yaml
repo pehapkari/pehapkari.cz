@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        public: true
+        autowire: true
+        autoconfigure: true
+
+    Pehapkari\BetterEasyAdmin\:
+        resource: '../src'
+
+    Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
+    Symplify\PackageBuilder\Reflection\PrivatesAccessor: ~
+
+    Pehapkari\BetterEasyAdmin\ConfigPass\ImagePropertyAutoconfigureConfigPass:
+        tags:
+            # after ViewConfigPass
+            - { name: 'easyadmin.config_pass', priority: 2 }
+
+    Pehapkari\BetterEasyAdmin\ConfigPass\GlobalExcludeFieldsConfigPass:
+        tags:
+            # before @see ExcludeFieldsConfigPass - 120
+            - { name: 'easyadmin.config_pass', priority: 125 }
