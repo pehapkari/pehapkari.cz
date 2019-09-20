@@ -5,7 +5,6 @@ namespace Pehapkari\Registration\Api\Factory;
 use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Registration\Api\Fakturoid\FakturoidEndpoint;
 use Pehapkari\Registration\Api\FakturoidClient;
-use Pehapkari\Registration\Api\RequestResponseFormatter;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 
 final class InvoiceDataFactory
@@ -30,21 +29,14 @@ final class InvoiceDataFactory
      */
     private $subjectDataFactory;
 
-    /**
-     * @var RequestResponseFormatter
-     */
-    private $requestResponseFormatter;
-
     public function __construct(
         string $fakturoidSlug,
         FakturoidClient $fakturoidClient,
-        SubjectDataFactory $subjectDataFactory,
-        RequestResponseFormatter $requestResponseFormatter
+        SubjectDataFactory $subjectDataFactory
     ) {
         $this->fakturoidClient = $fakturoidClient;
         $this->subjectDataFactory = $subjectDataFactory;
         $this->fakturoidSlug = $fakturoidSlug;
-        $this->requestResponseFormatter = $requestResponseFormatter;
     }
 
     /**
@@ -81,11 +73,10 @@ final class InvoiceDataFactory
         $endpoint = sprintf(FakturoidEndpoint::POST_NEW_CONTACT, $this->fakturoidSlug);
         $requestData = $this->subjectDataFactory->createFromTrainingRegistration($trainingRegistration);
 
-        $response = $this->fakturoidClient->request('POST', $endpoint, [
+        $responseData = $this->fakturoidClient->requestToJson('POST', $endpoint, [
             'json' => $requestData,
         ]);
 
-        $responseData = $this->requestResponseFormatter->formatResponseToArray($response);
         if (! isset($responseData['id'])) {
             throw new ShouldNotHappenException();
         }
@@ -103,9 +94,7 @@ final class InvoiceDataFactory
         }
 
         $endpoint = sprintf(FakturoidEndpoint::GET_SEARCH_CONTACT, $this->fakturoidSlug, $ico);
-        $response = $this->fakturoidClient->request('GET', $endpoint);
-
-        $subjectsData = $this->requestResponseFormatter->formatResponseToArray($response);
+        $subjectsData = $this->fakturoidClient->requestToJson('GET', $endpoint);
 
         return $subjectsData['subjects'][0] ?? null;
     }

@@ -21,21 +21,32 @@ final class FakturoidClientFactory
      */
     private $responseErrorReporter;
 
+    /**
+     * @var RequestResponseFormatter
+     */
+    private $requestResponseFormatter;
+
     public function __construct(
         string $fakturoidSlug,
         string $fakturoidApiKey,
-        ResponseErrorReporter $responseErrorReporter
+        ResponseErrorReporter $responseErrorReporter,
+        RequestResponseFormatter $requestResponseFormatter
     ) {
         $this->fakturoidSlug = $fakturoidSlug;
         $this->fakturoidApiKey = $fakturoidApiKey;
         $this->responseErrorReporter = $responseErrorReporter;
+        $this->requestResponseFormatter = $requestResponseFormatter;
     }
 
     public function create(): FakturoidClient
     {
         $this->ensureEnvsAreSet($this->fakturoidSlug, $this->fakturoidApiKey);
 
-        return new FakturoidClient($this->fakturoidApiKey, $this->responseErrorReporter);
+        return new FakturoidClient(
+            $this->fakturoidApiKey,
+            $this->responseErrorReporter,
+            $this->requestResponseFormatter
+        );
     }
 
     private function ensureEnvsAreSet(string $fakturoidSlug, string $fakturoidApiKey): void

@@ -17,9 +17,6 @@ final class ResponseErrorReporter
         $this->requestResponseFormatter = $requestResponseFormatter;
     }
 
-    /**
-     * @param mixed[] $response
-     */
     public function reportInvalidResponse(ResponseInterface $response, string $endpoint): void
     {
         if ($response->getStatusCode() >= 200 && $response->getStatusCode() <= 299) {

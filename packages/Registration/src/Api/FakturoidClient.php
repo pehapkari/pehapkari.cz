@@ -3,7 +3,6 @@
 namespace Pehapkari\Registration\Api;
 
 use GuzzleHttp\Client;
-use Psr\Http\Message\ResponseInterface;
 
 final class FakturoidClient extends Client
 {
@@ -12,27 +11,37 @@ final class FakturoidClient extends Client
      */
     private $responseErrorReporter;
 
-    public function __construct(string $fakturoidApiKey, ResponseErrorReporter $responseErrorReporter)
-    {
+    /**
+     * @var RequestResponseFormatter
+     */
+    private $requestResponseFormatter;
+
+    public function __construct(
+        string $fakturoidApiKey,
+        ResponseErrorReporter $responseErrorReporter,
+        RequestResponseFormatter $requestResponseFormatter
+    ) {
         parent::__construct([
             'auth' => ['tomas.vot@gmail.com', $fakturoidApiKey],
             'http_errors' => false,
         ]);
 
         $this->responseErrorReporter = $responseErrorReporter;
+        $this->requestResponseFormatter = $requestResponseFormatter;
     }
 
     /**
      * @param string $method
      * @param string $uri
      * @param mixed[] $options
+     * @return mixed[]
      */
-    public function request($method, $uri = '', array $options = []): ResponseInterface
+    public function requestToJson($method, $uri = '', array $options = []): array
     {
         $response = parent::request($method, $uri, $options);
 
         $this->responseErrorReporter->reportInvalidResponse($response, $uri);
 
-        return $response;
+        return $this->requestResponseFormatter->formatResponseToArray($response);
     }
 }

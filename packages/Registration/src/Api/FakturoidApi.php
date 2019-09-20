@@ -2,7 +2,6 @@
 
 namespace Pehapkari\Registration\Api;
 
-use GuzzleHttp\Client;
 use Pehapkari\Registration\Api\Factory\InvoiceDataFactory;
 use Pehapkari\Registration\Api\Fakturoid\FakturoidEndpoint;
 use Pehapkari\Registration\Entity\TrainingRegistration;
@@ -18,16 +17,6 @@ final class FakturoidApi
     private $fakturoidSlug;
 
     /**
-     * @var Client
-     */
-    private $guzzleFakturoidClient;
-
-    /**
-     * @var RequestResponseFormatter
-     */
-    private $requestResponseFormatter;
-
-    /**
      * @var FakturoidClient
      */
     private $fakturoidClient;
@@ -39,12 +28,10 @@ final class FakturoidApi
 
     public function __construct(
         string $fakturoidSlug,
-        RequestResponseFormatter $requestResponseFormatter,
         FakturoidClient $fakturoidClient,
         InvoiceDataFactory $invoiceDataFactory
     ) {
         $this->fakturoidSlug = $fakturoidSlug;
-        $this->requestResponseFormatter = $requestResponseFormatter;
         $this->fakturoidClient = $fakturoidClient;
         $this->invoiceDataFactory = $invoiceDataFactory;
     }
@@ -53,13 +40,11 @@ final class FakturoidApi
     {
         $requestData = $this->invoiceDataFactory->createFromTrainingRegistration($trainingRegistration);
 
-        $response = $this->fakturoidClient->request(
+        $invoice = $this->fakturoidClient->requestToJson(
             'POST',
             sprintf(FakturoidEndpoint::POST_NEW_INVOICE, $this->fakturoidSlug),
             ['json' => $requestData]
         );
-
-        $invoice = $this->requestResponseFormatter->formatResponseToArray($response);
 
         return $invoice['id'];
     }
@@ -68,9 +53,8 @@ final class FakturoidApi
     {
         $endpoint = sprintf(FakturoidEndpoint::GET_INVOICE_DETAIL, $this->fakturoidSlug, $invoiceId);
 
-        $response = $this->guzzleFakturoidClient->request('GET', $endpoint);
+        $invoice = $this->fakturoidClient->requestToJson('GET', $endpoint);
 
-        $invoice = $this->requestResponseFormatter->formatResponseToArray($response);
         if (isset($invoice['paid_at']) && $invoice['paid_at']) {
             return ((float) $invoice['paid_amount']) >= ((float) $invoice['total']);
         }
