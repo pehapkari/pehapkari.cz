@@ -1,3 +1,6 @@
+imports:
+    - { resource: 'easy_admin/' }
+
 parameters:
     # exclude globally, if not explicitly listed
     easy_admin_exclude_fields: ['createdAt', 'updatedAt', 'createdBy', 'updatedBy', 'trainingFeedbacks', 'trainingTerms', 'registrations', 'trainings', 'slug', 'isProvisionPaid', 'uploadDestination', 'relativeUploadDestination']
@@ -25,63 +28,3 @@ easy_admin:
                 icon: 'times'
                 label: false
                 css_class: 'btn btn-sm btn-danger pl-2'
-
-    design:
-        brand_color: '#00A8C6'
-        assets:
-            # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/design-configuration.html#loading-the-entire-bootstrap-framework
-            css:
-                - 'bundles/easyadmin/bootstrap-all.css'
-
-        menu:
-            -
-                label: 'Trainings'
-                icon: 'graduation-cap'
-                entity: 'Training'
-            -
-                label: 'Terms'
-                icon: 'calendar'
-                entity: 'TrainingTerm'
-            -
-                label: 'New Registrations'
-                icon: 'id-badge'
-                entity: 'NewRegistration'
-            -
-                icon: 'id-badge'
-                entity: 'Registration'
-            -
-                label: 'Trainers'
-                icon: 'train'
-                entity: 'Trainer'
-            -
-                label: 'Marketing'
-                icon: 'mail-bulk'
-                entity: 'MarketingEvent'
-            -
-                icon: 'comment'
-                label: 'Feedback to Revise'
-                entity: 'NewFeedback'
-            -
-                icon: 'comment'
-                entity: 'Feedback'
-            -
-                icon: 'dog'
-                entity: 'Watchdog'
-
-            -
-                label: 'Money'
-                icon: 'money'
-                children:
-                    - { label: 'Provisions', entity: 'TrainingTermProvision' }
-                    - { label: 'Expenses', entity: 'Expense' }
-
-            -
-                label: 'Helpers'
-                icon: 'plus'
-                children:
-                    - { label: 'Generate Certificate', route: 'create_certificate' }
-
-            -
-                label: 'Back to Website'
-                icon: 'arrow-left'
-                route: 'trainings'

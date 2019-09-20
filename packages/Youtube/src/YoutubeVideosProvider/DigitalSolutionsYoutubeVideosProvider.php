@@ -3,7 +3,7 @@
 namespace Pehapkari\Youtube\YoutubeVideosProvider;
 
 use Nette\Utils\Strings;
-use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
+use Pehapkari\Youtube\Contract\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\DataTransformer\VideosFactory;
 use Pehapkari\Youtube\MeetupNaming\MeetupNaming;
 use Pehapkari\Youtube\YoutubeApi;

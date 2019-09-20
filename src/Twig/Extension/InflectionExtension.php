@@ -3,7 +3,7 @@
 namespace Pehapkari\Twig\Extension;
 
 use Nette\Utils\Strings;
-use Pehapkari\Exception\Twig\InvalidWordCountException;
+use Pehapkari\Exception\ShouldNotHappenException;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -44,7 +44,7 @@ final class InflectionExtension extends AbstractExtension
             return;
         }
 
-        throw new InvalidWordCountException(sprintf(
+        throw new ShouldNotHappenException(sprintf(
             'Provide exactly 3 options to word_by_count() function as 2nd argument. %d given',
             count($versions)
         ));

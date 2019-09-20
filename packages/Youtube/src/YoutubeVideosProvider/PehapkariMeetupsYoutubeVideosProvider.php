@@ -4,7 +4,7 @@ namespace Pehapkari\Youtube\YoutubeVideosProvider;
 
 use Nette\Utils\Strings;
 use Pehapkari\Exception\ShouldNotHappenException;
-use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
+use Pehapkari\Youtube\Contract\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\DataTransformer\VideosFactory;
 use Pehapkari\Youtube\YoutubeApi;
 use Pehapkari\Youtube\YoutubeVideosProvider\Channel\ChannelList;

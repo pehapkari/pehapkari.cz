@@ -3,8 +3,9 @@
 namespace Pehapkari\Registration\Api\Factory;
 
 use Defr\Ares;
+use Defr\Ares\AresException;
+use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Registration\Entity\TrainingRegistration;
-use Pehapkari\Registration\Geo\FullAddressResolver;
 
 final class SubjectDataFactory
 {
@@ -13,15 +14,9 @@ final class SubjectDataFactory
      */
     private $ares;
 
-    /**
-     * @var FullAddressResolver
-     */
-    private $fullAddressResolver;
-
-    public function __construct(Ares $ares, FullAddressResolver $fullAddressResolver)
+    public function __construct(Ares $ares)
     {
         $this->ares = $ares;
-        $this->fullAddressResolver = $fullAddressResolver;
     }
 
     /**
@@ -42,24 +37,17 @@ final class SubjectDataFactory
         }
 
         if (is_numeric($trainingRegistration->getIco())) { // probably ICO
-            $data['registratino_no'] = $trainingRegistration->getIco();
+            $data['registration_no'] = $trainingRegistration->getIco();
 
             $aresRecord = $this->ares->findByIdentificationNumber($trainingRegistration->getIco());
 
             $data['street'] = $aresRecord->getStreetWithNumbers();
-            $data['town'] = $aresRecord->getTown();
+            $data['city'] = $aresRecord->getTown();
             $data['zip'] = $aresRecord->getZip();
 
             if ($aresRecord->getTaxId()) {
                 $data['vat_no'] = $aresRecord->getTaxId();
             }
-        } elseif ($trainingRegistration->getIco()) { // probably address
-            $address = $trainingRegistration->getIco();
-
-            $resolvedAddress = $this->fullAddressResolver->resolve($address);
-            $data['street'] = $resolvedAddress['road'] . ' ' . $resolvedAddress['house_number'];
-            $data['city'] = $resolvedAddress['city'] ?? $resolvedAddress['town'];
-            $data['zip'] = $resolvedAddress['postcode'];
         }
 
         return $data;
@@ -68,7 +56,15 @@ final class SubjectDataFactory
     private function createName(TrainingRegistration $trainingRegistration): string
     {
         if (is_numeric($trainingRegistration->getIco())) { // probably ICO
-            $aresRecord = $this->ares->findByIdentificationNumber($trainingRegistration->getIco());
+            try {
+                $aresRecord = $this->ares->findByIdentificationNumber($trainingRegistration->getIco());
+            } catch (AresException $aresException) {
+                throw new ShouldNotHappenException(sprintf(
+                    'Ares lookup failed for ID "%s": "%s"',
+                    $trainingRegistration->getIco(),
+                    $aresException->getMessage()
+                ), $aresException->getCode(), $aresException);
+            }
 
             // prefer company name in ARES
             return $aresRecord->getCompanyName();

@@ -1,0 +1,18 @@
+easy_admin:
+    entities:
+        Training:
+            class: 'Pehapkari\Training\Entity\Training'
+            list:
+                fields:
+                    - 'name'
+                    - 'duration'
+                    - 'price'
+                    - 'isPublic'
+            form:
+                fields:
+                    - 'name'
+                    - { property: 'certificateFormattedName', type_options: { attr: { rows: '2' } } }
+                    - 'perex'
+                    - { property: 'description', label: 'Description (use Markdown)', type_options: { attr: { rows: '25' } } }
+                    # TIP: custom template - with "{{ value }}" within
+                    # - { property: 'ibu', template: 'EasyAdmin/Beer/fields/ibu.html.twig' }

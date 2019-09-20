@@ -2,7 +2,6 @@
 
 namespace Pehapkari\Registration\Controller;
 
-use Pehapkari\Mailer\Mailer;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Form\TrainingRegistrationFormType;
 use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
@@ -25,19 +24,12 @@ final class TrainingRegistrationController extends AbstractController
      */
     private $trainingTermRepository;
 
-    /**
-     * @var Mailer
-     */
-    private $mailer;
-
     public function __construct(
         TrainingRegistrationRepository $trainingRegistrationRepository,
-        Mailer $mailer,
         TrainingTermRepository $trainingTermRepository
     ) {
         $this->trainingTermRepository = $trainingTermRepository;
         $this->trainingRegistrationRepository = $trainingRegistrationRepository;
-        $this->mailer = $mailer;
     }
 
     /**
@@ -57,8 +49,7 @@ final class TrainingRegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->trainingRegistrationRepository->save($trainingRegistration);
 
-            // email!
-            $this->mailer->sendRegistrationEmail($trainingRegistration);
+            // @todo send mail?
 
             return $this->redirectToRoute('registration_thank_you', [
                 'slug' => $trainingTerm->getSlug(),

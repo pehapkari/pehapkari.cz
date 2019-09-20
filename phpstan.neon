@@ -38,5 +38,5 @@ parameters:
         - '#Call to an undefined method object\:\:setRelativeUploadDestination\(\)#'
         - '#Method Pehapkari\\Youtube\\Controller\\VideoController\:\:getVideoBySlug\(\) should return Pehapkari\\Youtube\\ValueObject\\Video but returns object#'
 
-rules:
-    - Pehapkari\PHPStan\Rule\SelectWithGroupByRule
+services:
+    - { class: Pehapkari\Utils\PHPStan\Rule\SelectWithGroupByRule, tags: [phpstan.rules.rule] }

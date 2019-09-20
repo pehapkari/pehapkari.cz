@@ -2,7 +2,7 @@
 
 namespace Pehapkari\Youtube\Command;
 
-use Pehapkari\Youtube\Contract\YoutubeVideosProvider\YoutubeVideosProviderInterface;
+use Pehapkari\Youtube\Contract\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\Yaml\YamlFileGenerator;
 use Symfony\Component\Console\Command\Command;

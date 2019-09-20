@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Pehapkari\PHPStan\Rule;
+namespace Pehapkari\Utils\PHPStan\Rule;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\MethodCall;
