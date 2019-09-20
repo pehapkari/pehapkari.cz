@@ -42,12 +42,12 @@ final class SubjectDataFactory
         }
 
         if (is_numeric($trainingRegistration->getIco())) { // probably ICO
-            $data['registratino_no'] = $trainingRegistration->getIco();
+            $data['registration_no'] = $trainingRegistration->getIco();
 
             $aresRecord = $this->ares->findByIdentificationNumber($trainingRegistration->getIco());
 
             $data['street'] = $aresRecord->getStreetWithNumbers();
-            $data['town'] = $aresRecord->getTown();
+            $data['city'] = $aresRecord->getTown();
             $data['zip'] = $aresRecord->getZip();
 
             if ($aresRecord->getTaxId()) {

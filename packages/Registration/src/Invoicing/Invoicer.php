@@ -29,6 +29,8 @@ final class Invoicer
     public function createInvoiceForRegistration(TrainingRegistration $trainingRegistration): void
     {
         $invoiceId = $this->fakturoidApi->createInvoice($trainingRegistration);
+        dump($invoiceId);
+        die;
 
         // $this->fakturoidApi->sendInvoiceEmail($invoiceId);
 

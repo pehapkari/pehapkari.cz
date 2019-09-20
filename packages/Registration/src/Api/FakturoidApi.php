@@ -3,6 +3,7 @@
 namespace Pehapkari\Registration\Api;
 
 use GuzzleHttp\Client;
+use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Pehapkari\Exception\FakturoidException;
 use Pehapkari\Exception\ShouldNotHappenException;
@@ -11,7 +12,9 @@ use Pehapkari\Registration\Api\Fakturoid\EndpointPaginator;
 use Pehapkari\Registration\Api\Fakturoid\FakturoidEndpoints;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Exception\MissingEnvValueException;
+use PHP_CodeSniffer\Exceptions\DeepExitException;
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 use function GuzzleHttp\Psr7\build_query;
 
 /**
@@ -57,7 +60,7 @@ final class FakturoidApi
 
         $this->guzzleFakturoidClient = new Client([
             'auth' => ['tomas.vot@gmail.com', $fakturoidApiKey],
-            'http_errors' => true,
+            'http_errors' => false,
         ]);
 
         $this->endpointPaginator = $endpointPaginator;
@@ -134,16 +137,6 @@ final class FakturoidApi
         return $invoices;
     }
 
-    /**
-     * @return mixed[]
-     */
-    public function getSubjectByUrl(string $url): array
-    {
-        $response = $this->guzzleFakturoidClient->request('GET', $url);
-
-        return $this->getJsonFromResponse($response);
-    }
-
     private function ensureEnvsAreSet(string $fakturoidSlug, string $fakturoidApiKey): void
     {
         // ensure ENVs are set, the fakturoid 3rd arty package doesn't check this (pain)
@@ -175,11 +168,20 @@ final class FakturoidApi
         $endpoint = sprintf(FakturoidEndpoints::NEW_CONTACT, $this->fakturoidSlug);
 
         $subjectData = $this->subjectDataFactory->createFromTrainingRegistration($trainingRegistration);
-        $endpoint .= build_query($subjectData);
+        $endpoint .= '?' . build_query($subjectData);
 
         $response = $this->guzzleFakturoidClient->request('POST', $endpoint);
-
         $data = $this->getJsonFromResponse($response);
+
+        if ($response->getStatusCode() !== 200) {
+            $errorsString = sprintf('Endpoint: "%s"', $endpoint . PHP_EOL . PHP_EOL);
+            foreach ($data['errors'] as $key => $keyErrors) {
+                $errorsString .= '* ' .  $key . ': ' . implode(', ', $keyErrors) . PHP_EOL;
+            }
+
+            throw new ShouldNotHappenException($errorsString);
+        }
+
         if (! isset($data['id'])) {
             throw new ShouldNotHappenException();
         }

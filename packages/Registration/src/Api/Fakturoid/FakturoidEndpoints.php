@@ -42,7 +42,7 @@ final class FakturoidEndpoints
      * @var string
      * @see https://fakturoid.docs.apiary.io/#reference/subjects/subjects-collection/novy-kontakt
      */
-    public const NEW_CONTACT = self::BASE_API_URL . '/subjects/subjects-collection/novy-kontakt';
+    public const NEW_CONTACT = self::BASE_API_URL . '/subjects.json';
 
     /**
      * @var string
