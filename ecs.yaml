@@ -1,5 +1,4 @@
 imports:
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/psr2.yaml' }
     - { resource: 'vendor/symplify/easy-coding-standard/config/set/php71.yaml' }
     - { resource: 'vendor/symplify/easy-coding-standard/config/set/clean-code.yaml' }
     - { resource: 'vendor/symplify/easy-coding-standard/config/set/symplify.yaml' }
@@ -45,6 +44,7 @@ parameters:
 
         Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff:
             - 'packages/Youtube/src/Controller/VideoController.php'
+
         # 3rd party contract
         SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
             - 'packages/User/src/Security/PehapkariAuthenticator.php'

@@ -63,9 +63,9 @@
         "latte/latte": "^2.5",
         "nette/application": "^3.0",
         "nette/forms": "^3.0",
-        "phpstan/phpstan": "^0.11.12",
-        "phpstan/phpstan-doctrine": "^0.11.5",
-        "phpunit/phpunit": "^8.1",
+        "phpstan/phpstan": "^0.11.16",
+        "phpstan/phpstan-doctrine": "^0.11.6",
+        "phpunit/phpunit": "^8.3",
         "roave/security-advisories": "dev-master",
         "spatie/http-status-check": "^3.1",
         "symfony/browser-kit": "^4.3",
@@ -85,14 +85,14 @@
             "Pehapkari\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
             "Pehapkari\\User\\": "packages/User/src",
             "Pehapkari\\Mailer\\": "packages/Mailer/src",
-            "Pehapkari\\PHPStan\\": "packages/PHPStan/src",
             "Pehapkari\\Youtube\\": "packages/Youtube/src",
             "Pehapkari\\Statie\\": "statie/src"
         }
     },
     "autoload-dev":{
         "psr-4": {
-            "Pehapkari\\Statie\\Tests\\": "statie/tests"
+            "Pehapkari\\Statie\\Tests\\": "statie/tests",
+            "Pehapkari\\Utils\\PHPStan\\": "utils/phpstan/src"
         }
     },
     "scripts": {
