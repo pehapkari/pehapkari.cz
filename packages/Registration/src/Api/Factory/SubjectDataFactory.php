@@ -4,7 +4,6 @@ namespace Pehapkari\Registration\Api\Factory;
 
 use Defr\Ares;
 use Pehapkari\Registration\Entity\TrainingRegistration;
-use Pehapkari\Registration\Geo\FullAddressResolver;
 
 final class SubjectDataFactory
 {
@@ -13,15 +12,9 @@ final class SubjectDataFactory
      */
     private $ares;
 
-    /**
-     * @var FullAddressResolver
-     */
-    private $fullAddressResolver;
-
-    public function __construct(Ares $ares, FullAddressResolver $fullAddressResolver)
+    public function __construct(Ares $ares)
     {
         $this->ares = $ares;
-        $this->fullAddressResolver = $fullAddressResolver;
     }
 
     /**
@@ -53,13 +46,6 @@ final class SubjectDataFactory
             if ($aresRecord->getTaxId()) {
                 $data['vat_no'] = $aresRecord->getTaxId();
             }
-        } elseif ($trainingRegistration->getIco()) { // probably address
-            $address = $trainingRegistration->getIco();
-
-            $resolvedAddress = $this->fullAddressResolver->resolve($address);
-            $data['street'] = $resolvedAddress['road'] . ' ' . $resolvedAddress['house_number'];
-            $data['city'] = $resolvedAddress['city'] ?? $resolvedAddress['town'];
-            $data['zip'] = $resolvedAddress['postcode'];
         }
 
         return $data;

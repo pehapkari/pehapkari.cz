@@ -6,4 +6,4 @@ services:
 
     Pehapkari\Registration\:
         resource: '../src'
-        exclude: '../src/{Form,Entity}'
+        exclude: '../src/{Form,Exception,Entity}'
