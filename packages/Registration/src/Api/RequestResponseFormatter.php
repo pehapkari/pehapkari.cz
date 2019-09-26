@@ -12,6 +12,13 @@ final class RequestResponseFormatter
      */
     public function formatResponseToArray(ResponseInterface $response): array
     {
-        return Json::decode($response->getBody()->getContents(), Json::FORCE_ARRAY);
+        $responseContent = $response->getBody()->getContents();
+
+        // prevent json format errors
+        if ($responseContent === '') {
+            return [];
+        }
+
+        return Json::decode($responseContent, Json::FORCE_ARRAY);
     }
 }

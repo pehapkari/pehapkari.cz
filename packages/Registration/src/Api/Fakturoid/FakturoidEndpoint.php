@@ -18,6 +18,7 @@ final class FakturoidEndpoint
 
     /**
      * @var string
+     * @see https://fakturoid.docs.apiary.io/#reference/subjects/subjects-collection-fulltext-search
      */
     public const GET_SEARCH_CONTACT = self::BASE_API_URL . '/subjects/search.json?query=%s';
 
