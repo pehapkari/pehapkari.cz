@@ -25,9 +25,16 @@ final class ResponseErrorReporter
 
         $responseData = $this->requestResponseFormatter->formatResponseToArray($response);
 
-        $errorsString = sprintf('Endpoint: "%s"', $endpoint . PHP_EOL . PHP_EOL);
+        $errorsString = sprintf(
+            'Endpoint "%s" failed with code %d because "%s"',
+            $endpoint,
+            $response->getStatusCode(),
+            $response->getReasonPhrase()
+        );
 
         if (isset($responseData['errors'])) {
+            $errorsString .= PHP_EOL . PHP_EOL;
+
             foreach ($responseData['errors'] as $key => $keyErrors) {
                 $errorsString .= '* ' . $key . ': ' . implode(', ', $keyErrors) . PHP_EOL;
             }

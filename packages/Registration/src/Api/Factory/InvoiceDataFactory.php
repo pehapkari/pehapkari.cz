@@ -93,6 +93,8 @@ final class InvoiceDataFactory
             return null;
         }
 
+        $ico = trim($ico);
+
         $endpoint = sprintf(FakturoidEndpoint::GET_SEARCH_CONTACT, $this->fakturoidSlug, $ico);
         $subjectsData = $this->fakturoidClient->requestToJson('GET', $endpoint);
 
