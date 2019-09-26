@@ -19,15 +19,18 @@ final class ResponseErrorReporter
 
     public function reportInvalidResponse(ResponseInterface $response, string $endpoint): void
     {
-        if ($response->getStatusCode() >= 200 && $response->getStatusCode() <= 299) {
+        if ($response->getStatusCode() < 400) {
             return;
         }
 
         $responseData = $this->requestResponseFormatter->formatResponseToArray($response);
 
         $errorsString = sprintf('Endpoint: "%s"', $endpoint . PHP_EOL . PHP_EOL);
-        foreach ($responseData['errors'] as $key => $keyErrors) {
-            $errorsString .= '* ' . $key . ': ' . implode(', ', $keyErrors) . PHP_EOL;
+
+        if (isset($responseData['errors'])) {
+            foreach ($responseData['errors'] as $key => $keyErrors) {
+                $errorsString .= '* ' . $key . ': ' . implode(', ', $keyErrors) . PHP_EOL;
+            }
         }
 
         throw new ShouldNotHappenException($errorsString);
