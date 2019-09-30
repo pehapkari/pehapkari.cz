@@ -49,10 +49,9 @@ easy_admin:
                     - { label: 'Expenses', entity: 'Expense' }
 
             -
-                label: 'Helpers'
+                label: 'Generate Certificate'
                 icon: 'plus'
-                children:
-                    - { label: 'Generate Certificate', route: 'create_certificate' }
+                route: 'create_certificate'
 
             -
                 label: 'Back to Website'
