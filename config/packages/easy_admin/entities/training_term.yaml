@@ -3,7 +3,7 @@ easy_admin:
         TrainingTerm:
             label: 'Training Term'
             class: 'Pehapkari\Training\Entity\TrainingTerm'
-            controller: 'Pehapkari\Training\Admin\Controller\AdminTrainingTermController'
+            controller: 'Pehapkari\Training\Controller\AdminTrainingTermController'
             list:
                 sort: ['startDateTime', 'DESC']
                 batch_actions: ['generateMarketingEvents']

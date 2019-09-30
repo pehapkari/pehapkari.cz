@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @todo copy feedback form
  * @todo use bit.ly shortcut
  *
  * @see TrainingFeedback
@@ -31,7 +30,7 @@ final class FeedbackController extends AbstractController
     /**
      * @Route(path="/feedback/")
      * @Route(path="/feedbacks/")
-     * @Route(path="/jak-se-ti-libilo/", name="open_feedbacks")
+     * @Route(path="/jak-se-ti-libilo/")
      */
     public function openFeedbacks(Request $request): Response
     {

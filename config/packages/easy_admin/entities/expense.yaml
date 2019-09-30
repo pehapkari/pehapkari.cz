@@ -3,4 +3,4 @@ easy_admin:
         Expense:
             class: 'Pehapkari\Provision\Entity\Expense'
             # see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/complex-dynamic-backends.html#customization-based-on-entity-controllers
-            controller: 'Pehapkari\Provision\Admin\Controller\AdminExpenseController'
+            controller: 'Pehapkari\Provision\Controller\AdminExpenseController'

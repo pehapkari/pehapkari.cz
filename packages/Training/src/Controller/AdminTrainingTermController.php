@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Pehapkari\Training\Admin\Controller;
+namespace Pehapkari\Training\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Pehapkari\Marketing\MarketingEventsFactory;

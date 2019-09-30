@@ -2,11 +2,11 @@ easy_admin:
     entities:
         NewRegistration:
             class: 'Pehapkari\Registration\Entity\TrainingRegistration'
-            controller: 'Pehapkari\Registration\Admin\Controller\AdminRegistrationController'
+            controller: 'Pehapkari\Registration\Controller\AdminRegistrationController'
             list:
                 dql_filter: 'entity.isPaid = FALSE'
                 batch_actions: ['certificate', 'createInvoices']
-                fields: &registrationFields
+                fields: &registrationFields # "&" = reuse this section later with "*" pre-sign
                     - 'name'
                     - 'trainingTerm'
                     - 'email'
@@ -20,7 +20,7 @@ easy_admin:
 
         Registration:
             class: 'Pehapkari\Registration\Entity\TrainingRegistration'
-            controller: 'Pehapkari\Registration\Admin\Controller\AdminRegistrationController'
+            controller: 'Pehapkari\Registration\Controller\AdminRegistrationController'
             list:
                 dql_filter: 'entity.isPaid = TRUE'
                 sort: ['createdAt', 'DESC']

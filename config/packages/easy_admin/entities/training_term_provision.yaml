@@ -2,7 +2,7 @@ easy_admin:
     entities:
         TrainingTermProvision:
             class: 'Pehapkari\Training\Entity\TrainingTerm'
-            controller: 'Pehapkari\Training\Admin\Controller\AdminTrainingTermController'
+            controller: 'Pehapkari\Training\Controller\AdminTrainingTermController'
             list:
                 sort: ['startDateTime', 'DESC']
                 fields:

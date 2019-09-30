@@ -59,7 +59,7 @@ final class FeedbackFormType extends AbstractType
         $formBuilder->add('ratingOrganization', ChoiceType::class, [
             'label' => 'Ohodnoť organizaci kurzu',
             'required' => true,
-            'help' => '5 sloníků = nejlepší hodnocení',
+            'help' => '5 hvězdiček = nejlepší hodnocení',
             'choices' => $this->createRatingChoices(),
             'expanded' => true,
             'multiple' => false,
@@ -68,7 +68,7 @@ final class FeedbackFormType extends AbstractType
         $formBuilder->add('ratingContent', ChoiceType::class, [
             'label' => 'Ohodnoť obsah kurzu',
             'required' => true,
-            'help' => '5 sloníků = nejlepší hodnocení',
+            'help' => '5 hvězdiček = nejlepší hodnocení',
             'choices' => $this->createRatingChoices(),
             'expanded' => true,
             'multiple' => false,
