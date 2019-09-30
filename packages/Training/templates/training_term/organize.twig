@@ -1,0 +1,19 @@
+{% extends '@!EasyAdmin/default/layout.html.twig' %}
+
+{% block content_header %}
+    <h2>Organize {{ trainingTerm }}</h2>
+{% endblock %}
+
+{% block main %}
+    <div class="p-5">
+        <label>Emails</label>:
+
+        {% set emails %}{% for registration in trainingTerm.getRegistrations() %}{{ registration.getEmail() }};{% endfor %}{% endset %}
+
+        <input value="{{ emails }}" class="col">
+
+        <br>
+
+
+    </div>
+{% endblock %}

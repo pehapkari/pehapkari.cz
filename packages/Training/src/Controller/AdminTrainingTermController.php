@@ -4,7 +4,11 @@ namespace Pehapkari\Training\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Pehapkari\Marketing\MarketingEventsFactory;
+use Pehapkari\Marketing\Repository\MarketingEventRepository;
+use Pehapkari\Training\Entity\TrainingTerm;
 use Pehapkari\Training\Repository\TrainingTermRepository;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @see \Pehapkari\Training\Entity\TrainingTerm
@@ -21,12 +25,29 @@ final class AdminTrainingTermController extends EasyAdminController
      */
     private $marketingEventsFactory;
 
+    /**
+     * @var MarketingEventRepository
+     */
+    private $marketingEventRepository;
+
     public function __construct(
         TrainingTermRepository $trainingTermRepository,
+        MarketingEventRepository $marketingEventRepository,
         MarketingEventsFactory $marketingEventsFactory
     ) {
         $this->trainingTermRepository = $trainingTermRepository;
         $this->marketingEventsFactory = $marketingEventsFactory;
+        $this->marketingEventRepository = $marketingEventRepository;
+    }
+
+    /**
+     * @Route(path="/admin/training-term-organization/{id}", name="training_term_organization")
+     */
+    public function trainingTermOrganization(TrainingTerm $trainingTerm): Response
+    {
+        return $this->render('training_term/organize.twig', [
+            'trainingTerm' => $trainingTerm,
+        ]);
     }
 
     /**
@@ -43,9 +64,9 @@ final class AdminTrainingTermController extends EasyAdminController
             }
 
             $marketingEvents = $this->marketingEventsFactory->createMarketingEvents($trainingTerm);
-            $trainingTerm->setMarketingEvents($marketingEvents);
-
-            $this->trainingTermRepository->save($trainingTerm);
+            foreach ($marketingEvents as $marketingEvent) {
+                $this->marketingEventRepository->save($marketingEvent);
+            }
 
             $this->addFlash('success', sprintf('Kampaň pro "%s" byla vytvořena', (string) $trainingTerm));
         }

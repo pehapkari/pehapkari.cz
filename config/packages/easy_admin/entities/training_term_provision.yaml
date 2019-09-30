@@ -11,4 +11,8 @@ easy_admin:
                     - 'startDateTime'
                     - 'isProvisionPaid'
                 actions:
-                    - { name: 'training_term_provision', type: 'route', label: 'Provision', css_class: 'btn btn-sm btn-warning' }
+                    -
+                        name: 'training_term_provision'
+                        type: 'route'
+                        label: 'Provision'
+                        css_class: 'btn btn-sm btn-warning'

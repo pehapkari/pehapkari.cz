@@ -13,3 +13,10 @@ easy_admin:
                     - 'training'
                     - 'startDateTime'
                     - 'registrations'
+
+                actions:
+                    -
+                        name: 'training_term_organization'
+                        type: 'route'
+                        label: 'Organize'
+                        css_class: 'btn btn-success'

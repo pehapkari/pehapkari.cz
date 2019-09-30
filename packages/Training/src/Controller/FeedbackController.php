@@ -42,7 +42,7 @@ final class FeedbackController extends AbstractController
             $trainingFeedback = $form->getData();
             $this->trainingFeedbackRepository->save($trainingFeedback);
 
-            return $this->redirectToRoute('thank_you_for_freedback');
+            return $this->redirectToRoute('thank_you_for_feedback');
         }
 
         return $this->render('feedback/open_feedbacks.twig', [
@@ -51,10 +51,10 @@ final class FeedbackController extends AbstractController
     }
 
     /**
-     * @Route(path="/diky-za-feedback/", name="thank_you_for_freedback")
+     * @Route(path="/diky-za-feedback/", name="thank_you_for_feedback")
      */
     public function thankYouForFeedback(): Response
     {
-        return $this->render('feedback/thank_you_for_freedback.twig');
+        return $this->render('feedback/thank_you_for_feedback.twig');
     }
 }

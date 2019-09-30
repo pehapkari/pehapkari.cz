@@ -79,9 +79,9 @@ final class TwitterPublisher
             ), self::TWEET_LIMIT_SIZE);
         }
 
-        $trainingTermImage = $trainingTerm->getTrainingTermImageAbsolutePath();
-        if ($trainingTermImage) {
-            $response = $this->publishTweetWithImage($message, $trainingTermImage);
+        $trainingImage = $training->getImageAbsolutePath();
+        if ($trainingImage) {
+            $response = $this->publishTweetWithImage($message, $trainingImage);
         } else {
             // tweet text only
             $response = $this->callPost(self::UPDATE_URL, [

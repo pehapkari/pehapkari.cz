@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
+use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
 use Pehapkari\Doctrine\EntityBehavior\IsPublicTrait;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -15,7 +16,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ORM\Entity
  * @Vich\Uploadable
  */
-class Training
+class Training implements UploadDestinationAwareInterface
 {
     use UploadableImageTrait;
     use IsPublicTrait;
@@ -91,12 +92,6 @@ class Training
     private $trainer;
 
     /**
-     * @ORM\Column(type="boolean")
-     * @var bool
-     */
-    private $isLunchIncluded = false;
-
-    /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\TrainingTerm", mappedBy="training")
      * @var TrainingTerm[]|ArrayCollection
      */
@@ -107,6 +102,11 @@ class Training
      * @var TrainingFeedback[]|ArrayCollection
      */
     private $trainingFeedbacks = [];
+
+    /**
+     * @var string
+     */
+    private $uploadDestination;
 
     public function __construct()
     {
@@ -287,26 +287,13 @@ class Training
         $this->slug = $slug;
     }
 
-    /**
-     * @return TrainingFeedback[]|ArrayCollection
-     */
-    public function getTrainingFeedbacks()
+    public function setUploadDestination(string $uploadDestination): void
     {
-        return $this->trainingFeedbacks;
+        $this->uploadDestination = $uploadDestination;
     }
 
-    public function isLunchIncluded(): bool
+    public function getImageAbsolutePath(): ?string
     {
-        return $this->isLunchIncluded;
-    }
-
-    public function setIsLunchIncluded(bool $isLunchIncluded): void
-    {
-        if ($isLunchIncluded) {
-            $this->isLunchIncluded = $isLunchIncluded;
-        } else {
-            // include lunch by default for every training longer than 4 hours
-            $this->isLunchIncluded = $this->duration > 4;
-        }
+        return $this->getImage() ? $this->uploadDestination . $this->getImage() : null;
     }
 }
