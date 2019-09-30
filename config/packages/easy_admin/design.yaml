@@ -40,10 +40,6 @@ easy_admin:
                 icon: 'comment'
                 entity: 'Feedback'
             -
-                icon: 'dog'
-                entity: 'Watchdog'
-
-            -
                 label: 'Money'
                 icon: 'money'
                 children:
@@ -54,7 +50,6 @@ easy_admin:
                 label: 'Generate Certificate'
                 icon: 'plus'
                 route: 'create_certificate'
-
             -
                 label: 'Back to Website'
                 icon: 'arrow-left'

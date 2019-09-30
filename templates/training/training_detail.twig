@@ -96,17 +96,6 @@
                         <br>
                         <p>Poslení školení bylo {{ training_term.getStartDateTime|date("j. n. Y") }}.</p>
                     {% endif %}
-
-                    {# watchdog #}
-                    <p>
-                        {% if training.isActive() %}
-                            Nehodí se ti termín?
-                        {% else %}
-                            Nechceš promeškat další termín?
-                        {% endif %}
-                        <br>
-                        <a href="{{ path('watchdog', { slug: training.getSlug() }) }}">Dej nám email a ozveme se ti</a>
-                    </p>
                 </div>
 
                 <div class="col-md-8">
