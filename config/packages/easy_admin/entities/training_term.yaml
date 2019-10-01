@@ -10,9 +10,11 @@ easy_admin:
                 # show only those without paid provision
                 dql_filter: 'entity.isProvisionPaid = FALSE'
                 fields:
-                    - 'training'
-                    - 'startDateTime'
-                    - 'registrations'
+                    - { property: 'training', label: 'Detail', template: '_snippets/admin/training_term/training.twig' }
+                    - 'participantCount'
+                    - { property: 'startDateTime', label: 'Start' }
+                    - { property: 'registrations', template: '_snippets/admin/training_term/registrations.twig' }
+                    - { property: 'isProvisionPaid', label: 'Paid provision' }
 
                 actions:
                     -
@@ -20,3 +22,8 @@ easy_admin:
                         type: 'route'
                         label: 'Organize'
                         css_class: 'btn btn-success'
+                    -
+                        name: 'training_term_provision'
+                        type: 'route'
+                        label: 'Provision'
+                        css_class: 'btn btn-warning'

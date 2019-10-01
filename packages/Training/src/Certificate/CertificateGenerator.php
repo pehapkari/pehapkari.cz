@@ -2,11 +2,13 @@
 
 namespace Pehapkari\Training\Certificate;
 
+use Nette\Utils\DateTime;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Pehapkari\Pdf\PdfFactory;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Training\Entity\TrainingTerm;
+use Pehapkari\Zip\Zip;
 use setasign\Fpdi\Fpdi;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
@@ -32,14 +34,36 @@ final class CertificateGenerator
      */
     private $privatesAccessor;
 
+    /**
+     * @var Zip
+     */
+    private $zip;
+
     public function __construct(
         string $certificateOutputDirectory,
         PdfFactory $pdfFactory,
-        PrivatesAccessor $privatesAccessor
+        PrivatesAccessor $privatesAccessor,
+        Zip $zip
     ) {
         $this->certificateOutputDirectory = $certificateOutputDirectory;
         $this->pdfFactory = $pdfFactory;
         $this->privatesAccessor = $privatesAccessor;
+        $this->zip = $zip;
+    }
+
+    /**
+     * @param TrainingRegistration[] $registrations
+     */
+    public function generateForRegistrationsToZipFile(array $registrations): string
+    {
+        $certificateFilePaths = [];
+        foreach ($registrations as $trainingRegistration) {
+            $certificateFilePaths[] = $this->generateForTrainingTermRegistration($trainingRegistration);
+        }
+
+        $zipFileName = sprintf('certifikaty-%s.zip', Strings::webalize((string) new DateTime()));
+
+        return $this->zip->saveZipFileWithFiles($zipFileName, $certificateFilePaths);
     }
 
     /**
@@ -66,7 +90,7 @@ final class CertificateGenerator
     /**
      * @return string File path to temp certificate
      */
-    public function generateForTrainingTermRegistration(TrainingRegistration $trainingRegistration): string
+    private function generateForTrainingTermRegistration(TrainingRegistration $trainingRegistration): string
     {
         $training = $trainingRegistration->getTraining();
         $trainer = $training->getTrainer();

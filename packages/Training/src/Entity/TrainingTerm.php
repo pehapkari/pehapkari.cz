@@ -180,7 +180,7 @@ class TrainingTerm
     /**
      * @return TrainingRegistration[]|Collection
      */
-    public function getRegistrations(): Collection
+    public function getRegistrations()
     {
         return $this->registrations;
     }
@@ -247,6 +247,31 @@ class TrainingTerm
     public function getExpenses()
     {
         return $this->expenses;
+    }
+
+    public function hasMissingInvoices(): bool
+    {
+        foreach ($this->getRegistrations() as $registration) {
+            if ($registration->hasInvoice() === false) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function getUnpaidRegistrationCount(): int
+    {
+        $paidRegistrationCount = 0;
+        foreach ($this->getRegistrations() as $registration) {
+            if ($registration->isPaid()) {
+                ++$paidRegistrationCount;
+            }
+        }
+
+        $registration = count($this->getRegistrations());
+
+        return $registration - $paidRegistrationCount;
     }
 
     public function getOwnerExpenseTotal(): float

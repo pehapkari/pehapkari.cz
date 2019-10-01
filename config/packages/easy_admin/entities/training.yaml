@@ -19,5 +19,3 @@ easy_admin:
                         property: 'description'
                         label: 'Description (use Markdown)'
                         type_options: { attr: { rows: '25' } }
-                    # TIP: custom template - with "{{ value }}" within
-                    # - { property: 'ibu', template: 'EasyAdmin/Beer/fields/ibu.html.twig' }
