@@ -156,36 +156,44 @@ final class VideoController extends AbstractController
 
     private function getVideoBySlug(string $videoSlug): Video
     {
-        foreach ($this->youtubeVideos['php_prague'] as $playlist) {
-            foreach ($playlist['videos'] as $videoData) {
-                if ($videoData['slug'] === $videoSlug) {
-                    return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
-                }
-            }
-        }
-
-        foreach ($this->youtubeVideos['meetups'] as $playlist) {
-            foreach ($playlist['videos'] as $videoData) {
-                if ($videoData['slug'] === $videoSlug) {
-                    return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
-                }
-            }
-        }
-
-        foreach ($this->youtubeVideos['livestream']['videos'] as $videoData) {
-            if ($videoData['slug'] === $videoSlug) {
-                return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
-            }
-        }
-
-        foreach ($this->facebookVideos['meetups'] as $playlist) {
-            foreach ($playlist['videos'] as $videoData) {
-                if ($videoData['slug'] === $videoSlug) {
-                    return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($videoData, Video::class);
-                }
-            }
+        $matchedVideo = $this->matchVideo($videoSlug);
+        if ($matchedVideo) {
+            return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($matchedVideo, Video::class);
         }
 
         throw $this->createNotFoundException(sprintf("Video with slug '%s' not found", $videoSlug));
+    }
+
+    /**
+     * @return mixed[]
+     */
+    private function matchVideo(string $videoSlug): ?array
+    {
+        foreach ($this->getAllVideos() as $videoData) {
+            if ($videoData['slug'] === $videoSlug) {
+                return $videoData;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    private function getAllVideos(): array
+    {
+        $eventsWithVideos = array_merge(
+            $this->youtubeVideos['php_prague'],
+            $this->youtubeVideos['meetups'],
+            $this->facebookVideos['meetups']
+        );
+
+        $videos = [];
+        foreach ($eventsWithVideos as $event) {
+            $videos = array_merge($videos, $event['videos']);
+        }
+
+        return array_merge($videos, $this->youtubeVideos['livestream']['videos']);
     }
 }

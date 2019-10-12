@@ -331,6 +331,9 @@
     "phpstan/phpstan-doctrine": {
         "version": "0.11.5"
     },
+    "phpstan/phpstan-phpunit": {
+        "version": "0.11.2"
+    },
     "phpunit/php-code-coverage": {
         "version": "7.0.5"
     },
@@ -387,6 +390,9 @@
     },
     "ramsey/uuid": {
         "version": "3.8.0"
+    },
+    "rector/rector": {
+        "version": "v0.5.16"
     },
     "roave/security-advisories": {
         "version": "dev-master"
