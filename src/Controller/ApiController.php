@@ -50,7 +50,7 @@ final class ApiController extends AbstractController
 
             if ($training->isActive()) {
                 $nearestTerm = $training->getNearestTerm();
-                if ($nearestTerm) {
+                if ($nearestTerm !== null) {
                     $trainingData['nearest_date_time'] = $nearestTerm->getStartDateTime()->format('Y-m-d H:i:s');
                 }
             }
