@@ -22,8 +22,8 @@
         "j7mbo/twitter-api-php": "^1.0",
         "knplabs/doctrine-behaviors": "^1.6",
         "sensio/framework-extra-bundle": "^5.4",
-        "sentry/sentry": "dev-master as 2.1.0",
-        "sentry/sentry-symfony": "^3.1",
+        "sentry/sentry": "^2.2",
+        "sentry/sentry-symfony": "^3.2",
         "setasign/fpdf": "^1.8",
         "setasign/fpdi": "^2.2",
         "stof/doctrine-extensions-bundle": "^1.3",
@@ -66,6 +66,7 @@
         "phpstan/phpstan": "^0.11.16",
         "phpstan/phpstan-doctrine": "^0.11.6",
         "phpunit/phpunit": "^8.3",
+        "rector/rector": "dev-master",
         "roave/security-advisories": "dev-master",
         "spatie/http-status-check": "^3.1",
         "symfony/browser-kit": "^4.3",
@@ -101,8 +102,10 @@
         "check-cs": "vendor/bin/ecs check packages src statie",
         "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force",
-        "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify",
-        "dead-links": "vendor/bin/http-status-check scan https://pehapkari.cz --output invalid-links.txt --ansi --dont-crawl-external-links"
+        "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify --ansi",
+        "dead-links": "vendor/bin/http-status-check scan https://pehapkari.cz --output invalid-links.txt --ansi --dont-crawl-external-links",
+        "rector": "vendor/bin/rector process src tests --ansi",
+        "rector-dry": "vendor/bin/rector process src tests --ansi --dry-run"
     },
     "config": {
         "sort-packages": true

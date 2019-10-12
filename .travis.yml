@@ -18,6 +18,8 @@ jobs:
           name: PHPStan
         - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT php vendor/bin/phpunit
           name: PHPUnit
+        - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer rector
+          name: Rector
         - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console lint:yaml src packages
           name: Lint yaml
         - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console lint:twig packages templates
