@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Pehapkari\Provision\Admin\Controller;
+namespace Pehapkari\Provision\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Pehapkari\Provision\Data\Partner;

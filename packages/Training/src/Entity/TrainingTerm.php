@@ -7,27 +7,20 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Nette\Utils\DateTime as NetteDateTime;
-use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
-use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
-use Pehapkari\Doctrine\EventSubscriber\SetUploadDestinationOnPostLoadEventSubscriber;
 use Pehapkari\Marketing\Entity\MarketingEvent;
 use Pehapkari\Provision\Data\Partner;
 use Pehapkari\Provision\Entity\Expense;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Symfony\Component\Validator\Constraints as Assert;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
- * @Vich\Uploadable
  *
  * @see https://github.com/EasyCorp/EasyAdminBundle/issues/2566
  */
-class TrainingTerm implements UploadDestinationAwareInterface
+class TrainingTerm
 {
-    use UploadableImageTrait;
-
     /**
      * @var int
      */
@@ -61,18 +54,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
     private $isProvisionPaid = false;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @var int
-     */
-    private $minParticipantCount;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @var int
-     */
-    private $maxParticipantCount;
-
-    /**
      * @ORM\Column(type="datetime")
      * @var DateTime
      */
@@ -95,11 +76,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
      * @var Expense[]
      */
     private $expenses = [];
-
-    /**
-     * @var string
-     */
-    private $uploadDestination;
 
     public function __construct()
     {
@@ -204,7 +180,7 @@ class TrainingTerm implements UploadDestinationAwareInterface
     /**
      * @return TrainingRegistration[]|Collection
      */
-    public function getRegistrations(): Collection
+    public function getRegistrations()
     {
         return $this->registrations;
     }
@@ -243,21 +219,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
         return $this->training->getTrainer();
     }
 
-    public function getTrainerImageAbsolutePath(): ?string
-    {
-        return $this->getTrainerImage() ? $this->uploadDestination . $this->getTrainerImage() : null;
-    }
-
-    public function getTrainingImage(): ?string
-    {
-        return $this->training->getImage();
-    }
-
-    public function getTrainingImageAbsolutePath(): ?string
-    {
-        return $this->getTrainingImage() ? $this->uploadDestination . $this->getTrainingImage() : null;
-    }
-
     public function getPrice(): ?float
     {
         if ($this->training === null) {
@@ -267,59 +228,12 @@ class TrainingTerm implements UploadDestinationAwareInterface
         return $this->training->getPrice();
     }
 
-    public function getMinParticipantCount(): ?int
-    {
-        return $this->minParticipantCount;
-    }
-
-    public function setMinParticipantCount(?int $minParticipantCount): void
-    {
-        $this->minParticipantCount = $minParticipantCount;
-    }
-
-    public function getMaxParticipantCount(): ?int
-    {
-        return $this->maxParticipantCount;
-    }
-
-    public function setMaxParticipantCount(?int $maxParticipantCount): void
-    {
-        $this->maxParticipantCount = $maxParticipantCount;
-    }
-
     /**
-     * Parf of life cycle subscriber
-     * @see SetUploadDestinationOnPostLoadEventSubscriber
+     * @noinspection PhpUnused
      */
-    public function setUploadDestination(string $uploadDestination): void
-    {
-        $this->uploadDestination = $uploadDestination;
-    }
-
-    public function getTrainingTermImageAbsolutePath(): ?string
-    {
-        return $this->getImage() ? $this->uploadDestination . $this->getImage() : null;
-    }
-
     public function isRegistrationOpen(): bool
     {
         return $this->getDeadlineDateTime() > NetteDateTime::from('now');
-    }
-
-    /**
-     * @return ArrayCollection|MarketingEvent[]
-     */
-    public function getMarketingEvents()
-    {
-        return $this->marketingEvents;
-    }
-
-    /**
-     * @param MarketingEvent[] $marketingEvents
-     */
-    public function setMarketingEvents(array $marketingEvents): void
-    {
-        $this->marketingEvents = $marketingEvents;
     }
 
     public function hasMarketingEvents(): bool
@@ -333,6 +247,31 @@ class TrainingTerm implements UploadDestinationAwareInterface
     public function getExpenses()
     {
         return $this->expenses;
+    }
+
+    public function hasMissingInvoices(): bool
+    {
+        foreach ($this->getRegistrations() as $registration) {
+            if ($registration->hasInvoice() === false) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function getUnpaidRegistrationCount(): int
+    {
+        $paidRegistrationCount = 0;
+        foreach ($this->getRegistrations() as $registration) {
+            if ($registration->isPaid()) {
+                ++$paidRegistrationCount;
+            }
+        }
+
+        $registration = count($this->getRegistrations());
+
+        return $registration - $paidRegistrationCount;
     }
 
     public function getOwnerExpenseTotal(): float
@@ -354,11 +293,6 @@ class TrainingTerm implements UploadDestinationAwareInterface
         }
 
         return $amount;
-    }
-
-    private function getTrainerImage(): ?string
-    {
-        return $this->getTrainer() ? $this->getTrainer()->getImage() : null;
     }
 
     private function getExpenseTotalByPartner(string $partnerKind): float

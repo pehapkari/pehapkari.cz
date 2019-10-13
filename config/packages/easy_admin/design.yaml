@@ -8,53 +8,34 @@ easy_admin:
 
         menu:
             -
-                label: 'Trainings'
-                icon: 'graduation-cap'
-                entity: 'Training'
-            -
                 label: 'Terms'
                 icon: 'calendar'
                 entity: 'TrainingTerm'
             -
-                label: 'New Registrations'
-                icon: 'id-badge'
-                entity: 'NewRegistration'
-            -
                 icon: 'id-badge'
                 entity: 'Registration'
             -
-                label: 'Trainers'
+                label: 'Content'
                 icon: 'train'
-                entity: 'Trainer'
+                children:
+                    -
+                        label: 'Trainers'
+                        entity: 'Trainer'
+                    -   label: 'Trainings'
+                        entity: 'Training'
+
             -
                 label: 'Marketing'
                 icon: 'mail-bulk'
                 entity: 'MarketingEvent'
             -
                 icon: 'comment'
-                label: 'Feedback to Revise'
-                entity: 'NewFeedback'
-            -
-                icon: 'comment'
                 entity: 'Feedback'
             -
-                icon: 'dog'
-                entity: 'Watchdog'
-
-            -
-                label: 'Money'
+                label: 'Expenses'
                 icon: 'money'
-                children:
-                    - { label: 'Provisions', entity: 'TrainingTermProvision' }
-                    - { label: 'Expenses', entity: 'Expense' }
-
+                entity: 'Expense'
             -
-                label: 'Helpers'
+                label: 'Generate Certificate'
                 icon: 'plus'
-                children:
-                    - { label: 'Generate Certificate', route: 'create_certificate' }
-
-            -
-                label: 'Back to Website'
-                icon: 'arrow-left'
-                route: 'trainings'
+                route: 'create_certificate'

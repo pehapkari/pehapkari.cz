@@ -1,10 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Pehapkari\Training\Admin\Controller;
+namespace Pehapkari\Training\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Pehapkari\Training\Certificate\CertificateGenerator;
+use Pehapkari\Training\Entity\TrainingTerm;
 use Pehapkari\Training\Form\GenerateCertificateFormType;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -45,5 +47,17 @@ final class AdminCertificateController extends EasyAdminController
         return $this->render('certificate/create_certificate.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route(path="/create-certificates-for-training-term/{id}", name="create_certificate_for_training_term")
+     */
+    public function createCertificatesForTrainingTerm(TrainingTerm $trainingTerm): BinaryFileResponse
+    {
+        $zipFile = $this->certificateGenerator->generateForRegistrationsToZipFile(
+            $trainingTerm->getRegistrations()->toArray()
+        );
+
+        return $this->file($zipFile);
     }
 }

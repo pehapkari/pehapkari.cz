@@ -1,11 +1,10 @@
 easy_admin:
     entities:
-        NewFeedback:
+        Feedback:
             class: 'Pehapkari\Training\Entity\TrainingFeedback'
             list:
                 # see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#static-filters-dql-filter-option
-                dql_filter: 'entity.isRevised = FALSE'
-                sort: 'createdAt'
+                sort: 'isRevised'
                 fields: &feedbackFields
                     - 'isRevised'
                     - 'name'
@@ -15,10 +14,3 @@ easy_admin:
                     - 'training'
                     - { property: 'isShownOnMainPage', label: 'Main Page' }
                     - 'isPublic'
-
-        Feedback:
-            class: 'Pehapkari\Training\Entity\TrainingFeedback'
-            list:
-                dql_filter: 'entity.isRevised = TRUE'
-                fields: *feedbackFields
-                sort: 'ratingContent'

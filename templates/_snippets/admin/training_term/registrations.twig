@@ -1,0 +1,19 @@
+{% set registration_count = value|length %}
+
+{% set paid_registratoin_count = 0 %}
+{% for registration in value %}
+    {# @var registration \Pehapkari\Registration\Entity\TrainingRegistration #}
+    {% if registration.isPaid() %}
+        {{ ++paid_registratoin_count }}
+    {% endif %}
+{% endfor %}
+
+{% if paid_registratoin_count == registration_count %}
+    <span class="text-success">
+        {{ paid_registratoin_count }}/{{ registration_count }}
+    </span>
+{% else %}
+    <span class="text-warning">
+        {{ paid_registratoin_count }}/{{ registration_count }}
+    </span>
+{% endif %}

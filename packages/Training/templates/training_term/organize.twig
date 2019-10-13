@@ -1,0 +1,39 @@
+{% extends '@!EasyAdmin/default/layout.html.twig' %}
+
+{% block content_header %}
+    <h2>Organize {{ trainingTerm }}</h2>
+{% endblock %}
+
+{% block main %}
+    <div class="p-5">
+        <label>Emails</label>:
+
+        {% set emails %}{% for registration in trainingTerm.getRegistrations() %}{{ registration.getEmail() }};{% endfor %}{% endset %}
+
+        <input value="{{ emails }}" class="col">
+
+        <br>
+        <br>
+
+        <a href="{{ path('create_certificate_for_training_term', {'id': trainingTerm.getId() }) }}" class="btn btn-danger">
+            Generate Certificates
+        </a>
+
+        <hr>
+
+
+        {% if trainingTerm.hasMissingInvoices() %}
+            <a href="{{ path('create_invoices_for_training_term', {'id': trainingTerm.getId() }) }}" class="btn btn-danger">
+                Create Invoices
+            </a>
+        {% else %}
+            All registrations have invoices!
+        {% endif %}
+
+        <hr>
+
+        @todo unsent invoices?
+
+        add create invoices!
+    </div>
+{% endblock %}

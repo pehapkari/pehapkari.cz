@@ -55,12 +55,6 @@ class TrainingFeedback
     private $ratingContent;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
-     * @var float|null
-     */
-    private $ratingOrganization;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      * @var string
      */
@@ -162,16 +156,6 @@ class TrainingFeedback
     public function setRatingContent(?float $ratingContent): void
     {
         $this->ratingContent = $ratingContent;
-    }
-
-    public function getRatingOrganization(): ?float
-    {
-        return $this->ratingOrganization;
-    }
-
-    public function setRatingOrganization(float $ratingOrganization): void
-    {
-        $this->ratingOrganization = $ratingOrganization;
     }
 
     public function getThingsToImprove(): ?string

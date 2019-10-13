@@ -28,14 +28,13 @@
                     <tr>
                         <td>
                             Expenses
-                            <a class="btn btn-danger ml-2" href="{{ path('easyadmin', {action: 'new', entity: 'Expense', trainingTerm: trainingTerm.getId() }) }}">Add</a>
                         </td>
                         <td class="text-right text-danger">
                             - {{ expenses_total|number_format }} Kč
                         </td>
                     </tr>
 
-                    {% if trainingTerm.expenses %}
+                    {% if trainingTerm.getExpenses() %}
                         <tr>
                             <td colspan="2">
                                 <table class="table">

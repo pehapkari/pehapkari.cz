@@ -56,19 +56,10 @@ final class FeedbackFormType extends AbstractType
         ]);
 
         // @see https://symfony.com/doc/current/reference/forms/types/choice.html#select-tag-checkboxes-or-radio-buttons
-        $formBuilder->add('ratingOrganization', ChoiceType::class, [
-            'label' => 'Ohodnoť organizaci kurzu',
-            'required' => true,
-            'help' => '5 sloníků = nejlepší hodnocení',
-            'choices' => $this->createRatingChoices(),
-            'expanded' => true,
-            'multiple' => false,
-        ]);
-
         $formBuilder->add('ratingContent', ChoiceType::class, [
             'label' => 'Ohodnoť obsah kurzu',
             'required' => true,
-            'help' => '5 sloníků = nejlepší hodnocení',
+            'help' => '5 hvězdiček = nejlepší hodnocení',
             'choices' => $this->createRatingChoices(),
             'expanded' => true,
             'multiple' => false,
