@@ -32,7 +32,7 @@ final class MenuExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('active_item', function ($routes) {
+            new TwigFunction('active_item', function ($routes): string {
                 if (! is_array($routes)) {
                     $routes = [$routes];
                 }
