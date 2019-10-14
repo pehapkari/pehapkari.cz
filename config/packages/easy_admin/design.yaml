@@ -15,6 +15,9 @@ easy_admin:
                 icon: 'id-badge'
                 entity: 'Registration'
             -
+                icon: 'id-badge'
+                entity: 'Trainer'
+            -
                 label: 'Content'
                 icon: 'train'
                 children:

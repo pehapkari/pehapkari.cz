@@ -260,20 +260,6 @@ class TrainingTerm
         return false;
     }
 
-    public function getUnpaidRegistrationCount(): int
-    {
-        $paidRegistrationCount = 0;
-        foreach ($this->getRegistrations() as $registration) {
-            if ($registration->isPaid()) {
-                ++$paidRegistrationCount;
-            }
-        }
-
-        $registration = count($this->getRegistrations());
-
-        return $registration - $paidRegistrationCount;
-    }
-
     public function getOwnerExpenseTotal(): float
     {
         return $this->getExpenseTotalByPartner(Partner::OWNER);
@@ -287,7 +273,6 @@ class TrainingTerm
     public function getExpensesTotal(): float
     {
         $amount = 0.0;
-
         foreach ($this->expenses as $expense) {
             $amount += $expense->getAmount();
         }
@@ -298,7 +283,6 @@ class TrainingTerm
     private function getExpenseTotalByPartner(string $partnerKind): float
     {
         $amount = 0.0;
-
         foreach ($this->expenses as $expense) {
             if ($expense->getPartner() !== $partnerKind) {
                 continue;
