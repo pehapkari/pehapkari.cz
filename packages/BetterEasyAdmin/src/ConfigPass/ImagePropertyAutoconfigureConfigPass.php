@@ -132,7 +132,7 @@ final class ImagePropertyAutoconfigureConfigPass implements ConfigPassInterface
             }
         }
 
-        // has class proprety "imageFile"? - always display it
+        // has class property "imageFile"? - always display it
         if (class_exists($entityConfig['class']) && property_exists($entityConfig['class'], self::IMAGE)) {
             $entityConfig[$section][self::FIELDS][self::IMAGE] = $this->createGridField();
         }
@@ -201,6 +201,7 @@ final class ImagePropertyAutoconfigureConfigPass implements ConfigPassInterface
             'columnName' => 'image',
             'property' => 'image',
             'base_path' => $this->parameterBag->resolveValue('%image_uploads%'),
+            'permission' => [],
         ];
     }
 }
