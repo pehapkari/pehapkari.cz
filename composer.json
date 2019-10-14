@@ -16,7 +16,7 @@
         "doctrine/cache": "^1.8",
         "doctrine/doctrine-bundle": "^1.11",
         "doctrine/orm": "2.7.x-dev",
-        "easycorp/easyadmin-bundle": "2.2.1",
+        "easycorp/easyadmin-bundle": "^2.3",
         "fakturoid/fakturoid-php": "^1.0.1",
         "guzzlehttp/guzzle": "^6.3",
         "j7mbo/twitter-api-php": "^1.0",
@@ -61,7 +61,7 @@
         "symplify/package-builder": "^6.1",
         "symplify/statie": "^6.1",
         "twig/extensions": "^1.5",
-        "vich/uploader-bundle": "^1.9"
+        "vich/uploader-bundle": "^1.10"
     },
     "require-dev": {
         "latte/latte": "^2.5",

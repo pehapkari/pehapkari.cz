@@ -1,6 +1,6 @@
 {
     "alterphp/easyadmin-extension-bundle": {
-        "version": "v2.1.5"
+        "version": "v2.1.6"
     },
     "beberlei/assert": {
         "version": "v2.9.9"
