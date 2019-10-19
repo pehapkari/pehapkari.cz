@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Mailer;
 
+use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Training\Entity\TrainingFeedback;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
@@ -24,6 +25,23 @@ final class PehapkariMailer
         $this->mailer = $mailer;
     }
 
+    public function sendRegistrationConfirmation(TrainingRegistration $trainingRegistration): void
+    {
+        $training = $trainingRegistration->getTraining();
+
+        $email = $this->createEmail();
+        $email->to($trainingRegistration->getEmail());
+        $email->subject(sprintf('Vítej na školení %s', $training->getName()));
+        $email->htmlTemplate('email/email_welcome_to_training.twig');
+
+        $email->context([
+            'training' => $trainingRegistration->getTraining(),
+            'training_term' => $trainingRegistration->getTrainingTerm(),
+        ]);
+
+        $this->mailer->send($email);
+    }
+
     /**
      * @param TrainingFeedback[] $feedbacks
      */
@@ -35,7 +53,7 @@ final class PehapkariMailer
         $email = $this->createEmail();
         $email->to($trainerEmail);
         $email->subject('Pošli nám fakturu za školení!');
-        $email->htmlTemplate('email/provision_and_trainer.twig');
+        $email->htmlTemplate('email/email_provision_and_trainer.twig');
         $email->context([
             'trainer_provision' => $trainerProvision,
             'feedbacks' => $feedbacks,

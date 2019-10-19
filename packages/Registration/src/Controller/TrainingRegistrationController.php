@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Registration\Controller;
 
+use Pehapkari\Mailer\PehapkariMailer;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Form\TrainingRegistrationFormType;
 use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
@@ -26,12 +27,19 @@ final class TrainingRegistrationController extends AbstractController
      */
     private $trainingTermRepository;
 
+    /**
+     * @var PehapkariMailer
+     */
+    private $pehapkariMailer;
+
     public function __construct(
         TrainingRegistrationRepository $trainingRegistrationRepository,
-        TrainingTermRepository $trainingTermRepository
+        TrainingTermRepository $trainingTermRepository,
+        PehapkariMailer $pehapkariMailer
     ) {
         $this->trainingTermRepository = $trainingTermRepository;
         $this->trainingRegistrationRepository = $trainingRegistrationRepository;
+        $this->pehapkariMailer = $pehapkariMailer;
     }
 
     /**
@@ -39,7 +47,7 @@ final class TrainingRegistrationController extends AbstractController
      *
      * @see https://github.com/symfony/demo/blob/master/src/Controller/Admin/BlogController.php
      */
-    public function default(Request $request, TrainingTerm $trainingTerm): Response
+    public function register(Request $request, TrainingTerm $trainingTerm): Response
     {
         $trainingRegistration = new TrainingRegistration();
         $trainingRegistration->setTrainingTerm($trainingTerm);
@@ -50,8 +58,7 @@ final class TrainingRegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->trainingRegistrationRepository->save($trainingRegistration);
-
-            // @todo send mail?
+            $this->pehapkariMailer->sendRegistrationConfirmation($trainingRegistration);
 
             return $this->redirectToRoute('registration_thank_you', [
                 'slug' => $trainingTerm->getSlug(),
