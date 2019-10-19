@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Pehapkari\Training\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -262,6 +263,14 @@ class Training implements UploadDestinationAwareInterface
             ->where(Criteria::expr()->eq('isPublic', true));
 
         return $this->trainingFeedbacks->matching($criteria);
+    }
+
+    /**
+     * @return TrainingFeedback[]|Collection
+     */
+    public function getFeedbacks()
+    {
+        return $this->trainingFeedbacks;
     }
 
     public function getSlug(): ?string

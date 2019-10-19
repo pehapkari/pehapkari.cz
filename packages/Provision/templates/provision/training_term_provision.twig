@@ -2,7 +2,7 @@
 
 {% block content_header %}
     <h2>
-        Provision for <strong>{{ trainingTerm }}</strong>
+        Provision for <strong>{{ training_term }}</strong>
     </h2>
 
 {% endblock %}
@@ -19,10 +19,10 @@
                     </thead>
                     <tr>
                         <td>
-                            Income from {{ trainingTerm.getParticipantCount() }} participants
+                            Income from {{ training_term.getParticipantCount() }} participants
                         </td>
                         <td class="text-right text-success">
-                            {{ income|number_format }} Kč
+                            {{ provision.income|number_format }} Kč
                         </td>
                     </tr>
                     <tr>
@@ -30,15 +30,15 @@
                             Expenses
                         </td>
                         <td class="text-right text-danger">
-                            - {{ expenses_total|number_format }} Kč
+                            - {{ provision.expense|number_format }} Kč
                         </td>
                     </tr>
 
-                    {% if trainingTerm.getExpenses() %}
+                    {% if training_term.expenses %}
                         <tr>
                             <td colspan="2">
                                 <table class="table">
-                                    {% for expense in trainingTerm.expenses %}
+                                    {% for expense in training_term.expenses %}
                                         <tr>
                                             <td>{{ expense.note }}</td>
                                             <td class="text-right text-danger">- {{ expense.amount|number_format }} Kč</td>
@@ -52,7 +52,7 @@
                     <tr class="bg-dark text-light">
                         <th>Profit</th>
                         <th class="text-right text-nowrap">
-                            {{ profit|number_format }} Kč
+                            {{ provision.profit|number_format }} Kč
                         </th>
                     </tr>
                 </table>
@@ -72,13 +72,13 @@
                             Finished trainings
                         </td>
                         <td class="text-right">
-                            {{ finished_training_count }}
+                            {{ provision.previouslyFinishedTrainingCount }}
                         </td>
                     </tr>
                     <tr>
                         <td>Provision Rate</td>
                         <td class="text-right">
-                            {{ trainerProvisionRate }} %
+                            {{ provision.trainerProvisionRate }} %
                         </td>
                     </tr>
                     <tr>
@@ -86,24 +86,28 @@
                             Expenses <span class="text-muted">(lunch)</span>
                         </td>
                         <td class="text-right text-nowrap">
-                            {{ trainer_expense_total|number_format }} Kč
+                            {{ provision.trainerExpense|number_format }} Kč
                         </td>
                     </tr>
                     <tr>
                         <td>Provision</td>
-                        <td class="text-right">{{ trainerProvision|number_format }} Kč</td>
+                        <td class="text-right">{{ provision.trainerProvision|number_format }} Kč</td>
                     </tr>
                     <tr class="bg-dark text-light">
                         <th>Provision + Expense Coverage</th>
                         <th class="text-right text-nowrap">
-                            {{ trainerProvisionWithExpense|number_format }} Kč
+                            {{ provision.trainerProvisionWithExpense|number_format }} Kč
                         </th>
                     </tr>
                     <tr>
                         <td colspan="2" class="text-center">
-                            <a href="..." class="btn btn-lg btn-info">
-                                Ask for Invoice by mail @todo
-                            </a>
+                            {% if training_term.isProvisionEmailSent() %}
+                                Provision email already sent
+                            {% else %}
+                                <a href="{{ path('training_term_provision_email', {'id': training_term.getId() }) }}" class="btn btn-lg btn-info">
+                                    Send Invoice + Feedbacks to Trainer
+                                </a>
+                            {% endif %}
                         </td>
                     </tr>
                 </table>
@@ -118,20 +122,19 @@
                     </thead>
                     <tr>
                         <td>Provision Rate</td>
-                        <td class="text-right">{{ ownerProvisionRate }} %</td>
+                        <td class="text-right">{{ provision.ownerProvisionRate }} %</td>
                     </tr>
                     <tr>
                         <td>
                             Expenses
                             <span class="text-muted">(rent)</span>
                         </td>
-                        <td class="text-right">{{ owner_expense_total|number_format }} Kč</td>
+                        <td class="text-right">{{ provision.ownerExpense|number_format }} Kč</td>
                     </tr>
                     <tr class="bg-dark text-light">
                         <th>Provision</th>
-                        <th class="text-right">{{ ownerProvision|number_format }} Kč</th>
+                        <th class="text-right">{{ provision.ownerProvision|number_format }} Kč</th>
                     </tr>
-
                 </table>
             </div>
         </div>

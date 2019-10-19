@@ -56,6 +56,12 @@ class TrainingTerm
     private $isProvisionPaid = false;
 
     /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $isProvisionEmailSent = false;
+
+    /**
      * @ORM\Column(type="datetime")
      * @var DateTime
      */
@@ -162,6 +168,16 @@ class TrainingTerm
     public function setIsProvisionPaid(bool $isProvisionPaid): void
     {
         $this->isProvisionPaid = $isProvisionPaid;
+    }
+
+    public function isProvisionEmailSent(): bool
+    {
+        return $this->isProvisionEmailSent;
+    }
+
+    public function setIsProvisionEmailSent(bool $isProvisionEmailSent): void
+    {
+        $this->isProvisionEmailSent = $isProvisionEmailSent;
     }
 
     public function getIncome(): float
@@ -284,6 +300,36 @@ class TrainingTerm
         }
 
         return $amount;
+    }
+
+    /**
+     * @return TrainingFeedback[]|Collection
+     */
+    public function getFeedbacks()
+    {
+        $trainingFeedbacks = $this->training->getFeedbacks();
+
+        $startDateTime = $this->getStartDateTime();
+        $monthAfterStartDateTime = clone $startDateTime;
+        $monthAfterStartDateTime->modify('+ 1 month');
+
+        // we have to limit all feedback to just those for this term
+        return $trainingFeedbacks->filter(
+            function (TrainingFeedback $trainingFeedback) use ($startDateTime, $monthAfterStartDateTime) {
+                // is way old
+                if ($trainingFeedback->getCreatedAt() < $startDateTime) {
+                    return false;
+                }
+
+                // is way new
+                if ($trainingFeedback->getCreatedAt() > $monthAfterStartDateTime) {
+                    return false;
+                }
+
+                // feedback was given in a month after training
+                return true;
+            }
+        );
     }
 
     private function getExpenseTotalByPartner(string $partnerKind): float

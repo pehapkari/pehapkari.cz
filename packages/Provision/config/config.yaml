@@ -5,4 +5,4 @@ services:
 
     Pehapkari\Provision\:
         resource: '../src/'
-        exclude: '../src/{Entity,Data}'
+        exclude: '../src/{Entity,Data,ValueObject}'

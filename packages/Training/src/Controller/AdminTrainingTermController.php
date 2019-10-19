@@ -7,6 +7,7 @@ namespace Pehapkari\Training\Controller;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Pehapkari\Marketing\MarketingEventsFactory;
 use Pehapkari\Marketing\Repository\MarketingEventRepository;
+use Pehapkari\Provision\ProvisionResolver;
 use Pehapkari\Registration\Invoicing\Invoicer;
 use Pehapkari\Training\Entity\TrainingTerm;
 use Pehapkari\Training\Repository\TrainingTermRepository;
@@ -39,16 +40,23 @@ final class AdminTrainingTermController extends EasyAdminController
      */
     private $invoicer;
 
+    /**
+     * @var ProvisionResolver
+     */
+    private $provisionResolver;
+
     public function __construct(
         TrainingTermRepository $trainingTermRepository,
         MarketingEventRepository $marketingEventRepository,
         MarketingEventsFactory $marketingEventsFactory,
-        Invoicer $invoicer
+        Invoicer $invoicer,
+        ProvisionResolver $provisionResolver
     ) {
         $this->trainingTermRepository = $trainingTermRepository;
         $this->marketingEventsFactory = $marketingEventsFactory;
         $this->marketingEventRepository = $marketingEventRepository;
         $this->invoicer = $invoicer;
+        $this->provisionResolver = $provisionResolver;
     }
 
     /**
@@ -59,6 +67,24 @@ final class AdminTrainingTermController extends EasyAdminController
         return $this->render('training_term/organize.twig', [
             'trainingTerm' => $trainingTerm,
         ]);
+    }
+
+    /**
+     * @Route(path="/admin/send-provision-term-email/{id}", name="training_term_provision_email")
+     */
+    public function provisionEmail(TrainingTerm $trainingTerm): Response
+    {
+        $provision = $this->provisionResolver->resolveForTrainingTerm($trainingTerm);
+
+        // 1. send invoice email
+        $trainerProvision = $provision->getTrainerProvision();
+
+        // 2. send collected feedbacks
+        $trainingTermFeedbacks = $trainingTerm->getFeedbacks();
+
+        // @todo send email with good news to the trainer
+        dump($trainerProvision, $trainingTermFeedbacks);
+        die;
     }
 
     /**
