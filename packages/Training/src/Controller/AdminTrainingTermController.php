@@ -150,6 +150,16 @@ final class AdminTrainingTermController extends EasyAdminController
     }
 
     /**
+     * @Route(path="/admin/send-training-term-feedback-form/{id}", name="send_traning_term_feedback_form")
+     */
+    public function sendTrainingTermFeedbackForm(TrainingTerm $trainingTerm): Response
+    {
+        $this->pehapkariMailer->sendFeedbackFormToRegistrations($trainingTerm);
+
+        return $this->redirectToRoute('training_term_organization');
+    }
+
+    /**
      * @Route(path="/admin/provision/{id}", name="training_term_provision")
      */
     public function trainingTermProvision(TrainingTerm $trainingTerm): Response

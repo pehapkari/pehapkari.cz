@@ -6,6 +6,7 @@ namespace Pehapkari\Mailer;
 
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Training\Entity\TrainingFeedback;
+use Pehapkari\Training\Entity\TrainingTerm;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
@@ -57,6 +58,23 @@ final class PehapkariMailer
         $email->context([
             'trainer_provision' => $trainerProvision,
             'feedbacks' => $feedbacks,
+        ]);
+
+        $this->mailer->send($email);
+    }
+
+    public function sendFeedbackFormToRegistrations(TrainingTerm $trainingTerm): void
+    {
+        $email = $this->createEmail();
+
+        foreach ($trainingTerm->getRegistrations() as $registration) {
+            $email->addBcc($registration->getEmail());
+        }
+
+        $email->subject('Dej nám feedback za školení');
+        $email->htmlTemplate('email/email_feedback.twig');
+        $email->context([
+            'training' => $trainingTerm->getTraining(),
         ]);
 
         $this->mailer->send($email);
