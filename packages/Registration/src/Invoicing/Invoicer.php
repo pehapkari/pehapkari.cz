@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Pehapkari\Registration\Invoicing;
 
@@ -36,25 +38,5 @@ final class Invoicer
         // update registration about invoice
         $trainingRegistration->setHasInvoice(true);
         $this->trainingRegistrationRepository->save($trainingRegistration);
-    }
-
-    public function syncPaidInvoices(): int
-    {
-        $unpaidRegistrations = $this->trainingRegistrationRepository->getUnpaid();
-        $updatedRegistrationsCount = 0;
-
-        foreach ($unpaidRegistrations as $unpaidRegistration) {
-            if ($unpaidRegistration->getFakturoidInvoiceId() === null) {
-                continue;
-            }
-
-            if ($this->fakturoidApi->isInvoicePaid($unpaidRegistration->getFakturoidInvoiceId())) {
-                $unpaidRegistration->setIsPaid(true);
-                $this->trainingRegistrationRepository->save($unpaidRegistration);
-                ++$updatedRegistrationsCount;
-            }
-        }
-
-        return $updatedRegistrationsCount;
     }
 }

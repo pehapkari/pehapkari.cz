@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Pehapkari\Registration\Entity;
 
@@ -67,12 +69,6 @@ class TrainingRegistration
      * @var bool
      */
     private $hasInvoice = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     * @var bool
-     */
-    private $isPaid = false;
 
     /**
      * @ORM\Column(type="boolean")
@@ -172,16 +168,6 @@ class TrainingRegistration
     public function setTrainingTerm(TrainingTerm $trainingTerm): void
     {
         $this->trainingTerm = $trainingTerm;
-    }
-
-    public function isPaid(): ?bool
-    {
-        return $this->isPaid;
-    }
-
-    public function setIsPaid(bool $isPaid): void
-    {
-        $this->isPaid = $isPaid;
     }
 
     public function getTrainingTermDate(): DateTimeInterface

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Pehapkari\Training\Entity;
 
@@ -167,10 +169,6 @@ class TrainingTerm
         $income = 0.0;
 
         foreach ($this->registrations as $registration) {
-            if (! $registration->isPaid()) {
-                continue;
-            }
-
             $income += $registration->getPrice() * $registration->getParticipantCount();
         }
 

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Pehapkari\Registration\Api\Fakturoid;
 
@@ -9,12 +11,6 @@ final class FakturoidEndpoint
      * @see https://fakturoid.docs.apiary.io/#reference/invoices/invoices-collection/nova-faktura
      */
     public const POST_NEW_INVOICE = self::BASE_API_URL . '/invoices.json';
-
-    /**
-     * @var string
-     * @see https://fakturoid.docs.apiary.io/#reference/invoices/invoice/detail-faktury
-     */
-    public const GET_INVOICE_DETAIL = self::BASE_API_URL . '/invoices/%s.json';
 
     /**
      * @var string

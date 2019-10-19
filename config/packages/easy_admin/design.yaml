@@ -39,3 +39,7 @@ easy_admin:
                 label: 'Generate Certificate'
                 icon: 'plus'
                 route: 'create_certificate'
+            -
+                label: 'Go to Homepage'
+                icon: 'home'
+                route: 'homepage'

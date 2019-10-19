@@ -274,6 +274,9 @@
     "ocramius/proxy-manager": {
         "version": "2.2.2"
     },
+    "ondram/ci-detector": {
+        "version": "3.1.0"
+    },
     "pagerfanta/pagerfanta": {
         "version": "v2.1.2"
     },
@@ -571,6 +574,12 @@
     },
     "symfony/dotenv": {
         "version": "v4.3.1"
+    },
+    "symfony/error-handler": {
+        "version": "5.0-dev"
+    },
+    "symfony/error-renderer": {
+        "version": "4.4.x-dev"
     },
     "symfony/event-dispatcher": {
         "version": "v4.3.1"
