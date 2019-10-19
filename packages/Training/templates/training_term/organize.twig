@@ -28,5 +28,11 @@
         {% else %}
             All registrations have invoices!
         {% endif %}
+
+        <hr>
+
+        <a href="{{ path('send_traning_term_feedback_form', {'id': trainingTerm.getId() }) }}" class="btn btn-danger">
+            Send feedback forms after training
+        </a>
     </div>
 {% endblock %}
