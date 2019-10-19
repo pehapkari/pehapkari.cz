@@ -65,11 +65,11 @@ class TrainingTerm
      * @ORM\OneToMany(targetEntity="Pehapkari\Registration\Entity\TrainingRegistration", mappedBy="trainingTerm")
      * @var TrainingRegistration[]|Collection
      */
-    private $registrations;
+    private $registrations = [];
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", cascade={"persist", "remove"}, mappedBy="trainingTerm")
-     * @var MarketingEvent[]
+     * @var MarketingEvent[]|Collection
      */
     private $marketingEvents = [];
 
@@ -240,11 +240,19 @@ class TrainingTerm
     }
 
     /**
-     * @return ArrayCollection|Expense[]
+     * @return Collection|Expense[]
      */
     public function getExpenses()
     {
         return $this->expenses;
+    }
+
+    /**
+     * @return Collection|MarketingEvent[]
+     */
+    public function getMarketingEvents()
+    {
+        return $this->marketingEvents;
     }
 
     public function hasMissingInvoices(): bool
