@@ -21,7 +21,6 @@
 
         <hr>
 
-
         {% if trainingTerm.hasMissingInvoices() %}
             <a href="{{ path('create_invoices_for_training_term', {'id': trainingTerm.getId() }) }}" class="btn btn-danger">
                 Create Invoices
@@ -29,11 +28,5 @@
         {% else %}
             All registrations have invoices!
         {% endif %}
-
-        <hr>
-
-        @todo unsent invoices?
-
-        add create invoices!
     </div>
 {% endblock %}

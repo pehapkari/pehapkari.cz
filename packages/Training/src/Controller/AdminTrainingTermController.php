@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Pehapkari\Training\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
+use Pehapkari\Exception\ShouldNotHappenException;
+use Pehapkari\Mailer\PehapkariMailer;
 use Pehapkari\Marketing\MarketingEventsFactory;
 use Pehapkari\Marketing\Repository\MarketingEventRepository;
 use Pehapkari\Provision\ProvisionResolver;
@@ -45,18 +47,25 @@ final class AdminTrainingTermController extends EasyAdminController
      */
     private $provisionResolver;
 
+    /**
+     * @var PehapkariMailer
+     */
+    private $pehapkariMailer;
+
     public function __construct(
         TrainingTermRepository $trainingTermRepository,
         MarketingEventRepository $marketingEventRepository,
         MarketingEventsFactory $marketingEventsFactory,
         Invoicer $invoicer,
-        ProvisionResolver $provisionResolver
+        ProvisionResolver $provisionResolver,
+        PehapkariMailer $pehapkariMailer
     ) {
         $this->trainingTermRepository = $trainingTermRepository;
         $this->marketingEventsFactory = $marketingEventsFactory;
         $this->marketingEventRepository = $marketingEventRepository;
         $this->invoicer = $invoicer;
         $this->provisionResolver = $provisionResolver;
+        $this->pehapkariMailer = $pehapkariMailer;
     }
 
     /**
@@ -76,15 +85,19 @@ final class AdminTrainingTermController extends EasyAdminController
     {
         $provision = $this->provisionResolver->resolveForTrainingTerm($trainingTerm);
 
-        // 1. send invoice email
-        $trainerProvision = $provision->getTrainerProvision();
+        $trainerEmail = $this->getTrainerEmail($trainingTerm);
 
-        // 2. send collected feedbacks
-        $trainingTermFeedbacks = $trainingTerm->getFeedbacks();
+        $this->pehapkariMailer->sendProvisionAndFeedbacksToTrainer(
+            $provision->getTrainerProvision(),
+            $trainingTerm->getFeedbacks(),
+            $trainerEmail
+        );
 
-        // @todo send email with good news to the trainer
-        dump($trainerProvision, $trainingTermFeedbacks);
-        die;
+        $this->addFlash('success', sprintf('Email sent to "%s"', $trainerEmail));
+
+        return $this->redirectToRoute('training_term_provision', [
+            'id' => $trainingTerm->getId(),
+        ]);
     }
 
     /**
@@ -134,5 +147,37 @@ final class AdminTrainingTermController extends EasyAdminController
             'action' => 'list',
             'entity' => $trainingTerm,
         ]);
+    }
+
+    /**
+     * @Route(path="/admin/provision/{id}", name="training_term_provision")
+     */
+    public function trainingTermProvision(TrainingTerm $trainingTerm): Response
+    {
+        $provision = $this->provisionResolver->resolveForTrainingTerm($trainingTerm);
+
+        return $this->render('provision/training_term_provision.twig', [
+            'trainer' => $trainingTerm->getTrainer(),
+            'provision' => $provision,
+            'training' => $trainingTerm->getTraining(),
+            'training_term' => $trainingTerm,
+        ]);
+    }
+
+    private function getTrainerEmail(TrainingTerm $trainingTerm): string
+    {
+        // @todo: figure out correct value for MAILER_DSN env, then set in it
+        // https://travis-ci.org/pehapkari/pehapkari.cz/settings
+        // then uncomment this
+        return 'tomas.vot@gmail.com';
+
+        $trainer = $trainingTerm->getTrainer();
+
+        $trainerEmail = $trainer->getEmail();
+        if ($trainerEmail !== null) {
+            return $trainerEmail;
+        }
+
+        throw new ShouldNotHappenException(sprintf('Email "%s" trainer for was not found', $trainer->getName()));
     }
 }

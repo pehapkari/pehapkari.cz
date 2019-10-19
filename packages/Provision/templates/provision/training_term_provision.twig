@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-4">
                 <table class="table table-bordered">
-                    <thead class="bg-success text-white text-center">
+                    <thead class="bg-warning text-white text-center">
                         <tr>
                             <th colspan="2">Summary</th>
                         </tr>
@@ -82,16 +82,16 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Provision</td>
+                        <td class="text-right">{{ provision.trainerProvision|number_format }} Kč</td>
+                    </tr>
+                    <tr>
                         <td>
                             Expenses <span class="text-muted">(lunch)</span>
                         </td>
                         <td class="text-right text-nowrap">
                             {{ provision.trainerExpense|number_format }} Kč
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Provision</td>
-                        <td class="text-right">{{ provision.trainerProvision|number_format }} Kč</td>
                     </tr>
                     <tr class="bg-dark text-light">
                         <th>Provision + Expense Coverage</th>
@@ -104,7 +104,7 @@
                             {% if training_term.isProvisionEmailSent() %}
                                 Provision email already sent
                             {% else %}
-                                <a href="{{ path('training_term_provision_email', {'id': training_term.getId() }) }}" class="btn btn-lg btn-info">
+                                <a href="{{ path('training_term_provision_email', {'id': training_term.getId() }) }}" class="btn btn-lg btn-success">
                                     Send Invoice + Feedbacks to Trainer
                                 </a>
                             {% endif %}

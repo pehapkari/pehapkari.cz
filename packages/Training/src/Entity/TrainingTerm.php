@@ -303,9 +303,9 @@ class TrainingTerm
     }
 
     /**
-     * @return TrainingFeedback[]|Collection
+     * @return TrainingFeedback[]
      */
-    public function getFeedbacks()
+    public function getFeedbacks(): array
     {
         $trainingFeedbacks = $this->training->getFeedbacks();
 
@@ -314,7 +314,7 @@ class TrainingTerm
         $monthAfterStartDateTime->modify('+ 1 month');
 
         // we have to limit all feedback to just those for this term
-        return $trainingFeedbacks->filter(
+        $trainingTermFeedbacks = $trainingFeedbacks->filter(
             function (TrainingFeedback $trainingFeedback) use ($startDateTime, $monthAfterStartDateTime) {
                 // is way old
                 if ($trainingFeedback->getCreatedAt() < $startDateTime) {
@@ -330,6 +330,8 @@ class TrainingTerm
                 return true;
             }
         );
+
+        return $trainingTermFeedbacks->toArray();
     }
 
     private function getExpenseTotalByPartner(string $partnerKind): float

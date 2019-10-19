@@ -96,13 +96,13 @@ class Training implements UploadDestinationAwareInterface
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\TrainingTerm", mappedBy="training")
-     * @var TrainingTerm[]|ArrayCollection
+     * @var TrainingTerm[]|Collection
      */
     private $trainingTerms = [];
 
     /**
      * @ORM\OneToMany(targetEntity="TrainingFeedback", mappedBy="training")
-     * @var TrainingFeedback[]|ArrayCollection
+     * @var TrainingFeedback[]|Collection
      */
     private $trainingFeedbacks = [];
 
@@ -186,7 +186,7 @@ class Training implements UploadDestinationAwareInterface
     }
 
     /**
-     * @return TrainingTerm[]|ArrayCollection
+     * @return TrainingTerm[]|Collection
      */
     public function getTrainingTerms(): iterable
     {
@@ -255,7 +255,7 @@ class Training implements UploadDestinationAwareInterface
     }
 
     /**
-     * @return TrainingFeedback[]|ArrayCollection
+     * @return TrainingFeedback[]|Collection
      */
     public function getPublicFeedbacks()
     {
