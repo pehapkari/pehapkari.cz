@@ -54,7 +54,8 @@ parameters:
 
         # mutually excludes with other set
         PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
-        PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer: ~
+#        PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer: ~
 
         SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff.UnusedVariable:
+            # test
             - 'statie/tests/Posts/Year2017/Iterators/*.php'

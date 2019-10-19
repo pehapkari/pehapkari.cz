@@ -39,3 +39,7 @@ easy_admin:
                 label: 'Generate Certificate'
                 icon: 'plus'
                 route: 'create_certificate'
+            -
+                label: '[CRON] Sync Paid Invoices'
+                icon: 'sync'
+                route: 'sync_paid_invoices'

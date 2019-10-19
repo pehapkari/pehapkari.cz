@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Pehapkari\Registration\Controller;
 
@@ -8,7 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class InvoicingController extends AbstractController
+final class CronController extends AbstractController
 {
     /**
      * @var Invoicer
@@ -21,8 +23,7 @@ final class InvoicingController extends AbstractController
     }
 
     /**
-     * @todo run via cron/api
-     * @Route(path="/invoices/sync-paid-invoices", name="sync_paid_invoices")
+     * @Route(path="/cron/sync-paid-invoices", name="sync_paid_invoices")
      */
     public function syncPaidInvoices(): Response
     {
