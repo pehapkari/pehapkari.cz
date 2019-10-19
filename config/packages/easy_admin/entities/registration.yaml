@@ -14,6 +14,5 @@ easy_admin:
                     - 'ico'
                     - { property: 'participantCount', label: 'Persons?' }
                     - { property: 'hasInvoice', label: 'Invoice?' }
-                    - { property: 'isPaid', label: 'Paid?' }
         # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/list-search-show-configuration.html#built-in-dynamic-filters - still WIP progress, buggy#                filters:
 #                    - { property: 'trainingTerm' }

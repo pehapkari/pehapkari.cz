@@ -40,6 +40,6 @@ easy_admin:
                 icon: 'plus'
                 route: 'create_certificate'
             -
-                label: '[CRON] Sync Paid Invoices'
-                icon: 'sync'
-                route: 'sync_paid_invoices'
+                label: 'Go to Homepage'
+                icon: 'home'
+                route: 'homepage'

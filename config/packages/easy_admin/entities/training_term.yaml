@@ -13,7 +13,7 @@ easy_admin:
                     - { property: 'training', label: 'Detail', template: '_snippets/admin/training_term/training.twig' }
                     - 'participantCount'
                     - { property: 'startDateTime', label: 'Start' }
-                    - { property: 'registrations', template: '_snippets/admin/training_term/registrations.twig' }
+                    - 'registrations'
                     - { property: 'isProvisionPaid', label: 'Paid provision' }
 
                 actions:

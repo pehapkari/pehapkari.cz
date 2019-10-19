@@ -14,12 +14,6 @@ final class FakturoidEndpoint
 
     /**
      * @var string
-     * @see https://fakturoid.docs.apiary.io/#reference/invoices/invoice/detail-faktury
-     */
-    public const GET_INVOICE_DETAIL = self::BASE_API_URL . '/invoices/%s.json';
-
-    /**
-     * @var string
      * @see https://fakturoid.docs.apiary.io/#reference/subjects/subjects-collection-fulltext-search
      */
     public const GET_SEARCH_CONTACT = self::BASE_API_URL . '/subjects/search.json?query=%s';

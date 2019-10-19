@@ -74,12 +74,6 @@ class TrainingRegistration
      * @ORM\Column(type="boolean")
      * @var bool
      */
-    private $isPaid = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     * @var bool
-     */
     private $agreesWithPersonalData = false;
 
     /**
@@ -174,16 +168,6 @@ class TrainingRegistration
     public function setTrainingTerm(TrainingTerm $trainingTerm): void
     {
         $this->trainingTerm = $trainingTerm;
-    }
-
-    public function isPaid(): ?bool
-    {
-        return $this->isPaid;
-    }
-
-    public function setIsPaid(bool $isPaid): void
-    {
-        $this->isPaid = $isPaid;
     }
 
     public function getTrainingTermDate(): DateTimeInterface

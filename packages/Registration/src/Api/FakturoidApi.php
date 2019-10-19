@@ -50,17 +50,4 @@ final class FakturoidApi
 
         return $invoice['id'];
     }
-
-    public function isInvoicePaid(int $invoiceId): bool
-    {
-        $endpoint = sprintf(FakturoidEndpoint::GET_INVOICE_DETAIL, $this->fakturoidSlug, $invoiceId);
-
-        $invoice = $this->fakturoidClient->requestToJson('GET', $endpoint);
-
-        if (isset($invoice['paid_at']) && $invoice['paid_at']) {
-            return ((float) $invoice['paid_amount']) >= ((float) $invoice['total']);
-        }
-
-        return false;
-    }
 }

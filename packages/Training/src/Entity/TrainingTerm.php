@@ -169,10 +169,6 @@ class TrainingTerm
         $income = 0.0;
 
         foreach ($this->registrations as $registration) {
-            if (! $registration->isPaid()) {
-                continue;
-            }
-
             $income += $registration->getPrice() * $registration->getParticipantCount();
         }
 
