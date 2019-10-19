@@ -56,6 +56,12 @@ class TrainingTerm
     private $isProvisionPaid = false;
 
     /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $isProvisionEmailSent = false;
+
+    /**
      * @ORM\Column(type="datetime")
      * @var DateTime
      */
@@ -65,11 +71,11 @@ class TrainingTerm
      * @ORM\OneToMany(targetEntity="Pehapkari\Registration\Entity\TrainingRegistration", mappedBy="trainingTerm")
      * @var TrainingRegistration[]|Collection
      */
-    private $registrations;
+    private $registrations = [];
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", cascade={"persist", "remove"}, mappedBy="trainingTerm")
-     * @var MarketingEvent[]
+     * @var MarketingEvent[]|Collection
      */
     private $marketingEvents = [];
 
@@ -164,6 +170,16 @@ class TrainingTerm
         $this->isProvisionPaid = $isProvisionPaid;
     }
 
+    public function isProvisionEmailSent(): bool
+    {
+        return $this->isProvisionEmailSent;
+    }
+
+    public function setIsProvisionEmailSent(bool $isProvisionEmailSent): void
+    {
+        $this->isProvisionEmailSent = $isProvisionEmailSent;
+    }
+
     public function getIncome(): float
     {
         $income = 0.0;
@@ -240,11 +256,19 @@ class TrainingTerm
     }
 
     /**
-     * @return ArrayCollection|Expense[]
+     * @return Collection|Expense[]
      */
     public function getExpenses()
     {
         return $this->expenses;
+    }
+
+    /**
+     * @return Collection|MarketingEvent[]
+     */
+    public function getMarketingEvents()
+    {
+        return $this->marketingEvents;
     }
 
     public function hasMissingInvoices(): bool
@@ -276,6 +300,38 @@ class TrainingTerm
         }
 
         return $amount;
+    }
+
+    /**
+     * @return TrainingFeedback[]
+     */
+    public function getFeedbacks(): array
+    {
+        $trainingFeedbacks = $this->training->getFeedbacks();
+
+        $startDateTime = $this->getStartDateTime();
+        $monthAfterStartDateTime = clone $startDateTime;
+        $monthAfterStartDateTime->modify('+ 1 month');
+
+        // we have to limit all feedback to just those for this term
+        $trainingTermFeedbacks = $trainingFeedbacks->filter(
+            function (TrainingFeedback $trainingFeedback) use ($startDateTime, $monthAfterStartDateTime) {
+                // is way old
+                if ($trainingFeedback->getCreatedAt() < $startDateTime) {
+                    return false;
+                }
+
+                // is way new
+                if ($trainingFeedback->getCreatedAt() > $monthAfterStartDateTime) {
+                    return false;
+                }
+
+                // feedback was given in a month after training
+                return true;
+            }
+        );
+
+        return $trainingTermFeedbacks->toArray();
     }
 
     private function getExpenseTotalByPartner(string $partnerKind): float

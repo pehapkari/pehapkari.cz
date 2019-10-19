@@ -1,0 +1,34 @@
+<p>Ahoj,</p>
+
+<p>máme dobré zprávy :) Provedli jsme vyúčtování a jsme v zisku!</p>
+
+<br>
+
+<p>
+    Pošli nám fakturu na:<br>
+    <strong>{{ trainer_provision|number_format }} Kč</strong>
+<p>
+
+<br>
+
+<p>Na tvé školení přišlo několik feedbacků:</p>
+
+{% for feedback in feedbacks %}
+    {# @var \Pehapkari\Training\Entity\TrainingFeedback feedback #}
+    <p>
+        "{{ feedback.text }}"
+        <br>
+        <strong>{{ feedback.ratingContent }} b.</strong>
+    </p>
+{% endfor %}
+
+<br>
+
+<p>Měj se krásně!</p>
+
+<br>
+
+<p>Tomáš Votruba</p>
+<p>
+    za <a href="https://pehapkari.cz">Péhápkaři.cz</a>
+</p>

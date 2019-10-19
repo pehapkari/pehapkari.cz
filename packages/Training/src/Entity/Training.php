@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Pehapkari\Training\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -95,13 +96,13 @@ class Training implements UploadDestinationAwareInterface
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\TrainingTerm", mappedBy="training")
-     * @var TrainingTerm[]|ArrayCollection
+     * @var TrainingTerm[]|Collection
      */
     private $trainingTerms = [];
 
     /**
      * @ORM\OneToMany(targetEntity="TrainingFeedback", mappedBy="training")
-     * @var TrainingFeedback[]|ArrayCollection
+     * @var TrainingFeedback[]|Collection
      */
     private $trainingFeedbacks = [];
 
@@ -185,7 +186,7 @@ class Training implements UploadDestinationAwareInterface
     }
 
     /**
-     * @return TrainingTerm[]|ArrayCollection
+     * @return TrainingTerm[]|Collection
      */
     public function getTrainingTerms(): iterable
     {
@@ -254,7 +255,7 @@ class Training implements UploadDestinationAwareInterface
     }
 
     /**
-     * @return TrainingFeedback[]|ArrayCollection
+     * @return TrainingFeedback[]|Collection
      */
     public function getPublicFeedbacks()
     {
@@ -262,6 +263,14 @@ class Training implements UploadDestinationAwareInterface
             ->where(Criteria::expr()->eq('isPublic', true));
 
         return $this->trainingFeedbacks->matching($criteria);
+    }
+
+    /**
+     * @return TrainingFeedback[]|Collection
+     */
+    public function getFeedbacks()
+    {
+        return $this->trainingFeedbacks;
     }
 
     public function getSlug(): ?string
