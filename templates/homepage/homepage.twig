@@ -2,117 +2,116 @@
 
 {% block main %}
     <div class="homepage" id="page">
-        <section class="ph-section-first">
-            <div class="position-relative">
-                <div class="container">
-                    <div class="ph-heading">
-                        <div class="row position-relative">
-                            <div class="col-xl-7">
-                                <div class="ph-heading__title">
-                                    <h1>Děláš&nbsp;v&nbsp;PHP? Jsi&nbsp;jedním&nbsp;z&nbsp;nás</h1>
-                                </div>
+        <div class="container">
+            <div class="ph-heading">
+                <div class="row">
+                    <div class="col-xl-7">
+                        <h1 class="mt-4">
+                            Děláš&nbsp;v&nbsp;PHP?<br>
+                            Jsi&nbsp;jedním&nbsp;z&nbsp;nás
+                        </h1>
 
-                                <img src="/assets/images/slon/basic.png" alt="Slon" class="main-logo">
+                        <img src="/assets/images/slon/basic.png" alt="Slon" class="main-logo">
 
-                                <div class="ph-heading__subtitle">
-                                    <p class="mb-3">
-                                        Na <strong>PHP</strong> běží <a href="https://w3techs.com/technologies/details/pl-php/all/all">79 % všech webů</a>.
-                                    </p>
+                        <p class="mb-3">
+                            Na <strong>PHP</strong> běží <a href="https://w3techs.com/technologies/details/pl-php/all/all">79 % všech webů</a>.
+                        </p>
 
-                                    <p>
-                                        Tady najdeš komunitu lidí, kteří jej mají rádi a pracují s ním. Můžeš mezi <strong>nimi najít nové přátele</strong> s podobnými zájmy, ukážou ti <strong>moderní technologie</strong>, které ti usnadní práci, a nebo tu <strong>najdeš práci s fajn lidmi</strong>.
-
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        <p>
+                            Tady najdeš komunitu lidí, kteří jej mají rádi a pracují s ním.
+                            <br>
+                            Můžeš mezi <strong>nimi najít nové přátele</strong> s podobnými zájmy,
+                            <br>ukážou ti <strong>moderní technologie</strong>, které ti usnadní práci,
+                            <br>
+                            a nebo tu <strong>najdeš novou práci</strong> s fajn lidmi.
+                        </p>
                     </div>
                 </div>
             </div>
             <div class="ph-heading__background">
             </div>
-        </section>
+        </div>
+
+        <br>
+        <br>
+
         <section class="ph-section">
             <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-lg-4 ph-flex-column">
-                        <div class="ph-par">
-                            {# @todo load meetup.com info here #}
+                <h2 class="mb-5">Kdy a kde se potkáváme?</h2>
 
-                            <h2 class="ph-par__title">
-                                Attend a meetup
-                            </h2>
-                            <p class="ph-par__body">
-                                Everybody knows that our Slack community rocks. PHPStorm, Nette, Docker, Doctrine, Drupal, you name it, we’ve got it.
-                            </p>
-                        </div>
-                        <a href="#" class="ph-button ph-button-secondary d-none d-lg-block">
-                            see all 3 meetups
-                            <span><img src="/assets/icons/arrows/arrow_right_dark.svg" alt="arrow" title=""></span>
-                        </a>
+                <div class="row">
+                    <div class="col-md-7 text-center hidden-xs">
+                        {# @todo friendsofphp.org/ meetup.com info here #}
+                        {# https://friendsofphp.org/api/meetups.json #}
+                        <img src="/assets/images/meetup_2.jpg" alt="Přijď na sraz">
                     </div>
 
-                    <div class="col-lg-6 pt-md-3">
-                        <a href="#">
-                            <div class="ph-card card-calendar">
-                                <img class="card-calendar__img-top" src="/assets/images/homepage/1.jpg" alt="card-image" title="">
-                                <div class="card-calendar__body">
-                                    <h6 class="card-calendar__body-title">PHP Pivo 2018/4 - Pardubice</h6>
-                                    <a href="#" class="card-calendar__body-address">
-                                        KoPlac, Příkop 2, 60200 Brno
-                                        <img src="/assets/icons/arrows/arrow_upright.svg" alt="arrow" title="">
-                                    </a>
-                                    <div class="ph-card__body-date">
-                                        <span class="ph-card__body-date-day">4</span>
-                                        <span class="ph-card__body-date-month">APR</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="ph-button ph-button-secondary d-block d-lg-none">
-                            see all 3 meetups
-                            <span><img src="/assets/icons/arrows/arrow_right_dark.svg" alt="arrow" title=""></span>
-                        </a>
+                    <div class="col-md-5">
+                        <p>
+                            Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a>.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Typický sraz začíná v 18 hod. Pak promluví 2-3 speakři a nakonec jdeme diskutovat nad pivem.
+                        </p>
+
+                        <h3 class="mt-5">Kde se o nich dozvíš?</h3>
+
+                        <p>
+                            Všechny eventy vždycky najdeš na <a href="https://www.facebook.com/pehapkari/events">naší Facebook stránce</a>
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Nestihls poslední meetup? Máš štěstí, <strong>všechny meetupy nahráváme</strong>
+                        </p>
+
+                        <a href="{{ path('videos') }}">Přehraj si záznam</a>
                     </div>
                 </div>
             </div>
         </section>
+
         <section class="ph-section ph-bg-banner">
             <div class="container ph-reverse-section">
                 <div class="row justify-content-between flex-wrap-reverse">
-                    <div class="col-lg-6 ph-counter-col">
+                    <div class="col-lg-7 ph-counter-col">
                         <div class="d-flex flex-wrap w-100">
                             <div class="ph-counter">
-                                <h2 class="ph-counter__number mb-0">600 +</h2>
+                                <h2 class="ph-counter__number mb-0">600+</h2>
                                 <p class="ph-counter__body">
-                                    members active weekly
+                                    aktivních členů měsíčně
                                 </p>
                             </div>
                             <div class="ph-counter">
-                                <h2 class="ph-counter__number mb-0">55 +</h2>
+                                <h2 class="ph-counter__number mb-0">55+</h2>
                                 <p class="ph-counter__body">
-                                    channels, including #beer
+                                    kanálů, včetně #beer a #cleancode
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 d-flex ph-justify-flex-end">
+                    <div class="col-lg-5 d-flex ph-justify-flex-end">
                         <div>
                             <div class="ph-par">
                                 <h2 class="ph-par__title">
-                                    Join our Slack
+                                    Přidej se k nám na Slacku
                                 </h2>
                                 <p class="ph-par__body">
-                                    Everybody knows that our Slack community rocks. PHPStorm, Nette, Docker, Doctrine, Drupal, you name it, we’ve got it.
+                                    Všichni naši Slack komunitu znají. PHPStorm, Docker, Doctrine, Nette, Symfony... existuje to? Najdeš to.
                                 </p>
                             </div>
-                            <a href="#" class="ph-button ph-button-secondary d-none d-lg-block">
-                                Invite yourself @todo move footer here
+
+                            <a href="https://pehapkari.herokuapp.com/" class="ph-button ph-button-secondary d-none d-lg-block">
+                                Pozvi se na Slack
                                 <span><img src="/assets/icons/arrows/arrow_right_dark.svg"></span>
                             </a>
 
-                            <a href="#" class="ph-button ph-button-secondary d-none d-lg-block">
-                                Openslach chnnel @todo move footer here
+                            <a href="https://pehapkari.slack.com/" class="ph-button ph-button-secondary d-none d-lg-block">
+                                Otevři Slack
                                 <span><img src="/assets/icons/arrows/arrow_right_dark.svg"></span>
                             </a>
                         </div>
@@ -131,7 +130,7 @@
         </section>
 
         <div class="container text-center" id="team">
-            <h2 class="mb-4">Bez týmu aktivních dobrovolníků by to nešlo! Díky ↓ </h2>
+            <h2 class="mb-5">Bez týmu aktivních lidí by to nešlo!</h2>
 
             <div class="row" id="organizers">
                 {% for organizer in organizers %}
@@ -139,11 +138,13 @@
                         {% set photoUrl %}{% if organizer.photo matches "#http#" %}{{ organizer.photo }}{% else %}/assets/images/people/{{ organizer.photo }}{% endif %}{% endset %}
 
                         <img src="{{ photoUrl }}" class="rounded-circle" width="150" height="150">
+
                         <h3 class="mt-3">
                             {% if organizer.url is defined %}<a href="{{ organizer.url }}">{% endif %}
                                 {{ organizer.name }}
                                 {% if organizer.url is defined %}</a>{% endif %}
                         </h3>
+
                         <p>
                             {{ organizer.responsibility|raw }}
                         </p>
@@ -163,45 +164,4 @@
             </div>
         </div>
     </div>
-
-{#    #}{#<h2 class="text-center">Sleduj díl za dílem</h2>#}
-
-{#    #}{#<div class="row">#}
-{#    #}{#<div class="col-md-6">#}
-{#    #}{#<h3>Ze srazů</h3>#}
-{#    #}{# consider facebook videos rss parsing #}
-{#    #}{# FB api video list manual: https://developers.facebook.com/docs/graph-api/reference/page/video_lists/ #}
-{#    #}{# more inspiration: https://stackoverflow.com/a/9778635/1348344, #}
-{#    #}{#</div>#}
-
-{#    <div class="container" id="meetups">#}
-{#        <h2 class="text-center">Kdy a kde se potkáváme?</h2>#}
-
-{#        <br>#}
-
-{#        <div class="row">#}
-{#            <div class="col-md-6 text-center hidden-xs">#}
-{#                <img src="/assets/images/meetup.jpg" alt="Přijď na sraz">#}
-{#            </div>#}
-{#            <div class="col-md-6">#}
-{#                <p>#}
-{#                    Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a>.#}
-{#                </p>#}
-
-{#                <p>#}
-{#                    Typický sraz začíná v 18 hod. Pak promluví 2-3 speakři a nakonec jdeme diskutovat nad pivem.#}
-{#                </p>#}
-
-{#                <h3 class="mt-5">Kde se o nich dozvíš?</h3>#}
-
-{#                <ol class="manual-list">#}
-{#                    <li>Lajkni <a href="https://www.facebook.com/pehapkari/events">naši Facebook stránku</a></li>#}
-{#                    <li><strong>subscribni <a href="https://www.meetup.com/friends-of-php-prague">na Meetup.com</a></strong></li>#}
-{#                    <li>odebírej <a href="http://bit.ly/pehapkari-newsletter">newsletter</a></li>#}
-{#                    <li>nebo importuj <a href="https://calendar.google.com/calendar/embed?src=07ofvjdfhg9ko1vm9jrodqnpl8%40group.calendar.google.com&ctz=Europe/Prague">Google kalendář</a></li>#}
-{#                </ol>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-
 {% endblock %}

@@ -66,7 +66,8 @@ final class HomepageController extends AbstractController
     }
 
     /**
-     * @Route(path="/contact/", name="contact")
+     * @Route(path="/kontakt/", name="contact")
+     * @Route(path="/contact/")
      */
     public function contact(): Response
     {
