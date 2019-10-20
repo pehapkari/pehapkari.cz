@@ -14,7 +14,7 @@ Video (1:26)
 
 [![Video na Youtube](/assets/images/posts/2018/solid-1/youtube.png)](http://www.youtube.com/watch?v=GeezKhlAV-w)
 
-Mám zde například třídu ```Person```, která se uchovává data osoby, ale také validuje email. Což je právě ta věc, která by dle tohohle principu měla být samostatně.
+Mám zde například třídu ```Person```, která se uchovává data osoby, ale také validuje e-mail. Což je právě ta věc, která by dle tohohle principu měla být samostatně.
 
 ```php
 <?php
@@ -57,9 +57,9 @@ class Person
 }
 ```
 
-Řešením zde může být to, že se bude požadovat konkrétní typ pro email.
+Řešením zde může být to, že se bude požadovat konkrétní typ pro e-mail.
 
-Vytvoříme třídu ```Email```, která bude ihned při inicializaci validovat vstup. V konstruktoru proběhne validace. Následně ve třídě ```Person``` můžeme vyžadovat typ Email a budeme mít jistotu, že email vždy prošel validací.
+Vytvoříme třídu ```Email```, která bude ihned při inicializaci validovat vstup. V konstruktoru proběhne validace. Následně ve třídě ```Person``` můžeme vyžadovat typ ```Email``` a budeme mít jistotu, že e-mail vždy prošel validací.
 
 ```php
 <?php

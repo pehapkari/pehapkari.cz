@@ -26,7 +26,7 @@ Unikla ti nějaká akce, na které jsi chtěl být? **Subscribni se k [akcím na
 
 ## Dohodli jsem se na společném místu online
 
-Ještě minulý rok nebylo moc jasné, kde se ptát na různé věci kolem PHP. Nette fórum? Symfony gitter? Jak psát web? Email? Twitter?
+Ještě minulý rok nebylo moc jasné, kde se ptát na různé věci kolem PHP. Nette fórum? Symfony gitter? Jak psát web? E-mail? Twitter?
 
 S [Honzou Černým](http://honzacerny.com/) jsme si řekli, že tu schizofrenii změníme a na podzim [jsme spustili společný PHP Slack](http://pehapkari.cz/#slack). Za **4 měsíce běhu jsme vyrostli ze 150 lidí na 650**. Včetně 55 kanálů!
 

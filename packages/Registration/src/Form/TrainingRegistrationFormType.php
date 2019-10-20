@@ -30,7 +30,7 @@ final class TrainingRegistrationFormType extends AbstractType
         ]);
 
         $formBuilder->add('email', TextType::class, [
-            'label' => 'Tvůj email',
+            'label' => 'Tvůj e-mail',
             'required' => true,
         ]);
 
