@@ -2,7 +2,7 @@
     "name": "pehapkari/website",
     "description": "Website of Pehapkari.cz - Czech PHP Community",
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-json": "*",

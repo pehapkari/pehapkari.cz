@@ -10,7 +10,7 @@ COPY . .
 RUN yarn run build
 
 
-FROM php:7.2-apache as production
+FROM php:7.3-apache as production
 
 WORKDIR /var/www/pehapkari.cz
 
