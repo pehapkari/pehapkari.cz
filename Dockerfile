@@ -1,3 +1,15 @@
+FROM node:10.15.3 as node-build
+
+WORKDIR /build
+
+COPY package*.json webpack*.json ./
+RUN yarn install
+
+COPY . .
+
+RUN yarn run build
+
+
 FROM php:7.2-apache as production
 
 WORKDIR /var/www/pehapkari.cz
@@ -32,6 +44,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --classmap-authoritative --no-plugins --no-scripts
 
+
 # Entrypoint
 COPY ./.docker/docker-entrypoint.sh /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
@@ -43,6 +56,8 @@ RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-pr
 
 COPY . .
 
+COPY --from=node-build /build/public/build ./public/build
+
 RUN mkdir -p ./var/cache \
     ./var/log \
     ./var/sessions \
@@ -52,6 +67,8 @@ RUN mkdir -p ./var/cache \
 
 ## Local build with xdebug
 FROM production as dev
+
+## TODO: we might need NPM + NODE in dev + entrypoint with npm install?
 
 RUN composer install --prefer-dist --no-scripts --no-progress --no-suggest
 
