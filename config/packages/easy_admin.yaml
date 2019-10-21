@@ -14,6 +14,7 @@ parameters:
         - 'trainings'
         - 'slug'
         - 'isProvisionPaid'
+        - 'isProvisionEmailSent'
         - 'uploadDestination'
         - 'relativeUploadDestination'
         - 'marketingEvents'

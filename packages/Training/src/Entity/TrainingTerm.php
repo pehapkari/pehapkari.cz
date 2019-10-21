@@ -97,6 +97,11 @@ class TrainingTerm
         return $this->training->getName() . ' - ' . $this->startDateTime->format('j. n. Y');
     }
 
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
     public function getTrainingName(): string
     {
         return (string) $this->training->getName();
