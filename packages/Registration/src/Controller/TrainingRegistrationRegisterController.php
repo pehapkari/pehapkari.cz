@@ -9,23 +9,17 @@ use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Form\TrainingRegistrationFormType;
 use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 use Pehapkari\Training\Entity\TrainingTerm;
-use Pehapkari\Training\Repository\TrainingTermRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class TrainingRegistrationController extends AbstractController
+final class TrainingRegistrationRegisterController extends AbstractController
 {
     /**
      * @var TrainingRegistrationRepository
      */
     private $trainingRegistrationRepository;
-
-    /**
-     * @var TrainingTermRepository
-     */
-    private $trainingTermRepository;
 
     /**
      * @var PehapkariMailer
@@ -34,10 +28,8 @@ final class TrainingRegistrationController extends AbstractController
 
     public function __construct(
         TrainingRegistrationRepository $trainingRegistrationRepository,
-        TrainingTermRepository $trainingTermRepository,
         PehapkariMailer $pehapkariMailer
     ) {
-        $this->trainingTermRepository = $trainingTermRepository;
         $this->trainingRegistrationRepository = $trainingRegistrationRepository;
         $this->pehapkariMailer = $pehapkariMailer;
     }
@@ -47,7 +39,7 @@ final class TrainingRegistrationController extends AbstractController
      *
      * @see https://github.com/symfony/demo/blob/master/src/Controller/Admin/BlogController.php
      */
-    public function register(Request $request, TrainingTerm $trainingTerm): Response
+    public function run(Request $request, TrainingTerm $trainingTerm): Response
     {
         $trainingRegistration = new TrainingRegistration();
         $trainingRegistration->setTrainingTerm($trainingTerm);
@@ -69,16 +61,6 @@ final class TrainingRegistrationController extends AbstractController
             'training' => $trainingTerm->getTraining(),
             'trainingTerm' => $trainingTerm,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route(path="/prehled-registraci/", name="registration-overview", methods={"GET"})
-     */
-    public function run(): Response
-    {
-        return $this->render('registration/overview.twig', [
-            'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),
         ]);
     }
 }
