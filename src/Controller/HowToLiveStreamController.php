@@ -8,20 +8,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class MeetupController extends AbstractController
+final class HowToLiveStreamController extends AbstractController
 {
     /**
-     * @Route(path="/meetups", name="meetups")
-     */
-    public function meetups(): Response
-    {
-        return $this->render('meetup/meetups.twig');
-    }
-
-    /**
      * @Route(path="/for-speakers", name="for_speakers")
+     * @Route(path="/how-to-livestream")
+     * @Route(path="/stream")
      */
-    public function forSpeakers(): Response
+    public function run(): Response
     {
         return $this->render('meetup/for_speakers.twig');
     }
