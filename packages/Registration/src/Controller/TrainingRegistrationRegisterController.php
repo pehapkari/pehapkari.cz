@@ -41,9 +41,7 @@ final class TrainingRegistrationRegisterController extends AbstractController
      */
     public function run(Request $request, TrainingTerm $trainingTerm): Response
     {
-        $trainingRegistration = new TrainingRegistration();
-        $trainingRegistration->setTrainingTerm($trainingTerm);
-        $trainingRegistration->setPrice($trainingTerm->getPrice());
+        $trainingRegistration = $this->createTrainingRegistration($trainingTerm);
 
         $form = $this->createForm(TrainingRegistrationFormType::class, $trainingRegistration);
         $form->handleRequest($request);
@@ -62,5 +60,14 @@ final class TrainingRegistrationRegisterController extends AbstractController
             'trainingTerm' => $trainingTerm,
             'form' => $form->createView(),
         ]);
+    }
+
+    private function createTrainingRegistration(TrainingTerm $trainingTerm): TrainingRegistration
+    {
+        $trainingRegistration = new TrainingRegistration();
+        $trainingRegistration->setTrainingTerm($trainingTerm);
+        $trainingRegistration->setPrice($trainingTerm->getPrice());
+
+        return $trainingRegistration;
     }
 }

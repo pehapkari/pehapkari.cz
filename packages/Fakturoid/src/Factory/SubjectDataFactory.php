@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Registration\Api\Factory;
+namespace Pehapkari\Fakturoid\Factory;
 
 use Defr\Ares;
 use Defr\Ares\AresException;

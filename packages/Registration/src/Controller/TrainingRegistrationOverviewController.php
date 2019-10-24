@@ -12,22 +12,12 @@ use Symfony\Component\Routing\Annotation\Route;
 final class TrainingRegistrationOverviewController extends AbstractController
 {
     /**
-     * @var TrainingTermRepository
-     */
-    private $trainingTermRepository;
-
-    public function __construct(TrainingTermRepository $trainingTermRepository)
-    {
-        $this->trainingTermRepository = $trainingTermRepository;
-    }
-
-    /**
      * @Route(path="/prehled-registraci/", name="registration-overview", methods={"GET"})
      */
-    public function run(): Response
+    public function run(TrainingTermRepository $trainingTermRepository): Response
     {
         return $this->render('registration/overview.twig', [
-            'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),
+            'upcoming_training_terms' => $trainingTermRepository->getUpcoming(),
         ]);
     }
 }

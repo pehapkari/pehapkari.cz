@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Registration\Api;
+namespace Pehapkari\Fakturoid;
 
-use Pehapkari\Registration\Api\Factory\InvoiceDataFactory;
-use Pehapkari\Registration\Api\Fakturoid\FakturoidEndpoint;
+use Pehapkari\Fakturoid\Factory\InvoiceDataFactory;
+use Pehapkari\Fakturoid\Guzzle\FakturoidClient;
+use Pehapkari\Fakturoid\ValueObject\FakturoidEndpoint;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 
 /**

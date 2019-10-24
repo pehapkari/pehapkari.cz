@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Registration\Api;
+namespace Pehapkari\Fakturoid\Guzzle;
 
+use Pehapkari\Fakturoid\Http\RequestResponseFormatter;
+use Pehapkari\Fakturoid\Http\ResponseErrorReporter;
 use Pehapkari\Registration\Exception\MissingEnvValueException;
 
 final class FakturoidClientFactory
@@ -24,7 +26,7 @@ final class FakturoidClientFactory
     private $responseErrorReporter;
 
     /**
-     * @var RequestResponseFormatter
+     * @var \Pehapkari\Fakturoid\Http\RequestResponseFormatter
      */
     private $requestResponseFormatter;
 

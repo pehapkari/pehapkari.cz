@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Registration\Api;
+namespace Pehapkari\Fakturoid\Guzzle;
 
 use GuzzleHttp\Client;
+use Pehapkari\Fakturoid\Http\RequestResponseFormatter;
+use Pehapkari\Fakturoid\Http\ResponseErrorReporter;
 
 final class FakturoidClient extends Client
 {
@@ -14,7 +16,7 @@ final class FakturoidClient extends Client
     private $responseErrorReporter;
 
     /**
-     * @var RequestResponseFormatter
+     * @var \Pehapkari\Fakturoid\Http\RequestResponseFormatter
      */
     private $requestResponseFormatter;
 
@@ -33,12 +35,10 @@ final class FakturoidClient extends Client
     }
 
     /**
-     * @param string $method
-     * @param string $uri
      * @param mixed[] $options
      * @return mixed[]
      */
-    public function requestToJson($method, $uri = '', array $options = []): array
+    public function requestToJson(string $method, string $uri = '', array $options = []): array
     {
         $response = parent::request($method, $uri, $options);
 

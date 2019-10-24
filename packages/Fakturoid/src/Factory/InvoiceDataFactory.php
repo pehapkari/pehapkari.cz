@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Registration\Api\Factory;
+namespace Pehapkari\Fakturoid\Factory;
 
 use Pehapkari\Exception\ShouldNotHappenException;
-use Pehapkari\Registration\Api\Fakturoid\FakturoidEndpoint;
-use Pehapkari\Registration\Api\FakturoidClient;
+use Pehapkari\Fakturoid\Guzzle\FakturoidClient;
+use Pehapkari\Fakturoid\ValueObject\FakturoidEndpoint;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 
 final class InvoiceDataFactory

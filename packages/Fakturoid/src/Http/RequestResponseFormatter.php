@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Registration\Api;
+namespace Pehapkari\Fakturoid\Http;
 
 use Nette\Utils\Json;
 use Psr\Http\Message\ResponseInterface;

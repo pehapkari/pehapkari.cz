@@ -92,6 +92,7 @@
             "Pehapkari\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
             "Pehapkari\\User\\": "packages/User/src",
             "Pehapkari\\Youtube\\": "packages/Youtube/src",
+            "Pehapkari\\Fakturoid\\": "packages/Fakturoid/src",
             "Pehapkari\\Statie\\": "statie/src"
         }
     },

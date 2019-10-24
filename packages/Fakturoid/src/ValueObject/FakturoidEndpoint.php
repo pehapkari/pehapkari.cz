@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Registration\Api\Fakturoid;
+namespace Pehapkari\Fakturoid\ValueObject;
 
 final class FakturoidEndpoint
 {
