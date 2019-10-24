@@ -46,3 +46,6 @@ services:
 
     # latte filters in twig
     Latte\Runtime\FilterExecutor: ~
+
+    # email validator
+    Egulias\EmailValidator\EmailValidator: ~

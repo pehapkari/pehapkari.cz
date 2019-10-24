@@ -35,6 +35,7 @@ class TrainingRegistration
     /**
      * @ORM\Column(type="string", length=255)
      * @var string
+     * @Assert\Email()
      */
     private $email;
 
