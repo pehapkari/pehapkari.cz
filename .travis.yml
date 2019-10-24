@@ -2,53 +2,67 @@ dist: trusty
 
 jobs:
     include:
-        - stage: build
-          if: NOT type = cron
-          name: Build docker image
-          script:
-              - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-              - docker pull pehapkari/pehapkari.cz || true
-              - docker build --cache-from pehapkari/pehapkari.cz -t pehapkari/pehapkari.cz:$TRAVIS_COMMIT --target production -f Dockerfile .
-              - docker push pehapkari/pehapkari.cz
+        # 1. build Docker image
+        -
+            stage: build
+            if: NOT type = cron
+            name: Build docker image
+            script:
+                - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+                - docker pull pehapkari/pehapkari.cz || true
+                - docker build --cache-from pehapkari/pehapkari.cz -t pehapkari/pehapkari.cz:$TRAVIS_COMMIT --target production -f Dockerfile .
+                - docker push pehapkari/pehapkari.cz
 
-        - stage: test
-          script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer check-cs
-          name: ECS
+        # 2. using built Docker image from previous step
+        -
+            stage: test
+            name: Static Analysis
+            script:
+                - docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer check-cs
+                - docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer phpstan
 
-        - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer phpstan
-          name: PHPStan
+        -
+            name: PHPUnit
+            script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT php vendor/bin/phpunit
 
-        - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT php vendor/bin/phpunit
-          name: PHPUnit
+        -
+            name: Rector
+            script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer rector
 
-        - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer rector
-          name: Rector
+        -
+            name: Linting YAML and Templates
+            script:
+                - docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console lint:yaml src packages
+                - docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console lint:twig packages templates
 
-        - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console lint:yaml src packages
-          name: Lint yaml
+        -
+            name: Dead links
+            script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer dead-links
 
-        - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console lint:twig packages templates
-          name: Lint templates
+        -
+            name: Prod cache warmup
+            script: docker run --rm -e APP_ENV=prod pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console cache:warmup
 
-        - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer dead-links
-          name: Dead links
+        -
+            stage: deploy
+            name: Deploy to pehapkari.cz
+            if: branch = master AND type = push
+            script: skip
+            deploy:
+                -
+                    provider: script
+                    script: sh bin/deploy.sh
+                    skip_cleanup: true
 
-        - script: docker run --rm -e APP_ENV=prod pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console cache:warmup
-          name: Prod cache warmup
+        -
+            stage: crons
+            name: Tweet posts
+            if: branch = master AND type = cron
+            script: docker run --rm -e APP_ENV=prod -e TWITTER_CONSUMER_KEY -e TWITTER_CONSUMER_SECRET -e TWITTER_OAUTH_ACCESS_TOKEN -e TWITTER_OAUTH_ACCESS_TOKEN_SECRET pehapkari/pehapkari.cz php vendor/bin/statie tweet-post statie/source
 
-        - stage: deploy
-          name: Deploy to pehapkari.cz
-          if: branch = master AND type = push
-          script: skip
-          deploy:
-              - provider: script
-                script: sh bin/deploy.sh
-                skip_cleanup: true
-
-        - stage: crons
-          name: Tweet posts
-          if: branch = master AND type = cron
-          script: docker run --rm -e APP_ENV=prod -e TWITTER_CONSUMER_KEY -e TWITTER_CONSUMER_SECRET -e TWITTER_OAUTH_ACCESS_TOKEN -e TWITTER_OAUTH_ACCESS_TOKEN_SECRET pehapkari/pehapkari.cz php vendor/bin/statie tweet-post statie/source
+    allow_failures:
+        -   stage: Static Analysis (informative)
+        -   stage: Code Coverage
 
 # do not send success notifications, they have no value
 notifications:
