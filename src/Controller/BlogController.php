@@ -21,7 +21,6 @@ final class BlogController extends AbstractController
             'posts' => $postsProvider->provide(),
             'authors' => $authorsProvider->provide(),
             'author_count' => $authorsProvider->getCount(),
-            // @todo resolve better later to include authors that are in string in posts
         ]);
     }
 }

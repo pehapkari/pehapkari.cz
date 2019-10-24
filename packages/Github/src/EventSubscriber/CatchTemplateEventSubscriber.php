@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\EventSubscriber;
+namespace Pehapkari\Github\EventSubscriber;
 
 use Nette\Utils\FileSystem;
 use Pehapkari\Github\PhpParser\NodeVisitor\DetectRenderArgumentNodeVisitor;

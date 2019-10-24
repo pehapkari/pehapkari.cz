@@ -9,11 +9,11 @@
             {% include "_snippets/search_form.twig" %}
         </div>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+{#        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">#}
+{#            <span class="navbar-toggler-icon"></span>#}
+{#        </button>#}
 
-        <div class="collapse navbar-collapse">
+{#        <div class="collapse navbar-collapse">#}
             <ul class="navbar-nav ml-auto" id="menu">
                 <li>
                     <a class="{{ active_item(['trainings', 'training_detail', 'place_detail', 'registration']) }}" href="{{ path('trainings') }}">
@@ -41,47 +41,11 @@
                     </a>
                 </li>
             </ul>
-        </div>
+{#        </div>#}
     </div>
 </nav>
 
-
-{#<header>#}
-{#    #}{# normal menu #}
 {#    <div class="hidden-sm-down">#}
-{#        <div class="container-fluid">#}
-{#            <a href="/"><img src="{{ asset('/assets/images/logo-header.svg') }}" alt="" height="50"></a>#}
-{#            <nav class="navbar float-right">#}
-{#                <ul>#}
-{#                    <li id="top-menu-search">#}
-{#                        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">#}
-{#                            <meta itemprop="target" content="https://www.google.com/search?q={q}"/>#}
-{#                            <input name="sitesearch" value="pehapkari.cz" type="hidden"/>#}
-{#                            <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Napiš co hledáš..." autocomplete="off"/>#}
-{#                        </form>#}
-{#                    </li>#}
-
-{#                    <li>#}
-{#                        <a href="{{ path('blog') }}" class="{{ active_item(['blog', 'post']) }}">#}
-{#                            Blog#}
-{#                        </a>#}
-{#                    </li>#}
-
-{#                    <li>#}
-{#                        <a href="{{ path('trainings') }}" class="{{ active_item(['trainings', 'place_detail', 'training_detail']) }}">#}
-{#                            Školení#}
-{#                        </a>#}
-{#                    </li>#}
-
-{#                    <li>#}
-{#                        <a href="{{ path('videos') }}" class="{{ active_item(['videos', 'livestream', 'videos_php_prague', 'video_detail']) }}">#}
-{#                            Videa#}
-{#                        </a>#}
-{#                    </li>#}
-{#                </ul>#}
-{#            </nav>#}
-{#        </div>#}
-{#    </div>#}
 
 {#    #}{# mobile menu #}
 {#    <div id="mobile-menu" class="text-center hidden-md-up">#}
