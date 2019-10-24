@@ -5,6 +5,7 @@ before_install:
     - phpenv config-rm xdebug.ini || return 0
 
 jobs:
+    fast_finish: true
     include:
         # 1. build Docker image
         -
