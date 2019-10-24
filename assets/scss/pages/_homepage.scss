@@ -7,13 +7,6 @@
         background-repeat: no-repeat;
     }
 
-    .ph-bg-banner {
-        background-image: url(/assets/images/background/slacks@2x.jpg);
-        background-repeat: no-repeat;
-        background-size: 700px 312px;
-        background-position-y: 356px;
-    }
-
     .ph-icon-social {
         display: flex;
         height: 60px;
@@ -24,37 +17,6 @@
             max-height: 25px;
             width: 100%;
             margin: auto;
-        }
-    }
-
-    .ph-counter-col {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        height: 350px;
-        margin-top: 55px;
-
-        @media (min-width: 460px) {
-            height: 410px;
-        }
-
-        .ph-counter {
-            width: 100%;
-
-            &:first-of-type {
-                padding-bottom: 18px;
-            }
-            &:nth-of-type(2nd) {
-                padding-top: 18px;
-            }
-        }
-    }
-
-    .ph-reverse-section {
-        .ph-second-col {
-            .ph-button-secondary {
-                margin-top: 160px;
-            }
         }
     }
 
@@ -158,22 +120,6 @@
 
         .ph-first-col {
             margin-bottom: 0;
-        }
-
-        .ph-counter-col {
-            height: auto;
-            margin-top: 0;
-
-            .ph-counter {
-                width: 50%;
-            }
-        }
-
-        .ph-bg-banner {
-            background-image: url(/assets/images/background/slacks@2x.jpg);
-            background-repeat: no-repeat;
-            background-position: left;
-            background-size: 749px 311px;
         }
 
         .card-livestream {
