@@ -13,7 +13,7 @@
 <div class="row">
     {% for feedback in feedbacks %}
         <div class="col-12 col-md-6 mb-5">
-            {% include "_snippets/training/single_feedback.twig" %}
+            {% include "_snippets/training/single_feedback.twig" with {"show_training_name": show_training_name }  %}
         </div>
     {% endfor %}
 </div>

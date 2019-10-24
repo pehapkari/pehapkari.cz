@@ -6,7 +6,6 @@ namespace Pehapkari\Training\Repository;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
-use Pehapkari\Training\Entity\Training;
 use Pehapkari\Training\Entity\TrainingFeedback;
 
 final class TrainingFeedbackRepository
@@ -57,19 +56,6 @@ final class TrainingFeedbackRepository
         $averageRating = (float) $this->entityRepository->createQueryBuilder('tf')
             ->select('AVG(tf.ratingContent) as average_rating')
             ->where('tf.ratingContent IS NOT NULL')
-            ->getQuery()
-            ->getSingleScalarResult();
-
-        return $this->roundRating($averageRating);
-    }
-
-    public function getAverageTrainingRating(Training $training): float
-    {
-        $averageRating = (float) $this->entityRepository->createQueryBuilder('tf')
-            ->select('AVG(tf.ratingContent) as average_rating')
-            ->andWhere('tf.ratingContent IS NOT NULL')
-            ->andWhere('tf.training = :training')
-            ->setParameter('training', $training->getId())
             ->getQuery()
             ->getSingleScalarResult();
 

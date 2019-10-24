@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class TrainingController extends AbstractController
+final class TrainingsController extends AbstractController
 {
     /**
      * @var TrainingRepository
@@ -57,7 +57,7 @@ final class TrainingController extends AbstractController
     /**
      * @Route(path="/vzdelavej-se/", name="trainings")
      */
-    public function trainings(): Response
+    public function run(): Response
     {
         $averageRating = $this->trainingFeedbackRepository->getAverageRating();
 

@@ -8,7 +8,7 @@
     <div class="row">
         {% for feedback in training.getPublicFeedbacks() %}
             <div class="col-md-12 text-left mb-4">
-                {% include "_snippets/training/single_feedback.twig" with {"detail": true } %}
+                {% include "_snippets/training/single_feedback.twig" with {"show_training_name": false } %}
             </div>
 
         {% endfor %}

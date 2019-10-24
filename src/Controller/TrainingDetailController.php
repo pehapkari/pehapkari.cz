@@ -18,11 +18,6 @@ final class TrainingDetailController extends AbstractController
      */
     public function detail(Training $training, TrainingFeedbackRepository $trainingFeedbackRepository): Response
     {
-        $averageRating = $trainingFeedbackRepository->getAverageTrainingRating($training);
-
-        dump($training);
-        die;
-
         return $this->render('training/training_detail.twig', [
             'training' => $training,
             'training_term' => $training->getNearestTerm(),
@@ -31,8 +26,8 @@ final class TrainingDetailController extends AbstractController
 
             // rating
             'feedbacks' => $training->getPublicFeedbacks(),
-            'average_training_rating' => $averageRating,
-            'average_training_rating_stars' => round($averageRating, 0),
+            'average_training_rating' => $training->getAverageRating(),
+            'average_training_rating_stars' => round($training->getAverageRating(), 0),
         ]);
     }
 
