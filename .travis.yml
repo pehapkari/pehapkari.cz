@@ -14,18 +14,25 @@ jobs:
         - stage: test
           script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer check-cs
           name: ECS
+
         - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer phpstan
           name: PHPStan
+
         - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT php vendor/bin/phpunit
           name: PHPUnit
+
         - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer rector
           name: Rector
+
         - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console lint:yaml src packages
           name: Lint yaml
+
         - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console lint:twig packages templates
           name: Lint templates
+
         - script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer dead-links
           name: Dead links
+
         - script: docker run --rm -e APP_ENV=prod pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console cache:warmup
           name: Prod cache warmup
 
