@@ -10,8 +10,8 @@
     padding-right: 0;
 
     .container {
-        padding-left: 52px;
-        padding-right: 52px;
+        padding-left: 3em;
+        padding-right: 3em;
         display: flex;
     }
 
@@ -175,5 +175,20 @@
                 color: $white;
             }
         }
+    }
+}
+
+#mobile-menu {
+    a {
+        padding: .6em 0;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .active {
+        background: black;
+        color: white;
     }
 }
