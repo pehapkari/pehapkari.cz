@@ -1,0 +1,29 @@
+.ph-justify-flex-end {
+    justify-content: flex-end;
+}
+
+.container {
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+@include media-breakpoint-up(lg) {
+    .ph-section {
+        padding: 140px 0;
+    }
+
+    .ph-section-first {
+        padding: 190px 0 140px 0;
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .ph-section-footer {
+        padding-top: 180px;
+        padding-bottom: 0;
+    }
+
+}

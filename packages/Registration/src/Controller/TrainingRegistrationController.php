@@ -73,19 +73,9 @@ final class TrainingRegistrationController extends AbstractController
     }
 
     /**
-     * @Route(path="/vitej-na-skoleni/{slug}/", name="registration_thank_you")
-     */
-    public function thankYou(TrainingTerm $trainingTerm): Response
-    {
-        return $this->render('registration/thank_you_for_registration.twig', [
-            'trainingTerm' => $trainingTerm,
-        ]);
-    }
-
-    /**
      * @Route(path="/prehled-registraci/", name="registration-overview", methods={"GET"})
      */
-    public function overview(): Response
+    public function run(): Response
     {
         return $this->render('registration/overview.twig', [
             'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),

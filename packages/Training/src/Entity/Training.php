@@ -307,4 +307,26 @@ class Training implements UploadDestinationAwareInterface
     {
         return $this->getImage() ? $this->uploadDestination . $this->getImage() : null;
     }
+
+    public function getAverageRating(): ?float
+    {
+        /** @var TrainingFeedback[]|Collection $trainingFeedbacksWithRating */
+        $trainingFeedbacksWithRating = $this->trainingFeedbacks->filter(function (TrainingFeedback $trainingFeedback) {
+            return $trainingFeedback->getRating() !== null;
+        });
+
+        // no rating yet
+        if ($trainingFeedbacksWithRating->count() === 0) {
+            return null;
+        }
+
+        $absoluteRating = 0;
+        foreach ($trainingFeedbacksWithRating as $trainingFeedbackWithRating) {
+            $absoluteRating += $trainingFeedbackWithRating->getRating();
+        }
+
+        $averageRating = $absoluteRating / $trainingFeedbacksWithRating->count();
+
+        return round($averageRating, 2);
+    }
 }

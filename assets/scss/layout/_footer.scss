@@ -1,0 +1,119 @@
+#footer {
+    margin-top: 2em;
+    padding-top: 3em;
+    background-color: $black;
+    font-size: $font-size-s;
+    font-weight: 300;
+    color: $white;
+
+    .container {
+        padding: 3em 8em;
+    }
+
+    p {
+        font-size: $font-size-s;
+    }
+
+    ul#socials {
+        font-size: 1.2em;
+        margin-bottom: 2em;
+        list-style-type: none;
+
+        li {
+            float: left;
+            display: inline;
+            text-align: center;
+            padding: 1em;
+
+            a {
+                text-align: center;
+                display: block;
+                color: $white;
+
+                &:hover {
+                    color: $green;
+                }
+
+                p {
+                    opacity: 1;
+                    font-size: .8em;
+                }
+            }
+        }
+    }
+
+    #footer_body {
+        a {
+            text-decoration: underline;
+            color: $white;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+
+            &:hover {
+                color: $white;
+                text-decoration: none;
+            }
+        }
+
+        h3 {
+            font-family: $font-family-secondary;
+            font-weight: 500;
+            font-size: $font-size-sm;
+            line-height: 1em;
+            letter-spacing: 1px;
+            margin-bottom: 1.5em;
+            margin-top: 0;
+            color: #AAA;
+        }
+
+        ul.bottom_menu {
+            padding-inline-start: 0;
+
+            li {
+                list-style-type: none;
+                margin-bottom: 0;
+                padding: .3em 0;
+
+                a {
+                    color: $white;
+                    text-decoration: none;
+                    line-height: 1em;
+                    letter-spacing: 0.5px;
+
+                    &:hover {
+                        color: $green;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    #footer {
+        .container {
+            padding: .2em 1em 1em 1em;
+        }
+
+        ul#socials {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+
+            li {
+                p {
+                    a {
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    #footer {
+        .container {
+            max-width: 90em;
+        }
+    }
+}

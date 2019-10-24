@@ -2,35 +2,22 @@
 <html lang="cs">
     <head>
         {% include "_snippets/head.twig" %}
-        {% include "_snippets/menu.twig" %}
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
 
     <body id="{% block body_id %}{% endblock %}">
-        <div>
-            {% block body %}
-                <div id="main">
-                    <div class="container">
-                        {% include '_snippets/flash_messages.twig' %}
+        {% include "_snippets/menu.twig" %}
 
-                        {% block main %}{% endblock %}
-                    </div>
-                </div>
-            {% endblock %}
-        </div>
+        {% block body %}
+            <div id="main">
+                {% include '_snippets/flash_messages.twig' %}
+
+                {% block main %}{% endblock %}
+            </div>
+        {% endblock %}
 
         {% include "_snippets/footer.twig" %}
         {% include "_snippets/google_analytics.twig" %}
-
-        {% block javascripts %}
-            <script src="{{ asset('build/manifest.js') }}"></script>
-            <script src="{{ asset('build/js/common.js') }}"></script>
-            <script src="{{ asset('build/js/app.js') }}"></script>
-        {% endblock %}
-
-        {# it's not mandatory to set the timezone in localizeddate(). This is done to
-           avoid errors when the 'intl' PHP extension is not available and the application
-           is forced to use the limited "intl polyfill", which only supports UTC and GMT #}
     </body>
 </html>

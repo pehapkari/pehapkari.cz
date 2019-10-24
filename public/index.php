@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Tracy\Debugger;
 
 require_once __DIR__  .'/../vendor/autoload.php';
-
 require_once __DIR__ . '/../config/bootstrap.php';
 
 if ($_SERVER['APP_DEBUG']) {

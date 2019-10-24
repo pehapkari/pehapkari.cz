@@ -1,13 +1,30 @@
-{# @var video \Pehapkari\Youtube\ValueObject\Video #}
-<div class="col-sm-6 col-md-4 mb-5 video-row-item hidden-sm-down">
-    <a href="{{ path('video_detail', {'slug': video.slug }) }}">
-        {% if video.thumbnail %}
-            <img src="{{ video.thumbnail }}" alt="" style="max-width: 100%" class="mb-2">
-        {% endif %}
+{% macro video_title(video) %}
+    {% if video.thumbnail == '' %}
+        <table class="no_thumbnail_video_square align-middle border-0">
+            <tr>
+                <td class="align-middle pl-3 pr-3">
+                    {{ video.title }}
+                </td>
+            </tr>
+        </table>
+    {% else %}
+        <div class="mt-2">{{ video.title }}</div>
+    {% endif %}
+{% endmacro %}
 
-        {% if video.thumbnail == '' %}<div class="no_thumbnail_video_square"><span class="align-middle">{% endif %}
-            {{ video.title }}
-        {% if video.thumbnail == '' %}</span></div>{% endif %}
+
+{# @var video \Pehapkari\Youtube\ValueObject\Video #}
+<div class="col-sm-6 col-md-4 mb-3 video-row-item hidden-sm-down">
+    <a href="{{ path('video_detail', {'slug': video.slug }) }}">
+        <div class="card shadow-card border-0">
+            <div class="card-body">
+                {% if video.thumbnail %}
+                    <img src="{{ video.thumbnail }}" alt="" style="max-width: 100%" class="mb-2">
+                {% endif %}
+
+                {{ _self.video_title(video) }}
+            </div>
+        </div>
     </a>
 </div>
 
@@ -21,8 +38,6 @@
 
 <div class="col-6 hidden-md-up">
     <a href="{{ path('video_detail', {'slug': video.slug }) }}">
-        {% if video.thumbnail == '' %}<div class="no_thumbnail_video_square align-middle">{% endif %}
-            {{ video.title }}
-        {% if video.thumbnail == '' %}</div>{% endif %}
+        {{ _self.video_title(video) }}
     </a>
 </div>

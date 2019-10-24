@@ -49,4 +49,4 @@ Bude z něj něco počítat? Kreslit graf? Průběžně archivovat, aby měl his
 
 Příští tip bude o špatném zadání. Výborná zbraň pro zpoždění nebo úplné rozstřelení projektu :-)
 
-*O volbě správného komunikačního kanálu i jiných věcech si **přijďte popovídat na [školení Tvorba zadání a komunikace se zákazníkem](https://pehapkari.cz/kurz/tvorba-zadani-a-komunikace-se-zakaznikem/)**.*
+*O volbě správného komunikačního kanálu i jiných věcech si **přijďte popovídat na [mé školení](https://www.naucmese.cz/petr-pepa-pavel)**.*

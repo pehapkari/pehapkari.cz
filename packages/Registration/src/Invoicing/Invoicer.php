@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Registration\Invoicing;
 
-use Pehapkari\Registration\Api\FakturoidApi;
+use Pehapkari\Fakturoid\FakturoidApi;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 

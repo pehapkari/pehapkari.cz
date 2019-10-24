@@ -39,7 +39,7 @@ This is example for running the project locally:
 1) Run `bin/run-from-docker.sh`
 2) Enjoy :-)
 
-**Project** is available on [localhost:8080](http://localhost:8080)  
+**Project** is available on [localhost:8080](http://localhost:8080)
 **DB Adminer** is available on [localhost:8081](http://localhost:8081) <small>(default credentials: server: mysql, user: root, password: root)</small>
 
 *In some rare scenarios you might want to tweak `docker-compose.yml` file for your needs.*
@@ -48,7 +48,7 @@ This is example for running the project locally:
 
 - This repository is mirrored to [gitlab.com/pehapkari/pehapkari.cz](https://gitlab.com/pehapkari/pehapkari.cz/)
 - [CI Pipeline](https://gitlab.com/pehapkari/pehapkari.cz/pipelines) is run on Gitlab CI
-- When everything passes, it's deployed to our server in a Docker container 
+- When everything passes, it's deployed to our server in a Docker container
 
 ## Thank You
 

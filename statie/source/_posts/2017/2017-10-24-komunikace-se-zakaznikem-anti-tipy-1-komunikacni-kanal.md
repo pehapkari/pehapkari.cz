@@ -36,4 +36,4 @@ Aby bylo jasno: problém nebyl v tom, že by původní programátor blbě chápa
 
 Příští tip bude o fóbii z uživatelů. Vůbec se s nimi nebavte a držte se pevně zadání. Odměnou vám bude jejich teskný nářek.
 
-*O volbě správného komunikačního kanálu i jiných věcech si **přijďte popovídat na [školení Tvorba zadání a komunikace se zákazníkem](https://pehapkari.cz/kurz/tvorba-zadani-a-komunikace-se-zakaznikem/)**.*
+*O volbě správného komunikačního kanálu i jiných věcech si **přijďte popovídat na [mé školení](https://www.naucmese.cz/petr-pepa-pavel)**.*

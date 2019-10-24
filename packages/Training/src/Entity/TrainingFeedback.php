@@ -54,7 +54,7 @@ class TrainingFeedback
      * @ORM\Column(type="float", nullable=true)
      * @var float|null
      */
-    private $ratingContent;
+    private $rating;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -150,14 +150,14 @@ class TrainingFeedback
         $this->pointOfEntry = $pointOfEntry;
     }
 
-    public function getRatingContent(): ?float
+    public function getRating(): ?float
     {
-        return $this->ratingContent;
+        return $this->rating;
     }
 
-    public function setRatingContent(?float $ratingContent): void
+    public function setRating(?float $rating): void
     {
-        $this->ratingContent = $ratingContent;
+        $this->rating = $rating;
     }
 
     public function getThingsToImprove(): ?string

@@ -9,8 +9,6 @@ tweet: "Urodilo se na blogu: Jak snadné je používat #CI"
 
 ## Co je to CI
 
-Viděli jste už náš [slovníček](https://pehapkari.cz/slovnicek/#ci)?
-
 Pokud (nejen) zde nebudete nějakému pojmu rozumět, zkuste se tam podívat. Jestliže ani tam nenaleznete odpověď, napište do diskuze a třeba jej někdo přidá. :-)
 
 Tenhle post je určen **především začátečníkům** a lidem, kteří s CI ještě nemají žádné zkušenosti nebo mají pouze minimální.

@@ -1,29 +1,32 @@
-{% if detail is not defined %}
-    {% set detail = false %}
-{% endif %}
+<div class="blockquote shadow-sm">
+    „{{ feedback.text }}“
 
-<q class="blockquote">{{ feedback.text }}</q>
-
-{% if feedback.ratingContent %}
-    <div class="mb-3 mt-3">
-        {% for i in 1..feedback.ratingContent %}
-            <em class="fas fa-2x fa-star text-warning"></em>
-        {% endfor %}
-    </div>
-{% endif %}
-
-<p class="mt-2">
-    {% if feedback.isAgreedWithPublishingName %}
-        {% if feedback.url %}<a href="{{ feedback.url }}">{% endif %}
-        {{ feedback.name }}
-        {% if feedback.url %}</a>{% endif %}
-        {% if detail == false %}o{% endif %}
-    {% else %}
-        Účastník školení
+    {% if feedback.rating %}
+        <div class="pull-right rating_stars {% if feedback.text|length > 30 %}mt-3{% endif %}">
+            {% for i in 1..feedback.rating %}
+                <em class="fas fa-star text-warning"></em>
+            {% endfor %}
+        </div>
     {% endif %}
 
-    {% if detail == false %}
-        <a href="{{ path('training_detail', {'slug': feedback.training.slug }) }}">
+    <div class="clearfix"></div>
+</div>
+
+<span class="arrow"></span>
+
+<p class="text-left ml-4">
+    <strong>
+        {% if feedback.isAgreedWithPublishingName %}
+            {% if feedback.url %}<a href="{{ feedback.url }}">{% endif %}
+            {{ feedback.name }}
+            {% if feedback.url %}</a>{% endif %}
+        {% else %}
+            Účastník školení
+        {% endif %}
+    </strong>
+
+    {% if show_training_name %}
+        o <a href="{{ path('training_detail', {'slug': feedback.training.slug }) }}">
             {{ feedback.training.name }}
         </a>
     {% endif %}

@@ -1,6 +1,5 @@
-/build/
-npm-debug.log
-yarn-error.log
+# not really needed
+yarn.lock
 
 vendor/
 
@@ -8,11 +7,10 @@ vendor/
 
 var
 public/bundles/
-public/build/*/glyphicons-*
+public/build/
 
 public/uploads
 public/generated
-composer.lock
 
 ## Docker
 docker-compose.yml
@@ -71,5 +69,9 @@ new-design/node_modules
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 
-# builds assets
-/public/build
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###

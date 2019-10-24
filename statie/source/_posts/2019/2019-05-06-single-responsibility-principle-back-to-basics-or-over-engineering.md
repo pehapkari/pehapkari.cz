@@ -74,14 +74,14 @@ class Money {
         if (is_int($value)) {
             return new self((string) $value);
         }
-        
+
         if (is_string($value)) {
             $this->validateString($value);
             return new self($string);
         }
         throw new UnsupportedTypeException($value, ['string', 'int']);
     }
-    
+
     /**
      * @throws MalformedMoneyStringException
      */
@@ -246,7 +246,7 @@ Usage
 $stringJson = $this->jsonMoneySerializer->serialize($money);
 ```
 Serializer has a clear responsibility - serializing money to JSON.
-Money class is not changed and is not messed by the serialization code. 
+Money class is not changed and is not messed by the serialization code.
 
 When we'll need a different JSON structure, we'll create a new serializer.
 We won't have to touch the current code, so we're less likely to break it.

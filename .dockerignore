@@ -23,6 +23,7 @@ docker-compose.dist.yml
 
 public/generated
 public/uploads
+public/build
 
 vendor/
 node_modules/

@@ -81,7 +81,7 @@ class TrainingTerm
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Provision\Entity\Expense", cascade={"remove"}, mappedBy="trainingTerm")
-     * @var Expense[]
+     * @var Expense[]|Collection
      */
     private $expenses = [];
 
@@ -95,6 +95,11 @@ class TrainingTerm
     public function __toString(): string
     {
         return $this->training->getName() . ' - ' . $this->startDateTime->format('j. n. Y');
+    }
+
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getTrainingName(): string

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Controller;
 
+use Pehapkari\Statie\AuthorsProvider;
 use Pehapkari\Statie\PostsProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,24 +18,11 @@ final class HomepageController extends AbstractController
     private $organizers = [];
 
     /**
-     * @var mixed[]
-     */
-    private $authors = [];
-
-    /**
-     * @var PostsProvider
-     */
-    private $postsProvider;
-
-    /**
      * @param mixed[] $organizers
-     * @param mixed[] $authors
      */
-    public function __construct(array $organizers, PostsProvider $postsProvider, array $authors)
+    public function __construct(array $organizers)
     {
         $this->organizers = $organizers;
-        $this->postsProvider = $postsProvider;
-        $this->authors = $authors;
     }
 
     /**
@@ -45,6 +33,14 @@ final class HomepageController extends AbstractController
         return $this->render('homepage/homepage.twig', [
             'organizers' => $this->organizers,
         ]);
+    }
+
+    /**
+     * @Route(path="/about/", name="about")
+     */
+    public function about(): Response
+    {
+        return $this->render('homepage/about.twig');
     }
 
     /**
@@ -64,7 +60,8 @@ final class HomepageController extends AbstractController
     }
 
     /**
-     * @Route(path="/contact/", name="contact")
+     * @Route(path="/kontakt/", name="contact")
+     * @Route(path="/contact/")
      */
     public function contact(): Response
     {
@@ -74,11 +71,11 @@ final class HomepageController extends AbstractController
     /**
      * @Route(path="/rss.xml", name="rss")
      */
-    public function rss(): Response
+    public function rss(PostsProvider $postsProvider, AuthorsProvider $authorsProvider): Response
     {
         $response = $this->render('homepage/rss.xml.twig', [
-            'posts' => $this->postsProvider->provide(),
-            'authors' => $this->authors,
+            'posts' => $postsProvider->provide(),
+            'authors' => $authorsProvider->provide(),
         ]);
 
         $response->headers->set('Content-Type', 'xml');

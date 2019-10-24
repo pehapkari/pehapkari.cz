@@ -1,12 +1,2 @@
-// loads the Bootstrap jQuery plugins
-import 'bootstrap-sass/assets/javascripts/bootstrap/transition.js';
-import 'bootstrap-sass/assets/javascripts/bootstrap/alert.js';
-import 'bootstrap-sass/assets/javascripts/bootstrap/collapse.js';
-import 'bootstrap-sass/assets/javascripts/bootstrap/dropdown.js';
-import 'bootstrap-sass/assets/javascripts/bootstrap/modal.js';
-
-// loads the code syntax highlighting library
-import './highlight.js';
-
-// Creates links to the Symfony documentation
-import './doclinks.js';
+// @see https://github.com/symfony/demo/tree/2a330a3bbb827e145b6a49a3665b3b45a4235dee/assets/js
+import 'jquery'

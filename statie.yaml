@@ -3,11 +3,12 @@ parameters:
     generators:
         posts:
             layout: '' # no layout, already included in application templates
+            has_headline_anchors: false
 
-    # for tweet post command
+    # for post tweeting, command: "vendor/bin/statie tweet-post"
     twitter_name: 'Pehapkari'
     twitter_maximal_days_in_past: 30 # tweet max. 1 month old posts
     site_url: 'https://pehapkari.cz'
 
     # Statie configuration
-    github_repository_source_directory: "https://github.com/pehapkari/pehapkari.cz/tree/master/source"
+    # github_repository_source_directory: "https://github.com/pehapkari/pehapkari.cz/tree/master/source"

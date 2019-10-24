@@ -8,5 +8,6 @@ services:
         resource: '../src'
         exclude: '../src/{Form,Exception,Entity,Api/FakturoidClient.php}'
 
-    Pehapkari\Registration\Api\FakturoidClient:
-        factory: ['@Pehapkari\Registration\Api\FakturoidClientFactory', 'create']
+    Pehapkari\Registration\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']

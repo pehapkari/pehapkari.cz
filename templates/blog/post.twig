@@ -1,21 +1,30 @@
 {% extends "base.twig" %}
 
 {% block main %}
-    <div id="article">
-        <div class="container">
-            <h1 class="text-center">{{ post.title }}</h1>
+    {# @var \Symplify\Statie\Renderable\File\PostFile post #}
+    <div class="container" id="article">
+        <div class="page-header">
+            <h1>{{ post.title }}</h1>
+        </div>
 
-            <div class="row text-center">
-                <div class="col-md-12">
-                    {% include "_snippets/post/post_metadata_line.twig" with { "post": post } %}
-                </div>
-            </div>
+            <strong>
+                {% if post.author matches '#^\\d+$#' %}
+                    {{ authors[post.author].name }}
+                {% else %}
+                    {{ post.author }}
+                {% endif %}
+            </strong>
+
+            &nbsp;
+
+            <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
+                    {{ post.getDateInFormat('j. n. Y') }}
+            </time>
 
             <br>
 
             <div id="article-content">
                 <p class="perex">{{ post.perex|raw }}</p>
-
                 {{ post.content|raw }}
             </div>
         </div>
@@ -25,9 +34,9 @@
         {% set relatedPosts = (post|related_items) %}
 
         {% if relatedPosts|length %}
-            <div class="intermezzo">
+            <div class="intermezzo mb-3">
                 <div class="container">
-                    <h2>You Might Also Like</h2>
+                    <h2>Continue Reading</h2>
 
                     <ul id="related-posts">
                         {% for relatedPost in relatedPosts %}
@@ -47,5 +56,5 @@
         <br>
     </div>
 
-    <script id="dsq-count-scr" src="https://{{ disqus_name }}.disqus.com/count.js" async defer></script>
+{#    <script id="dsq-count-scr" src="https://{{ disqus_name }}.disqus.com/count.js" async defer></script>#}
 {% endblock %}

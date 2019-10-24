@@ -238,7 +238,7 @@ Skús niektoré zo svojich obľúbených vyhľadať a hneď nainštalovať:
 
 Symfony vo svojej už štvrtej verzii vyrástlo a práca s ním je zo dňa na deň efektívnejšia, príjemnejšia a v neposlednom rade zaujímavejšia. Myslím, že sa Symfony uberá správnym smerom a my sa v budúcnosti máme na čo tešiť.
 
-O novinkách v pripravovanej verzii 4.1 si dáme ďalší článok :) a nedočkavcom, ktorí sa chcú dozvedieť viac už teraz, odporúčam navštíviť [naplánované školenie o Symfony 4](https://pehapkari.cz/kurz/zacni-so-symfony-4/) koncom marca 2018. :)
+O novinkách v pripravovanej verzii 4.1 si dáme ďalší článok :).
 
 Ďakujem za konštruktívne komentáre, ktoré mňa a moju budúcu publikačnú činnosť posunú tým správnym smerom.
 
@@ -253,4 +253,4 @@ O novinkách v pripravovanej verzii 4.1 si dáme ďalší článok :) a nedočka
 
 ## Kontakt
 
-Zvažujete použitie Symfony 4 na svojich projektoch? Navštívte moje [najbližšie školenie](https://pehapkari.cz/kurz/zacni-so-symfony-4/) alebo ma oslovte - [neoweb.sk](https://www.neoweb.sk)
+Zvažujete použitie Symfony 4 na svojich projektoch? Oslovte - [Codea.eu](https://codea.eu/).

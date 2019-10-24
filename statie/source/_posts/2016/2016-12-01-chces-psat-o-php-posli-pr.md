@@ -14,19 +14,18 @@ O PHP a jeho ekosystému - git, Github, PHPStorm, Doctrine, Latte, Symfony, Lara
 
 ## Jak napsat článek?
 
+<blockquote class="blockquote">
+    Perfection is achieved, not when there is nothing more to add,<br>
+    but when there is nothing left to take away
 
-> "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."
->
-> – *Antoine de Saint Exupery*
-
+    <footer class="blockquote-footer">Antoine de Saint Exupery</footer>
+</blockquote>
 
 ### 1. Tvoje práce
 
-- [forkni si repositář tohoto webu](https://github.com/pehapkari/pehapkari.cz/)
-- [přidej se mezi autory do `authors.yaml`](https://github.com/pehapkari/pehapkari.cz/blob/master/config/_data/authors.yaml)
-- klidně zkopíruj tento článek, najdeš ho ve složce [/source/_posts](https://github.com/pehapkari/pehapkari.cz/tree/master/statie/source/_posts)
+- [uprav tenhle dummy článek](https://github.com/pehapkari/pehapkari.cz/edit/master/statie/source/_posts/2019/2019-12-31-new-post.md)
 - **napiš text**
-- a pošli PR ke schválení
+- a pošli pull-request
 
 ### 2. Naše práce
 
@@ -55,5 +54,4 @@ Proces psaní a přijímání článků se může časem vyvíjet. **Tohle je st
 Napiš nám to, ať ostatní té bolesti můžeme ušetřit.
 
 Těšíme se na tvůj příspěvek!
-
 

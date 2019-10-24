@@ -1,42 +1,83 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <div class="container section" id="blog">
-        <h1 class="text-center">Přečti si o PHP od svých kolegů</h1>
+    <div class="container" id="blog">
+        <div class="page-header black_underline_links">
+            <h1>Přečti si o PHP od {{ author_count }} kolegů</h1>
 
-        <br>
 
-        <div class="text-center">
-            <a href="{{ path('rss') }}" class="btn btn-warning mr-3">
-                <em class="fas fa-fw fa-rss"></em>
-            </a>
-
-            <a href="https://twitter.com/pehapkari" class="btn btn-info">
-                <em class="fab fa-fw fa-twitter"></em>
-            </a>
+            <p>
+                Tenhle blog píšeme všichni spolu.
+                Už je tu přes {{ author_count }} z vás.
+            </p>
+            <p>
+                Chceš být taky vidět? <a href="https://github.com/pehapkari/pehapkari.cz/edit/master/statie/source/_posts/2019/2019-12-31-new-post.md">Přidej svůj článek v Markdownu jedním klikem</a>!
+            </p>
         </div>
 
-        <hr>
+        {# show only posts not in the future date #}
+        {% set was_first_post_marked = false %}
 
-        {% for post in posts %}
-            {% if post.getDateInFormat('Y-m-d') <= "now"|date('Y-m-d') %}
-                <div class="article mb-5">
-                    <h2>
-                        <a href="/{{ post|link }}/">{{ post.title }}</a>
-                    </h2>
+        {% for post in posts if post.getDateInFormat('Y-m-d') <= "now"|date('Y-m-d')  %}
+            {% if was_first_post_marked == false %}
+                {# special case for first post - full width #}
+                <div class="article mb-3 incognito-link-just-header" id="first_post">
+                    <a href="/{{ post|link }}/">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2>{{ post.title }}</h2>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            {% include "_snippets/post/post_metadata_line.twig" with { "post": post } %}
+                                <strong>
+                                    {% if post.author matches '#^\\d+$#' %}
+                                        {{ authors[post.author].name }}
+                                    {% else %}
+                                        {{ post.author }}
+                                    {% endif %}
+                                </strong>
+
+                                &nbsp;
+
+                                <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
+                                    {{ post.getDateInFormat('j. n. Y') }}
+                                </time>
+
+                                <p class="perex">{{ post.perex|raw }}</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <p class="perex text-left">{{ post.perex|raw }}</p>
+                    </a>
                 </div>
-                {% if loop.last == false %}<hr>{% endif %}
-            {% endif %}
-        {% endfor %}
-        <br>
-    </div>
 
+                {# start columns after first post #}
+                <div class="row">
+            {% else %}
+                <div class="col-4">
+                    <div class="article mb-3 mt-3 card">
+                        <a href="/{{ post|link }}/">
+                            <div class="card-body">
+                                <h2>
+                                    {{ post.title }}
+                                </h2>
+
+                                <div class="author">
+                                    {% if post.author matches '#^\\d+$#' %}
+                                        {{ authors[post.author].name }}
+                                    {% else %}
+                                        {{ post.author }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
+                                    {{ post.getDateInFormat('j. n. Y') }}
+                                </time>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+
+                {% set was_first_post_marked = true %}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

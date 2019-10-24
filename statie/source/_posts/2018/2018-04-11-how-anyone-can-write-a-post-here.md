@@ -17,8 +17,9 @@ Anything around PHP and its ecosystem - git, Github, PHPStorm, Doctrine, Symfony
 
 ## How To Write a Post?
 
-<blockquote class="blockquote mb-5 mt-5 text-center">
-    <p>"Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."</p>
+<blockquote class="blockquote">
+    Perfection is achieved, not when there is nothing more to add,<br>
+    but when there is nothing left to take away
     <p class="blockquote-footer">Antoine de Saint Exupery</p>
 </blockquote>
 
@@ -28,11 +29,9 @@ We use [Markdown](https://guides.github.com/features/mastering-markdown/#example
 
 ### 1. Your Job...
 
-- [fork `pehapkari/pehapkari.cz/` repository on Github](https://github.com/pehapkari/pehapkari.cz/)
-- [add youself to `authors.yml`](https://github.com/pehapkari/pehapkari.cz/blob/master/config/_data/authors.yaml)
-- feel free to duplicate [this post](https://github.com/pehapkari/pehapkari.cz/blob/master/statie/source/_posts/2018/2018-04-11-how-anyone-can-write-a-post-here.md) or any from [/statie/source/_posts](https://github.com/pehapkari/pehapkari.cz/tree/master/statie/source/_posts) and edit the date, so it's at least 1 week from the last post
-- **write a post**
-- send PR to review
+- [edit exemplary post](https://github.com/pehapkari/pehapkari.cz/edit/master/statie/source/_posts/2019/2019-12-31-new-post.md)
+- **write content**
+- send pull-request to review
 
 ### 2. Our Job...
 
