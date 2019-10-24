@@ -1,5 +1,9 @@
 dist: trusty
 
+before_install:
+    # turn off XDebug to speed up
+    - phpenv config-rm xdebug.ini || return 0
+
 jobs:
     include:
         # 1. build Docker image
