@@ -1,9 +1,9 @@
 <div class="blockquote shadow-sm">
     „{{ feedback.text }}“
 
-    {% if feedback.ratingContent %}
+    {% if feedback.rating %}
         <div class="pull-right rating_stars {% if feedback.text|length > 30 %}mt-3{% endif %}">
-            {% for i in 1..feedback.ratingContent %}
+            {% for i in 1..feedback.rating %}
                 <em class="fas fa-star text-warning"></em>
             {% endfor %}
         </div>

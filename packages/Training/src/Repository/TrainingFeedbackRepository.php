@@ -54,8 +54,8 @@ final class TrainingFeedbackRepository
     public function getAverageRating(): float
     {
         $averageRating = (float) $this->entityRepository->createQueryBuilder('tf')
-            ->select('AVG(tf.ratingContent) as average_rating')
-            ->where('tf.ratingContent IS NOT NULL')
+            ->select('AVG(tf.rating) as average_rating')
+            ->where('tf.rating IS NOT NULL')
             ->getQuery()
             ->getSingleScalarResult();
 

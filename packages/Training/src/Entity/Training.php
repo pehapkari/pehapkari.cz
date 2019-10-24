@@ -312,7 +312,7 @@ class Training implements UploadDestinationAwareInterface
     {
         /** @var TrainingFeedback[]|Collection $trainingFeedbacksWithRating */
         $trainingFeedbacksWithRating = $this->trainingFeedbacks->filter(function (TrainingFeedback $trainingFeedback) {
-            return $trainingFeedback->getRatingContent() !== null;
+            return $trainingFeedback->getRating() !== null;
         });
 
         // no rating yet
@@ -322,7 +322,7 @@ class Training implements UploadDestinationAwareInterface
 
         $absoluteRating = 0;
         foreach ($trainingFeedbacksWithRating as $trainingFeedbackWithRating) {
-            $absoluteRating += $trainingFeedbackWithRating->getRatingContent();
+            $absoluteRating += $trainingFeedbackWithRating->getRating();
         }
 
         $averageRating = $absoluteRating / $trainingFeedbacksWithRating->count();
