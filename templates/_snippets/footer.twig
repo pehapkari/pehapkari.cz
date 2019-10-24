@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <p>
-                        Našel jsi chybu? → <a href="{{ github_edit_url() }}">Staň se slavným</a>.
+                        Našel jsi chybu? → <a href="{{ github_edit_url() }}">Staň se slavným</a>
                     </p>
                 </div>
             </div>
@@ -71,19 +71,21 @@
 
             <div class="row">
                 <div class="col-6">
-{#                                Pro firmy#}
 {#                                <a class="ph-footer__body-menu-item-subtitle-link" href="#">Chcete sraz?</a>#}
 {#                                #}{# {{ @todo přesuout nabídkový list sem - FB post, newsletter a meetup }} #}
                     {#                        #}{#<li><a href="{{ path('become_trainer') }}">Začni taky školit</a></li>#}
 
+                    <h3>O nás</h3>
 
                     <ul class="bottom_menu">
                         <li>
                             <a href="{{ path('contact') }}">Kontakt</a>
                         </li>
+
                         <li>
-                            <a href="{{ path('rss') }}">RSS blogu</a>
+                            <a href="{{ path('privacy_policy') }}">Ochrana soukromí</a>
                         </li>
+
                         <li>
                             <a href="{{ path('for_speakers') }}">Pro speakry</a>
                         </li>
@@ -91,13 +93,17 @@
                 </div>
 
                 <div class="col-6">
+                    <h3>Sleduj</h3>
+
                     <ul class="bottom_menu">
                         <li>
-                            <a href="http://bit.ly/pehapkari-newsletter">Newsletter</a>
+                            <a href="{{ path('rss') }}">RSS blogu</a>
                         </li>
+
                         <li>
-                            <a href="{{ path('privacy_policy') }}">Ochrana soukromí</a>
+                            <a href="http://bit.ly/pehapkari-newsletter">Sleduj Newsletter</a>
                         </li>
+
                         <li>
                             <a href="{{ path('press') }}">Stáhni si logo</a>
                         </li>

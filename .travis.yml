@@ -38,17 +38,6 @@ jobs:
                 script: sh bin/deploy.sh
                 skip_cleanup: true
 
-        - stage: deploy
-          name: Deploy to new.pehapkari.cz
-          if: branch = design-in-a-day
-          script: skip
-          deploy:
-            - provider: script
-              script: sh bin/deploy-new.sh
-              skip_cleanup: true
-              on:
-                branch: design-in-a-day
-
         - stage: crons
           name: Tweet posts
           if: branch = master AND type = cron
