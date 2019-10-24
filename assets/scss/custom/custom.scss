@@ -70,6 +70,20 @@ body {
     margin-top: 2em;
 }
 
+@include media-breakpoint-down(md) {
+    .page-header {
+        margin-top: 0;
+
+        h1 {
+            margin-top: 0;
+        }
+    }
+
+    #main {
+        margin-top: 1.5em;
+    }
+}
+
 .article {
     box-shadow: 0 4px 15px rgba(100, 100, 100, .2);
     border: 0;
@@ -257,6 +271,7 @@ pre[class*="language-"] {
         display: none !important;
     }
 }
+
 @media (min-width: 769px) {
     .hidden-md-up {
         display: none !important;
@@ -577,3 +592,9 @@ h4 {
     }
 }
 
+
+@include media-breakpoint-down(md) {
+    .hidden-md-down {
+        display: none !important;
+    }
+}
