@@ -1,76 +1,63 @@
-<nav id="ph-nav" class="navbar fixed-top navbar-expand-lg navbar-light bg-light ph-nav border-bottom">
+<nav id="ph-nav" class="navbar fixed-top navbar-expand navbar-light bg-light ph-nav border-bottom hidden-sm-down">
     <div class="container">
         <a class="ph-nav__logo" href="{{ path('homepage') }}">
             <img src="/assets/icons/logo/logo_blue.svg" alt="logo" title="">
             <p class="ml-2">Péhápkaři</p>
         </a>
 
-        <div id="top-menu-search">
+        <div id="top-menu-search" class="hidden-sm-down">
             {% include "_snippets/search_form.twig" %}
         </div>
 
-{#        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">#}
-{#            <span class="navbar-toggler-icon"></span>#}
-{#        </button>#}
-
-{#        <div class="collapse navbar-collapse">#}
-            <ul class="navbar-nav ml-auto" id="menu">
-                <li>
-                    <a class="{{ active_item(['trainings', 'training_detail', 'place_detail', 'registration']) }}" href="{{ path('trainings') }}">
-                        Školení
-                    </a>
-                </li>
-                <li>
-                    <a class="{{ active_item(['blog', 'post']) }}" href="{{ path('blog') }}">
-                        Blog
-                    </a>
-                </li>
-                <li>
-                    <a class="{{ active_item(['videos', 'livestream', 'video_detail', 'videos_php_prague']) }}" href="{{ path('videos') }}">
-                        Videa
-                    </a>
-                </li>
-                {#                <li class="ph-nav__menu-item nav-item">#}
-{#                    <a class="ph-nav__menu-item-link nav-link" href="{{ path('about') }}">#}
-{#                        Co jsou Péhápkaři#}
-{#                    </a>#}
-{#                </li>#}
-                <li class="pr-0">
-                    <a class="{{ active_item('contact') }}" href="{{ path('contact') }}">
-                        Kontakt
-                    </a>
-                </li>
-            </ul>
-{#        </div>#}
+        <ul class="navbar-nav ml-auto hidden-sm-down" id="menu">
+            <li>
+                <a class="{{ active_item(['trainings', 'training_detail', 'place_detail', 'registration']) }}" href="{{ path('trainings') }}">
+                    Školení
+                </a>
+            </li>
+            <li>
+                <a class="{{ active_item(['blog', 'post']) }}" href="{{ path('blog') }}">
+                    Blog
+                </a>
+            </li>
+            <li>
+                <a class="{{ active_item(['videos', 'livestream', 'video_detail', 'videos_php_prague']) }}" href="{{ path('videos') }}">
+                    Videa
+                </a>
+            </li>
+            <li class="pr-0">
+                <a class="{{ active_item('contact') }}" href="{{ path('contact') }}">
+                    Kontakt
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
 
-{#    <div class="hidden-sm-down">#}
+{# mobile menu #}
+<nav id="ph-nav mobile-menu" class="text-center hidden-md-up bg-light border-bottom">
+    <div class="row ml-0 mr-0">
+        <a href="/" class="col-3 {{ active_item('homepage') }}">
+            <img src="/assets/icons/logo/logo_blue.svg" alt="logo" title="">
+            <br>
+            Péhápkaři
+        </a>
+        <a href="{{ path('blog') }}" class="col-3 {{ active_item(['blog', 'post_detail'])}}">
+            <em class="fas fa-book fa-fw"></em>
+            <br>
+            Blog
+        </a>
+        <a href="{{ path('trainings') }}" class="col-3 {{ active_item(['trainings', 'training_detail'])}}">
+            <em class="fas fa-graduation-cap fa-fw"></em>
+            <br>
+            Školení
+        </a>
 
-{#    #}{# mobile menu #}
-{#    <div id="mobile-menu" class="text-center hidden-md-up">#}
-{#        <div class="row ml-0 mr-0">#}
-{#            <a href="/" class="col-3 {{ active_item('homepage') }}">#}
-{#                <em class="fas fa-home"></em>#}
-{#                <br>#}
-{#                Home#}
-{#            </a>#}
-{#            <a href="{{ path('blog') }}" class="col-3 {{ active_item(['blog', 'post_detail'])}}">#}
-{#                <em class="fas fa-book fa-fw"></em>#}
-{#                <br>#}
-{#                Blog#}
-{#            </a>#}
-{#            <a href="{{ path('trainings') }}" class="col-3 {{ active_item(['trainings', 'training_detail'])}}">#}
-{#                <em class="fas fa-graduation-cap fa-fw"></em>#}
-{#                <br>#}
-{#                Školení#}
-{#            </a>#}
+        <a href="{{ path('videos') }}" class="col-3 {{ active_item(['videos', 'livestream', 'videos_php_prague', 'video_detail']) }}">
+            <em class="fab fa-youtube fa-fw"></em>
+            <br>
+            Videa
+        </a>
+    </div>
+</nav>
 
-{#            <a href="{{ path('videos') }}" class="col-3 {{ active_item(['videos', 'livestream', 'videos_php_prague', 'video_detail']) }}">#}
-{#                <em class="fab fa-youtube fa-fw"></em>#}
-{#                <br>#}
-{#                Videa#}
-{#            </a>#}
-{#        </div>#}
-{#    </div>#}
-{#</header>#}

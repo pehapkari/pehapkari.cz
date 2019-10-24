@@ -87,100 +87,33 @@
             }
         }
     }
-
-    #friends {
-        margin-top: 4em;
-        text-align: left;
-
-        div {
-            align-items: center;
-        }
-
-        img {
-            margin-right: 1em;
-        }
-    }
 }
 
-@include media-breakpoint-up(md) {
-
-    .ph-footer {
+@include media-breakpoint-down(md) {
+    #footer {
         .container {
-            padding-top: 100px;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding: .2em 1em 1em 1em;
         }
 
-        .ph-footer__header {
-            margin-bottom: 155px;
+        ul#socials {
+            font-size: 1.2em;
+            margin-bottom: 1em;
 
-            .ph-footer__header-left-col {
-                float: left;
-                margin-right: auto;
-                display: flex;
-
-                .ph-footer__header-brand {
-                    display: inline;
-                    padding-top: 20px;
-                }
-            }
-
-            .ph-footer__header-right-col {
-                margin-top: 0px;
-                float: right;
-
-            }
-
-            .ph-footer__header-menu {
-                .ph-footer__header-menu-item {
-                    padding: 0 15px;
-
-                }
-            }
-        }
-
-        .ph-footer__body {
-            flex-wrap: nowrap;
-
-            .ph-footer__body-left-column {
-                margin-top: 0px;
-            }
-
-            .ph-footer__body-right-column {
-                margin-left: auto;
-                float: right;
-
-                .ph-footer__body-menu {
-                    .ph-footer__body-menu-item {
-                        padding-inline-start: 60px;
-                        padding-right: 0;
-                    }
-
-                    .ph-footer__body-menu-item-title {
-                        margin-top: 0px;
+            li {
+                p {
+                    a {
+                        font-size: 1em;
                     }
                 }
-
-                .ph-footer__body-menu-first {
-                    width: auto;
-                }
-            }
-        }
-        .ph-footer__footer {
-            margin-top: 95px;
-
-            .ph-footer__footer-sponsor {
-                justify-content: center;
-                width: 90%;
             }
         }
     }
 }
 
 @include media-breakpoint-up(xl) {
-    .ph-footer {
+    #footer {
         .container {
-            max-width: 960px;
+            max-width: 90em;
         }
     }
 }
