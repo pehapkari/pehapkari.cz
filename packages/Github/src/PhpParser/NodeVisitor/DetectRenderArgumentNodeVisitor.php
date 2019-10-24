@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\NodeVisitor;
+namespace Pehapkari\Github\PhpParser\NodeVisitor;
 
 use Pehapkari\Exception\ShouldNotHappenException;
+use Pehapkari\Github\Collector\ResolvedTemplateNameCollector;
 use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\MethodCall;
@@ -77,7 +78,7 @@ final class DetectRenderArgumentNodeVisitor extends NodeVisitorAbstract
     {
         if ($this->methodName === '') {
             throw new ShouldNotHappenException(
-                'Configuure method name via "$nodeVisitor->setMethodName(<name>)" first'
+                'Configure method name via "$nodeVisitor->setMethodName(<name>)" first'
             );
         }
     }

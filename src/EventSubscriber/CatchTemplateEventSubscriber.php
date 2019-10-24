@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Pehapkari\EventSubscriber;
 
 use Nette\Utils\FileSystem;
-use Pehapkari\NodeVisitor\DetectRenderArgumentNodeVisitor;
+use Pehapkari\Github\PhpParser\NodeVisitor\DetectRenderArgumentNodeVisitor;
 use PhpParser\NodeTraverser;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;

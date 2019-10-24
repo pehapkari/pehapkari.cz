@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\NodeVisitor;
+namespace Pehapkari\Github\Collector;
 
 final class ResolvedTemplateNameCollector
 {

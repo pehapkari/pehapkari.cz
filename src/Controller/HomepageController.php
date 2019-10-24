@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Controller;
 
+use Pehapkari\Statie\AuthorsProvider;
 use Pehapkari\Statie\PostsProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,18 +18,11 @@ final class HomepageController extends AbstractController
     private $organizers = [];
 
     /**
-     * @var mixed[]
-     */
-    private $authors = [];
-
-    /**
      * @param mixed[] $organizers
-     * @param mixed[] $authors
      */
-    public function __construct(array $organizers, array $authors)
+    public function __construct(array $organizers)
     {
         $this->organizers = $organizers;
-        $this->authors = $authors;
     }
 
     /**
@@ -77,11 +71,11 @@ final class HomepageController extends AbstractController
     /**
      * @Route(path="/rss.xml", name="rss")
      */
-    public function rss(PostsProvider $postsProvider): Response
+    public function rss(PostsProvider $postsProvider, AuthorsProvider $authorsProvider): Response
     {
         $response = $this->render('homepage/rss.xml.twig', [
             'posts' => $postsProvider->provide(),
-            'authors' => $this->authors,
+            'authors' => $authorsProvider->provide(),
         ]);
 
         $response->headers->set('Content-Type', 'xml');

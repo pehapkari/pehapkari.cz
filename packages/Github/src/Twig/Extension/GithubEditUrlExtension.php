@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Twig\Extension;
+namespace Pehapkari\Github\Twig\Extension;
 
-use Pehapkari\NodeVisitor\ResolvedTemplateNameCollector;
+use Pehapkari\Github\Collector\ResolvedTemplateNameCollector;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -33,12 +33,12 @@ final class GithubEditUrlExtension extends AbstractExtension
      */
     public function getFunctions(): array
     {
-        return [
-            new TwigFunction('github_edit_url', function (): string {
-                $templateName = $this->resolvedTemplateNameCollector->getTemplateName();
+        $githubEditUrlFunction = new TwigFunction('github_edit_url', function (): string {
+            $templateName = $this->resolvedTemplateNameCollector->getTemplateName();
 
-                return self::GITHUB_EDIT_PREFIX . $templateName;
-            }),
-        ];
+            return self::GITHUB_EDIT_PREFIX . $templateName;
+        });
+
+        return [$githubEditUrlFunction];
     }
 }
