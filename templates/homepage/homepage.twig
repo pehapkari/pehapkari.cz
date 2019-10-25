@@ -48,19 +48,32 @@
 
                     <div class="col-md-5">
                         <p>
-                            Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a>.
+                            Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a> České Republiky. Typický sraz začíná v 18 hod., pak promluví 2 speakři a nakonec jdeme diskutovat nad pivem.
                         </p>
 
-                        <br>
+                        {% if nearest_meetup %}
+                            <div class="card mt-4 shadow-card">
+                                <div class="card-body pb-3">
+                                    <h3 class="mt-1">
+                                        Kdy je další?
+                                    </h3>
 
-                        <p>
-                            Typický sraz začíná v 18 hod. Pak promluví 2-3 speakři a nakonec jdeme diskutovat nad pivem.
-                        </p>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ nearest_meetup.url }}">{{ nearest_meetup.startDateTime|date }}</a>,
+
+                                            <strong>{{ nearest_meetup.name }}</strong> - {{ nearest_meetup.city }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        {% endif %}
 
                         <h3 class="mt-5">Kde se o nich dozvíš?</h3>
-
                         <p>
-                            Všechny eventy vždycky najdeš na <a href="https://www.facebook.com/pehapkari/events">naší Facebook stránce</a>
+                            Všechny meetupy najdeš na <a href="https://www.facebook.com/pehapkari/events">Facebooku</a> nebo
+                            {# see https://stackoverflow.com/questions/12497130/how-to-escape-twig-delimiters-in-a-twig-template #}
+                            <a href='https://friendsofphp.org/?bounds={{ '{' }}%22_southWest%22:{{ '{' }}%22lat%22:47.89,%22lng%22:12.58{{ '}' }},%22_northEast%22:{{ '{' }}%22lat%22:51.92,%22lng%22:18.51{{ '}' }}{{ '}' }}'>Friends of PHP</a>
                         </p>
 
                         <br>
