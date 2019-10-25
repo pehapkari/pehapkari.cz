@@ -58,7 +58,7 @@ final class CatchTemplateEventSubscriber implements EventSubscriberInterface
 
     private function resolveControllerClass(ControllerEvent $controllerEvent): string
     {
-        /** @var string[]|object $controllerCallable */
+        /** @var string[]|object[]|object $controllerCallable */
         $controllerCallable = $controllerEvent->getController();
 
         if (is_array($controllerCallable)) {
@@ -75,7 +75,7 @@ final class CatchTemplateEventSubscriber implements EventSubscriberInterface
 
     private function resolveControllerMethod(ControllerEvent $controllerEvent): string
     {
-        /** @var string[]|object $controllerCallable */
+        /** @var string[]|object[]|object $controllerCallable */
         $controllerCallable = $controllerEvent->getController();
 
         if (is_array($controllerCallable)) {

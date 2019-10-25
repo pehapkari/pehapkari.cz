@@ -14,7 +14,7 @@ final class ConferenceController extends AbstractController
     /**
      * @Route(path="/php-prague/{year}", name="php_prague")
      */
-    public function run(PhpPragueRepository $phpPragueRepository, int $year = 2018): Response
+    public function __invoke(PhpPragueRepository $phpPragueRepository, int $year = 2018): Response
     {
         $values = $phpPragueRepository->findByYear($year);
         $values['year'] = $year;

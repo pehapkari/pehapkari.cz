@@ -15,7 +15,7 @@ final class BlogController extends AbstractController
     /**
      * @Route(path="/blog/", name="blog")
      */
-    public function run(PostsProvider $postsProvider, AuthorsProvider $authorsProvider): Response
+    public function __invoke(PostsProvider $postsProvider, AuthorsProvider $authorsProvider): Response
     {
         return $this->render('blog/blog.twig', [
             'posts' => $postsProvider->provide(),
