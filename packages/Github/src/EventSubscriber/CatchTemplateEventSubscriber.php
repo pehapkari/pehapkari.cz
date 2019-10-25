@@ -36,10 +36,8 @@ final class CatchTemplateEventSubscriber implements EventSubscriberInterface
 
     public function controller(ControllerEvent $controllerEvent): void
     {
-        /** @var string[] $controllerCallable */
-        $controllerCallable = $controllerEvent->getController();
+        $controllerClass = $this->resolveControllerClass($controllerEvent);
 
-        $controllerClass = $controllerCallable[0];
         $controllerReflection = new ReflectionClass($controllerClass);
 
         /** @var string $controllerFileName */
@@ -49,19 +47,42 @@ final class CatchTemplateEventSubscriber implements EventSubscriberInterface
         $controllerNodes = $phpParser->parse(FileSystem::read($controllerFileName));
 
         // extract $this->render('$value')
-        /** @var string $controllerMethod */
-        $controllerMethod = $controllerCallable[1];
-
         $nodeTraverser = new NodeTraverser();
 
+        $controllerMethod = $this->resolveControllerMethod($controllerEvent);
         $this->detectRenderArgumentNodeVisitor->setMethodName($controllerMethod);
 
         $nodeTraverser->addVisitor($this->detectRenderArgumentNodeVisitor);
         $nodeTraverser->traverse($controllerNodes);
     }
 
+    private function resolveControllerClass(ControllerEvent $controllerEvent): string
+    {
+        /** @var string[]|object[]|object $controllerCallable */
+        $controllerCallable = $controllerEvent->getController();
+
+        if (is_array($controllerCallable)) {
+            return get_class($controllerCallable[0]);
+        }
+
+        return get_class($controllerCallable);
+    }
+
     private function getPhpParser(): Parser
     {
         return (new ParserFactory())->create(ParserFactory::ONLY_PHP7);
+    }
+
+    private function resolveControllerMethod(ControllerEvent $controllerEvent): string
+    {
+        /** @var string[]|object[]|object $controllerCallable */
+        $controllerCallable = $controllerEvent->getController();
+
+        if (is_array($controllerCallable)) {
+            return $controllerCallable[1];
+        }
+
+        // single action controller
+        return '__invoke';
     }
 }

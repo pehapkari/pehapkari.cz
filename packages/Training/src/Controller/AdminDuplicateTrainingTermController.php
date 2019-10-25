@@ -26,7 +26,7 @@ final class AdminDuplicateTrainingTermController extends EasyAdminController
     /**
      * @Route(path="/admin/duplicate-training-term/{id}", name="duplicate_training_term")
      */
-    public function run(TrainingTerm $trainingTerm): Response
+    public function __invoke(TrainingTerm $trainingTerm): Response
     {
         $trainingTerm = clone $trainingTerm;
 

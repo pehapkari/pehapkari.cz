@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Marketing\Controller;
+namespace Pehapkari\Training\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class MarketingSponsoringController extends AbstractController
+final class BecomeTrainerController extends AbstractController
 {
     /**
-     * @Route(path="/zviditelnete-vasi-firmu", name="sponsoring")
+     * @Route(path="/zacni-skolit/", name="become_trainer")
      */
     public function __invoke(): Response
     {
-        return $this->render('marketing/sponsoring.twig');
+        return $this->render('training/become_trainer.twig');
     }
 }

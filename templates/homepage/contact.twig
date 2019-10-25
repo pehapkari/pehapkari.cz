@@ -2,26 +2,32 @@
 
 {% block main %}
     <div class="container" id="contact">
-        <div class="page-header">
-            <h1>Trápí tě něco? Potřebuješ pomoc?</h1>
+        <h1>
+            Chceš <span id="typed"></span>
 
-            <p>
-                Nebo chceš meetup u vás ve firmě?<br>
-                Zavolej nebo napiš. Těším se na každou zprávu!
-            </p>
-        </div>
+            <div id="typed-strings">
+                <p>se rozvíjet v PHP?</p>
+                <p>zorganizovat sraz?</p>
+                <p>začít školit?</p>
+            </div>
 
-        <div class="ways_to_contact card-columns">
-            <div class="card shadow-card">
-                <div class="card-body">
-                    <h2>Tomáš Votruba</h2>
-                    <img src="https://avatars1.githubusercontent.com/u/924196?s=300&v=4" alt="" style="max-width: 15em">
-                </div>
-                <div class="card-footer">
-                    <a href="tel:+420776778332">776 778 332</a>
-                    <br>
-                    <a href="mailto:tomas@pehapkari.cz">tomas@pehapkari.cz</a>
-                </div>
+        </h1>
+
+        <div class="row">
+            <div class="col-6">
+                <p>Zavolej nebo napiš. Odpoví ti...</p>
+
+                <br>
+
+                <h2>Tomáš Votruba</h2>
+
+                <a class="text-bigger" href="tel:+420776778332">776 778 332</a>
+                <br>
+                <a class="text-bigger" href="mailto:tomas@pehapkari.cz">tomas@pehapkari.cz</a>
+            </div>
+
+            <div class="col-6">
+                <img src="https://avatars1.githubusercontent.com/u/924196?s=300&v=4" alt="" style="max-width: 100%" class="shadow-card">
             </div>
         </div>
     </div>

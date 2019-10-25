@@ -3,30 +3,25 @@
 {% block main %}
     {# @var \Symplify\Statie\Renderable\File\PostFile post #}
     <div class="container" id="article">
-        <div class="page-header">
-            <h1>{{ post.title }}</h1>
-        </div>
+        <h1>{{ post.title }}</h1>
 
-            <strong>
-                {% if post.author matches '#^\\d+$#' %}
-                    {{ authors[post.author].name }}
-                {% else %}
-                    {{ post.author }}
-                {% endif %}
-            </strong>
+        <strong>
+            {% if post.author matches '#^\\d+$#' %}
+                {{ authors[post.author].name }}
+            {% else %}
+                {{ post.author }}
+            {% endif %}
+        </strong>
+        &nbsp;
+        <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
+                {{ post.getDateInFormat('j. n. Y') }}
+        </time>
 
-            &nbsp;
+        <br>
 
-            <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
-                    {{ post.getDateInFormat('j. n. Y') }}
-            </time>
-
-            <br>
-
-            <div id="article-content">
-                <p class="perex">{{ post.perex|raw }}</p>
-                {{ post.content|raw }}
-            </div>
+        <div id="article-content">
+            <p class="perex">{{ post.perex|raw }}</p>
+            {{ post.content|raw }}
         </div>
 
         <br>

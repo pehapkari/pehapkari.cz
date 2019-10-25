@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Pehapkari\Controller;
 
-use Pehapkari\Statie\AuthorsProvider;
-use Pehapkari\Statie\PostsProvider;
+use Pehapkari\DataProvider\NearestMeetupProvider;
+use Pehapkari\Statie\OragnizerProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,73 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 final class HomepageController extends AbstractController
 {
     /**
-     * @var mixed[]
-     */
-    private $organizers = [];
-
-    /**
-     * @param mixed[] $organizers
-     */
-    public function __construct(array $organizers)
-    {
-        $this->organizers = $organizers;
-    }
-
-    /**
      * @Route(path="/", name="homepage")
      */
-    public function homepage(): Response
+    public function __run(OragnizerProvider $oragnizerProvider, NearestMeetupProvider $nearestMeetupProvider): Response
     {
         return $this->render('homepage/homepage.twig', [
-            'organizers' => $this->organizers,
+            'organizers' => $oragnizerProvider->provide(),
+            'nearest_meetup' => $nearestMeetupProvider->provide(),
         ]);
-    }
-
-    /**
-     * @Route(path="/about/", name="about")
-     */
-    public function about(): Response
-    {
-        return $this->render('homepage/about.twig');
-    }
-
-    /**
-     * @Route(path="/press/", name="press")
-     */
-    public function press(): Response
-    {
-        return $this->render('homepage/press.twig');
-    }
-
-    /**
-     * @Route(path="/privacy-policy/", name="privacy_policy")
-     */
-    public function privacyPolicy(): Response
-    {
-        return $this->render('homepage/privacy_policy.twig');
-    }
-
-    /**
-     * @Route(path="/kontakt/", name="contact")
-     * @Route(path="/contact/")
-     */
-    public function contact(): Response
-    {
-        return $this->render('homepage/contact.twig');
-    }
-
-    /**
-     * @Route(path="/rss.xml", name="rss")
-     */
-    public function rss(PostsProvider $postsProvider, AuthorsProvider $authorsProvider): Response
-    {
-        $response = $this->render('homepage/rss.xml.twig', [
-            'posts' => $postsProvider->provide(),
-            'authors' => $authorsProvider->provide(),
-        ]);
-
-        $response->headers->set('Content-Type', 'xml');
-
-        return $response;
     }
 }

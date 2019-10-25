@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Pehapkari;
 
@@ -8,7 +10,7 @@ use Pehapkari\BetterEasyAdmin\DependencyInjection\CompilerPass\CorrectionCompile
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Kernel as SymfonyKernel;
+use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symplify\Autodiscovery\Discovery;
 use Symplify\FlexLoader\Flex\FlexLoader;
@@ -16,7 +18,7 @@ use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersC
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
 
-final class Kernel extends SymfonyKernel
+final class PehapkariKernel extends Kernel
 {
     use MicroKernelTrait;
 

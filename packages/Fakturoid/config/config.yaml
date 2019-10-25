@@ -6,7 +6,8 @@ services:
 
     Pehapkari\Fakturoid\:
         resource: '../src'
-        exclude: '../src/ValueObject/*'
+        exclude:
+            - '../src/ValueObject/*'
 
     Pehapkari\Fakturoid\Guzzle\FakturoidClient:
         factory: ['@Pehapkari\Fakturoid\Guzzle\FakturoidClientFactory', 'create']

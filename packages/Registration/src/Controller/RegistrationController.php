@@ -6,7 +6,7 @@ namespace Pehapkari\Registration\Controller;
 
 use Pehapkari\Mailer\PehapkariMailer;
 use Pehapkari\Registration\Entity\TrainingRegistration;
-use Pehapkari\Registration\Form\TrainingRegistrationFormType;
+use Pehapkari\Registration\Form\RegistrationFormType;
 use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 use Pehapkari\Training\Entity\TrainingTerm;
 use Pehapkari\Validation\EmailValidation;
@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class TrainingRegistrationRegisterController extends AbstractController
+final class RegistrationController extends AbstractController
 {
     /**
      * @var TrainingRegistrationRepository
@@ -49,18 +49,18 @@ final class TrainingRegistrationRegisterController extends AbstractController
      *
      * @see https://github.com/symfony/demo/blob/master/src/Controller/Admin/BlogController.php
      */
-    public function run(Request $request, TrainingTerm $trainingTerm): Response
+    public function __invoke(Request $request, TrainingTerm $trainingTerm): Response
     {
         $trainingRegistration = $this->createTrainingRegistration($trainingTerm);
 
-        $form = $this->createForm(TrainingRegistrationFormType::class, $trainingRegistration);
+        $form = $this->createForm(RegistrationFormType::class, $trainingRegistration);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->processRegistrationForm($trainingRegistration);
         }
 
-        return $this->render('registration/default.twig', [
+        return $this->render('registration/registration.twig', [
             'training' => $trainingTerm->getTraining(),
             'trainingTerm' => $trainingTerm,
             'form' => $form->createView(),

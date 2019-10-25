@@ -4,5 +4,8 @@ services:
         public: true
 
     Pehapkari\Provision\:
-        resource: '../src/'
-        exclude: '../src/{Entity,Data,ValueObject}'
+        resource: '../src'
+        exclude:
+            - '../src/Entity/*'
+            - '../src/Data/*'
+            - '../src/ValueObject/*'

@@ -17,6 +17,7 @@ services:
 
     Pehapkari\Training\:
         resource: '../src'
-        exclude: '../src/{Entity}'
+        exclude:
+            - '../src/Entity/*'
 
     Chumper\Zipper\Zipper: ~

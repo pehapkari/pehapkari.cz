@@ -14,7 +14,7 @@ final class TrainingRegistrationController extends AbstractController
     /**
      * @Route(path="/prehled-registraci/", name="registration-overview", methods={"GET"})
      */
-    public function run(TrainingTermRepository $trainingTermRepository): Response
+    public function __invoke(TrainingTermRepository $trainingTermRepository): Response
     {
         return $this->render('registration/overview.twig', [
             'upcoming_training_terms' => $trainingTermRepository->getUpcoming(),

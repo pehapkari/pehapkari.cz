@@ -23,7 +23,6 @@ parameters:
         - '#Method Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Infrastructure\\DoctrineCartRepository::find\(\) should  Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Domain\\Cart|null but returns object|null#'
 
         # not sure about this
-        - '#Return type \(array<array<string>>\) of method Pehapkari\\Statie\\Posts\\Year2017\\SymfonyValidatorConditionalConstraints\\Client::getGroupSequence\(\) should be compatible with return type \(array<string>\|Symfony\\Component\\Validator\\Constraints\\GroupSequence\) of method Symfony\\Component\\Validator\\GroupSequenceProviderInterface::getGroupSequence\(\)#'
 
         # known child
         - '#Method Pehapkari\\Statie\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
@@ -37,9 +36,10 @@ parameters:
         - '#Return type \(Iterator\) of method Pehapkari\\Twig\\Extension\\MarkdownExtension\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\ExtensionInterface\:\:getFilters\(\)#'
         - '#(.*)Doctrine\\ORM\\EntityManagerInterface#'
 
-        - '#Parameter \#1 \$name of class Twig\\(TwigFilter|TwigFunction) constructor expects string, int\|string given#'
         - '#Call to an undefined method object\:\:setRelativeUploadDestination\(\)#'
         - '#Method Pehapkari\\Youtube\\Controller\\VideoController\:\:getVideoBySlug\(\) should return Pehapkari\\Youtube\\ValueObject\\Video but returns object#'
 
-        - '#Parameter \#1 \$registrations of method Pehapkari\\Training\\Certificate\\CertificateGenerator\:\:generateForRegistrationsToZipFile\(\) expects array<Pehapkari\\Registration\\Entity\\TrainingRegistration\>, Doctrine\\Common\\Collections\\Collection&iterable<Pehapkari\\Registration\\Entity\\TrainingRegistration\> given#'
         - '#Unreachable statement \- code above always terminates#'
+
+        - '#Method Pehapkari\\Github\\EventSubscriber\\CatchTemplateEventSubscriber\:\:resolveControllerMethod\(\) should return string but returns object\|string#'
+        - '#Parameter \#1 \$object of function get_class expects object, object\|string given#'

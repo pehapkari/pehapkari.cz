@@ -1,32 +1,28 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <div id="trainings">
-        <div class="section">
-            <div class="container">
-                <h1 class="text-center">Počet registrovaných</h1>
+    <div id="trainings" class="container">
+        <h1>Přehled registrovaných</h1>
 
-                <table class="table table-bordered table-striped">
-                    <thead class="thead-inverse">
-                        <tr class="text-center">
-                            <th>Školení</th>
-                            <th>Termín</th>
-                            <th>Registrací</th>
-                        </tr>
-                    </thead>
-                    {% for training_term in upcoming_training_terms %}
-                        <tr>
-                            {% set training = training_term.getTraining() %}
-                            <td>{{ training.getName()|raw }}</td>
-                            <td>
-                                {{ training_term.startDateTime()|date("Y-m-d H:i") }}
-                                - {{ training_term.endDateTime()|date("H:i") }}
-                            </td>
-                            <td>{{ training_term.participantCount() }} registrací</td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            </div>
-        </div>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-inverse">
+                <tr class="text-center">
+                    <th>Školení</th>
+                    <th>Termín</th>
+                    <th>Registrací</th>
+                </tr>
+            </thead>
+            {% for training_term in upcoming_training_terms %}
+                <tr>
+                    {% set training = training_term.getTraining() %}
+                    <td>{{ training.getName()|raw }}</td>
+                    <td>
+                        {{ training_term.startDateTime()|date("Y-m-d H:i") }}
+                        - {{ training_term.endDateTime()|date("H:i") }}
+                    </td>
+                    <td>{{ training_term.participantCount() }} registrací</td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
 {% endblock %}

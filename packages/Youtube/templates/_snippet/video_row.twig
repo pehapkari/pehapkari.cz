@@ -12,9 +12,8 @@
     {% endif %}
 {% endmacro %}
 
-
 {# @var video \Pehapkari\Youtube\ValueObject\Video #}
-<div class="col-sm-6 col-md-4 mb-3 video-row-item hidden-sm-down">
+<div class="col-12 col-md-6 col-xl-4 mb-3 video-row-item">
     <a href="{{ path('video_detail', {'slug': video.slug }) }}">
         <div class="card shadow-card border-0">
             <div class="card-body">
@@ -25,19 +24,5 @@
                 {{ _self.video_title(video) }}
             </div>
         </div>
-    </a>
-</div>
-
-{% if video.thumbnail %}
-    <div class="col-6 hidden-md-up">
-        <a href="{{ path('video_detail', {'slug': video.slug }) }}">
-            <img src="{{ video.thumbnail }}" alt="" style="max-width: 100%" class="mb-5 ml-2">
-        </a>
-    </div>
-{% endif %}
-
-<div class="col-6 hidden-md-up">
-    <a href="{{ path('video_detail', {'slug': video.slug }) }}">
-        {{ _self.video_title(video) }}
     </a>
 </div>

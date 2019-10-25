@@ -5,8 +5,9 @@ services:
         public: true
 
     Pehapkari\Youtube\:
-        resource: '../src/'
-        exclude: '../src/ValueObject'
+        resource: '../src'
+        exclude:
+            '../src/ValueObject/*'
 
     Symplify\PackageBuilder\Strings\StringFormatConverter: ~
 
