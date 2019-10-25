@@ -18,17 +18,17 @@
 
             <div class="col-6 pl-5">
                 <h3>Kdy?</h3>
-                <p>
+                <p class="mb-5">
                     {{ trainingTerm|from_to }}
                 </p>
 
                 <h3>Kde?</h3>
-                <p>
+                <p class="mb-5">
                     <a href="{{ path('place_detail') }}">Jablotron v Holešovicích, Praha</a>
                 </p>
 
                 <h3>Cena?</h3>
-                <p>
+                <p class="mb-5">
                     {{ trainingTerm.price|number_format }} Kč
                 </p>
             </div>
