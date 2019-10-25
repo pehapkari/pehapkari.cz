@@ -5,9 +5,6 @@ Encore.setOutputPath('public/build/')
     .cleanupOutputBeforeBuild()
     .enableSingleRuntimeChunk()
     .autoProvidejQuery()
-    .autoProvideVariables({
-        "jQuery.tagsinput": "bootstrap-tagsinput"
-    })
     .enableSassLoader()
     .enableVersioning()
     .addEntry('js/app', './assets/js/app.js')

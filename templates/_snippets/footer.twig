@@ -109,7 +109,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ path('sponsoring') }}">Zvyditleněte svou firmu</a>
+                            <a href="{{ path('sponsoring') }}">Zvyditelněte svou firmu</a>
                         </li>
                     </ul>
                 </div>
@@ -120,5 +120,23 @@
 
 {# to highlight code in blog posts and trainings #}
 <script src="{{ asset('build/js/app.js') }}"></script>
+
+{# this is the only way that makes jquery work here, webpack encore some-how fucks up #}
+<script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
+{# https://github.com/mattboldt/typed.js/ #}
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+<script>
+    $('document').ready(function() {
+        var typed = new Typed('#typed',{
+            stringsElement: '#typed-strings',
+            typeSpeed: 50,
+            backDelay: 1400,
+        });
+    });
+</script>
 
 <script src="{{ asset('assets/prism/prism.js') }}"></script>

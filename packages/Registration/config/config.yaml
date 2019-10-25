@@ -10,7 +10,6 @@ services:
             - '../src/Form/*'
             - '../src/Exception/*'
             - '../src/Entity/*'
-            - '../src/Api/FakturoidClient.php'
 
     Pehapkari\Registration\Controller\:
         resource: '../src/Controller'
