@@ -58,7 +58,7 @@ body {
 }
 
 .page-header {
-    margin: 6em 0 4em 0;
+    margin-bottom: 2em;
 
     p {
         font-size: 1.2em;
@@ -66,8 +66,9 @@ body {
     }
 }
 
-.page-header h1 {
-    margin-top: 2em;
+h1 {
+    padding-top: 1em;
+    padding-bottom: .5em;
 }
 
 @include media-breakpoint-down(md) {

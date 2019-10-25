@@ -109,9 +109,9 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
-        "check-cs": "vendor/bin/ecs check packages src statie",
-        "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix",
-        "doctrine": "bin/console doctrine:schema:update --dump-sql --force",
+        "check-cs": "vendor/bin/ecs check packages src statie --ansi",
+        "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix --ansi",
+        "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify --ansi",
         "dead-links": "vendor/bin/http-status-check scan https://pehapkari.cz --output invalid-links.txt --ansi --dont-crawl-external-links",
         "rector": "vendor/bin/rector process src tests --ansi",
