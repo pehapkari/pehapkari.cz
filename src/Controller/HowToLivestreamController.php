@@ -15,7 +15,7 @@ final class HowToLivestreamController extends AbstractController
      * @Route(path="/how-to-livestream")
      * @Route(path="/stream")
      */
-    public function run(): Response
+    public function __invoke(): Response
     {
         return $this->render('meetup/for_speakers.twig');
     }

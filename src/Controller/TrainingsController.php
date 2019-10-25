@@ -16,67 +16,33 @@ use Symfony\Component\Routing\Annotation\Route;
 final class TrainingsController extends AbstractController
 {
     /**
-     * @var TrainingRepository
+     * @Route(path="/vzdelavej-se/", name="trainings")
      */
-    private $trainingRepository;
-
-    /**
-     * @var TrainingTermRepository
-     */
-    private $trainingTermRepository;
-
-    /**
-     * @var TrainingFeedbackRepository
-     */
-    private $trainingFeedbackRepository;
-
-    /**
-     * @var TrainingRegistrationRepository
-     */
-    private $trainingRegistrationRepository;
-
-    /**
-     * @var TrainerRepository
-     */
-    private $trainerRepository;
-
-    public function __construct(
+    public function __invoke(
         TrainingTermRepository $trainingTermRepository,
         TrainingRepository $trainingRepository,
         TrainingFeedbackRepository $trainingFeedbackRepository,
         TrainingRegistrationRepository $trainingRegistrationRepository,
         TrainerRepository $trainerRepository
-    ) {
-        $this->trainingTermRepository = $trainingTermRepository;
-        $this->trainingRepository = $trainingRepository;
-        $this->trainingFeedbackRepository = $trainingFeedbackRepository;
-        $this->trainingRegistrationRepository = $trainingRegistrationRepository;
-        $this->trainerRepository = $trainerRepository;
-    }
-
-    /**
-     * @Route(path="/vzdelavej-se/", name="trainings")
-     */
-    public function run(): Response
-    {
-        $averageRating = $this->trainingFeedbackRepository->getAverageRating();
+    ): Response {
+        $averageRating = $trainingFeedbackRepository->getAverageRating();
 
         return $this->render('training/trainings.twig', [
-            'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),
-            'inactive_trainings' => $this->trainingRepository->getInactiveTrainings(),
+            'upcoming_training_terms' => $trainingTermRepository->getUpcoming(),
+            'inactive_trainings' => $trainingRepository->getInactiveTrainings(),
 
-            'total_training_term_count' => $this->trainingTermRepository->getFinishedCount(),
-            'total_participant_count' => $this->trainingRegistrationRepository->getFinishedCount(),
+            'total_training_term_count' => $trainingTermRepository->getFinishedCount(),
+            'total_participant_count' => $trainingRegistrationRepository->getFinishedCount(),
 
-            'feedbacks' => $this->trainingFeedbackRepository->getForMainPage(),
+            'feedbacks' => $trainingFeedbackRepository->getForMainPage(),
 
             'average_training_rating' => $averageRating,
             'average_training_rating_stars' => round($averageRating, 0),
 
-            'past_terms' => $this->trainingTermRepository->getFinishedAndEmpty(),
-            'past_terms_count' => count($this->trainingTermRepository->getFinishedAndEmpty()),
+            'past_terms' => $trainingTermRepository->getFinishedAndEmpty(),
+            'past_terms_count' => count($trainingTermRepository->getFinishedAndEmpty()),
 
-            'trainer_count' => $this->trainerRepository->getCount(),
+            'trainer_count' => $trainerRepository->getCount(),
         ]);
     }
 }

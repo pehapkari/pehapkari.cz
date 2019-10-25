@@ -26,7 +26,7 @@ final class BlogPostController extends AbstractController
     /**
      * @Route(path="/blog/{postSlug}", name="post", requirements={"postSlug"=".+"})
      */
-    public function run(string $postSlug, AuthorsProvider $authorsProvider): Response
+    public function __invoke(string $postSlug, AuthorsProvider $authorsProvider): Response
     {
         $matchedPost = $this->matchPostSlug($postSlug);
         if ($matchedPost === null) {
