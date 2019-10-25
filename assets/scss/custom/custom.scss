@@ -24,10 +24,6 @@ h2 {
     margin-top: 0;
 }
 
-.ph-footer__header-right-col span {
-    font-size: .8em;
-}
-
 * img {
     max-width: 100%;
     max-height: 100%;
@@ -57,29 +53,12 @@ body {
     padding-bottom: 3em;
 }
 
-.page-header {
-    margin-bottom: 2em;
-
-    p {
-        font-size: 1.2em;
-        line-height: 1.6em;
-    }
-}
-
 h1 {
     padding-top: 1em;
     padding-bottom: .5em;
 }
 
 @include media-breakpoint-down(md) {
-    .page-header {
-        margin-top: 0;
-
-        h1 {
-            margin-top: 0;
-        }
-    }
-
     #main {
         margin-top: 1.3em;
     }

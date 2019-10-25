@@ -2,103 +2,100 @@
 
 {% block main %}
     <div class="container" id="trainings">
-            <h1>
-                Sdílej své know-how
-                <br>Jednoduše, bez starostí
-            </h1>
+        <h1>
+            Sdílej své know-how
+            <br>Jednoduše, bez starostí
+        </h1>
 
-            <hr>
+        <hr>
 
-            <p>
-                Veřejná školení v rámci PHP ekosystému, vycházející z komunity Péhápkaři.cz.
-                O délce 4-8 hodin.
-            </p>
+        <div class="row">
+            <div class="col-6">
+                <p>
+                    Veřejná školení v rámci PHP ekosystému, vycházející z komunity Péhápkaři.cz.
+                    O délce 4-8 hodin.
+                </p>
 
-            <p>Od června proběhlo X školení pro Y lidí (@todo vypsat nejaktivnějíš) a dalšími. Chceš se přidat?</p>
+                <p>Od června proběhlo X školení pro Y lidí (@todo vypsat nejaktivnějíš) a dalšími. Chceš se přidat?</p>
 
-            <h2>Kde?</h2>
+                <p><strong>
+                    Skolitele si u nás přišli na xxx kč @todo
+                </strong></p>
 
-            - @todo výpis places
+                <br>
 
-            <h2>Co řešíme za tebe?</h2>
+                <div class="card shadow-card">
+                    <div class="card-body">
+                        <h2>Kde?</h2>
+                        <ul>
+                            <li>Zatím školíme pouze v Praze a to v <a href="{{ path('place_detail') }}">Praze 7 - Holešovicích</a></li>
+                        </ul>
 
-            <ul>
-                <li>zařídit místnost a termín</li>
-                <li>dovedeme účastníky na místo školení</li>
-                <li>propagaci na sociálních sítích Péhápkaři</li>
-                <li>mentoring v budování osobní značky, propagate na <a href="{{ path('blog') }}">komunitním blogu</a> tak, aby měli smysl a hodnotu</li>
-                <li>veškerou byrokracii a fakturaci k účastníkům</li>
-                <li>tiskové materiály a profesionální certifikáty, které je radost si vystavit</li>
-                <li>občerstvení</li>
-            </ul>
+                        <p>Chceš školit v Brně, Ostravě nebo jinde? Máš místo, kde budeš školit? Super, uděláme školení tam!</p>
+                    </div>
+                </div>
 
-            <h2>Koho oslovíš?</h2>
+                <br>
 
-            <p>Středně pokročilé a seniorní programátoy, kteří se chtějí vzdělávat v nových technologiích (poslední 2 roky). Neplánujeme tedy úvod do PHP, objektů, Nette nebo Symfony, ale spíše "Jak zlepšit výkon Symfony aplikacích".</p>
+                <div class="card shadow-card">
+                    <div class="card-body">
+                        <h2>Koho oslovíš?</h2>
 
-            <p>Pro představu stačí mrknout na <a href="{{ path('trainings') }}">aktuální nabídku školení</a></p>
+                        <p>Středně pokročilé a seniorní programátoy, kteří se chtějí vzdělávat v nových technologiích (poslední 2 roky). Neplánujeme tedy úvod do PHP, objektů, Nette nebo Symfony, ale spíše "Jak zlepšit výkon Symfony aplikacích".</p>
 
-            <p>Když budeš úspěšný, dostaneme tě i do firem.</p>
+                        <p>Pro představu stačí mrknout na <a href="{{ path('trainings') }}">aktuální nabídku školení</a></p>
 
-            <h2>Kolik z toho budeš mít?</h2>
+                        <p>Když budeš úspěšný, dostaneme tě i do firem.</p>
+                    </div>
+                </div>
+            </div>
 
-            <p>Z praxe víme, že čím déle člověk školí v IT, tím má pro něj smysl budovat vlastní značku. Jednak kvůli vysokým provizím (konstantně 50-70 % pro firmu), jednak kvůli reklamě.</p>
+            <div class="col-6">
+                <h2>Co řešíme za tebe?</h2>
 
-            <p>Proto používáme provizní systém s postupně klesající provizí. Čím déle školíš, tím jsi na tom líp.</p>
+                <ul class="mb-5">
+                    <li>zařídit místnost a termín</li>
+                    <li>dovedeme účastníky na místo školení</li>
+                    <li>propagaci na sociálních sítích Péhápkaři</li>
+                    <li>mentoring v budování osobní značky, propagate na <a href="{{ path('blog') }}">komunitním blogu</a> tak, aby měli smysl a hodnotu</li>
+                    <li>veškerou byrokracii a fakturaci k účastníkům</li>
+                    <li>tiskové materiály a profesionální certifikáty, které je radost si vystavit</li>
+                    <li>občerstvení</li>
+                </ul>
 
-            <ul>
-                <li>1-5. školení 50 % ze zisku pro tebe</li>
-                <li>6. a další školení 70 % ze zisku pro tebe</li>
-            </ul>
+                <div class="card shadow-card">
+                    <div class="card-body">
+                        <h2>Jakou budeš mít provizi?</h2>
 
+                        <ul class="mb-5">
+                            <li>Prvních 5 školení dostaneš <strong>50 % ze zisku</strong></li>
+                            <li>Za 6. a další - až se ve spolupráci zaběhneme - dostaneš <strong>70 %</strong></li>
+                        </ul>
 
-            <h3>Jak to vypadá na ukázkovém školení?</h3>
+                        <p class="mb-2">Příklad:</p>
+                        <ul>
+                            <li>tvé školení stojí 5 000 Kč</li>
+                            <li>přijde 5 lidí = 25 000 Kč</li>
+                            <li>nájem bude 5000 Kč - náklady bereme společně</li>
+                            <li>budeme 20 000 Kč v zisku</li>
+                            <li>za 1. školení dostaneš 10 000 Kč, za 6. už krásných <strong>14 000 Kč</strong></li>
+                            <li>za den dobrý, což? :)</li>
+                        </ul>
+                    </div>
+                </div>
 
-        <p>10 účastníků na celodenním školení - cena školení 5000 Kč</p>
+                <h2>Jak začít?</h2>
 
-        <table class="table">
-            <thead class="thead-light text-center">
-            <tr class="row">
-                <th colspan="2" class="col-5">Příjmy</th>
-                <th colspan="2" class="col-5">Výdaje</th>
-                <th class="col-2">Zisk</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr class="row">
-                    <td class="col-2">Příjmy</td>
-                    <td class="col-3">10 * 5000 Kč</td>
-                    <td class="col-2">Nájem</td>
-                    <td class="col-3">3 500 Kč</td>
-                    <td class="col-2">-</td>
-                </tr>
-                <tr class="row">
-                    <td class="col-2">-</td>
-                    <td class="col-3">-</td>
-                    <td class="col-2">Obědy, občerstvení a certifikáty</td>
-                    <td class="col-3">1 500 Kč</td>
-                    <td class="col-2">-</td>
-                </tr>
-                <tr class="row">
-                    <th class="col-2">Celkem</th>
-                    <th class="col-3">50 000 Kč</th>
-                    <th class="col-2">-</th>
-                    <th class="col-3">5 000 Kč</th>
-                    <th class="col-2">45 000 Kč</th>
-                </tr>
-            </tbody>
-        </table>
-
-        <table>
-            <tr>
-                <td>Zisk</td>
-                <td>45 000 Kč</td>
-            </tr>
-        </table>
-
-        <ul>
-            <li>1.-5. školení: 45 000 Kč → <strong>22 500 Kč pro tebe</strong> (50 %) → 2812.5 Kč/hod.</li>
-            <li>6+ školení: 45 000 Kč → <strong>31 500 Kč pro tebe</strong> (70 %) → 3937.5 Kč/hod.</li>
-        </ul>
+                <ul class="mb-5">
+                    <li>Vymysli si, co chceš školit</li>
+                    <li>Mrkni na <a href="{{ path('trainings') }}">existující školení</a>, jestli téma už někdo nemá</li>
+                    <li>Otevři si jedno školení, ať máš představu, jak vypadá jeho popis</li>
+                    <li><a href="{{ path('contact') }}">Napiš nám</a> svůj návrh</li>
+                    <li>
+                        Když se nám téma bude líbit, půjdeme do toho
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -2,15 +2,11 @@
 
 {% block main %}
     <div class="container" id="videos">
-        <div class="page-header">
-            <h1>Přehraj si Livestream</h1>
+        <h1>Přehraj si Livestream</h1>
 
-            <p>
-                <a href="https://www.linkedin.com/in/jakub-kratina-b5972549/">Jakub Kratina</a> natočil spolu s vámi {{ livestream_videos|length }} livestreamů. Tady si je všechny můžeš přehrát.
-            </p>
+        <div class="text-bigger pb-5">
+            <a href="https://www.linkedin.com/in/jakub-kratina-b5972549/">Jakub Kratina</a> natočil spolu s vámi {{ livestream_videos|length }} livestreamů. Tady si je všechny můžeš přehrát.
         </div>
-
-        <br>
 
         <div class="row">
             {% for video in livestream_videos %}
