@@ -76,7 +76,7 @@ final class TrainingsController extends AbstractController
             'past_terms' => $this->trainingTermRepository->getFinishedAndEmpty(),
             'past_terms_count' => count($this->trainingTermRepository->getFinishedAndEmpty()),
 
-            'trainer_count' => count($this->trainerRepository->fetchAll()),
+            'trainer_count' => $this->trainerRepository->getCount(),
         ]);
     }
 }

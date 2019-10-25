@@ -3,31 +3,40 @@
 {% block main %}
     <div id="trainings" class="container">
         <div class="page-header">
-            <h1>Přihláška na školení</h1>
-
-            <p>{{ training.getName() }}</p>
+            <h1>Chci na školení "{{ training.getName() }}"</h1>
         </div>
 
         {# table? #}
-        <div class="row text-center mt-4 mb-4">
-            <div class="col-4">
-                Kdy? <strong>{{ trainingTerm|from_to }}</strong>
+        <div class="row">
+            <div class="col-6">
+                <div class="card shadow-card">
+                    <div class="card-body card-form">
+                        {# this alternative theme is also available #}
+                        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+                        {{ form(form) }}
+                    </div>
+                </div>
             </div>
-            <div class="col-4">
-                Kde? <a href="{{ path('place_detail') }}">
-                    <strong>Jablotron v Holešovicích</strong>
-                </a>
-            </div>
-            <div class="col-4">
-                Za kolik? <strong>{{ trainingTerm.price|number_format }} Kč</strong>
+
+            <div class="col-6 pl-5">
+                <h3>Kdy?</h3>
+                <p>
+                    {{ trainingTerm|from_to }}
+                </p>
+
+                <h3>Kde?</h3>
+                <p>
+                    <a href="{{ path('place_detail') }}">Jablotron v Holešovicích, Praha</a>
+                </p>
+
+                <h3>Cena?</h3>
+                <p>
+                    {{ trainingTerm.price|number_format }} Kč
+                </p>
             </div>
         </div>
-
-        <br>
-
-        {# this alternative theme is also available #}
-        {% form_theme form 'bootstrap_4_layout.html.twig' %}
-
-        {{ form(form) }}
     </div>
+
+    <br>
+    <br>
 {% endblock %}

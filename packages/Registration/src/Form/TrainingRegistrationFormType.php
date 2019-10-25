@@ -57,13 +57,17 @@ final class TrainingRegistrationFormType extends AbstractType
             'label' => 'Poznámka',
         ]);
 
-        $formBuilder->add('agrees_with_personal_data', CheckboxType::class, [
-            'label' => 'Zaškrtnutím souhlasíš se zpracováním osobních údajů firmou Edukai s.r.o., která pořádá školení. Firma údaje uchovává po dobu 2 let pouze pro účely organizace kurzu a zpracování zpětné vazby. Máš právo kdykoliv požádat o úpravu či smazání údajů z naší databáze. Nikdo jiný než organizátor a školitel k tvým údajům nemá přístup.',
-            'required' => true,
-        ]);
+        $formBuilder->add(
+            'agrees_with_personal_data',
+            CheckboxType::class,
+            [
+                'label' => 'Zaškrtnutím souhlasíš se zpracováním osobních údajů firmou Edukai s.r.o., která pořádá školení. Firma údaje uchovává po dobu 2 let pouze pro účely organizace kurzu a zpracování zpětné vazby. Máš právo kdykoliv požádat o úpravu či smazání údajů z naší databáze. Nikdo jiný než organizátor a školitel k tvým údajům nemá přístup.',
+                'required' => true,
+            ]
+        );
 
         $formBuilder->add('register', SubmitType::class, [
-            'label' => 'Odeslat přihlášku',
+            'label' => 'Přihlásit se na školení',
             'attr' => [
                 'class' => 'btn btn-success mt-4',
             ],

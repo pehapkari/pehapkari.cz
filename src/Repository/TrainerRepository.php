@@ -27,4 +27,9 @@ final class TrainerRepository
     {
         return $this->objectRepository->findAll();
     }
+
+    public function getCount(): int
+    {
+        return count($this->objectRepository->findAll());
+    }
 }
