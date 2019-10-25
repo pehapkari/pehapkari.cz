@@ -54,9 +54,7 @@
                         {% if nearest_meetup %}
                             <div class="card mt-4 shadow-card">
                                 <div class="card-body pb-3">
-                                    <h3 class="mt-1">
-                                        Kdy je další?
-                                    </h3>
+                                    <h3 class="mt-1">Kdy je další?</h3>
 
                                     <ul>
                                         <li>
@@ -69,19 +67,21 @@
                             </div>
                         {% endif %}
 
-                        <h3 class="mt-5">Kde se o nich dozvíš?</h3>
+                        <h3 class="mt-4">Kde se o nich dozvíš?</h3>
+
                         <p>
                             Všechny meetupy najdeš na <a href="https://www.facebook.com/pehapkari/events">Facebooku</a> nebo
                             {# see https://stackoverflow.com/questions/12497130/how-to-escape-twig-delimiters-in-a-twig-template #}
-                            <a href='https://friendsofphp.org/?bounds={{ '{' }}%22_southWest%22:{{ '{' }}%22lat%22:47.89,%22lng%22:12.58{{ '}' }},%22_northEast%22:{{ '{' }}%22lat%22:51.92,%22lng%22:18.51{{ '}' }}{{ '}' }}'>Friends of PHP</a>
+                            <a href='https://friendsofphp.org/?bounds={{ '{' }}%22_southWest%22:{{ '{' }}%22lat%22:47.89,%22lng%22:12.58{{ '}' }},%22_northEast%22:{{ '{' }}%22lat%22:51.92,%22lng%22:18.51{{ '}' }}{{ '}' }}'>Friends&nbsp;of&nbsp;PHP</a>.
                         </p>
 
                         <br>
 
                         <div class="card shadow-card">
                             <div class="card-body">
+                                <h3 class="mt-1">Nestihls poslední meetup?</h3>
                                 <p>
-                                    Nestihls poslední meetup? Máš štěstí, <strong>všechny meetupy nahráváme</strong>
+                                     Máš štěstí, <strong>všechny meetupy nahráváme</strong>
                                 </p>
 
                                 <a href="{{ path('videos') }}" class="btn btn-danger mt-3">
