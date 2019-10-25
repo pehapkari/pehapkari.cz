@@ -6,7 +6,11 @@ services:
 
     Pehapkari\Registration\:
         resource: '../src'
-        exclude: '../src/{Form,Exception,Entity,Api/FakturoidClient.php}'
+        exclude:
+            - '../src/Form/*'
+            - '../src/Exception/*'
+            - '../src/Entity/*'
+            - '../src/Api/FakturoidClient.php'
 
     Pehapkari\Registration\Controller\:
         resource: '../src/Controller'

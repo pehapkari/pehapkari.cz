@@ -13,7 +13,7 @@ final class MarketingSponsoringController extends AbstractController
     /**
      * @Route(path="/zviditelnete-vasi-firmu", name="sponsoring")
      */
-    public function run(): Response
+    public function __invoke(): Response
     {
         return $this->render('marketing/sponsoring.twig');
     }

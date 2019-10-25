@@ -24,7 +24,7 @@ services:
     Pehapkari\:
         resource: '../src/'
         exclude:
-            - '../src/{Kernel.php}'
+            - '../src/PehapkariKernel.php'
             - '../src/Doctrine/Query'
 
     Defr\Ares: ~
