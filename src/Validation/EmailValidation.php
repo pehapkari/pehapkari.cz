@@ -24,7 +24,10 @@ final class EmailValidation
     public function __construct(EmailValidator $emailValidator)
     {
         $this->emailValidator = $emailValidator;
-        $this->multipleValidationWithAnd = new MultipleValidationWithAnd([new RFCValidation(), new DNSCheckValidation()]);
+        $this->multipleValidationWithAnd = new MultipleValidationWithAnd([
+            new RFCValidation(),
+            new DNSCheckValidation(),
+        ]);
     }
 
     public function validateEmail(string $email): bool
