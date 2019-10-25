@@ -338,7 +338,7 @@ footer .rounded-circle {
 
 
 #gallery {
-    width: 40em;
+    max-width: 40em;
     margin: auto;
 
     // null padding between photos
@@ -348,6 +348,7 @@ footer .rounded-circle {
 
     img {
         padding: .3em;
+        max-width: 100%;
     }
 }
 
