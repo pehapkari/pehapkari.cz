@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Pehapkari\Controller;
 
-use Pehapkari\Statie\AuthorsProvider;
-use Pehapkari\Statie\PostsProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -44,14 +42,6 @@ final class HomepageController extends AbstractController
     }
 
     /**
-     * @Route(path="/press/", name="press")
-     */
-    public function press(): Response
-    {
-        return $this->render('homepage/press.twig');
-    }
-
-    /**
      * @Route(path="/privacy-policy/", name="privacy_policy")
      */
     public function privacyPolicy(): Response
@@ -66,20 +56,5 @@ final class HomepageController extends AbstractController
     public function contact(): Response
     {
         return $this->render('homepage/contact.twig');
-    }
-
-    /**
-     * @Route(path="/rss.xml", name="rss")
-     */
-    public function rss(PostsProvider $postsProvider, AuthorsProvider $authorsProvider): Response
-    {
-        $response = $this->render('homepage/rss.xml.twig', [
-            'posts' => $postsProvider->provide(),
-            'authors' => $authorsProvider->provide(),
-        ]);
-
-        $response->headers->set('Content-Type', 'xml');
-
-        return $response;
     }
 }

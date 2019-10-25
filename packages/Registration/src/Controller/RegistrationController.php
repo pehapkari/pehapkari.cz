@@ -6,7 +6,7 @@ namespace Pehapkari\Registration\Controller;
 
 use Pehapkari\Mailer\PehapkariMailer;
 use Pehapkari\Registration\Entity\TrainingRegistration;
-use Pehapkari\Registration\Form\TrainingRegistrationFormType;
+use Pehapkari\Registration\Form\RegistrationFormType;
 use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 use Pehapkari\Training\Entity\TrainingTerm;
 use Pehapkari\Validation\EmailValidation;
@@ -53,7 +53,7 @@ final class RegistrationController extends AbstractController
     {
         $trainingRegistration = $this->createTrainingRegistration($trainingTerm);
 
-        $form = $this->createForm(TrainingRegistrationFormType::class, $trainingRegistration);
+        $form = $this->createForm(RegistrationFormType::class, $trainingRegistration);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

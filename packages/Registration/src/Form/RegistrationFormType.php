@@ -17,7 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * @see TrainingRegistration
  */
-final class TrainingRegistrationFormType extends AbstractType
+final class RegistrationFormType extends AbstractType
 {
     /**
      * @param mixed[] $options
@@ -69,7 +69,7 @@ final class TrainingRegistrationFormType extends AbstractType
         $formBuilder->add('register', SubmitType::class, [
             'label' => 'Přihlásit se na školení',
             'attr' => [
-                'class' => 'btn btn-success mt-4',
+                'class' => 'btn btn-success mt-5 d-block',
             ],
         ]);
     }
