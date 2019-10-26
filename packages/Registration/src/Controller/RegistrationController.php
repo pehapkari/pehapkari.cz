@@ -11,6 +11,7 @@ use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 use Pehapkari\Training\Entity\TrainingTerm;
 use Pehapkari\Validation\EmailValidation;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -51,6 +52,8 @@ final class RegistrationController extends AbstractController
      */
     public function __invoke(Request $request, TrainingTerm $trainingTerm): Response
     {
+        $this->ensureTrainingTermIsOpened($trainingTerm);
+
         $trainingRegistration = $this->createTrainingRegistration($trainingTerm);
 
         $form = $this->createForm(RegistrationFormType::class, $trainingRegistration);
@@ -65,6 +68,15 @@ final class RegistrationController extends AbstractController
             'trainingTerm' => $trainingTerm,
             'form' => $form->createView(),
         ]);
+    }
+
+    private function ensureTrainingTermIsOpened(TrainingTerm $trainingTerm): void
+    {
+        if ($trainingTerm->isRegistrationOpened()) {
+            return;
+        }
+
+        throw new AccessDeniedException('Toto školení aktuálně nemá otevřený termín');
     }
 
     private function createTrainingRegistration(TrainingTerm $trainingTerm): TrainingRegistration

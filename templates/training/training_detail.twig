@@ -50,7 +50,7 @@
                             Přidat do kalendáře
                         </a>
 
-                        {% if training_term.isRegistrationOpen() %}
+                        {% if training_term.registrationOpened() %}
                             <div class="card border-warning mt-3 mb-4">
                                 <div class="card-body bg-warning">
                                     Uzavěrka přihlášek
@@ -82,7 +82,7 @@
                     </p>
 
                     {% if training.isActive() %}
-                        {% if training_term.isRegistrationOpen() %}
+                        {% if training_term.registrationOpened() %}
                             <div class="text-center">
                                 <a href="{{ path('registration', { 'slug': training_term.slug }) }}" class="btn btn-success mt-4 mb-5">
                                     <em class="fa fa-fw fa-handshake"></em>

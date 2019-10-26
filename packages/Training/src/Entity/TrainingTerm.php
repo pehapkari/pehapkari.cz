@@ -247,10 +247,7 @@ class TrainingTerm
         return $this->training->getPrice();
     }
 
-    /**
-     * @noinspection PhpUnused
-     */
-    public function isRegistrationOpen(): bool
+    public function isRegistrationOpened(): bool
     {
         return $this->getDeadlineDateTime() > NetteDateTime::from('now');
     }
