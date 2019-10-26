@@ -6,3 +6,5 @@ services:
 
     Pehapkari\Github\:
         resource: '../src'
+
+    Symplify\PackageBuilder\FileSystem\FinderSanitizer: ~
