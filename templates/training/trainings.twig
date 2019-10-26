@@ -18,7 +18,7 @@
                         <div class="card shadow-card">
                             <div class="card-header">
                                 <div class="text-danger pull-right">
-                                    {% if upcoming_training_term.isRegistrationOpen() %}
+                                    {% if upcoming_training_term.registrationOpened() %}
                                         Deadline: <strong>{{ upcoming_training_term.getDeadlineDateTime()|date }}</strong>
                                     {% else %}
                                         Přihlášky uzavřeny
