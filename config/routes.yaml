@@ -35,3 +35,16 @@ for_speakers:
     controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'
     defaults:
         template: 'meetup/for_speakers.twig'
+
+# feedback
+thank_you_for_feedback:
+    path: 'diky-za-feedback'
+    controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'
+    defaults:
+        template: 'feedback/thank_you_for_feedback.twig'
+
+place_detail:
+    path: 'vzdelavej-se/misto-jablotron-holesovice'
+    controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'
+    defaults:
+        template: 'place/place_detail.twig'

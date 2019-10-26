@@ -13,8 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @todo use bit.ly shortcut
- *
  * @see TrainingFeedback
  */
 final class FeedbackController extends AbstractController
@@ -34,7 +32,7 @@ final class FeedbackController extends AbstractController
      * @Route(path="/feedbacks/")
      * @Route(path="/jak-se-ti-libilo/")
      */
-    public function openFeedbacks(Request $request): Response
+    public function __invoke(Request $request): Response
     {
         $form = $this->createForm(FeedbackFormType::class);
         $form->handleRequest($request);
@@ -50,13 +48,5 @@ final class FeedbackController extends AbstractController
         return $this->render('feedback/open_feedbacks.twig', [
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route(path="/diky-za-feedback/", name="thank_you_for_feedback")
-     */
-    public function thankYouForFeedback(): Response
-    {
-        return $this->render('feedback/thank_you_for_feedback.twig');
     }
 }
