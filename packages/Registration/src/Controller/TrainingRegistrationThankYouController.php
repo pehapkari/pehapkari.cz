@@ -14,7 +14,7 @@ final class TrainingRegistrationThankYouController extends AbstractController
     /**
      * @Route(path="/vitej-na-skoleni/{slug}/", name="registration_thank_you")
      */
-    public function run(TrainingTerm $trainingTerm): Response
+    public function __invoke(TrainingTerm $trainingTerm): Response
     {
         return $this->render('registration/thank_you_for_registration.twig', [
             'trainingTerm' => $trainingTerm,

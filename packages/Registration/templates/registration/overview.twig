@@ -12,6 +12,7 @@
                     <th>Registrací</th>
                 </tr>
             </thead>
+
             {% for training_term in upcoming_training_terms %}
                 <tr>
                     {% set training = training_term.getTraining() %}
