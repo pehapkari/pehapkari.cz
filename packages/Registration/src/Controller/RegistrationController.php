@@ -92,7 +92,7 @@ final class RegistrationController extends AbstractController
     {
         // is email valid?
         if (! $this->emailValidation->validateEmail($trainingRegistration->getEmail())) {
-            throw new AccessDeniedHttpException();
+            throw new AccessDeniedHttpException(sprintf('Email "%s" jsme nenašli', $trainingRegistration->getEmail()));
         }
 
         $this->trainingRegistrationRepository->save($trainingRegistration);
