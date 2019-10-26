@@ -16,7 +16,7 @@ final class TrainingDetailController extends AbstractController
     /**
      * @Route(path="/kurz/{slug}", name="training_detail")
      */
-    public function detail(Training $training, TrainingFeedbackRepository $trainingFeedbackRepository): Response
+    public function __invoke(Training $training, TrainingFeedbackRepository $trainingFeedbackRepository): Response
     {
         return $this->render('training/training_detail.twig', [
             'training' => $training,

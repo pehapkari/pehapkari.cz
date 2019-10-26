@@ -15,8 +15,10 @@ final class HomepageController extends AbstractController
     /**
      * @Route(path="/", name="homepage")
      */
-    public function __run(OragnizerProvider $oragnizerProvider, NearestMeetupProvider $nearestMeetupProvider): Response
-    {
+    public function __invoke(
+        OragnizerProvider $oragnizerProvider,
+        NearestMeetupProvider $nearestMeetupProvider
+    ): Response {
         return $this->render('homepage/homepage.twig', [
             'organizers' => $oragnizerProvider->provide(),
             'nearest_meetup' => $nearestMeetupProvider->provide(),

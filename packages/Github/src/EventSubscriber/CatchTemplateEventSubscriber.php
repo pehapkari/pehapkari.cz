@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace Pehapkari\Github\EventSubscriber;
 
 use Nette\Utils\FileSystem;
+use Pehapkari\Github\Collector\ResolvedTemplateNameCollector;
 use Pehapkari\Github\PhpParser\NodeVisitor\DetectRenderArgumentNodeVisitor;
 use PhpParser\NodeTraverser;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;
 use ReflectionClass;
+use Symfony\Bundle\FrameworkBundle\Controller\TemplateController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\ControllerArgumentsEvent;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
@@ -21,9 +24,17 @@ final class CatchTemplateEventSubscriber implements EventSubscriberInterface
      */
     private $detectRenderArgumentNodeVisitor;
 
-    public function __construct(DetectRenderArgumentNodeVisitor $detectRenderArgumentNodeVisitor)
-    {
+    /**
+     * @var ResolvedTemplateNameCollector
+     */
+    private $resolvedTemplateNameCollector;
+
+    public function __construct(
+        DetectRenderArgumentNodeVisitor $detectRenderArgumentNodeVisitor,
+        ResolvedTemplateNameCollector $resolvedTemplateNameCollector
+    ) {
         $this->detectRenderArgumentNodeVisitor = $detectRenderArgumentNodeVisitor;
+        $this->resolvedTemplateNameCollector = $resolvedTemplateNameCollector;
     }
 
     /**
@@ -31,7 +42,10 @@ final class CatchTemplateEventSubscriber implements EventSubscriberInterface
      */
     public static function getSubscribedEvents(): array
     {
-        return [KernelEvents::CONTROLLER => 'controller'];
+        return [
+            KernelEvents::CONTROLLER => 'controller',
+            KernelEvents::CONTROLLER_ARGUMENTS => 'controllerArguments',
+        ];
     }
 
     public function controller(ControllerEvent $controllerEvent): void
@@ -46,6 +60,11 @@ final class CatchTemplateEventSubscriber implements EventSubscriberInterface
         $phpParser = $this->getPhpParser();
         $controllerNodes = $phpParser->parse(FileSystem::read($controllerFileName));
 
+        // the template name is not in the controller
+        if ($controllerEvent->getController() instanceof TemplateController) {
+            return;
+        }
+
         // extract $this->render('$value')
         $nodeTraverser = new NodeTraverser();
 
@@ -54,6 +73,19 @@ final class CatchTemplateEventSubscriber implements EventSubscriberInterface
 
         $nodeTraverser->addVisitor($this->detectRenderArgumentNodeVisitor);
         $nodeTraverser->traverse($controllerNodes);
+    }
+
+    /**
+     * Special case for @see TemplateController
+     */
+    public function controllerArguments(ControllerArgumentsEvent $controllerArgumentsEvent): void
+    {
+        if (! $controllerArgumentsEvent->getController() instanceof TemplateController) {
+            return;
+        }
+
+        $templateName = $controllerArgumentsEvent->getArguments()[0];
+        $this->resolvedTemplateNameCollector->setValue($templateName);
     }
 
     private function resolveControllerClass(ControllerEvent $controllerEvent): string
