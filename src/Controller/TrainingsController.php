@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Pehapkari\Controller;
 
-use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
+use Pehapkari\Registration\Repository\RegistrationRepository;
 use Pehapkari\Repository\TrainerRepository;
+use Pehapkari\Statistics\TrainingStatisticsProvider;
 use Pehapkari\Training\Repository\TrainingFeedbackRepository;
 use Pehapkari\Training\Repository\TrainingRepository;
 use Pehapkari\Training\Repository\TrainingTermRepository;
@@ -22,8 +23,9 @@ final class TrainingsController extends AbstractController
         TrainingTermRepository $trainingTermRepository,
         TrainingRepository $trainingRepository,
         TrainingFeedbackRepository $trainingFeedbackRepository,
-        TrainingRegistrationRepository $trainingRegistrationRepository,
-        TrainerRepository $trainerRepository
+        RegistrationRepository $trainingRegistrationRepository,
+        TrainerRepository $trainerRepository,
+        TrainingStatisticsProvider $trainingStatisticsProvider
     ): Response {
         $averageRating = $trainingFeedbackRepository->getAverageRating();
 
@@ -31,16 +33,13 @@ final class TrainingsController extends AbstractController
             'upcoming_training_terms' => $trainingTermRepository->getUpcoming(),
             'inactive_trainings' => $trainingRepository->getInactiveTrainings(),
 
-            'total_training_term_count' => $trainingTermRepository->getFinishedCount(),
-            'total_participant_count' => $trainingRegistrationRepository->getFinishedCount(),
+            'total_training_term_count' => $trainingStatisticsProvider->getFinishedTrainingsCount(),
+            'total_participant_count' => $trainingStatisticsProvider->getRegistrationCount(),
 
             'feedbacks' => $trainingFeedbackRepository->getForMainPage(),
 
             'average_training_rating' => $averageRating,
             'average_training_rating_stars' => round($averageRating, 0),
-
-            'past_terms' => $trainingTermRepository->getFinishedAndEmpty(),
-            'past_terms_count' => count($trainingTermRepository->getFinishedAndEmpty()),
 
             'trainer_count' => $trainerRepository->getCount(),
         ]);

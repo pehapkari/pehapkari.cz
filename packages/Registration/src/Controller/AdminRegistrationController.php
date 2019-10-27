@@ -7,7 +7,7 @@ namespace Pehapkari\Registration\Controller;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Invoicing\Invoicer;
-use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
+use Pehapkari\Registration\Repository\RegistrationRepository;
 
 /**
  * @see TrainingRegistration
@@ -15,7 +15,7 @@ use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 final class AdminRegistrationController extends EasyAdminController
 {
     /**
-     * @var TrainingRegistrationRepository
+     * @var RegistrationRepository
      */
     private $trainingRegistrationRepository;
 
@@ -24,10 +24,8 @@ final class AdminRegistrationController extends EasyAdminController
      */
     private $invoicer;
 
-    public function __construct(
-        TrainingRegistrationRepository $trainingRegistrationRepository,
-        Invoicer $invoicer
-    ) {
+    public function __construct(RegistrationRepository $trainingRegistrationRepository, Invoicer $invoicer)
+    {
         $this->trainingRegistrationRepository = $trainingRegistrationRepository;
         $this->invoicer = $invoicer;
     }

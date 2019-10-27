@@ -6,7 +6,7 @@ namespace Pehapkari\Registration\Invoicing;
 
 use Pehapkari\Fakturoid\FakturoidApi;
 use Pehapkari\Registration\Entity\TrainingRegistration;
-use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
+use Pehapkari\Registration\Repository\RegistrationRepository;
 
 final class Invoicer
 {
@@ -16,13 +16,13 @@ final class Invoicer
     private $fakturoidApi;
 
     /**
-     * @var TrainingRegistrationRepository
+     * @var RegistrationRepository
      */
     private $trainingRegistrationRepository;
 
     public function __construct(
         FakturoidApi $fakturoidApi,
-        TrainingRegistrationRepository $trainingRegistrationRepository
+        RegistrationRepository $trainingRegistrationRepository
     ) {
         $this->fakturoidApi = $fakturoidApi;
         $this->trainingRegistrationRepository = $trainingRegistrationRepository;
