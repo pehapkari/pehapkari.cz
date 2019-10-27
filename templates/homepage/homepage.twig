@@ -37,20 +37,20 @@
 
         {# add section with videos and top 5 viewed ones #}
 
-        <section class="ph-section">
+        <div class="background-grey section">
             <div class="container">
                 <h2 class="mb-5">Kdy a kde se potkáváme?</h2>
 
                 <div class="row">
-                    <div class="col-md-7 text-center hidden-xs">
+                    <div class="col-md-7 text-center hidden-sm-down">
                         {# @todo friendsofphp.org/ meetup.com info here #}
                         {# https://friendsofphp.org/api/meetups.json #}
-                        <img src="/assets/images/meetup_2.jpg" alt="Přijď na sraz">
+                        <img src="/assets/images/meetup_2.jpg" alt="Přijď na sraz" class="mb-4">
                     </div>
 
                     <div class="col-md-5">
                         <p>
-                            Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a> České Republiky. Typický sraz začíná v 18 hod., pak promluví 2 speakři a nakonec jdeme diskutovat nad pivem.
+                            Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a> České Republiky. Typický sraz začíná v 18&nbsp;hod., pak promluví 2&nbsp;speakři a nakonec jdeme diskutovat nad pivem.
                         </p>
 
                         {% if nearest_meetup %}
@@ -96,7 +96,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <div class="container text-center" id="team">
             <h2 class="mb-5">Bez týmu aktivních lidí by to nešlo!</h2>

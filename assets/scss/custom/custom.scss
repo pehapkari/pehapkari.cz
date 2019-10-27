@@ -49,8 +49,8 @@ body {
 }
 
 .section {
-    padding-top: 1.3em;
-    padding-bottom: 3em;
+    padding-top: 1em;
+    padding-bottom: 2em;
 }
 
 h1 {
@@ -513,7 +513,6 @@ h4 {
 
 .background-grey {
     margin: 2em 0;
-    padding: .7em 0;
     background: rgb(253, 246, 227);
 }
 
@@ -554,10 +553,6 @@ h4 {
         border-width: 1em 1em 0 1em;
         border-color: $white transparent transparent transparent;
         margin: 0 0 0 2.5em;
-    }
-
-    h2 {
-        font-size: 1.7em;
     }
 }
 
