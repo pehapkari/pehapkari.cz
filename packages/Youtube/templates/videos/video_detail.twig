@@ -1,8 +1,10 @@
 {% extends 'base.twig' %}
 
+{% set page_title %}{{ video.title }}{% endset %}
+
 {% block main %}
     <div class="container" id="videos">
-        <h1>{{ video.title }}</h1>
+        <h1>{{ page_title }}</h1>
 
         <br>
 

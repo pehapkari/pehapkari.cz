@@ -9,7 +9,7 @@ parameters:
         -
             photo: "https://avatars0.githubusercontent.com/u/42802?s=460&v=4"
             name: "Honza Černý"
-            responsibility: "PoSobota, Nette Camp, PHP Hory, Nette Občasník a natáčení videí"
+            responsibility: "PoSobota, Nette Camp, PHP Hory a PHP Nomád"
             url: https://honzacerny.com/
         -
             photo: "https://avatars0.githubusercontent.com/u/3995003?s=400&v=4"
@@ -19,7 +19,7 @@ parameters:
         -
             photo: jakub_kratina.jpg
             name: "Jakub Kratina"
-            responsibility: "organizace srazů v Praze, livestreamy"
+            responsibility: "livestreamy"
             url: http://jakubkratina.cz/
 
         # Pardubice
@@ -43,25 +43,6 @@ parameters:
             name: "Martin Prokeš"
             responsibility: "organizace srazů v Havlíčkově Brodě"
             url: "https://www.hubbr.cz/"
-
-        # České Budějovice
-        -
-            photo: "https://avatars3.githubusercontent.com/u/1589644?s=400&v=4"
-            name: "Nikol Ježková"
-            responsibility: "organizace srazů v Českých Budějovicích"
-            url: "https://roxtri.cz/"
-        -
-            photo: "https://avatars1.githubusercontent.com/u/313014?s=460&v=4"
-            name: "Martin Hlaváč"
-            responsibility: "organizace srazů v Českých Budějovicích"
-            url: "https://www.hlavacm.net/"
-
-        # Olomouc
-        -
-            photo: "https://avatars2.githubusercontent.com/u/1284781?s=460&v=4"
-            name: "Tomáš Jacík"
-            responsibility: "organizace PHP Piva v Olomouci"
-            url: "https://sunfox.cz/"
 
         # Brno
         -

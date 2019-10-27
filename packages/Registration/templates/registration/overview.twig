@@ -1,8 +1,10 @@
 {% extends 'base.twig' %}
 
+{% set page_title %}Přehled registrovaných{% endset %}
+
 {% block main %}
     <div id="trainings" class="container">
-        <h1>Přehled registrovaných</h1>
+        <h1>{{ page_title }}</h1>
 
         <table class="table table-bordered table-striped">
             <thead class="thead-inverse">

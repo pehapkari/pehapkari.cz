@@ -1,8 +1,11 @@
 {% extends 'base.twig' %}
 
+{# see https://stackoverflow.com/a/18110900/1348344 #}
+{% set page_title %}Pusť si talk cestou do práce{% endset %}
+
 {% block main %}
     <div class="container" id="videos">
-        <h1>Pusť si talk cestou do práce</h1>
+        <h1>{{ page_title }}</h1>
 
         <div class="text-bigger black_underline_links">
             <p>
