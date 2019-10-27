@@ -24,7 +24,7 @@
         <br>
 
         {% for playlist in meetup_playlists %}
-            <h2 class="text-center mt-5 mb-4" id="{{ playlist.title|webalize }}">{{ playlist.title }}</h2>
+            <h2 class="mt-5 mb-4" id="{{ playlist.title|webalize }}">{{ playlist.title }}</h2>
 
             <div class="row">
                 {% for video in playlist.videos %}

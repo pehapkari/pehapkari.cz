@@ -1,7 +1,7 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <div id="videos" class="container">
+    <div id="videos" class="container white_break_page_end">
         <h1>Have you missed PHP Prague?</h1>
 
         <div class="text-bigger">
@@ -9,7 +9,7 @@
         </div>
 
         {% for playlist in playlists %}
-            <h2 class="text-center">{{ playlist.title }}</h2>
+            <h2 class="mt-5">{{ playlist.title }}</h2>
 
             <div class="row">
                 {% for video in playlist.videos %}

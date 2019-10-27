@@ -89,7 +89,7 @@ Zatím prozradím, že se můžete těšit na [Ondru Mirtese](https://ondrej.mir
 Tento článek jsem začal psát na konci roku 2016 a mezitím přibyly další 2/3 obsahu.
 Kam to bude směřovat netuším, ale **jestli to půjde tímhle tempem, máme se na co těšit**.
 
-Ještě připomenu, že tento rok tě čeká **2. ročník konference [PHP Prague](https://pehapkari.cz/php-prague/2016)**. Jestli překonáme 120 návštěv z minulého roku, tak opravdu nevím, kam se vejdeme :).
+Ještě připomenu, že tento rok tě čeká **2. ročník konference PHP Prague**. Jestli překonáme 120 návštěv z minulého roku, tak opravdu nevím, kam se vejdeme :).
 
 
 ## A jak ovlivníš svět ty?

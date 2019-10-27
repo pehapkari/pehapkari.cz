@@ -586,3 +586,13 @@ h4 {
 .card h2 {
     font-size: 2em;
 }
+
+.white_break_page_end {
+    margin-bottom: 12em;
+}
+
+@include media-breakpoint-down(md) {
+    .white_break_page_end {
+        margin-bottom: 6em;
+    }
+}

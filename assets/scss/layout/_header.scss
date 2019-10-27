@@ -17,16 +17,18 @@
 
     #menu {
         list-style-type: none;
+        margin-top: .3em;
         margin-bottom: 0;
 
         li {
             line-height: 1em;
-            padding: 0 1em;
+            padding: 0;
 
             a {
                 font-size: $font-size-xs;
                 color: $gray-500;
                 display: inline;
+                padding: 1.2em 1.5em;
 
                 &:hover {
                     text-decoration: none;

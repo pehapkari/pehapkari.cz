@@ -43,3 +43,4 @@ parameters:
 
         - '#Method Pehapkari\\Github\\EventSubscriber\\CatchTemplateEventSubscriber\:\:resolveControllerMethod\(\) should return string but returns object\|string#'
         - '#Parameter \#1 \$object of function get_class expects object, object\|string given#'
+        - '#Method Pehapkari\\Youtube\\Controller\\VideoDetailController\:\:getVideoBySlug\(\) should return Pehapkari\\Youtube\\ValueObject\\Video but returns object#'
