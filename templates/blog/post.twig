@@ -1,9 +1,11 @@
 {% extends "base.twig" %}
 
+{# @var \Symplify\Statie\Renderable\File\PostFile post #}
+{% set page_title %}{{ post.title }}{% endset %}
+
 {% block main %}
-    {# @var \Symplify\Statie\Renderable\File\PostFile post #}
     <div class="container" id="article">
-        <h1>{{ post.title }}</h1>
+        <h1>{{ page_title }}</h1>
 
         <strong>
             {% if post.author matches '#^\\d+$#' %}

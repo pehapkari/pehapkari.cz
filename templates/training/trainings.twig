@@ -1,8 +1,10 @@
 {% extends "base.twig" %}
 
+{% set page_title %}Investuj do sebe a přijď na školení{% endset %}
+
 {% block main %}
     <div id="trainings" class="container">
-        <h1>Investuj do sebe a přijď na školení</h1>
+        <h1>{{ page_title }}</h1>
 
         <div class="text-bigger pb-5">
             Rozšiř si své know-how od odborníků v PHP - 3x ročně v Praze.<br>
@@ -76,7 +78,7 @@
         {% endif %}
     </div>
 
-    <div class="background-grey black_underline_links text-center">
+    <div class="background-grey black_underline_links text-center section">
         <div class="container" id="feedbacks">
             <h2 class="mb-3">
                 Přes {{ total_participant_count }} spokojených účastníků
@@ -121,7 +123,7 @@
         </div>
     </div>
 
-    <div class="background-grey black_underline_links">
+    <div class="background-grey black_underline_links section">
         <div class="text-center container">
             <h2>Kde školíme?</h2>
 

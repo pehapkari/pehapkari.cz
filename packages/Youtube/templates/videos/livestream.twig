@@ -1,8 +1,10 @@
 {% extends 'base.twig' %}
 
+{% set page_title %}Přehraj si Livestream{% endset %}
+
 {% block main %}
     <div class="container" id="videos">
-        <h1>Přehraj si Livestream</h1>
+        <h1>{{ page_title }}</h1>
 
         <div class="text-bigger pb-5">
             <a href="https://www.linkedin.com/in/jakub-kratina-b5972549/">Jakub Kratina</a> natočil spolu s vámi {{ livestream_videos|length }} livestreamů. Tady si je všechny můžeš přehrát.

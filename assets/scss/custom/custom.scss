@@ -49,8 +49,8 @@ body {
 }
 
 .section {
-    padding-top: 1.3em;
-    padding-bottom: 3em;
+    padding-top: 1em;
+    padding-bottom: 2em;
 }
 
 h1 {
@@ -513,7 +513,6 @@ h4 {
 
 .background-grey {
     margin: 2em 0;
-    padding: .7em 0;
     background: rgb(253, 246, 227);
 }
 
@@ -555,10 +554,6 @@ h4 {
         border-color: $white transparent transparent transparent;
         margin: 0 0 0 2.5em;
     }
-
-    h2 {
-        font-size: 1.7em;
-    }
 }
 
 #training_trainer_card {
@@ -590,4 +585,14 @@ h4 {
 
 .card h2 {
     font-size: 2em;
+}
+
+.white_break_page_end {
+    margin-bottom: 12em;
+}
+
+@include media-breakpoint-down(md) {
+    .white_break_page_end {
+        margin-bottom: 6em;
+    }
 }

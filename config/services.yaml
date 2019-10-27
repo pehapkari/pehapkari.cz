@@ -10,7 +10,7 @@ parameters:
 # copied from Statie
 twig:
     globals:
-        page_title: "Děláš v PHP? Jsi jedním z nás"
+        main_page_title: "Děláš v PHP? Jsi jedním z nás"
         site_url: "https://pehapkari.cz"
         google_analytics_tracking_id: "UA-89860072-1"
         disqus_name: "pehapkari"

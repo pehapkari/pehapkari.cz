@@ -4,204 +4,45 @@ declare(strict_types=1);
 
 namespace Pehapkari\Youtube\Controller;
 
-use Pehapkari\Youtube\Command\ImportVideosCommand;
-use Pehapkari\Youtube\Exception\FileDataNotFoundException;
+use Pehapkari\Youtube\DataProvider\VideosDataProvider;
 use Pehapkari\Youtube\Hydration\ArrayToValueObjectHydrator;
 use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\ValueObject\Video;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
 final class VideoController extends AbstractController
 {
     /**
-     * @var mixed[]
+     * @Route(path="prehaj-si-prednasku", name="videos")
      */
-    private $youtubeVideos = [];
-
-    /**
-     * @var mixed[]
-     */
-    private $facebookVideos = [];
-
-    /**
-     * @var ArrayToValueObjectHydrator
-     */
-    private $arrayToValueObjectHydrator;
-
-    /**
-     * @var ArrayByDateTimeSorter
-     */
-    private $arrayByDateTimeSorter;
-
-    /**
-     * @see ImportVideosCommand command
-     * @param mixed[] $youtubeVideos
-     * @param mixed[] $facebookVideos
-     */
-    public function __construct(
-        ArrayToValueObjectHydrator $arrayToValueObjectHydrator,
+    public function __invoke(
+        VideosDataProvider $videosDataProvider,
         ArrayByDateTimeSorter $arrayByDateTimeSorter,
-        array $youtubeVideos = [],
-        array $facebookVideos = []
-    ) {
-        $this->youtubeVideos = $youtubeVideos;
-        $this->arrayToValueObjectHydrator = $arrayToValueObjectHydrator;
-        $this->facebookVideos = $facebookVideos;
-        $this->arrayByDateTimeSorter = $arrayByDateTimeSorter;
-    }
-
-    /**
-     * @Route(path="/prehaj-si-prednasku/", name="videos")
-     */
-    public function videos(): Response
-    {
-        $this->ensureYoutubeDataExists();
-
-        $meetupPlaylists = array_merge($this->youtubeVideos['meetups'], $this->facebookVideos['meetups']);
+        ArrayToValueObjectHydrator $arrayToValueObjectHydrator
+    ): Response {
+        $meetupPlaylists = array_merge(
+            $videosDataProvider->provideYoutubeVideos()['meetups'],
+            $videosDataProvider->provideFacebookVideos()['meetups']
+        );
 
         // sort meetups by month
-        $meetupPlaylists = $this->arrayByDateTimeSorter->sortByKey($meetupPlaylists, 'month');
+        $meetupPlaylists = $arrayByDateTimeSorter->sortByKey($meetupPlaylists, 'month');
 
         foreach ($meetupPlaylists as $key => $meetupPlaylist) {
-            $meetupPlaylists[$key]['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
+            $meetupPlaylists[$key]['videos'] = $arrayToValueObjectHydrator->hydrateArraysToValueObject(
                 $meetupPlaylist['videos'],
                 Video::class
             );
         }
 
-        $phpPragueCount = 0;
-        foreach ($this->youtubeVideos['php_prague'] as $phpPrague) {
-            $phpPragueCount += count($phpPrague['videos']);
-        }
-
         return $this->render('videos/videos.twig', [
             'meetup_playlists' => $meetupPlaylists,
-            'livestream_count' => count($this->getLivestreamVideos()),
+            'livestream_count' => $videosDataProvider->getLivestreamVideosCount(),
             'meetup_count' => count($meetupPlaylists),
-            'video_count' => $this->getVideoCount($meetupPlaylists),
-            'php_prague_count' => $phpPragueCount,
+            'video_count' => $videosDataProvider->getMeetupVideosCount(),
+            'php_prague_count' => $videosDataProvider->getPhpPragueVideosCount(),
         ]);
-    }
-
-    /**
-     * @Route(path="/livestreamy/", name="livestream")
-     */
-    public function livestream(): Response
-    {
-        $this->ensureYoutubeDataExists();
-
-        return $this->render('videos/livestream.twig', [
-            'livestream_videos' => $this->getLivestreamVideos(),
-        ]);
-    }
-
-    /**
-     * @Route(path="/video/{slug}", name="video_detail")
-     */
-    public function videoDetail(string $slug): Response
-    {
-        $this->ensureYoutubeDataExists();
-
-        return $this->render('videos/video_detail.twig', [
-            'video' => $this->getVideoBySlug($slug),
-        ]);
-    }
-
-    /**
-     * @Route(path="/videos/php-prague", name="videos_php_prague")
-     */
-    public function videoPhpPrague(): Response
-    {
-        $this->ensureYoutubeDataExists();
-
-        return $this->render('videos/videos_php_prague.twig', [
-            'playlists' => $this->youtubeVideos['php_prague'],
-        ]);
-    }
-
-    private function ensureYoutubeDataExists(): void
-    {
-        if ($this->youtubeVideos && isset($this->youtubeVideos['livestream'], $this->youtubeVideos['meetups'])) {
-            return;
-        }
-
-        throw new FileDataNotFoundException(sprintf(
-            'Youtube data not found. Generate data by "%s" command first',
-            CommandNaming::classToName(ImportVideosCommand::class)
-        ));
-    }
-
-    /**
-     * @return Video[]
-     */
-    private function getLivestreamVideos(): array
-    {
-        $livestreamPlaylist = $this->youtubeVideos['livestream'];
-        $livestreamPlaylist['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
-            $livestreamPlaylist['videos'],
-            Video::class
-        );
-
-        return $livestreamPlaylist['videos'];
-    }
-
-    /**
-     * @param mixed[] $meetupPlaylists
-     */
-    private function getVideoCount(array $meetupPlaylists): int
-    {
-        $videoCount = 0;
-
-        foreach ($meetupPlaylists as $meetupPlaylist) {
-            $videoCount += count($meetupPlaylist['videos'] ?? []);
-        }
-
-        return $videoCount;
-    }
-
-    private function getVideoBySlug(string $videoSlug): Video
-    {
-        $matchedVideo = $this->matchVideo($videoSlug);
-        if ($matchedVideo) {
-            return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($matchedVideo, Video::class);
-        }
-
-        throw $this->createNotFoundException(sprintf("Video with slug '%s' not found", $videoSlug));
-    }
-
-    /**
-     * @return mixed[]
-     */
-    private function matchVideo(string $videoSlug): ?array
-    {
-        foreach ($this->getAllVideos() as $videoData) {
-            if ($videoData['slug'] === $videoSlug) {
-                return $videoData;
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * @return mixed[]
-     */
-    private function getAllVideos(): array
-    {
-        $eventsWithVideos = array_merge(
-            $this->youtubeVideos['php_prague'],
-            $this->youtubeVideos['meetups'],
-            $this->facebookVideos['meetups']
-        );
-
-        $videos = [];
-        foreach ($eventsWithVideos as $event) {
-            $videos = array_merge($videos, $event['videos']);
-        }
-
-        return array_merge($videos, $this->youtubeVideos['livestream']['videos']);
     }
 }

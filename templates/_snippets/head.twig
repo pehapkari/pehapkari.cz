@@ -28,7 +28,7 @@
 
 <link href="{{ asset('favicon.ico') }}" rel="shortcut icon">
 
-<title>{% if title is defined and title is not null %}{{ title|raw }} | {% endif %}{{ page_title }}</title>
+<title>{% if page_title is defined %} {{ page_title|striptags }} | {% endif %} {{ main_page_title }}</title>
 
 {# ↓ this file is generated with "npm run prod" from command line#}
 <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
