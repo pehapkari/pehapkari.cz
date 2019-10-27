@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace Pehapkari\Statistics;
 
 use Pehapkari\Registration\Repository\RegistrationRepository;
+use Pehapkari\Training\Repository\TrainingFeedbackRepository;
 use Pehapkari\Training\Repository\TrainingTermRepository;
 
-final class TrainingStatisticsProvider
+final class TrainingStatistics
 {
     /**
      * @var RegistrationRepository
@@ -19,12 +20,19 @@ final class TrainingStatisticsProvider
      */
     private $trainingTermRepository;
 
+    /**
+     * @var TrainingFeedbackRepository
+     */
+    private $trainingFeedbackRepository;
+
     public function __construct(
         TrainingTermRepository $trainingTermRepository,
-        RegistrationRepository $registrationRepository
+        RegistrationRepository $registrationRepository,
+        TrainingFeedbackRepository $trainingFeedbackRepository
     ) {
         $this->registrationRepository = $registrationRepository;
         $this->trainingTermRepository = $trainingTermRepository;
+        $this->trainingFeedbackRepository = $trainingFeedbackRepository;
     }
 
     public function getFinishedTrainingsCount(): int
@@ -35,5 +43,15 @@ final class TrainingStatisticsProvider
     public function getRegistrationCount(): int
     {
         return $this->registrationRepository->getFinishedCount();
+    }
+
+    public function getAverageTrainingRating(): float
+    {
+        return $this->trainingFeedbackRepository->getAverageRating();
+    }
+
+    public function getAverageTrainingRatingStarsCount(): int
+    {
+        return (int) round($this->getRegistrationCount(), 0);
     }
 }

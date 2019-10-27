@@ -16,13 +16,13 @@
                 </a>
             </li>
             <li>
-                <a class="{{ active_item(['blog', 'post']) }}" href="{{ path('blog') }}">
-                    Blog
+                <a class="{{ active_item(['videos', 'livestream', 'video_detail', 'videos_php_prague']) }}" href="{{ path('videos') }}">
+                    Videa
                 </a>
             </li>
             <li>
-                <a class="{{ active_item(['videos', 'livestream', 'video_detail', 'videos_php_prague']) }}" href="{{ path('videos') }}">
-                    Videa
+                <a class="{{ active_item(['blog', 'post']) }}" href="{{ path('blog') }}">
+                    Blog
                 </a>
             </li>
             <li class="pr-0">
@@ -39,14 +39,14 @@
     <a href="/" class="col-3 {{ active_item('homepage') }}">
         <img src="/assets/icons/logo/logo_green_only.svg" alt="logo" title="">
     </a>
-    <a href="{{ path('blog') }}" class="col-3 {{ active_item(['blog', 'post_detail'])}}">
-        Blog
-    </a>
+
     <a href="{{ path('trainings') }}" class="col-3 {{ active_item(['trainings', 'become_trainer', 'training_detail'])}}">
         Školení
     </a>
-
     <a href="{{ path('videos') }}" class="col-3 {{ active_item(['videos', 'livestream', 'videos_php_prague', 'video_detail']) }}">
         Videa
+    </a>
+    <a href="{{ path('blog') }}" class="col-3 {{ active_item(['blog', 'post_detail'])}}">
+        Blog
     </a>
 </div>
