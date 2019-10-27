@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 
-final class TrainingRegistrationRepository
+final class RegistrationRepository
 {
     /**
      * @var EntityManagerInterface

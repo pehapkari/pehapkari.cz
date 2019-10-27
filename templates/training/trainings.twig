@@ -57,18 +57,22 @@
         <br>
 
         {% if inactive_trainings|length %}
-            <div class="text-smaller mt-3 mb-4" id="tranings_without_term">
-                <p>
-                    Další kurzy, které teď nemají vypsaný termín:
+            <p class="mt-5 mb-5">
+                Další kurzy, které teď nemají vypsaný termín:
 
-                    {% for inactive_training in inactive_trainings %}
-                        <a href="{{ path('training_detail', { 'slug': inactive_training.getSlug() }) }}/">
-                            {{ inactive_training.getName()|raw }}
-                        </a>
-                        {% if loop.last == false %}&nbsp;•&nbsp;{% endif %}
-                    {% endfor %}
-                </p>
-            </div>
+                {% for inactive_training in inactive_trainings %}
+                    <a href="{{ path('training_detail', { 'slug': inactive_training.getSlug() }) }}/">
+                        {{ inactive_training.getName()|raw }}
+                    </a>
+                    {% if loop.last == false %}&nbsp;•&nbsp;{% endif %}
+                {% endfor %}
+            </p>
+
+            <p class="mb-3">
+                <strong>
+                    Chybí tu téma, v kterém se vyznáš? Nečekej a <a href="{{ path('become_trainer') }}">začni ho školit</a>
+                </strong>
+            </p>
         {% endif %}
     </div>
 

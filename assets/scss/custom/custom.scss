@@ -306,10 +306,6 @@ footer .rounded-circle {
     width: 2.7em;
 }
 
-#trainings h2 {
-    font-size: 1.8em;
-}
-
 #trainings q.blockquote {
     line-height: 1.5em;
 }
@@ -590,4 +586,8 @@ h4 {
         margin: auto;
         text-align: center;
     }
+}
+
+.card h2 {
+    font-size: 2em;
 }

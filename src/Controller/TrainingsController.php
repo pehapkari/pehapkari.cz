@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Pehapkari\Controller;
 
-use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
 use Pehapkari\Repository\TrainerRepository;
+use Pehapkari\Statistics\TrainingStatistics;
 use Pehapkari\Training\Repository\TrainingFeedbackRepository;
 use Pehapkari\Training\Repository\TrainingRepository;
 use Pehapkari\Training\Repository\TrainingTermRepository;
@@ -22,25 +22,20 @@ final class TrainingsController extends AbstractController
         TrainingTermRepository $trainingTermRepository,
         TrainingRepository $trainingRepository,
         TrainingFeedbackRepository $trainingFeedbackRepository,
-        TrainingRegistrationRepository $trainingRegistrationRepository,
-        TrainerRepository $trainerRepository
+        TrainerRepository $trainerRepository,
+        TrainingStatistics $trainingStatistics
     ): Response {
-        $averageRating = $trainingFeedbackRepository->getAverageRating();
-
         return $this->render('training/trainings.twig', [
             'upcoming_training_terms' => $trainingTermRepository->getUpcoming(),
             'inactive_trainings' => $trainingRepository->getInactiveTrainings(),
 
-            'total_training_term_count' => $trainingTermRepository->getFinishedCount(),
-            'total_participant_count' => $trainingRegistrationRepository->getFinishedCount(),
+            'total_training_term_count' => $trainingStatistics->getFinishedTrainingsCount(),
+            'total_participant_count' => $trainingStatistics->getRegistrationCount(),
 
             'feedbacks' => $trainingFeedbackRepository->getForMainPage(),
 
-            'average_training_rating' => $averageRating,
-            'average_training_rating_stars' => round($averageRating, 0),
-
-            'past_terms' => $trainingTermRepository->getFinishedAndEmpty(),
-            'past_terms_count' => count($trainingTermRepository->getFinishedAndEmpty()),
+            'average_training_rating' => $trainingStatistics->getAverageTrainingRating(),
+            'average_training_rating_stars' => $trainingStatistics->getAverageTrainingRatingStarsCount(),
 
             'trainer_count' => $trainerRepository->getCount(),
         ]);

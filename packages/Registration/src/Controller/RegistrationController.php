@@ -7,7 +7,7 @@ namespace Pehapkari\Registration\Controller;
 use Pehapkari\Mailer\PehapkariMailer;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Form\RegistrationFormType;
-use Pehapkari\Registration\Repository\TrainingRegistrationRepository;
+use Pehapkari\Registration\Repository\RegistrationRepository;
 use Pehapkari\Training\Entity\TrainingTerm;
 use Pehapkari\Validation\EmailValidation;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class RegistrationController extends AbstractController
 {
     /**
-     * @var TrainingRegistrationRepository
+     * @var RegistrationRepository
      */
     private $trainingRegistrationRepository;
 
@@ -36,7 +36,7 @@ final class RegistrationController extends AbstractController
     private $emailValidation;
 
     public function __construct(
-        TrainingRegistrationRepository $trainingRegistrationRepository,
+        RegistrationRepository $trainingRegistrationRepository,
         PehapkariMailer $pehapkariMailer,
         EmailValidation $emailValidation
     ) {

@@ -33,40 +33,9 @@ final class TrainingTermRepository
         $this->entityRepository = $entityManager->getRepository(TrainingTerm::class);
     }
 
-    /**
-     * @return TrainingTerm[]
-     */
-    public function getFinishedAndEmpty(): array
-    {
-        $finishedTrainingTerms = $this->getFinished();
-
-        return array_filter($finishedTrainingTerms, function (TrainingTerm $trainingTerm): bool {
-            return $trainingTerm->getParticipantCount() < 2;
-        });
-    }
-
-    /**
-     * @return TrainingTerm[]
-     */
-    public function getFinishedWithoutPaidProvision(): array
-    {
-        return $this->entityRepository->createQueryBuilder('tt')
-            ->andWhere('tt.startDateTime < CURRENT_DATE()')
-            ->andWhere('tt.isProvisionPaid = false')
-            ->getQuery()
-            ->getResult();
-    }
-
     public function getFinishedCount(): int
     {
         return count($this->getFinished());
-    }
-
-    public function findBySlug(string $slug): ?TrainingTerm
-    {
-        return $this->entityRepository->findOneBy([
-            'slug' => $slug,
-        ]);
     }
 
     /**
