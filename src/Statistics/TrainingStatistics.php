@@ -52,6 +52,6 @@ final class TrainingStatistics
 
     public function getAverageTrainingRatingStarsCount(): int
     {
-        return (int) round($this->getRegistrationCount(), 0);
+        return (int) round($this->getAverageTrainingRating(), 0);
     }
 }

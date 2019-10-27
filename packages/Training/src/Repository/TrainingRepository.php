@@ -73,4 +73,9 @@ final class TrainingRepository
             return ! $training->isActive();
         });
     }
+
+    public function getById(int $id): Training
+    {
+        return $this->entityRepository->find($id);
+    }
 }
