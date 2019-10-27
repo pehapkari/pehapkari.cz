@@ -6,17 +6,15 @@
     <div class="container" id="videos">
         <h1>{{ page_title }}</h1>
 
-        <br>
-
         {% if video.slides %}
-            <a href="{{ video.slides }}" class="btn btn-warning ml-2">
+            <a href="{{ video.slides }}" class="btn btn-warning ml-2 mb-2">
                 <em class="fab fa-fw fa-slideshare"></em>
                 Slides
             </a>
         {% endif %}
 
         {# see https://getbootstrap.com/docs/4.0/utilities/embed/ #}
-        <div class="embed-responsive embed-responsive-16by9 mt-3">
+        <div class="embed-responsive embed-responsive-16by9">
             {# youtube! #}
             {% if video.videoId != '' %}
                 <iframe src="https://www.youtube.com/embed/{{ video.videoId }}" class="embed-responsive-item" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -16,15 +16,17 @@
         </strong>
         &nbsp;
         <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
-                {{ post.getDateInFormat('j. n. Y') }}
+            {{ post.getDateInFormat('j. n. Y') }}
         </time>
 
         <br>
 
-        <div id="article-content">
-            <p class="perex">{{ post.perex|raw }}</p>
-            {{ post.content|raw }}
+        <div class="card mt-4 mb-4">
+            <div class="card-body text-bigger">
+                {{ post.perex|raw }}
+            </div>
         </div>
+        {{ post.content|raw }}
 
         <br>
 

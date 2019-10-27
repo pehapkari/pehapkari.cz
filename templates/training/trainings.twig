@@ -15,19 +15,22 @@
             {% for upcoming_training_term in upcoming_training_terms %}
                 {# @var training \Pehapkari\Training\Entity\Training #}
                 {% set training = upcoming_training_term.getTraining() %}
-                <div class="col-12 col-md-6 incognito-link-just-header">
+                <div class="col-12 col-lg-6 incognito-link-just-header">
                     <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">
                         <div class="card shadow-card">
                             <div class="card-header">
-                                <div class="text-danger pull-right">
-                                    {% if upcoming_training_term.registrationOpened() %}
-                                        Deadline: <strong>{{ upcoming_training_term.getDeadlineDateTime()|date }}</strong>
-                                    {% else %}
-                                        Přihlášky uzavřeny
-                                    {% endif %}
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 mb-2 mb-sm-0">
+                                        Příští termín: <strong>{{ upcoming_training_term.getStartDateTime()|date }}</strong>
+                                    </div>
+                                    <div class="col-12 col-sm-6 text-danger">
+                                        {% if upcoming_training_term.registrationOpened() %}
+                                            Deadline: <strong>{{ upcoming_training_term.getDeadlineDateTime()|date }}</strong>
+                                        {% else %}
+                                            Přihlášky uzavřeny
+                                        {% endif %}
+                                    </div>
                                 </div>
-
-                                Příští termín: <strong>{{ upcoming_training_term.getStartDateTime()|date }}</strong>
                             </div>
 
                             <div class="card-body">
