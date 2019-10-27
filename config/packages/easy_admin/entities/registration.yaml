@@ -5,7 +5,7 @@ easy_admin:
             controller: 'Pehapkari\Registration\Controller\AdminRegistrationController'
             list:
                 sort: ['createdAt', 'DESC']
-                batch_actions: ['createInvoicesBatchAction']
+                batch_actions: ['createInvoices']
 
                 fields:
                     - 'name'
