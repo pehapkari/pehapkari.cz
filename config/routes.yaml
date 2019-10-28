@@ -1,11 +1,5 @@
 # template only routes → template
 
-organize_meetup:
-    path: 'zorganizujte-sraz'
-    controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'
-    defaults:
-        template: 'marketing/organize_meetup.twig'
-
 sponsoring:
     path: 'zviditelnete-vasi-firmu'
     controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'

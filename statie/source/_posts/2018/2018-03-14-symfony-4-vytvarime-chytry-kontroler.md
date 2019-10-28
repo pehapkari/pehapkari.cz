@@ -92,7 +92,7 @@ final class HomepageController extends AbstractController
 {
 
     /**
-     * @Route("/", name="homepage")
+     * @Route(path="", name="homepage")
      */
     public function renderDefault(): Response
     {

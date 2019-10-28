@@ -48,6 +48,10 @@ final class VideoDetailController extends AbstractController
     private function getVideoBySlug(string $videoSlug): Video
     {
         $matchedVideo = $this->matchVideo($videoSlug);
+        if ($matchedVideo instanceof Video) {
+            return $matchedVideo;
+        }
+
         if ($matchedVideo) {
             return $this->arrayToValueObjectHydrator->hydrateArrayToValueObject($matchedVideo, Video::class);
         }
@@ -56,12 +60,16 @@ final class VideoDetailController extends AbstractController
     }
 
     /**
-     * @return mixed[]
+     * @return mixed[]|Video|null
      */
-    private function matchVideo(string $videoSlug): ?array
+    private function matchVideo(string $videoSlug)
     {
         foreach ($this->videosDataProvider->provideAllVideos() as $videoData) {
-            if ($videoData['slug'] === $videoSlug) {
+            if ($videoData instanceof Video) {
+                if ($videoData->getSlug() === $videoSlug) {
+                    return $videoData;
+                }
+            } elseif ($videoData['slug'] === $videoSlug) {
                 return $videoData;
             }
         }

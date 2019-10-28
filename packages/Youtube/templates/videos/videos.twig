@@ -7,12 +7,10 @@
     <div class="container" id="videos">
         <h1>{{ page_title }}</h1>
 
-        <div class="text-bigger black_underline_links">
+        <div class="subhead">
             <p>
                 Od prvního srazu přátel PHP v říjnu 2015 jsme úspěšně nahráli <strong>{{ video_count }}&nbsp;záznamů</strong> z <strong>{{ meetup_count }}&nbsp;srazů</strong>.
-            </p>
-
-            <p>
+                <br>
                 K tomu ještě <a href="{{ path('videos_php_prague') }}">{{ php_prague_count }}&nbsp;přednášek z PHP Prague</a> a
                 <a href="{{ path('livestream') }}">{{ livestream_count }}&nbsp;livestreamů</a>.
             </p>
@@ -23,8 +21,6 @@
                 Jako bonus je pod každým videem i diskuse, tak se klidně ptej.
             </p>
         </div>
-
-        <br>
 
         {% for playlist in meetup_playlists %}
             <h2 class="mt-5 mb-4" id="{{ playlist.title|webalize }}">{{ playlist.title }}</h2>

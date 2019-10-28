@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class TrainingRegistrationController extends AbstractController
 {
     /**
-     * @Route(path="/prehled-registraci/", name="registration-overview")
+     * @Route(path="prehled-registraci", name="registration-overview")
      */
     public function __invoke(TrainingTermRepository $trainingTermRepository): Response
     {

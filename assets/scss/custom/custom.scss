@@ -54,8 +54,10 @@ body {
 }
 
 h1 {
-    padding-top: 1em;
-    padding-bottom: .5em;
+    padding-top: .7em;
+    padding-bottom: 0em;
+    margin-bottom: 0;
+    text-align: center;
 }
 
 @include media-breakpoint-down(md) {
@@ -261,15 +263,6 @@ pre[class*="language-"] {
     .hidden-md-up {
         display: none !important;
     }
-}
-
-#mobile-menu {
-    padding: 0;
-}
-
-#mobile-menu a {
-    float: left;
-    width: 100%;
 }
 
 #related-posts {
@@ -512,8 +505,12 @@ h4 {
 }
 
 .background-grey {
-    margin: 2em 0;
+    margin: 3em 0;
     background: rgb(253, 246, 227);
+
+    h2 {
+        text-align: center;
+    }
 }
 
 #feedbacks {
@@ -594,5 +591,42 @@ h4 {
 @include media-breakpoint-down(md) {
     .white_break_page_end {
         margin-bottom: 6em;
+    }
+}
+
+.logos {
+    img {
+        width: 9em;
+        height: 3em;
+        object-fit: scale-down;
+    }
+}
+
+.subhead {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 3em;
+}
+
+
+.ul-normal, .row ul {
+    margin-left: 0;
+    margin-bottom: 0.3em;
+    padding-left: 1.1em;
+}
+
+.action_step {
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 3em;
+
+    p {
+        font-weight: bold;
+        font-size: 1.3em;
+        margin-bottom: 1em;
+    }
+
+    .btn {
+        font-size: 1.3em;
     }
 }

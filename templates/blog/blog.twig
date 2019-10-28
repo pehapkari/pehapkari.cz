@@ -6,13 +6,11 @@
     <div class="container"  id="blog">
         <h1>{{ page_title }}</h1>
 
-        <div class="text-bigger black_underline_links pb-5">
+        <div class="subhead">
             <p>
-                Tenhle blog píšeme všichni spolu.
-                Už je tu přes {{ author_count }} z vás.
-            </p>
-            <p>
-                Chceš být taky vidět? <a href="https://github.com/pehapkari/pehapkari.cz/edit/master/statie/source/_posts/2019/2019-12-31-new-post.md">Přidej svůj článek v Markdownu jedním klikem</a>!
+                Tenhle blog píšeme všichni spolu. Už je tu přes {{ author_count }} z vás.
+                <br>
+                <strong>Chceš být taky vidět?</strong> <a href="https://github.com/pehapkari/pehapkari.cz/edit/master/statie/source/_posts/2019/2019-12-31-new-post.md">Přidej svůj článek v Markdownu jedním klikem</a>!
             </p>
         </div>
 
@@ -51,7 +49,7 @@
                 {# start columns after first post #}
                 <div class="row">
             {% else %}
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-lg-6">
                     <div class="article mb-3 mt-3 card">
                         <a href="/{{ post|link }}/">
                             <div class="card-body">

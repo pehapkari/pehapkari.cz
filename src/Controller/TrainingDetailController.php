@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class TrainingDetailController extends AbstractController
 {
     /**
-     * @Route(path="/kurz/{slug}", name="training_detail")
+     * @Route(path="kurz/{slug}", name="training_detail")
      */
     public function __invoke(Training $training, TrainingFeedbackRepository $trainingFeedbackRepository): Response
     {

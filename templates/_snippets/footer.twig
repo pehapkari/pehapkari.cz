@@ -3,8 +3,9 @@
         <div class="row">
             <div class="col-12 col-sm-2 mb-5 mb-md-0 mt-3 mb-md-0">
                 <div class="ph-nav__logo">
-                    <img src="/assets/icons/logo/logo_green.svg" alt="logo" title="">
-                    <p class="ml-2">Péhápkaři</p>
+                    <a href="{{ path('homepage') }}">
+                        <img src="{{ asset('assets/icons/logo/logo_green_only.svg') }}" alt="logo">
+                    </a>
                 </div>
             </div>
 
@@ -117,6 +118,10 @@
                         <li>
                             <a href="{{ path('sponsoring') }}">Zvyditelněte svou firmu</a>
                         </li>
+
+{#                        <li>#}
+{#                            <a href="{{ path('organize_meetup') }}">Firemní školení</a>#}
+{#                        </li>#}
                     </ul>
                 </div>
             </div>

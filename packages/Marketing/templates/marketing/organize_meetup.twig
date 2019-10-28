@@ -3,42 +3,132 @@
 {% set page_title %}Dostaneme k vám programátory{% endset %}
 
 {% block main %}
-    <div id="trainings" class="container">
+    <div class="container">
         <h1>{{ page_title }}</h1>
 
-        <h2>Pořadatel srazu - dostaneme lidi přímo k vám do firmy</h2>
-
-        Jednou měsíčně zpravidla 2. čtvrtek pořádáme v Praze srazy, které se konají přímo ve firmách.
-
-        Je to nejlepší způsob jak oslovit lidi a příjemně je seznámit s firmou, jejím prostředím a potenciálními budoucími kolegy. Účinnější než HR agentury a cold-calling, které neosobním přístupem programátory spíše odradí.
-
-        <h2>Jak sraz vypadá?</h2>
-
-        <p>
-        Obvykle dorazí 20-40 lidí. Na sraz seženeme 2 speakry se zajímavými přednáškami, děláme live stream a točíme záznamy přednášek.
-        Vaše firma tak bude vidět nejen dneska, al
-        Takže jméno firmy se pak šíří dál přes sociální sítě mezi dalších 400-500 lidí během prvního týdne po srazu.
-
-        Na vás stačí připravit drobné občerstvení a pivo a programátoři si tak rychle vytvoří příjemnou asociaci s vaším místem :-) a taky exkurzi po firmě, když skončí přednášky.
-
-        <img src="{{ asset('assets/images/sponsor/1.jpg') }}">
-
-    Sponzoring srazu v Praze je za 15 000 Kč.
-
-    Pro Brno/Ostravu 12 000 Kč
-
-        <img src="{{ asset('assets/images/sponsor/2.jpg') }}">
-        <img src="{{ asset('assets/images/sponsor/3.jpg') }}">
-
-
-        Nejlíp fungují opakované srazy, 2-3x ročně.
-
-        Takto spolupracujeme s LMC, Pilulka.cz nebo Footshop.cz.
-
-        <div class="flex">
-            <img src="{{ asset('assets/images/sponsor/lmc.png') }}" class="flex-column">
-            <img src="{{ asset('assets/images/sponsor/footshop.png') }}" class="flex-column">
-            <img src="{{ asset('assets/images/sponsor/pilulka.png') }}" class="flex-column">
+        <div class="subhead">
+            <p>
+                Každý měsíc <strong>organicky propojujeme firmy a programátory</strong>, vzdělání a práci, zábavu a růst.
+            </p>
+            <p>
+                Organizujeme srazy přímo ve firmách, aby si zažili firmu na vlastní kůži.<br>
+                Tak <strong>oslovíte i zkušenější vývojáře</strong>, kteří o zméně práce zrovna neuvažují.
+            </p>
         </div>
     </div>
+
+    <div class="background-grey section">
+        <div class="container">
+            <h2>
+                Zorganizovali jsme už {{ organize_meetup_count }} srazů pro {{ company_count }} firem.
+            </h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h2>Proč s námi dělat sraz?</h2>
+
+                        <p>
+                            Sraz je nejlepší způsob jak oslovit lidi a příjemně je seznámit s firmou, jejím prostředím a současným týmem. Mnohem účinnější než HR agentury a cold-calling, které neosobním přístupem programátory spíše odradí.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="card mt-4 border-0">
+                    <div class="card-body">
+                        <h2>Váš brand se bude šířit</h2>
+
+                        <p>
+                            Víme, že rychlý a živý obsah se v dnešní době šíří nejlépe. <strong>Proto děláme livestream a záznamy přednášek jsou dostupné online hned po ukončení</strong>.
+                        </p>
+                        <p>
+                            Vaše firma tak bude vidět nejen v den srazu, ale pokaždé, když si někdo video přehraje.
+                            Takže <strong>váš brand se pak šíří dál</strong> přes sociální sítě mezi dalších <strong>500-1500 lidí</strong> během prvního týdne po srazu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <img src="{{ asset('assets/images/sponsor/1.jpg') }}" class="mt-5 mb-4 shadow">
+            </div>
+        </div>
+    </div>
+
+    <div class="background-grey section mb-5 mt-5">
+        <div class="container">
+            <h2>Firmy, kterým jsme už zaplnili prostory</h2>
+
+            <div class="row mt-5 mb-4 logos text-center">
+                <div class="col-2">
+                    <img src="{{ asset('assets/images/sponsor/lmc.png') }}">
+                </div>
+                <div class="col-2">
+                    <img src="{{ asset('assets/images/sponsor/pilulka.png') }}">
+                </div>
+                <div class="col-2">
+                    <img src="{{ asset('assets/images/sponsor/footshop.png') }}">
+                </div>
+                <div class="col-2">
+                    <img src="{{ asset('assets/images/sponsor/u_plus.png') }}">
+                </div>
+                <div class="col-2">
+                    <img src="{{ asset('assets/images/sponsor/cdn77.png') }}">
+                </div>
+                <div class="col-2">
+                    <img src="{{ asset('assets/images/sponsor/peckadesign.svg') }}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h2>Co pro vás zařídíme?</h2>
+
+                        <ul class="mt-2 ml-1 pl-3">
+                            <li>Seženeme 2 zajímavé speakry, které <strong>přitáhnou publikum</strong></li>
+                            <li>Dostaneme <strong>20-40 vývojářů</strong> na jedne večer přímo k vám</li>
+                            <li>Je to vás první sraz? Nebojte, <strong>pomůžeme vám s vaší propagací na srazu</strong>, aby působila přirozeně a vývojáře zaujala</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h2>Co je na vás?</h2>
+
+                        <ul>
+                            <li><strong>Připravit drobné občerstvení</strong> - pivo & pizza nebo řízečky & víno? Je to na vás - programátoři si tak rychle vytvoří příjemnou asociaci s vaším místem</li>
+                            <li>Chcete ze srazu vytěžit maximum? <strong>1 speaker z vaší firmy s technickým tématem</strong> příblíží firmu těm, kteří v ní (ještě) nepracují</li>
+
+                            <li>Zaplatit sponzporský poplatek: <strong>pro Prahu 15&nbsp;000&nbsp;Kč, pro&nbsp;Brno 12&nbsp;000&nbsp;Kč</strong></li>
+
+                            <li>TIP: Po přednáškách můžete udělat exkurzi po firmě - programátoři rádi objevují nové prostory</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="action_step">
+        <p>Chcete tuhle akci u vás ve firmě?</p>
+        <a class="btn btn-success" href="{{ path('contact') }}">Napište nám</a>
+    </div>
+
+{# @todo #}
+{#        myslíte to tvážně? pojdme udělat dlouhdobou spolupráci #}
+{#        Nejlíp fungují opakované srazy, 2-3x ročně.#}
+{#    </div>#}
 {% endblock %}

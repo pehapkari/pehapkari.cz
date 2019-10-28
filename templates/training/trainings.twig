@@ -6,8 +6,9 @@
     <div id="trainings" class="container">
         <h1>{{ page_title }}</h1>
 
-        <div class="text-bigger pb-5">
-            Rozšiř si své know-how od odborníků v PHP - 3x ročně v Praze.<br>
+        <div class="subhead">
+            Rozšiř si své know-how od odborníků v PHP - 3x ročně v Praze.
+            <br>
             Pořádáme školení na Elasticsearch, Doctrine, Symfony, Gitlab, Docker nebo PHPStorm.
         </div>
 
@@ -15,19 +16,22 @@
             {% for upcoming_training_term in upcoming_training_terms %}
                 {# @var training \Pehapkari\Training\Entity\Training #}
                 {% set training = upcoming_training_term.getTraining() %}
-                <div class="col-12 col-md-6 incognito-link-just-header">
+                <div class="col-12 col-lg-6 incognito-link-just-header">
                     <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">
                         <div class="card shadow-card">
                             <div class="card-header">
-                                <div class="text-danger pull-right">
-                                    {% if upcoming_training_term.registrationOpened() %}
-                                        Deadline: <strong>{{ upcoming_training_term.getDeadlineDateTime()|date }}</strong>
-                                    {% else %}
-                                        Přihlášky uzavřeny
-                                    {% endif %}
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 mb-2 mb-sm-0">
+                                        Příští termín: <strong>{{ upcoming_training_term.getStartDateTime()|date }}</strong>
+                                    </div>
+                                    <div class="col-12 col-sm-6 text-danger">
+                                        {% if upcoming_training_term.registrationOpened() %}
+                                            Deadline: <strong>{{ upcoming_training_term.getDeadlineDateTime()|date }}</strong>
+                                        {% else %}
+                                            Přihlášky uzavřeny
+                                        {% endif %}
+                                    </div>
                                 </div>
-
-                                Příští termín: <strong>{{ upcoming_training_term.getStartDateTime()|date }}</strong>
                             </div>
 
                             <div class="card-body">
@@ -80,9 +84,7 @@
 
     <div class="background-grey black_underline_links text-center section">
         <div class="container" id="feedbacks">
-            <h2 class="mb-3">
-                Přes {{ total_participant_count }} spokojených účastníků
-            </h2>
+            <h2>Přes {{ total_participant_count }} spokojených účastníků</h2>
 
             {% include "training/_snippet/trainings_feedbacks.twig" with {"show_training_name": true} %}
         </div>
@@ -150,7 +152,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2 class="text-center">Jak to probíhá</h2>
+                <h2>Jak to probíhá</h2>
                 <ul>
                     <li>přihlásíš se přes formulář na kurz</li>
                     <li>až se termín naplní, pošleme ti fakturu</li>
@@ -160,7 +162,7 @@
             </div>
 
             <div class="col-md-6">
-                <h2 class="text-center">Co máš v ceně kurzu?</h2>
+                <h2>Co máš v ceně kurzu?</h2>
                 <ul>
                     <li>certifikát o absolvování kurzu</li>
                     <li>u celodenních kurzů tě zveme na oběd</li>

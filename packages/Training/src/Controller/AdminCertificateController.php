@@ -26,7 +26,7 @@ final class AdminCertificateController extends EasyAdminController
     }
 
     /**
-     * @Route(path="/create-certificate/", name="create_certificate", methods={"GET", "POST"})
+     * @Route(path="admin/create-certificate", name="create_certificate", methods={"GET", "POST"})
      */
     public function createCertificate(Request $request): Response
     {
@@ -52,7 +52,7 @@ final class AdminCertificateController extends EasyAdminController
     }
 
     /**
-     * @Route(path="/create-certificates-for-training-term/{id}", name="create_certificate_for_training_term")
+     * @Route(path="admin/create-certificates-for-training-term/{id}", name="create_certificate_for_training_term")
      */
     public function createCertificatesForTrainingTerm(TrainingTerm $trainingTerm): BinaryFileResponse
     {
