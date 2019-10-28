@@ -9,12 +9,10 @@ Sdílej své know-how
     <div class="container">
         <h1>{{ page_title }}</h1>
 
-        <div class="text-bigger pb-3">
-            <p>
-                Pořádáme veřejná školení témat PHP ekosystému - od PHP frameworků, přes databáze, až po devops a Docker.
-                <br>
-                Typické školení je jednodenní a trvá 4-8 hodin.
-            </p>
+        <div class="subhead">
+            Pořádáme veřejná školení témat PHP ekosystému - od PHP frameworků, přes databáze, až po devops a Docker.
+            <br>
+            Typické školení je jednodenní a trvá 4-8 hodin. Umíš něco, co v <a href="{{ path('trainings') }}">nabídce chybí</a>? Přidej se.
         </div>
     </div>
 
@@ -34,29 +32,31 @@ Sdílej své know-how
                         <h2>Proč začít školit s námi?</h2>
 
                         <ul>
-                            <li><strong>zařídíme</strong> místnost na konkrétní termín</li>
-                            <li><strong>zpropagujeme</strong> školení na sociálních sítích</li>
-                            <li><strong>dovedeme účastníky</strong> na místo školení</li>
-                            <li>pokud začínáš, pomůžeme ti vybudovat osobní značku</li>
-                            <li><strong>byrokracii vyřešíme za tebe</strong> - ty jen pošleš jednu fakturu na provizi</li>
-                            <li>vytiskneme materiály a profesionální certifikáty, které je radost si vystavit</li>
+                            <li><strong>Zařídíme</strong> místnost na konkrétní termín</li>
+                            <li><strong>Zpropagujeme</strong> školení na sociálních sítích</li>
+                            <li><strong>Dovedeme účastníky</strong> na místo školení</li>
+                            <li>Pokud začínáš, pomůžeme ti vybudovat osobní značku</li>
+                            <li><strong>Byrokracii vyřešíme za tebe</strong> - ty jen pošleš jednu fakturu na provizi</li>
+                            <li>Vytiskneme materiály a profesionální certifikáty, které je radost si vystavit</li>
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-12 col-lg-6">
+                <br>
+
                 <div class="card shadow-card">
                     <div class="card-body">
                         <h2>Jakou budeš mít provizi?</h2>
 
-                        <ul class="mb-5">
+                        <ul>
                             <li>Prvních 5 školení dostaneš <strong>50 % ze zisku</strong></li>
                             <li>Až se zaběhneme, tak za 6. a další se tvá zvýší na <strong>70 %</strong></li>
                         </ul>
 
-                        <p><strong>Příklad:</strong></p>
-                        <ul class="mt-2">
+                        <p class="mt-5">
+                            <strong>Příklad:</strong>
+                        </p>
+                        <ul>
                             <li>tvé školení stojí 5 000 Kč, přijde 5 lidí = 25 000 Kč</li>
                             <li>nájem bude 5000 Kč - náklady bereme společně</li>
                             <li>budeme 20 000 Kč v zisku</li>
@@ -66,28 +66,8 @@ Sdílej své know-how
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
             <div class="col-12 col-lg-6">
-        {#                <br>#}
-
-{#                <div class="card shadow-card">#}
-{#                    <div class="card-body">#}
-{#                        <h2>Koho oslovíš?</h2>#}
-
-{#                        <p><strong>Mediorní a seniorní programátory, kteří se chtějí vzdělávat v nových technologiích</strong>.</p>#}
-
-{#                        <p>#}
-{#                            Nečekej úvod do PHP, objektů, Nette nebo Symfony, ale spíše "Jak zlepšit X Symfony aplikacích". No stačí se mrknout na <a href="{{ path('trainings') }}">aktuální nabídku školení</a>.#}
-{#                        </p>#}
-
-{#                        <p>P.S.: Když budeš úspěšný, dostaneme tě i do firem :).</p>#}
-{#                    </div>#}
-{#                </div>#}
-
-                <br>
-
                 <div class="card shadow-card">
                     <div class="card-body">
                         <h2>Kde budeš školit?</h2>
@@ -96,23 +76,11 @@ Sdílej své know-how
                             Aktuálně máme zázemí ve <a href="{{ path('place_detail') }}">školícím centru na Praze 7</a>.
                         </p>
 
-                        <div class="row mt-3 mb-3">
-                            <div class="col-12 col-md-6">
-                                <img src="{{ asset('assets/images/trainings/training01.jpg') }}" alt="" class="shadow">
-                            </div>
-
-                            <div class="col-12 col-md-6">
-                                <img src="{{ asset('assets/images/places/jablotron.jpg') }}" alt="" class="shadow">
-                            </div>
-                        </div>
+                        <img src="{{ asset('assets/images/trainings/training01.jpg') }}" alt="" class="shadow mt-3 mb-3">
 
                         <p>Chceš školit v <strong>Brně</strong>, <strong>Ostravě</strong> nebo jinde? Máš místo, kde budeš školit? Super, uděláme školení tam!</p>
-                   </div>
-               </div>
-            </div>
-
-            <div class="col-12 col-lg-6">
-
+                    </div>
+                </div>
 
                 <br>
 
@@ -120,7 +88,7 @@ Sdílej své know-how
                     <div class="card-body">
                         <h2>Jak začít?</h2>
 
-                        <ul class="mb-4">
+                        <ul>
                             <li>Vymysli si, co chceš školit</li>
                             <li>Mrkni na <a href="{{ path('trainings') }}">existující školení</a>, jestli téma už někdo nemá</li>
                             <li>
@@ -128,7 +96,9 @@ Sdílej své know-how
                                     {{ example_training.name }}
                                 </a>
                             </li>
-                            <li>Připrav si svůj návrh</li>
+                            <li>
+                                <strong>Pošli nám svůj návrh</strong>
+                            </li>
                             <li>
                                 Když se nám téma bude líbit, půjdeme do toho
                             </li>
@@ -136,11 +106,12 @@ Sdílej své know-how
                         </ul>
                     </div>
                 </div>
-
-                <p>
-                    <a class="btn btn-success" href="{{ path('contact') }}">Napiš nám</a>
-                </p>
             </div>
+        </div>
+
+        <div class="action_step">
+            <p>Chceš začít školit?</p>
+            <a class="btn btn-success" href="{{ path('contact') }}">Napiš nám</a>
         </div>
     </div>
 

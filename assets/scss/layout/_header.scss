@@ -46,23 +46,25 @@
 
 // useful for header and footer
 .ph-nav__logo {
-    float: left;
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-    opacity: 1;
+    margin-top: -.4em;
+    margin-bottom: -.8em;
 
     &:hover {
         text-decoration: none;
     }
 
+    img {
+        width: 2.5em;
+    }
+
     p {
-        align-items: center;
+        //align-items: center;
         opacity: 0.9;
         color: $black;
-        display: inline;
+        //display: inline;
         font-size: $font-size-xs;
-        padding: .3em .3em;
+        padding: .2em;
+        margin-right: -.6em;
 
         &:hover {
             text-decoration: none;
@@ -97,5 +99,13 @@
     .active {
         background: black;
         color: white;
+    }
+}
+
+#footer .ph-nav__logo {
+    margin-top: .4em;
+
+    img {
+        width: 3em;
     }
 }

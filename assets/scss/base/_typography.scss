@@ -11,7 +11,7 @@ h1 {
     font-family: $font-family-secondary;
     font-weight: 600;
     opacity: $font-opacity-low;
-    line-height: 1.5em;
+    line-height: 1.3em;
     margin-top: 1em;
 }
 
@@ -31,13 +31,6 @@ h3 {
     opacity: $font-opacity-low;
 }
 
-h6 {
-    font-size: $font-size-default;
-    font-weight: 600;
-    opacity: $font-opacity-low;
-    line-height: 28px;
-}
-
 p {
     line-height: 1.4em;
     margin-bottom: .4em;
@@ -53,10 +46,9 @@ a {
 }
 
 @include media-breakpoint-up(md) {
-
     h1 {
         font-size: $font-size-xxl;
-        line-height: 80px;
+        line-height: 1.2em;
     }
 
     h2 {

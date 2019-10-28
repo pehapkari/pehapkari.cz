@@ -18,11 +18,9 @@
 
     <div class="background-grey section">
         <div class="container">
-            <div class="text-center">
-                <h2>
-                    Zorganizovali jsme už {{ organize_meetup_count }} srazů pro {{ company_count }} firem.
-                </h2>
-            </div>
+            <h2>
+                Zorganizovali jsme už {{ organize_meetup_count }} srazů pro {{ company_count }} firem.
+            </h2>
         </div>
     </div>
 
@@ -109,7 +107,7 @@
                     <div class="card-body">
                         <h2>Co je na vás?</h2>
 
-                        <ul class="mt-2">
+                        <ul>
                             <li><strong>Připravit drobné občerstvení</strong> - pivo & pizza nebo řízečky & víno? Je to na vás - programátoři si tak rychle vytvoří příjemnou asociaci s vaším místem</li>
                             <li>Chcete ze srazu vytěžit maximum? <strong>1 speaker z vaší firmy s technickým tématem</strong> příblíží firmu těm, kteří v ní (ještě) nepracují</li>
 
@@ -123,24 +121,12 @@
         </div>
     </div>
 
-    <div class="text-center mt-5 mb-5">
-        <p class="mb-3 text-bigger">
-            <strong>
-                Chcete tuhle akci u vás ve firmě?
-            </strong>
-        </p>
-
-        <a class="btn btn-success btn-lg m-auto" href="{{ path('contact') }}">Napište nám</a>
+    <div class="action_step">
+        <p>Chcete tuhle akci u vás ve firmě?</p>
+        <a class="btn btn-success" href="{{ path('contact') }}">Napište nám</a>
     </div>
 
-{#    <div class="container white_break_page_end">#}
-{#        <div class="row">#}
-{##}
-{#        <img src="{{ asset('assets/images/sponsor/2.jpg') }}">#}
-{#        <img src="{{ asset('assets/images/sponsor/3.jpg') }}">#}
-{#        </div>#}
-
-
+{# @todo #}
 {#        myslíte to tvážně? pojdme udělat dlouhdobou spolupráci #}
 {#        Nejlíp fungují opakované srazy, 2-3x ročně.#}
 {#    </div>#}
