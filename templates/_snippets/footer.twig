@@ -1,15 +1,7 @@
 <div id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-2 mb-5 mb-md-0 mt-3 mb-md-0">
-                <div class="ph-nav__logo">
-                    <a href="{{ path('homepage') }}">
-                        <img src="{{ asset('assets/icons/logo/logo_green_only.svg') }}" alt="logo">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-10">
+            <div class="col-12 mb-5">
                 <ul id="socials" class="pull-right">
                     <li>
                         <a href="https://facebook.com/pehapkari">
@@ -43,12 +35,15 @@
                         </a>
                     </li>
 
-                    <li class="hidden-sm-down">
+                    <li>
                         <a href="https://pehapkari.slack.com">
                             <em class="fab fa-2x fa-slack"></em>
                         </a>
                         <p>
-                            <a href="https://pehapkari.herokuapp.com/">Pozvi se</a>
+                            <a href="https://pehapkari.herokuapp.com/">
+                                <span class="hidden-sm-down">Pozvi se</span>
+                                <span class="hidden-md-up">Pozvi</span>
+                            </a>
                         </p>
                     </li>
                 </ul>
