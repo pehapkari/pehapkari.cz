@@ -69,7 +69,7 @@ final class AdminTrainingTermController extends EasyAdminController
     }
 
     /**
-     * @Route(path="/admin/training-term-organization/{id}", name="training_term_organization")
+     * @Route(path="admin/training-term-organization/{id}", name="training_term_organization")
      */
     public function organize(TrainingTerm $trainingTerm): Response
     {
@@ -79,7 +79,7 @@ final class AdminTrainingTermController extends EasyAdminController
     }
 
     /**
-     * @Route(path="/admin/send-provision-term-email/{id}", name="training_term_provision_email")
+     * @Route(path="admin/send-provision-term-email/{id}", name="training_term_provision_email")
      */
     public function provisionEmail(TrainingTerm $trainingTerm): Response
     {
@@ -123,7 +123,7 @@ final class AdminTrainingTermController extends EasyAdminController
     }
 
     /**
-     * @Route(path="/admin/create-invoices-for-training-term/{id}", name="create_invoices_for_training_term")
+     * @Route(path="admin/create-invoices-for-training-term/{id}", name="create_invoices_for_training_term")
      */
     public function createInvoicesForTrainingTerm(TrainingTerm $trainingTerm): RedirectResponse
     {
@@ -150,7 +150,7 @@ final class AdminTrainingTermController extends EasyAdminController
     }
 
     /**
-     * @Route(path="/admin/send-training-term-feedback-form/{id}", name="send_traning_term_feedback_form")
+     * @Route(path="admin/send-training-term-feedback-form/{id}", name="send_traning_term_feedback_form")
      */
     public function sendTrainingTermFeedbackForm(TrainingTerm $trainingTerm): Response
     {
@@ -160,7 +160,7 @@ final class AdminTrainingTermController extends EasyAdminController
     }
 
     /**
-     * @Route(path="/admin/provision/{id}", name="training_term_provision")
+     * @Route(path="admin/provision/{id}", name="training_term_provision")
      */
     public function trainingTermProvision(TrainingTerm $trainingTerm): Response
     {

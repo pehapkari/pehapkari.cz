@@ -24,7 +24,7 @@ final class AdminDuplicateTrainingTermController extends EasyAdminController
     }
 
     /**
-     * @Route(path="/admin/duplicate-training-term/{id}", name="duplicate_training_term")
+     * @Route(path="admin/duplicate-training-term/{id}", name="duplicate_training_term")
      */
     public function __invoke(TrainingTerm $trainingTerm): Response
     {

@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class RssController extends AbstractController
 {
     /**
-     * @Route(path="/rss.xml", name="rss")
+     * @Route(path="rss.xml", name="rss")
      */
     public function __invoke(PostsProvider $postsProvider, AuthorsProvider $authorsProvider): Response
     {

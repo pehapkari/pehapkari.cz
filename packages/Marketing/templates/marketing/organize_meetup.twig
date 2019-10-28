@@ -3,11 +3,27 @@
 {% set page_title %}Dostaneme k vám programátory{% endset %}
 
 {% block main %}
-    <div id="trainings" class="container">
+    <div class="container">
         <h1>{{ page_title }}</h1>
 
-        zorganizovali jsme {{ organize_meetup_count }} srazů pro x firem
+        <div class="text-bigger pb-3">
+            <p>
+                Každý měsíc <strong>organicky propojujeme firmy a programátory</strong>, vzdělání a práci, zábavu a růst.
+            </p>
+        </div>
+    </div>
 
+    <div class="background-grey section">
+        <div class="container">
+            <div class="text-center">
+                <h2>
+                    Zorganizovali jsme už {{ organize_meetup_count }} srazů pro {{ company_count }} firem.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
         <div class="row">
             <h2>Pořadatel srazu - dostaneme lidi přímo k vám do firmy</h2>
 
@@ -31,14 +47,20 @@
             <h2>Firmy, kterým jsme zaplnili prostory</h2>
 
             <div class="row mt-5 mb-4">
-                <div class="col-4">
+                <div class="col-2">
                     <img src="{{ asset('assets/images/sponsor/lmc.png') }}">
                 </div>
-                <div class="col-4">
+                <div class="col-3">
+                    <img src="{{ asset('assets/images/sponsor/pilulka.png') }}">
+                </div>
+                <div class="col-2">
                     <img src="{{ asset('assets/images/sponsor/footshop.png') }}">
                 </div>
-                <div class="col-4">
-                    <img src="{{ asset('assets/images/sponsor/pilulka.png') }}">
+                <div class="col-2">
+                    <img src="{{ asset('assets/images/sponsor/u_plus.png') }}">
+                </div>
+                <div class="col-3">
+                    <img src="{{ asset('assets/images/sponsor/cdn77.png') }}">
                 </div>
             </div>
         </div>

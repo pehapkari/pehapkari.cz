@@ -17,6 +17,7 @@ final class OrganizeMeetupController extends AbstractController
     {
         return $this->render('marketing/organize_meetup.twig', [
             'organize_meetup_count' => 40 + 20 + 5, // Prague + Brno + rest
+            'company_count' => 20,
         ]);
     }
 }

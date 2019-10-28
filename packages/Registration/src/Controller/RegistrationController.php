@@ -46,7 +46,7 @@ final class RegistrationController extends AbstractController
     }
 
     /**
-     * @Route(path="/registrace/{slug}/", name="registration", methods={"GET", "POST"})
+     * @Route(path="registrace/{slug}", name="registration", methods={"GET", "POST"})
      *
      * @see https://github.com/symfony/demo/blob/master/src/Controller/Admin/BlogController.php
      */

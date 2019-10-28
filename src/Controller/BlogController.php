@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class BlogController extends AbstractController
 {
     /**
-     * @Route(path="/blog/", name="blog")
+     * @Route(path="blog/", name="blog")
      */
     public function __invoke(PostsProvider $postsProvider, AuthorsProvider $authorsProvider): Response
     {
