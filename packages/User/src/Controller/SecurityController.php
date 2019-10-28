@@ -22,7 +22,7 @@ final class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/login", name="login")
+     * @Route(path="login", name="login")
      */
     public function login(): Response
     {
@@ -39,7 +39,7 @@ final class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/access-denied", name="access-denied")
+     * @Route(path="access-denied", name="access-denied")
      */
     public function accessDenied(): Response
     {
@@ -47,7 +47,7 @@ final class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/logout", name="logout")
+     * @Route(path="logout", name="logout")
      */
     public function logout(): Response
     {
