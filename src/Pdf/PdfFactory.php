@@ -38,10 +38,6 @@ final class PdfFactory
      */
     private function loadFontsToPdf(Fpdi $fpdi): void
     {
-        // promo images
-        $fpdi->AddFont('OpenSans', '', 'OpenSans-Regular.php');
-        $fpdi->AddFont('OpenSans', 'Bold', 'OpenSans-Bold.php');
-
         // certificates
         $fpdi->AddFont('DejaVuSans', '', 'DejaVuSans.php');
         $fpdi->AddFont('Georgia', '', 'Georgia.php');
