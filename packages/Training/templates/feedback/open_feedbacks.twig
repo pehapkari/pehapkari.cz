@@ -1,14 +1,16 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <h1 class="text-center">Dej nám feedback</h1>
+    <div class="container">
+        <h1 class="text-center">Dej nám feedback</h1>
 
-    <p class="text-center bigger mb-5">
-        Díky němu budou další školení, které navštívíš, lepší.
-    </p>
+        <p class="text-center bigger mb-5">
+            Díky němu budou další školení, které navštívíš, lepší.
+        </p>
 
-    {# this alternative theme is also available #}
-    {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+        {# this alternative theme is also available #}
+        {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
 
-    {{ form(form) }}
+        {{ form(form) }}
+    </div>
 {% endblock %}
