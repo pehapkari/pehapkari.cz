@@ -171,6 +171,7 @@ final class ImagePropertyAutoconfigureConfigPass implements ConfigPassInterface
             'scale' => 0,
             'unique' => false,
             'property' => self::IMAGE_FILE,
+            'permission' => [],
         ];
     }
 
