@@ -68,9 +68,6 @@ final class RegistrationFormType extends AbstractType
 
         $formBuilder->add('register', SubmitType::class, [
             'label' => 'Přihlásit se na školení',
-            'attr' => [
-                'class' => 'btn btn-success mt-5 d-block',
-            ],
         ]);
     }
 

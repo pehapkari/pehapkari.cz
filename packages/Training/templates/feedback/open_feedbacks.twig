@@ -9,8 +9,16 @@
         </p>
 
         {# this alternative theme is also available #}
-        {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
-        {{ form(form) }}
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card shadow-card">
+                    <div class="card-body card-form">
+                        {{ form(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

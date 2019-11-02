@@ -81,7 +81,7 @@ final class FeedbackFormType extends AbstractType
         ]);
 
         $formBuilder->add('thingsToImprove', TextareaType::class, [
-            'label' => 'Napadá tě něco, co můžeme zlepšit?',
+            'label' => '1 věc, která by mohla být lepší?',
             'required' => false,
         ]);
 
