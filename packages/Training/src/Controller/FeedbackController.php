@@ -28,9 +28,9 @@ final class FeedbackController extends AbstractController
     }
 
     /**
-     * @Route(path="feedback/")
-     * @Route(path="feedbacks/")
-     * @Route(path="jak-se-ti-libilo/")
+     * @Route(path="feedback")
+     * @Route(path="feedbacks")
+     * @Route(path="jak-se-ti-libilo")
      */
     public function __invoke(Request $request): Response
     {

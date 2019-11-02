@@ -5,13 +5,9 @@ declare(strict_types=1);
 namespace Pehapkari\Registration\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
-use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Invoicing\Invoicer;
 use Pehapkari\Registration\Repository\RegistrationRepository;
 
-/**
- * @see TrainingRegistration
- */
 final class AdminRegistrationController extends EasyAdminController
 {
     /**

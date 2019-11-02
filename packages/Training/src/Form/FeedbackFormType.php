@@ -43,34 +43,13 @@ final class FeedbackFormType extends AbstractType
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
         $formBuilder->add('training', EntityType::class, [
-            'label' => 'Vyber školení',
+            'label' => 'Jaké školení?',
             'class' => Training::class,
             'choices' => $this->trainingRepository->getRecentlyActive(),
         ]);
 
         $formBuilder->add('name', TextType::class, [
-            'label' => 'Tvé jméno',
-        ]);
-
-        $formBuilder->add('pointOfEntry', TextType::class, [
-            'label' => 'Kde ses o kurzu dozvěděl?',
-            'help' => 'Např. Facebook, kamarád, sraz...',
-        ]);
-
-        // @see https://symfony.com/doc/current/reference/forms/types/choice.html#select-tag-checkboxes-or-radio-buttons
-        $formBuilder->add('rating', ChoiceType::class, [
-            'label' => 'Ohodnoť obsah kurzu',
-            'required' => true,
-            'help' => '5 hvězdiček = nejlepší hodnocení',
-            'choices' => $this->createRatingChoices(),
-            'expanded' => true,
-            'multiple' => false,
-        ]);
-
-        $formBuilder->add('text', TextareaType::class, [
-            'label' => 'Napiš nám svůj pocit ze školení, cokoliv tě napadne',
-            'required' => true,
-            'help' => 'Ideálně 1-3 věty :)',
+            'label' => 'Jak se jmenuješ?',
         ]);
 
         $formBuilder->add('isAgreedWithPublishingName', CheckboxType::class, [
@@ -80,8 +59,29 @@ final class FeedbackFormType extends AbstractType
             'data' => true,
         ]);
 
+        $formBuilder->add('pointOfEntry', TextType::class, [
+            'label' => 'Kde ses o kurzu dozvěděl?',
+            'help' => 'Např. Facebook, kamarád, sraz...',
+        ]);
+
+        // @see https://symfony.com/doc/current/reference/forms/types/choice.html#select-tag-checkboxes-or-radio-buttons
+        $formBuilder->add('rating', ChoiceType::class, [
+            'label' => 'Jak hodnotíš kurz?',
+            'required' => true,
+            'help' => '5 hvězdiček = nejlepší hodnocení',
+            'choices' => $this->createRatingChoices(),
+            'expanded' => true,
+            'multiple' => false,
+        ]);
+
+        $formBuilder->add('text', TextareaType::class, [
+            'label' => 'Jak se citíš po školení?',
+            'required' => true,
+            'help' => 'Cokoliv tě napadne, ideálně 1-3 věty :)',
+        ]);
+
         $formBuilder->add('thingsToImprove', TextareaType::class, [
-            'label' => 'Napadá tě něco, co můžeme zlepšit?',
+            'label' => 'Která 1 věc by mohla být lepší?',
             'required' => false,
         ]);
 

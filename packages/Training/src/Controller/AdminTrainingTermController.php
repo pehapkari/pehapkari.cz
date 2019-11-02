@@ -150,16 +150,6 @@ final class AdminTrainingTermController extends EasyAdminController
     }
 
     /**
-     * @Route(path="admin/send-training-term-feedback-form/{id}", name="send_traning_term_feedback_form")
-     */
-    public function sendTrainingTermFeedbackForm(TrainingTerm $trainingTerm): Response
-    {
-        $this->pehapkariMailer->sendFeedbackFormToRegistrations($trainingTerm);
-
-        return $this->redirectToRoute('training_term_organization');
-    }
-
-    /**
      * @Route(path="admin/provision/{id}", name="training_term_provision")
      */
     public function trainingTermProvision(TrainingTerm $trainingTerm): Response
@@ -176,11 +166,6 @@ final class AdminTrainingTermController extends EasyAdminController
 
     private function getTrainerEmail(TrainingTerm $trainingTerm): string
     {
-        // @todo: figure out correct value for MAILER_DSN env, then set in it
-        // https://travis-ci.org/pehapkari/pehapkari.cz/settings
-        // then uncomment this
-        return 'tomas.vot@gmail.com';
-
         $trainer = $trainingTerm->getTrainer();
 
         $trainerEmail = $trainer->getEmail();

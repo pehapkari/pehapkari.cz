@@ -62,6 +62,12 @@ class TrainingTerm
     private $isProvisionEmailSent = false;
 
     /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $areFeedbackEmailsSent = false;
+
+    /**
      * @ORM\Column(type="datetime")
      * @var DateTime
      */
@@ -245,6 +251,16 @@ class TrainingTerm
         }
 
         return $this->training->getPrice();
+    }
+
+    public function setAreFeedbackEmailsSent(bool $areFeedbackEmailsSent): void
+    {
+        $this->areFeedbackEmailsSent = $areFeedbackEmailsSent;
+    }
+
+    public function areFeedbackEmailsSent(): bool
+    {
+        return $this->areFeedbackEmailsSent;
     }
 
     public function isRegistrationOpened(): bool

@@ -2,15 +2,23 @@
 
 {% block main %}
     <div class="container">
-        <h1 class="text-center">Dej nám feedback</h1>
+        <h1>Dej nám feedback</h1>
 
-        <p class="text-center bigger mb-5">
-            Díky němu budou další školení, které navštívíš, lepší.
-        </p>
+        <div class="subhead">
+            Díky tobě budou další školení, které navštívíš, lepší.
+        </div>
 
         {# this alternative theme is also available #}
-        {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
-        {{ form(form) }}
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="card shadow-card">
+                    <div class="card-body card-form" id="feedback_form">
+                        {{ form(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
