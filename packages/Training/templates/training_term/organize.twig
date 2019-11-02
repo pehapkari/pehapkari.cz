@@ -31,8 +31,15 @@
 
         <hr>
 
-        <a href="{{ path('send_traning_term_feedback_form', {'id': trainingTerm.getId() }) }}" class="btn btn-danger">
-            Send feedback forms after training
-        </a>
+        {% if trainingTerm.areFeedbackEmailsSent() == false %}
+            <a href="{{ path('send_traning_term_feedback_form', {'id': trainingTerm.getId() }) }}" class="btn btn-info">
+                Send feedback form
+            </a>
+        {% else %}
+            <p>
+                Feedback forms were sent
+                <em class="fa fa-check fa-fw fa-2x text-success"></em>
+            </p>
+        {% endif %}
     </div>
 {% endblock %}
