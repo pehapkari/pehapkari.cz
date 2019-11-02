@@ -168,7 +168,6 @@ h1 {
 
 #article h2 {
     margin-top: 1em;
-    font-size: 1.5em;
 }
 
 h3 {
@@ -460,12 +459,6 @@ iframe, #videos .row img {
     }
 }
 
-#first_post {
-    h2 {
-        font-size: 2.3em;
-    }
-}
-
 #article .perex, .article .perex {
     margin-top: 1.5em;
     margin-bottom: 1em;
@@ -480,7 +473,6 @@ h4 {
 
 .card h2 {
     margin-top: 0;
-    font-size: $font-size-l;
     line-height: 1.2em;
 }
 
@@ -563,10 +555,6 @@ h4 {
         margin: auto;
         text-align: center;
     }
-}
-
-.card h2 {
-    font-size: 2em;
 }
 
 .white_break_page_end {
