@@ -12,9 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @see TrainingFeedback
- */
 final class FeedbackController extends AbstractController
 {
     /**

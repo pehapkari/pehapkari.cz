@@ -14,19 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 final class AdminDuplicateTrainingTermController extends EasyAdminController
 {
     /**
-     * @var TrainingTermRepository
-     */
-    private $trainingTermRepository;
-
-    public function __construct(TrainingTermRepository $trainingTermRepository)
-    {
-        $this->trainingTermRepository = $trainingTermRepository;
-    }
-
-    /**
      * @Route(path="admin/duplicate-training-term/{id}", name="duplicate_training_term")
      */
-    public function __invoke(TrainingTerm $trainingTerm): Response
+    public function __invoke(TrainingTerm $trainingTerm, TrainingTermRepository $trainingTermRepository): Response
     {
         $trainingTerm = clone $trainingTerm;
 
@@ -34,7 +24,7 @@ final class AdminDuplicateTrainingTermController extends EasyAdminController
         $trainingTerm->setStartDateTime($monthInTheFutureDateTime);
         $trainingTerm->setId(null);
 
-        $this->trainingTermRepository->save($trainingTerm);
+        $trainingTermRepository->save($trainingTerm);
 
         return $this->redirectToRoute('easyadmin', [
             'action' => 'edit',

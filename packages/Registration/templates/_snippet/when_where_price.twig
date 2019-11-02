@@ -1,0 +1,27 @@
+{% if trainingTerm is defined %}
+    <h3>Kdy?</h3>
+    <p class="mb-5">
+        {{ trainingTerm|from_to }}
+    </p>
+
+    {# @todo make clickalbe to add to calendar #}
+    {# see meeutp com    #}
+    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Lecture:+{{ training.getName() }}&dates={{ training.getNearestTerm()|google_calendar_link }}&details=Details:+https://pehapkari.cz/{{ path('training_detail', { 'slug': training.getSlug() }) }}&ctz=Europe/Prague&location=U Pergamenky 1145/12, 170 00 Praha 7-Holešovice, Czechia&sf=true&output=xml">
+        <em class="fa fa-fw fa-calendar"></em>
+        Přidat do kalendáře
+    </a>
+{% endif %}
+
+<h3>Kde?</h3>
+<p class="mb-5">
+    <a href="{{ path('place_detail') }}">Jablotron v Holešovicích, Praha</a>
+</p>
+
+<h3>Cena?</h3>
+<p class="mb-5">
+    {% if trainingTerm is defined %}
+        {{ trainingTerm.price|number_format }} Kč
+    {% else %}
+        {{ training.price|number_format }} Kč
+    {% endif %}
+</p>
