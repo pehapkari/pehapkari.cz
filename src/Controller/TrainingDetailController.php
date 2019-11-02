@@ -27,7 +27,7 @@ final class TrainingDetailController extends AbstractController
             // rating
             'feedbacks' => $training->getPublicFeedbacks(),
             'average_training_rating' => $training->getAverageRating(),
-            'average_training_rating_stars' => round($training->getAverageRating(), 0),
+            'average_training_rating_stars' => $training->getAverageRatingStarCount(),
         ]);
     }
 

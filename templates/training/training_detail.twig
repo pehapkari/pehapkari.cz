@@ -6,44 +6,41 @@
     <div id="trainings" class="container">
         <h1>{{ page_title }}</h1>
 
+        <div class="card mt-4 mb-4">
+            <div class="card-body text-bigger">
+                {{ training.perex|markdown|raw }}
+            </div>
+        </div>
+
         <div class="row">
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-4">
-                        {% if trainer.getImage() %}
-                            <img width="100" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-left mr-3">
-                        {% endif %}
-                    </div>
-
-                    <div class="col-md">
-                        <strong>Školí</strong>:
-
-                        {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
-
-                            {{ trainer.getName() }}
-
-                            {% if trainer.getWebsite() %}</a>{% endif %}
-
-                        {% if trainer.getBio() %}
-                            <p>„{{ trainer.getBio()|raw }}“</p>
-                        {% endif %}
+            <div class="col-12 col-md-6">
+                <div class="card shadow-card">
+                    <div class="card-body">
+                        {{ training.getDescription()|markdown|raw }}
                     </div>
                 </div>
+            </div>
 
-                <div class="clearfix"></div>
+            <div class="col-12 col-md-6">
+                <div>
+                    {% if trainer.getImage() %}
+                        {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
+                        <img width="100px" height="100px" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-right ml-3" alt="">
+                        {% if trainer.getWebsite() %}</a>{% endif %}
+                    {% endif %}
+
+                    <h3 class="mt-0">Kdo školí?</h3>
+
+                    {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
+                        {{ trainer.getName() }}
+                    {% if trainer.getWebsite() %}</a>{% endif %}
+
+                    {% if trainer.getBio() %}
+                        <p>„{{ trainer.getBio()|raw }}“</p>
+                    {% endif %}
+                </div>
 
                 {% if training_term is not null %}
-                    Příští termín:
-
-                    <strong>{{ training_term.getStartDateTime()|date }}</strong>
-
-                    <br>
-
-                    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Lecture:+{{ training.getName() }}&dates={{ training.getNearestTerm()|google_calendar_link }}&details=Details:+https://pehapkari.cz/{{ path('training_detail', { 'slug': training.getSlug() }) }}&ctz=Europe/Prague&location=U Pergamenky 1145/12, 170 00 Praha 7-Holešovice, Czechia&sf=true&output=xml">
-                        <em class="fa fa-fw fa-calendar"></em>
-                        Přidat do kalendáře
-                    </a>
-
                     {% if training_term.registrationOpened() %}
                         <div class="card border-warning mt-3 mb-4">
                             <div class="card-body bg-warning">
@@ -52,51 +49,31 @@
                             </div>
                         </div>
                     {% endif %}
-
-                    <p>
-                        Místo:
-                        <strong>
-                            <a href="{{ path('place_detail') }}">
-                                školící centrum Jablotron v Holešovicích
-                            </a>
-                        </strong>
-                    </p>
                 {% endif %}
 
-                <p>
-                    Délka: <strong>{{ word_by_count(training.getDuration(), ['hodin', 'hodiny', 'hodin']) }}</strong>
-                </p>
+                <br>
 
-                <p>
-                    Kapacita: <strong>{{ word_by_count(training.getCapacity(), ['člověk', 'lidi', 'lidí']) }}</strong>
-                </p>
+                {% include "_snippet/when_where_price.twig" %}
 
-                <p>
-                    Cena: <strong>{{ training.getPrice()|number_format }} Kč</strong>
-                </p>
-
-                {% if training.isActive() %}
-                    {% if training_term.registrationOpened() %}
-                        <div class="text-center">
-                            <a href="{{ path('registration', { 'slug': training_term.slug }) }}" class="btn btn-success mt-4 mb-5">
-                                <em class="fa fa-fw fa-handshake"></em>
-                                &nbsp;
-                                Přihlaš se
-                            </a>
-                        </div>
-                        <br>
-                    {% endif %}
-                {% elseif training_term is not null %}
-                    <br>
-                    <p>Poslení školení bylo {{ training_term.getStartDateTime|date("j. n. Y") }}.</p>
+                {% if training.isActive() and training_term.registrationOpened() %}
+                    <div class="action_step">
+                        <p>Chceš získat mnohaleté znalosti během 1 dne?</p>
+                        <a class="btn btn-success" href="{{ path('registration', { 'slug': training_term.slug }) }}" >
+                            <em class="fa fa-fw fa-handshake"></em>
+                            &nbsp;
+                            Přihlaš se
+                        </a>
+                    </div>
                 {% endif %}
-            </div>
-
-            <div class="col-md-8">
-                {{ training.getDescription()|markdown|raw }}
-
-                {% include '_snippets/training/training_feedbacks.twig' %}
             </div>
         </div>
     </div>
+
+    <div class="background-grey black_underline_links text-center section mb-0">
+        <div class="container" id="feedbacks">
+            {% include '_snippets/training/training_feedbacks.twig' %}
+        </div>
+    </div>
+
+    {# @todo action step #}
 {% endblock %}

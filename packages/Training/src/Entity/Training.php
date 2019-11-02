@@ -79,12 +79,6 @@ class Training implements UploadDestinationAwareInterface
      * @ORM\Column(type="integer")
      * @var int
      */
-    private $capacity;
-
-    /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
     private $price;
 
     /**
@@ -159,11 +153,6 @@ class Training implements UploadDestinationAwareInterface
         return $this->duration;
     }
 
-    public function getCapacity(): ?int
-    {
-        return $this->capacity;
-    }
-
     public function getPrice(): ?int
     {
         return $this->price;
@@ -206,11 +195,6 @@ class Training implements UploadDestinationAwareInterface
     public function setDuration(int $duration): void
     {
         $this->duration = $duration;
-    }
-
-    public function setCapacity(int $capacity): void
-    {
-        $this->capacity = $capacity;
     }
 
     public function setPrice(int $price): void
@@ -328,5 +312,15 @@ class Training implements UploadDestinationAwareInterface
         $averageRating = $absoluteRating / $trainingFeedbacksWithRating->count();
 
         return round($averageRating, 2);
+    }
+
+    public function getAverageRatingStarCount(): ?int
+    {
+        $averageRating = $this->getAverageRating();
+        if ($averageRating === null) {
+            return null;
+        }
+
+        return (int) round($averageRating, 0);
     }
 }

@@ -7,7 +7,7 @@ namespace Pehapkari\Github\Collector;
 final class ResolvedTemplateNameCollector
 {
     /**
-     * @var string
+     * @var string|null
      */
     private $templateName;
 
@@ -16,7 +16,7 @@ final class ResolvedTemplateNameCollector
         $this->templateName = $templateName;
     }
 
-    public function getTemplateName(): string
+    public function getTemplateName(): ?string
     {
         return $this->templateName;
     }

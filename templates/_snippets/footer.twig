@@ -1,7 +1,18 @@
 <div id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-12 mb-5">
+            <div class="col-12 col-md-6 mt-3 mt-md-0">
+                <p class="mb-2">Web Péhápkaři.cz pohání <a href="https://symfony.com/">Symfony</a> a najdeš ho na <a href="https://github.com/pehapkari/pehapkari.cz">Githubu</a>.</p>
+
+                {% set github_edit_url = github_edit_url() %}
+                {% if github_edit_url %}
+                    <p>
+                        Našel jsi chybu? → <a href="{{ github_edit_url }}">Oprav ji a staň se slavným</a>
+                    </p>
+                {% endif %}
+            </div>
+
+            <div class="col-12 col-md-6 mt-4 mt-md-0">
                 <ul id="socials" class="pull-right">
                     <li>
                         <a href="https://facebook.com/pehapkari">
@@ -51,20 +62,6 @@
         </div>
 
         <div id="footer_body">
-            <div class="row">
-                <div class="col-12 col-md-6 pb-3 pb-md-0">
-                    <p class="mb-2">Web Péhápkaři.cz pohání <a href="https://symfony.com/">Symfony</a> a najdeš ho na <a href="https://github.com/pehapkari/pehapkari.cz">Githubu</a>.</p>
-                </div>
-                <div class="col-12 col-md-6">
-                    <p>
-                        Našel jsi chybu? → <a href="{{ github_edit_url() }}">Oprav ji a staň se slavným</a>
-                    </p>
-                </div>
-            </div>
-
-            <br>
-            <br>
-
             <div class="row">
                 <div class="col-4">
                     <h3>O nás</h3>

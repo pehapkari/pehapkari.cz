@@ -580,6 +580,12 @@ h4 {
     margin-bottom: 3em;
 }
 
+@include media-breakpoint-down(md) {
+    .subhead {
+        margin-top: 0em;
+    }
+}
+
 
 .ul-normal, .row ul {
     margin-left: 0;
@@ -616,7 +622,7 @@ h4 {
     display: block;
 }
 
-#feedback_form {
+#registration_form, #feedback_form {
     .form-group > .form-check {
         margin-top: -2em;
 
@@ -631,6 +637,6 @@ h4 {
     }
 }
 
-#article {
+#article, #video {
     max-width: 50em;
 }
