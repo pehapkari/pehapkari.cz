@@ -472,6 +472,9 @@
     "spatie/browsershot": {
         "version": "3.30.0"
     },
+    "spatie/calendar-links": {
+        "version": "1.2.4"
+    },
     "spatie/crawler": {
         "version": "4.4.1"
     },
