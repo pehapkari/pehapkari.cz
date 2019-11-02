@@ -1,6 +1,5 @@
 #footer {
-    margin-top: 2em;
-    padding-top: 3em;
+    margin-top: 5em;
     background-color: $black;
     font-size: $font-size-s;
     font-weight: 300;
@@ -10,14 +9,13 @@
         padding: 3em 8em;
     }
 
-    p {
-        font-size: $font-size-s;
-    }
-
     ul#socials {
-        font-size: 1.2em;
         margin-bottom: 2em;
         list-style-type: none;
+
+        em {
+            font-size: 3em;
+        }
 
         li {
             float: left;
@@ -36,7 +34,6 @@
 
                 p {
                     opacity: 1;
-                    font-size: .8em;
                 }
             }
         }
@@ -90,18 +87,23 @@
 @include media-breakpoint-down(md) {
     #footer {
         .container {
-            padding: .2em 1em 1em 1em;
+            padding: 1em 1em 1em 1em;
         }
 
         ul#socials {
-            font-size: 1.2em;
             margin-bottom: 1em;
 
+            em {
+                font-size: 2em;
+            }
+
             li {
-                p {
-                    a {
-                        font-size: 1em;
-                    }
+                p, p > a {
+                    font-size: .9em;
+                }
+
+                p > a > span {
+                    font-size: 1.1em;
                 }
             }
         }

@@ -20,8 +20,8 @@ h2 {
     font-family: $font-family-secondary;
     font-weight: 600;
     opacity: $font-opacity-low;
-    line-height: 40px;
-    margin-bottom: 0;
+    line-height: 1.6em;
+    margin-bottom: .5em;
 }
 
 h3 {
@@ -54,6 +54,30 @@ a {
     h2 {
         font-size: $font-size-xl;
         line-height: 48px;
+    }
+
+    h3 {
+        font-size: $font-size-m;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    * {
+        font-size: $font-size-default-mobile;
+    }
+
+    h1 {
+        font-size: $font-size-xl;
+        line-height: 1.2em;
+
+        span {
+            font-size: 1em;
+        }
+    }
+
+    h2 {
+        font-size: $font-size-l;
+        line-height: 1.5em;
     }
 
     h3 {

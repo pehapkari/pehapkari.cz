@@ -44,7 +44,6 @@ h2 {
 
 /* color palette: http://www.colourlovers.com/palette/46688/fresh_cut_day */
 body {
-    //font-size: 16px;
     color: #222;
 }
 
@@ -467,7 +466,6 @@ iframe, #videos .row img {
 h4 {
     font-size: 1.2em;
     margin-top: 1em;
-    font-family: "sofia-pro";
     font-weight: 300;
 }
 
@@ -631,4 +629,8 @@ h4 {
             color: #999;
         }
     }
+}
+
+#article {
+    max-width: 50em;
 }
