@@ -65,7 +65,7 @@ final class RegistrationController extends AbstractController
 
         return $this->render('registration/registration.twig', [
             'training' => $trainingTerm->getTraining(),
-            'trainingTerm' => $trainingTerm,
+            'training_term' => $trainingTerm,
             'form' => $form->createView(),
         ]);
     }

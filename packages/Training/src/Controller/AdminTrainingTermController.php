@@ -74,7 +74,7 @@ final class AdminTrainingTermController extends EasyAdminController
     public function organize(TrainingTerm $trainingTerm): Response
     {
         return $this->render('training_term/organize.twig', [
-            'trainingTerm' => $trainingTerm,
+            'training_term' => $trainingTerm,
         ]);
     }
 

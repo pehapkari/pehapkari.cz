@@ -17,7 +17,7 @@ final class TrainingRegistrationThankYouController extends AbstractController
     public function __invoke(TrainingTerm $trainingTerm): Response
     {
         return $this->render('registration/thank_you_for_registration.twig', [
-            'trainingTerm' => $trainingTerm,
+            'training_term' => $trainingTerm,
         ]);
     }
 }

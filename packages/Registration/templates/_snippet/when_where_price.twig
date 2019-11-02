@@ -1,7 +1,15 @@
-{% if trainingTerm is defined %}
+{% if training_term is not null and training_term.registrationOpened() %}
+    <h3>Deadline pro přihlášky?</h3>
+
+    <p class="text-danger mb-5">
+        <strong>{{ training_term.getDeadlineDateTime()|date }}</strong>
+    </p>
+{% endif %}
+
+{% if training_term is not null %}
     <h3>Kdy?</h3>
     <p class="mb-5">
-        {{ trainingTerm|from_to }}
+        {{ training_term|from_to }}
     </p>
 
     {# inspiration: https://www.meetup.com/Symfony-Usergroup-Chemnitz-Sudwestsachsen/events/259891562/ #}
@@ -27,8 +35,8 @@
 
 <h3>Cena?</h3>
 <p class="mb-5">
-    {% if trainingTerm is defined %}
-        {{ trainingTerm.price|number_format }} Kč
+    {% if training_term is defined %}
+        {{ training_term.price|number_format }} Kč
     {% else %}
         {{ training.price|number_format }} Kč
     {% endif %}

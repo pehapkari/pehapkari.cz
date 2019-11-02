@@ -40,17 +40,6 @@
                     {% endif %}
                 </div>
 
-                {% if training_term is not null %}
-                    {% if training_term.registrationOpened() %}
-                        <div class="card border-warning mt-3 mb-4">
-                            <div class="card-body bg-warning">
-                                Uzavěrka přihlášek
-                                <strong>{{ training_term.getDeadlineDateTime()|date }}</strong>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endif %}
-
                 <br>
 
                 {% include "_snippet/when_where_price.twig" %}
