@@ -43,8 +43,8 @@
 </p>
 
 <h3>Cena?</h3>
-<p class="mb-5">
-    {% if training_term is defined %}
+<p class="mb-2">
+    {% if training_term is not null %}
         {{ training_term.price|number_format }} Kč
     {% else %}
         {{ training.price|number_format }} Kč
