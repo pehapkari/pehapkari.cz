@@ -580,6 +580,12 @@ h4 {
     margin-bottom: 3em;
 }
 
+@include media-breakpoint-down(md) {
+    .subhead {
+        margin-top: 0em;
+    }
+}
+
 
 .ul-normal, .row ul {
     margin-left: 0;
