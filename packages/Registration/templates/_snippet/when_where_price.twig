@@ -2,7 +2,8 @@
     <h3>Deadline pro přihlášky?</h3>
 
     <p class="text-danger mb-5">
-        <strong>{{ training_term.getDeadlineDateTime()|date }}</strong>
+        {{ training_term.getDeadlineDateTime()|date }}
+        (týden předem)
     </p>
 {% endif %}
 
@@ -12,7 +13,7 @@
         {{ training_term.fromToHumanReadable }}
     </p>
 
-    <p class="mb-5 mt-2">
+    <p class="mb-5 mt-3">
         {# see https://github.com/spatie/calendar-links#}
         {# inspiration: https://www.meetup.com/Symfony-Usergroup-Chemnitz-Sudwestsachsen/events/259891562/ #}
         <a href="{{ training_term.googleCalendarLink }}" class="btn btn-sm btn-outline-primary">
@@ -21,7 +22,7 @@
             <em class="fab fa-google"></em>
         </a>
 
-        <a href="{{ training_term.icalCalendarLink }}" class="btn btn-sm btn-outline-dark">
+        <a href="{{ training_term.icalCalendarLink }}" class="btn btn-sm btn-outline-dark ml-2">
             <em class="far fa-calendar-plus"></em>
             &nbsp;
             <em class="fab fa-apple"></em>
