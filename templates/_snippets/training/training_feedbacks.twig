@@ -1,16 +1,26 @@
 {% if training.hasFeedbacks() %}
-    <hr>
-
-    <h3>Kurzem už {{ word_by_count(training.participantCount(), [
+    <h2>Kurzem už {{ word_by_count(training.participantCount(), [
             'prošel %d účastník', 'prošli %d účastníci', 'prošlo více než %d účastníků'
-        ]) }} </h3>
+        ]) }} </h2>
+
+
+    <div class="big_rating_stars">
+        {% for i in 1..average_training_rating_stars %}
+            <em class="fas fa-star text-warning"></em>
+        {% endfor %}
+    </div>
+
+    <p>
+        <strong>{{ average_training_rating }}</strong>
+    </p>
+
+    <p class="mb-5">Průměrné hodnocení školení</p>
 
     <div class="row">
         {% for feedback in training.getPublicFeedbacks() %}
-            <div class="col-md-12 text-left mb-4">
+            <div class="col-12 col-md-6 text-left mb-4">
                 {% include "_snippets/training/single_feedback.twig" with {"show_training_name": false } %}
             </div>
-
         {% endfor %}
     </div>
 {% endif %}

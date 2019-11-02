@@ -72,10 +72,6 @@
                     Délka: <strong>{{ word_by_count(training.getDuration(), ['hodin', 'hodiny', 'hodin']) }}</strong>
                 </p>
 
-{#                <p>#}
-{#                    Kapacita: <strong>{{ word_by_count(training.getCapacity(), ['člověk', 'lidi', 'lidí']) }}</strong>#}
-{#                </p>#}
-
                 <p>
                     Cena: <strong>{{ training.getPrice()|number_format }} Kč</strong>
                 </p>
@@ -86,7 +82,7 @@
                             <a href="{{ path('registration', { 'slug': training_term.slug }) }}" class="btn btn-success mt-4 mb-5">
                                 <em class="fa fa-fw fa-handshake"></em>
                                 &nbsp;
-                                Přihlaš se
+                                Přihlásit se
                             </a>
                         </div>
                         <br>
@@ -99,9 +95,13 @@
 
             <div class="col-md-8">
                 {{ training.getDescription()|markdown|raw }}
-
-                {% include '_snippets/training/training_feedbacks.twig' %}
             </div>
+        </div>
+    </div>
+
+    <div class="background-grey black_underline_links text-center section">
+        <div class="container" id="feedbacks">
+            {% include '_snippets/training/training_feedbacks.twig' %}
         </div>
     </div>
 {% endblock %}
