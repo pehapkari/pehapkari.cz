@@ -23,33 +23,22 @@
 
             <div class="col-12 col-md-6">
                 <div>
-                    {% if trainer.getImage() %}
-                        {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
-                        <img width="100px" height="100px" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-right ml-3" alt="">
-                        {% if trainer.getWebsite() %}</a>{% endif %}
-                    {% endif %}
-
                     <h3 class="mt-0">Kdo školí?</h3>
 
-                    {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
-                        {{ trainer.getName() }}
-                    {% if trainer.getWebsite() %}</a>{% endif %}
+                    <div class="pull-right">
+                        {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
+                            {% if trainer.getImage() %}
+                                <img width="100px" height="100px" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-right ml-3" alt="">
 
-                    {% if trainer.getBio() %}
-                        <p>„{{ trainer.getBio()|raw }}“</p>
-                    {% endif %}
+                                <br>
+                            {% endif %}
+
+                            {{ trainer.getName() }}
+                        {% if trainer.getWebsite() %}</a>{% endif %}
+                    </div>
+
+                    <p>„{{ trainer.getBio()|raw }}“</p>
                 </div>
-
-                {% if training_term is not null %}
-                    {% if training_term.registrationOpened() %}
-                        <div class="card border-warning mt-3 mb-4">
-                            <div class="card-body bg-warning">
-                                Uzavěrka přihlášek
-                                <strong>{{ training_term.getDeadlineDateTime()|date }}</strong>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endif %}
 
                 <br>
 

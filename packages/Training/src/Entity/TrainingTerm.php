@@ -13,6 +13,8 @@ use Pehapkari\Marketing\Entity\MarketingEvent;
 use Pehapkari\Provision\Data\Partner;
 use Pehapkari\Provision\Entity\Expense;
 use Pehapkari\Registration\Entity\TrainingRegistration;
+use Pehapkari\ValueObject\Place;
+use Spatie\CalendarLinks\Link;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -210,6 +212,23 @@ class TrainingTerm
         return $this->registrations;
     }
 
+    public function getFromToHumanReadable(): string
+    {
+        return $this->startDateTime->format('j. n., H:i')
+            . ' - '
+            . $this->getEndDateTime()->format('H:i');
+    }
+
+    public function getGoogleCalendarLink(): string
+    {
+        return $this->getCalendarLink()->google();
+    }
+
+    public function getIcalCalendarLink(): string
+    {
+        return $this->getCalendarLink()->ics();
+    }
+
     public function getSlug(): ?string
     {
         return $this->slug;
@@ -350,6 +369,21 @@ class TrainingTerm
         );
 
         return $trainingTermFeedbacks->toArray();
+    }
+
+    /**
+     * @see https://github.com/spatie/calendar-links
+     */
+    private function getCalendarLink(): Link
+    {
+        $link = new Link('Školení ' . $this->training->getName(), $this->getStartDateTime(), $this->getEndDateTime());
+        // no better way to do this
+        $absoluteUrl = 'https://pehapkari.cz/kurz/' . $this->training->getSlug();
+        $link->description($absoluteUrl);
+        // change to entity when 2+ more places
+        $link->address(Place::PRAGUE_ADDRESS);
+
+        return $link;
     }
 
     private function getExpenseTotalByPartner(string $partnerKind): float

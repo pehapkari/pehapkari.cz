@@ -614,7 +614,7 @@ h4 {
 }
 
 .form-group:last-of-type {
-    margin-bottom: 1em;
+    margin-bottom: .7em;
 }
 
 .card form .btn {
@@ -639,4 +639,9 @@ h4 {
 
 #article, #video {
     max-width: 50em;
+}
+
+// training description
+#trainings .card h2, #trainings .card h3 {
+    margin-top: 1em;
 }

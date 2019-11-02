@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9fdde824e031733663899e809d644ce",
+    "content-hash": "a4c3c2c2afd04edfc569ee48a02552cb",
     "packages": [
         {
             "name": "alterphp/easyadmin-extension-bundle",
@@ -5000,6 +5000,53 @@
             "time": "2019-01-30T14:11:19+00:00"
         },
         {
+            "name": "spatie/calendar-links",
+            "version": "1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/calendar-links.git",
+                "reference": "3a07e388bc41475a8e8e4da6f42616c3a19b74bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/calendar-links/zipball/3a07e388bc41475a8e8e4da6f42616c3a19b74bc",
+                "reference": "3a07e388bc41475a8e8e4da6f42616c3a19b74bc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0",
+                "spatie/phpunit-snapshot-assertions": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\CalendarLinks\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Generate add to calendar links for Google, iCal and other calendar systems",
+            "homepage": "https://github.com/spatie/calendar-links",
+            "keywords": [
+                "calendar-links",
+                "spatie"
+            ],
+            "time": "2019-07-17T09:49:53+00:00"
+        },
+        {
             "name": "stof/doctrine-extensions-bundle",
             "version": "v1.3.0",
             "source": {
@@ -5132,12 +5179,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset.git",
-                "reference": "447fcb4a2743daf11def5637432d934437e5bc58"
+                "reference": "7ec5fc653dab63d7519a6f411982ee224a696d66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/asset/zipball/447fcb4a2743daf11def5637432d934437e5bc58",
-                "reference": "447fcb4a2743daf11def5637432d934437e5bc58",
+                "url": "https://api.github.com/repos/symfony/asset/zipball/7ec5fc653dab63d7519a6f411982ee224a696d66",
+                "reference": "7ec5fc653dab63d7519a6f411982ee224a696d66",
                 "shasum": ""
             },
             "require": {
@@ -5180,7 +5227,7 @@
             ],
             "description": "Symfony Asset Component",
             "homepage": "https://symfony.com",
-            "time": "2019-09-27T05:43:04+00:00"
+            "time": "2019-10-12T00:35:04+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -5632,12 +5679,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug-bundle.git",
-                "reference": "74c00a5b136cb7322cd31b6dc0ae93651cb29d46"
+                "reference": "2255db767f7f5bf6740e9f3b4f92199f6890ca2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug-bundle/zipball/74c00a5b136cb7322cd31b6dc0ae93651cb29d46",
-                "reference": "74c00a5b136cb7322cd31b6dc0ae93651cb29d46",
+                "url": "https://api.github.com/repos/symfony/debug-bundle/zipball/2255db767f7f5bf6740e9f3b4f92199f6890ca2e",
+                "reference": "2255db767f7f5bf6740e9f3b4f92199f6890ca2e",
                 "shasum": ""
             },
             "require": {
@@ -5690,7 +5737,7 @@
             ],
             "description": "Symfony DebugBundle",
             "homepage": "https://symfony.com",
-            "time": "2019-09-30T09:07:05+00:00"
+            "time": "2019-10-12T00:35:04+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -5923,12 +5970,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dotenv.git",
-                "reference": "289e172fe3d4453fad285392a1af8379514e8ea9"
+                "reference": "fc63980d8dc4eb82e45ea68e7eca7b071b9b48be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dotenv/zipball/289e172fe3d4453fad285392a1af8379514e8ea9",
-                "reference": "289e172fe3d4453fad285392a1af8379514e8ea9",
+                "url": "https://api.github.com/repos/symfony/dotenv/zipball/fc63980d8dc4eb82e45ea68e7eca7b071b9b48be",
+                "reference": "fc63980d8dc4eb82e45ea68e7eca7b071b9b48be",
                 "shasum": ""
             },
             "require": {
@@ -5972,7 +6019,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-10-18T11:24:32+00:00"
+            "time": "2019-10-22T15:44:54+00:00"
         },
         {
             "name": "symfony/error-handler",
@@ -6230,12 +6277,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/expression-language.git",
-                "reference": "0aee5e80df1f9cecafa7b7151a377e9a308b44ae"
+                "reference": "f4ec2eb6caa07248d0df467d8e1382d08dda32e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/expression-language/zipball/0aee5e80df1f9cecafa7b7151a377e9a308b44ae",
-                "reference": "0aee5e80df1f9cecafa7b7151a377e9a308b44ae",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/f4ec2eb6caa07248d0df467d8e1382d08dda32e4",
+                "reference": "f4ec2eb6caa07248d0df467d8e1382d08dda32e4",
                 "shasum": ""
             },
             "require": {
@@ -6273,7 +6320,7 @@
             ],
             "description": "Symfony ExpressionLanguage Component",
             "homepage": "https://symfony.com",
-            "time": "2019-09-16T08:12:51+00:00"
+            "time": "2019-10-28T20:30:34+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -6974,12 +7021,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
-                "reference": "e2be26abe2c4d9174b51539f3ec31563126825fc"
+                "reference": "299cbfd6be791438e8d93ffb25765b5b93021bf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/e2be26abe2c4d9174b51539f3ec31563126825fc",
-                "reference": "e2be26abe2c4d9174b51539f3ec31563126825fc",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/299cbfd6be791438e8d93ffb25765b5b93021bf9",
+                "reference": "299cbfd6be791438e8d93ffb25765b5b93021bf9",
                 "shasum": ""
             },
             "require": {
@@ -7041,7 +7088,7 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2019-10-04T22:14:06+00:00"
+            "time": "2019-10-12T00:35:04+00:00"
         },
         {
             "name": "symfony/mailer",
@@ -7049,12 +7096,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mailer.git",
-                "reference": "ff426435a766ef7bd621a22c1998bd1bf6798e54"
+                "reference": "392e5ebc9ad03f6ae4adf537dac953593438884d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mailer/zipball/ff426435a766ef7bd621a22c1998bd1bf6798e54",
-                "reference": "ff426435a766ef7bd621a22c1998bd1bf6798e54",
+                "url": "https://api.github.com/repos/symfony/mailer/zipball/392e5ebc9ad03f6ae4adf537dac953593438884d",
+                "reference": "392e5ebc9ad03f6ae4adf537dac953593438884d",
                 "shasum": ""
             },
             "require": {
@@ -7108,7 +7155,7 @@
             ],
             "description": "Symfony Mailer Component",
             "homepage": "https://symfony.com",
-            "time": "2019-10-12T08:43:49+00:00"
+            "time": "2019-10-30T13:23:44+00:00"
         },
         {
             "name": "symfony/mailgun-mailer",
@@ -7116,12 +7163,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mailgun-mailer.git",
-                "reference": "87efbfb2e69e8d53ba09da3ccfeb5a202b7cdad5"
+                "reference": "350883fa860c4a980f5d4da44073c8358e3cce24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mailgun-mailer/zipball/87efbfb2e69e8d53ba09da3ccfeb5a202b7cdad5",
-                "reference": "87efbfb2e69e8d53ba09da3ccfeb5a202b7cdad5",
+                "url": "https://api.github.com/repos/symfony/mailgun-mailer/zipball/350883fa860c4a980f5d4da44073c8358e3cce24",
+                "reference": "350883fa860c4a980f5d4da44073c8358e3cce24",
                 "shasum": ""
             },
             "require": {
@@ -7161,7 +7208,7 @@
             ],
             "description": "Symfony Mailgun Mailer Bridge",
             "homepage": "https://symfony.com",
-            "time": "2019-10-13T07:31:33+00:00"
+            "time": "2019-10-22T15:44:54+00:00"
         },
         {
             "name": "symfony/maker-bundle",
@@ -7237,12 +7284,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "ae5a66baa561e06c765f9a26ddba8edd07b49eed"
+                "reference": "bf6913d054a319f3851a3f840463086f1b145655"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/ae5a66baa561e06c765f9a26ddba8edd07b49eed",
-                "reference": "ae5a66baa561e06c765f9a26ddba8edd07b49eed",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/bf6913d054a319f3851a3f840463086f1b145655",
+                "reference": "bf6913d054a319f3851a3f840463086f1b145655",
                 "shasum": ""
             },
             "require": {
@@ -7291,7 +7338,7 @@
                 "mime",
                 "mime-type"
             ],
-            "time": "2019-10-14T12:27:06+00:00"
+            "time": "2019-10-30T13:23:44+00:00"
         },
         {
             "name": "symfony/options-resolver",
@@ -8787,12 +8834,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "3a128d69d1f05bf75f00bf51c73143affdba88c8"
+                "reference": "0659990e7d9bef50dbf0d44ce97a9673844e371e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/3a128d69d1f05bf75f00bf51c73143affdba88c8",
-                "reference": "3a128d69d1f05bf75f00bf51c73143affdba88c8",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/0659990e7d9bef50dbf0d44ce97a9673844e371e",
+                "reference": "0659990e7d9bef50dbf0d44ce97a9673844e371e",
                 "shasum": ""
             },
             "require": {
@@ -8855,7 +8902,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2019-10-15T12:38:35+00:00"
+            "time": "2019-10-26T08:24:21+00:00"
         },
         {
             "name": "symfony/var-exporter",
@@ -8923,12 +8970,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "a9c49caf74726421b2c53420d6a45f22c4b207b6"
+                "reference": "5fd9a22e4fba175edb43a6f08b381d3bdc19d0a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/a9c49caf74726421b2c53420d6a45f22c4b207b6",
-                "reference": "a9c49caf74726421b2c53420d6a45f22c4b207b6",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/5fd9a22e4fba175edb43a6f08b381d3bdc19d0a2",
+                "reference": "5fd9a22e4fba175edb43a6f08b381d3bdc19d0a2",
                 "shasum": ""
             },
             "require": {
@@ -8982,7 +9029,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-            "time": "2019-10-07T11:33:36+00:00"
+            "time": "2019-10-28T20:30:34+00:00"
         },
         {
             "name": "symfony/web-server-bundle",
@@ -13799,7 +13846,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2",
+        "php": "^7.3",
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-json": "*",

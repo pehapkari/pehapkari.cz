@@ -4,11 +4,6 @@ parameters:
     promo_image_output_directory: '%generated_directory%/promo_image'
     zip_output_directory: '%generated_directory%/zips'
 
-    # fakturoid API
-    fakturoid_slug: '%env(FAKTUROID_SLUG)%'
-    fakturoid_email: '%env(FAKTUROID_EMAIL)%'
-    fakturoid_api_key: '%env(FAKTUROID_API_KEY)%'
-
 services:
     _defaults:
         autowire: true
