@@ -45,20 +45,27 @@ final class GithubEditUrlExtension extends AbstractExtension
      */
     public function getFunctions(): array
     {
-        $githubEditUrlFunction = new TwigFunction('github_edit_url', function (): string {
+        $githubEditUrlFunction = new TwigFunction('github_edit_url', function (): ?string {
             $templateName = $this->resolveTemplateFromCurrentController();
+            if ($templateName === null) {
+                return null;
+            }
+
             return self::GITHUB_EDIT_PREFIX . $templateName;
         });
 
         return [$githubEditUrlFunction];
     }
 
-    private function resolveTemplateFromCurrentController(): string
+    private function resolveTemplateFromCurrentController(): ?string
     {
+        $templateName = $this->resolvedTemplateNameCollector->getTemplateName();
+        if ($templateName === null) {
+            return null;
+        }
+
         // all template finder
         $fileInfos = $this->findTwigFiles();
-
-        $templateName = $this->resolvedTemplateNameCollector->getTemplateName();
 
         foreach ($fileInfos as $fileInfo) {
             if (Strings::endsWith($fileInfo->getRelativeFilePath(), $templateName)) {
