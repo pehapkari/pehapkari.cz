@@ -4,6 +4,14 @@
         {{ trainingTerm|from_to }}
     </p>
 
+    {# inspiration: https://www.meetup.com/Symfony-Usergroup-Chemnitz-Sudwestsachsen/events/259891562/ #}
+
+{#     google calendar ! #}
+{#     http://www.google.com/calendar/event?location=DMK+E-BUSINESS+GmbH+-+Dresdner+Str.+40+-+Chemnitz%2C+SN%2C+de&action=TEMPLATE&sprop=name%3ASymfony+User+Group+Chemnitz%2FS%C3%BCdwestsachsen&sprop=website%3Ahttps%3A%2F%2Fwww.meetup.com%2FSymfony-Usergroup-Chemnitz-Sudwestsachsen%2Fevents%2F259891562&details=For+full+details%2C+including+the+address%2C+and+to+RSVP+see%3A+https%3A%2F%2Fwww.meetup.com%2FSymfony-Usergroup-Chemnitz-Sudwestsachsen%2Fevents%2F259891562%0A%0AWir+laden+die+Symfony+Community+Chemnitz%2FS%C3%BCdwestsachsen+zum+vierten+User+Group+Treffen+am+Dienstag%2C+...&text=4.+Symfony+User+Group+Treffen+am+05.11.2019&dates=20191105T170000Z%2F20191105T200000Z #}
+
+    {#  ical   #}
+    {#    https://www.meetup.com/Symfony-Usergroup-Chemnitz-Sudwestsachsen/events/259891562/ical/4.+Symfony+User+Group+Treffen+am+05.11.2019.ics#}
+
     {# @todo make clickalbe to add to calendar #}
     {# see meeutp com    #}
     <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Lecture:+{{ training.getName() }}&dates={{ training.getNearestTerm()|google_calendar_link }}&details=Details:+https://pehapkari.cz/{{ path('training_detail', { 'slug': training.getSlug() }) }}&ctz=Europe/Prague&location=U Pergamenky 1145/12, 170 00 Praha 7-Holešovice, Czechia&sf=true&output=xml">
