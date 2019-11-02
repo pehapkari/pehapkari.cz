@@ -3,7 +3,7 @@
 {% set page_title %}{{ training.getName() }}{% endset %}
 
 {% block main %}
-    <div id="trainings" class="container">
+    <div id="training" class="container">
         <h1>{{ page_title }}</h1>
 
         <div class="card mt-4 mb-4">
@@ -40,8 +40,6 @@
                     <p>„{{ trainer.getBio()|raw }}“</p>
                 </div>
 
-                <br>
-
                 {% include "_snippet/when_where_price.twig" %}
 
                 {% if training.isActive() and training_term.registrationOpened() %}
@@ -58,11 +56,13 @@
         </div>
     </div>
 
-    <div class="background-grey black_underline_links text-center section mb-0">
-        <div class="container" id="feedbacks">
-            {% include '_snippets/training/training_feedbacks.twig' %}
+    {% if training.participantCount %}
+        <div class="background-grey black_underline_links text-center section mb-0">
+            <div class="container" id="feedbacks">
+                {% include '_snippets/training/training_feedbacks.twig' %}
+            </div>
         </div>
-    </div>
+    {% endif %}
 
     {# @todo action step #}
 {% endblock %}

@@ -23,11 +23,6 @@ final class TrainingDetailController extends AbstractController
             'training_term' => $training->getNearestTerm(),
             'trainer' => $training->getTrainer(),
             'should_display_deadline' => $this->shouldDisplayDeadline($training),
-
-            // rating
-            'feedbacks' => $training->getPublicFeedbacks(),
-            'average_training_rating' => $training->getAverageRating(),
-            'average_training_rating_stars' => $training->getAverageRatingStarCount(),
         ]);
     }
 
