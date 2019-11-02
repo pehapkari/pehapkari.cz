@@ -6,29 +6,34 @@
     <div id="trainings" class="container">
         <h1>{{ page_title }}</h1>
 
+        <div class="card mt-4 mb-4">
+            <div class="card-body text-bigger">
+                {{ training.perex|markdown|raw }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                {% if trainer.getImage() %}
+                    <img width="100" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-left mr-3 shadow">
+                {% endif %}
+
+                <strong>Školí</strong>:
+
+                {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
+
+                    {{ trainer.getName() }}
+
+                    {% if trainer.getWebsite() %}</a>{% endif %}
+
+                {% if trainer.getBio() %}
+                    <p>„{{ trainer.getBio()|raw }}“</p>
+                {% endif %}
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-4">
-                        {% if trainer.getImage() %}
-                            <img width="100" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-left mr-3">
-                        {% endif %}
-                    </div>
-
-                    <div class="col-md">
-                        <strong>Školí</strong>:
-
-                        {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
-
-                            {{ trainer.getName() }}
-
-                            {% if trainer.getWebsite() %}</a>{% endif %}
-
-                        {% if trainer.getBio() %}
-                            <p>„{{ trainer.getBio()|raw }}“</p>
-                        {% endif %}
-                    </div>
-                </div>
 
                 <div class="clearfix"></div>
 
@@ -67,9 +72,9 @@
                     Délka: <strong>{{ word_by_count(training.getDuration(), ['hodin', 'hodiny', 'hodin']) }}</strong>
                 </p>
 
-                <p>
-                    Kapacita: <strong>{{ word_by_count(training.getCapacity(), ['člověk', 'lidi', 'lidí']) }}</strong>
-                </p>
+{#                <p>#}
+{#                    Kapacita: <strong>{{ word_by_count(training.getCapacity(), ['člověk', 'lidi', 'lidí']) }}</strong>#}
+{#                </p>#}
 
                 <p>
                     Cena: <strong>{{ training.getPrice()|number_format }} Kč</strong>
