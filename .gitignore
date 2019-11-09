@@ -35,9 +35,6 @@ source/assets/images/sponsor
 source/assets/images/courses
 source/assets/images/livestreams
 source/assets/icons
-new-design/dist/app.css
-new-design/dist/app.js
-new-design/node_modules
 
 # PHPUnit 8+
 .phpunit.result.cache
