@@ -13,7 +13,7 @@ parameters:
         - "*/Entity*"
         - '*/var/cache/*'
         - '*/var/log/*'
-        - /statie/tests/
+        - 'statie/tests'
         # temporary
         - 'packages/Youtube/src/FacebookVideosProvider/PehapkariFacebookPageVideosProvider.php'
         - 'packages/Marketing/src/Social/FacebookPublisher.php'
