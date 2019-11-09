@@ -115,8 +115,8 @@
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse packages src statie/src statie/tests --error-format symplify --ansi",
         "dead-links": "vendor/bin/http-status-check scan https://pehapkari.cz --output invalid-links.txt --ansi --dont-crawl-external-links",
-        "rector": "vendor/bin/rector process src tests --ansi",
-        "rector-dry": "vendor/bin/rector process src tests --ansi --dry-run"
+        "rector": "vendor/bin/rector process src tests --config rector-ci.yaml --ansi",
+        "rector-dry": "vendor/bin/rector process src tests --config rector-ci.yaml --ansi --dry-run"
     },
     "config": {
         "sort-packages": true
