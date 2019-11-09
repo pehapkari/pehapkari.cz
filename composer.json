@@ -60,10 +60,10 @@
         "symfony/web-server-bundle": "^4.4|^5.0",
         "symfony/webpack-encore-bundle": "^1.6",
         "symfony/yaml": "^4.4|^5.0",
-        "symplify/autodiscovery": "^6.1",
-        "symplify/flex-loader": "^6.1",
-        "symplify/package-builder": "^6.1",
-        "symplify/statie": "^6.1",
+        "symplify/autodiscovery": "6.1",
+        "symplify/flex-loader": "6.1",
+        "symplify/package-builder": "6.1",
+        "symplify/statie": "6.1",
         "twig/extensions": "^1.5",
         "vich/uploader-bundle": "^1.10"
     },
@@ -79,9 +79,9 @@
         "spatie/http-status-check": "^3.1",
         "symfony/var-dumper": "^4.4|^5.0",
         "symfony/browser-kit": "^4.4|^5.0",
-        "symplify/coding-standard": "^6.1",
-        "symplify/easy-coding-standard": "^6.1",
-        "symplify/phpstan-extensions": "^6.1",
+        "symplify/coding-standard": "6.1",
+        "symplify/easy-coding-standard": "6.1",
+        "symplify/phpstan-extensions": "6.1",
         "tracy/tracy": "^2.7"
     },
     "autoload": {
