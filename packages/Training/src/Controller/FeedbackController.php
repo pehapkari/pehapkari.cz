@@ -25,7 +25,7 @@ final class FeedbackController extends AbstractController
     }
 
     /**
-     * @Route(path="feedback")
+     * @Route(path="feedback", name="feedback_form")
      * @Route(path="feedbacks")
      * @Route(path="jak-se-ti-libilo")
      */
