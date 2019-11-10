@@ -1,56 +1,76 @@
-dist: trusty
+os: linux
+language: php
+php: 7.3
 
 before_install:
     # turn off XDebug to speed up
     - phpenv config-rm xdebug.ini || return 0
 
+install:
+    - composer install --no-progress
+
 jobs:
-    fast_finish: true
     include:
-        # 1. build Docker image
+        # 1. Building Docker image, testing & static analysis
         -
-            stage: build
+            # for faster CI, this runs in parallel with testing and static analysis
+            stage: test
+            name: 'Build Docker Image'
             if: NOT type = cron
-            name: Build docker image
+            install:
+                - echo "composer install is run inside the Docker image"
             script:
                 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
                 - docker pull pehapkari/pehapkari.cz || true
                 - docker build --cache-from pehapkari/pehapkari.cz -t pehapkari/pehapkari.cz:$TRAVIS_COMMIT --target production -f Dockerfile .
                 - docker push pehapkari/pehapkari.cz
 
-        # 2. using built Docker image from previous step
         -
             stage: test
-            name: Static Analysis
+            name: ECS
             script:
-                - docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer check-cs
-                - docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer phpstan
+                - composer check-cs
+
+        -
+            name: PHPStan
+            script:
+                - composer phpstan
 
         -
             name: PHPUnit
-            script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT php vendor/bin/phpunit
+            script:
+                - vendor/bin/phpunit
 
         -
             name: Rector
-            script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer rector
+            script:
+                - composer rector-dry
 
         -
             name: Linting YAML and Templates
             script:
-                - docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console lint:yaml src packages
-                - docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console lint:twig packages templates
+                - bin/console lint:yaml src packages
+                - bin/console lint:twig packages templates
 
         -
             name: Dead links
-            script: docker run --rm pehapkari/pehapkari.cz:$TRAVIS_COMMIT composer dead-links
+            script:
+                - composer dead-links
 
+        # 2. Build Docker image → deploy
         -
-            name: Prod cache warmup
-            script: docker run --rm -e APP_ENV=prod pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console cache:warmup
+            stage: warmup
+            name: 'Production Cache Warmup'
+            install:
+                - echo "composer install is run inside the Docker image"
+            script:
+                - docker run --rm -e APP_ENV=prod pehapkari/pehapkari.cz:$TRAVIS_COMMIT bin/console cache:warmup
 
         -
             stage: deploy
-            name: Deploy to pehapkari.cz
+            name: 'Deploy to pehapkari.cz'
+            install:
+                - echo "composer install is run inside the Docker image"
             if: branch = master AND type = push
             script: skip
             deploy:
@@ -61,13 +81,12 @@ jobs:
 
         -
             stage: crons
-            name: Tweet posts
+            name: 'Tweet Post'
             if: branch = master AND type = cron
             script: docker run --rm -e APP_ENV=prod -e TWITTER_CONSUMER_KEY -e TWITTER_CONSUMER_SECRET -e TWITTER_OAUTH_ACCESS_TOKEN -e TWITTER_OAUTH_ACCESS_TOKEN_SECRET pehapkari/pehapkari.cz php vendor/bin/statie tweet-post statie/source
 
-    allow_failures:
-        -   stage: Static Analysis (informative)
-        -   stage: Code Coverage
+matrix:
+    fast_finish: true
 
 # do not send success notifications, they have no value
 notifications:
