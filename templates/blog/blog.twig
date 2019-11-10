@@ -21,7 +21,7 @@
             {% if was_first_post_marked == false %}
                 {# special case for first post - full width #}
                 <div class="article mb-3 incognito-link-just-header" id="first_post">
-                    <a href="/{{ post|link }}/">
+                    <a href="{{ post|link }}">
                         <div class="card">
                             <div class="card-body">
                                 <h2>{{ post.title }}</h2>
@@ -51,7 +51,7 @@
             {% else %}
                 <div class="col-12 col-lg-6">
                     <div class="article mb-3 mt-3 card">
-                        <a href="/{{ post|link }}/">
+                        <a href="{{ post|link }}">
                             <div class="card-body">
                                 <h2>
                                     {{ post.title }}

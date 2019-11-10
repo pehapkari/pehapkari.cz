@@ -17,7 +17,7 @@
                 {# @var training \Pehapkari\Training\Entity\Training #}
                 {% set training = upcoming_training_term.getTraining() %}
                 <div class="col-12 col-lg-6 incognito-link-just-header">
-                    <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}/">
+                    <a href="{{ path('training_detail', { 'slug': training.getSlug() }) }}">
                         <div class="card shadow-card">
                             <div class="card-header">
                                 <div class="row">
@@ -67,7 +67,7 @@
                 Další kurzy, které teď nemají vypsaný termín:
 
                 {% for inactive_training in inactive_trainings %}
-                    <a href="{{ path('training_detail', { 'slug': inactive_training.getSlug() }) }}/">
+                    <a href="{{ path('training_detail', { 'slug': inactive_training.getSlug() }) }}">
                         {{ inactive_training.getName()|raw }}
                     </a>
                     {% if loop.last == false %}&nbsp;•&nbsp;{% endif %}
