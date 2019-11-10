@@ -27,7 +27,7 @@ bin/console doctrine:schema:update --dump-sql --force
 bin/console assets:install --env=prod --no-debug
 
 # final step - run the website
-bin/console server:run
+php -S localhost:8000 -t public
 ```
 
 Open [localhost:8000](http://localhost:8000) to see if it worked!
