@@ -6,7 +6,18 @@
     color: $white;
 
     .container {
-        padding: 3em 8em;
+        padding: 3em .7em;
+    }
+
+    p {
+        opacity: 1;
+        color: $grey;
+
+        a {
+            &:hover {
+                color: $white;
+            }
+        }
     }
 
     ul#socials {
@@ -87,11 +98,8 @@
 
 @include media-breakpoint-down(md) {
     #footer {
-        .container {
-            padding: 1em 1em 1em 1em;
-        }
-
         ul#socials {
+            float: right;
             margin-bottom: 1em;
 
             em {
@@ -107,14 +115,6 @@
                     font-size: 1.1em;
                 }
             }
-        }
-    }
-}
-
-@include media-breakpoint-up(xl) {
-    #footer {
-        .container {
-            max-width: 90em;
         }
     }
 }

@@ -80,8 +80,7 @@
         "symfony/browser-kit": "^4.4|^5.0",
         "symplify/coding-standard": "6.1",
         "symplify/easy-coding-standard": "6.1",
-        "symplify/phpstan-extensions": "6.1",
-        "tracy/tracy": "^2.7"
+        "symplify/phpstan-extensions": "6.1"
     },
     "autoload": {
         "psr-4": {

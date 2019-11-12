@@ -1,150 +1,153 @@
 {% extends 'base.twig' %}
 
+{% set page_title = "Děláš v PHP? Jsi jedním z nás" %}
+
 {% block main %}
-    <div class="homepage" id="page">
-        <div class="container">
-            <h1>
-                Děláš&nbsp;v&nbsp;PHP?<br>
-                Jsi&nbsp;jedním&nbsp;z&nbsp;nás
-            </h1>
+    <div class="container text-center">
+        <h1 id="main_headline">
+            Děláš&nbsp;v&nbsp;PHP?<br>
+            Jsi&nbsp;jedním&nbsp;z&nbsp;nás
+        </h1>
 
-            <p class="mb-3">
-                Na <strong>PHP</strong> běží <a href="https://w3techs.com/technologies/details/pl-php/all/all">79 % všech webů</a>.
-            </p>
+        <img src="{{ asset('assets/pehapkari_logo/logo_green_blue.svg') }}" alt="Slon" id="main_logo">
 
-            <img src="/assets/images/slon/basic.png" alt="Slon" class="main-logo">
+        <p class="submain_headline">
+            Na <strong>PHP</strong> běží <a href="https://w3techs.com/technologies/details/pl-php/all/all">
+                79 % všech webů
+            </a>
+            &nbsp;
+            🎉
+        </p>
 
-            <p>
-                Tady najdeš komunitu lidí, kteří jej mají rádi a pracují s ním.
-                <br>
-                Můžeš mezi <strong>nimi najít nové přátele</strong> s podobnými zájmy,
-                <br>ukážou ti <strong>moderní technologie</strong>, které ti usnadní práci,
-                <br>
-                a nebo tu <strong>najdeš novou práci</strong> s fajn lidmi.
-            </p>
-
-            <div id="welcome_image">
-                <img src="/assets/images/homepage/1@2x.jpg">
-            </div>
+        <div id="welcome_image" class="shadow">
+            <img src="{{ asset('assets/images/homepage/homepage.jpg') }}">
         </div>
 
-        <br>
+        <p class="submain_headline">
+            Tady najdeš komunitu lidí, kteří mají PHP rádi a pracují s ním každý den.
+        </p>
 
-        {# @todo show 3 nerest trainings #}
-        {#        {% set displayedLectureCount = 3 %}#}
-        {#{% for lecture in trainings %}#}
-        {#{% if lecture.isActive() and displayedLectureCount <= 3 %}#}
-        {#{% if displayedLectureCount == 0 %}#}
-        {#<strong>Nejbližší školení</strong>:<br>#}
-        {#{% endif %}#}
+        <p class="submain_headline">
+            Najdeš <strong>mezi námi nové přátele</strong> s podobnými zájmy,
+            <br>ukážeme ti <strong>moderní technologie</strong>, které ti usnadní práci,
+            <br>
+            a nebo tu <strong>objevíš novou práci</strong> s fajn lidmi.
+        </p>
+    </div>
 
-        {#<a href="/{{ lecture|link }}/">{{ lecture.getHumanDate() }} - {{ lecture.getTitle()|raw }}</a>{% if loop.last == false %}<br>{% endif %}#}
-        {#{% set displayedLectureCount = displayedLectureCount + 1 %}#}
-        {#{% endif %}#}
-        {#{% endfor %}#}
+    {# @todo show 3 nerest trainings #}
+    {#        {% set displayedLectureCount = 3 %}#}
+    {#{% for lecture in trainings %}#}
+    {#{% if lecture.isActive() and displayedLectureCount <= 3 %}#}
+    {#{% if displayedLectureCount == 0 %}#}
+    {#<strong>Nejbližší školení</strong>:<br>#}
+    {#{% endif %}#}
 
-        {# @todo add section with videos and top 5 viewed ones #}
+    {#<a href="/{{ lecture|link }}/">{{ lecture.getHumanDate() }} - {{ lecture.getTitle()|raw }}</a>{% if loop.last == false %}<br>{% endif %}#}
+    {#{% set displayedLectureCount = displayedLectureCount + 1 %}#}
+    {#{% endif %}#}
+    {#{% endfor %}#}
 
-        <div class="background-grey section">
-            <div class="container">
-                <h2 class="mb-5">Potkáváme se</h2>
+    {# @todo add section with videos and top 5 viewed ones #}
 
-                <div class="row">
-                    <div class="col-md-7 text-center hidden-sm-down">
-                        <img src="/assets/images/meetup_2.jpg" alt="Přijď na sraz" class="mb-4">
-                    </div>
+    <div class="background-grey section">
+        <div class="container">
+            <h2 class="mb-5">Potkáváme se</h2>
 
-                    <div class="col-md-5">
-                        <p>
-                            Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a> České Republiky. Typický sraz začíná v 18&nbsp;hod., pak promluví 2&nbsp;speakři a nakonec jdeme diskutovat nad pivem.
-                        </p>
+            <div class="row">
+                <div class="col-md-7 text-center hidden-sm-down">
+                    <img src="/assets/images/meetup_2.jpg" alt="Přijď na sraz" class="mb-4">
+                </div>
 
-                        {% if nearest_meetup %}
-                            <div class="card mt-4 shadow-card">
-                                <div class="card-body pb-3">
-                                    <h3 class="mt-1">Kdy bude další?</h3>
+                <div class="col-md-5">
+                    <p>
+                        Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a> České Republiky. Typický sraz začíná v 18&nbsp;hod., pak promluví 2&nbsp;speakři a nakonec jdeme diskutovat nad pivem.
+                    </p>
 
-                                    <ul>
-                                        <li>
-                                            <a href="{{ nearest_meetup.url }}">{{ nearest_meetup.startDateTime|date }}</a>,
+                    {% if nearest_meetup %}
+                        <div class="card mt-4 shadow-card">
+                            <div class="card-body pb-3">
+                                <h3 class="mt-1">Kdy bude další?</h3>
 
-                                            <strong>{{ nearest_meetup.name }}</strong> - {{ nearest_meetup.city }}
-                                        </li>
-                                    </ul>
-                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="{{ nearest_meetup.url }}">{{ nearest_meetup.startDateTime|date }}</a>,
+
+                                        <strong>{{ nearest_meetup.name }}</strong> - {{ nearest_meetup.city }}
+                                    </li>
+                                </ul>
                             </div>
-                        {% endif %}
+                        </div>
+                    {% endif %}
 
-                        <h3 class="mt-4">Kde se o nich dozvíš?</h3>
+                    <h3 class="mt-4">Kde se o nich dozvíš?</h3>
 
-                        <p>
-                            Všechny meetupy najdeš na <a href="https://www.facebook.com/pehapkari/events">Facebooku</a> nebo
-                            {# see https://stackoverflow.com/questions/12497130/how-to-escape-twig-delimiters-in-a-twig-template #}
-                            <a href='https://friendsofphp.org/?bounds={{ '{' }}%22_southWest%22:{{ '{' }}%22lat%22:47.89,%22lng%22:12.58{{ '}' }},%22_northEast%22:{{ '{' }}%22lat%22:51.92,%22lng%22:18.51{{ '}' }}{{ '}' }}'>Friends&nbsp;of&nbsp;PHP</a>.
-                        </p>
+                    <p>
+                        Všechny meetupy najdeš na <a href="https://www.facebook.com/pehapkari/events">Facebooku</a> nebo
+                        {# see https://stackoverflow.com/questions/12497130/how-to-escape-twig-delimiters-in-a-twig-template #}
+                        <a href='https://friendsofphp.org/?bounds={{ '{' }}%22_southWest%22:{{ '{' }}%22lat%22:47.89,%22lng%22:12.58{{ '}' }},%22_northEast%22:{{ '{' }}%22lat%22:51.92,%22lng%22:18.51{{ '}' }}{{ '}' }}'>Friends&nbsp;of&nbsp;PHP</a>.
+                    </p>
 
-                        <br>
+                    <br>
 
-                        <div class="card shadow-card">
-                            <div class="card-body">
-                                <h3 class="mt-1">Nestihls poslední meetup?</h3>
-                                <p>
-                                     Máš štěstí, <strong>všechny meetupy nahráváme</strong>
-                                </p>
+                    <div class="card shadow-card">
+                        <div class="card-body">
+                            <h3 class="mt-1">Nestihls poslední meetup?</h3>
+                            <p>
+                                 Máš štěstí, <strong>všechny meetupy nahráváme</strong>
+                            </p>
 
-                                <div class="text-center d-block">
-                                    <a href="{{ path('videos') }}" class="btn btn-danger mt-3">
-                                        <em class="fab fw-fw fa-youtube"></em>
-                                        &nbsp;
-                                        Přehraj si záznam
-                                    </a>
-                                </div>
+                            <div class="text-center d-block">
+                                <a href="{{ path('videos') }}" class="btn btn-danger mt-3">
+                                    <em class="fab fw-fw fa-youtube"></em>
+                                    &nbsp;
+                                    Přehraj si záznam
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="container text-center" id="team">
-            <h2 class="mb-5">Bez týmu aktivních lidí by to nešlo!</h2>
+    <div class="container text-center" id="team">
+        <h2 class="mb-5">Bez týmu aktivních lidí by to nešlo!</h2>
 
-            <div class="row" id="organizers">
-                {# @var organizer \Pehapkari\ValueObject\Organizer #}
-                {% for organizer in organizers %}
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-5">
-                        {% set photoUrl %}{% if organizer.photo matches "#http#" %}{{ organizer.photo }}{% else %}/assets/images/people/{{ organizer.photo }}{% endif %}{% endset %}
-
-                        <img src="{{ photoUrl }}" class="rounded-circle" width="150" height="150">
-
-                        <h3 class="mt-3">
-                            {% if organizer.url is defined %}<a href="{{ organizer.url }}">{% endif %}
-                                {{ organizer.name|raw }}
-                                {% if organizer.url is defined %}</a>{% endif %}
-                        </h3>
-
-                        <p>
-                            {{ organizer.responsibility|raw }}
-                        </p>
-
-                        {% if organizer.company is defined %}
-                            {% if organizer.company_url is defined %}<a href="{{ organizer.company_url }}">{% endif %}
-                            <strong>{{ organizer.company }}</strong>
-                            {% if organizer.company_url is defined %}</a>{% endif %}
-                        {% endif %}
-                    </div>
-                {% endfor %}
-
+        <div class="row" id="organizers">
+            {# @var organizer \Pehapkari\ValueObject\Organizer #}
+            {% for organizer in organizers %}
                 <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-5">
+                    {% set photoUrl %}{% if organizer.photo matches "#http#" %}{{ organizer.photo }}{% else %}/assets/images/people/{{ organizer.photo }}{% endif %}{% endset %}
 
-                    <img src="/assets/images/people/blank_face.jpg" class="rounded-circle" width="150" height="150">
+                    <img src="{{ photoUrl }}" class="rounded-circle" width="150" height="150">
+
                     <h3 class="mt-3">
-                        Ty?
+                        {% if organizer.url is defined %}<a href="{{ organizer.url }}">{% endif %}
+                            {{ organizer.name|raw }}
+                            {% if organizer.url is defined %}</a>{% endif %}
                     </h3>
+
                     <p>
-                        <a href="{{ path('contact') }}">Přidej se!</a>
+                        {{ organizer.responsibility|raw }}
                     </p>
+
+                    {% if organizer.company is defined %}
+                        {% if organizer.company_url is defined %}<a href="{{ organizer.company_url }}">{% endif %}
+                        <strong>{{ organizer.company }}</strong>
+                        {% if organizer.company_url is defined %}</a>{% endif %}
+                    {% endif %}
                 </div>
+            {% endfor %}
+
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-5">
+                <img src="/assets/images/people/blank_face.jpg" class="rounded-circle" width="150" height="150">
+                <h3 class="mt-3">
+                    Ty?
+                </h3>
+                <p>
+                    <a href="{{ path('contact') }}">Přidej se!</a>
+                </p>
             </div>
         </div>
     </div>

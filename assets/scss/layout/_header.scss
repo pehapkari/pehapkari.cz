@@ -10,8 +10,8 @@
     padding-right: 0;
 
     .container {
-        padding-left: 3em;
-        padding-right: 3em;
+        padding-left: .7em;
+        padding-right: .7em;
         display: flex;
     }
 
@@ -70,19 +70,6 @@
             text-decoration: none;
             color: $black;
             opacity: 1;
-        }
-    }
-}
-
-#footer {
-    p {
-        opacity: 1;
-        color: $grey;
-
-        a {
-            &:hover {
-                color: $white;
-            }
         }
     }
 }
