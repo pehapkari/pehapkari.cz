@@ -36,9 +36,3 @@ place_detail:
     controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'
     defaults:
         template: 'place/place_detail.twig'
-
-press:
-    path: 'press'
-    controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'
-    defaults:
-        template: 'homepage/press.twig'
