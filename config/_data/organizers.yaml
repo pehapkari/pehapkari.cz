@@ -4,55 +4,62 @@ parameters:
         -
             photo: "https://avatars2.githubusercontent.com/u/924196?s=460&v=4"
             name: "Tomáš Votruba"
-            responsibility: "vedení, komunikace, sponzoři, organizace srazů v Praze"
-            url: https://tomasvotruba.cz
+            responsibility: "školení & srazy v Praze<br>vše, co je potřeba"
+            url: "https://tomasvotruba.cz"
         -
             photo: "https://avatars0.githubusercontent.com/u/42802?s=460&v=4"
             name: "Honza Černý"
-            responsibility: "PoSobota, Nette Camp, PHP Hory a PHP Nomád"
-            url: https://honzacerny.com/
+            responsibility: "PoSobota, PHP akce a konference"
+            url: "https://honzacerny.com/"
         -
             photo: "https://avatars0.githubusercontent.com/u/3995003?s=400&v=4"
             name: "Jan Mikeš"
             responsibility: "hosting a deploy webu"
-            url: https://janmikes.cz/
+            url: "https://janmikes.cz"
+
+        # Brno
+        -
+            photo: "madga_valaskova.jpg"
+            name: "Magda Valášková"
+            company: "oXyShop"
+            company_url: "https://www.oxyshop.cz"
+            responsibility: "srazy v Brně"
+        -
+            photo: "https://avatars1.githubusercontent.com/u/1753937?s=460&v=4"
+            name: "Václav Čevela"
+            company: "PeckaDesign"
+            company_url: "https://www.peckadesign.cz"
+            responsibility: "srazy v Brně"
 
         # Pardubice
         -
             photo: "https://avatars0.githubusercontent.com/u/695438?s=460&v=4"
             name: "Václav Pávek"
-            responsibility: "organizace PHP Piva v Pardubicích"
-            url: "https://www.vaclavpavek.cz/"
+            responsibility: "PHP Pivo v Pardubicích"
+            url: "https://www.vaclavpavek.cz"
+        -
+            photo: jan_kopp.jpg
+            name: "Jan Kopp"
+            company: "Digital Solutions"
+            company_url: "https://www.digitalsolutions.cz"
+            responsibility: "srazy v Pardubicích"
+
+        -
+            photo: "martin_prokes.jpg"
+            name: "Martin Prokeš"
+            company: "Elasticr"
+            company_url: "https://www.elasticr.cz"
+            responsibility: "srazy v Havlíčkově Brodě"
+
         -
             photo: "https://avatars1.githubusercontent.com/u/133822?s=460&v=4"
             name: "Jan Kuchař"
             responsibility: "livestreamy ze srazů"
-            url: "https://grifart.cz/"
-        -
-            photo: jan_kopp.jpg
-            name: "Jan Kopp (Digital Solutions)"
-            responsibility: "organizace srazů v Pardubicích"
-            url: "https://www.digitalsolutions.cz/"
-        -
-            photo: "martin_prokes.jpg"
-            name: "Martin Prokeš (Elasticr)"
-            responsibility: "organizace srazů v Havlíčkově Brodě"
-            url: "https://www.hubbr.cz/"
-
-        # Brno
-        -
-            photo: "madga_valaskova.jpg"
-            name: "Magda Valáškova (Oxy Shop)"
-            responsibility: "organizace srazů v Brně"
-            url: "https://www.oxyshop.cz/"
-        -
-            photo: "https://avatars1.githubusercontent.com/u/1753937?s=460&v=4"
-            name: "Václav Čevela (PeckaDesign)"
-            responsibility: "organizace srazů v Brně"
-            url: "https://www.peckadesign.cz/"
+            url: "https://grifart.cz"
 
         -
             photo: richard_koza.jpg
             name: "Richard Koza"
             responsibility: "příprava newsletteru"
-            url: "https://www.umimeweby.cz"
+            company: "UmímeWeby"
+            company_url: "https://www.umimeweby.cz"

@@ -4,7 +4,6 @@ imports:
 
 parameters:
     locale: 'en' # for easy admin bundle
-    training_max_references_to_show: 3
     image_uploads: "/uploads/images/"
 
 # copied from Statie

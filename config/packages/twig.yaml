@@ -6,7 +6,6 @@ twig:
         - '_snippets/form/fields.twig'
 
     globals:
-        training_max_references_to_show: '%training_max_references_to_show%'
         image_uploads: '%image_uploads%'
 
     # see https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration

@@ -1,39 +1,22 @@
-.homepage {
-    .ph-heading__background {
-        height: 400px;
-        margin-top: .5em;
-        background-image: url(/assets/images/homepage/1@2x.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
+#welcome_image {
+    max-width: 30em;
+    margin: auto;
+    margin-bottom: 2em;
 }
 
-@include media-breakpoint-up(sm)  {
-    .homepage {
-        .ph-heading__background {
-            background-size: cover;
-        }
-    }
+#main_headline {
+    margin-top: 1.5em;
+    margin-bottom: .5em;
 }
 
-@include media-breakpoint-up(xl) {
-    .homepage {
-        .ph-heading__background {
-            position: absolute;
-            height: 588px;
-            right: 0;
-            background-image: url(/assets/images/homepage/1@2x.jpg);
-            max-height: initial;
-            width: 705px;
-            background-position: 50% 50%;
-            background-size: cover;
-            margin-top: 0;
-            top: 6em;
-            z-index: -1;
+#main_logo {
+    padding: 0 0 1.5em 0;
+    max-width: 13em;
+    min-width: 10em;
+}
 
-            @media (min-width: 1400px){
-                width: 882px;
-            }
-        }
-    }
+.submain_headline {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.3em;
 }
