@@ -3,39 +3,35 @@
 {% block main %}
     <div class="homepage" id="page">
         <div class="container">
-            <div class="ph-heading">
-                <div class="row">
-                    <div class="col-xl-7">
-                        <h1>
-                            Děláš&nbsp;v&nbsp;PHP?<br>
-                            Jsi&nbsp;jedním&nbsp;z&nbsp;nás
-                        </h1>
+            <h1>
+                Děláš&nbsp;v&nbsp;PHP?<br>
+                Jsi&nbsp;jedním&nbsp;z&nbsp;nás
+            </h1>
 
-                        <img src="/assets/images/slon/basic.png" alt="Slon" class="main-logo">
+            <p class="mb-3">
+                Na <strong>PHP</strong> běží <a href="https://w3techs.com/technologies/details/pl-php/all/all">79 % všech webů</a>.
+            </p>
 
-                        <p class="mb-3">
-                            Na <strong>PHP</strong> běží <a href="https://w3techs.com/technologies/details/pl-php/all/all">79 % všech webů</a>.
-                        </p>
+            <img src="/assets/images/slon/basic.png" alt="Slon" class="main-logo">
 
-                        <p>
-                            Tady najdeš komunitu lidí, kteří jej mají rádi a pracují s ním.
-                            <br>
-                            Můžeš mezi <strong>nimi najít nové přátele</strong> s podobnými zájmy,
-                            <br>ukážou ti <strong>moderní technologie</strong>, které ti usnadní práci,
-                            <br>
-                            a nebo tu <strong>najdeš novou práci</strong> s fajn lidmi.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="ph-heading__background">
+            <p>
+                Tady najdeš komunitu lidí, kteří jej mají rádi a pracují s ním.
+                <br>
+                Můžeš mezi <strong>nimi najít nové přátele</strong> s podobnými zájmy,
+                <br>ukážou ti <strong>moderní technologie</strong>, které ti usnadní práci,
+                <br>
+                a nebo tu <strong>najdeš novou práci</strong> s fajn lidmi.
+            </p>
+
+            <div id="welcome_image">
+                <img src="/assets/images/homepage/1@2x.jpg">
             </div>
         </div>
 
         <br>
-        <br>
 
-        {% set displayedLectureCount = 3 %}
+        {# @todo show 3 nerest trainings #}
+        {#        {% set displayedLectureCount = 3 %}#}
         {#{% for lecture in trainings %}#}
         {#{% if lecture.isActive() and displayedLectureCount <= 3 %}#}
         {#{% if displayedLectureCount == 0 %}#}
@@ -47,8 +43,7 @@
         {#{% endif %}#}
         {#{% endfor %}#}
 
-
-        {# add section with videos and top 5 viewed ones #}
+        {# @todo add section with videos and top 5 viewed ones #}
 
         <div class="background-grey section">
             <div class="container">
@@ -56,8 +51,6 @@
 
                 <div class="row">
                     <div class="col-md-7 text-center hidden-sm-down">
-                        {# @todo friendsofphp.org/ meetup.com info here #}
-                        {# https://friendsofphp.org/api/meetups.json #}
                         <img src="/assets/images/meetup_2.jpg" alt="Přijď na sraz" class="mb-4">
                     </div>
 
@@ -69,7 +62,7 @@
                         {% if nearest_meetup %}
                             <div class="card mt-4 shadow-card">
                                 <div class="card-body pb-3">
-                                    <h3 class="mt-1">Kdy je další?</h3>
+                                    <h3 class="mt-1">Kdy bude další?</h3>
 
                                     <ul>
                                         <li>
