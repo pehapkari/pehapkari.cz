@@ -7,11 +7,6 @@ parameters:
             responsibility: "školení & srazy v Praze<br>vše, co je potřeba"
             url: "https://tomasvotruba.cz"
         -
-            photo: "https://avatars0.githubusercontent.com/u/42802?s=460&v=4"
-            name: "Honza Černý"
-            responsibility: "PoSobota, PHP akce a konference"
-            url: "https://honzacerny.com/"
-        -
             photo: "https://avatars0.githubusercontent.com/u/3995003?s=400&v=4"
             name: "Jan Mikeš"
             responsibility: "hosting a deploy webu"
@@ -50,12 +45,6 @@ parameters:
             company: "Elasticr"
             company_url: "https://www.elasticr.cz"
             responsibility: "srazy v Havlíčkově Brodě"
-
-        -
-            photo: "https://avatars1.githubusercontent.com/u/133822?s=460&v=4"
-            name: "Jan Kuchař"
-            responsibility: "livestreamy ze srazů"
-            url: "https://grifart.cz"
 
         -
             photo: richard_koza.jpg
