@@ -75,6 +75,10 @@
 }
 
 #mobile-menu {
+    .ph-nav__logo {
+        margin: 0;
+    }
+
     a {
         padding: .6em 0;
 
@@ -86,14 +90,6 @@
     .active {
         background: black;
         color: white;
-    }
-}
-
-#footer .ph-nav__logo {
-    margin-top: .4em;
-
-    img {
-        width: 3em;
     }
 }
 
