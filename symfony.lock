@@ -554,6 +554,9 @@
             "config/bootstrap.php"
         ]
     },
+    "symfony/contracts": {
+        "version": "v1.1.0"
+    },
     "symfony/css-selector": {
         "version": "v4.3.1"
     },
