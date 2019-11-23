@@ -47,7 +47,7 @@ final class StatieFiltersExtension extends AbstractExtension
                     $this->ensureArgumentIsGeneratorFile($generatorFile);
 
                     /** @var AbstractGeneratorFile $generatorFile */
-                    return $generatorFile->getRelativeUrl();
+                    return '/' . $generatorFile->getRelativeUrl();
                 }
             ),
         ];
