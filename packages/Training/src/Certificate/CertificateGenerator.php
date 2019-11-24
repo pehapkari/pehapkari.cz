@@ -74,19 +74,12 @@ final class CertificateGenerator
     public function generateForTrainingTermAndName(TrainingTerm $trainingTerm, string $participantName): string
     {
         $training = $trainingTerm->getTraining();
-        $trainer = $training->getTrainer();
 
         $trainingName = $training->getNameForCertificate();
 
         $date = $trainingTerm->getStartDateTime()->format('j. n. Y');
-        $trainerName = $trainer->getName();
 
-        return $this->generateForTrainingNameDateAndParticipantName(
-            $trainingName,
-            $date,
-            $participantName,
-            $trainerName
-        );
+        return $this->generateForTrainingNameDateAndParticipantName($trainingName, $date, $participantName);
     }
 
     /**
@@ -95,34 +88,26 @@ final class CertificateGenerator
     private function generateForTrainingTermRegistration(TrainingRegistration $trainingRegistration): string
     {
         $training = $trainingRegistration->getTraining();
-        $trainer = $training->getTrainer();
 
         $trainingName = $training->getNameForCertificate();
 
         $date = $trainingRegistration->getTrainingTermDate()->format('j. n. Y');
         $participantName = (string) $trainingRegistration->getName();
-        $trainerName = $trainer->getName();
 
-        return $this->generateForTrainingNameDateAndParticipantName(
-            $trainingName,
-            $date,
-            $participantName,
-            $trainerName
-        );
+        return $this->generateForTrainingNameDateAndParticipantName($trainingName, $date, $participantName);
     }
 
     private function generateForTrainingNameDateAndParticipantName(
         string $trainingName,
         string $date,
-        string $participantName,
-        string $trainerName
+        string $participantName
     ): string {
         $this->fpdi = $this->pdfFactory->createHorizontalWithTemplate(
-            __DIR__ . '/../../../../public/assets/pdf/certificate.pdf'
+            __DIR__ . '/../../../../public/assets/pdf/certificate_empty.pdf'
         );
 
         $tppl = $this->fpdi->importPage(1);
-        $this->fpdi->useTemplate($tppl, 25, 0);
+        $this->fpdi->useTemplate($tppl);
 
         $this->setBlackColor();
 
@@ -130,7 +115,6 @@ final class CertificateGenerator
         $this->addParticipantName($participantName);
         $this->addDate($date);
         $this->addTrainingName($trainingName);
-        $this->addTrainerName($trainerName);
 
         $destination = $this->createDestination($trainingName, $participantName);
         // ensure directory exists
@@ -148,26 +132,22 @@ final class CertificateGenerator
 
     private function addParticipantName(string $participantName): void
     {
-        $this->fpdi->SetFont('Georgia', '', 32);
-        $this->addTextToCenter($participantName, 240);
+        $this->fpdi->SetFont('BundaySlab-ThinIt', '', 73);
+        $this->addTextToCenter($participantName, 209);
     }
 
     private function addDate(string $date): void
     {
-        $this->fpdi->SetFont('Georgia', '', 13);
-        $this->addTextToCenter($date, 295);
+        $this->fpdi->SetFont('BundaySlab-Bold', '', 21);
+        $this->addTextToCenter($date, 363);
     }
 
     private function addTrainingName(string $trainingName): void
     {
-        $this->fpdi->SetFont('DejaVuSans', '', 25);
-        $this->addTextToCenter($trainingName, 333);
-    }
+        $trainingName = strtoupper($trainingName);
 
-    private function addTrainerName(string $trainerName): void
-    {
-        $this->fpdi->SetFont('Georgia', '', 18);
-        $this->addTextToCenter($trainerName, 455);
+        $this->fpdi->SetFont('BundaySlab-Bold', '', 35);
+        $this->addTextToCenter($trainingName, 395);
     }
 
     private function createDestination(string $trainingName, string $participantName): string

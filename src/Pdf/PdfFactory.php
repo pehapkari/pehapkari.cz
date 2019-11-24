@@ -38,8 +38,8 @@ final class PdfFactory
      */
     private function loadFontsToPdf(Fpdi $fpdi): void
     {
-        // certificates
-        $fpdi->AddFont('DejaVuSans', '', 'DejaVuSans.php');
-        $fpdi->AddFont('Georgia', '', 'Georgia.php');
+        $fpdi->AddFont('BundaySlab-Bold', '', 'BundaySlab-Bold.php');
+        $fpdi->AddFont('BundaySlab-LightUp', '', 'BundaySlab-LightUp.php');
+        $fpdi->AddFont('BundaySlab-ThinIt', '', 'BundaySlab-ThinIt.php');
     }
 }
