@@ -1,10 +1,3 @@
-imports:
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/php71.yaml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/clean-code.yaml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/symplify.yaml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/common.yaml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/psr12.yaml' }
-
 services:
     # Slevomat
     SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff: ~
@@ -34,6 +27,13 @@ services:
             - 'Symfony\Component\Security\Csrf\CsrfToken'
 
 parameters:
+    sets:
+        - 'php71'
+        - 'clean-code'
+        - 'symplify'
+        - 'common'
+        - 'psr12'
+
     exclude_files:
         - 'src/Kernel.php'
 
@@ -58,3 +58,6 @@ parameters:
         SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff.UnusedVariable:
             # test
             - 'statie/tests/Posts/Year2017/Iterators/*.php'
+
+        # disable random annotation removal of this Sniff
+        SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.UselessDocComment: ~
