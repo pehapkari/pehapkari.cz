@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Pdf;
 
+use Pehapkari\Training\ValueObject\Font;
 use setasign\Fpdi\Fpdi;
 
 final class PdfFactory
@@ -33,13 +34,16 @@ final class PdfFactory
     }
 
     /**
-     * Encode font here to get *.php and *.t versions: http://www.fpdf.org/makefont
-     * Use cp-1250
+     * Encode font here to get *.php and *.t versions: http://www.fpdf.org/makefont - ***pick cp-1250***!!!!! cp-1252 is picked by default - this caused me hour of shit
+     *
+     * If it says: "Error: OpenType fonts based on PostScript outlines are not supported"
+     * use try this: https://stackoverflow.com/a/2875916/1348344
+     * to create True Type font a
      */
     private function loadFontsToPdf(Fpdi $fpdi): void
     {
-        $fpdi->AddFont('BundaySlab-Bold', '', 'BundaySlab-Bold.php');
-        $fpdi->AddFont('BundaySlab-LightUp', '', 'BundaySlab-LightUp.php');
-        $fpdi->AddFont('BundaySlab-ThinIt', '', 'BundaySlab-ThinIt.php');
+        foreach (Font::ALL_FONTS as $font) {
+            $fpdi->AddFont($font, '', $font . '.php');
+        }
     }
 }
