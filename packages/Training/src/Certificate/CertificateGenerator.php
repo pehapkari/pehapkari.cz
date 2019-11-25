@@ -10,6 +10,7 @@ use Nette\Utils\Strings;
 use Pehapkari\Pdf\PdfFactory;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Training\Entity\TrainingTerm;
+use Pehapkari\Training\ValueObject\Font;
 use Pehapkari\Zip\Zip;
 use setasign\Fpdi\Fpdi;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
@@ -132,13 +133,13 @@ final class CertificateGenerator
 
     private function addParticipantName(string $participantName): void
     {
-        $this->fpdi->SetFont('BundaySlab-ThinIt', '', 73);
+        $this->fpdi->SetFont(Font::BUNDAY_ITALIC, '', 73);
         $this->addTextToCenter($participantName, 209);
     }
 
     private function addDate(string $date): void
     {
-        $this->fpdi->SetFont('BundaySlab-Bold', '', 21);
+        $this->fpdi->SetFont(Font::BUNDAY_BOLD, '', 21);
         $this->addTextToCenter($date, 363);
     }
 
@@ -146,7 +147,7 @@ final class CertificateGenerator
     {
         $trainingName = strtoupper($trainingName);
 
-        $this->fpdi->SetFont('BundaySlab-Bold', '', 35);
+        $this->fpdi->SetFont(Font::BUNDAY_BOLD, '', 35);
         $this->addTextToCenter($trainingName, 395);
     }
 
