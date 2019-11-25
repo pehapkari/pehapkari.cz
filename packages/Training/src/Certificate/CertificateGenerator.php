@@ -145,7 +145,7 @@ final class CertificateGenerator
 
     private function addTrainingName(string $trainingName): void
     {
-        $trainingName = strtoupper($trainingName);
+        $trainingName = Strings::upper($trainingName);
 
         $this->fpdi->SetFont(Font::BUNDAY_BOLD, '', 35);
         $this->addTextToCenter($trainingName, 395);
