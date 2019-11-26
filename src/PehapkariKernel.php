@@ -58,7 +58,6 @@ final class PehapkariKernel extends Kernel
         $this->flexLoader->loadConfigs($containerBuilder, $loader, [
             // project packages
             $this->getProjectDir() . '/packages/*/config/*',
-            $this->getProjectDir() . '/packages/*/config/packages/*',
         ]);
     }
 
