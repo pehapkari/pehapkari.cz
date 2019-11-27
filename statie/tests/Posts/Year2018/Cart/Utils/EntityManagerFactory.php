@@ -8,17 +8,13 @@ use Doctrine\DBAL\Connection;
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver;
-use Doctrine\ORM\ORMException;
 use Doctrine\ORM\Proxy\ProxyFactory;
 use Doctrine\ORM\Tools\SchemaTool;
-use Doctrine\ORM\Tools\ToolsException;
 
 final class EntityManagerFactory
 {
     /**
      * @param string[] $schemaClassNames
-     * @throws ORMException
-     * @throws ToolsException
      */
     public static function createEntityManager(Connection $connection, array $schemaClassNames): EntityManager
     {

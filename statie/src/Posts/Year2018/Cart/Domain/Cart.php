@@ -35,18 +35,12 @@ final class Cart
         }
     }
 
-    /**
-     * @throws ProductNotInCartException
-     */
     public function remove(string $productId): void
     {
         $key = $this->findKey($productId);
         unset($this->items[$key]);
     }
 
-    /**
-     * @throws ProductNotInCartException
-     */
     public function changeAmount(string $productId, int $amount): void
     {
         $item = $this->find($productId);
@@ -73,9 +67,6 @@ final class Cart
         return $this->id;
     }
 
-    /**
-     * @throws ProductNotInCartException
-     */
     private function find(string $productId): Item
     {
         foreach ($this->items as $item) {
@@ -87,9 +78,6 @@ final class Cart
         throw new ProductNotInCartException();
     }
 
-    /**
-     * @throws ProductNotInCartException
-     */
     private function findKey(string $productId): int
     {
         foreach ($this->items as $key => $item) {
