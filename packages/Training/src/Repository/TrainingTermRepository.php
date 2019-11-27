@@ -51,7 +51,6 @@ final class TrainingTermRepository
     }
 
     /**
-     * @param mixed $id
      * @return bool|Proxy|object|null
      */
     public function getReference($id)

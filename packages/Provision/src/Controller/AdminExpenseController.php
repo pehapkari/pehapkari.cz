@@ -26,7 +26,8 @@ final class AdminExpenseController extends EasyAdminController
     }
 
     /**
-     * @inheritdoc
+     * @param object $entity
+     * @param mixed[] $entityProperties
      */
     protected function createEditForm($entity, array $entityProperties): FormInterface
     {
@@ -36,7 +37,8 @@ final class AdminExpenseController extends EasyAdminController
     }
 
     /**
-     * @inheritdoc
+     * @param object $entity
+     * @param mixed[] $entityProperties
      */
     protected function createNewForm($entity, array $entityProperties): FormInterface
     {

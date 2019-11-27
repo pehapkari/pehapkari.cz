@@ -14,18 +14,6 @@ services:
             - 'Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository'
             - 'Doctrine\ORM\EntityRepository'
 
-    Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
-        extra_allowed_classes:
-            - 'setasign\Fpdi\*'
-            - 'Pehapkari\Provision\Data\*'
-            - 'App\Request\*Request'
-            - 'Doctrine\Common\Collections\ArrayCollection'
-            - 'Symfony\Component\Form\FormError'
-            # pre-container used classes
-            - 'Symplify\Autodiscovery\Util\*'
-            - 'Symfony\Component\Config\Resource\FileResource'
-            - 'Symfony\Component\Security\Csrf\CsrfToken'
-
 parameters:
     sets:
         - 'php71'
@@ -42,10 +30,8 @@ parameters:
         Symplify\CodingStandard\Fixer\Order\PropertyOrderByComplexityFixer:
             - '*Entity*'
 
-        # 3rd party contract
-        SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
-            - 'packages/User/src/Security/PehapkariAuthenticator.php'
-            - 'packages/Registration/src/Api/FakturoidClient.php'
+        # skip mixed
+        SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint: ~
 
         # from symplify.yaml set
         Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~

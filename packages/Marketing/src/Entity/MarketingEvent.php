@@ -6,7 +6,7 @@ namespace Pehapkari\Marketing\Entity;
 
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Timestampable\Traits\Timestampable;
+use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 use Pehapkari\Training\Entity\TrainingTerm;
 
 /**

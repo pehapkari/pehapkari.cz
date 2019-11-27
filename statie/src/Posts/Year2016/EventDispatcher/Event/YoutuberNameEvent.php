@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Statie\Posts\Year2016\EventDispatcher\Event;
 
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Contracts\EventDispatcher\Event;
 
 final class YoutuberNameEvent extends Event
 {

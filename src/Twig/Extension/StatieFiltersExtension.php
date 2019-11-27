@@ -53,9 +53,6 @@ final class StatieFiltersExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param mixed $value
-     */
     private function ensureArgumentIsGeneratorFile($value): void
     {
         if ($value instanceof AbstractGeneratorFile) {
