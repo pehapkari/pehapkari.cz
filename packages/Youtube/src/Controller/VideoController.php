@@ -15,23 +15,45 @@ use Symfony\Component\Routing\Annotation\Route;
 final class VideoController extends AbstractController
 {
     /**
-     * @Route(path="prehaj-si-prednasku", name="videos")
+     * @var VideosDataProvider
      */
-    public function __invoke(
+    private $videosDataProvider;
+
+    /**
+     * @var ArrayByDateTimeSorter
+     */
+    private $arrayByDateTimeSorter;
+
+    /**
+     * @var ArrayToValueObjectHydrator
+     */
+    private $arrayToValueObjectHydrator;
+
+    public function __construct(
         VideosDataProvider $videosDataProvider,
         ArrayByDateTimeSorter $arrayByDateTimeSorter,
         ArrayToValueObjectHydrator $arrayToValueObjectHydrator
-    ): Response {
+    ) {
+        $this->videosDataProvider = $videosDataProvider;
+        $this->arrayByDateTimeSorter = $arrayByDateTimeSorter;
+        $this->arrayToValueObjectHydrator = $arrayToValueObjectHydrator;
+    }
+
+    /**
+     * @Route(path="prehaj-si-prednasku", name="videos")
+     */
+    public function __invoke(): Response
+    {
         $meetupPlaylists = array_merge(
-            $videosDataProvider->provideYoutubeVideos()['meetups'],
-            $videosDataProvider->provideFacebookVideos()['meetups']
+            $this->videosDataProvider->provideYoutubeVideos()['meetups'],
+            $this->videosDataProvider->provideFacebookVideos()['meetups']
         );
 
         // sort meetups by month
-        $meetupPlaylists = $arrayByDateTimeSorter->sortByKey($meetupPlaylists, 'month');
+        $meetupPlaylists = $this->arrayByDateTimeSorter->sortByKey($meetupPlaylists, 'month');
 
         foreach ($meetupPlaylists as $key => $meetupPlaylist) {
-            $meetupPlaylists[$key]['videos'] = $arrayToValueObjectHydrator->hydrateArraysToValueObject(
+            $meetupPlaylists[$key]['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
                 $meetupPlaylist['videos'],
                 Video::class
             );
@@ -39,10 +61,10 @@ final class VideoController extends AbstractController
 
         return $this->render('videos/videos.twig', [
             'meetup_playlists' => $meetupPlaylists,
-            'livestream_count' => $videosDataProvider->getLivestreamVideosCount(),
+            'livestream_count' => $this->videosDataProvider->getLivestreamVideosCount(),
             'meetup_count' => count($meetupPlaylists),
-            'video_count' => $videosDataProvider->getMeetupVideosCount(),
-            'php_prague_count' => $videosDataProvider->getPhpPragueVideosCount(),
+            'video_count' => $this->videosDataProvider->getMeetupVideosCount(),
+            'php_prague_count' => $this->videosDataProvider->getPhpPragueVideosCount(),
         ]);
     }
 }

@@ -13,15 +13,29 @@ use Symfony\Component\Routing\Annotation\Route;
 final class HomepageController extends AbstractController
 {
     /**
+     * @var OragnizerProvider
+     */
+    private $oragnizerProvider;
+
+    /**
+     * @var NearestMeetupProvider
+     */
+    private $nearestMeetupProvider;
+
+    public function __construct(OragnizerProvider $oragnizerProvider, NearestMeetupProvider $nearestMeetupProvider)
+    {
+        $this->oragnizerProvider = $oragnizerProvider;
+        $this->nearestMeetupProvider = $nearestMeetupProvider;
+    }
+
+    /**
      * @Route(path="/", name="homepage")
      */
-    public function __invoke(
-        OragnizerProvider $oragnizerProvider,
-        NearestMeetupProvider $nearestMeetupProvider
-    ): Response {
+    public function __invoke(): Response
+    {
         return $this->render('homepage/homepage.twig', [
-            'organizers' => $oragnizerProvider->provide(),
-            'nearest_meetup' => $nearestMeetupProvider->provide(),
+            'organizers' => $this->oragnizerProvider->provide(),
+            'nearest_meetup' => $this->nearestMeetupProvider->provide(),
         ]);
     }
 }
