@@ -16,28 +16,62 @@ use Symfony\Component\Routing\Annotation\Route;
 final class TrainingsController extends AbstractController
 {
     /**
-     * @Route(path="vzdelavej-se", name="trainings")
+     * @var TrainingTermRepository
      */
-    public function __invoke(
+    private $trainingTermRepository;
+
+    /**
+     * @var TrainingRepository
+     */
+    private $trainingRepository;
+
+    /**
+     * @var TrainingFeedbackRepository
+     */
+    private $trainingFeedbackRepository;
+
+    /**
+     * @var TrainerRepository
+     */
+    private $trainerRepository;
+
+    /**
+     * @var TrainingStatistics
+     */
+    private $trainingStatistics;
+
+    public function __construct(
         TrainingTermRepository $trainingTermRepository,
         TrainingRepository $trainingRepository,
         TrainingFeedbackRepository $trainingFeedbackRepository,
         TrainerRepository $trainerRepository,
         TrainingStatistics $trainingStatistics
-    ): Response {
+    ) {
+        $this->trainingTermRepository = $trainingTermRepository;
+        $this->trainingRepository = $trainingRepository;
+        $this->trainingFeedbackRepository = $trainingFeedbackRepository;
+        $this->trainerRepository = $trainerRepository;
+        $this->trainingStatistics = $trainingStatistics;
+    }
+
+    /**
+     * @Route(path="vzdelavej-se", name="trainings")
+     */
+    public function __invoke(): Response
+    {
         return $this->render('training/trainings.twig', [
-            'upcoming_training_terms' => $trainingTermRepository->getUpcoming(),
-            'inactive_trainings' => $trainingRepository->getInactiveTrainings(),
+            'upcoming_training_terms' => $this->trainingTermRepository->getUpcoming(),
+            'inactive_trainings' => $this->trainingRepository->getInactiveTrainings(),
 
-            'total_training_term_count' => $trainingStatistics->getFinishedTrainingsCount(),
-            'total_participant_count' => $trainingStatistics->getRegistrationCount(),
+            'total_training_term_count' => $this->trainingStatistics->getFinishedTrainingsCount(),
+            'total_participant_count' => $this->trainingStatistics->getRegistrationCount(),
 
-            'feedbacks' => $trainingFeedbackRepository->getForMainPage(),
+            'feedbacks' => $this->trainingFeedbackRepository->getForMainPage(),
 
-            'average_training_rating' => $trainingStatistics->getAverageTrainingRating(),
-            'average_training_rating_stars' => $trainingStatistics->getAverageTrainingRatingStarsCount(),
+            'average_training_rating' => $this->trainingStatistics->getAverageTrainingRating(),
+            'average_training_rating_stars' => $this->trainingStatistics->getAverageTrainingRatingStarsCount(),
 
-            'trainer_count' => $trainerRepository->getCount(),
+            'trainer_count' => $this->trainerRepository->getCount(),
         ]);
     }
 }

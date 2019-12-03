@@ -33,8 +33,9 @@ final class PehapkariMailer
         $email = $this->createEmail();
         $email->to($trainingRegistration->getEmail());
         $email->subject(sprintf('Vítej na školení %s', $training->getName()));
-        $email->htmlTemplate('email/email_welcome_to_training.twig');
 
+        // set templates with variables
+        $email->htmlTemplate('email/email_welcome_to_training.twig');
         $email->context([
             'training' => $trainingRegistration->getTraining(),
             'training_term' => $trainingRegistration->getTrainingTerm(),

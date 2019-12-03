@@ -12,12 +12,22 @@ use Symfony\Component\Routing\Annotation\Route;
 final class LivestreamVideosController extends AbstractController
 {
     /**
+     * @var VideosDataProvider
+     */
+    private $videosDataProvider;
+
+    public function __construct(VideosDataProvider $videosDataProvider)
+    {
+        $this->videosDataProvider = $videosDataProvider;
+    }
+
+    /**
      * @Route(path="livestreamy", name="livestream")
      */
-    public function __invoke(VideosDataProvider $videosDataProvider): Response
+    public function __invoke(): Response
     {
         return $this->render('videos/livestream.twig', [
-            'livestream_videos' => $videosDataProvider->provideLivestreamVideos(),
+            'livestream_videos' => $this->videosDataProvider->provideLivestreamVideos(),
         ]);
     }
 }

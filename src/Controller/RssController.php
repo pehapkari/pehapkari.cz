@@ -13,13 +13,29 @@ use Symfony\Component\Routing\Annotation\Route;
 final class RssController extends AbstractController
 {
     /**
+     * @var AuthorsProvider
+     */
+    private $authorsProvider;
+
+    /**
+     * @var PostsProvider
+     */
+    private $postsProvider;
+
+    public function __construct(AuthorsProvider $authorsProvider, PostsProvider $postsProvider)
+    {
+        $this->authorsProvider = $authorsProvider;
+        $this->postsProvider = $postsProvider;
+    }
+
+    /**
      * @Route(path="rss.xml", name="rss")
      */
-    public function __invoke(PostsProvider $postsProvider, AuthorsProvider $authorsProvider): Response
+    public function __invoke(): Response
     {
         $response = $this->render('homepage/rss.xml.twig', [
-            'posts' => $postsProvider->provide(),
-            'authors' => $authorsProvider->provide(),
+            'posts' => $this->postsProvider->provide(),
+            'authors' => $this->authorsProvider->provide(),
         ]);
 
         $response->headers->set('Content-Type', 'xml');
