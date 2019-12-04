@@ -108,6 +108,12 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
         "check-cs": "vendor/bin/ecs check packages src statie --ansi",
         "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix --ansi",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
