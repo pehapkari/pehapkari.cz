@@ -47,7 +47,7 @@ jobs:
                 - composer rector-dry
 
         -
-            name: 'Linting YAML and Templates'
+            name: 'Symfony Linting'
             script:
                 - bin/console lint:yaml src packages
                 - bin/console lint:twig packages templates

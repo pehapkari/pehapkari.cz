@@ -20,19 +20,19 @@ Vydanie Symfony verzie 4 prinieslo so sebou viacero noviniek, medzi nimi aj **Sy
 
 Náhľad do ``composer.json`` Symfony verzie 4:
 
-````bash
+```bash
 "symfony/console": "^4.0",
 "symfony/flex": "^1.0",
 "symfony/framework-bundle": "^4.0",
 "symfony/lts": "^4@dev",
 "symfony/yaml": "^4.0"
-````
+```
 
 Po inštalácií obsahuje vendor zložka 21 knižníc, ktoré sú nutné pre beh frameworku. Neobsahuje žiadne závislosti na šablónovací systém, ORM, debugovacie nástroje, logovacie nástroje, ktoré je nutné v prípade potreby doinštalovať.
 
 Pre porovnanie náhľad do ``composer.json`` Symfony verzie 3.4:
 
-````bash
+```bash
 "doctrine/doctrine-bundle": "^1.6",
 "doctrine/orm": "^2.5",
 "incenteev/composer-parameter-handler": "^2.0",
@@ -43,7 +43,7 @@ Pre porovnanie náhľad do ``composer.json`` Symfony verzie 3.4:
 "symfony/swiftmailer-bundle": "^2.6.4",
 "symfony/symfony": "3.4.*",
 "twig/twig": "^1.0||^2.0"
-````
+```
 
 Veľkosť samotného frameworku sa zmenšila o neuveriteľných 70%. To je skvelá správa z pohľadu výkonu, ktorý sa pri jednoduchej "Hello World" aplikácií pod PHP 7.2 [zdvojnásobil](http://fabien.potencier.org/symfony4-performance.html) v porovnaní s verziou 3.4.
 
@@ -51,7 +51,7 @@ Veľkosť samotného frameworku sa zmenšila o neuveriteľných 70%. To je skvel
 
 V rámci **konfigurácie** bol odstránený súbor ``parameters.yml`` a nahrádzajú ho tzv. premenné prostedia, ktoré sa definujú v súbore ``.env`` umiestnenom v koreňovom adresári. Tento súbor sa neverzuje a je vždy viazaný na konkrétne behové prostredie. Ukážka jednoduchého ``.env`` súboru s konfiguráciou frameworku a doctríny:
 
-````bash
+```bash
 ###> symfony/framework-bundle ###
 APP_ENV=dev
 APP_SECRET=29f90564f9e472955211be8c5e05ee0a
@@ -62,7 +62,7 @@ APP_SECRET=29f90564f9e472955211be8c5e05ee0a
 ###> doctrine/doctrine-bundle ###
 DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
 ###< doctrine/doctrine-bundle ###
-````
+```
 
 Použitie premenných prostredia má viacero výhod:
 * sú štandardným spôsobom správy konfigurácie pre rôzne prostredia,
@@ -75,19 +75,19 @@ Použitie premenných prostredia má viacero výhod:
 
 Viacerých vylepšení sa dočkal **DI kontajner** už vo verzií [Symfony 3.3](https://symfony.com/doc/current/service_container/3.3-di-changes.html), ktorých cieľom bolo zjednodušiť registráciu a konfiguráciu služieb. Symfony 4 zachováva všetky zlepšenia s tým rozdielom, že ich definuje ako predvolené.
 
-````json
+```json
 services:
     _defaults:
         autowire: true
         autoconfigure: true
         public: false
-````
+```
 
 ### Adresárová štruktúra
 
 Zmenami prešla aj adresárová štruktúra z dôvodu podpory Flexu a tiež pre zosúladenie s [unixovým štandardom](http://fabien.potencier.org/symfony4-directory-structure.html):
 
-````bash
+```bash
 symfony4-project/
 ├── bin/
 │   └── console
@@ -103,7 +103,7 @@ symfony4-project/
 │   └── Kernel.php
 ├── var/
 └── vendor/
-````
+```
 
 Adresár ``app``, ako ho možno poznáte napríklad z Nette, bol rozdelený medzi adresáre ``config`` a ``src`` nachádzajúce sa priamo v koreni.
 
@@ -111,7 +111,7 @@ Adresár ``config`` zahŕňa konfiguračné súbory jak frameworku, tak jednotli
 
 Okrem konfiguračných súborov zahŕňa adresár ``config`` aj súbor ``bundles.php``, ktorého úlohou je definovať všetky aktuálne registrované balíčky v rámci Symfony projektu. Obsahom súboru je pole tvorené z cesty k tzv. **bundle súboru** ako kľúča a hodnota je opäť pole, ktoré určuje jedno alebo viac prostredí, pre ktoré bude balíček dostupný. Triedenie balíčkov podľa potreby vývojového, testovacieho, či produkčného prostredia nebolo nikdy jednoduchšie. Príklad súboru ``bundles.php``:
 
-````php
+```php
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
@@ -119,25 +119,25 @@ return [
     Symfony\Bundle\MonologBundle\MonologBundle::class => ['dev' => true],
     ...
 ];
-````
+```
 
 Pre všetkú biznis logiku je pripravený adresár ``src`` , v ktorom je taktiež  aj bootstrap súbor frameworku ``Kernel.php``. PHP súbory z adresára sú načítavané autoloadingom štandardu [PSR-4](https://www.php-fig.org/psr/psr-4/), kde namespace začína priamo na ``App\``. Začiatok namespacu určuje následujúca direktíva v ``composer.json``:
 
-````json
+```json
 "autoload": {
     "psr-4": {
         "App\\": "src/"
     }
 },
-````
+```
 
 Pôvodne adresár ``web`` (alebo ``www`` v Nette) bol premenovaný na public a obsahuje ``index.php``. Vznikol mergnutím dvoch php súborov ``app.php`` a ``app_dev.php`` z minulých verzií, kde každý z týchto súborov slúžil pre iné prostredie. Tento dvojaký prístup k aplikácií už nie je potrebný, keďže typ prostredia určuje premenná definovaná v konfiguračnom súbore ``.env``:
 
-````bash
+```bash
 ###> symfony/framework-bundle ###
 APP_ENV=dev
 ###< symfony/framework-bundle ###
-````
+```
 
 Adresár ``public`` je vhodným miestom pre assety (css-ka, javascriptové knižnice), obrázky, dokumenty a podobne.
 
@@ -149,9 +149,9 @@ Posledný ``bin`` klasicky obsahuje binárky.
 
 Symfony 4 je možné nainštalovať výhradne prostredníctvom nástroja [Composer](https://getcomposer.org/), následujúcou direktívou:
 
-````bash
+```bash
 $ composer create-project symfony/skeleton symfony4-project
-````
+```
 
 Na základe príkazu Composer stiahne repozitár [symfony/skeleton](https://github.com/symfony/skeleton), ktorý obsahuje iba súbor ``composer.json``, definujúci závislosti frameworku, ktoré nainštaluje.
 
@@ -163,21 +163,21 @@ Predpokladajme, že si na začiatok chceme navrhnúť jednoduchú webstránku. N
 
 Samozrejme použijeme Symfony Flex a zadefinujeme novú závislosť:
 
-````bash
+```bash
 $ composer require twig
-````
+```
 
 Po ukončení inštalácie si všimnime zmeny, ktoré nastali v projekte. Ako prvé nás zaujme nový adresár ``templates`` v koreni projetku, kde tento adresár bude slúžiť ako úložisko pre všetky šablóny v rámci projektu.
 
 Ak nazrieme do súboru ``bundles.php`` zistíme, že Flex zaregistroval balíček do zoznamu pre všetky prostredia. Vznikli taktiež potrebné konfiguračné súbory v zložke ``packages`` s predvolenými nastaveniami.
 
-````php
+```php
 return [
     ...
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
     ...
 ];
-````
+```
 Od tejto chvíle môžeme balíček okamžite používať bez potreby ďalšej konfigurácie.
 
 ### Čo sa vlastne stalo?
@@ -188,7 +188,7 @@ Situácia bude iná, pokiaľ sa k požadovanej závislosti nájde recept pre Sym
 
 Ako teda taký recept môže vyzerať sa pozrieme do súboru [manifest.json](https://github.com/symfony/recipes/blob/master/symfony/twig-bundle/3.3/manifest.json):
 
-````json
+```json
 {
     "bundles": {
         "Symfony\\Bundle\\TwigBundle\\TwigBundle": ["all"]
@@ -199,11 +199,11 @@ Ako teda taký recept môže vyzerať sa pozrieme do súboru [manifest.json](htt
     },
     "aliases": ["twig", "template", "templates"]
 }
-````
+```
 
 O spracovaných receptoch v rámci procesu informuje výpis v konzole:
 
-````bash
+```bash
 Package operations: 3 installs, 0 updates, 0 removals
   - Installing twig/twig (v2.4.7): Loading from cache
   - Installing symfony/twig-bridge (v4.0.6): Loading from cache
@@ -211,7 +211,7 @@ Package operations: 3 installs, 0 updates, 0 removals
 
 Symfony operations: 1 recipe (66e53f29c335c61bdbf961f6f963b888)
   - Configuring symfony/twig-bundle (>=3.3): From github.com/symfony/recipes:master
-````
+```
 
 Tento [recept](https://github.com/symfony/recipes/tree/master/symfony/twig-bundle) je skutočne jednoduchý, kde celá registrácia a konfigurácia twigu do projektu pozostáva z dvoch krokov:
     1. mergnutie poľa bundles s aktuálnym poľom vo Vašom súbore ``config/bundles.php``,

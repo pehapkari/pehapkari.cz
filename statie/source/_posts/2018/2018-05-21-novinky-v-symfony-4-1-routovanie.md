@@ -81,9 +81,10 @@ admin-dashboard:
 Pokiaľ preferujeme inline definíciu v kontroleroch, zápis by mohol vyzerať takto.
 
 ```php
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DashboardController extends Controller
+final class DashboardController extends AbstractController
 {
     /**
      * @Route({
@@ -141,8 +142,9 @@ Skratený zápis môžeme použit vo všetkých formátoch, napríklad aj v kont
 
 ```php
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ArticlesController extends Controller
+final class ArticlesController extends AbstractController
 {
     /**
      * Klasický zápis s requirements a defaults

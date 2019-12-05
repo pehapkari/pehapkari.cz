@@ -2,6 +2,18 @@
     "alterphp/easyadmin-extension-bundle": {
         "version": "v2.1.6"
     },
+    "antishov/doctrine-extensions-bundle": {
+        "version": "1.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.4",
+            "ref": "6c1ceb662f8997085f739cd089bfbef67f245983"
+        },
+        "files": [
+            "config/packages/stof_doctrine_extensions.yaml"
+        ]
+    },
     "beberlei/assert": {
         "version": "v2.9.9"
     },
@@ -149,7 +161,7 @@
         ]
     },
     "gedmo/doctrine-extensions": {
-        "version": "v2.4.37"
+        "version": "v2.4.38"
     },
     "guzzlehttp/guzzle": {
         "version": "6.3.3"
@@ -230,7 +242,7 @@
         "version": "v3.0.0"
     },
     "nette/bootstrap": {
-        "version": "v3.0.0"
+        "version": "v3.0.1"
     },
     "nette/component-model": {
         "version": "v3.0.0"
@@ -288,6 +300,9 @@
     },
     "phar-io/version": {
         "version": "2.0.1"
+    },
+    "php": {
+        "version": "7.3"
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
