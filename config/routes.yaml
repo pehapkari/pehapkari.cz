@@ -39,6 +39,7 @@ place_detail:
 
 php_prague_out:
     path: 'php-prague'
-    controller: FrameworkBundle:Redirect:urlRedirect
+    controller: 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController'
     defaults:
         path: 'http://www.phpprague.cz/'
+        permanent: true
