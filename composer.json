@@ -12,7 +12,6 @@
         "antishov/doctrine-extensions-bundle": "^1.4",
         "chumper/zipper": "^1.0",
         "composer/ca-bundle": "^1.2",
-        "cweagans/composer-patches": "^1.6",
         "dfridrich/ares": "^1.2",
         "doctrine/annotations": "^1.8",
         "doctrine/cache": "^1.9",
@@ -23,7 +22,8 @@
         "fakturoid/fakturoid-php": "^1.0",
         "guzzlehttp/guzzle": "^6.4",
         "j7mbo/twitter-api-php": "^1.0",
-        "knplabs/doctrine-behaviors": "^1.6",
+        "knplabs/doctrine-behaviors": "v2.0.0-alpha",
+        "sensio/framework-extra-bundle": "^5.5",
         "sentry/sentry": "^2.2",
         "setasign/fpdf": "^1.8",
         "setasign/fpdi": "^2.2",
@@ -55,10 +55,10 @@
         "symfony/web-profiler-bundle": "^5.0",
         "symfony/webpack-encore-bundle": "^1.6",
         "symfony/yaml": "^5.0",
-        "symplify/autodiscovery": "^7.0.2",
-        "symplify/flex-loader": "^7.0.2",
-        "symplify/package-builder": "^7.0.2",
-        "symplify/statie": "^7.0.2",
+        "symplify/autodiscovery": "^7.1",
+        "symplify/flex-loader": "^7.1",
+        "symplify/package-builder": "^7.1",
+        "symplify/statie": "^7.1",
         "vich/uploader-bundle": "^1.10"
     },
     "require-dev": {
@@ -66,16 +66,16 @@
         "nette/application": "^3.0",
         "nette/bootstrap": "^3.0",
         "nette/forms": "^3.0",
-        "phpstan/phpstan-shim": "^0.11.19",
-        "phpstan/phpstan-doctrine": "^0.11.6",
-        "phpunit/phpunit": "^8.4",
+        "phpstan/phpstan": "^0.12",
+        "phpstan/phpstan-doctrine": "^0.12",
+        "phpunit/phpunit": "^8.5",
         "rector/rector": "dev-master",
         "spatie/http-status-check": "^3.1",
         "symfony/var-dumper": "^5.0",
         "symfony/browser-kit": "^5.0",
-        "symplify/coding-standard": "^7.0.2",
-        "symplify/easy-coding-standard": "^7.0.2",
-        "symplify/phpstan-extensions": "^7.0.2"
+        "symplify/coding-standard": "^7.1",
+        "symplify/easy-coding-standard": "^7.1",
+        "symplify/phpstan-extensions": "^7.1"
     },
     "autoload": {
         "psr-4": {
@@ -123,11 +123,6 @@
     "extra": {
         "symfony": {
             "allow-contrib": true
-        },
-        "patches": {
-            "knplabs/doctrine-behaviors": {
-                "Old Configuration": "patches/doctrine-behaviors-configuration.patch"
-            }
         }
     },
     "prefer-stable": true,
