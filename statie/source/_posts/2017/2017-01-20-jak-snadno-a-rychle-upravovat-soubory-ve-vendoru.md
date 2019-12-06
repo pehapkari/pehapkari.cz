@@ -50,9 +50,11 @@ Dost teorie - jdeme opravit chybu!
 
 ### 1. Nainstalování cweagans/composer-patches
 
-Nainstalujeme balíček `cweagans/composer-patches`.
+Nainstalujeme balíček: `cweagans/composer-patches`.
 
-`composer require cweagans/composer-patches`
+```bash
+composer require cweagans/composer-patches
+```
 
 ### 2. Vytvoření patch souboru
 

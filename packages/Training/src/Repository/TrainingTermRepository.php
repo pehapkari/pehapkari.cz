@@ -12,9 +12,6 @@ use Nette\Utils\DateTime;
 use Pehapkari\Training\Entity\Training;
 use Pehapkari\Training\Entity\TrainingTerm;
 
-/**
- * @see TrainingTerm
- */
 final class TrainingTermRepository
 {
     /**

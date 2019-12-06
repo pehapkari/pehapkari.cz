@@ -27,5 +27,3 @@ framework:
     validation:
         email_validation_mode: 'html5'
         enable_annotations: true
-#    templating:
-#        engines: ["twig"]

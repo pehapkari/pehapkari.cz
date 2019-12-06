@@ -15,6 +15,7 @@ tweet: "Urodilo se na blogu: #Symfony 4: Vytváříme chytrý kontroler"
 ```php
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -22,7 +23,7 @@ final class HomepageController extends AbstractController
 {
 
     /**
-     * @Route("/", name="homepage")
+     * @Route(path="/", name="homepage")
      */
     public function renderDefault(): Response
     {
@@ -138,7 +139,7 @@ public function beforeRender(): void
 
 // ...
 /**
- * @Route("/", name="homepage")
+ * @Route(path="/", name="homepage")
  */
 public function renderDefault(): Response
 {

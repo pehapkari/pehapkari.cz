@@ -17,66 +17,69 @@
         {# show only posts not in the future date #}
         {% set was_first_post_marked = false %}
 
-        {% for post in posts if post.getDateInFormat('Y-m-d') <= "now"|date('Y-m-d')  %}
-            {% if was_first_post_marked == false %}
-                {# special case for first post - full width #}
-                <div class="article mb-3 incognito-link-just-header" id="first_post">
-                    <a href="{{ post|link }}">
-                        <div class="card">
-                            <div class="card-body">
-                                <h2>{{ post.title }}</h2>
-
-                                <strong>
-                                    {% if post.author matches '#^\\d+$#' %}
-                                        {{ authors[post.author].name }}
-                                    {% else %}
-                                        {{ post.author }}
-                                    {% endif %}
-                                </strong>
-
-                                &nbsp;
-
-                                <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
-                                    {{ post.getDateInFormat('j. n. Y') }}
-                                </time>
-
-                                <p class="perex">{{ post.perex|raw }}</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                {# start columns after first post #}
-                <div class="row">
-            {% else %}
-                <div class="col-12 col-lg-6">
-                    <div class="article mb-3 mt-3 card">
+        {% for post in posts %}
+            {% if post.getDateInFormat('Y-m-d') <= "now"|date('Y-m-d') %}
+                {% if was_first_post_marked == false %}
+                    {# special case for first post - full width #}
+                    <div class="article mb-3 incognito-link-just-header" id="first_post">
                         <a href="{{ post|link }}">
-                            <div class="card-body">
-                                <h2>
-                                    {{ post.title }}
-                                </h2>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2>{{ post.title }}</h2>
 
-                                <div class="author">
-                                    {% if post.author matches '#^\\d+$#' %}
-                                        {{ authors[post.author].name }}
-                                    {% else %}
-                                        {{ post.author }}
-                                    {% endif %}
+                                    <strong>
+                                        {% if post.author matches '#^\\d+$#' %}
+                                            {{ authors[post.author].name }}
+                                        {% else %}
+                                            {{ post.author }}
+                                        {% endif %}
+                                    </strong>
+
+                                    &nbsp;
+
+                                    <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
+                                        {{ post.getDateInFormat('j. n. Y') }}
+                                    </time>
+
+                                    <p class="perex">{{ post.perex|raw }}</p>
                                 </div>
-                            </div>
-                            <div class="card-footer">
-                                <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
-                                    {{ post.getDateInFormat('j. n. Y') }}
-                                </time>
                             </div>
                         </a>
                     </div>
-                </div>
+
+                    {# start columns after first post #}
+                    <div class="row">
+                {% else %}
+                    <div class="col-12 col-lg-6">
+                        <div class="article mb-3 mt-3 card">
+                            <a href="{{ post|link }}">
+                                <div class="card-body">
+                                    <h2>
+                                        {{ post.title }}
+                                    </h2>
+
+                                    <div class="author">
+                                        {% if post.author matches '#^\\d+$#' %}
+                                            {{ authors[post.author].name }}
+                                        {% else %}
+                                            {{ post.author }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
+                                        {{ post.getDateInFormat('j. n. Y') }}
+                                    </time>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+                {% set was_first_post_marked = true %}
+
             {% endif %}
 
-                {% set was_first_post_marked = true %}
-            {% endfor %}
+        {% endfor %}
         </div>
     </div>
 {% endblock %}

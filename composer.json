@@ -12,6 +12,7 @@
         "antishov/doctrine-extensions-bundle": "^1.4",
         "chumper/zipper": "^1.0",
         "composer/ca-bundle": "^1.2",
+        "cweagans/composer-patches": "^1.6",
         "dfridrich/ares": "^1.2",
         "doctrine/annotations": "^1.8",
         "doctrine/cache": "^1.9",
@@ -23,7 +24,6 @@
         "guzzlehttp/guzzle": "^6.4",
         "j7mbo/twitter-api-php": "^1.0",
         "knplabs/doctrine-behaviors": "^1.6",
-        "sensio/framework-extra-bundle": "^5.5",
         "sentry/sentry": "^2.2",
         "setasign/fpdf": "^1.8",
         "setasign/fpdi": "^2.2",
@@ -123,6 +123,11 @@
     "extra": {
         "symfony": {
             "allow-contrib": true
+        },
+        "patches": {
+            "knplabs/doctrine-behaviors": {
+                "Old Configuration": "patches/doctrine-behaviors-configuration.patch"
+            }
         }
     },
     "prefer-stable": true,
