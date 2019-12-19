@@ -1,8 +1,6 @@
 services:
     # Slevomat
     SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff: ~
-    SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff:
-        enableEachParameterAndReturnInspection: true
     SlevomatCodingStandard\Sniffs\Namespaces\ReferenceUsedNamesOnlySniff:
         allowPartialUses: false
 
@@ -30,9 +28,6 @@ parameters:
         Symplify\CodingStandard\Fixer\Order\PropertyOrderByComplexityFixer:
             - '*Entity*'
 
-        # skip mixed
-        SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint: ~
-
         # from symplify.yaml set
         Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~
         Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenStaticFunctionSniff: ~
@@ -44,6 +39,3 @@ parameters:
         SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff.UnusedVariable:
             # test
             - 'statie/tests/Posts/Year2017/Iterators/*.php'
-
-        # disable random annotation removal of this Sniff
-        SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.UselessDocComment: ~
