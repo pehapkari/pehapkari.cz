@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
+use Knp\DoctrineBehaviors\Model\Sluggable\SluggableTrait;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
 use Pehapkari\Doctrine\EntityBehavior\IsPublicTrait;
@@ -23,6 +23,7 @@ class Training implements UploadDestinationAwareInterface
 {
     use UploadableImageTrait;
     use IsPublicTrait;
+    use SluggableTrait;
 
     /**
      * @ORM\Id()
@@ -31,13 +32,6 @@ class Training implements UploadDestinationAwareInterface
      * @var int
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="string", unique=true)
-     * @Gedmo\Slug(fields={"name"})
-     * @var string
-     */
-    private $slug;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -257,11 +251,6 @@ class Training implements UploadDestinationAwareInterface
         return $this->trainingFeedbacks;
     }
 
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
     public function getCertificateFormattedName(): ?string
     {
         return $this->certificateFormattedName;
@@ -275,11 +264,6 @@ class Training implements UploadDestinationAwareInterface
     public function setCertificateFormattedName(?string $certificateFormattedName): void
     {
         $this->certificateFormattedName = $certificateFormattedName;
-    }
-
-    public function setSlug(?string $slug): void
-    {
-        $this->slug = $slug;
     }
 
     public function setUploadDestination(string $uploadDestination): void
@@ -322,5 +306,13 @@ class Training implements UploadDestinationAwareInterface
         }
 
         return (int) round($averageRating, 0);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSluggableFields(): array
+    {
+        return ['name'];
     }
 }

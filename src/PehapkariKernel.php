@@ -47,10 +47,6 @@ final class PehapkariKernel extends Kernel
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
     {
-        // WTF fix: https://github.com/doctrine/DoctrineBundle/issues/674
-        $containerBuilder->registerForAutoconfiguration(EventSubscriber::class)
-            ->addTag('doctrine.event_subscriber');
-
         $this->discovery->discoverEntityMappings($containerBuilder);
         $this->discovery->discoverTemplates($containerBuilder);
         $this->discovery->discoverTranslations($containerBuilder);

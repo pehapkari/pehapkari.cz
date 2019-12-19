@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce056eaa13208f0eedb4e68e5e76813d",
+    "content-hash": "a22cb0c7969de0f5282db3d3630aa606",
     "packages": [
         {
             "name": "alterphp/easyadmin-extension-bundle",
@@ -2683,16 +2683,16 @@
         },
         {
             "name": "knplabs/doctrine-behaviors",
-            "version": "v2.0.0-alpha3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/DoctrineBehaviors.git",
-                "reference": "b7a1e8875924fd9a7e9cd9c0a6a3e993ffb41345"
+                "reference": "439df33a287ff95dca99f0ceb67710aa33dbe030"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/b7a1e8875924fd9a7e9cd9c0a6a3e993ffb41345",
-                "reference": "b7a1e8875924fd9a7e9cd9c0a6a3e993ffb41345",
+                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/439df33a287ff95dca99f0ceb67710aa33dbe030",
+                "reference": "439df33a287ff95dca99f0ceb67710aa33dbe030",
                 "shasum": ""
             },
             "require": {
@@ -2754,7 +2754,7 @@
                 "tree",
                 "uuid"
             ],
-            "time": "2019-12-19T20:00:06+00:00"
+            "time": "2019-12-19T22:51:31+00:00"
         },
         {
             "name": "latte/latte",
@@ -11812,12 +11812,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "9c1dd46bab7113a61e2e9891c85c5b8f43445414"
+                "reference": "870e6e72f1fd1b2c80685f98e3c7cce75da93f83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/9c1dd46bab7113a61e2e9891c85c5b8f43445414",
-                "reference": "9c1dd46bab7113a61e2e9891c85c5b8f43445414",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/870e6e72f1fd1b2c80685f98e3c7cce75da93f83",
+                "reference": "870e6e72f1fd1b2c80685f98e3c7cce75da93f83",
                 "shasum": ""
             },
             "require": {
@@ -11950,7 +11950,7 @@
                 "instant refactoring",
                 "instant upgrades"
             ],
-            "time": "2019-12-18T18:07:00+00:00"
+            "time": "2019-12-20T06:43:48+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -13434,6 +13434,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "knplabs/doctrine-behaviors": 20,
         "rector/rector": 20
     },
     "prefer-stable": true,
