@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a22cb0c7969de0f5282db3d3630aa606",
+    "content-hash": "be513b362487edc203588f915c3100ee",
     "packages": [
         {
             "name": "alterphp/easyadmin-extension-bundle",
@@ -95,79 +95,6 @@
                 "generator"
             ],
             "time": "2019-12-03T23:16:31+00:00"
-        },
-        {
-            "name": "antishov/doctrine-extensions-bundle",
-            "version": "v1.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/antishov/StofDoctrineExtensionsBundle.git",
-                "reference": "19c8d45e7ceb6477ef490f21ab4279e549c1e828"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/antishov/StofDoctrineExtensionsBundle/zipball/19c8d45e7ceb6477ef490f21ab4279e549c1e828",
-                "reference": "19c8d45e7ceb6477ef490f21ab4279e549c1e828",
-                "shasum": ""
-            },
-            "require": {
-                "gedmo/doctrine-extensions": "^2.3.4",
-                "php": ">=7.1",
-                "symfony/framework-bundle": "^4.3|^5.0"
-            },
-            "conflict": {
-                "stof/doctrine-extensions-bundle": "*"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "^4.3|^5.0",
-                "symfony/security-bundle": "^4.3|^5.0"
-            },
-            "suggest": {
-                "doctrine/doctrine-bundle": "to use the ORM extensions",
-                "doctrine/mongodb-odm-bundle": "to use the MongoDB ODM extensions"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Stof\\DoctrineExtensionsBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Antishov Viktor",
-                    "email": "antishov.viktor@gmail.com"
-                },
-                {
-                    "name": "Christophe Coevoet",
-                    "email": "stof@notk.org"
-                }
-            ],
-            "description": "Forked from stof/doctrine-extensions-bundle integration of the gedmo/doctrine-extensions with Symfony 4",
-            "homepage": "https://github.com/antishov/StofDoctrineExtensionsBundle",
-            "keywords": [
-                "behaviors",
-                "doctrine2",
-                "extensions",
-                "gedmo",
-                "loggable",
-                "nestedset",
-                "sluggable",
-                "sortable",
-                "stof",
-                "timestampable",
-                "translatable",
-                "tree"
-            ],
-            "time": "2019-12-03T19:50:27+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -2046,88 +1973,6 @@
             "time": "2019-08-13T14:50:31+00:00"
         },
         {
-            "name": "gedmo/doctrine-extensions",
-            "version": "v2.4.38",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "81681364331b131518060e4776300a5346df1eb5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/81681364331b131518060e4776300a5346df1eb5",
-                "reference": "81681364331b131518060e4776300a5346df1eb5",
-                "shasum": ""
-            },
-            "require": {
-                "behat/transliterator": "~1.2",
-                "doctrine/common": "~2.4",
-                "php": ">=5.3.2"
-            },
-            "conflict": {
-                "doctrine/annotations": "<1.2",
-                "doctrine/mongodb-odm": ">=2.0"
-            },
-            "require-dev": {
-                "doctrine/common": ">=2.5.0",
-                "doctrine/mongodb-odm": ">=1.0.2 <2.0",
-                "doctrine/orm": ">=2.5.0",
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5",
-                "symfony/yaml": "~2.6 || ~3.0 || ~4.0"
-            },
-            "suggest": {
-                "doctrine/mongodb-odm": "to use the extensions with the MongoDB ODM",
-                "doctrine/orm": "to use the extensions with the ORM"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Gedmo\\": "lib/Gedmo"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Gediminas Morkevicius",
-                    "email": "gediminas.morkevicius@gmail.com"
-                },
-                {
-                    "name": "Gustavo Falco",
-                    "email": "comfortablynumb84@gmail.com"
-                },
-                {
-                    "name": "David Buchmann",
-                    "email": "david@liip.ch"
-                }
-            ],
-            "description": "Doctrine2 behavioral extensions",
-            "homepage": "http://gediminasm.org/",
-            "keywords": [
-                "Blameable",
-                "behaviors",
-                "doctrine2",
-                "extensions",
-                "gedmo",
-                "loggable",
-                "nestedset",
-                "sluggable",
-                "sortable",
-                "timestampable",
-                "translatable",
-                "tree",
-                "uploadable"
-            ],
-            "time": "2019-11-08T22:33:07+00:00"
-        },
-        {
             "name": "guzzlehttp/guzzle",
             "version": "6.5.0",
             "source": {
@@ -2315,6 +2160,56 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "http-interop/http-factory-guzzle",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/http-interop/http-factory-guzzle.git",
+                "reference": "34861658efb9899a6618cef03de46e2a52c80fc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/http-interop/http-factory-guzzle/zipball/34861658efb9899a6618cef03de46e2a52c80fc0",
+                "reference": "34861658efb9899a6618cef03de46e2a52c80fc0",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/psr7": "^1.4.2",
+                "psr/http-factory": "^1.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "^1.0"
+            },
+            "require-dev": {
+                "http-interop/http-factory-tests": "^0.5",
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Http\\Factory\\Guzzle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "An HTTP Factory using Guzzle PSR7",
+            "keywords": [
+                "factory",
+                "http",
+                "psr-17",
+                "psr-7"
+            ],
+            "time": "2018-07-31T19:32:56+00:00"
         },
         {
             "name": "illuminate/contracts",
@@ -3801,6 +3696,71 @@
             "time": "2019-11-18T08:58:18+00:00"
         },
         {
+            "name": "php-http/curl-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/curl-client.git",
+                "reference": "4336b5386444bbc3db9485316115d96c8f73766a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/curl-client/zipball/4336b5386444bbc3db9485316115d96c8f73766a",
+                "reference": "4336b5386444bbc3db9485316115d96c8f73766a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": "^7.1",
+                "php-http/discovery": "^1.6",
+                "php-http/httplug": "^2.0",
+                "php-http/message": "^1.2",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
+                "symfony/options-resolver": "^3.4 || ^4.0 || ^5.0"
+            },
+            "provide": {
+                "php-http/async-client-implementation": "1.0",
+                "php-http/client-implementation": "1.0",
+                "psr/http-client-implementation": "1.0"
+            },
+            "require-dev": {
+                "guzzlehttp/psr7": "^1.0",
+                "php-http/client-integration-tests": "^2.0",
+                "phpunit/phpunit": "^7.5",
+                "zendframework/zend-diactoros": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Client\\Curl\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Михаил Красильников",
+                    "email": "m.krasilnikov@yandex.ru"
+                }
+            ],
+            "description": "PSR-18 and HTTPlug Async client with cURL",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "curl",
+                "http",
+                "psr-18"
+            ],
+            "time": "2019-11-25T11:43:58+00:00"
+        },
+        {
             "name": "php-http/discovery",
             "version": "1.7.0",
             "source": {
@@ -4687,6 +4647,39 @@
             "time": "2019-12-12T16:21:49+00:00"
         },
         {
+            "name": "sentry/sdk",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getsentry/sentry-php-sdk.git",
+                "reference": "4c115873c86ad5bd0ac6d962db70ca53bf8fb874"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getsentry/sentry-php-sdk/zipball/4c115873c86ad5bd0ac6d962db70ca53bf8fb874",
+                "reference": "4c115873c86ad5bd0ac6d962db70ca53bf8fb874",
+                "shasum": ""
+            },
+            "require": {
+                "http-interop/http-factory-guzzle": "^1.0",
+                "php-http/curl-client": "^1.0|^2.0",
+                "sentry/sentry": "^2.1.3"
+            },
+            "type": "metapackage",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sentry",
+                    "email": "accounts@sentry.io"
+                }
+            ],
+            "description": "This is a metapackage shipping sentry/sentry with a recommended http client.",
+            "time": "2019-09-09T19:54:44+00:00"
+        },
+        {
             "name": "sentry/sentry",
             "version": "2.2.6",
             "source": {
@@ -4770,6 +4763,86 @@
                 "sentry"
             ],
             "time": "2019-12-18T08:56:34+00:00"
+        },
+        {
+            "name": "sentry/sentry-symfony",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getsentry/sentry-symfony.git",
+                "reference": "e30be17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getsentry/sentry-symfony/zipball/e30be17",
+                "reference": "e30be17",
+                "shasum": ""
+            },
+            "require": {
+                "jean85/pretty-package-versions": "^1.0",
+                "php": "^7.1",
+                "sentry/sdk": "^2.0",
+                "symfony/config": "^3.4||^4.0||^5.0",
+                "symfony/console": "^3.4||^4.0||^5.0",
+                "symfony/dependency-injection": "^3.4||^4.0||^5.0",
+                "symfony/event-dispatcher": "^3.4||^4.0||^5.0",
+                "symfony/http-kernel": "^3.4||^4.0||^5.0",
+                "symfony/security-core": "^3.4||^4.0||^5.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.8",
+                "jangregor/phpstan-prophecy": "^0.3.0",
+                "monolog/monolog": "^1.11||^2.0",
+                "php-http/mock-client": "^1.0",
+                "phpstan/phpstan-phpunit": "^0.11",
+                "phpstan/phpstan-shim": "^0.11",
+                "phpunit/phpunit": "^7.5||^8.5",
+                "symfony/browser-kit": "^3.4||^4.0||^5.0",
+                "symfony/expression-language": "^3.4||^4.0||^5.0",
+                "symfony/framework-bundle": "^3.4||^4.0||^5.0",
+                "symfony/monolog-bundle": "^3.4",
+                "symfony/phpunit-bridge": "^5.0",
+                "symfony/yaml": "^3.4||^4.0||^5.0"
+            },
+            "suggest": {
+                "monolog/monolog": "Required to use the Monolog handler"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "master": "3.x-dev",
+                    "releases/2.x": "2.x-dev",
+                    "releases/1.x": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sentry\\SentryBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Cramer",
+                    "email": "dcramer@gmail.com"
+                },
+                {
+                    "name": "Alessandro Lai",
+                    "email": "alessandro.lai85@gmail.com"
+                }
+            ],
+            "description": "Symfony integration for Sentry (http://getsentry.com)",
+            "homepage": "http://getsentry.com",
+            "keywords": [
+                "errors",
+                "logging",
+                "sentry",
+                "symfony"
+            ],
+            "time": "2019-12-13T09:11:06+00:00"
         },
         {
             "name": "setasign/fpdf",
@@ -13435,6 +13508,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "knplabs/doctrine-behaviors": 20,
+        "sentry/sentry-symfony": 20,
         "rector/rector": 20
     },
     "prefer-stable": true,

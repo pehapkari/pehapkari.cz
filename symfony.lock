@@ -2,18 +2,6 @@
     "alterphp/easyadmin-extension-bundle": {
         "version": "v2.1.6"
     },
-    "antishov/doctrine-extensions-bundle": {
-        "version": "1.4",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.4",
-            "ref": "6c1ceb662f8997085f739cd089bfbef67f245983"
-        },
-        "files": [
-            "config/packages/stof_doctrine_extensions.yaml"
-        ]
-    },
     "beberlei/assert": {
         "version": "v2.9.9"
     },
@@ -162,9 +150,6 @@
         "files": [
             ".php_cs.dist"
         ]
-    },
-    "gedmo/doctrine-extensions": {
-        "version": "v2.4.38"
     },
     "guzzlehttp/guzzle": {
         "version": "6.3.3"
@@ -395,6 +380,9 @@
         "version": "1.0.0"
     },
     "psr/event-dispatcher": {
+        "version": "1.0.0"
+    },
+    "psr/http-client": {
         "version": "1.0.0"
     },
     "psr/http-factory": {
