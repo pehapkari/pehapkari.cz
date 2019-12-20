@@ -1,7 +1,6 @@
 includes:
     - 'vendor/phpstan/phpstan-doctrine/extension.neon'
-    - 'vendor/symplify/phpstan-extensions/config/php.level.neon'
-    - 'vendor/symplify/phpstan-extensions/config/symfony.level.neon'
+    - 'vendor/symplify/phpstan-extensions/config/config.neon'
 
 services:
     -
@@ -11,6 +10,8 @@ services:
 parameters:
     level: max
     reportUnmatchedIgnoredErrors: false
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingIterableValueType: false
 
     excludes_analyse:
         - "*/Entity*"
@@ -47,3 +48,7 @@ parameters:
         - '#Method Pehapkari\\Github\\EventSubscriber\\CatchTemplateEventSubscriber\:\:resolveControllerMethod\(\) should return string but returns object\|string#'
         - '#Parameter \#1 \$object of function get_class expects object, object\|string given#'
         - '#Method Pehapkari\\Youtube\\Controller\\VideoDetailController\:\:getVideoBySlug\(\) should return Pehapkari\\Youtube\\ValueObject\\Video but returns object#'
+
+        # mixed
+        - '#with no typehint specified#'
+        - '#Parameter \#1 \$argument of class ReflectionClass constructor expects class\-string<T of object\>\|T of object, string given#'
