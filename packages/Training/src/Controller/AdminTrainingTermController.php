@@ -73,9 +73,7 @@ final class AdminTrainingTermController extends EasyAdminController
      */
     public function organize(TrainingTerm $trainingTerm): Response
     {
-        return $this->render('training_term/organize.twig', [
-            'training_term' => $trainingTerm,
-        ]);
+        return $this->render('training_term/organize.twig', ['training_term' => $trainingTerm]);
     }
 
     /**
@@ -84,20 +82,14 @@ final class AdminTrainingTermController extends EasyAdminController
     public function provisionEmail(TrainingTerm $trainingTerm): Response
     {
         $provision = $this->provisionResolver->resolveForTrainingTerm($trainingTerm);
-
         $trainerEmail = $this->getTrainerEmail($trainingTerm);
-
         $this->pehapkariMailer->sendProvisionAndFeedbacksToTrainer(
             $provision->getTrainerProvision(),
             $trainingTerm->getFeedbacks(),
             $trainerEmail
         );
-
         $this->addFlash('success', sprintf('Email sent to "%s"', $trainerEmail));
-
-        return $this->redirectToRoute('training_term_provision', [
-            'id' => $trainingTerm->getId(),
-        ]);
+        return $this->redirectToRoute('training_term_provision', ['id' => $trainingTerm->getId()]);
     }
 
     /**
@@ -106,18 +98,15 @@ final class AdminTrainingTermController extends EasyAdminController
     public function generateMarketingEventsBatchAction(array $ids): void
     {
         $trainingTerms = $this->trainingTermRepository->findByIds($ids);
-
         foreach ($trainingTerms as $trainingTerm) {
             if ($trainingTerm->hasMarketingEvents()) {
                 $this->addFlash('warning', sprintf('Kampaň pro termín "%s" už existuje', (string) $trainingTerm));
                 continue;
             }
-
             $marketingEvents = $this->marketingEventsFactory->createMarketingEvents($trainingTerm);
             foreach ($marketingEvents as $marketingEvent) {
                 $this->marketingEventRepository->save($marketingEvent);
             }
-
             $this->addFlash('success', sprintf('Kampaň pro "%s" byla vytvořena', (string) $trainingTerm));
         }
     }
@@ -131,18 +120,14 @@ final class AdminTrainingTermController extends EasyAdminController
             if ($registration->hasInvoice()) {
                 continue;
             }
-
             $this->invoicer->createInvoiceForRegistration($registration);
-
             $flashMessage = sprintf(
                 'Faktura pro "%s" "%s" byla vytvořena na Fakturoid.cz',
                 $registration->getTrainingName(),
                 $registration->getName()
             );
-
             $this->addFlash('success', $flashMessage);
         }
-
         return $this->redirectToRoute('easyadmin', [
             'action' => 'list',
             'entity' => $trainingTerm,
@@ -155,7 +140,6 @@ final class AdminTrainingTermController extends EasyAdminController
     public function trainingTermProvision(TrainingTerm $trainingTerm): Response
     {
         $provision = $this->provisionResolver->resolveForTrainingTerm($trainingTerm);
-
         return $this->render('provision/training_term_provision.twig', [
             'trainer' => $trainingTerm->getTrainer(),
             'provision' => $provision,
@@ -167,12 +151,10 @@ final class AdminTrainingTermController extends EasyAdminController
     private function getTrainerEmail(TrainingTerm $trainingTerm): string
     {
         $trainer = $trainingTerm->getTrainer();
-
         $trainerEmail = $trainer->getEmail();
         if ($trainerEmail !== null) {
             return $trainerEmail;
         }
-
         throw new ShouldNotHappenException(sprintf('Email "%s" trainer for was not found', $trainer->getName()));
     }
 }

@@ -6,15 +6,16 @@ namespace Pehapkari\Marketing\Entity;
 
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
+use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
+use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Pehapkari\Training\Entity\TrainingTerm;
 
 /**
  * @ORM\Entity
  */
-class MarketingEvent
+class MarketingEvent implements TimestampableInterface
 {
-    use Timestampable;
+    use TimestampableTrait;
 
     /**
      * @ORM\Id()

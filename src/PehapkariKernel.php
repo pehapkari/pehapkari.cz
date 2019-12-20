@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Pehapkari;
 
-use Doctrine\Common\EventSubscriber;
 use Iterator;
 use Pehapkari\BetterEasyAdmin\DependencyInjection\CompilerPass\CorrectionCompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;

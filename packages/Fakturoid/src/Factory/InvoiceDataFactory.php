@@ -50,15 +50,14 @@ final class InvoiceDataFactory
             'subject_id' => $this->getSubjectIdExistingOrCreated($trainingRegistration),
             'payment_method' => 'bank',
             'currency' => 'CZK',
-            'due' => self::INVOICE_PAYMENT_DAYS_DUE, // number days to pay invoice in
-            'lines' => [
-                [
-                    'name' => 'Školení ' . $trainingRegistration->getTrainingName(),
-                    'unit_price' => (float) $trainingRegistration->getPrice(),
-                    'quantity' => (int) $trainingRegistration->getParticipantCount(),
-                    'unit_name' => 'osob',
-                ],
-            ],
+            // number days to pay invoice in
+            'due' => self::INVOICE_PAYMENT_DAYS_DUE,
+            'lines' => [[
+                'name' => 'Školení ' . $trainingRegistration->getTrainingName(),
+                'unit_price' => (float) $trainingRegistration->getPrice(),
+                'quantity' => (int) $trainingRegistration->getParticipantCount(),
+                'unit_name' => 'osob',
+            ]],
         ];
     }
 
@@ -66,23 +65,16 @@ final class InvoiceDataFactory
     {
         // find subject by ICO
         $existingSubject = $this->findSubjectByIco($trainingRegistration->getIco());
-
         // we found the subject
         if ($existingSubject) {
             return (int) $existingSubject['id'];
         }
-
         $endpoint = sprintf(FakturoidEndpoint::POST_NEW_CONTACT, $this->fakturoidSlug);
         $requestData = $this->subjectDataFactory->createFromTrainingRegistration($trainingRegistration);
-
-        $responseData = $this->fakturoidClient->requestToJson('POST', $endpoint, [
-            'json' => $requestData,
-        ]);
-
+        $responseData = $this->fakturoidClient->requestToJson('POST', $endpoint, ['json' => $requestData]);
         if (! isset($responseData['id'])) {
             throw new ShouldNotHappenException();
         }
-
         return (int) $responseData['id'];
     }
 
@@ -94,12 +86,9 @@ final class InvoiceDataFactory
         if ($ico === null) {
             return null;
         }
-
         $ico = trim($ico);
-
         $endpoint = sprintf(FakturoidEndpoint::GET_SEARCH_CONTACT, $this->fakturoidSlug, $ico);
         $subjectsData = $this->fakturoidClient->requestToJson('GET', $endpoint);
-
         return $subjectsData['subjects'][0] ?? null;
     }
 }
