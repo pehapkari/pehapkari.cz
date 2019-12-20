@@ -16,7 +16,7 @@ final class FakturoidClient extends Client
     private $responseErrorReporter;
 
     /**
-     * @var \Pehapkari\Fakturoid\Http\RequestResponseFormatter
+     * @var RequestResponseFormatter
      */
     private $requestResponseFormatter;
 

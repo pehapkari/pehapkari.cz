@@ -26,7 +26,7 @@ final class FakturoidClientFactory
     private $responseErrorReporter;
 
     /**
-     * @var \Pehapkari\Fakturoid\Http\RequestResponseFormatter
+     * @var RequestResponseFormatter
      */
     private $requestResponseFormatter;
 

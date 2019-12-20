@@ -21,9 +21,6 @@ final class InvoicingConfigTest extends TestCase
      */
     private $container;
 
-    /**
-     * {@inheritdoc}
-     */
     protected function setUp(): void
     {
         $this->container = (new ContainerFactory())->create();

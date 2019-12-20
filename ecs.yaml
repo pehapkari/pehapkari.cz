@@ -1,15 +1,6 @@
-imports:
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/php71.yaml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/clean-code.yaml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/symplify.yaml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/common.yaml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/psr12.yaml' }
-
 services:
     # Slevomat
     SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff: ~
-    SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff:
-        enableEachParameterAndReturnInspection: true
     SlevomatCodingStandard\Sniffs\Namespaces\ReferenceUsedNamesOnlySniff:
         allowPartialUses: false
 
@@ -21,19 +12,14 @@ services:
             - 'Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository'
             - 'Doctrine\ORM\EntityRepository'
 
-    Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff:
-        extra_allowed_classes:
-            - 'setasign\Fpdi\*'
-            - 'Pehapkari\Provision\Data\*'
-            - 'App\Request\*Request'
-            - 'Doctrine\Common\Collections\ArrayCollection'
-            - 'Symfony\Component\Form\FormError'
-            # pre-container used classes
-            - 'Symplify\Autodiscovery\Util\*'
-            - 'Symfony\Component\Config\Resource\FileResource'
-            - 'Symfony\Component\Security\Csrf\CsrfToken'
-
 parameters:
+    sets:
+        - 'php71'
+        - 'clean-code'
+        - 'symplify'
+        - 'common'
+        - 'psr12'
+
     exclude_files:
         - 'src/Kernel.php'
 
@@ -41,11 +27,6 @@ parameters:
         # on purpose - property order is reflected in forms in admin
         Symplify\CodingStandard\Fixer\Order\PropertyOrderByComplexityFixer:
             - '*Entity*'
-
-        # 3rd party contract
-        SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.MissingParameterTypeHint:
-            - 'packages/User/src/Security/PehapkariAuthenticator.php'
-            - 'packages/Registration/src/Api/FakturoidClient.php'
 
         # from symplify.yaml set
         Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~

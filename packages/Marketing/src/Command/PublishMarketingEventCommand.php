@@ -48,7 +48,6 @@ final class PublishMarketingEventCommand extends Command
         $this->symfonyStyle = $symfonyStyle;
         $this->marketingEventRepository = $marketingEventRepository;
         $this->twitterPublisher = $twitterPublisher;
-
         parent::__construct();
     }
 
@@ -65,16 +64,12 @@ final class PublishMarketingEventCommand extends Command
             $this->symfonyStyle->success('Nothing new to publish!');
             return ShellCode::SUCCESS;
         }
-
         if (! $this->canBeMarketingEventPublished($nextPlannedMarketingEvent)) {
             $this->symfonyStyle->warning('It is too soon to publish a new marketing event.');
             return ShellCode::SUCCESS;
         }
-
         $this->publishMarketingEvent($nextPlannedMarketingEvent);
-
         $this->symfonyStyle->success('OK');
-
         return ShellCode::SUCCESS;
     }
 
@@ -86,21 +81,17 @@ final class PublishMarketingEventCommand extends Command
         $latestPublishedEvent = $this->marketingEventRepository->getLatestPublishedEventByPlatform(
             $marketingEvent->getPlatform()
         );
-
         if ($latestPublishedEvent === null) {
             return true;
         }
-
         // at least X hours pause
         if ($latestPublishedEvent->getPublishedAt() === null) {
             return true;
         }
-
         $hourDiffs = DateTimeUtils::getHourDifferenceBetweenDateTimes(
             $marketingEvent->getPlannedAt(),
             $latestPublishedEvent->getPublishedAt()
         );
-
         return $hourDiffs > self::MINIMAL_HOUR_DIFFERENCE;
     }
 
@@ -114,17 +105,14 @@ final class PublishMarketingEventCommand extends Command
                 $marketingEvent->getPlatform()
             ));
         }
-
         // save "when"
         $marketingEvent->setPublishedAt(new DateTime());
         $this->marketingEventRepository->save($marketingEvent);
-
         $trainingName = $marketingEvent->getTrainingTerm()->getTrainingName();
-
-        $this->symfonyStyle->success(sprintf(
-            'Event for "%s" and "%s" training was published.',
-            lcfirst($marketingEvent->getPlatform()),
-            $trainingName
-        ));
+        $this->symfonyStyle->success(
+            sprintf('Event for "%s" and "%s" training was published.', lcfirst(
+                $marketingEvent->getPlatform()
+            ), $trainingName)
+        );
     }
 }

@@ -10,13 +10,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 final class Event
 {
     /**
-     * @var \DateTime
+     * @var DateTime
      * @Assert\Type("DateTime")
      */
     private $startDate;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      * @Assert\Type("DateTime")
      * @Assert\Expression("value >= this.getStartDate()")
      */

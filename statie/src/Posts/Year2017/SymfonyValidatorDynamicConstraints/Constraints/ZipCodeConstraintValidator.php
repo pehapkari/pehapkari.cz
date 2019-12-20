@@ -13,7 +13,6 @@ final class ZipCodeConstraintValidator extends ConstraintValidator
     /**
      * Checks if the passed value is valid.
      *
-     * @param mixed $value
      * @param ZipCodeConstraint $constraint
      */
     public function validate($value, Constraint $constraint): void

@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace Pehapkari\Training\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
+use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
+use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Pehapkari\Doctrine\EntityBehavior\IsPublicTrait;
 use Pehapkari\Doctrine\EntityBehavior\IsRevisedTrait;
 
 /**
  * @ORM\Entity
  */
-class TrainingFeedback
+class TrainingFeedback implements TimestampableInterface
 {
-    use Timestampable;
+    use TimestampableTrait;
     use IsPublicTrait;
     use IsRevisedTrait;
 

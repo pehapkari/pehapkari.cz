@@ -7,6 +7,7 @@ namespace Pehapkari\Youtube\Hydration;
 use DateTimeInterface;
 use Nette\Utils\DateTime;
 use ReflectionClass;
+use ReflectionParameter;
 use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 final class ArrayToValueObjectHydrator
@@ -60,7 +61,7 @@ final class ArrayToValueObjectHydrator
     }
 
     /**
-     * @return \ReflectionParameter[]
+     * @return ReflectionParameter[]
      */
     private function getConstructorParameterReflections(string $class): array
     {

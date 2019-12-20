@@ -81,12 +81,13 @@ admin-dashboard:
 Pokiaľ preferujeme inline definíciu v kontroleroch, zápis by mohol vyzerať takto.
 
 ```php
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DashboardController extends Controller
+final class DashboardController extends AbstractController
 {
     /**
-     * @Route({
+     * @Route(path={
      *     "sk": "/nastenka",
      *     "en": "/en/dashboard"
      * }, name="admin-dashboard")
@@ -141,19 +142,20 @@ Skratený zápis môžeme použit vo všetkých formátoch, napríklad aj v kont
 
 ```php
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ArticlesController extends Controller
+final class ArticlesController extends AbstractController
 {
     /**
      * Klasický zápis s requirements a defaults
-     * @Route("/admin/articles/{page}", name="admin-articles", requirements={"page"="\d+"}, defaults={"page"="1"})
+     * @Route(path="/admin/articles/{page}", name="admin-articles", requirements={"page"="\d+"}, defaults={"page"="1"})
      */
     public function __invoke(int $page)
     // ...
 
     /**
      * Nový inline zápis
-     * @Route("/admin/articles/{page<\d+>?1}", name="admin-articles")
+     * @Route(path="/admin/articles/{page<\d+>?1}", name="admin-articles")
      */
     public function __invoke(int $page)
     // ...

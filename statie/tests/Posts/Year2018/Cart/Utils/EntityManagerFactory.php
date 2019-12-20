@@ -15,8 +15,6 @@ final class EntityManagerFactory
 {
     /**
      * @param string[] $schemaClassNames
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\Tools\ToolsException
      */
     public static function createEntityManager(Connection $connection, array $schemaClassNames): EntityManager
     {

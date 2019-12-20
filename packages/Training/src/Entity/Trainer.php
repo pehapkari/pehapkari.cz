@@ -7,7 +7,8 @@ namespace Pehapkari\Training\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
+use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
+use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -15,10 +16,10 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ORM\Entity
  * @Vich\Uploadable
  */
-class Trainer
+class Trainer implements TimestampableInterface
 {
     use UploadableImageTrait;
-    use Timestampable;
+    use TimestampableTrait;
 
     /**
      * @ORM\Id()

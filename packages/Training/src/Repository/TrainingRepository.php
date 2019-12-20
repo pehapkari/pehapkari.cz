@@ -22,16 +22,6 @@ final class TrainingRepository
     }
 
     /**
-     * @return Training[]
-     */
-    public function fetchPublic(): array
-    {
-        return $this->entityRepository->findBy([
-            'isPublic' => true,
-        ]);
-    }
-
-    /**
      * Trainings with active term today - last 30 days
      * @return Training[]
      */

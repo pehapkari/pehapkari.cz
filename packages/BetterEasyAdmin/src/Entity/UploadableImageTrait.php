@@ -43,7 +43,7 @@ trait UploadableImageTrait
 
     public function getRelativeImagePath(): ?string
     {
-        return $this->image ? ($this->relativeUploadDestination . $this->image) : null;
+        return $this->image ? $this->relativeUploadDestination . $this->image : null;
     }
 
     public function setImage(?string $image): void

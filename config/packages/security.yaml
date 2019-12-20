@@ -41,10 +41,10 @@ security:
                 login_path: "login"
                 # Secure the login form against CSRF
                 # Reference: https://symfony.com/doc/current/security/csrf_in_login_form.html
-                csrf_token_generator: security.csrf.token_manager
+                csrf_token_generator: "security.csrf.token_manager"
                 # The page users are redirect to when there is no previous page stored in the
                 # session (for example when the users access directly to the login page).
-                default_target_path:  "login"
+                default_target_path: "login"
 
             logout:
                 # The route name the user can go to in order to logout

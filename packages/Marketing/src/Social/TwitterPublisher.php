@@ -60,10 +60,8 @@ final class TwitterPublisher
         if ($trainingTerm === null) {
             throw new ShouldNotHappenException();
         }
-
         $training = $trainingTerm->getTraining();
         $trainer = $trainingTerm->getTrainer();
-
         // make sure we have some references to tweet about
         $reference = $training->getFeedbacks()[0];
         if ($reference === null) {
@@ -72,30 +70,23 @@ final class TwitterPublisher
                 $trainingTerm->getTrainingName()
             ));
         }
-
         $message = $this->createTwitterMessage($reference, $trainer, $trainingTerm, $training);
-
         if (Strings::length($message) >= self::TWEET_LIMIT_SIZE) {
             throw new TweetPublishFailedException('Tweet is too long: %d. Fit it under %d chars.', Strings::length(
                 $message
             ), self::TWEET_LIMIT_SIZE);
         }
-
         $trainingImage = $training->getImageAbsolutePath();
         if ($trainingImage) {
             $response = $this->publishTweetWithImage($message, $trainingImage);
         } else {
             // tweet text only
-            $response = $this->callPost(self::UPDATE_URL, [
-                'status' => $message,
-            ]);
+            $response = $this->callPost(self::UPDATE_URL, ['status' => $message]);
         }
-
         // all good
         if (isset($response['created_at'])) {
             return;
         }
-
         throw new TweetPublishFailedException($response['errors'][0]['message']);
     }
 
@@ -108,14 +99,11 @@ final class TwitterPublisher
         $message = '"' . $trainingFeedback . '"' . PHP_EOL . PHP_EOL;
         $message .= 'Přijď na školení od @' . $trainer->getTwitterName() . PHP_EOL;
         $message .= $this->urlFactory->createAbsoluteTrainingUrl($trainingTerm) . PHP_EOL;
-
         // @todo: už jen x dní do uzavření registrací
-
         // twitter hash tags
         if ($training->getHashtags()) {
             $message .= $training->getHashtags();
         }
-
         return $message;
     }
 
@@ -127,10 +115,7 @@ final class TwitterPublisher
      */
     private function publishTweetWithImage(string $status, string $imageFile): array
     {
-        $media = $this->callPost(self::IMAGE_UPLOAD_URL, [
-            'media' => base64_encode(FileSystem::read($imageFile)),
-        ]);
-
+        $media = $this->callPost(self::IMAGE_UPLOAD_URL, ['media' => base64_encode(FileSystem::read($imageFile))]);
         return $this->callPost(self::UPDATE_URL, [
             'status' => $status,
             'media_ids' => $media['media_id'],
@@ -143,10 +128,10 @@ final class TwitterPublisher
      */
     private function callPost(string $endPoint, array $data): array
     {
-        $jsonResponse = $this->twitterAPIExchange
-            ->setPostfields($data)
-            ->buildOauth($endPoint, 'POST')
-            ->performRequest();
+        $twitterApiExchange = $this->twitterAPIExchange->setPostfields($data);
+        $twitterApiExchange->buildOauth($endPoint, 'POST');
+
+        $jsonResponse = $twitterApiExchange->performRequest();
 
         return $this->decodeJson($jsonResponse);
     }

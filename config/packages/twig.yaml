@@ -6,6 +6,10 @@ twig:
         - '_snippets/form/fields.twig'
 
     globals:
+        main_page_title: "Děláš v PHP? Jsi jedním z nás"
+        site_url: "https://pehapkari.cz"
+        google_analytics_tracking_id: "UA-89860072-1"
+        disqus_name: "pehapkari"
         image_uploads: '%image_uploads%'
 
     # see https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration

@@ -47,16 +47,10 @@ jobs:
                 - composer rector-dry
 
         -
-            name: 'Linting YAML and Templates'
+            name: 'Symfony Linting'
             script:
                 - bin/console lint:yaml src packages
                 - bin/console lint:twig packages templates
-
-        -
-            name: 'Dead Links'
-            script:
-                - composer dead-links
-                - nano invalid-links.txt
 
         # 2. Build Docker image → deploy
         -
@@ -85,9 +79,6 @@ jobs:
             name: 'Tweet Post'
             if: branch = master AND type = cron
             script: docker run --rm -e APP_ENV=prod -e TWITTER_CONSUMER_KEY -e TWITTER_CONSUMER_SECRET -e TWITTER_OAUTH_ACCESS_TOKEN -e TWITTER_OAUTH_ACCESS_TOKEN_SECRET pehapkari/pehapkari.cz php vendor/bin/statie tweet-post statie/source
-
-    allow_failures:
-        - name: 'Dead Links'
 
 matrix:
     fast_finish: true

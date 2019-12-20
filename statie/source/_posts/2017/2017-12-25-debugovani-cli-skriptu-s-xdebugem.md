@@ -6,7 +6,7 @@ perex: |
 
     Už žádné `print()` a `echo` v konzolových commandech pro zjištění hodnoty proměnné  :-).
 author: 32
-lang: cs
+
 tweet: "Urodilo se na blogu: Debugování CLI skriptů s #Xdebug"
 ---
 

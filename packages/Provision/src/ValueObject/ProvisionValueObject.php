@@ -79,7 +79,7 @@ final class ProvisionValueObject
         $this->trainerProvisionRate = $previouslyFinishedTrainingCount >= 5 ? ProvisionRate::MORE_THAN_5_TRAININGS_INCLUDED : ProvisionRate::UNDER_5_TRAININGS;
 
         // be nice to the trainer with "ceil" :)
-        $this->trainerProvision = ceil($this->profit * ($this->trainerProvisionRate / 100.0));
+        $this->trainerProvision = ceil($this->profit * $this->trainerProvisionRate / 100.0);
         $this->trainerProvisionWithExpense =
             $this->trainerProvision + $trainerExpense;
 

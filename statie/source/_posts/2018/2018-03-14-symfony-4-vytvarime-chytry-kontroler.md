@@ -6,25 +6,24 @@ perex: |
     Symfony 4 je skvělý framework ale po chvíli práce s ním mi začaly chybět některé fičury, na které jsem byl zvyklý z jiných frameworků, jako je například [Nette Framework](https://nette.org/cs/).
     Rozhodl jsem se, že si je do Symfony musím dodělat. V tomto článku vám ukážu, jak jsem toho docílil.
 author: 34
-lang: cs
+
 tweet: "Urodilo se na blogu: #Symfony 4: Vytváříme chytrý kontroler"
 ---
 
 Řekněme, že máme nějaký `HomepageController` s `renderDefault()` metodou umístěný ve složce `src/controller`
 
-````PHP
+```php
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-final class HomepageController extends Controller
+final class HomepageController extends AbstractController
 {
 
     /**
-     * @Route("/", name="homepage")
+     * @Route(path="/", name="homepage")
      */
     public function renderDefault(): Response
     {
@@ -35,29 +34,26 @@ final class HomepageController extends Controller
     }
 
 }
-````
+```
 
 a default.twig šablonu pro renderDefault akci ve složce templates.
 
-````twig
+```twig
 Number: {{ number }}
-````
+```
 
 Všechno funguje a vypadá v pořádku. No jo, jenomže co když budu náhodou potřebovat vložit parametr odjinud
 než z `renderDefault()` metody? To je v tuto chvíli nemožné..., ledaže bychom si vytvořili `AbstractController`, který nám to umožní.
 
-````PHP
+```php
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-
-abstract class AbstractController extends Controller
+abstract class AbstractCustomController extends AbstractController
 {
-
     /**
-     * @var array
+     * @var mixed[]
      */
     private $templateParameters = [];
 
@@ -77,16 +73,15 @@ abstract class AbstractController extends Controller
     }
 
 }
-````
+```
 
 Zbývá už jen `AbstractController` podědit v `HomepageController`, vytvořit setter metodu a zavolat ji v `renderDefault()` metodě.
 
-````PHP
+```php
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 
 final class HomepageController extends AbstractController
 {
@@ -97,6 +92,7 @@ final class HomepageController extends AbstractController
     public function renderDefault(): Response
     {
         $this->setRandomNumberIntoTemplate();
+
         return $this->renderTemplate('default.twig');
     }
 
@@ -110,13 +106,13 @@ final class HomepageController extends AbstractController
     }
 
 }
-````
+```
 
 Takto vytvořená metoda pro předávání parametrů do šablony je sice pěkná, ale kdybychom chtěli dané číslo vkládat
 do každé šablony automaticky, je potřeba ji neustále a dokola volat v každé render metodě. V tuhle chvíli
 by se hodila `beforeRender()` metoda, tak si ji pojďme přidat do `AbstractControlleru`.
 
-````PHP
+```php
 // ...
 protected function beforeRender(): void {}
 // ...
@@ -130,11 +126,11 @@ protected function renderTemplate(string $template, array $parameters = [], Resp
          $template, $this->templateParameters, $response
     );
 }
-````
+```
 
 Nyní jen stačí tuto metodu použít v `HomepageController`.
 
-````PHP
+```php
 // ...
 public function beforeRender(): void
 {
@@ -143,13 +139,13 @@ public function beforeRender(): void
 
 // ...
 /**
- * @Route("/", name="homepage")
+ * @Route(path="/", name="homepage")
  */
 public function renderDefault(): Response
 {
     return $this->renderTemplate('default.twig');
 }
-````
+```
 
 V `HomepageController` je ale stále potřeba zapisovat cestu k šabloně. Většinou preferuji modulární strukturu aplikace
 s šablonami umístěnými ve složce pojmenované po kontroleru zanořené v templates složce, která je ve stejné složce jako kontrolery.
@@ -164,14 +160,15 @@ například ve složce CoreModule `src/Modules/CoreModule/Controller/AbstractCon
 Abychom to všechno zprovoznili, je potřeba provést několik úprav. Nejdříve upravíme `AbstractController`,
 protože zde nastává největší změna.
 
-````PHP
+```php
 namespace App\Modules\CoreModule\Controller;
 
 // ...
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController as SymfonyAbstractController;
 
-abstract class AbstractController extends Controller
+abstract class AbstractController extends SymfonyAbstractController
 {
-
     // ...
     protected function renderTemplate(array $parameters = [], Response $response = null): Response
     {
@@ -208,51 +205,49 @@ abstract class AbstractController extends Controller
     }
 
 }
-````
+```
 
 Přibylo volání `preg_match` funkce v `renderTemplate()` metodě, a byla přidána metoda `getTemplatePath()`.
 Tato metoda roztokenuje jméno aktuálního kontroleru a render metody, a následně vrátí cestu k šabloně.
 
 Za další je potřeba upravit `HomepageController`. Zde již není cesta k šabloně, protože ji nepotřebujeme.
 
-````PHP
+```php
 /**
- * @Route("/", name="homepage")
+ * @Route(path="/", name="homepage")
  */
 public function renderDefault(): Response
 {
     return $this->renderTemplate();
 }
-````
+```
 
 Nesmíme zapomenout nakonfigurovat Twig a anotace.
 
-````YAML
-// twig.yml
+```yaml
+# twig.yml
 twig:
     paths: ['%kernel.project_dir%/src']
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
-// annotations.yml
+# annotations.yml
 controllers:
     resource: ../../src/Modules/
     type: annotation
-````
+```
 
 Poslední co je potřeba upravit je cesta pro mapování kontrolerů.
 
-````YAML
+```yaml
 App\Modules\:
     resource: '../src/Modules'
     tags: ['controller.service_arguments']
-````
+```
 
-Hotovo! Nyní už nemusíme psát cestu k šabloně, můžeme předávat parametry do šablon z více míst
-a popřípadě je vkládat automaticky v `beforeRender()` metodě.
+Hotovo! Nyní už nemusíme psát cestu k šabloně, můžeme předávat parametry do šablon z více míst a popřípadě je vkládat automaticky v `beforeRender()` metodě.
 
-Nevýhodou toho všeho je, že je potřeba dodržovat adresářovou strukturu, která je nastavena
-v `getTemplatePath()` metodě ve třídě `AbstractController`.
+Nevýhodou toho všeho je, že je potřeba dodržovat adresářovou strukturu, která je nastavena v `getTemplatePath()` metodě ve třídě `AbstractController`.
 
 Budu rád za jakýkoliv váš feedback (klidně i negativní)!
 

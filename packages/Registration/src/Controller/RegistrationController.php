@@ -31,7 +31,7 @@ final class RegistrationController extends AbstractController
     private $pehapkariMailer;
 
     /**
-     * @var \Pehapkari\Validation\EmailValidation
+     * @var EmailValidation
      */
     private $emailValidation;
 

@@ -104,9 +104,9 @@ existuje traita `ContainerAwareTrait`, která předává controlleru celý conta
 
 ```php
 // Controller
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-final class TestController extends Controller
+final class TestController extends AbstractController
 {
     public function indexAction()
     {
@@ -161,9 +161,9 @@ Bude mu možné předat závislost konstruktorem a získáme tím všechny před
 
 ```php
 // Controller
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-final class TestController extends Controller
+final class TestController extends AbstractController
 {
     public function __construct(MyClass $myClass)
     {

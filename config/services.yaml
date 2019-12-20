@@ -6,14 +6,6 @@ parameters:
     locale: 'en' # for easy admin bundle
     image_uploads: "/uploads/images/"
 
-# copied from Statie
-twig:
-    globals:
-        main_page_title: "Děláš v PHP? Jsi jedním z nás"
-        site_url: "https://pehapkari.cz"
-        google_analytics_tracking_id: "UA-89860072-1"
-        disqus_name: "pehapkari"
-
 services:
     _defaults:
         public: true
@@ -43,6 +35,7 @@ services:
         factory: ['@Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory', 'create']
 
     Symplify\PackageBuilder\Reflection\PrivatesAccessor: ~
+    Symplify\SmartFileSystem\Finder\FinderSanitizer: ~
 
     # latte filters in twig
     Latte\Runtime\FilterExecutor: ~

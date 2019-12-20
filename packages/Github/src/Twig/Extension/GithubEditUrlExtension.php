@@ -7,8 +7,8 @@ namespace Pehapkari\Github\Twig\Extension;
 use Nette\Utils\Strings;
 use Pehapkari\Github\Collector\ResolvedTemplateNameCollector;
 use Symfony\Component\Finder\Finder;
-use Symplify\PackageBuilder\FileSystem\FinderSanitizer;
-use Symplify\PackageBuilder\FileSystem\SmartFileInfo;
+use Symplify\SmartFileSystem\Finder\FinderSanitizer;
+use Symplify\SmartFileSystem\SmartFileInfo;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -69,7 +69,7 @@ final class GithubEditUrlExtension extends AbstractExtension
 
         foreach ($fileInfos as $fileInfo) {
             if (Strings::endsWith($fileInfo->getRelativeFilePath(), $templateName)) {
-                return $fileInfo->getRelativeFilePathFromDirectory(getcwd());
+                return $fileInfo->getRelativeFilePathFromCwd();
             }
         }
 

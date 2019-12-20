@@ -4,7 +4,7 @@ title: "Jak naučit PhpStorm chápat kód"
 perex: |
     Fungující napovídání syntaxe vašeho kódu je naprosto základním předpokladem pro dobré fungování pokročilých nástrojů, které vám PhpStorm nabízí. Existuje několik možností, jak PhpStormu pomoci váš kód pochopit. Začneme těmi základními a postupně se dostaneme až k pokročilým.
 author: 6
-lang: cs
+
 tweet: "Urodilo se na blogu: Jak naučit #PhpStorm chápat kód #php"
 ---
 

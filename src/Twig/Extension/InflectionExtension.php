@@ -19,7 +19,10 @@ final class InflectionExtension extends AbstractExtension
     /**
      * @return TwigFunction[]
      *
-     * @use "{{ word_by_count(training.getDuration(), ['hodin', 'hodiny', 'hodin']) }}" → 5 hodin
+     * Examples:
+     * {{ word_by_count(training.getDuration(), ['hodin', 'hodiny', 'hodin']) }}
+     * ↓
+     * 5 hodin
      */
     public function getFunctions(): array
     {
