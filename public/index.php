@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 use Pehapkari\PehapkariKernel;
-use Symfony\Component\Debug\Debug;
+//use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
 require_once __DIR__  .'/../vendor/autoload.php';
@@ -10,7 +10,7 @@ require_once __DIR__ . '/../config/bootstrap.php';
 if ($_SERVER['APP_DEBUG']) {
     umask(0000);
 
-    Debug::enable();
+//    Debug::enable();
 }
 
 if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
