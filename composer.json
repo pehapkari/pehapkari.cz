@@ -70,7 +70,6 @@
         "phpstan/phpstan-doctrine": "^0.12",
         "phpunit/phpunit": "^8.5",
         "rector/rector": "dev-master",
-        "spatie/http-status-check": "^3.1",
         "symfony/var-dumper": "^5.0",
         "symfony/browser-kit": "^5.0",
         "symplify/coding-standard": "^7.1",
@@ -113,7 +112,6 @@
         "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix --ansi",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse packages src statie/src statie/tests --ansi --error-format symplify",
-        "dead-links": "vendor/bin/http-status-check scan https://pehapkari.cz --output invalid-links.txt --ansi",
         "rector": "vendor/bin/rector process src tests --config rector-ci.yaml --ansi",
         "rector-dry": "vendor/bin/rector process src tests --config rector-ci.yaml --ansi --dry-run"
     },

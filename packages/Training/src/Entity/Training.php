@@ -309,7 +309,7 @@ class Training implements UploadDestinationAwareInterface
     }
 
     /**
-     * @inheritDoc
+     * @return string[]
      */
     public function getSluggableFields(): array
     {
