@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Pdf;
+namespace Pehapkari\Training\Pdf;
 
 use Pehapkari\Training\ValueObject\Font;
 use setasign\Fpdi\Fpdi;

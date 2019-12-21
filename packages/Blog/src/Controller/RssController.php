@@ -33,7 +33,7 @@ final class RssController extends AbstractController
      */
     public function __invoke(): Response
     {
-        $response = $this->render('homepage/rss.xml.twig', [
+        $response = $this->render('blog/rss.xml.twig', [
             'posts' => $this->postsProvider->provide(),
             'authors' => $this->authorsProvider->provide(),
         ]);

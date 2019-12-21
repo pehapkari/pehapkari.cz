@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Training\Controller;
 
-use Pehapkari\Repository\TrainerRepository;
+use Pehapkari\Training\Repository\TrainerRepository;
 use Pehapkari\Training\Repository\TrainingFeedbackRepository;
 use Pehapkari\Training\Repository\TrainingRepository;
 use Pehapkari\Training\Repository\TrainingTermRepository;

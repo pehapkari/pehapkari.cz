@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Pehapkari\Blog\Controller;
 
 use Pehapkari\Blog\DataProvider\AuthorsProvider;
-use Pehapkari\Repository\PostRepository;
+use Pehapkari\Blog\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
