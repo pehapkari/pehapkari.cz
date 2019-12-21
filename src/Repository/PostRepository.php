@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Repository;
 
-use Pehapkari\Statie\PostsProvider;
+use Pehapkari\Blog\DataProvider\PostsProvider;
 use Symplify\Statie\Renderable\File\PostFile;
 
 final class PostRepository

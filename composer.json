@@ -62,6 +62,7 @@
         "vich/uploader-bundle": "^1.12"
     },
     "require-dev": {
+        "doctrine/migrations": "^2.2",
         "latte/latte": "^2.5",
         "nette/application": "^3.0",
         "nette/bootstrap": "^3.0",
@@ -80,6 +81,7 @@
         "psr-4": {
             "Pehapkari\\": "src",
             "Pehapkari\\Provision\\": "packages/Provision/src",
+            "Pehapkari\\Blog\\": "packages/Blog/src",
             "Pehapkari\\Registration\\": "packages/Registration/src",
             "Pehapkari\\Github\\": "packages/Github/src",
             "Pehapkari\\Training\\": "packages/Training/src",

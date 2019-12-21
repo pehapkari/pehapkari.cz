@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Statie;
+namespace Pehapkari\Blog\DataProvider;
 
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 

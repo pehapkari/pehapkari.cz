@@ -19,6 +19,11 @@ final class NearestMeetupProvider
 
     public function provide(): ?Meetup
     {
+        // offline
+        if (! file_exists(self::MEETUPS_URL)) {
+            return null;
+        }
+
         $meetupsContent = FileSystem::read(self::MEETUPS_URL);
 
         try {

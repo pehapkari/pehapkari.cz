@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Controller;
+namespace Pehapkari\Blog\Controller;
 
 use Pehapkari\Repository\PostRepository;
-use Pehapkari\Statie\AuthorsProvider;
+use Pehapkari\Blog\DataProvider\AuthorsProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

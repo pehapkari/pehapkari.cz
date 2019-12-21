@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Pehapkari\Controller;
 
-use Pehapkari\Statie\AuthorsProvider;
-use Pehapkari\Statie\PostsProvider;
+use Pehapkari\Blog\DataProvider\AuthorsProvider;
+use Pehapkari\Blog\DataProvider\PostsProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
