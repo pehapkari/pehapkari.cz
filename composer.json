@@ -82,6 +82,7 @@
             "Pehapkari\\": "src",
             "Pehapkari\\Provision\\": "packages/Provision/src",
             "Pehapkari\\Blog\\": "packages/Blog/src",
+            "Pehapkari\\Meetup\\": "packages/Meetup/src",
             "Pehapkari\\Registration\\": "packages/Registration/src",
             "Pehapkari\\Github\\": "packages/Github/src",
             "Pehapkari\\Training\\": "packages/Training/src",

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\DataProvider;
+namespace Pehapkari\Meetup\DataProvider;
 
 use Nette\Utils\DateTime;
 use Nette\Utils\FileSystem;
