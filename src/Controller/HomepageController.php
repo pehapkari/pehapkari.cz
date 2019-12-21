@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Controller;
 
-use Pehapkari\DataProvider\NearestMeetupProvider;
+use Pehapkari\Meetup\DataProvider\NearestMeetupProvider;
 use Pehapkari\Statie\OragnizerProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

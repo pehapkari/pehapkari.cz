@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\DataProvider;
+namespace Pehapkari\Meetup\DataProvider;
 
 use Nette\Utils\DateTime;
 use Nette\Utils\FileSystem;
@@ -19,6 +19,11 @@ final class NearestMeetupProvider
 
     public function provide(): ?Meetup
     {
+        // offline
+        if (! file_exists(self::MEETUPS_URL)) {
+            return null;
+        }
+
         $meetupsContent = FileSystem::read(self::MEETUPS_URL);
 
         try {

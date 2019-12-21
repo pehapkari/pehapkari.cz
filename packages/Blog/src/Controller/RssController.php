@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Controller;
+namespace Pehapkari\Blog\Controller;
 
-use Pehapkari\Statie\AuthorsProvider;
-use Pehapkari\Statie\PostsProvider;
+use Pehapkari\Blog\DataProvider\AuthorsProvider;
+use Pehapkari\Blog\DataProvider\PostsProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,7 +33,7 @@ final class RssController extends AbstractController
      */
     public function __invoke(): Response
     {
-        $response = $this->render('homepage/rss.xml.twig', [
+        $response = $this->render('blog/rss.xml.twig', [
             'posts' => $this->postsProvider->provide(),
             'authors' => $this->authorsProvider->provide(),
         ]);

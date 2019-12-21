@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Statistics;
+namespace Pehapkari\Training\Statistics;
 
 use Pehapkari\Registration\Repository\RegistrationRepository;
 use Pehapkari\Training\Repository\TrainingFeedbackRepository;
