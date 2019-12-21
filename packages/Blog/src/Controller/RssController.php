@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Controller;
+namespace Pehapkari\Blog\Controller;
 
 use Pehapkari\Blog\DataProvider\AuthorsProvider;
 use Pehapkari\Blog\DataProvider\PostsProvider;

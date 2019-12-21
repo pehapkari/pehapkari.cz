@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Controller;
+namespace Pehapkari\Training\Controller;
 
 use Nette\Utils\DateTime;
 use Pehapkari\Training\Entity\Training;

@@ -29,7 +29,7 @@ parameters:
         # not sure about this
 
         # known child
-        - '#Method Pehapkari\\Statie\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
+        - '#Method Pehapkari\\Blog\\DataProvider\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
 
         # desired sub-type
         - '#Method Pehapkari\\DependencyInjection\\StatieFactory\:\:createStatieKernel\(\) should return Symfony\\Component\\DependencyInjection\\Container but returns Symfony\\Component\\DependencyInjection\\ContainerInterface#'
@@ -39,11 +39,6 @@ parameters:
         - '#Return type \(Iterator\) of method Pehapkari\\Twig\\Extension\\MarkdownExtension\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\AbstractExtension\:\:getFilters\(\)#'
         - '#Return type \(Iterator\) of method Pehapkari\\Twig\\Extension\\MarkdownExtension\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\ExtensionInterface\:\:getFilters\(\)#'
         - '#(.*)Doctrine\\ORM\\EntityManagerInterface#'
-
-        - '#Call to an undefined method object\:\:setRelativeUploadDestination\(\)#'
-        - '#Method Pehapkari\\Youtube\\Controller\\VideoController\:\:getVideoBySlug\(\) should return Pehapkari\\Youtube\\ValueObject\\Video but returns object#'
-
-        - '#Unreachable statement \- code above always terminates#'
 
         - '#Method Pehapkari\\Github\\EventSubscriber\\CatchTemplateEventSubscriber\:\:resolveControllerMethod\(\) should return string but returns object\|string#'
         - '#Parameter \#1 \$object of function get_class expects object, object\|string given#'

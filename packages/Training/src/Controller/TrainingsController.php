@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Controller;
+namespace Pehapkari\Training\Controller;
 
 use Pehapkari\Repository\TrainerRepository;
-use Pehapkari\Statistics\TrainingStatistics;
 use Pehapkari\Training\Repository\TrainingFeedbackRepository;
 use Pehapkari\Training\Repository\TrainingRepository;
 use Pehapkari\Training\Repository\TrainingTermRepository;
+use Pehapkari\Training\Statistics\TrainingStatistics;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

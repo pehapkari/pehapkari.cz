@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Controller;
+namespace Pehapkari\Marketing\Controller;
 
-use Pehapkari\Statistics\TrainingStatistics;
 use Pehapkari\Training\Repository\TrainingRepository;
+use Pehapkari\Training\Statistics\TrainingStatistics;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
