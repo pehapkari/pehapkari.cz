@@ -21,14 +21,6 @@ services:
 
     Defr\Ares: ~
     GuzzleHttp\Client: ~
-    ParsedownExtra:
-        class: 'ParsedownExtra'
-
-    Symplify\Statie\Generator\Generator:
-        factory: ['@Pehapkari\DependencyInjection\StatieFactory', 'createGenerator']
-
-    Symplify\Statie\Generator\RelatedItemsResolver:
-        factory: ['@Pehapkari\DependencyInjection\StatieFactory', 'createRelatedItemsResolver']
 
     Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
     Symfony\Component\Console\Style\SymfonyStyle:

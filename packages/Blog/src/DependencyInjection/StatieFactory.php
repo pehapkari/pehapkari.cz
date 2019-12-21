@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\DependencyInjection;
+namespace Pehapkari\Blog\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Container;
 use Symplify\Statie\Configuration\StatieConfiguration;
@@ -47,6 +47,6 @@ final class StatieFactory
         /** @var StatieConfiguration $statieConfiguration */
         $statieConfiguration = $this->statieContainer->get(StatieConfiguration::class);
         $statieConfiguration->setDryRun(true);
-        $statieConfiguration->setSourceDirectory(__DIR__ . '/../../statie/source');
+        $statieConfiguration->setSourceDirectory(__DIR__ . '/../../../../statie/source');
     }
 }
