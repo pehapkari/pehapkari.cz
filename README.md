@@ -15,13 +15,12 @@ git clone git@github.com:pehapkari/pehapkari.cz.git
 # install PHP dependencies
 composer install
 
-# copy `.env` as `.env.local` and complete variables.
+# copy `.env` as `.env.local` and complete variables
 
-# create database
-bin/console doctrine:schema:create
+# create "pehapkari_cz" database
 
-# if you change entities later, update the database
-bin/console doctrine:schema:update --dump-sql --force
+# load database and all migrations
+bin/console doctrine:migration:migrate
 
 # dump css and js from all bundles
 bin/console assets:install --env=prod --no-debug
@@ -30,7 +29,7 @@ bin/console assets:install --env=prod --no-debug
 yarn install
 
 # build assets
-yarn encore dev --watch
+npm run watch
 
 # final step - run the website
 php -S localhost:8000 -t public
