@@ -6,3 +6,13 @@ services:
 
     Pehapkari\Blog\:
         resource: '../src'
+
+    # for rendering markdown posts
+    ParsedownExtra:
+        class: 'ParsedownExtra'
+
+    Symplify\Statie\Generator\Generator:
+        factory: ['@Pehapkari\Blog\DependencyInjection\StatieFactory', 'createGenerator']
+
+    Symplify\Statie\Generator\RelatedItemsResolver:
+        factory: ['@Pehapkari\Blog\DependencyInjection\StatieFactory', 'createRelatedItemsResolver']

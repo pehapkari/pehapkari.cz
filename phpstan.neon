@@ -32,7 +32,7 @@ parameters:
         - '#Method Pehapkari\\Blog\\DataProvider\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
 
         # desired sub-type
-        - '#Method Pehapkari\\DependencyInjection\\StatieFactory\:\:createStatieKernel\(\) should return Symfony\\Component\\DependencyInjection\\Container but returns Symfony\\Component\\DependencyInjection\\ContainerInterface#'
+        - '#Method Pehapkari\\Blog\\DependencyInjection\\StatieFactory\:\:createStatieKernel\(\) should return Symfony\\Component\\DependencyInjection\\Container but returns Symfony\\Component\\DependencyInjection\\ContainerInterface#'
 
         # Iterator false positives
         - '#PHPDoc tag @return with type array<Twig\\TwigFilter\> is incompatible with native type Iterator#'
