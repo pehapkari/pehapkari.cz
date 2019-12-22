@@ -36,7 +36,7 @@ final class StatieFactory
     private function createStatieKernel(): Container
     {
         $statieKernel = new StatieKernel('dev', true);
-        $statieKernel->setConfigs([__DIR__ . '/../../statie.yaml']);
+        $statieKernel->setConfigs([__DIR__ . '/../../../../statie.yaml']);
         $statieKernel->boot();
 
         return $statieKernel->getContainer();
