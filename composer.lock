@@ -1974,16 +1974,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.5.0",
+            "version": "6.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5"
+                "reference": "0274c05370a7bc9bb3a33838858253418bd7d14b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5",
-                "reference": "dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0274c05370a7bc9bb3a33838858253418bd7d14b",
+                "reference": "0274c05370a7bc9bb3a33838858253418bd7d14b",
                 "shasum": ""
             },
             "require": {
@@ -2037,7 +2037,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2019-12-07T18:20:45+00:00"
+            "time": "2019-12-21T08:51:15+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -4747,6 +4747,7 @@
             "extra": {
                 "branch-alias": {
                     "master": "3.x-dev",
+                    "releases/3.2.x": "3.2.x-dev",
                     "releases/2.x": "2.x-dev",
                     "releases/1.x": "1.x-dev"
                 }
@@ -11571,12 +11572,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "870e6e72f1fd1b2c80685f98e3c7cce75da93f83"
+                "reference": "1029cd07e3d4ec2dd8b50e1b5141816c36b83a4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/870e6e72f1fd1b2c80685f98e3c7cce75da93f83",
-                "reference": "870e6e72f1fd1b2c80685f98e3c7cce75da93f83",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/1029cd07e3d4ec2dd8b50e1b5141816c36b83a4f",
+                "reference": "1029cd07e3d4ec2dd8b50e1b5141816c36b83a4f",
                 "shasum": ""
             },
             "require": {
@@ -11709,7 +11710,7 @@
                 "instant refactoring",
                 "instant upgrades"
             ],
-            "time": "2019-12-20T06:43:48+00:00"
+            "time": "2019-12-22T22:23:53+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
