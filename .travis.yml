@@ -77,7 +77,7 @@ jobs:
         -
             stage: crons
             name: 'Tweet Post'
-            if: branch = master AND type = cron
+            if: branch = master
             script: docker run --rm -e APP_ENV=prod -e TWITTER_CONSUMER_KEY -e TWITTER_CONSUMER_SECRET -e TWITTER_OAUTH_ACCESS_TOKEN -e TWITTER_OAUTH_ACCESS_TOKEN_SECRET pehapkari/pehapkari.cz php vendor/bin/statie tweet-post statie/source
 
 # do not send success notifications, they have no value
