@@ -2,7 +2,7 @@
 id: 84
 title: "How we Upgraded Pehapkari.cz from Symfony 4 to 5 in 25 days"
 perex: |
-    A month ago was released Symfony 5. Upgrading of such a small web as our community website **must be easy**, right?
+    A month ago, Symfony 5 has been released. Upgrading of such a small web as our community website **must be easy**, right?
     <br>
     <br>
     Well, that's what we thought. **Were we right or wrong?**
@@ -62,7 +62,7 @@ What does that mean? For upgrading from Symfony 4 to 5, you need to **run all th
 vendor/bin/rector process bin src packages --set symfony41
 ```
 
-Verify, check that CI passes and then continue with next Symfony minor versions:
+Verify, check that CI passes and then continue with following Symfony minor versions:
 
 ```bash
 vendor/bin/rector process bin src packages --set symfony42
@@ -132,9 +132,9 @@ vendor/bin/rector process bin src packages --set symfony50
  }
 ```
 
-This might be scary at first, depends on how much of those functions have you used.
+This might be scary at first, depends on how many of those functions have you used.
 
-Look at [README on Github](https://github.com/twigphp/Twig-extensions) to find out more:
+Look at the [README on Github](https://github.com/twigphp/Twig-extensions) to find out more:
 
 <div class="text-center">
     <img src="/assets/images/posts/symfony5_twig_extension_readme.png">
@@ -177,7 +177,7 @@ Not sure why, but in some cases, it failed and **blocked from the upgrading**. *
  }
 ``````
 
-Than switch to Symfony 5:
+Then switch to Symfony 5:
 
 ```diff
 -"symfony/asset": "^4.4",
@@ -188,7 +188,7 @@ Than switch to Symfony 5:
 // etc.
 ```
 
-But some package are released out of [monorepo cycle](/blog/2019/10/28/all-you-always-wanted-to-know-about-monorepo-but-were-afraid-to-ask/):
+But some packages are released out of [monorepo cycle](/blog/2019/10/28/all-you-always-wanted-to-know-about-monorepo-but-were-afraid-to-ask/):
 
 ```diff
 -"symfony/maker-bundle": "^1.14",
@@ -238,10 +238,10 @@ And some package **were split into more smaller ones**:
 
 ## 5. Rector, ECS, and PHPStan
 
-That was production dependencies, but what about dev ones?
-Both have the same rules - they need to allow Symfony 5 install.
+These were production dependencies, but what about dev ones?
+Both have the same rules - they need to allow Symfony 5 installation.
 
-The safest way is to use [prefixed versions](https://github.com/rectorphp/rector/issues/177), who don't care your Symfony version:
+The safest way is to use [prefixed versions](https://github.com/rectorphp/rector/issues/177), which don't care about a Symfony version:
 
 ```diff
 -"phpstan/phpstan": "^0.11",
@@ -254,7 +254,7 @@ The safest way is to use [prefixed versions](https://github.com/rectorphp/rector
 
 ```diff
 -"symplify/easy-coding-standard": "^0.11",
--"symplify/easy-coding-standard": "^0.12",
++"symplify/easy-coding-standard": "^0.12",
 ```
 
 <br>
@@ -352,7 +352,7 @@ It works so well I do it more often than resolving conflicts manually.
  ];
 ```
 
-Switch dead gedmo/stof doctrine extensions for maintained [KnpLabs/DoctrineBehaviors](https://github.com/KnpLabs/DoctrineBehaviors/). I'll write a standalone post about this migration, once a stable version is out (check me, pls :)).
+Switch the dead gedmo/stof doctrine extensions for the maintained [KnpLabs/DoctrineBehaviors](https://github.com/KnpLabs/DoctrineBehaviors/). I'll write a standalone post about this migration, once a stable version is out (check me, pls :)).
 
 ```diff
  return [
@@ -368,7 +368,7 @@ We also had some troubles with Switfmailer Bundle:
  ]
 ```
 
-The [Mailer component](https://symfony.com/blog/new-in-symfony-4-3-mailer-component) will take over Swiftmailer in the future, so this just a start.
+The [Mailer component](https://symfony.com/blog/new-in-symfony-4-3-mailer-component) will take over Swiftmailer in the future, so this is just a start.
 
 ## 9. Clear `config/packages`
 
@@ -391,7 +391,7 @@ Don't forget to remove all extension configs. In our case it was:
 -config/routes/dev/twig.yaml
 ```
 
-Small update of EasyAdmin bundle:
+Small update of the EasyAdmin bundle:
 
 ```diff
  # config/routes/easy_admin.yaml
