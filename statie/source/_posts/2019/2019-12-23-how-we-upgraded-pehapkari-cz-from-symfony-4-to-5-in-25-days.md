@@ -31,15 +31,15 @@ Before, you could connect `for` with `if` like this:
 {% endfor %}
 ```
 
-Now they have to be separated:
+Now [the `filter`](https://twig.symfony.com/doc/3.x/filters/filter.html) has to be used:
 
 ```twig
-{% for post in posts %}
-    {% if post.isPublic() %}
-        {{ post.title }}
-    {% endif %}
+{% for post in posts|filter(post => post.isPublic()) %}
+    {{ post.title }}
 {% endfor %}
 ```
+
+*Thanks [Patrik for the tip](https://www.reddit.com/r/PHP/comments/ef2nit/how_we_upgraded_pehapkaricz_from_symfony_4_to_5/fbzyhsl/)*
 
 ## 2. Rector Helps You with PHP
 
