@@ -4811,6 +4811,7 @@
             "extra": {
                 "branch-alias": {
                     "master": "3.x-dev",
+                    "releases/3.2.x": "3.2.x-dev",
                     "releases/2.x": "2.x-dev",
                     "releases/1.x": "1.x-dev"
                 }
@@ -11549,16 +11550,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.0",
+            "version": "8.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3ee1c1fd6fc264480c25b6fb8285edefe1702dab"
+                "reference": "7870c78da3c5e4883eaef36ae47853ebb3cb86f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3ee1c1fd6fc264480c25b6fb8285edefe1702dab",
-                "reference": "3ee1c1fd6fc264480c25b6fb8285edefe1702dab",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7870c78da3c5e4883eaef36ae47853ebb3cb86f2",
+                "reference": "7870c78da3c5e4883eaef36ae47853ebb3cb86f2",
                 "shasum": ""
             },
             "require": {
@@ -11628,7 +11629,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-12-06T05:41:38+00:00"
+            "time": "2019-12-25T14:49:39+00:00"
         },
         {
             "name": "rector/rector",
@@ -11636,12 +11637,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "64adadabde7eb8d2ca673df1fb9e142892f1d233"
+                "reference": "4a5408e8f1f5f4490b50c641ecad809243b886ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/64adadabde7eb8d2ca673df1fb9e142892f1d233",
-                "reference": "64adadabde7eb8d2ca673df1fb9e142892f1d233",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/4a5408e8f1f5f4490b50c641ecad809243b886ca",
+                "reference": "4a5408e8f1f5f4490b50c641ecad809243b886ca",
                 "shasum": ""
             },
             "require": {
@@ -11747,7 +11748,8 @@
                     "Rector\\StrictCodeQuality\\": "packages/StrictCodeQuality/src",
                     "Rector\\DynamicTypeAnalysis\\": "packages/DynamicTypeAnalysis/src",
                     "Rector\\PhpDeglobalize\\": "packages/PhpDeglobalize/src",
-                    "Rector\\Phalcon\\": "packages/Phalcon/src"
+                    "Rector\\Phalcon\\": "packages/Phalcon/src",
+                    "Rector\\DoctrineGedmoToKnplabs\\": "packages/DoctrineGedmoToKnplabs/src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -11774,7 +11776,7 @@
                 "instant refactoring",
                 "instant upgrades"
             ],
-            "time": "2019-12-23T17:28:45+00:00"
+            "time": "2019-12-26T00:02:06+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
