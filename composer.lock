@@ -3701,12 +3701,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/curl-client.git",
-                "reference": "4336b5386444bbc3db9485316115d96c8f73766a"
+                "reference": "9e79355af46d72e10da50be20b66f74b26143441"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/curl-client/zipball/4336b5386444bbc3db9485316115d96c8f73766a",
-                "reference": "4336b5386444bbc3db9485316115d96c8f73766a",
+                "url": "https://api.github.com/repos/php-http/curl-client/zipball/9e79355af46d72e10da50be20b66f74b26143441",
+                "reference": "9e79355af46d72e10da50be20b66f74b26143441",
                 "shasum": ""
             },
             "require": {
@@ -3758,7 +3758,7 @@
                 "http",
                 "psr-18"
             ],
-            "time": "2019-11-25T11:43:58+00:00"
+            "time": "2019-12-27T11:02:07+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -4570,16 +4570,16 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v5.5.2",
+            "version": "v5.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "92acfcc610e2180c52790ec3ff2e893f67e76b32"
+                "reference": "98f0807137b13d0acfdf3c255a731516e97015de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/92acfcc610e2180c52790ec3ff2e893f67e76b32",
-                "reference": "92acfcc610e2180c52790ec3ff2e893f67e76b32",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/98f0807137b13d0acfdf3c255a731516e97015de",
+                "reference": "98f0807137b13d0acfdf3c255a731516e97015de",
                 "shasum": ""
             },
             "require": {
@@ -4644,7 +4644,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2019-12-12T16:21:49+00:00"
+            "time": "2019-12-27T08:57:19+00:00"
         },
         {
             "name": "sentry/sdk",
@@ -4811,6 +4811,7 @@
             "extra": {
                 "branch-alias": {
                     "master": "3.x-dev",
+                    "releases/3.2.x": "3.2.x-dev",
                     "releases/2.x": "2.x-dev",
                     "releases/1.x": "1.x-dev"
                 }
@@ -11636,12 +11637,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "64adadabde7eb8d2ca673df1fb9e142892f1d233"
+                "reference": "42b34b66a19051108aa370aeda9d03a0e0297421"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/64adadabde7eb8d2ca673df1fb9e142892f1d233",
-                "reference": "64adadabde7eb8d2ca673df1fb9e142892f1d233",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/42b34b66a19051108aa370aeda9d03a0e0297421",
+                "reference": "42b34b66a19051108aa370aeda9d03a0e0297421",
                 "shasum": ""
             },
             "require": {
@@ -11747,7 +11748,8 @@
                     "Rector\\StrictCodeQuality\\": "packages/StrictCodeQuality/src",
                     "Rector\\DynamicTypeAnalysis\\": "packages/DynamicTypeAnalysis/src",
                     "Rector\\PhpDeglobalize\\": "packages/PhpDeglobalize/src",
-                    "Rector\\Phalcon\\": "packages/Phalcon/src"
+                    "Rector\\Phalcon\\": "packages/Phalcon/src",
+                    "Rector\\DoctrineGedmoToKnplabs\\": "packages/DoctrineGedmoToKnplabs/src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -11774,7 +11776,7 @@
                 "instant refactoring",
                 "instant upgrades"
             ],
-            "time": "2019-12-23T17:28:45+00:00"
+            "time": "2019-12-29T21:55:59+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
