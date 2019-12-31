@@ -1721,27 +1721,26 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.12",
+            "version": "2.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "a6255605af39f2db7f5cb62e672bd8a7bad8d208"
+                "reference": "834593d5900615639208417760ba6a17299e2497"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/a6255605af39f2db7f5cb62e672bd8a7bad8d208",
-                "reference": "a6255605af39f2db7f5cb62e672bd8a7bad8d208",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/834593d5900615639208417760ba6a17299e2497",
+                "reference": "834593d5900615639208417760ba6a17299e2497",
                 "shasum": ""
             },
             "require": {
                 "doctrine/lexer": "^1.0.1",
-                "php": ">= 5.5"
+                "php": ">=5.5"
             },
             "require-dev": {
-                "dominicsayers/isemail": "dev-master",
-                "phpunit/phpunit": "^4.8.35||^5.7||^6.0",
-                "satooshi/php-coveralls": "^1.0.1",
-                "symfony/phpunit-bridge": "^4.4@dev"
+                "dominicsayers/isemail": "^3.0.7",
+                "phpunit/phpunit": "^4.8.36|^7.5.15",
+                "satooshi/php-coveralls": "^1.0.1"
             },
             "suggest": {
                 "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
@@ -1775,7 +1774,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2019-12-20T12:49:39+00:00"
+            "time": "2019-12-30T08:14:25+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -3701,12 +3700,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/curl-client.git",
-                "reference": "4336b5386444bbc3db9485316115d96c8f73766a"
+                "reference": "9e79355af46d72e10da50be20b66f74b26143441"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/curl-client/zipball/4336b5386444bbc3db9485316115d96c8f73766a",
-                "reference": "4336b5386444bbc3db9485316115d96c8f73766a",
+                "url": "https://api.github.com/repos/php-http/curl-client/zipball/9e79355af46d72e10da50be20b66f74b26143441",
+                "reference": "9e79355af46d72e10da50be20b66f74b26143441",
                 "shasum": ""
             },
             "require": {
@@ -3758,7 +3757,7 @@
                 "http",
                 "psr-18"
             ],
-            "time": "2019-11-25T11:43:58+00:00"
+            "time": "2019-12-27T11:02:07+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -4811,6 +4810,7 @@
             "extra": {
                 "branch-alias": {
                     "master": "3.x-dev",
+                    "releases/3.2.x": "3.2.x-dev",
                     "releases/2.x": "2.x-dev",
                     "releases/1.x": "1.x-dev"
                 }
@@ -11636,12 +11636,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "64adadabde7eb8d2ca673df1fb9e142892f1d233"
+                "reference": "d83ea25cb5e1bdc04a5d2ece46c61824eda35a89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/64adadabde7eb8d2ca673df1fb9e142892f1d233",
-                "reference": "64adadabde7eb8d2ca673df1fb9e142892f1d233",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/d83ea25cb5e1bdc04a5d2ece46c61824eda35a89",
+                "reference": "d83ea25cb5e1bdc04a5d2ece46c61824eda35a89",
                 "shasum": ""
             },
             "require": {
@@ -11747,7 +11747,8 @@
                     "Rector\\StrictCodeQuality\\": "packages/StrictCodeQuality/src",
                     "Rector\\DynamicTypeAnalysis\\": "packages/DynamicTypeAnalysis/src",
                     "Rector\\PhpDeglobalize\\": "packages/PhpDeglobalize/src",
-                    "Rector\\Phalcon\\": "packages/Phalcon/src"
+                    "Rector\\Phalcon\\": "packages/Phalcon/src",
+                    "Rector\\DoctrineGedmoToKnplabs\\": "packages/DoctrineGedmoToKnplabs/src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -11774,7 +11775,7 @@
                 "instant refactoring",
                 "instant upgrades"
             ],
-            "time": "2019-12-23T17:28:45+00:00"
+            "time": "2019-12-30T23:16:56+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
