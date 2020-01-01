@@ -21,7 +21,7 @@
         "fakturoid/fakturoid-php": "^1.0",
         "guzzlehttp/guzzle": "^6.5",
         "j7mbo/twitter-api-php": "^1.0",
-        "knplabs/doctrine-behaviors": "v2.0.0-alpha4",
+        "knplabs/doctrine-behaviors": "v2.0.0-beta1",
         "sensio/framework-extra-bundle": "^5.5",
         "sentry/sentry": "^2.2",
         "sentry/sentry-symfony": "dev-master#e30be17",
