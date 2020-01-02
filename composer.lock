@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59ee492a594b6e9878bd32c3d9027eee",
+    "content-hash": "d286432fa692bdffc67beba09bba62b0",
     "packages": [
         {
             "name": "alterphp/easyadmin-extension-bundle",
@@ -2577,16 +2577,16 @@
         },
         {
             "name": "knplabs/doctrine-behaviors",
-            "version": "v2.0.0-beta1",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/DoctrineBehaviors.git",
-                "reference": "c407a14e125a045ca6c0540538a39f3907fc1433"
+                "reference": "b3bb9f6d02b0da010a5998decd804edbd0c2fc78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/c407a14e125a045ca6c0540538a39f3907fc1433",
-                "reference": "c407a14e125a045ca6c0540538a39f3907fc1433",
+                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/b3bb9f6d02b0da010a5998decd804edbd0c2fc78",
+                "reference": "b3bb9f6d02b0da010a5998decd804edbd0c2fc78",
                 "shasum": ""
             },
             "require": {
@@ -2649,7 +2649,7 @@
                 "tree",
                 "uuid"
             ],
-            "time": "2020-01-01T17:42:04+00:00"
+            "time": "2020-01-01T22:09:46+00:00"
         },
         {
             "name": "latte/latte",
