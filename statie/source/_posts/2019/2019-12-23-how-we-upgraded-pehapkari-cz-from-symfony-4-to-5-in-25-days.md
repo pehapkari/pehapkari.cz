@@ -106,7 +106,7 @@ vendor/bin/rector process bin src packages --set symfony50
      "require": {
 -        "stof/doctrine-extensions-bundle": "^1.3",
 -        "knplabs/doctrine-behaviors": "^1.6"
-+        "knplabs/doctrine-behaviors": "dev-master"
++        "knplabs/doctrine-behaviors": "^2.0"
      }
  }
 ```
