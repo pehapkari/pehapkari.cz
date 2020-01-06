@@ -18,6 +18,8 @@ tweet: "New Post on #pehapkari Blog: How to Speedup Coverage on Travis by 95 %"
 
 Do you find this story resembling your daily job? We had the same problem. We tolerated for 2 years, but in 2020 we looked for a better way.
 
+<img src="/assets/images/posts/coverage_slow.png">
+
 ## Status Quo: Xdebug
 
 The most common way in the open-source nowadays is Xdebug with Coveralls. [Coveralls.io](http://coveralls.io/) is an open-source, free service, that consumes your PHPUnit coverage data, and turns them into one significant number.
@@ -124,6 +126,8 @@ with Xdebug, it's ok. Imagine someone tries to cover that is already covered? **
 - pcov - 1,5 minutes, 73 % code coverage
 
 ...and the winner is:
+
+<img src="/assets/images/posts/coverage_fast.png">
 
 <br>
 
