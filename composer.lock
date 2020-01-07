@@ -9080,16 +9080,16 @@
         },
         {
             "name": "symplify/flex-loader",
-            "version": "v7.1.3",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Symplify/FlexLoader.git",
-                "reference": "fc8fe80e2a68d939e8f0bd1fd4179bf441071848"
+                "reference": "e6ad7970fb39c8d4178b8fa09f26d0d46681c384"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Symplify/FlexLoader/zipball/fc8fe80e2a68d939e8f0bd1fd4179bf441071848",
-                "reference": "fc8fe80e2a68d939e8f0bd1fd4179bf441071848",
+                "url": "https://api.github.com/repos/Symplify/FlexLoader/zipball/e6ad7970fb39c8d4178b8fa09f26d0d46681c384",
+                "reference": "e6ad7970fb39c8d4178b8fa09f26d0d46681c384",
                 "shasum": ""
             },
             "require": {
@@ -9101,7 +9101,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^8.4",
                 "symfony/framework-bundle": "^4.4|^5.0",
-                "symplify/package-builder": "^7.1.3"
+                "symplify/package-builder": "^7.2"
             },
             "type": "library",
             "extra": {
@@ -9119,7 +9119,7 @@
                 "MIT"
             ],
             "description": "Reduce Kernel Flex boiler code and use extra features",
-            "time": "2019-12-18T20:34:38+00:00"
+            "time": "2020-01-05T09:06:02+00:00"
         },
         {
             "name": "symplify/package-builder",
