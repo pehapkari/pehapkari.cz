@@ -158,7 +158,7 @@ Xdebug makes everything very, very slow.
 <br>
 
 <div class="text-center">
-<h2>Rule of the thumb 👍</h2>
+<h3>Rule of the thumb</h3>
 </div>
 
 <blockquote class="blockquote text-center">
@@ -171,23 +171,16 @@ You can't imagine how many false performance positives we tried to solve, becaus
 
 <br>
 
-Why is that important for Travis? The older Travis builds for PHP didn't have Xdebug installed, but a newer version included it.
-
-**To remove it safely**, we need to add `||` check in `.travis.yml`:
+**To remove it**, just update `.travis.yml` with:
 
 ```yaml
 # .travis.yml
 before_install:
     # turn off XDebug
-    - phpenv config-rm xdebug.ini || return 0
+    - phpenv config-rm xdebug.ini
 ```
 
 Voilá!
-
-<br>
-
-This way, the Xdebug is disabled, but only if it exists. Otherwise, it's already disabled, and we don't care.
-
 
 <br>
 
