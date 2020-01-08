@@ -5,7 +5,7 @@ security:
         # allow access to "/admin" only to logged-in
         -
             path: '^/admin'
-            roles: ROLE_ADMIN
+            roles: [ROLE_ADMIN, ROLE_ORGANIZER]
 
     encoders:
         Pehapkari\User\Entity\User: 'argon2i'
