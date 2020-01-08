@@ -40,6 +40,14 @@ class User implements UserInterface
      */
     private $roles = [];
 
+    /**
+     * For easy admin, to display user name
+     */
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -65,7 +73,7 @@ class User implements UserInterface
         return $this->name;
     }
 
-    public function setRoles(array $roles)
+    public function setRoles(array $roles): void
     {
         $this->roles = $roles;
     }
@@ -110,13 +118,5 @@ class User implements UserInterface
         // required by authenticator:
         // "$roles must be an array of strings, or Role instances, but got object."
         return $this->roles;
-    }
-
-    /**
-     * For easy admin, to display user name
-     */
-    public function __toString(): string
-    {
-        return $this->name;
     }
 }
