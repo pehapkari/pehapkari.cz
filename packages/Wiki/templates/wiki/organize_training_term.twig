@@ -1,1 +1,109 @@
-@todo :)
+{% extends '@!EasyAdmin/default/layout.html.twig' %}
+
+{% block content_header %}
+    <h2>Jak organizovat školení?</h2>
+{% endblock %}
+
+{% block main %}
+    <div class="pt-4 pb-4 pl-4 pr-4">
+        <h3>1. Před vypsáním termínu</h3>
+
+        <p><strong>Časově</strong>: 5-6 týdnů před školením</p>
+
+        <ul>
+            <li>vybrat týden, který bude za ~1,5 měsíce</li>
+            <li>vybrat 3-4 školitele, které oslovíš</li>
+            <li>napsat školitelům, kdy se jim to běheme toho týdne hodí (buď napsat termíny, nebo poslat doodle)</li>
+        </ul>
+
+        <hr>
+
+        <h3>2. Vypsáním termínu</h3>
+
+        <p><strong>Časově</strong>: 4-5 týdnů před školením</p>
+
+        <ul>
+            <li>vypsat termín na webu tady vlevo - termín je automaticky veřejný, tak bacha :)</li>
+            <li>napsat na duskova@jablotron.cz do Jablotron, že potřebujeme rezervaci na konkrétní den a čas; obvykle dáváme 15 minut před i po; takže školení 9-13 bude mítrezervaci 8:45-13:15</li>
+            <li>deadline na přihlášky je týden před začátkem školení, pak už to nejde</li>
+            <li>taky je potřeba to hodit na Facebook - tam stačí <a href="https://www.facebook.com/pehapkari/events/">zduplikovat starou akci</a>, změnit termín a je to</li>
+        </ul>
+
+        <hr>
+
+        <h3>3. Promo před termínem školení</h3>
+
+        <p><strong>Časově</strong>: 1-4 týdny před školením</p>
+
+        <ul>
+            <li>psát příspěvky na Twitter</li>
+            <li>psát příspěvky na Facebook</li>
+            <li>inspirace stylem, který tam byl předtím</li>
+            <li>tradiční formát je text nějakého feedbacku + přijď na školení</li>
+        </ul>
+
+        <hr>
+
+        <h3>4. Uzavření přihlášek, faktury</h3>
+
+        <p><strong>Časově</strong>: 1 týden před školením</p>
+
+        <ul>
+            <li>většina školitelů má limit 3-4 lidi</li>
+            <li>vždycky si ověřím, jestli to pro ně má smysl</li>
+            <li><strong>když ne</strong>, napíšu účastníkům, že se omlouváme, ale školení nebude; taky zruším rezervace termínu školící místnosti</li>
+            <li><strong>když ano</strong>, pošlu jim faktury - jde to automaticky v administraci termínu</li>
+        </ul>
+
+        <ul>
+            <li>každé školení potřebuje certifikáty - ty jdou generovat v administraci termínu</li>
+            <li>občas se stane, že jsou 2 účastníci v jedné přihlášce, v poznámce, a certifikát pro toho druého je potřeba udělat ručně - kvůli tomu je tu v menu <em>Generate Certificate</em> </li>
+            <li>pak stačí vytisknout v CopyGeneral na stříbřitý papír a účtenku si nechat</li>
+            <li>certifikáty je potřeba přinést na školící místo, nejpozději v den školení ráno; klidně stačí pár dní předem, požádat recepční a na obálku napsat datum, čas a jméno školitele, aby se jim to neztratilo :)</li>
+        </ul>
+
+        <ul>
+            <li>většina školitelů nemá materiály, ale Tomáš Pilař jo :)</li>
+            <li>ty je potřeba vytisknout pro daný počet účastníků a přidat je do obálky</li>
+        </ul>
+
+        <hr>
+
+        <h3>5. Den školení</h3>
+
+        <p><strong>Časově</strong>: den školení :)</p>
+
+        <ul>
+            <li>bonus: donést na místo nějkaé občerstvení - ovoce, zeleninu, sušenky, ať mají co k zakousnutí :)</li>
+            <li>nechat si účtenku, tu potom proplatíme</li>
+
+            <li>ještě večer po školení je potřeba poslat účastníkům formulář pro feedbacky - tlačítko v administraci termínu školení</li>
+        </ul>
+
+        <hr>
+
+        <h3>6. Po školení</h3>
+
+        <p><strong>Časově</strong>: 1-2 dny po školení</p>
+
+        <ul>
+            <li>napsat školitelovi, jak to šlo a jestli vše bylo ok :)</li>
+        </ul>
+
+        <hr>
+
+        <h3>7. Vyplacení provize školitelům (řeší Tomáš)</h3>
+
+        <p>Tohle už pořeším sám, protože to závisí na více lidech a potřebuju ověřit, že se provize správně spočítala.</p>
+
+        <p><strong>Časově</strong>: ~2 týdny po školení</p>
+
+        <ul>
+            <li>než je vyplacená provize, musí být zaplaceny všechny faktury</li>
+            <li>taky musí být přijatá faktura od školícího centra - tu zadám já (Tomáš)</li>
+            <li>pak budeme mít dohromady všechny náklady a můžeme školitelovi poslat info o provizi</li>
+        </ul>
+
+        <p>A je to :)</p>
+    </div>
+{% endblock %}
