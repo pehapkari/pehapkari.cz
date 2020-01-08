@@ -91,7 +91,7 @@ final class RegistrationController extends AbstractController
     private function processRegistrationForm(TrainingRegistration $trainingRegistration): RedirectResponse
     {
         // is email valid?
-        if (! $this->emailValidation->validateEmail($trainingRegistration->getEmail())) {
+        if (! $this->emailValidation->isEmailValid($trainingRegistration->getEmail())) {
             throw new AccessDeniedHttpException(sprintf('Email "%s" jsme nenašli', $trainingRegistration->getEmail()));
         }
 

@@ -19,7 +19,7 @@ final class ZipCode
         'US' => '(\\d{5})(?:[ \\-](\\d{4}))?',
     ];
 
-    public static function validate(string $zipcode, string $country): bool
+    public static function isZipCodeValidWithCountry(string $zipcode, string $country): bool
     {
         $country = strtoupper($country);
 

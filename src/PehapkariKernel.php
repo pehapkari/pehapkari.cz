@@ -11,11 +11,11 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+use Symplify\AutoBindParameter\DependencyInjection\CompilerPass\AutoBindParameterCompilerPass;
 use Symplify\Autodiscovery\Discovery;
+use Symplify\AutowireArrayParameter\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
 use Symplify\FlexLoader\Flex\FlexLoader;
-use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
-use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
 
 final class PehapkariKernel extends Kernel
 {
@@ -72,7 +72,7 @@ final class PehapkariKernel extends Kernel
         $containerBuilder->addCompilerPass(new CorrectionCompilerPass());
 
         // autowiring
-        $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
+        $containerBuilder->addCompilerPass(new AutoBindParameterCompilerPass());
         $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
     }
 }

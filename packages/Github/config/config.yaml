@@ -7,4 +7,4 @@ services:
     Pehapkari\Github\:
         resource: '../src'
 
-    Symplify\PackageBuilder\FileSystem\FinderSanitizer: ~
+    Symplify\SmartFileSystem\Finder\FinderSanitizer: null

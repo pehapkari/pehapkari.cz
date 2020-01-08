@@ -17,6 +17,7 @@ jobs:
                 uses: shivammathur/setup-php@v1
                 with:
                     php-version: 7.3
+                    extensions: int
                     coverage: none
 
             -
@@ -38,6 +39,7 @@ jobs:
                 uses: shivammathur/setup-php@v1
                 with:
                     php-version: 7.3
+                    extensions: int
                     coverage: none
 
             -
@@ -59,6 +61,7 @@ jobs:
                 uses: shivammathur/setup-php@v1
                 with:
                     php-version: 7.3
+                    extensions: int
                     coverage: none
 
             -
@@ -81,7 +84,7 @@ jobs:
                 with:
                     php-version: 7.3
                     coverage: none # default is xdebug
-                    extensions: mbstring # needed by phpunit
+                    extensions: int, mbstring
 
             -
                 name: Install & Run
@@ -102,6 +105,7 @@ jobs:
                 uses: shivammathur/setup-php@v1
                 with:
                     php-version: 7.3
+                    extensions: int
                     coverage: none
 
             -
@@ -110,3 +114,4 @@ jobs:
                     composer install --no-progress
                     bin/console lint:yaml src packages
                     bin/console lint:twig packages templates
+                    bin/console lint:container
