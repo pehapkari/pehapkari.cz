@@ -47,3 +47,6 @@ parameters:
         # mixed
         - '#with no typehint specified#'
         - '#Parameter \#1 \$argument of class ReflectionClass constructor expects class\-string<T of object\>\|T of object, string given#'
+
+        # is required by interface
+        - '#Method "checkCredentials\(\)" returns bool type, so the name should start with is/has/was#'

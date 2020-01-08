@@ -30,7 +30,7 @@ final class EmailValidation
         ]);
     }
 
-    public function validateEmail(string $email): bool
+    public function isEmailValid(string $email): bool
     {
         return $this->emailValidator->isValid($email, $this->multipleValidationWithAnd);
     }
