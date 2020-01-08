@@ -6,6 +6,8 @@ services:
 
     Pehapkari\Blog\:
         resource: '../src'
+        exclude:
+            - '../src/ValueObject/*'
 
     # for rendering markdown posts
     ParsedownExtra:
