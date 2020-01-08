@@ -7,6 +7,9 @@ security:
             path: '^/admin'
             roles: [ROLE_ADMIN, ROLE_ORGANIZER]
 
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_ORGANIZER]
+
     encoders:
         Pehapkari\User\Entity\User: 'argon2i'
 

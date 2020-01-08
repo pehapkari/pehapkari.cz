@@ -19,6 +19,8 @@ parameters:
         - 'relativeUploadDestination'
         - 'marketingEvents'
         - 'expenses'
+        # helper property
+        - 'areFeedbackEmailsSent'
 
 easy_admin:
     site_name: "Trainings from Péhápkaři Community"

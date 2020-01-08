@@ -91,11 +91,14 @@ Sdílej své know-how
                         <ul>
                             <li>Vymysli si, co chceš školit</li>
                             <li>Mrkni na <a href="{{ path('trainings') }}">existující školení</a>, jestli téma už někdo nemá</li>
-                            <li>
-                                Otevři si jedno školení, ať máš představu, jak vypadá jeho popis, třeba <a href="{{ path('training_detail', {'slug': example_training.slug }) }}">
-                                    {{ example_training.name }}
-                                </a>
-                            </li>
+
+                            {% if example_training is not null %}
+                                <li>
+                                    Otevři si jedno školení, ať máš představu, jak vypadá jeho popis, třeba <a href="{{ path('training_detail', {'slug': example_training.slug }) }}">
+                                        {{ example_training.name }}
+                                    </a>
+                                </li>
+                            {% endif %}
                             <li>
                                 <strong>Pošli nám svůj návrh</strong>
                             </li>
