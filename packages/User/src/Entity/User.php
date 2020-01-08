@@ -34,6 +34,12 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="json")
+     * @var string[]
+     */
+    private $roles = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -98,6 +104,6 @@ class User implements UserInterface
     {
         // required by authenticator:
         // "$roles must be an array of strings, or Role instances, but got object."
-        return ['ROLE_ADMIN'];
+        return $this->roles;
     }
 }
