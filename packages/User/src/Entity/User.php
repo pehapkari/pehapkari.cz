@@ -111,4 +111,12 @@ class User implements UserInterface
         // "$roles must be an array of strings, or Role instances, but got object."
         return $this->roles;
     }
+
+    /**
+     * For easy admin, to display user name
+     */
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 }

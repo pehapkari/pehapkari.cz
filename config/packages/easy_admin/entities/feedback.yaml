@@ -14,3 +14,5 @@ easy_admin:
                     - 'training'
                     - { property: 'isShownOnMainPage', label: 'Main Page' }
                     - 'isPublic'
+
+            role: ROLE_ADMIN
