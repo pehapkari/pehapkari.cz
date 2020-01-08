@@ -67,10 +67,10 @@
         "nette/application": "^3.0",
         "nette/bootstrap": "^3.0",
         "nette/forms": "^3.0",
-        "phpstan/phpstan": "^0.12",
+        "phpstan/phpstan": "^0.12.4",
         "phpstan/phpstan-doctrine": "^0.12",
         "phpunit/phpunit": "^8.5",
-        "rector/rector": "dev-master",
+        "rector/rector": "^0.6.9",
         "symfony/browser-kit": "^5.0",
         "symfony/var-dumper": "^5.0",
         "symplify/coding-standard": "^7.1",
@@ -115,8 +115,7 @@
         "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix --ansi",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse packages src statie/src statie/tests --ansi --error-format symplify",
-        "rector": "vendor/bin/rector process src tests --config rector-ci.yaml --ansi",
-        "rector-dry": "vendor/bin/rector process src tests --config rector-ci.yaml --ansi --dry-run"
+        "rector": "vendor/bin/rector process src tests --config rector-ci.yaml --ansi"
     },
     "config": {
         "sort-packages": true

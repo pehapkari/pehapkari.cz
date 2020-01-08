@@ -25,33 +25,6 @@ jobs:
                 - docker build --cache-from pehapkari/pehapkari.cz -t pehapkari/pehapkari.cz:$TRAVIS_COMMIT --target production -f Dockerfile .
                 - docker push pehapkari/pehapkari.cz
 
-        -
-            stage: test
-            name: ECS
-            script:
-                - composer check-cs
-
-        -
-            name: PHPStan
-            script:
-                - composer phpstan
-
-        -
-            name: PHPUnit
-            script:
-                - vendor/bin/phpunit
-
-        -
-            name: Rector
-            script:
-                - composer rector-dry
-
-        -
-            name: 'Symfony Linting'
-            script:
-                - bin/console lint:yaml src packages
-                - bin/console lint:twig packages templates
-
         # 2. Build Docker image → deploy
         -
             stage: warmup
