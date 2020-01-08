@@ -5,8 +5,13 @@ easy_admin:
             # https://symfony.com/doc/master/bundles/EasyAdminBundle/book/design-configuration.html#loading-the-entire-bootstrap-framework
             css:
                 - 'bundles/easyadmin/bootstrap-all.css'
+                - 'assets/css/custom_backend.css'
 
         menu:
+            # see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/menu-configuration.html#menu-dividers
+            -
+                label: 'Training Term'
+
             -
                 label: 'Training Terms'
                 icon: 'calendar'
@@ -14,24 +19,6 @@ easy_admin:
             -
                 icon: 'id-badge'
                 entity: 'Registration'
-
-            -
-                label: 'Trainers'
-                icon: 'user'
-                entity: 'Trainer'
-
-            -
-                label: 'Trainings'
-                icon: 'graduation-cap'
-                entity: 'Training'
-
-            -
-                label: 'Marketing'
-                icon: 'mail-bulk'
-                entity: 'MarketingEvent'
-            -
-                icon: 'comment'
-                entity: 'Feedback'
             -
                 label: 'Expenses'
                 icon: 'money'
@@ -40,6 +27,39 @@ easy_admin:
                 label: 'Generate Certificate'
                 icon: 'plus'
                 route: 'create_certificate'
+
+            -
+                label: 'Website Content'
+
+            -
+                label: 'Trainings'
+                icon: 'graduation-cap'
+                entity: 'Training'
+
+            -
+                label: 'Trainers'
+                icon: 'user'
+                entity: 'Trainer'
+
+            -
+                label: 'Marketing & Wiki'
+
+            -
+                label: 'Marketing'
+                icon: 'mail-bulk'
+                entity: 'MarketingEvent'
+
+            -
+                label: 'Wiki: Training Term'
+                route: 'wiki_organize_training_term'
+
+            -
+                icon: 'comment'
+                entity: 'Feedback'
+
+            -
+                label: 'External Links'
+
             -
                 label: 'Go to Homepage'
                 icon: 'home'

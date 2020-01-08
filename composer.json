@@ -90,6 +90,7 @@
             "Pehapkari\\Marketing\\": "packages/Marketing/src",
             "Pehapkari\\BetterEasyAdmin\\": "packages/BetterEasyAdmin/src",
             "Pehapkari\\User\\": "packages/User/src",
+            "Pehapkari\\Wiki\\": "packages/Wiki/src",
             "Pehapkari\\Youtube\\": "packages/Youtube/src",
             "Pehapkari\\Fakturoid\\": "packages/Fakturoid/src",
             "Pehapkari\\Statie\\": "statie/src"

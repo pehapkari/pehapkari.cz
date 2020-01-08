@@ -9,6 +9,7 @@
         { "path": "packages/Registration/templates" },
         { "path": "packages/Training/templates" },
         { "path": "packages/User/templates" },
+        { "path": "packages/Wiki/templates" },
         { "path": "packages/Youtube/templates" }
     ]
 }

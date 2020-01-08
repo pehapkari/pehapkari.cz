@@ -64,7 +64,7 @@ final class TrainingRepository
         });
     }
 
-    public function getById(int $id): Training
+    public function findById(int $id): ?Training
     {
         return $this->entityRepository->find($id);
     }

@@ -36,7 +36,7 @@ final class BecomeTrainerController extends AbstractController
         return $this->render('training/become_trainer.twig', [
             'total_training_term_count' => $this->trainingStatistics->getFinishedTrainingsCount(),
             'total_participant_count' => $this->trainingStatistics->getRegistrationCount(),
-            'example_training' => $this->trainingRepository->getById(6),
+            'example_training' => $this->trainingRepository->findById(6),
         ]);
     }
 }
