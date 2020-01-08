@@ -8,21 +8,22 @@ easy_admin:
 
         menu:
             -
-                label: 'Terms'
+                label: 'Training Terms'
                 icon: 'calendar'
                 entity: 'TrainingTerm'
             -
                 icon: 'id-badge'
                 entity: 'Registration'
+
             -
-                label: 'Content'
-                icon: 'train'
-                children:
-                    -
-                        label: 'Trainers'
-                        entity: 'Trainer'
-                    -   label: 'Trainings'
-                        entity: 'Training'
+                label: 'Trainers'
+                icon: 'user'
+                entity: 'Trainer'
+
+            -
+                label: 'Trainings'
+                icon: 'graduation-cap'
+                entity: 'Training'
 
             -
                 label: 'Marketing'
