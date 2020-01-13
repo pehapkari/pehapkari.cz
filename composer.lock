@@ -5092,6 +5092,7 @@
             "extra": {
                 "branch-alias": {
                     "master": "3.x-dev",
+                    "releases/3.2.x": "3.2.x-dev",
                     "releases/2.x": "2.x-dev",
                     "releases/1.x": "1.x-dev"
                 }
@@ -9443,16 +9444,16 @@
         },
         {
             "name": "symplify/flex-loader",
-            "version": "v7.2.0",
+            "version": "v7.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Symplify/FlexLoader.git",
-                "reference": "e6ad7970fb39c8d4178b8fa09f26d0d46681c384"
+                "reference": "bb1eefe3d5a5f66e930baeadf3fa679369eeed3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Symplify/FlexLoader/zipball/e6ad7970fb39c8d4178b8fa09f26d0d46681c384",
-                "reference": "e6ad7970fb39c8d4178b8fa09f26d0d46681c384",
+                "url": "https://api.github.com/repos/Symplify/FlexLoader/zipball/bb1eefe3d5a5f66e930baeadf3fa679369eeed3f",
+                "reference": "bb1eefe3d5a5f66e930baeadf3fa679369eeed3f",
                 "shasum": ""
             },
             "require": {
@@ -9462,14 +9463,14 @@
                 "symfony/routing": "^4.4|^5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.4",
+                "phpunit/phpunit": "^8.5",
                 "symfony/framework-bundle": "^4.4|^5.0",
-                "symplify/package-builder": "^7.2"
+                "symplify/package-builder": "^7.2.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.2-dev"
+                    "dev-master": "7.3-dev"
                 }
             },
             "autoload": {
@@ -9482,7 +9483,7 @@
                 "MIT"
             ],
             "description": "Reduce Kernel Flex boiler code and use extra features",
-            "time": "2020-01-05T09:06:02+00:00"
+            "time": "2020-01-11T10:55:38+00:00"
         },
         {
             "name": "symplify/package-builder",
