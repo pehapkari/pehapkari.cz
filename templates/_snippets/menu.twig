@@ -12,6 +12,11 @@
 
         <ul class="navbar-nav ml-auto hidden-sm-down" id="menu">
             <li>
+                <a class="{{ active_item(['blog', 'post']) }}" href="{{ path('blog') }}">
+                    Blog
+                </a>
+            </li>
+            <li>
                 <a class="{{ active_item(['trainings', 'training_detail', 'place_detail', 'registration']) }}" href="{{ path('trainings') }}">
                     Školení
                 </a>
@@ -19,11 +24,6 @@
             <li>
                 <a class="{{ active_item(['videos', 'livestream', 'video_detail', 'videos_php_prague']) }}" href="{{ path('videos') }}">
                     Videa
-                </a>
-            </li>
-            <li>
-                <a class="{{ active_item(['blog', 'post']) }}" href="{{ path('blog') }}">
-                    Blog
                 </a>
             </li>
             <li class="pr-0">

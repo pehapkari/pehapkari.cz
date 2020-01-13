@@ -26,6 +26,14 @@ final class AuthorsProvider
         return $this->parameterBag->get('authors') ?? [];
     }
 
+    /**
+     * @return string[]
+     */
+    public function provideById(int $id): array
+    {
+        return $this->provide()[$id] ?? null;
+    }
+
     public function getCount(): int
     {
         return count($this->provide());

@@ -50,3 +50,5 @@ parameters:
 
         # is required by interface
         - '#Method "checkCredentials\(\)" returns bool type, so the name should start with is/has/was#'
+
+        - '#Method Pehapkari\\Blog\\PostStatsFactory\:\:createPostsByAuthor\(\) should return array<int, array<Symplify\\Statie\\Renderable\\File\\PostFile\>\> but returns array<int\|string, array<int, Symplify\\Statie\\Renderable\\File\\PostFile\>\>#'
