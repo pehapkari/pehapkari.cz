@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% set page_title %}Community Trainers{% endset %}
+
+{% block main %}
+    <div class="container">
+        <h1>{{ page_title }}</h1>
+
+        <div class="subhead">
+            <strong>{{ training_term_count }}</strong> finished trainings were performed by {{ trainers|length }} trainers.
+        </div>
+
+        <h2 class="mb-5">Most Active Trainers</h2>
+
+        <div class="row">
+            {% for trainer in trainers|filter(trainer => trainer.trainingTermCount > 0) %}
+                <div class="col-4 d-flex mb-4">
+                    <img src="{{ trainer.relativeImagePath }}" style="width: 3em; height: 3em" class="rounded-circle mr-3">
+
+                    <div class="w-100">
+                        <small>{{ loop.index }}.</small>
+                        <strong>{{ trainer.name }}</strong>
+                        <p>
+                            <small class="text-muted">
+                                <strong>{{ trainer.trainingTermCount }}</strong> {% if trainer.trainingTermCount == 1 %}training{% else %}trainings{% endif %}
+                                ·
+                                <strong>{{ trainer.trainingsParticipantCount }}</strong> participants
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

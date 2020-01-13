@@ -32,4 +32,18 @@ final class TrainerRepository
     {
         return count($this->objectRepository->findAll());
     }
+
+    /**
+     * @return Trainer[]
+     */
+    public function fetchAllSortedByTrainingTermCount(): array
+    {
+        $trainers = $this->fetchAll();
+
+        usort($trainers, function (Trainer $firstTrainer, Trainer $secondTrainer) {
+            return $secondTrainer->getTrainingTermCount() <=> $firstTrainer->getTrainingTermCount();
+        });
+
+        return $trainers;
+    }
 }
