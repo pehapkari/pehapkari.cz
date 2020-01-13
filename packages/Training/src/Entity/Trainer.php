@@ -159,6 +159,40 @@ class Trainer implements TimestampableInterface
         return $this->trainings;
     }
 
+    public function getTrainingTermCount(): int
+    {
+        $trainingTermCount = 0;
+
+        foreach ($this->getTrainings() as $training) {
+            foreach ($training->getTrainingTerms() as $trainingTerm) {
+                if (! $trainingTerm->isProvisionPaid()) {
+                    continue;
+                }
+
+                ++$trainingTermCount;
+            }
+        }
+
+        return $trainingTermCount;
+    }
+
+    public function getTrainingsParticipantCount(): int
+    {
+        $trainingsParticipantCount = 0;
+
+        foreach ($this->getTrainings() as $training) {
+            foreach ($training->getTrainingTerms() as $trainingTerm) {
+                if (! $trainingTerm->isProvisionPaid()) {
+                    continue;
+                }
+
+                $trainingsParticipantCount += $trainingTerm->getParticipantCount();
+            }
+        }
+
+        return $trainingsParticipantCount;
+    }
+
     public function getWebsite(): ?string
     {
         return $this->website;

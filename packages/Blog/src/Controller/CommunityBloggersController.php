@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class BlogUserStatsController extends AbstractController
+final class CommunityBloggersController extends AbstractController
 {
     /**
      * @var PostStatsFactory
@@ -22,11 +22,11 @@ final class BlogUserStatsController extends AbstractController
     }
 
     /**
-     * @Route(path="community-bloggers", name="blog_user_stats")
+     * @Route(path="community-bloggers", name="community_bloggers")
      */
     public function __invoke(): Response
     {
-        return $this->render('blog/blog_user_stats.twig', [
+        return $this->render('blog/community_bloggers.twig', [
             'authors_posts' => $this->postStatsFactory->create(),
             'post_break_count' => 3,
         ]);
