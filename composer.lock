@@ -5092,6 +5092,7 @@
             "extra": {
                 "branch-alias": {
                     "master": "3.x-dev",
+                    "releases/3.2.x": "3.2.x-dev",
                     "releases/2.x": "2.x-dev",
                     "releases/1.x": "1.x-dev"
                 }
@@ -9486,16 +9487,16 @@
         },
         {
             "name": "symplify/package-builder",
-            "version": "v7.2.0",
+            "version": "v7.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Symplify/PackageBuilder.git",
-                "reference": "ac6544e0604bdcb9353c268316d1ed5d5ae10db0"
+                "reference": "eb80e8b91ae101cc6ae218ba5552d1764bcf2276"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Symplify/PackageBuilder/zipball/ac6544e0604bdcb9353c268316d1ed5d5ae10db0",
-                "reference": "ac6544e0604bdcb9353c268316d1ed5d5ae10db0",
+                "url": "https://api.github.com/repos/Symplify/PackageBuilder/zipball/eb80e8b91ae101cc6ae218ba5552d1764bcf2276",
+                "reference": "eb80e8b91ae101cc6ae218ba5552d1764bcf2276",
                 "shasum": ""
             },
             "require": {
@@ -9510,12 +9511,12 @@
                 "symfony/yaml": "^4.4|^5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.4"
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.2-dev"
+                    "dev-master": "7.3-dev"
                 }
             },
             "autoload": {
@@ -9528,7 +9529,7 @@
                 "MIT"
             ],
             "description": "Dependency Injection, Console and Kernel toolkit for Symplify packages.",
-            "time": "2020-01-05T09:24:38+00:00"
+            "time": "2020-01-07T22:30:31+00:00"
         },
         {
             "name": "symplify/set-config-resolver",
