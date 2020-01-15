@@ -108,7 +108,7 @@ class Training implements UploadDestinationAwareInterface, SluggableInterface
 
     public function __toString(): string
     {
-        return $this->name;
+        return $this->trainer->getName() . ' ' . $this->name;
     }
 
     public function getHashtags(): ?string

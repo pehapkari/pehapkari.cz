@@ -21,15 +21,16 @@ easy_admin:
                         name: 'training_term_organization'
                         type: 'route'
                         label: 'Organize'
-                        css_class: 'btn btn-danger'
+                        css_class: 'btn btn-lg btn-success mb-3'
+
                     -
                         name: 'training_term_provision'
                         type: 'route'
                         label: 'Provision'
-                        css_class: 'btn btn-warning'
+                        css_class: 'btn btn-lg btn-warning mb-3'
 
-                    -
-                        name: 'duplicate_training_term'
-                        type: 'route'
-                        label: 'Duplicate'
-                        css_class: 'btn btn-success'
+#                    -
+#                        name: 'duplicate_training_term'
+#                        type: 'route'
+#                        label: 'Duplicate'
+#                        css_class: 'btn btn-success mb-2'
