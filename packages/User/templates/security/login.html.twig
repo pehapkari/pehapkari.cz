@@ -3,28 +3,28 @@
 {% block body %}
     {# source: https://getbootstrap.com/docs/4.1/examples/sign-in/ #}
 
+    <br>
+
     <div class="container text-center">
-        <div class="row">
-            <div class="col-4 offset-4 mt-5">
-                <h1 class="mb-4 mt-4">Welcome Back!</h1>
+        <div style="max-width: 25em" class="m-auto">
+            <h1 class="mb-4 mt-4">Pehapkari Admin</h1>
 
-                {% if error %}
-                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
+            {% if error %}
+                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-                <form action="{{ path('login') }}" method="post" class="form-signin">
-                    <label for="username" class="sr-only">Email</label>
-                    <input type="email" name="_username" id="username" class="form-control mb-2" placeholder="Email address" required autofocus value="{{ last_username }}">
+            <form action="{{ path('login') }}" method="post" class="form-signin">
+                <label for="username" class="sr-only">Email</label>
+                <input type="email" name="_username" id="username" class="form-control mb-2" placeholder="Email address" required autofocus value="{{ last_username }}">
 
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" id="password" name="_password" class="form-control mb-2" placeholder="Password" required>
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" name="_password" class="form-control mb-2" placeholder="Password" required>
 
-                    {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                    <button class="btn btn-lg btn-primary btn-block mt-2 mb-2" type="submit">Get in</button>
-                </form>
-            </div>
+                <button class="btn btn-lg btn-success btn-block mt-4 mb-2" type="submit">Login</button>
+            </form>
         </div>
     </div>
 {% endblock %}

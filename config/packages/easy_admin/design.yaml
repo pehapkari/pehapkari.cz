@@ -16,6 +16,9 @@ easy_admin:
                 label: 'Training Terms'
                 icon: 'calendar'
                 entity: 'TrainingTerm'
+                # see https://symfony.com/doc/master/bundles/EasyAdminBundle/book/menu-configuration.html#changing-the-backend-index-page
+                default: true
+
             -
                 icon: 'id-badge'
                 entity: 'Registration'

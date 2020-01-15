@@ -12,8 +12,14 @@
 
         <ul>
             <li>vybrat týden, který bude za ~1,5 měsíce</li>
-            <li>vybrat 3-4 školitele, které oslovíš</li>
-            <li>napsat školitelům, kdy se jim to běheme toho týdne hodí (buď napsat termíny, nebo poslat doodle)</li>
+            <li>vybrat 3-4 školitele, které oslovíš
+                <ul class="mt-2 mb-4">
+                    {% for trainer in trainers|filter(trainer => trainer.email) %}
+                        <li>{{ trainer.name }} - <a href="mailto:{{ trainer.email }}">{{ trainer.email }}</a></li>
+                    {% endfor %}
+                </ul>
+
+                <li>napsat školitelům, kdy se jim to běheme toho týdne hodí (buď napsat termíny, nebo poslat doodle)</li>
         </ul>
 
         <hr>
@@ -23,10 +29,47 @@
         <p><strong>Časově</strong>: 4-5 týdnů před školením</p>
 
         <ul>
-            <li>vypsat termín na webu tady vlevo - termín je automaticky veřejný, tak bacha :)</li>
-            <li>napsat na duskova@jablotron.cz do Jablotron, že potřebujeme rezervaci na konkrétní den a čas; obvykle dáváme 15 minut před i po; takže školení 9-13 bude mítrezervaci 8:45-13:15</li>
-            <li>deadline na přihlášky je týden před začátkem školení, pak už to nejde</li>
-            <li>taky je potřeba to hodit na Facebook - tam stačí <a href="https://www.facebook.com/pehapkari/events/">zduplikovat starou akci</a>, změnit termín a je to</li>
+            <li>
+                <a href="{{ path('easyadmin', { 'action': 'new', 'entity': 'TrainingTerm',  })  }}">
+                    vypsat nový termín
+                </a> - termín je automaticky veřejný, tak bacha :)</li>
+            <li>napsat na <a href="mailto:duskova@jablotron.cz">duskova@jablotron.cz</a> do <a href="https://pehapkari.cz/vzdelavej-se/misto-jablotron-holesovice">Jablotron</a>, že potřebujeme rezervaci na konkrétní den a čas; obvykle dáváme 15 minut před i po; takže školení 9-13 bude mít rezervaci 8:45-13:15</li>
+            <li>deadline pro přihlášení je týden před začátkem školení, pak už to nejde</li>
+            <li>taky je potřeba to hodit na Facebook - tam stačí <strong>zduplikovat starou akci</strong>, změnit termín a je to - odkaz na akce:
+
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/events/1801425523324434/">Tomáš Votruba - Vyždímej Symfony do poslední kapky</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/events/572801646647638/">Tomáš Votruba - Zbav se Legacy kódu s Rectorem jednou pro vždy</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/events/492219831502775/">Vladimír Macháček - Docker bez předchozích znalostí</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/events/2301072350137947/">Tomáš Pilař - Elasticsearch - Začínáme vyhledávat</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/events/404777360215993/">Tomáš Pilař - Elasticsearch - Pokročilé vyhledávání</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/events/1995520904066696/">Tomáš Pilař - Doctrine 2 ORM - Začínáme používat ORM</a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.facebook.com/events/528662051210452/">Tomáš Pilař - Doctrine 2 - Pokročilé použití</a></li>
+
+                    <li>
+                        <a href="https://www.facebook.com/events/480116879265411/">Tomáš Fejfar- Ovládni PhpStorm od základů po profi tipy</a></li>
+
+                    <li>
+                        <a href="https://www.facebook.com/events/463172934461410/">Honza Mikeš - Continuous Integration a Continuous Delivery s Gitlab CI</a></li>
+
+                    <li>
+                        <a href="https://www.facebook.com/events/873648363000587/">Honza Mikeš - Začněte debugovat jako profíci s xdebugem</a></li>
+                </ul>
+            </li>
         </ul>
 
         <hr>
@@ -38,7 +81,17 @@
         <ul>
             <li>psát příspěvky na Twitter</li>
             <li>psát příspěvky na Facebook</li>
-            <li>inspirace stylem, který tam byl předtím</li>
+            <li>inspirace stylem, který tam byl předtím
+
+                <ul>
+                    <li><a href="https://twitter.com/pehapkari/status/984355448219291653">Twitter post #1</a>
+                    <li><a href="https://twitter.com/Pehapkari/status/983632679567474693">Twitter post #2</a>
+                    <li><a href="https://twitter.com/Pehapkari/status/996716274431520769">Twitter post #3</a>
+                    <li><a href="https://twitter.com/Pehapkari/status/1063366322610823168">Twitter post #4</a>
+                </ul>
+            </li>
+
+
             <li>tradiční formát je text nějakého feedbacku + přijď na školení</li>
         </ul>
 
@@ -49,15 +102,15 @@
         <p><strong>Časově</strong>: 1 týden před školením</p>
 
         <ul>
-            <li>většina školitelů má limit 3-4 lidi</li>
-            <li>vždycky si ověřím, jestli to pro ně má smysl</li>
+            <li>většina školitelů má limit <strong>minimálně 4 účastníky</strong></li>
+            <li>vždycky si ověřím u školitele, jestli to pro něj má smysl</li>
             <li><strong>když ne</strong>, napíšu účastníkům, že se omlouváme, ale školení nebude; taky zruším rezervace termínu školící místnosti</li>
             <li><strong>když ano</strong>, pošlu jim faktury - jde to automaticky v administraci termínu</li>
         </ul>
 
         <ul>
             <li>každé školení potřebuje certifikáty - ty jdou generovat v administraci termínu</li>
-            <li>občas se stane, že jsou 2 účastníci v jedné přihlášce, v poznámce, a certifikát pro toho druého je potřeba udělat ručně - kvůli tomu je tu v menu <em>Generate Certificate</em> </li>
+            <li>občas se stane, že jsou 2 účastníci v jedné přihlášce, v poznámce, a certifikát pro toho druého je potřeba udělat ručně - kvůli tomu je tu v menu <a href="{{ path('create_certificate') }}">Generate Certificate</a> </li>
             <li>pak stačí vytisknout v CopyGeneral na stříbřitý papír a účtenku si nechat</li>
             <li>certifikáty je potřeba přinést na školící místo, nejpozději v den školení ráno; klidně stačí pár dní předem, požádat recepční a na obálku napsat datum, čas a jméno školitele, aby se jim to neztratilo :)</li>
         </ul>
