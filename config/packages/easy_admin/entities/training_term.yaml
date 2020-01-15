@@ -28,9 +28,3 @@ easy_admin:
                         type: 'route'
                         label: 'Provision'
                         css_class: 'btn btn-lg btn-warning mb-3'
-
-#                    -
-#                        name: 'duplicate_training_term'
-#                        type: 'route'
-#                        label: 'Duplicate'
-#                        css_class: 'btn btn-success mb-2'
