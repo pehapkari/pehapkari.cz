@@ -154,7 +154,7 @@ class Trainer implements TimestampableInterface
     /**
      * @return Collection|Training[]
      */
-    public function getTrainings(): Collection
+    public function getTrainings(): iterable
     {
         return $this->trainings;
     }
