@@ -28,17 +28,18 @@
                     <div class="pull-right">
                         {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
                             {% if trainer.getImage() %}
-                                <img width="100px" height="100px" src="{{ image_uploads }}/{{ trainer.getImage() }}" class="img-thumbnail mb-3 rounded-circle pull-right ml-3" alt="">
-
+                                <img width="100px" height="100px" src="https://pehapkari.cz/uploads/images//tomas_votruba.jpg" class="img-thumbnail mb-2 rounded-circle pull-right ml-2" alt="">
                                 <br>
                             {% endif %}
 
-                            {{ trainer.getName() }}
                         {% if trainer.getWebsite() %}</a>{% endif %}
                     </div>
 
-                    <p>„{{ trainer.getBio()|raw }}“</p>
+
+                    <p style="text-align:justify">„{{ trainer.getBio()|raw }}“</p>
                 </div>
+
+                Těší se na vás {{ trainer.getName() }}
 
                 {% include "_snippet/when_where_price.twig" %}
 
