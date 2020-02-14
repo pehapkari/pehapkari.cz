@@ -115,8 +115,7 @@ jobs:
 
 **PCOV took only 1,5 minutes**, that's great!
 
-The coverage number changed from 77 % to 73 %, though. It can be seriously misleading. If that would be ~0,5 % than
-with Xdebug, it's ok. Imagine someone tries to cover that is already covered? **4 % is too much**.
+The coverage number changed from 77 % to 73 %. However, [PCOV provides the higher accuracy than phpdbg](https://github.com/krakjoe/pcov#differences-in-reporting) which cannot correctly detect implicit return paths.
 
 
 ## Final Results
@@ -127,13 +126,9 @@ with Xdebug, it's ok. Imagine someone tries to cover that is already covered? **
 
 ...and the winner is:
 
-<img src="/assets/images/posts/coverage_fast.png">
+**PCOV** 🎉
 
-<br>
-
-**phpdbg** 🎉
-
-It was fast enough (other parallel jobs took around 2 minutes on average), and also provided code coverage similar to mainstream Xdebug value, just 0,4 % different.
+It was the fastest one, while also providing code analysis similar to the mainstream Xdebug.
 
 <br>
 
