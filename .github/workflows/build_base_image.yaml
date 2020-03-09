@@ -1,0 +1,27 @@
+name: Build base image
+
+on:
+    push:
+        branches:
+            - master
+        paths:
+            - '.docker/php/Dockerfile'
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Log into registry
+              run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
+
+            - name: Build and push image
+              run: |
+                  docker pull pehapkari/pehapkari.cz-base:latest || true
+
+                  docker build . --tag pehapkari/pehapkari.cz-base:latest \
+                    --cache-from pehapkari/pehapkari.cz-base:latest
+
+                  docker push pehapkari/pehapkari.cz-base:latest
