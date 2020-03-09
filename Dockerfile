@@ -1,16 +1,7 @@
-FROM node:10.15.3 as node-build
-
-WORKDIR /build
-
-COPY package*.json webpack*.json ./
-RUN yarn install
-
-COPY . .
-
-RUN yarn run build
-
-
-FROM php:7.3-apache as production
+####
+## Base stage, to empower cache
+####
+FROM php:7.3-apache as base
 
 WORKDIR /var/www/pehapkari.cz
 
@@ -41,20 +32,38 @@ RUN apt-get update && apt-get install -y \
 
 # Installing composer and prestissimo globally
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-ENV COMPOSER_ALLOW_SUPERUSER 1
+ENV COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_MEMORY_LIMIT=-1
 RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --classmap-authoritative --no-plugins --no-scripts
-
 
 # Entrypoint
 COPY ./.docker/docker-entrypoint.sh /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
-COPY composer.json phpunit.xml.dist ./
+
+####
+## Build js+css assets
+####
+FROM node:10.15.3 as node-build
+
+WORKDIR /build
+
+COPY package.json yarn.* webpack.config.js ./
+RUN yarn install
+
+COPY ./assets ./assets
+
+RUN yarn run build
+
+
+####
+## Build app itself
+####
+FROM base as production
+
+COPY composer.json composer.lock phpunit.xml.dist ./
 
 RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
-
-COPY . .
 
 COPY --from=node-build /build/public/build ./public/build
 
@@ -63,6 +72,8 @@ RUN mkdir -p ./var/cache \
     ./var/sessions \
         && composer dump-autoload -o --no-dev \
         && chown -R www-data ./var
+
+COPY . .
 
 
 ## Local build with xdebug
