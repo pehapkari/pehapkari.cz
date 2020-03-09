@@ -4,8 +4,11 @@ on:
     push:
         branches:
             - master
+
+        # Only if this workflow or base image Dockerfile is changed
         paths:
             - '.docker/php/Dockerfile'
+            - '.github/workflows/build_base_image.yaml'
 
 jobs:
     deploy:
@@ -21,7 +24,7 @@ jobs:
               run: |
                   docker pull pehapkari/pehapkari.cz-base:latest || true
 
-                  docker build . --tag pehapkari/pehapkari.cz-base:latest \
+                  docker build . --file .docker/php/Dockerfile --tag pehapkari/pehapkari.cz-base:latest \
                     --cache-from pehapkari/pehapkari.cz-base:latest
 
                   docker push pehapkari/pehapkari.cz-base:latest
