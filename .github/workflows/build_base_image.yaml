@@ -11,7 +11,7 @@ on:
             - '.github/workflows/build_base_image.yaml'
 
 jobs:
-    deploy:
+    build and push image:
         runs-on: ubuntu-latest
 
         steps:
