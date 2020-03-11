@@ -3,6 +3,8 @@
 ####
 FROM php:7.3-apache
 
+WORKDIR /var/www/pehapkari.cz
+
 COPY ./.docker/apache/apache.conf /etc/apache2/sites-available/000-default.conf
 
 # Install php extensions + cleanup
