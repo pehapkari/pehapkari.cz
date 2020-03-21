@@ -1,10 +1,10 @@
-name: PHPStan
+name: Symfony Linting
 
 on:
     - pull_request
 
 jobs:
-    phpstan:
+    symfony_linting:
         runs-on: ubuntu-latest
 
         steps:
@@ -16,4 +16,7 @@ jobs:
                     coverage: none
 
             -   run: composer install --no-progress
-            -   run: composer phpstan
+            -   run: |
+                    bin/console lint:yaml src packages
+                    bin/console lint:twig packages templates
+                    bin/console lint:container

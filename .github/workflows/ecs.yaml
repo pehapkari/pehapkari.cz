@@ -1,12 +1,11 @@
-name: PHPStan
+name: Easy Coding Standard
 
 on:
     - pull_request
 
 jobs:
-    phpstan:
+    ecs:
         runs-on: ubuntu-latest
-
         steps:
             -   uses: actions/checkout@v2
             -   uses: shivammathur/setup-php@v1
@@ -16,4 +15,4 @@ jobs:
                     coverage: none
 
             -   run: composer install --no-progress
-            -   run: composer phpstan
+            -   run: composer fix-cs

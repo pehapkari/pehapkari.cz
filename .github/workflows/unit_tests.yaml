@@ -1,10 +1,10 @@
-name: PHPStan
+name: Unit Tests
 
 on:
     - pull_request
 
 jobs:
-    phpstan:
+    unit_tests:
         runs-on: ubuntu-latest
 
         steps:
@@ -12,8 +12,8 @@ jobs:
             -   uses: shivammathur/setup-php@v1
                 with:
                     php-version: 7.4
-                    extensions: int
-                    coverage: none
+                    coverage: none # default is xdebug
+                    extensions: int, mbstring
 
             -   run: composer install --no-progress
-            -   run: composer phpstan
+            -   run: vendor/bin/phpunit
