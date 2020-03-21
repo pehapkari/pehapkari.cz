@@ -11,10 +11,7 @@ use Twig\TwigFunction;
 
 final class LatteFiltersExtension extends AbstractExtension
 {
-    /**
-     * @var FilterExecutor
-     */
-    private $filterExecutor;
+    private FilterExecutor $filterExecutor;
 
     public function __construct(FilterExecutor $filterExecutor)
     {

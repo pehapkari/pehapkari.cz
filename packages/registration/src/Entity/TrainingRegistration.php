@@ -20,82 +20,71 @@ class TrainingRegistration implements TimestampableInterface
     use TimestampableTrait;
 
     /**
-     * @ORM\Id()
+     * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @var int
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @var string
      * @Assert\Email()
      */
-    private $email;
+    private string $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $phone;
+    private ?string $phone;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $ico;
+    private ?string $ico;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @var string
      */
-    private $note;
+    private ?string $note;
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Type(type="integer")
+     * @Assert\Type("integer")
      * @Assert\GreaterThan(0)
-     * @var int
      */
-    private $participantCount;
+    private int $participantCount;
 
     /**
      * @ORM\Column(type="boolean")
-     * @var bool
      */
-    private $hasInvoice = false;
+    private bool $hasInvoice = false;
 
     /**
      * @ORM\Column(type="boolean")
-     * @var bool
      */
-    private $agreesWithPersonalData = false;
+    private bool $agreesWithPersonalData = false;
 
     /**
      * @ORM\Column(type="float")
-     * @var float
      */
-    private $price;
+    private float $price;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @var int
      */
-    private $fakturoidInvoiceId;
+    private ?int $fakturoidInvoiceId;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm", inversedBy="registrations")
-     * @var TrainingTerm
      * @Assert\NotNull
      */
-    private $trainingTerm;
+    private ?TrainingTerm $trainingTerm;
 
     public function __toString(): string
     {

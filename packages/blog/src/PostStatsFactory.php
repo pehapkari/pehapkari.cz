@@ -12,15 +12,9 @@ use Symplify\Statie\Renderable\File\PostFile;
 
 final class PostStatsFactory
 {
-    /**
-     * @var PostsProvider
-     */
-    private $postsProvider;
+    private PostsProvider $postsProvider;
 
-    /**
-     * @var AuthorsProvider
-     */
-    private $authorsProvider;
+    private AuthorsProvider $authorsProvider;
 
     public function __construct(PostsProvider $postsProvider, AuthorsProvider $authorsProvider)
     {
@@ -89,9 +83,10 @@ final class PostStatsFactory
      */
     private function sortByPostCount(array $postsByAuthors): array
     {
-        usort($postsByAuthors, function (AuthorPosts $firstAuthorPosts, AuthorPosts $secondAuthorPosts) {
-            return $secondAuthorPosts->getPostCount() <=> $firstAuthorPosts->getPostCount();
-        });
+        usort(
+            $postsByAuthors,
+            fn (AuthorPosts $firstAuthorPosts, AuthorPosts $secondAuthorPosts) => $secondAuthorPosts->getPostCount() <=> $firstAuthorPosts->getPostCount()
+        );
 
         return $postsByAuthors;
     }

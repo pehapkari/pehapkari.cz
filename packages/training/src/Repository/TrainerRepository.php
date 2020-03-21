@@ -4,16 +4,13 @@ declare(strict_types=1);
 
 namespace Pehapkari\Training\Repository;
 
-use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\EntityRepository;
 use Pehapkari\Training\Entity\Trainer;
 
 final class TrainerRepository
 {
-    /**
-     * @var ObjectRepository
-     */
-    private $objectRepository;
+    private EntityRepository $objectRepository;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -40,9 +37,10 @@ final class TrainerRepository
     {
         $trainers = $this->fetchAll();
 
-        usort($trainers, function (Trainer $firstTrainer, Trainer $secondTrainer) {
-            return $secondTrainer->getTrainingTermCount() <=> $firstTrainer->getTrainingTermCount();
-        });
+        usort(
+            $trainers,
+            fn (Trainer $firstTrainer, Trainer $secondTrainer) => $secondTrainer->getTrainingTermCount() <=> $firstTrainer->getTrainingTermCount()
+        );
 
         return $trainers;
     }

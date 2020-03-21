@@ -15,10 +15,7 @@ use Symfony\Component\Form\FormInterface;
  */
 final class AdminExpenseController extends EasyAdminController
 {
-    /**
-     * @var TrainingTermRepository
-     */
-    private $trainingTermRepository;
+    private TrainingTermRepository $trainingTermRepository;
 
     public function __construct(TrainingTermRepository $trainingTermRepository)
     {

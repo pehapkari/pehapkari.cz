@@ -10,15 +10,9 @@ use Pehapkari\Fakturoid\Http\ResponseErrorReporter;
 
 final class FakturoidClient extends Client
 {
-    /**
-     * @var ResponseErrorReporter
-     */
-    private $responseErrorReporter;
+    private ResponseErrorReporter $responseErrorReporter;
 
-    /**
-     * @var RequestResponseFormatter
-     */
-    private $requestResponseFormatter;
+    private RequestResponseFormatter $requestResponseFormatter;
 
     public function __construct(
         string $fakturoidApiKey,

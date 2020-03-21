@@ -25,20 +25,11 @@ final class PublishMarketingEventCommand extends Command
      */
     private const MINIMAL_HOUR_DIFFERENCE = 6;
 
-    /**
-     * @var SymfonyStyle
-     */
-    private $symfonyStyle;
+    private SymfonyStyle $symfonyStyle;
 
-    /**
-     * @var MarketingEventRepository
-     */
-    private $marketingEventRepository;
+    private MarketingEventRepository $marketingEventRepository;
 
-    /**
-     * @var TwitterPublisher
-     */
-    private $twitterPublisher;
+    private TwitterPublisher $twitterPublisher;
 
     public function __construct(
         SymfonyStyle $symfonyStyle,

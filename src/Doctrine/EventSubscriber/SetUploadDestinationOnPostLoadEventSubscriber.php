@@ -12,15 +12,9 @@ use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
 
 final class SetUploadDestinationOnPostLoadEventSubscriber implements EventSubscriber
 {
-    /**
-     * @var string
-     */
-    private $uploadDestination;
+    private string $uploadDestination;
 
-    /**
-     * @var string
-     */
-    private $relativeUploadDestination;
+    private string $relativeUploadDestination;
 
     public function __construct(string $uploadDestination, string $relativeUploadDestination)
     {

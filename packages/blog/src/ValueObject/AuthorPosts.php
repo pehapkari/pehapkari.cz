@@ -6,25 +6,13 @@ namespace Pehapkari\Blog\ValueObject;
 
 final class AuthorPosts
 {
-    /**
-     * @var string
-     */
-    private $authorName;
+    private string $authorName;
 
-    /**
-     * @var int
-     */
-    private $postCount;
+    private int $postCount;
 
-    /**
-     * @var string|null
-     */
-    private $authorPhoto;
+    private ?string $authorPhoto;
 
-    /**
-     * @var int
-     */
-    private $postsWordCount;
+    private int $postsWordCount;
 
     public function __construct(string $authorName, ?string $authorPhoto, int $postCount, int $postsWordCount)
     {

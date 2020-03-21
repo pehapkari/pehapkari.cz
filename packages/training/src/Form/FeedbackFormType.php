@@ -27,10 +27,7 @@ final class FeedbackFormType extends AbstractType
      */
     private const STAR = '⭐';
 
-    /**
-     * @var TrainingRepository
-     */
-    private $trainingRepository;
+    private TrainingRepository $trainingRepository;
 
     public function __construct(TrainingRepository $trainingRepository)
     {

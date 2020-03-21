@@ -11,10 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class CommunityTrainersController extends AbstractController
 {
-    /**
-     * @var TrainerRepository
-     */
-    private $trainerRepository;
+    private TrainerRepository $trainerRepository;
 
     public function __construct(TrainerRepository $trainerRepository)
     {

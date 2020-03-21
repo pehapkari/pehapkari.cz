@@ -12,20 +12,21 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
 final class VideosDataProvider
 {
-    /**
-     * @var mixed[]
-     */
-    private $facebookVideos = [];
+    private ArrayToValueObjectHydrator $arrayToValueObjectHydrator;
 
     /**
      * @var mixed[]
      */
-    private $youtubeVideos = [];
+    private array
+
+ $facebookVideos = [];
 
     /**
-     * @var ArrayToValueObjectHydrator
+     * @var mixed[]
      */
-    private $arrayToValueObjectHydrator;
+    private array
+
+ $youtubeVideos = [];
 
     /**
      * @param mixed[] $facebookVideos
@@ -114,7 +115,7 @@ final class VideosDataProvider
             $videos = array_merge($videos, $event['videos']);
         }
 
-        return array_merge($videos, $this->provideLivestreamVideos());
+        return [...$videos, ...$this->provideLivestreamVideos()];
     }
 
     public function getPhpPragueVideosCount(): int

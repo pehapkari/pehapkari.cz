@@ -11,10 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class PhpPragueVideosController extends AbstractController
 {
-    /**
-     * @var VideosDataProvider
-     */
-    private $videosDataProvider;
+    private VideosDataProvider $videosDataProvider;
 
     public function __construct(VideosDataProvider $videosDataProvider)
     {

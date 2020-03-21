@@ -11,10 +11,7 @@ use Pehapkari\Registration\Entity\TrainingRegistration;
 
 final class SubjectDataFactory
 {
-    /**
-     * @var Ares
-     */
-    private $ares;
+    private Ares $ares;
 
     public function __construct(Ares $ares)
     {

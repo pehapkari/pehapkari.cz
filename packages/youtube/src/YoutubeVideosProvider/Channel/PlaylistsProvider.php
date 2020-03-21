@@ -8,15 +8,14 @@ use Pehapkari\Youtube\YoutubeApi;
 
 final class PlaylistsProvider
 {
+    private YoutubeApi $youtubeApi;
+
     /**
      * @var mixed[]
      */
-    private $playlistsByChannelId = [];
+    private array
 
-    /**
-     * @var YoutubeApi
-     */
-    private $youtubeApi;
+ $playlistsByChannelId = [];
 
     public function __construct(YoutubeApi $youtubeApi)
     {

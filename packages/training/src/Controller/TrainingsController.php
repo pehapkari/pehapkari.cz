@@ -15,30 +15,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class TrainingsController extends AbstractController
 {
-    /**
-     * @var TrainingTermRepository
-     */
-    private $trainingTermRepository;
+    private TrainingTermRepository $trainingTermRepository;
 
-    /**
-     * @var TrainingRepository
-     */
-    private $trainingRepository;
+    private TrainingRepository $trainingRepository;
 
-    /**
-     * @var TrainingFeedbackRepository
-     */
-    private $trainingFeedbackRepository;
+    private TrainingFeedbackRepository $trainingFeedbackRepository;
 
-    /**
-     * @var TrainerRepository
-     */
-    private $trainerRepository;
+    private TrainerRepository $trainerRepository;
 
-    /**
-     * @var TrainingStatistics
-     */
-    private $trainingStatistics;
+    private TrainingStatistics $trainingStatistics;
 
     public function __construct(
         TrainingTermRepository $trainingTermRepository,

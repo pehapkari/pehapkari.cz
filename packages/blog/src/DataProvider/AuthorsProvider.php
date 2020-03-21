@@ -8,10 +8,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 final class AuthorsProvider
 {
-    /**
-     * @var ParameterBagInterface
-     */
-    private $parameterBag;
+    private ParameterBagInterface $parameterBag;
 
     public function __construct(ParameterBagInterface $parameterBag)
     {

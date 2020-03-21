@@ -29,25 +29,13 @@ final class PehapkariAuthenticator extends AbstractFormLoginAuthenticator
 {
     use TargetPathTrait;
 
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
-    /**
-     * @var RouterInterface
-     */
-    private $router;
+    private RouterInterface $router;
 
-    /**
-     * @var CsrfTokenManagerInterface
-     */
-    private $csrfTokenManager;
+    private CsrfTokenManagerInterface $csrfTokenManager;
 
-    /**
-     * @var UserPasswordEncoderInterface
-     */
-    private $userPasswordEncoder;
+    private UserPasswordEncoderInterface $userPasswordEncoder;
 
     public function __construct(
         EntityManagerInterface $entityManager,

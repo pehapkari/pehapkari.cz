@@ -16,20 +16,11 @@ final class InvoiceDataFactory
      */
     private const INVOICE_PAYMENT_DAYS_DUE = 7;
 
-    /**
-     * @var string
-     */
-    private $fakturoidSlug;
+    private string $fakturoidSlug;
 
-    /**
-     * @var FakturoidClient
-     */
-    private $fakturoidClient;
+    private FakturoidClient $fakturoidClient;
 
-    /**
-     * @var SubjectDataFactory
-     */
-    private $subjectDataFactory;
+    private SubjectDataFactory $subjectDataFactory;
 
     public function __construct(
         string $fakturoidSlug,

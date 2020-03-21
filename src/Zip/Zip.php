@@ -9,15 +9,9 @@ use Nette\Utils\FileSystem;
 
 final class Zip
 {
-    /**
-     * @var string
-     */
-    private $zipOutputDirectory;
+    private string $zipOutputDirectory;
 
-    /**
-     * @var Zipper
-     */
-    private $zipper;
+    private Zipper $zipper;
 
     public function __construct(Zipper $zipper, string $zipOutputDirectory)
     {

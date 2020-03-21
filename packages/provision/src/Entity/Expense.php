@@ -14,37 +14,33 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Expense
 {
     /**
-     * @ORM\Id()
+     * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @var int
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="float")
-     * @var float
      */
-    private $amount;
+    private float $amount;
 
     /**
      * @ORM\Column(type="string")
-     * @var string
      */
-    private $note;
+    private string $note;
 
     /**
      * @ORM\Column(type="string")
-     * @var string
      */
-    private $partner;
+    private string $partner;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm", inversedBy="expenses")
-     * @var TrainingTerm
      * @Assert\NotNull
      */
-    private $trainingTerm;
+    private ?TrainingTerm $trainingTerm;
 
     public function __toString(): string
     {

@@ -18,15 +18,9 @@ use Doctrine\ORM\Query\SqlWalker;
  */
 final class TimeDiffFunction extends FunctionNode
 {
-    /**
-     * @var PathExpression
-     */
-    public $dateTime1;
+    public PathExpression $dateTime1;
 
-    /**
-     * @var PathExpression
-     */
-    public $dateTime2;
+    public PathExpression $dateTime2;
 
     public function parse(Parser $parser): void
     {

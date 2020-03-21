@@ -15,10 +15,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  */
 final class UserEventSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var UserPasswordEncoderInterface
-     */
-    private $userPasswordEncoder;
+    private UserPasswordEncoderInterface $userPasswordEncoder;
 
     public function __construct(UserPasswordEncoderInterface $userPasswordEncoder)
     {

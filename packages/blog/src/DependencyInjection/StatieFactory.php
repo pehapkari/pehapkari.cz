@@ -12,10 +12,7 @@ use Symplify\Statie\HttpKernel\StatieKernel;
 
 final class StatieFactory
 {
-    /**
-     * @var Container
-     */
-    private $statieContainer;
+    private Container $statieContainer;
 
     public function __construct()
     {

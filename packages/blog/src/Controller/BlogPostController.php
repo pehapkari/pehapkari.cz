@@ -12,15 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class BlogPostController extends AbstractController
 {
-    /**
-     * @var AuthorsProvider
-     */
-    private $authorsProvider;
+    private AuthorsProvider $authorsProvider;
 
-    /**
-     * @var PostRepository
-     */
-    private $postRepository;
+    private PostRepository $postRepository;
 
     public function __construct(AuthorsProvider $authorsProvider, PostRepository $postRepository)
     {
@@ -29,7 +23,7 @@ final class BlogPostController extends AbstractController
     }
 
     /**
-     * @Route(path="blog/{postSlug}", name="post", requirements={"postSlug"=".+"})
+     * @Route(path="blog/{postSlug}", name="post", requirements={"postSlug":".+"})
      */
     public function __invoke(string $postSlug): Response
     {

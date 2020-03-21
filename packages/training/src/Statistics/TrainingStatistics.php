@@ -10,20 +10,11 @@ use Pehapkari\Training\Repository\TrainingTermRepository;
 
 final class TrainingStatistics
 {
-    /**
-     * @var RegistrationRepository
-     */
-    private $registrationRepository;
+    private RegistrationRepository $registrationRepository;
 
-    /**
-     * @var TrainingTermRepository
-     */
-    private $trainingTermRepository;
+    private TrainingTermRepository $trainingTermRepository;
 
-    /**
-     * @var TrainingFeedbackRepository
-     */
-    private $trainingFeedbackRepository;
+    private TrainingFeedbackRepository $trainingFeedbackRepository;
 
     public function __construct(
         TrainingTermRepository $trainingTermRepository,

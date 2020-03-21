@@ -13,10 +13,7 @@ use Twig\TwigFunction;
  */
 final class MenuExtension extends AbstractExtension
 {
-    /**
-     * @var RequestStack
-     */
-    private $requestStack;
+    private RequestStack $requestStack;
 
     public function __construct(RequestStack $requestStack)
     {

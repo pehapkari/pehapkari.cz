@@ -17,30 +17,15 @@ use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
 final class CertificateGenerator
 {
-    /**
-     * @var string
-     */
-    private $certificateOutputDirectory;
+    private string $certificateOutputDirectory;
 
-    /**
-     * @var PdfFactory
-     */
-    private $pdfFactory;
+    private PdfFactory $pdfFactory;
 
-    /**
-     * @var Fpdi
-     */
-    private $fpdi;
+    private Fpdi $fpdi;
 
-    /**
-     * @var PrivatesAccessor
-     */
-    private $privatesAccessor;
+    private PrivatesAccessor $privatesAccessor;
 
-    /**
-     * @var Zip
-     */
-    private $zip;
+    private Zip $zip;
 
     public function __construct(
         string $certificateOutputDirectory,

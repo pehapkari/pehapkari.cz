@@ -1,6 +1,8 @@
 os: linux
+
 language: php
-php: 7.3
+
+php: 7.4
 
 before_install:
     # turn off XDebug to speed up

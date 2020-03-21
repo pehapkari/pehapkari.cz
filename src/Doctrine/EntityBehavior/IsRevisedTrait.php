@@ -12,9 +12,8 @@ trait IsRevisedTrait
 {
     /**
      * @ORM\Column(type="boolean")
-     * @var bool
      */
-    private $isRevised = false;
+    private bool $isRevised = false;
 
     public function isRevised(): bool
     {

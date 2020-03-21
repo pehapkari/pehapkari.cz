@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Pehapkari\BetterEasyAdmin\Entity;
 
 use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -13,28 +14,22 @@ trait UploadableImageTrait
 {
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $image;
+    private ?string $image;
 
     /**
      * @Vich\UploadableField(mapping="image_uploads", fileNameProperty="image")
-     * @var File
      */
-    private $imageFile;
+    private ?File $imageFile;
 
     /**
      * This needs to be changed on file upload, so the image changes.
      *
      * @ORM\Column(type="datetime", nullable=true)
-     * @var DateTime
      */
-    private $imageUploadedAt;
+    private ?DateTimeInterface $imageUploadedAt;
 
-    /**
-     * @var string
-     */
-    private $relativeUploadDestination;
+    private string $relativeUploadDestination;
 
     public function getImage(): ?string
     {

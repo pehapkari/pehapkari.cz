@@ -9,10 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 
 final class ResponseErrorReporter
 {
-    /**
-     * @var RequestResponseFormatter
-     */
-    private $requestResponseFormatter;
+    private RequestResponseFormatter $requestResponseFormatter;
 
     public function __construct(RequestResponseFormatter $requestResponseFormatter)
     {

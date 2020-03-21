@@ -11,10 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class CommunityBloggersController extends AbstractController
 {
-    /**
-     * @var PostStatsFactory
-     */
-    private $postStatsFactory;
+    private PostStatsFactory $postStatsFactory;
 
     public function __construct(PostStatsFactory $postStatsFactory)
     {

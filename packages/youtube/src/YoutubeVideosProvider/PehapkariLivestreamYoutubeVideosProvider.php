@@ -13,25 +13,13 @@ use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PlaylistsProvider;
 
 final class PehapkariLivestreamYoutubeVideosProvider implements YoutubeVideosProviderInterface
 {
-    /**
-     * @var YoutubeApi
-     */
-    private $youtubeApi;
+    private YoutubeApi $youtubeApi;
 
-    /**
-     * @var VideosFactory
-     */
-    private $videosFactory;
+    private VideosFactory $videosFactory;
 
-    /**
-     * @var PlaylistsProvider
-     */
-    private $playlistsProvider;
+    private PlaylistsProvider $playlistsProvider;
 
-    /**
-     * @var ArrayByDateTimeSorter
-     */
-    private $arraySorter;
+    private ArrayByDateTimeSorter $arraySorter;
 
     public function __construct(
         YoutubeApi $youtubeApi,

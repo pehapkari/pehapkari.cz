@@ -8,25 +8,13 @@ use TwitterAPIExchange;
 
 final class TwitterApiFactory
 {
-    /**
-     * @var string
-     */
-    private $twitterConsumerKey;
+    private string $twitterConsumerKey;
 
-    /**
-     * @var string
-     */
-    private $twitterConsumerSecret;
+    private string $twitterConsumerSecret;
 
-    /**
-     * @var string
-     */
-    private $twitterOauthAccessToken;
+    private string $twitterOauthAccessToken;
 
-    /**
-     * @var string
-     */
-    private $twitterOauthAccessTokenSecret;
+    private string $twitterOauthAccessTokenSecret;
 
     public function __construct(
         string $twitterConsumerKey,

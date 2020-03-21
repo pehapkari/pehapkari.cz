@@ -6,55 +6,25 @@ namespace Pehapkari\Youtube\ValueObject;
 
 final class Video
 {
-    /**
-     * @var string
-     */
-    private $title;
+    private string $title;
 
-    /**
-     * @var string
-     */
-    private $description;
+    private string $description;
 
-    /**
-     * @var string
-     */
-    private $videoId;
+    private string $videoId;
 
-    /**
-     * @var string
-     */
-    private $slug;
+    private string $slug;
 
-    /**
-     * @var string
-     */
-    private $thumbnail;
+    private string $thumbnail;
 
-    /**
-     * @var string
-     */
-    private $kind;
+    private string $kind;
 
-    /**
-     * @var string
-     */
-    private $speaker;
+    private string $speaker;
 
-    /**
-     * @var string
-     */
-    private $slides;
+    private string $slides;
 
-    /**
-     * @var string
-     */
-    private $month;
+    private string $month;
 
-    /**
-     * @var string
-     */
-    private $link;
+    private string $link;
 
     public function __construct(
         string $title,

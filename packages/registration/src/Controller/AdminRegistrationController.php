@@ -10,15 +10,9 @@ use Pehapkari\Registration\Repository\RegistrationRepository;
 
 final class AdminRegistrationController extends EasyAdminController
 {
-    /**
-     * @var RegistrationRepository
-     */
-    private $trainingRegistrationRepository;
+    private RegistrationRepository $trainingRegistrationRepository;
 
-    /**
-     * @var Invoicer
-     */
-    private $invoicer;
+    private Invoicer $invoicer;
 
     public function __construct(RegistrationRepository $trainingRegistrationRepository, Invoicer $invoicer)
     {

@@ -1,5 +1,9 @@
 parameters:
     auto_import_names: true
 
+    paths:
+        - src
+        - packages
+
     sets:
         - php74

@@ -21,25 +21,18 @@ final class ImportVideosCommand extends Command
      */
     private const YOUTUBE_FILES_DATA = __DIR__ . '/../../../../config/_data/youtube_videos.yaml';
 
+    private YamlFileGenerator $yamlFileGenerator;
+
+    private SymfonyStyle $symfonyStyle;
+
+    private ArrayByDateTimeSorter $arrayByDateTimeSorter;
+
     /**
      * @var YoutubeVideosProviderInterface[]
      */
-    private $youtubeVideosProviders = [];
+    private array
 
-    /**
-     * @var SymfonyStyle
-     */
-    private $symfonyStyle;
-
-    /**
-     * @var YamlFileGenerator
-     */
-    private $yamlFileGenerator;
-
-    /**
-     * @var ArrayByDateTimeSorter
-     */
-    private $arrayByDateTimeSorter;
+ $youtubeVideosProviders = [];
 
     /**
      * @param YoutubeVideosProviderInterface[] $youtubeVideosProviders
@@ -85,7 +78,7 @@ final class ImportVideosCommand extends Command
             $this->symfonyStyle->note(sprintf('Importing Youtube videos for "%s"', $name));
 
             $playlists = $youtubeVideosProvider->providePlaylists();
-            $youtubeVideosData[$name] = array_merge($playlists, $youtubeVideosData[$name] ?? []);
+            $youtubeVideosData[$name] = [...$playlists, ...$youtubeVideosData[$name] ?? []];
         }
 
         return $this->sortMeetupPlaylistsByMonthFromRecentToOld($youtubeVideosData);

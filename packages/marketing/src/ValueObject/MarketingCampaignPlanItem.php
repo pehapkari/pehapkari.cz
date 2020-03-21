@@ -6,20 +6,11 @@ namespace Pehapkari\Marketing\ValueObject;
 
 final class MarketingCampaignPlanItem
 {
-    /**
-     * @var string
-     */
-    private $platform;
+    private string $platform;
 
-    /**
-     * @var string
-     */
-    private $action;
+    private string $action;
 
-    /**
-     * @var int
-     */
-    private $daysInAdvance;
+    private int $daysInAdvance;
 
     public function __construct(string $platform, string $action, int $daysInAdvance)
     {

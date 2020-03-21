@@ -16,15 +16,9 @@ use PhpParser\NodeVisitorAbstract;
 
 final class DetectRenderArgumentNodeVisitor extends NodeVisitorAbstract
 {
-    /**
-     * @var string
-     */
-    private $methodName;
+    private string $methodName;
 
-    /**
-     * @var ResolvedTemplateNameCollector
-     */
-    private $resolvedTemplateNameCollector;
+    private ResolvedTemplateNameCollector $resolvedTemplateNameCollector;
 
     public function __construct(ResolvedTemplateNameCollector $resolvedTemplateNameCollector)
     {

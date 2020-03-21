@@ -10,15 +10,9 @@ use Pehapkari\Marketing\Entity\MarketingEvent;
 
 final class MarketingEventRepository
 {
-    /**
-     * @var EntityRepository
-     */
-    private $entityRepository;
+    private EntityRepository $entityRepository;
 
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {

@@ -12,15 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class RssController extends AbstractController
 {
-    /**
-     * @var AuthorsProvider
-     */
-    private $authorsProvider;
+    private AuthorsProvider $authorsProvider;
 
-    /**
-     * @var PostsProvider
-     */
-    private $postsProvider;
+    private PostsProvider $postsProvider;
 
     public function __construct(AuthorsProvider $authorsProvider, PostsProvider $postsProvider)
     {

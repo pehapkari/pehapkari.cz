@@ -10,25 +10,13 @@ use Pehapkari\Registration\Exception\MissingEnvValueException;
 
 final class FakturoidClientFactory
 {
-    /**
-     * @var string
-     */
-    private $fakturoidSlug;
+    private string $fakturoidSlug;
 
-    /**
-     * @var string
-     */
-    private $fakturoidApiKey;
+    private string $fakturoidApiKey;
 
-    /**
-     * @var ResponseErrorReporter
-     */
-    private $responseErrorReporter;
+    private ResponseErrorReporter $responseErrorReporter;
 
-    /**
-     * @var RequestResponseFormatter
-     */
-    private $requestResponseFormatter;
+    private RequestResponseFormatter $requestResponseFormatter;
 
     public function __construct(
         string $fakturoidSlug,

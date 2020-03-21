@@ -8,9 +8,8 @@ trait IsPublicTrait
 {
     /**
      * @ORM\Column(type="boolean")
-     * @var bool
      */
-    private $isPublic = false;
+    private bool $isPublic = false;
 
     public function isPublic(): bool
     {
