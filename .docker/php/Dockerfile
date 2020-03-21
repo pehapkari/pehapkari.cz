@@ -1,7 +1,7 @@
 ####
 ## Base image without app source code
 ####
-FROM php:7.3-apache
+FROM php:7.4-apache
 
 WORKDIR /var/www/pehapkari.cz
 
