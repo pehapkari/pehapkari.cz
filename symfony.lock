@@ -181,6 +181,9 @@
     "jean85/pretty-package-versions": {
         "version": "1.2"
     },
+    "jetbrains/phpstorm-stubs": {
+        "version": "v2019.3"
+    },
     "jms/metadata": {
         "version": "2.0.0"
     },
