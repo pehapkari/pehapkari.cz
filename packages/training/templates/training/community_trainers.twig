@@ -14,7 +14,7 @@
 
         <div class="row">
             {% for trainer in trainers|filter(trainer => trainer.trainingTermCount > 0) %}
-                <div class="col-4 d-flex mb-4">
+                <div class="col-6 col-md-4 d-flex mb-4">
                     <img src="{{ trainer.relativeImagePath }}" style="width: 3em; height: 3em" class="rounded-circle mr-3">
 
                     <div class="w-100">
