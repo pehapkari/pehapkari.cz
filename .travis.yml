@@ -49,13 +49,6 @@ jobs:
                     script: sh bin/deploy.sh
                     skip_cleanup: true
 
-#        -
-#            stage: crons
-#            name: 'Tweet Post'
-#            if: branch = master
-#            script:
-#                - vendor/bin/statie tweet-post statie/source
-
 # do not send success notifications, they have no value
 notifications:
     email:
