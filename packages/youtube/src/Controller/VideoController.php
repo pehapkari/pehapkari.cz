@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Pehapkari\Youtube\Controller;
 
-use Pehapkari\Youtube\DataProvider\VideosDataProvider;
 use Pehapkari\Youtube\Hydration\ArrayToValueObjectHydrator;
+use Pehapkari\Youtube\Repository\VideoRepository;
 use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\ValueObject\Video;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,18 +14,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class VideoController extends AbstractController
 {
-    private VideosDataProvider $videosDataProvider;
+    private VideoRepository $videosDataProvider;
 
     private ArrayByDateTimeSorter $arrayByDateTimeSorter;
 
     private ArrayToValueObjectHydrator $arrayToValueObjectHydrator;
 
     public function __construct(
-        VideosDataProvider $videosDataProvider,
+        VideoRepository $videoRepository,
         ArrayByDateTimeSorter $arrayByDateTimeSorter,
         ArrayToValueObjectHydrator $arrayToValueObjectHydrator
     ) {
-        $this->videosDataProvider = $videosDataProvider;
+        $this->videosDataProvider = $videoRepository;
         $this->arrayByDateTimeSorter = $arrayByDateTimeSorter;
         $this->arrayToValueObjectHydrator = $arrayToValueObjectHydrator;
     }

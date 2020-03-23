@@ -37,8 +37,8 @@
 
 {# mobile menu #}
 <div id="mobile-menu" class="row ml-0 mr-0 text-center hidden-md-up border-bottom">
-    <a href="/" class="ph-nav__logo col-3 {{ active_item('homepage') }}">
-        <img src="/assets/pehapkari_logo/logo.svg" alt="logo" title="">
+    <a href="{{ path('homepage') }}" class="ph-nav__logo col-3 {{ active_item('homepage') }}">
+        <img src="{{ asset('assets/pehapkari_logo/logo.svg') }}" alt="logo" title="">
     </a>
 
     <a href="{{ path('trainings') }}" class="col-3 {{ active_item(['trainings', 'become_trainer', 'training_detail'])}}">

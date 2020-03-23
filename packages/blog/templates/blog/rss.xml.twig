@@ -13,18 +13,20 @@
 
         {% for post in posts %}
             {% if loop.first %}
-                <lastBuildDate>{{ post.getDateInFormat('r') }}</lastBuildDate>
+                <lastBuildDate>{{ post.dateTime|date('r') }}</lastBuildDate>
             {% endif %}
 
-            {% if post.getDateInFormat('Y-m-d') < "now"|date('Y-m-d') %}
+            {% set post_url %}{{ site_url }}{{ path('post', {'postSlug': post.slug}) }}{% endset %}
+
+            {% if post.dateTime|date('Y-m-d') < "now"|date('Y-m-d') %}
                 <item>
                     <title><![CDATA[ {{ post.title }} ]]></title>
-                    <link>{{ site_url }}{{ post|link }}/</link>
+                    <link>{{ post_url }}</link>
                     <description><![CDATA[ {{ post.perex|striptags }} ]]></description>
-                    <guid isPermaLink="false">{{ site_url }}{{ post|link }}</guid>
-                    <dc:creator><![CDATA[ {{ authors[post.author].name }} ]]></dc:creator>
-                    <pubDate>{{ post.getDateInFormat('r') }}</pubDate>
-                    <comments>{{ site_url }}{{ post|link }}#disqus_thread</comments>
+                    <guid isPermaLink="false">{{ post_url }}</guid>
+                    <dc:creator><![CDATA[ {{ post.authorName }} ]]></dc:creator>
+                    <pubDate>{{ post.dateTime|date('r') }}</pubDate>
+                    <comments>{{ post_url }}#disqus_thread</comments>
                 </item>
             {% endif %}
         {% endfor %}

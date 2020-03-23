@@ -1,5 +1,0 @@
-<doctrine-mapping>
-    <embeddable name="Pehapkari\Statie\Posts\Year2018\Cart\Domain\Price">
-        <field name="withVat" type="float" />
-    </embeddable>
-</doctrine-mapping>

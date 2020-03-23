@@ -20,7 +20,7 @@
         </p>
 
         <div id="welcome_image" class="shadow">
-            <img src="{{ asset('assets/images/homepage/homepage.jpg') }}">
+            <img src="{{ asset('assets/images/homepage/homepage.jpg') }}" alt="">
         </div>
 
         <p class="submain_headline">
@@ -35,33 +35,18 @@
         </p>
     </div>
 
-    {# @todo show 3 nerest trainings #}
-    {#        {% set displayedLectureCount = 3 %}#}
-    {#{% for lecture in trainings %}#}
-    {#{% if lecture.isActive() and displayedLectureCount <= 3 %}#}
-    {#{% if displayedLectureCount == 0 %}#}
-    {#<strong>Nejbližší školení</strong>:<br>#}
-    {#{% endif %}#}
-
-    {#<a href="/{{ lecture|link }}/">{{ lecture.getHumanDate() }} - {{ lecture.getTitle()|raw }}</a>{% if loop.last == false %}<br>{% endif %}#}
-    {#{% set displayedLectureCount = displayedLectureCount + 1 %}#}
-    {#{% endif %}#}
-    {#{% endfor %}#}
-
-    {# @todo add section with videos and top 5 viewed ones #}
-
     <div class="background-grey section">
         <div class="container">
             <h2 class="mb-5">Potkáváme se</h2>
 
             <div class="row">
                 <div class="col-md-7 text-center hidden-sm-down">
-                    <img src="/assets/images/meetup_2.jpg" alt="Přijď na sraz" class="mb-4">
+                    <img src="{{ asset('assets/images/meetup_2.jpg') }}" alt="Přijď na sraz" class="mb-4">
                 </div>
 
                 <div class="col-md-5">
                     <p>
-                        Srazy pořádají <a href="/#team">různé skupiny v 6 městech</a> České Republiky. Typický sraz začíná v 18&nbsp;hod., pak promluví 2&nbsp;speakři a nakonec jdeme diskutovat nad pivem.
+                        Srazy pořádají <a href="#team">různé skupiny v 6 městech</a> České Republiky. Typický sraz začíná v 18&nbsp;hod., pak promluví 2&nbsp;speakři a nakonec jdeme diskutovat nad pivem.
                     </p>
 
                     {% if nearest_meetup %}
@@ -120,7 +105,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-5">
                     {% set photoUrl %}{% if organizer.photo matches "#http#" %}{{ organizer.photo }}{% else %}/assets/images/people/{{ organizer.photo }}{% endif %}{% endset %}
 
-                    <img src="{{ photoUrl }}" class="rounded-circle" width="150" height="150">
+                    <img src="{{ photoUrl }}" class="rounded-circle" width="150" height="150" alt="">
 
                     <h3 class="mt-3">
                         {% if organizer.url is defined %}<a href="{{ organizer.url }}">{% endif %}
@@ -141,10 +126,9 @@
             {% endfor %}
 
             <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-5">
-                <img src="/assets/images/people/blank_face.jpg" class="rounded-circle" width="150" height="150">
-                <h3 class="mt-3">
-                    Ty?
-                </h3>
+                <img src="{{ asset('assets/images/people/blank_face.jpg') }}" class="rounded-circle" width="150" height="150" alt="">
+
+                <h3 class="mt-3">Ty?</h3>
                 <p>
                     <a href="{{ path('contact') }}">Přidej se!</a>
                 </p>

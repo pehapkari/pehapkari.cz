@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Pehapkari\Youtube\Controller;
 
 use Pehapkari\Youtube\Command\ImportVideosCommand;
-use Pehapkari\Youtube\DataProvider\VideosDataProvider;
 use Pehapkari\Youtube\Hydration\ArrayToValueObjectHydrator;
+use Pehapkari\Youtube\Repository\VideoRepository;
 use Pehapkari\Youtube\ValueObject\Video;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,17 +16,17 @@ final class VideoDetailController extends AbstractController
 {
     private ArrayToValueObjectHydrator $arrayToValueObjectHydrator;
 
-    private VideosDataProvider $videosDataProvider;
+    private VideoRepository $videosDataProvider;
 
     /**
      * @see ImportVideosCommand command
      */
     public function __construct(
         ArrayToValueObjectHydrator $arrayToValueObjectHydrator,
-        VideosDataProvider $videosDataProvider
+        VideoRepository $videoRepository
     ) {
         $this->arrayToValueObjectHydrator = $arrayToValueObjectHydrator;
-        $this->videosDataProvider = $videosDataProvider;
+        $this->videosDataProvider = $videoRepository;
     }
 
     /**

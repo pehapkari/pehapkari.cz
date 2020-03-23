@@ -25,7 +25,6 @@ class Trainer implements TimestampableInterface
      * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @var int
      */
     private ?int $id;
 
@@ -72,9 +71,7 @@ class Trainer implements TimestampableInterface
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\Training", mappedBy="trainer")
      */
-    private array
-
- $trainings = [];
+    private array $trainings = [];
 
     public function __construct()
     {

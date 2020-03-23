@@ -18,6 +18,7 @@
         "doctrine/orm": "^2.7",
         "easycorp/easyadmin-bundle": "^2.3.3",
         "egulias/email-validator": "^2.1",
+        "erusev/parsedown-extra": "^0.8.1",
         "fakturoid/fakturoid-php": "^1.0",
         "guzzlehttp/guzzle": "^6.5",
         "j7mbo/twitter-api-php": "^1.0",
@@ -59,7 +60,6 @@
         "symplify/autowire-array-parameter": "^7.2",
         "symplify/flex-loader": "^7.2",
         "symplify/package-builder": "^7.2",
-        "symplify/statie": "^7.2",
         "vich/uploader-bundle": "^1.12"
     },
     "require-dev": {
@@ -92,13 +92,12 @@
             "Pehapkari\\User\\": "packages/user/src",
             "Pehapkari\\Wiki\\": "packages/wiki/src",
             "Pehapkari\\Youtube\\": "packages/youtube/src",
-            "Pehapkari\\Fakturoid\\": "packages/fakturoid/src",
-            "Pehapkari\\Statie\\": "statie/src"
+            "Pehapkari\\Fakturoid\\": "packages/fakturoid/src"
         }
     },
     "autoload-dev":{
         "psr-4": {
-            "Pehapkari\\Statie\\Tests\\": "statie/tests",
+            "Pehapkari\\Blog\\Tests\\": "packages/blog/tests",
             "Pehapkari\\Utils\\PHPStan\\": "utils/phpstan/src"
         }
     },
@@ -113,11 +112,11 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
-        "check-cs": "vendor/bin/ecs check packages src statie --ansi",
-        "fix-cs": "vendor/bin/ecs check packages src statie/src statie/tests --fix --ansi",
-        "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
-        "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse packages src statie/src statie/tests --ansi --error-format symplify",
-        "rector": "vendor/bin/rector process src tests --config rector-ci.yaml --ansi"
+        "check-cs": "vendor/bin/ecs check --ansi",
+        "fix-cs": "vendor/bin/ecs check --fix --ansi",
+        "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse --ansi --error-format symplify",
+        "rector": "vendor/bin/rector process --config rector-ci.yaml --ansi",
+        "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi"
     },
     "config": {
         "sort-packages": true
