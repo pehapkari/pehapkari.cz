@@ -10,15 +10,9 @@ use Pehapkari\Registration\Entity\TrainingRegistration;
 
 final class RegistrationRepository
 {
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
-    /**
-     * @var EntityRepository
-     */
-    private $entityRepository;
+    private EntityRepository $entityRepository;
 
     public function __construct(EntityManagerInterface $entityManager)
     {

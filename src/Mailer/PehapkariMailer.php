@@ -16,10 +16,7 @@ use Symfony\Component\Mime\Address;
  */
 final class PehapkariMailer
 {
-    /**
-     * @var MailerInterface
-     */
-    private $mailer;
+    private MailerInterface $mailer;
 
     public function __construct(MailerInterface $mailer)
     {

@@ -27,78 +27,69 @@ class Training implements UploadDestinationAwareInterface, SluggableInterface
     use SluggableTrait;
 
     /**
-     * @ORM\Id()
+     * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @var int
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @var string
      */
-    private $certificateFormattedName;
+    private ?string $certificateFormattedName;
 
     /**
      * @ORM\Column(type="text")
-     * @var string
      */
-    private $perex;
+    private string $perex;
 
     /**
      * @ORM\Column(type="text")
-     * @var string
      */
-    private $description;
+    private string $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $hashtags;
+    private ?string $hashtags;
 
     /**
      * @ORM\Column(type="integer")
-     * @var int
      */
-    private $duration;
+    private int $duration;
 
     /**
      * @ORM\Column(type="integer")
-     * @var int
      */
-    private $price;
+    private int $price;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Trainer", inversedBy="trainings")
      * @Assert\NotNull()
-     * @var Trainer
      */
-    private $trainer;
+    private ?Trainer $trainer;
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\TrainingTerm", mappedBy="training")
-     * @var TrainingTerm[]|Collection
      */
-    private $trainingTerms = [];
+    private array
+
+ $trainingTerms = [];
 
     /**
      * @ORM\OneToMany(targetEntity="TrainingFeedback", mappedBy="training")
-     * @var TrainingFeedback[]|Collection
      */
-    private $trainingFeedbacks = [];
+    private array
 
-    /**
-     * @var string
-     */
-    private $uploadDestination;
+ $trainingFeedbacks = [];
+
+    private string $uploadDestination;
 
     public function __construct()
     {
@@ -280,9 +271,9 @@ class Training implements UploadDestinationAwareInterface, SluggableInterface
     public function getAverageRating(): ?float
     {
         /** @var TrainingFeedback[]|Collection $trainingFeedbacksWithRating */
-        $trainingFeedbacksWithRating = $this->trainingFeedbacks->filter(function (TrainingFeedback $trainingFeedback) {
-            return $trainingFeedback->getRating() !== null;
-        });
+        $trainingFeedbacksWithRating = $this->trainingFeedbacks->filter(
+            fn (TrainingFeedback $trainingFeedback) => $trainingFeedback->getRating() !== null
+        );
 
         // no rating yet
         if ($trainingFeedbacksWithRating->count() === 0) {

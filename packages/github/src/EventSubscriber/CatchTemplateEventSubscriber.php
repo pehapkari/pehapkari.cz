@@ -19,15 +19,9 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 final class CatchTemplateEventSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var DetectRenderArgumentNodeVisitor
-     */
-    private $detectRenderArgumentNodeVisitor;
+    private DetectRenderArgumentNodeVisitor $detectRenderArgumentNodeVisitor;
 
-    /**
-     * @var ResolvedTemplateNameCollector
-     */
-    private $resolvedTemplateNameCollector;
+    private ResolvedTemplateNameCollector $resolvedTemplateNameCollector;
 
     public function __construct(
         DetectRenderArgumentNodeVisitor $detectRenderArgumentNodeVisitor,

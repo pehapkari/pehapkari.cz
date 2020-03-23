@@ -22,15 +22,9 @@ final class GithubEditUrlExtension extends AbstractExtension
      */
     private const GITHUB_EDIT_PREFIX = 'https://github.com/pehapkari/pehapkari.cz/edit/master/templates/';
 
-    /**
-     * @var ResolvedTemplateNameCollector
-     */
-    private $resolvedTemplateNameCollector;
+    private ResolvedTemplateNameCollector $resolvedTemplateNameCollector;
 
-    /**
-     * @var FinderSanitizer
-     */
-    private $finderSanitizer;
+    private FinderSanitizer $finderSanitizer;
 
     public function __construct(
         ResolvedTemplateNameCollector $resolvedTemplateNameCollector,

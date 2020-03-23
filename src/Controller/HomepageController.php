@@ -12,15 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class HomepageController extends AbstractController
 {
-    /**
-     * @var OragnizerProvider
-     */
-    private $oragnizerProvider;
+    private OragnizerProvider $oragnizerProvider;
 
-    /**
-     * @var NearestMeetupProvider
-     */
-    private $nearestMeetupProvider;
+    private NearestMeetupProvider $nearestMeetupProvider;
 
     public function __construct(OragnizerProvider $oragnizerProvider, NearestMeetupProvider $nearestMeetupProvider)
     {

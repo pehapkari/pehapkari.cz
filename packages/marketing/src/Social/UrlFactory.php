@@ -9,10 +9,7 @@ use Symfony\Component\Routing\RouterInterface;
 
 final class UrlFactory
 {
-    /**
-     * @var RouterInterface
-     */
-    private $router;
+    private RouterInterface $router;
 
     public function __construct(RouterInterface $router)
     {

@@ -20,66 +20,57 @@ class TrainingFeedback implements TimestampableInterface
     use IsRevisedTrait;
 
     /**
-     * @ORM\Id()
+     * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @var int
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $pointOfEntry;
+    private ?string $pointOfEntry;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $url;
+    private ?string $url;
 
     /**
      * @ORM\Column(type="text")
-     * @var string
      */
-    private $text;
+    private string $text;
 
     /**
      * @ORM\Column(type="float", nullable=true)
-     * @var float|null
      */
-    private $rating;
+    private ?float $rating;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @var string
      */
-    private $thingsToImprove;
+    private ?string $thingsToImprove;
 
     /**
      * @ORM\Column(type="boolean")
-     * @var bool
      */
-    private $isAgreedWithPublishingName = false;
+    private bool $isAgreedWithPublishingName = false;
 
     /**
      * @ORM\Column(type="boolean")
-     * @var bool
      */
-    private $isShownOnMainPage = false;
+    private bool $isShownOnMainPage = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingFeedbacks")
-     * @var Training
      */
-    private $training;
+    private ?Training $training;
 
     public function __toString(): string
     {

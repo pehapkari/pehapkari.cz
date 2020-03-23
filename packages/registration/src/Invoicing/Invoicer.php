@@ -10,15 +10,9 @@ use Pehapkari\Registration\Repository\RegistrationRepository;
 
 final class Invoicer
 {
-    /**
-     * @var FakturoidApi
-     */
-    private $fakturoidApi;
+    private FakturoidApi $fakturoidApi;
 
-    /**
-     * @var RegistrationRepository
-     */
-    private $trainingRegistrationRepository;
+    private RegistrationRepository $trainingRegistrationRepository;
 
     public function __construct(
         FakturoidApi $fakturoidApi,

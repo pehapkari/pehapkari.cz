@@ -8,30 +8,15 @@ use DateTimeInterface;
 
 final class Meetup
 {
-    /**
-     * @var string
-     */
-    private $name;
+    private string $name;
 
-    /**
-     * @var string
-     */
-    private $city;
+    private string $city;
 
-    /**
-     * @var string
-     */
-    private $url;
+    private string $url;
 
-    /**
-     * @var string
-     */
-    private $country;
+    private string $country;
 
-    /**
-     * @var DateTimeInterface
-     */
-    private $startDateTime;
+    private DateTimeInterface $startDateTime;
 
     public function __construct(
         string $name,

@@ -25,11 +25,11 @@ final class CalendarExtension extends AbstractExtension
     public function getFilters(): array
     {
         return [
-            new TwigFilter('google_calendar_link', function (TrainingTerm $trainingTerm): string {
-                return $trainingTerm->getStartDateTime()->format(self::GOOGLE_CALENDAR_TIME_FORMAT) .
-                    '/' .
-                    $trainingTerm->getEndDateTime()->format(self::GOOGLE_CALENDAR_TIME_FORMAT);
-            }),
+            new TwigFilter('google_calendar_link', fn (TrainingTerm $trainingTerm): string => $trainingTerm->getStartDateTime()->format(
+                self::GOOGLE_CALENDAR_TIME_FORMAT
+            ) .
+                '/' .
+                $trainingTerm->getEndDateTime()->format(self::GOOGLE_CALENDAR_TIME_FORMAT)),
         ];
     }
 }

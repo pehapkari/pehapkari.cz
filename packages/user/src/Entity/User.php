@@ -17,28 +17,28 @@ class User implements UserInterface
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
+    (strategy="AUTO")
      * @ORM\Column(type="integer")
-     * @var int
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="string")
-     * @var string
      */
-    private $password;
+    private string $password;
 
     /**
      * @ORM\Column(type="json")
      * @var string[]
      */
-    private $roles = [];
+    private array
+
+ $roles = [];
 
     /**
      * For easy admin, to display user name

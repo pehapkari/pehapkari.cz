@@ -38,15 +38,9 @@ final class TwitterPublisher
      */
     private const UPDATE_URL = 'https://api.twitter.com/' . self::API_VERSION . '/statuses/update.json';
 
-    /**
-     * @var TwitterAPIExchange
-     */
-    private $twitterAPIExchange;
+    private TwitterAPIExchange $twitterAPIExchange;
 
-    /**
-     * @var UrlFactory
-     */
-    private $urlFactory;
+    private UrlFactory $urlFactory;
 
     public function __construct(TwitterAPIExchange $twitterAPIExchange, UrlFactory $urlFactory)
     {

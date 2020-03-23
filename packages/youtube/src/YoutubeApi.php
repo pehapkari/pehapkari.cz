@@ -23,15 +23,9 @@ final class YoutubeApi
      */
     private const ENPOINT_PLAYLISTS_BY_CHANNEL = 'https://www.googleapis.com/youtube/v3/playlists?part=snippet,contentDetails&channelId=%s&maxResults=50';
 
-    /**
-     * @var string
-     */
-    private $youtubeApiKey;
+    private string $youtubeApiKey;
 
-    /**
-     * @var Client
-     */
-    private $client;
+    private Client $client;
 
     public function __construct(string $youtubeApiKey)
     {

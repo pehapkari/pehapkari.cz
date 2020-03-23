@@ -10,15 +10,9 @@ use Pehapkari\Training\Entity\TrainingFeedback;
 
 final class TrainingFeedbackRepository
 {
-    /**
-     * @var EntityRepository
-     */
-    private $entityRepository;
+    private EntityRepository $entityRepository;
 
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {

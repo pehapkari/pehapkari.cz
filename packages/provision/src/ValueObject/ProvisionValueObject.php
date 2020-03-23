@@ -6,60 +6,27 @@ namespace Pehapkari\Provision\ValueObject;
 
 final class ProvisionValueObject
 {
-    /**
-     * @var int
-     */
-    private $previouslyFinishedTrainingCount;
+    private int $previouslyFinishedTrainingCount;
 
-    /**
-     * @var float
-     */
-    private $income;
+    private float $income;
 
-    /**
-     * @var float
-     */
-    private $expense;
+    private float $expense;
 
-    /**
-     * @var float
-     */
-    private $ownerExpense;
+    private float $ownerExpense;
 
-    /**
-     * @var float
-     */
-    private $trainerExpense;
+    private float $trainerExpense;
 
-    /**
-     * @var float
-     */
-    private $trainerProvisionRate;
+    private float $trainerProvisionRate;
 
-    /**
-     * @var float
-     */
-    private $trainerProvision;
+    private float $trainerProvision;
 
-    /**
-     * @var float
-     */
-    private $trainerProvisionWithExpense;
+    private float $trainerProvisionWithExpense;
 
-    /**
-     * @var float
-     */
-    private $ownerProvisionRate;
+    private float $ownerProvisionRate;
 
-    /**
-     * @var float
-     */
-    private $ownerProvision;
+    private float $ownerProvision;
 
-    /**
-     * @var float
-     */
-    private $profit;
+    private float $profit;
 
     public function __construct(
         int $previouslyFinishedTrainingCount,

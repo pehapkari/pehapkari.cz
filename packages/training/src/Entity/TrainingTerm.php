@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Pehapkari\Training\Entity;
 
 use DateTime;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -31,67 +32,64 @@ class TrainingTerm
     private const DEADLINE_DAYS_AHEAD = 7;
 
     /**
-     * @ORM\Id()
+     * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @var int
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingTerms")
      * @Assert\NotNull
-     * @var Training
      */
-    private $training;
+    private ?Training $training;
 
     /**
      * @ORM\Column(type="string", unique=true)
-     * @var string
      */
-    private $slug;
+    private string $slug;
 
     /**
      * @ORM\Column(type="boolean")
-     * @var bool
      */
-    private $isProvisionPaid = false;
+    private bool $isProvisionPaid = false;
 
     /**
      * @ORM\Column(type="boolean")
-     * @var bool
      */
-    private $isProvisionEmailSent = false;
+    private bool $isProvisionEmailSent = false;
 
     /**
      * @ORM\Column(type="boolean")
-     * @var bool
      */
-    private $areFeedbackEmailsSent = false;
+    private bool $areFeedbackEmailsSent = false;
 
     /**
      * @ORM\Column(type="datetime")
-     * @var DateTime
      */
-    private $startDateTime;
+    private DateTimeInterface $startDateTime;
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Registration\Entity\TrainingRegistration", mappedBy="trainingTerm")
-     * @var TrainingRegistration[]|Collection
      */
-    private $registrations = [];
+    private array
+
+ $registrations = [];
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", cascade={"persist", "remove"}, mappedBy="trainingTerm")
-     * @var MarketingEvent[]|Collection
      */
-    private $marketingEvents = [];
+    private array
+
+ $marketingEvents = [];
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Provision\Entity\Expense", cascade={"remove"}, mappedBy="trainingTerm")
-     * @var Expense[]|Collection
      */
-    private $expenses = [];
+    private array
+
+ $expenses = [];
 
     public function __construct()
     {

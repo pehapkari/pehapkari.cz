@@ -10,10 +10,7 @@ use Pehapkari\Training\Repository\TrainingTermRepository;
 
 final class ProvisionResolver
 {
-    /**
-     * @var TrainingTermRepository
-     */
-    private $trainingTermRepository;
+    private TrainingTermRepository $trainingTermRepository;
 
     public function __construct(TrainingTermRepository $trainingTermRepository)
     {

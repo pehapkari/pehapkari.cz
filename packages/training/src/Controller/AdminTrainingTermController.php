@@ -22,35 +22,17 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 final class AdminTrainingTermController extends EasyAdminController
 {
-    /**
-     * @var TrainingTermRepository
-     */
-    private $trainingTermRepository;
+    private TrainingTermRepository $trainingTermRepository;
 
-    /**
-     * @var MarketingEventsFactory
-     */
-    private $marketingEventsFactory;
+    private MarketingEventsFactory $marketingEventsFactory;
 
-    /**
-     * @var MarketingEventRepository
-     */
-    private $marketingEventRepository;
+    private MarketingEventRepository $marketingEventRepository;
 
-    /**
-     * @var Invoicer
-     */
-    private $invoicer;
+    private Invoicer $invoicer;
 
-    /**
-     * @var ProvisionResolver
-     */
-    private $provisionResolver;
+    private ProvisionResolver $provisionResolver;
 
-    /**
-     * @var PehapkariMailer
-     */
-    private $pehapkariMailer;
+    private PehapkariMailer $pehapkariMailer;
 
     public function __construct(
         TrainingTermRepository $trainingTermRepository,

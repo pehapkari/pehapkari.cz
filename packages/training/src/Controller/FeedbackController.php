@@ -14,10 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class FeedbackController extends AbstractController
 {
-    /**
-     * @var TrainingFeedbackRepository
-     */
-    private $trainingFeedbackRepository;
+    private TrainingFeedbackRepository $trainingFeedbackRepository;
 
     public function __construct(TrainingFeedbackRepository $trainingFeedbackRepository)
     {

@@ -18,48 +18,42 @@ class MarketingEvent implements TimestampableInterface
     use TimestampableTrait;
 
     /**
-     * @ORM\Id()
+     * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @var int
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @var string
      */
-    private $platform;
+    private string $platform;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @var string
      */
-    private $action;
+    private string $action;
 
     /**
      * @ORM\Column(type="datetime")
-     * @var DateTimeInterface
      */
-    private $plannedAt;
+    private DateTimeInterface $plannedAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * @var DateTimeInterface|null
      */
-    private $publishedAt;
+    private ?DateTimeInterface $publishedAt;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm", inversedBy="marketingEvents")
-     * @var TrainingTerm
      */
-    private $trainingTerm;
+    private ?TrainingTerm $trainingTerm;
 
     /**
      * @ORM\Column(type="boolean")
-     * @var bool
      */
-    private $isDone = false;
+    private bool $isDone = false;
 
     public function getId(): ?int
     {

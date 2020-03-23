@@ -12,15 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class BlogController extends AbstractController
 {
-    /**
-     * @var PostsProvider
-     */
-    private $postsProvider;
+    private PostsProvider $postsProvider;
 
-    /**
-     * @var AuthorsProvider
-     */
-    private $authorsProvider;
+    private AuthorsProvider $authorsProvider;
 
     public function __construct(PostsProvider $postsProvider, AuthorsProvider $authorsProvider)
     {

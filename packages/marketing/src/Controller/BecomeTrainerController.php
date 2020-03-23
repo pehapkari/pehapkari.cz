@@ -12,15 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class BecomeTrainerController extends AbstractController
 {
-    /**
-     * @var TrainingStatistics
-     */
-    private $trainingStatistics;
+    private TrainingStatistics $trainingStatistics;
 
-    /**
-     * @var TrainingRepository
-     */
-    private $trainingRepository;
+    private TrainingRepository $trainingRepository;
 
     public function __construct(TrainingStatistics $trainingStatistics, TrainingRepository $trainingRepository)
     {

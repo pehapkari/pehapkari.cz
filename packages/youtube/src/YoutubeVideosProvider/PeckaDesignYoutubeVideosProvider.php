@@ -19,20 +19,11 @@ final class PeckaDesignYoutubeVideosProvider implements YoutubeVideosProviderInt
      */
     private const PECKADESIGN_PLAYLIST_ID = 'PLtzY2tCed56eGLPdGzn0_Jq0L-PrVHTNU';
 
-    /**
-     * @var YoutubeApi
-     */
-    private $youtubeApi;
+    private YoutubeApi $youtubeApi;
 
-    /**
-     * @var VideosFactory
-     */
-    private $videosFactory;
+    private VideosFactory $videosFactory;
 
-    /**
-     * @var MeetupNaming
-     */
-    private $meetupNaming;
+    private MeetupNaming $meetupNaming;
 
     public function __construct(YoutubeApi $youtubeApi, VideosFactory $videosFactory, MeetupNaming $meetupNaming)
     {

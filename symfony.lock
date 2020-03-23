@@ -181,6 +181,9 @@
     "jean85/pretty-package-versions": {
         "version": "1.2"
     },
+    "jetbrains/phpstorm-stubs": {
+        "version": "v2019.3"
+    },
     "jms/metadata": {
         "version": "2.0.0"
     },
@@ -189,6 +192,15 @@
     },
     "knplabs/doctrine-behaviors": {
         "version": "1.6.0"
+    },
+    "laminas/laminas-code": {
+        "version": "3.4.1"
+    },
+    "laminas/laminas-eventmanager": {
+        "version": "3.2.1"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.0.1"
     },
     "latte/latte": {
         "version": "v2.5.1"
@@ -278,7 +290,7 @@
         "version": "2.0.1"
     },
     "php": {
-        "version": "7.3"
+        "version": "7.4"
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
@@ -291,6 +303,9 @@
     },
     "php-http/discovery": {
         "version": "1.6.1"
+    },
+    "php-http/guzzle6-adapter": {
+        "version": "v2.0.1"
     },
     "php-http/httplug": {
         "version": "v2.0.0"
@@ -681,11 +696,17 @@
     "symfony/polyfill-iconv": {
         "version": "v1.11.0"
     },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.14.0"
+    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.11.0"
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.11.0"
+    },
+    "symfony/polyfill-intl-normalizer": {
+        "version": "v1.14.0"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.11.0"
@@ -698,6 +719,9 @@
     },
     "symfony/polyfill-php73": {
         "version": "v1.11.0"
+    },
+    "symfony/polyfill-uuid": {
+        "version": "v1.14.0"
     },
     "symfony/process": {
         "version": "v4.3.1"
@@ -752,6 +776,9 @@
     },
     "symfony/stopwatch": {
         "version": "v4.3.1"
+    },
+    "symfony/string": {
+        "version": "v5.0.5"
     },
     "symfony/swiftmailer-bundle": {
         "version": "2.5",
@@ -922,6 +949,9 @@
         "files": [
             "config/packages/vich_uploader.yaml"
         ]
+    },
+    "webimpress/safe-writer": {
+        "version": "2.0.0"
     },
     "webmozart/assert": {
         "version": "1.4.0"

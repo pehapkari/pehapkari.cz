@@ -11,15 +11,9 @@ use Egulias\EmailValidator\Validation\RFCValidation;
 
 final class EmailValidation
 {
-    /**
-     * @var EmailValidator
-     */
-    private $emailValidator;
+    private EmailValidator $emailValidator;
 
-    /**
-     * @var MultipleValidationWithAnd
-     */
-    private $multipleValidationWithAnd;
+    private MultipleValidationWithAnd $multipleValidationWithAnd;
 
     public function __construct(EmailValidator $emailValidator)
     {

@@ -11,10 +11,7 @@ use Pehapkari\Training\Entity\Training;
 
 final class TrainingRepository
 {
-    /**
-     * @var EntityRepository
-     */
-    private $entityRepository;
+    private EntityRepository $entityRepository;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -59,9 +56,7 @@ final class TrainingRepository
             ->getQuery()
             ->getResult();
 
-        return array_filter($trainings, function (Training $training): bool {
-            return ! $training->isActive();
-        });
+        return array_filter($trainings, fn (Training $training): bool => ! $training->isActive());
     }
 
     public function findById(int $id): ?Training

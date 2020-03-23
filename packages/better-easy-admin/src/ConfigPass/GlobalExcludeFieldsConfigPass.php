@@ -22,10 +22,7 @@ final class GlobalExcludeFieldsConfigPass implements ConfigPassInterface
      */
     private const FIELDS = 'fields';
 
-    /**
-     * @var ParameterBagInterface
-     */
-    private $parameterBag;
+    private ParameterBagInterface $parameterBag;
 
     public function __construct(ParameterBagInterface $parameterBag)
     {

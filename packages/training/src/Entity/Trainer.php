@@ -22,66 +22,59 @@ class Trainer implements TimestampableInterface
     use TimestampableTrait;
 
     /**
-     * @ORM\Id()
+     * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @var int
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $phone;
+    private ?string $phone;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $position;
+    private ?string $position;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $company;
+    private ?string $company;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $website;
+    private ?string $website;
 
     /**
      * @ORM\Column(type="text")
-     * @var string
      */
-    private $bio;
+    private string $bio;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    private $twitterName;
+    private ?string $twitterName;
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\Training", mappedBy="trainer")
-     * @var Training[]|ArrayCollection
      */
-    private $trainings = [];
+    private array
+
+ $trainings = [];
 
     public function __construct()
     {

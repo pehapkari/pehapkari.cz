@@ -13,15 +13,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class AdminSendFeedbackRequestController extends EasyAdminController
 {
-    /**
-     * @var PehapkariMailer
-     */
-    private $pehapkariMailer;
+    private PehapkariMailer $pehapkariMailer;
 
-    /**
-     * @var TrainingTermRepository
-     */
-    private $trainingTermRepository;
+    private TrainingTermRepository $trainingTermRepository;
 
     public function __construct(PehapkariMailer $pehapkariMailer, TrainingTermRepository $trainingTermRepository)
     {

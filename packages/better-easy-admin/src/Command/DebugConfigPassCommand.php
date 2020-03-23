@@ -18,20 +18,11 @@ use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
 final class DebugConfigPassCommand extends Command
 {
-    /**
-     * @var ConfigManager
-     */
-    private $configManager;
+    private ConfigManager $configManager;
 
-    /**
-     * @var SymfonyStyle
-     */
-    private $symfonyStyle;
+    private SymfonyStyle $symfonyStyle;
 
-    /**
-     * @var PrivatesAccessor
-     */
-    private $privatesAccessor;
+    private PrivatesAccessor $privatesAccessor;
 
     public function __construct(
         ConfigManager $configManager,

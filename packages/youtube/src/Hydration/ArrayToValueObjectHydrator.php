@@ -12,10 +12,7 @@ use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 final class ArrayToValueObjectHydrator
 {
-    /**
-     * @var StringFormatConverter
-     */
-    private $stringFormatConverter;
+    private StringFormatConverter $stringFormatConverter;
 
     public function __construct(StringFormatConverter $stringFormatConverter)
     {
@@ -35,7 +32,11 @@ final class ArrayToValueObjectHydrator
 
             $value = $data[$key] ?? '';
             if ($parameterReflection->hasType()) {
-                if (is_a($parameterReflection->getType()->getName(), DateTimeInterface::class, true)) {
+                if (is_a(
+                    ($parameterReflection->getType() ? $parameterReflection->getType()->getName() : null)->getName(),
+                    DateTimeInterface::class,
+                    true
+                )) {
                     $value = DateTime::from($data[$key]);
                 }
             }

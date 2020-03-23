@@ -40,10 +40,7 @@ final class ImagePropertyAutoconfigureConfigPass implements ConfigPassInterface
      */
     private const IMAGE_UPLOADED_AT = 'imageUploadedAt';
 
-    /**
-     * @var ParameterBagInterface
-     */
-    private $parameterBag;
+    private ParameterBagInterface $parameterBag;
 
     public function __construct(ParameterBagInterface $parameterBag)
     {

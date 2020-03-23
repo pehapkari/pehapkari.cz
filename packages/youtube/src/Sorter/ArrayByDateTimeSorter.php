@@ -14,9 +14,12 @@ final class ArrayByDateTimeSorter
      */
     public function sortByKey(array $items, string $key): array
     {
-        usort($items, function (array $firstItem, array $secondItem) use ($key): int {
-            return DateTime::from($secondItem[$key]) <=> DateTime::from($firstItem[$key]);
-        });
+        usort(
+            $items,
+            fn (array $firstItem, array $secondItem): int => DateTime::from(
+                $secondItem[$key]
+            ) <=> DateTime::from($firstItem[$key])
+        );
 
         return $items;
     }

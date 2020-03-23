@@ -16,7 +16,7 @@
 
         <div class="row">
             {% for author_posts in authors_posts|filter(author_posts => author_posts.postCount >= post_break_count) %}
-                <div class="col-4 d-flex mb-4">
+                <div class="col-6 col-md-4 d-flex mb-4">
                     {% if author_posts.authorPhoto is not null %}
                         <img src="{{ author_posts.authorPhoto }}" style="width: 3em; height: 3em" class="rounded-circle mr-3">
                     {% endif %}

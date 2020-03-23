@@ -17,10 +17,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 final class GenerateCertificateFormType extends AbstractType
 {
-    /**
-     * @var TrainingTermRepository
-     */
-    private $trainingTermRepository;
+    private TrainingTermRepository $trainingTermRepository;
 
     public function __construct(TrainingTermRepository $trainingTermRepository)
     {

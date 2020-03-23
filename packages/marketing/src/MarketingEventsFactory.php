@@ -10,10 +10,7 @@ use Pehapkari\Training\Entity\TrainingTerm;
 
 final class MarketingEventsFactory
 {
-    /**
-     * @var MarketingCampaignPlanProvider
-     */
-    private $marketingCampaignPlanProvider;
+    private MarketingCampaignPlanProvider $marketingCampaignPlanProvider;
 
     public function __construct(MarketingCampaignPlanProvider $marketingCampaignPlanProvider)
     {

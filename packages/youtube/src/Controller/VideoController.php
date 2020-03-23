@@ -14,20 +14,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class VideoController extends AbstractController
 {
-    /**
-     * @var VideosDataProvider
-     */
-    private $videosDataProvider;
+    private VideosDataProvider $videosDataProvider;
 
-    /**
-     * @var ArrayByDateTimeSorter
-     */
-    private $arrayByDateTimeSorter;
+    private ArrayByDateTimeSorter $arrayByDateTimeSorter;
 
-    /**
-     * @var ArrayToValueObjectHydrator
-     */
-    private $arrayToValueObjectHydrator;
+    private ArrayToValueObjectHydrator $arrayToValueObjectHydrator;
 
     public function __construct(
         VideosDataProvider $videosDataProvider,

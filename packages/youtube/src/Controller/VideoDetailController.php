@@ -14,15 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class VideoDetailController extends AbstractController
 {
-    /**
-     * @var ArrayToValueObjectHydrator
-     */
-    private $arrayToValueObjectHydrator;
+    private ArrayToValueObjectHydrator $arrayToValueObjectHydrator;
 
-    /**
-     * @var VideosDataProvider
-     */
-    private $videosDataProvider;
+    private VideosDataProvider $videosDataProvider;
 
     /**
      * @see ImportVideosCommand command

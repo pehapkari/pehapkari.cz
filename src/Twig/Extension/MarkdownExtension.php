@@ -14,10 +14,7 @@ use Twig\TwigFilter;
  */
 final class MarkdownExtension extends AbstractExtension
 {
-    /**
-     * @var ParsedownExtra
-     */
-    private $parsedownExtra;
+    private ParsedownExtra $parsedownExtra;
 
     public function __construct(ParsedownExtra $parsedownExtra)
     {
@@ -29,8 +26,6 @@ final class MarkdownExtension extends AbstractExtension
      */
     public function getFilters(): Iterator
     {
-        yield new TwigFilter('markdown', function (string $content): string {
-            return $this->parsedownExtra->parse($content);
-        });
+        yield new TwigFilter('markdown', fn (string $content): string => $this->parsedownExtra->parse($content));
     }
 }

@@ -14,20 +14,11 @@ use Pehapkari\Registration\Entity\TrainingRegistration;
  */
 final class FakturoidApi
 {
-    /**
-     * @var string
-     */
-    private $fakturoidSlug;
+    private string $fakturoidSlug;
 
-    /**
-     * @var FakturoidClient
-     */
-    private $fakturoidClient;
+    private FakturoidClient $fakturoidClient;
 
-    /**
-     * @var InvoiceDataFactory
-     */
-    private $invoiceDataFactory;
+    private InvoiceDataFactory $invoiceDataFactory;
 
     public function __construct(
         string $fakturoidSlug,

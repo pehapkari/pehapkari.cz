@@ -16,10 +16,7 @@ use Twig\TwigFilter;
  */
 final class StatieFiltersExtension extends AbstractExtension
 {
-    /**
-     * @var RelatedItemsResolver
-     */
-    private $relatedItemsResolver;
+    private RelatedItemsResolver $relatedItemsResolver;
 
     public function __construct(RelatedItemsResolver $relatedItemsResolver)
     {
@@ -35,9 +32,9 @@ final class StatieFiltersExtension extends AbstractExtension
             // use: {% set relatedPosts = related_items(post) %}
             new TwigFilter(
                 'related_items',
-                function (AbstractGeneratorFile $generatorFile): array {
-                    return $this->relatedItemsResolver->resolveForFile($generatorFile);
-                }
+                fn (AbstractGeneratorFile $generatorFile): array => $this->relatedItemsResolver->resolveForFile(
+                    $generatorFile
+                )
             ),
 
             // use: {{ post|link }}

@@ -20,20 +20,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class RegistrationController extends AbstractController
 {
-    /**
-     * @var RegistrationRepository
-     */
-    private $trainingRegistrationRepository;
+    private RegistrationRepository $trainingRegistrationRepository;
 
-    /**
-     * @var PehapkariMailer
-     */
-    private $pehapkariMailer;
+    private PehapkariMailer $pehapkariMailer;
 
-    /**
-     * @var EmailValidation
-     */
-    private $emailValidation;
+    private EmailValidation $emailValidation;
 
     public function __construct(
         RegistrationRepository $trainingRegistrationRepository,

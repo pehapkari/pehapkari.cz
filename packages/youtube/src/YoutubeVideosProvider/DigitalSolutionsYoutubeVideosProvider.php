@@ -14,25 +14,13 @@ use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PlaylistsProvider;
 
 final class DigitalSolutionsYoutubeVideosProvider implements YoutubeVideosProviderInterface
 {
-    /**
-     * @var YoutubeApi
-     */
-    private $youtubeApi;
+    private YoutubeApi $youtubeApi;
 
-    /**
-     * @var VideosFactory
-     */
-    private $videosFactory;
+    private VideosFactory $videosFactory;
 
-    /**
-     * @var PlaylistsProvider
-     */
-    private $playlistsProvider;
+    private PlaylistsProvider $playlistsProvider;
 
-    /**
-     * @var MeetupNaming
-     */
-    private $meetupNaming;
+    private MeetupNaming $meetupNaming;
 
     public function __construct(
         YoutubeApi $youtubeApi,

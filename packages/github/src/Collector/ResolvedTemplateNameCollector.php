@@ -6,10 +6,7 @@ namespace Pehapkari\Github\Collector;
 
 final class ResolvedTemplateNameCollector
 {
-    /**
-     * @var string|null
-     */
-    private $templateName;
+    private ?string $templateName;
 
     public function setValue(string $templateName): void
     {

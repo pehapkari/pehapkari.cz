@@ -9,33 +9,15 @@ namespace Pehapkari\ValueObject;
  */
 final class Organizer
 {
-    /**
-     * @var string
-     */
-    public $photo;
+    public string $photo;
 
-    /**
-     * @var string
-     */
-    public $name;
+    public string $name;
 
-    /**
-     * @var string
-     */
-    public $responsibility;
+    public string $responsibility;
 
-    /**
-     * @var string|null
-     */
-    public $url;
+    public ?string $url;
 
-    /**
-     * @var string|null
-     */
-    public $company;
+    public ?string $company;
 
-    /**
-     * @var string|null
-     */
-    public $company_url;
+    public ?string $company_url;
 }

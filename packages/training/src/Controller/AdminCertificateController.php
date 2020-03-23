@@ -15,10 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class AdminCertificateController extends EasyAdminController
 {
-    /**
-     * @var CertificateGenerator
-     */
-    private $certificateGenerator;
+    private CertificateGenerator $certificateGenerator;
 
     public function __construct(CertificateGenerator $certificateGenerator)
     {
