@@ -23,8 +23,7 @@ class TrainingRegistration implements TimestampableInterface
      * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @var int
-     */
+b     */
     private int $id;
 
     /**
