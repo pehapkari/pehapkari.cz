@@ -30,7 +30,6 @@ class Training implements UploadDestinationAwareInterface, SluggableInterface
      * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @var int
      */
     private ?int $id;
 
