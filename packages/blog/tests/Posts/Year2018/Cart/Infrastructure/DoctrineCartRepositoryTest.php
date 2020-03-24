@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Blog\Tests\Posts\Year2018\Cart\Infrastructure;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Pehapkari\Blog\Posts\Year2018\Cart\Domain\Cart;
 use Pehapkari\Blog\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
 use Pehapkari\Blog\Posts\Year2018\Cart\Domain\Item;
@@ -16,10 +16,7 @@ use PHPUnit\Framework\Assert;
 
 final class DoctrineCartRepositoryTest extends AbstractCartRepositoryTest
 {
-    /**
-     * @var EntityManager
-     */
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     protected function setUp(): void
     {

@@ -10,15 +10,9 @@ use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
 
 final class ZipCodeConstraint extends Constraint
 {
-    /**
-     * @var string
-     */
-    public $country;
+    public ?string $country = null;
 
-    /**
-     * @var string
-     */
-    public $message = 'This value is not a valid ZIP code.';
+    public string $message = 'This value is not a valid ZIP code.';
 
     /**
      * @param mixed[] $options

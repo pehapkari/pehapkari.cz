@@ -13,10 +13,7 @@ use Pehapkari\Exception\ShouldNotHappenException;
 
 final class ConnectionManager
 {
-    /**
-     * @var Connection
-     */
-    private static $connection;
+    private static Connection $connection;
 
     public static function dropAndCreateDatabase(): void
     {

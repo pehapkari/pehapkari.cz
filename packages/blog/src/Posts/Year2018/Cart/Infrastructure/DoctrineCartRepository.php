@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Pehapkari\Blog\Posts\Year2018\Cart\Infrastructure;
 
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Pehapkari\Blog\Posts\Year2018\Cart\Domain\Cart;
 use Pehapkari\Blog\Posts\Year2018\Cart\Domain\CartNotFoundException;
@@ -12,7 +11,7 @@ use Pehapkari\Blog\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
 
 final class DoctrineCartRepository implements CartRepositoryInterface
 {
-    private EntityManager $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {

@@ -16,10 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 final class InvoiceFormTest extends TestCase
 {
-    /**
-     * @var Container
-     */
-    private $container;
+    private Container $container;
 
     protected function setUp(): void
     {

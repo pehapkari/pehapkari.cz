@@ -29,22 +29,19 @@ final class Client implements GroupSequenceProviderInterface
     private ?int $type = null;
 
     /**
-     * @var string
      * @Assert\NotBlank(groups = {"company"})
      */
-    private $company;
+    private string $company;
 
     /**
-     * @var string
      * @Assert\NotBlank(groups = {"person"})
      */
-    private $firstname;
+    private string $firstname;
 
     /**
-     * @var string
      * @Assert\NotBlank(groups = {"person"})
      */
-    private $lastname;
+    private string $lastname;
 
     /**
      * @return string[][]

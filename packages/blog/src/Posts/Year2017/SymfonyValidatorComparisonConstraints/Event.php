@@ -4,40 +4,38 @@ declare(strict_types=1);
 
 namespace Pehapkari\Blog\Posts\Year2017\SymfonyValidatorComparisonConstraints;
 
-use DateTime;
+use DateTimeInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 final class Event
 {
     /**
-     * @var DateTime
      * @Assert\Type("DateTime")
      */
-    private $startDate;
+    private DateTimeInterface $startDate;
 
     /**
-     * @var DateTime
      * @Assert\Type("DateTime")
      * @Assert\Expression("value >= this.getStartDate()")
      */
-    private $endDate;
+    private DateTimeInterface $endDate;
 
-    public function getStartDate(): DateTime
+    public function getStartDate(): DateTimeInterface
     {
         return $this->startDate;
     }
 
-    public function setStartDate(DateTime $startDate): void
+    public function setStartDate(DateTimeInterface $startDate): void
     {
         $this->startDate = $startDate;
     }
 
-    public function getEndDate(): DateTime
+    public function getEndDate(): DateTimeInterface
     {
         return $this->endDate;
     }
 
-    public function setEndDate(DateTime $endDate): void
+    public function setEndDate(DateTimeInterface $endDate): void
     {
         $this->endDate = $endDate;
     }

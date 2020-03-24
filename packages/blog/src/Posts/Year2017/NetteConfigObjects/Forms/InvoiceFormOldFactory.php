@@ -9,7 +9,7 @@ final class InvoiceFormOldFactory
     /**
      * @var mixed[]
      */
-    private $config = [];
+    private array $config = [];
 
     /**
      * @param mixed[] $config

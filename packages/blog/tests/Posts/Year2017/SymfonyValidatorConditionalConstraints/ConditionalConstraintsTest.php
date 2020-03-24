@@ -13,10 +13,7 @@ use Symfony\Component\Validator\ValidatorBuilder;
 
 final class ConditionalConstraintsTest extends TestCase
 {
-    /**
-     * @var ValidatorInterface
-     */
-    private $validator;
+    private ValidatorInterface $validator;
 
     protected function setUp(): void
     {

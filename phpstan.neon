@@ -53,3 +53,5 @@ parameters:
 
         - '#Property Pehapkari\\Blog\\Repository\\PostRepository\:\:\$posts \(array<Symplify\\Statie\\Renderable\\File\\PostFile\>\) does not accept array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
         - '#Method Pehapkari\\Blog\\PostStatsFactory\:\:createPostsByAuthor\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<int\|string, array<int, Symplify\\Statie\\Renderable\\File\\PostFile\>\>#'
+
+        - '#PHPDoc tag @var for property Pehapkari\\Blog\\Posts\\Year2018\\Cart\\Domain\\Cart\:\:\$items contains unresolvable type#'

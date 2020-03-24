@@ -31,8 +31,9 @@ final class ArrayToValueObjectHydrator
             $key = $this->stringFormatConverter->camelCaseToUnderscore($parameterReflection->name);
 
             $value = $data[$key] ?? '';
-            if ($parameterReflection->hasType()) {
-                $parameterType = (string) $parameterReflection->getType();
+            $parameterType = $parameterReflection->getType();
+            if ($parameterType !== null) {
+                $parameterType = (string) $parameterType;
 
                 if (is_a($parameterType, DateTimeInterface::class, true)) {
                     $value = DateTime::from($data[$key]);
