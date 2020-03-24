@@ -23,6 +23,7 @@
         "guzzlehttp/guzzle": "^6.5",
         "j7mbo/twitter-api-php": "^1.0",
         "knplabs/doctrine-behaviors": "^2.0",
+        "latte/latte": "^2.7",
         "sensio/framework-extra-bundle": "^5.5",
         "sentry/sentry": "^2.2",
         "sentry/sentry-symfony": "dev-master#e30be17",
@@ -65,7 +66,6 @@
     },
     "require-dev": {
         "doctrine/migrations": "^2.2",
-        "latte/latte": "^2.5",
         "nette/application": "^3.0",
         "nette/bootstrap": "^3.0",
         "nette/forms": "^3.0",
