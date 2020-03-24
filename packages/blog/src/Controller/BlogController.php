@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace Pehapkari\Blog\Controller;
 
-use Pehapkari\Blog\DataProvider\AuthorsProvider;
-use Pehapkari\Blog\DataProvider\PostsProvider;
+use Pehapkari\Blog\Repository\AuthorRepository;
+use Pehapkari\Blog\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class BlogController extends AbstractController
 {
-    private PostsProvider $postsProvider;
+    private PostRepository $postsProvider;
 
-    private AuthorsProvider $authorsProvider;
+    private AuthorRepository $authorsProvider;
 
-    public function __construct(PostsProvider $postsProvider, AuthorsProvider $authorsProvider)
+    public function __construct(PostRepository $postRepository, AuthorRepository $authorRepository)
     {
-        $this->postsProvider = $postsProvider;
-        $this->authorsProvider = $authorsProvider;
+        $this->postsProvider = $postRepository;
+        $this->authorsProvider = $authorRepository;
     }
 
     /**
@@ -28,8 +28,8 @@ final class BlogController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('blog/blog.twig', [
-            'posts' => $this->postsProvider->provide(),
-            'authors' => $this->authorsProvider->provide(),
+            'posts' => $this->postsProvider->fetchAll(),
+            'authors' => $this->authorsProvider->fetchAll(),
             'author_count' => $this->authorsProvider->getCount(),
         ]);
     }

@@ -1,5 +1,4 @@
 imports:
-    - { resource: '../statie.yaml' }
     - { resource: '_data/*.yaml' }
 
 parameters:

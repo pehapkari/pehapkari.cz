@@ -78,16 +78,12 @@ class Training implements UploadDestinationAwareInterface, SluggableInterface
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\TrainingTerm", mappedBy="training")
      */
-    private array
-
- $trainingTerms = [];
+    private array $trainingTerms = [];
 
     /**
      * @ORM\OneToMany(targetEntity="TrainingFeedback", mappedBy="training")
      */
-    private array
-
- $trainingFeedbacks = [];
+    private array $trainingFeedbacks = [];
 
     private string $uploadDestination;
 

@@ -7,15 +7,19 @@ namespace Pehapkari\Training\Repository;
 use Doctrine\Common\Proxy\Proxy;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\Persistence\ObjectRepository;
 use Nette\Utils\DateTime;
 use Pehapkari\Training\Entity\Training;
 use Pehapkari\Training\Entity\TrainingTerm;
 
 final class TrainingTermRepository
 {
-    private EntityRepository $entityRepository;
-
     private EntityManagerInterface $entityManager;
+
+    /**
+     * @var EntityRepository&ObjectRepository
+     */
+    private ObjectRepository $entityRepository;
 
     public function __construct(EntityManagerInterface $entityManager)
     {

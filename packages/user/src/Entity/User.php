@@ -36,9 +36,7 @@ class User implements UserInterface
      * @ORM\Column(type="json")
      * @var string[]
      */
-    private array
-
- $roles = [];
+    private array $roles = [];
 
     /**
      * For easy admin, to display user name

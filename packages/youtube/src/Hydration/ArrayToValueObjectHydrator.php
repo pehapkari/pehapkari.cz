@@ -34,11 +34,7 @@ final class ArrayToValueObjectHydrator
             if ($parameterReflection->hasType()) {
                 $parameterType = (string) $parameterReflection->getType();
 
-                if (is_a(
-                    $parameterType,
-                    DateTimeInterface::class,
-                    true
-                )) {
+                if (is_a($parameterType, DateTimeInterface::class, true)) {
                     $value = DateTime::from($data[$key]);
                 }
             }

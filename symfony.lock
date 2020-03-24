@@ -128,10 +128,10 @@
         "version": "2.1.8"
     },
     "erusev/parsedown": {
-        "version": "1.7.3"
+        "version": "1.7.4"
     },
     "erusev/parsedown-extra": {
-        "version": "0.7.1"
+        "version": "0.8.1"
     },
     "fabpot/goutte": {
         "version": "v3.2.3"
@@ -913,9 +913,6 @@
     },
     "symplify/smart-file-system": {
         "version": "v7.0.2"
-    },
-    "symplify/statie": {
-        "version": "v6.0.3"
     },
     "theseer/tokenizer": {
         "version": "1.1.3"

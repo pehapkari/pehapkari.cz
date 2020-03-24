@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Pehapkari\Twig\Extension;
 
-use Iterator;
 use ParsedownExtra;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -24,8 +23,12 @@ final class MarkdownExtension extends AbstractExtension
     /**
      * @return TwigFilter[]
      */
-    public function getFilters(): Iterator
+    public function getFilters(): array
     {
-        yield new TwigFilter('markdown', fn (string $content): string => $this->parsedownExtra->parse($content));
+        $twigFilter = new TwigFilter('markdown', fn (string $content): string => $this->parsedownExtra->parse(
+            $content
+        ));
+
+        return [$twigFilter];
     }
 }

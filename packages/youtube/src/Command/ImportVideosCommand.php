@@ -30,9 +30,7 @@ final class ImportVideosCommand extends Command
     /**
      * @var YoutubeVideosProviderInterface[]
      */
-    private array
-
- $youtubeVideosProviders = [];
+    private array $youtubeVideosProviders = [];
 
     /**
      * @param YoutubeVideosProviderInterface[] $youtubeVideosProviders

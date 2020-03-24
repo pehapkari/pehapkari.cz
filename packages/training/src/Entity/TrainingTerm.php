@@ -35,7 +35,6 @@ class TrainingTerm
      * @ORM\Id
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @var int
      */
     private ?int $id;
 
@@ -73,23 +72,17 @@ class TrainingTerm
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Registration\Entity\TrainingRegistration", mappedBy="trainingTerm")
      */
-    private array
-
- $registrations = [];
+    private array $registrations = [];
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", cascade={"persist", "remove"}, mappedBy="trainingTerm")
      */
-    private array
-
- $marketingEvents = [];
+    private array $marketingEvents = [];
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Provision\Entity\Expense", cascade={"remove"}, mappedBy="trainingTerm")
      */
-    private array
-
- $expenses = [];
+    private array $expenses = [];
 
     public function __construct()
     {

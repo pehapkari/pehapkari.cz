@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace Pehapkari\Blog;
 
-use Pehapkari\Blog\DataProvider\AuthorsProvider;
-use Pehapkari\Blog\DataProvider\PostsProvider;
+use Pehapkari\Blog\Repository\AuthorRepository;
+use Pehapkari\Blog\Repository\PostRepository;
 use Pehapkari\Blog\ValueObject\AuthorPosts;
+use Pehapkari\Blog\ValueObject\Post;
 use Pehapkari\Exception\ShouldNotHappenException;
-use Symplify\Statie\Renderable\File\PostFile;
 
 final class PostStatsFactory
 {
-    private PostsProvider $postsProvider;
+    private PostRepository $postsProvider;
 
-    private AuthorsProvider $authorsProvider;
+    private AuthorRepository $authorsProvider;
 
-    public function __construct(PostsProvider $postsProvider, AuthorsProvider $authorsProvider)
+    public function __construct(PostRepository $postRepository, AuthorRepository $authorRepository)
     {
-        $this->postsProvider = $postsProvider;
-        $this->authorsProvider = $authorsProvider;
+        $this->postsProvider = $postRepository;
+        $this->authorsProvider = $authorRepository;
     }
 
     /**
@@ -35,19 +35,19 @@ final class PostStatsFactory
     }
 
     /**
-     * @return array<int, PostFile[]>
+     * @return Post[][]
      */
     private function createPostsByAuthor(): array
     {
         $authorPostsData = [];
-        foreach ($this->postsProvider->provide() as $post) {
+
+        foreach ($this->postsProvider->fetchAll() as $post) {
             // skip example post
             if ($post->getId() === 150) {
                 continue;
             }
 
-            $authorId = (int) $post['author'];
-            $authorPostsData[$authorId][] = $post;
+            $authorPostsData[$post->getAuthorId()][] = $post;
         }
 
         return $authorPostsData;
@@ -62,16 +62,16 @@ final class PostStatsFactory
         $authorsPosts = [];
 
         foreach ($authorsPostsData as $authorId => $posts) {
-            $author = $this->authorsProvider->provideById($authorId);
+            $author = $this->authorsProvider->get($authorId);
             if ($author === null) {
                 throw new ShouldNotHappenException();
             }
 
-            $authorPhoto = $author['photo'] ?? null;
+            $authorPhoto = $author->getPhoto();
             $postCount = count($posts);
             $postsWordCount = $this->countPostsWords($posts);
 
-            $authorsPosts[] = new AuthorPosts($author['name'], $authorPhoto, $postCount, $postsWordCount);
+            $authorsPosts[] = new AuthorPosts($author->getName(), $authorPhoto, $postCount, $postsWordCount);
         }
 
         return $authorsPosts;
@@ -92,13 +92,13 @@ final class PostStatsFactory
     }
 
     /**
-     * @param PostFile[] $posts
+     * @param Post[] $posts
      */
     private function countPostsWords(array $posts): int
     {
         $postsWordCount = 0;
         foreach ($posts as $post) {
-            $postsWordCount += str_word_count($post->getRawContent());
+            $postsWordCount += $post->getWordCount();
         }
 
         return $postsWordCount;

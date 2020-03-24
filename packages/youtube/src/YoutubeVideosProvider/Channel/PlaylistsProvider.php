@@ -13,9 +13,7 @@ final class PlaylistsProvider
     /**
      * @var mixed[]
      */
-    private array
-
- $playlistsByChannelId = [];
+    private array $playlistsByChannelId = [];
 
     public function __construct(YoutubeApi $youtubeApi)
     {

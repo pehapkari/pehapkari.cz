@@ -8,6 +8,10 @@ services:
          tags: [phpstan.rules.rule]
 
 parameters:
+    paths:
+        - "src"
+        - "packages"
+
     level: max
     reportUnmatchedIgnoredErrors: false
     checkGenericClassInNonGenericObjectType: false
@@ -28,16 +32,10 @@ parameters:
 
         # not sure about this
 
-        # known child
-        - '#Method Pehapkari\\Blog\\DataProvider\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
-
         # desired sub-type
         - '#Method Pehapkari\\Blog\\DependencyInjection\\StatieFactory\:\:createStatieKernel\(\) should return Symfony\\Component\\DependencyInjection\\Container but returns Symfony\\Component\\DependencyInjection\\ContainerInterface#'
 
         # Iterator false positives
-        - '#PHPDoc tag @return with type array<Twig\\TwigFilter\> is incompatible with native type Iterator#'
-        - '#Return type \(Iterator\) of method Pehapkari\\Twig\\Extension\\MarkdownExtension\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\AbstractExtension\:\:getFilters\(\)#'
-        - '#Return type \(Iterator\) of method Pehapkari\\Twig\\Extension\\MarkdownExtension\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\ExtensionInterface\:\:getFilters\(\)#'
         - '#(.*)Doctrine\\ORM\\EntityManagerInterface#'
 
         - '#Method Pehapkari\\Github\\EventSubscriber\\CatchTemplateEventSubscriber\:\:resolveControllerMethod\(\) should return string but returns object\|string#'
@@ -48,8 +46,10 @@ parameters:
         - '#with no typehint specified#'
         - '#Parameter \#1 \$argument of class ReflectionClass constructor expects class\-string<T of object\>\|T of object, string given#'
 
-        # is required by interface
-        - '#Method "checkCredentials\(\)" returns bool type, so the name should start with is/has/was#'
-
-        - '#Method Pehapkari\\Blog\\PostStatsFactory\:\:createPostsByAuthor\(\) should return array<int, array<Symplify\\Statie\\Renderable\\File\\PostFile\>\> but returns array<int\|string, array<int, Symplify\\Statie\\Renderable\\File\\PostFile\>\>#'
         - '#Call to method setRelativeUploadDestination\(\) on an unknown class Pehapkari\\BetterEasyAdmin\\Entity\\UploadableImageTrait#'
+
+        # wtf
+        - '#Method Pehapkari\\User\\EventSubscriber\\UserEventSubscriber\:\:hashUserPassword\(\) has parameter \$genericEvent with no value type specified in iterable type Symfony\\Component\\EventDispatcher\\GenericEvent#'
+
+        - '#Property Pehapkari\\Blog\\Repository\\PostRepository\:\:\$posts \(array<Symplify\\Statie\\Renderable\\File\\PostFile\>\) does not accept array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
+        - '#Method Pehapkari\\Blog\\PostStatsFactory\:\:createPostsByAuthor\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<int\|string, array<int, Symplify\\Statie\\Renderable\\File\\PostFile\>\>#'

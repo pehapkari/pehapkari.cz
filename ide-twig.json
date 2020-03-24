@@ -1,15 +1,15 @@
 {
     "namespaces": [
         { "path": "templates" },
-        { "path": "packages/Blog/templates" },
-        { "path": "packages/BetterEasyAdmin/templates" },
-        { "path": "packages/Marketing/templates" },
-        { "path": "packages/Meetup/templates" },
-        { "path": "packages/Provision/templates" },
-        { "path": "packages/Registration/templates" },
-        { "path": "packages/Training/templates" },
-        { "path": "packages/User/templates" },
-        { "path": "packages/Wiki/templates" },
-        { "path": "packages/Youtube/templates" }
+        { "path": "packages/blog/templates" },
+        { "path": "packages/better-easy-admin/templates" },
+        { "path": "packages/marketing/templates" },
+        { "path": "packages/meetup/templates" },
+        { "path": "packages/provision/templates" },
+        { "path": "packages/registration/templates" },
+        { "path": "packages/training/templates" },
+        { "path": "packages/user/templates" },
+        { "path": "packages/wiki/templates" },
+        { "path": "packages/youtube/templates" }
     ]
 }
