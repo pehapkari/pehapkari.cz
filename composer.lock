@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "49db97ff994ee45dfba0eb97c253118a",
+    "content-hash": "1802e568465cdcd3385c3760cb6f518d",
     "packages": [
         {
             "name": "alterphp/easyadmin-extension-bundle",
@@ -9379,6 +9379,48 @@
             "time": "2020-02-03T13:51:17+00:00"
         },
         {
+            "name": "symplify/auto-bind-parameter",
+            "version": "v7.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symplify/auto-bind-parameter.git",
+                "reference": "8b85fc72fddc953feda56c3d06252eb1fafb21ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symplify/auto-bind-parameter/zipball/8b85fc72fddc953feda56c3d06252eb1fafb21ef",
+                "reference": "8b85fc72fddc953feda56c3d06252eb1fafb21ef",
+                "shasum": ""
+            },
+            "require": {
+                "nette/utils": "^3.0",
+                "php": "^7.2",
+                "symfony/dependency-injection": "^4.4|^5.0",
+                "symfony/http-kernel": "^4.4|^5.0",
+                "symplify/package-builder": "^7.2.8"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "7.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symplify\\AutoBindParameter\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Auto bind parameters for your Symfony applications",
+            "time": "2020-03-18T23:25:54+00:00"
+        },
+        {
             "name": "symplify/autodiscovery",
             "version": "v7.2.8",
             "source": {
@@ -11616,16 +11658,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "v0.7.7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "12c029742de3d770bd99182efa145077f4991568"
+                "reference": "309ac935de3209e3253a1bd77c7cbe9d87124dcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/12c029742de3d770bd99182efa145077f4991568",
-                "reference": "12c029742de3d770bd99182efa145077f4991568",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/309ac935de3209e3253a1bd77c7cbe9d87124dcd",
+                "reference": "309ac935de3209e3253a1bd77c7cbe9d87124dcd",
                 "shasum": ""
             },
             "require": {
@@ -11776,7 +11818,7 @@
                 "instant refactoring",
                 "instant upgrades"
             ],
-            "time": "2020-03-20T18:30:40+00:00"
+            "time": "2020-03-23T23:24:18+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -12535,48 +12577,6 @@
             "time": "2020-02-08T17:00:58+00:00"
         },
         {
-            "name": "symplify/auto-bind-parameter",
-            "version": "v7.2.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symplify/auto-bind-parameter.git",
-                "reference": "8b85fc72fddc953feda56c3d06252eb1fafb21ef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symplify/auto-bind-parameter/zipball/8b85fc72fddc953feda56c3d06252eb1fafb21ef",
-                "reference": "8b85fc72fddc953feda56c3d06252eb1fafb21ef",
-                "shasum": ""
-            },
-            "require": {
-                "nette/utils": "^3.0",
-                "php": "^7.2",
-                "symfony/dependency-injection": "^4.4|^5.0",
-                "symfony/http-kernel": "^4.4|^5.0",
-                "symplify/package-builder": "^7.2.8"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8.5|^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "7.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symplify\\AutoBindParameter\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Auto bind parameters for your Symfony applications",
-            "time": "2020-03-18T23:25:54+00:00"
-        },
-        {
             "name": "symplify/coding-standard",
             "version": "v7.2.8",
             "source": {
@@ -12950,7 +12950,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "sentry/sentry-symfony": 20
+        "sentry/sentry-symfony": 20,
+        "rector/rector": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
