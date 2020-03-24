@@ -16,7 +16,7 @@ final class InvoiceFormOld extends Control
     /**
      * @var mixed[]
      */
-    private $config = [];
+    private array $config = [];
 
     /**
      * @param mixed[] $config

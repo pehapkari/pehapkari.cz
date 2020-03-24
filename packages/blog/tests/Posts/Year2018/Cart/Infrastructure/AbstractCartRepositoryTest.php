@@ -15,10 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 abstract class AbstractCartRepositoryTest extends TestCase
 {
-    /**
-     * @var CartRepositoryInterface
-     */
-    private $cartRepository;
+    private CartRepositoryInterface $cartRepository;
 
     protected function setUp(): void
     {

@@ -9,15 +9,12 @@ use Doctrine\Common\Collections\Collection;
 
 final class Cart
 {
-    /**
-     * @var string
-     */
-    private $id;
+    private string $id;
 
     /**
-     * @var Collection|Item[]
+     * @var Item[]&Collection
      */
-    private $items;
+    private Collection $items;
 
     public function __construct(string $id)
     {
@@ -49,13 +46,9 @@ final class Cart
 
     public function calculate(): CartDetail
     {
-        $detailItems = $this->items->map(function (Item $item): ItemDetail {
-            return $item->toDetail();
-        })->getValues();
+        $detailItems = $this->items->map(fn (Item $item): ItemDetail => $item->toDetail())->getValues();
 
-        $prices = $this->items->map(function (Item $item): Price {
-            return $item->calculatePrice();
-        })->getValues();
+        $prices = $this->items->map(fn (Item $item): Price => $item->calculatePrice())->getValues();
 
         $totalPrice = Price::sum($prices);
 

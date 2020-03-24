@@ -14,7 +14,7 @@ final class ZipCode
     /**
      * @var string[]
      */
-    private static $patterns = [
+    private static array $patterns = [
         'CZ' => '\\d{3} ?\\d{2}',
         'US' => '(\\d{5})(?:[ \\-](\\d{4}))?',
     ];

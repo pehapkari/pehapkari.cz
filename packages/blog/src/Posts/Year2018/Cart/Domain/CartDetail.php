@@ -6,15 +6,11 @@ namespace Pehapkari\Blog\Posts\Year2018\Cart\Domain;
 
 final class CartDetail
 {
+    private Price $totalPrice;
     /**
      * @var ItemDetail[]
      */
-    private $items = [];
-
-    /**
-     * @var Price
-     */
-    private $totalPrice;
+    private array $items = [];
 
     /**
      * @param ItemDetail[] $items

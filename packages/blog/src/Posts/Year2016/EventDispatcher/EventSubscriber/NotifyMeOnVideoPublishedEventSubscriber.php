@@ -8,10 +8,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class NotifyMeOnVideoPublishedEventSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var bool
-     */
-    private $isUserNotified = false;
+    private bool $isUserNotified = false;
 
     /**
      * @return string[]

@@ -6,25 +6,13 @@ namespace Pehapkari\Blog\Posts\Year2018\Cart\Domain;
 
 final class Item
 {
-    /**
-     * @var int
-     */
-    private $generatedId;
+    private int $generatedId;
 
-    /**
-     * @var string
-     */
-    private $productId;
+    private string $productId;
 
-    /**
-     * @var int
-     */
-    private $amount;
+    private int $amount;
 
-    /**
-     * @var Price
-     */
-    private $unitPrice;
+    private Price $unitPrice;
 
     public function __construct(string $productId, Price $unitPrice, int $amount)
     {

@@ -6,10 +6,7 @@ namespace Pehapkari\Blog\Posts\Year2018\Cart\Domain;
 
 final class Price
 {
-    /**
-     * @var float
-     */
-    private $withVat;
+    private float $withVat;
 
     public function __construct(float $withVat)
     {
@@ -21,9 +18,7 @@ final class Price
      */
     public static function sum(array $prices): self
     {
-        return array_reduce($prices, function (self $carry, self $price): self {
-            return $carry->add($price);
-        }, new self(0.0));
+        return array_reduce($prices, fn (self $carry, self $price): self => $carry->add($price), new self(0.0));
     }
 
     public function getWithVat(): float

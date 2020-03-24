@@ -16,10 +16,7 @@ final class InvoicingConfigTest extends TestCase
      */
     private const PDF_PATH = 'tests/Posts/Year2017/NetteConfigObjects/../invoices';
 
-    /**
-     * @var Container
-     */
-    private $container;
+    private Container $container;
 
     protected function setUp(): void
     {
@@ -33,6 +30,6 @@ final class InvoicingConfigTest extends TestCase
 
         $this->assertSame(7, $config->defaultMaturity);
         $this->assertStringContainsString(self::PDF_PATH, $config->pdfDirectory);
-        $this->assertStringContainsString(self::PDF_PATH . '/2017001.pdf', $config->getPdfPath(2017001));
+        $this->assertStringContainsString(self::PDF_PATH . '/2017001.pdf', $config->getPdfPath(2017_001));
     }
 }

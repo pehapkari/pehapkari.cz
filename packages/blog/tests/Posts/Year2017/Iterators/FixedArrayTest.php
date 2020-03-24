@@ -113,7 +113,7 @@ final class FixedArrayTest extends TestCase
                 $collected[] = $value1;
                 $collected[] = $value2;
 
-                if ($i >= 1000) {
+                if ($i >= 1_000) {
                     continue;
                 } // prevent looping to infinity
                 ++$i;
@@ -125,6 +125,6 @@ final class FixedArrayTest extends TestCase
         }
 
         // Assert
-        $this->assertSame(1000, $i);
+        $this->assertSame(1_000, $i);
     }
 }

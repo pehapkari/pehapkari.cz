@@ -12,17 +12,15 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 final class Address
 {
     /**
-     * @var string
      * @Assert\NotBlank()
      * @Assert\Country()
      */
-    private $country;
+    private string $country;
 
     /**
-     * @var string
      * @Assert\NotBlank()
      */
-    private $zipcode;
+    private string $zipcode;
 
     /**
      * @Assert\Callback(groups = "zipcode")

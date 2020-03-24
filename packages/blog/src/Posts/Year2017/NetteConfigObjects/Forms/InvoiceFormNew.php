@@ -14,10 +14,7 @@ use Pehapkari\Blog\Posts\Year2017\NetteConfigObjects\Config\InvoicingConfig;
  */
 final class InvoiceFormNew extends Control
 {
-    /**
-     * @var InvoicingConfig
-     */
-    private $invoicingConfig;
+    private InvoicingConfig $invoicingConfig;
 
     public function __construct(InvoicingConfig $invoicingConfig)
     {

@@ -9,10 +9,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class EventAwareNotifyMeOnVideoPublishedEventSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var string
-     */
-    private $youtuberUserName = '';
+    private string $youtuberUserName = '';
 
     /**
      * @return string[]

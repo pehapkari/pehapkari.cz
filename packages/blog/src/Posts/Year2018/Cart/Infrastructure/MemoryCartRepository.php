@@ -13,7 +13,7 @@ final class MemoryCartRepository implements CartRepositoryInterface
     /**
      * @var Cart[]
      */
-    private $carts = [];
+    private array $carts = [];
 
     public function add(Cart $cart): void
     {
