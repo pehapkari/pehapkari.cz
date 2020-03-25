@@ -6,4 +6,12 @@ parameters:
         - packages
 
     sets:
-        - php74
+        - "php74"
+
+    exclude_paths:
+        # breaks annotations :(
+        - "packages/training/src/Controller/FeedbackController.php"
+
+    exclude_rectors:
+        # too eager to fix itself
+        - 'Rector\Php74\Rector\MethodCall\ChangeReflectionTypeToStringToGetNameRector'

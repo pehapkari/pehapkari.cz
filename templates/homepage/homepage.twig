@@ -49,22 +49,6 @@
                         Srazy pořádají <a href="#team">různé skupiny v 6 městech</a> České Republiky. Typický sraz začíná v 18&nbsp;hod., pak promluví 2&nbsp;speakři a nakonec jdeme diskutovat nad pivem.
                     </p>
 
-                    {% if nearest_meetup %}
-                        <div class="card mt-4 shadow-card">
-                            <div class="card-body pb-3">
-                                <h3 class="mt-1">Kdy bude další?</h3>
-
-                                <ul>
-                                    <li>
-                                        <a href="{{ nearest_meetup.url }}">{{ nearest_meetup.startDateTime|date }}</a>,
-
-                                        <strong>{{ nearest_meetup.name }}</strong> - {{ nearest_meetup.city }}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    {% endif %}
-
                     <h3 class="mt-4">Kde se o nich dozvíš?</h3>
 
                     <p>

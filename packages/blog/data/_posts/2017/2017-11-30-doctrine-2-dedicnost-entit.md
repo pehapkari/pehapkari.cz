@@ -30,36 +30,32 @@ class Article
 {
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="IDENTITY")
-     * @var int
      */
-    private $id;
+    private int $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private string $header;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private string $perex;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private string $content;
 
     /**
      * @ORM\Column(type="string")
      * @var string
      */
-    private $header;
-
-    /**
-     * @ORM\Column(type="text")
-     * @var string
-     */
-    private $perex;
-
-    /**
-     * @ORM\Column(type="text")
-     * @var string
-     */
-    private $content;
-
-    /**
-     * @ORM\Column(type="string")
-     * @var string
-     */
-    private $author;
+    private string $author;
 
     // getters + setters
 
@@ -82,36 +78,31 @@ class News
 {
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="IDENTITY")
-     * @var int
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string")
-     * @var string
      */
-    private $header;
+    private string $header;
 
     /**
      * @ORM\Column(type="text")
-     * @var string
      */
-    private $content;
+    private string $content;
 
     /**
      * @ORM\Column(type="string")
-     * @var string
      */
-    private $tag;
+    private string $tag;
 
     /**
      * @ORM\Column(type="string")
-     * @var string
      */
-    private $author;
+    private string $author;
 
     // getters + setters
 
@@ -147,7 +138,7 @@ abstract class AbstractText
 {
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="IDENTITY")
      * @var int

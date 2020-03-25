@@ -6,7 +6,6 @@ namespace Pehapkari\Youtube\YoutubeVideosProvider;
 
 use Pehapkari\Youtube\Contract\YoutubeVideosProviderInterface;
 use Pehapkari\Youtube\DataTransformer\VideosFactory;
-use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\YoutubeApi;
 use Pehapkari\Youtube\YoutubeVideosProvider\Channel\ChannelList;
 use Pehapkari\Youtube\YoutubeVideosProvider\Channel\PlaylistsProvider;
@@ -19,18 +18,14 @@ final class PehapkariLivestreamYoutubeVideosProvider implements YoutubeVideosPro
 
     private PlaylistsProvider $playlistsProvider;
 
-    private ArrayByDateTimeSorter $arraySorter;
-
     public function __construct(
         YoutubeApi $youtubeApi,
         PlaylistsProvider $playlistsProvider,
-        VideosFactory $videosFactory,
-        ArrayByDateTimeSorter $arraySorter
+        VideosFactory $videosFactory
     ) {
         $this->videosFactory = $videosFactory;
         $this->playlistsProvider = $playlistsProvider;
         $this->youtubeApi = $youtubeApi;
-        $this->arraySorter = $arraySorter;
     }
 
     public function getName(): string
@@ -51,11 +46,10 @@ final class PehapkariLivestreamYoutubeVideosProvider implements YoutubeVideosPro
             }
 
             $videosData = $this->youtubeApi->getVideosByPlaylistId($playlistItemData['id']);
-            $videos = $this->videosFactory->createVideos($videosData);
 
             return [
                 'title' => 'Livestreamy',
-                'videos' => $this->arraySorter->sortByKey($videos, 'month'),
+                'videos' => $this->videosFactory->createVideos($videosData),
             ];
         }
 

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Pehapkari\Youtube\Command;
 
 use Pehapkari\Youtube\Contract\YoutubeVideosProviderInterface;
-use Pehapkari\Youtube\Sorter\ArrayByDateTimeSorter;
 use Pehapkari\Youtube\Yaml\YamlFileGenerator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -25,8 +24,6 @@ final class ImportVideosCommand extends Command
 
     private SymfonyStyle $symfonyStyle;
 
-    private ArrayByDateTimeSorter $arrayByDateTimeSorter;
-
     /**
      * @var YoutubeVideosProviderInterface[]
      */
@@ -38,13 +35,11 @@ final class ImportVideosCommand extends Command
     public function __construct(
         SymfonyStyle $symfonyStyle,
         YamlFileGenerator $yamlFileGenerator,
-        ArrayByDateTimeSorter $arrayByDateTimeSorter,
         array $youtubeVideosProviders
     ) {
         $this->symfonyStyle = $symfonyStyle;
         $this->yamlFileGenerator = $yamlFileGenerator;
         $this->youtubeVideosProviders = $youtubeVideosProviders;
-        $this->arrayByDateTimeSorter = $arrayByDateTimeSorter;
 
         parent::__construct();
     }
@@ -78,24 +73,6 @@ final class ImportVideosCommand extends Command
             $playlists = $youtubeVideosProvider->providePlaylists();
             $youtubeVideosData[$name] = [...$playlists, ...$youtubeVideosData[$name] ?? []];
         }
-
-        return $this->sortMeetupPlaylistsByMonthFromRecentToOld($youtubeVideosData);
-    }
-
-    /**
-     * @param mixed[] $youtubeVideosData
-     * @return mixed[]
-     */
-    private function sortMeetupPlaylistsByMonthFromRecentToOld(array $youtubeVideosData): array
-    {
-        if (! isset($youtubeVideosData['meetups'])) {
-            return $youtubeVideosData;
-        }
-
-        $youtubeVideosData['meetups'] = $this->arrayByDateTimeSorter->sortByKey(
-            $youtubeVideosData['meetups'],
-            'month'
-        );
 
         return $youtubeVideosData;
     }

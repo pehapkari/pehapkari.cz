@@ -22,56 +22,57 @@ class Trainer implements TimestampableInterface
     use TimestampableTrait;
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $name;
+    private ?string $name = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $email;
+    private ?string $email = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $phone;
+    private ?string $phone = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $position;
+    private ?string $position = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $company;
+    private ?string $company = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $website;
+    private ?string $website = null;
 
     /**
      * @ORM\Column(type="text")
      */
-    private string $bio;
+    private ?string $bio = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $twitterName;
+    private ?string $twitterName = null;
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\Training", mappedBy="trainer")
+     * @var Collection&Trainer[]
      */
-    private array $trainings = [];
+    private Collection $trainings;
 
     public function __construct()
     {
@@ -134,17 +135,17 @@ class Trainer implements TimestampableInterface
     }
 
     /**
-     * @param Training[] $trainings
+     * @param Training[]&Collection $collection
      */
-    public function setTrainings(array $trainings): void
+    public function setTrainings(Collection $collection): void
     {
-        $this->trainings = $trainings;
+        $this->trainings = $collection;
     }
 
     /**
-     * @return Collection|Training[]
+     * @return Collection&Training[]
      */
-    public function getTrainings(): iterable
+    public function getTrainings(): Collection
     {
         return $this->trainings;
     }

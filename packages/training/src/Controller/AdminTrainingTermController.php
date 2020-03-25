@@ -70,7 +70,9 @@ final class AdminTrainingTermController extends EasyAdminController
             $trainingTerm->getFeedbacks(),
             $trainerEmail
         );
+
         $this->addFlash('success', sprintf('Email sent to "%s"', $trainerEmail));
+
         return $this->redirectToRoute('training_term_provision', ['id' => $trainingTerm->getId()]);
     }
 
@@ -122,6 +124,7 @@ final class AdminTrainingTermController extends EasyAdminController
     public function trainingTermProvision(TrainingTerm $trainingTerm): Response
     {
         $provision = $this->provisionResolver->resolveForTrainingTerm($trainingTerm);
+
         return $this->render('provision/training_term_provision.twig', [
             'trainer' => $trainingTerm->getTrainer(),
             'provision' => $provision,
@@ -137,6 +140,7 @@ final class AdminTrainingTermController extends EasyAdminController
         if ($trainerEmail !== null) {
             return $trainerEmail;
         }
+
         throw new ShouldNotHappenException(sprintf('Email "%s" trainer for was not found', $trainer->getName()));
     }
 }

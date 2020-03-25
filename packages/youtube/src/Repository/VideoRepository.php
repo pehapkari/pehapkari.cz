@@ -4,25 +4,31 @@ declare(strict_types=1);
 
 namespace Pehapkari\Youtube\Repository;
 
-use Pehapkari\Youtube\Command\ImportVideosCommand;
-use Pehapkari\Youtube\Exception\FileDataNotFoundException;
+use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Youtube\Hydration\ArrayToValueObjectHydrator;
+use Pehapkari\Youtube\ValueObject\LivestreamVideo;
+use Pehapkari\Youtube\ValueObject\RecordedConference;
+use Pehapkari\Youtube\ValueObject\RecordedMeetup;
 use Pehapkari\Youtube\ValueObject\Video;
-use Symplify\PackageBuilder\Console\Command\CommandNaming;
+use Pehapkari\Youtube\ValueObjectFactory\RecordedConferenceFactory;
+use Pehapkari\Youtube\ValueObjectFactory\RecordedMeetupFactory;
 
 final class VideoRepository
 {
-    private ArrayToValueObjectHydrator $arrayToValueObjectHydrator;
+    /**
+     * @var RecordedMeetup[]
+     */
+    private array $recordedMeetups = [];
 
     /**
-     * @var mixed[]
+     * @var LivestreamVideo[]
      */
-    private array $facebookVideos = [];
+    private $livestreamVideos = [];
 
     /**
-     * @var mixed[]
+     * @var RecordedConference[]
      */
-    private array $youtubeVideos = [];
+    private $recordedConferences = [];
 
     /**
      * @param mixed[] $facebookVideos
@@ -31,108 +37,130 @@ final class VideoRepository
     public function __construct(
         array $facebookVideos,
         array $youtubeVideos,
-        ArrayToValueObjectHydrator $arrayToValueObjectHydrator
+        ArrayToValueObjectHydrator $arrayToValueObjectHydrator,
+        RecordedMeetupFactory $recordedMeetupFactory,
+        RecordedConferenceFactory $recordedConferenceFactory
     ) {
-        $this->facebookVideos = $facebookVideos;
-        $this->youtubeVideos = $youtubeVideos;
-        $this->arrayToValueObjectHydrator = $arrayToValueObjectHydrator;
+        foreach ($facebookVideos as $facebookMeetups) {
+            foreach ($facebookMeetups as $facebookMeetupData) {
+                $this->recordedMeetups[] = $recordedMeetupFactory->createFromData($facebookMeetupData);
+            }
+        }
 
-        $this->ensureYoutubeDataExists();
+        foreach ($youtubeVideos['meetups'] as $youtubeMeetupData) {
+            $this->recordedMeetups[] = $recordedMeetupFactory->createFromData($youtubeMeetupData);
+        }
+
+        $this->recordedMeetups = $this->sortRecodedMeetupsByMonth($this->recordedMeetups);
+
+        foreach ($youtubeVideos['livestream']['videos'] as $livestreamVideoData) {
+            /** @var LivestreamVideo $livestreamVideo */
+            $livestreamVideo = $arrayToValueObjectHydrator->hydrateArrayToValueObject(
+                $livestreamVideoData,
+                LivestreamVideo::class
+            );
+
+            $this->livestreamVideos[] = $livestreamVideo;
+        }
+
+        foreach ($youtubeVideos['php_prague'] as $recodedConference) {
+            $this->recordedConferences[] = $recordedConferenceFactory->createFromData($recodedConference);
+        }
     }
 
     /**
-     * @return mixed[]
+     * @return LivestreamVideo[]
      */
-    public function provideYoutubeVideos(): array
+    public function getLivestreamVideos(): array
     {
-        return $this->youtubeVideos;
-    }
-
-    /**
-     * @return mixed[]
-     */
-    public function provideFacebookVideos(): array
-    {
-        return $this->facebookVideos;
-    }
-
-    /**
-     * @return Video[]
-     */
-    public function provideLivestreamVideos(): array
-    {
-        $livestreamPlaylist = $this->provideYoutubeVideos()['livestream'];
-        $livestreamPlaylist['videos'] = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
-            $livestreamPlaylist['videos'],
-            Video::class
-        );
-
-        return $livestreamPlaylist['videos'];
+        return $this->livestreamVideos;
     }
 
     public function getLivestreamVideosCount(): int
     {
-        return count($this->provideLivestreamVideos());
+        return count($this->getLivestreamVideos());
     }
 
     public function getMeetupVideosCount(): int
     {
-        $meetups = array_merge($this->provideYoutubeVideos()['meetups'], $this->provideFacebookVideos()['meetups']);
-
         $videoCount = 0;
-        foreach ($meetups as $meetup) {
-            $videoCount += count($meetup['videos']);
+        foreach ($this->recordedMeetups as $recordedMeetup) {
+            $videoCount += count($recordedMeetup->getVideos());
         }
 
         return $videoCount;
     }
 
     /**
-     * @return mixed[]
+     * @return Video|LivestreamVideo
      */
-    public function provideEventsWithVideos(): array
+    public function findBySlug(string $slug): object
     {
-        return array_merge(
-            $this->provideYoutubeVideos()['php_prague'],
-            $this->provideYoutubeVideos()['meetups'],
-            $this->provideFacebookVideos()['meetups']
-        );
-    }
+        foreach ($this->livestreamVideos as $livestreamVideo) {
+            if ($livestreamVideo->getSlug() !== $slug) {
+                continue;
+            }
 
-    /**
-     * @return mixed[]
-     */
-    public function provideAllVideos(): array
-    {
-        $eventsWithVideos = $this->provideEventsWithVideos();
-
-        $videos = [];
-        foreach ($eventsWithVideos as $event) {
-            $videos = array_merge($videos, $event['videos']);
+            return $livestreamVideo;
         }
 
-        return [...$videos, ...$this->provideLivestreamVideos()];
+        /** @var RecordedMeetup[]|RecordedConference[] $recodedEvents */
+        $recodedEvents = array_merge($this->recordedMeetups, $this->recordedConferences);
+
+        foreach ($recodedEvents as $recodedEvent) {
+            foreach ($recodedEvent->getVideos() as $video) {
+                if ($video->getSlug() !== $slug) {
+                    continue;
+                }
+
+                return $video;
+            }
+        }
+
+        throw new ShouldNotHappenException(sprintf('Video for slug "%s" was not found', $slug));
     }
 
     public function getPhpPragueVideosCount(): int
     {
-        $phpPragueCount = 0;
-        foreach ($this->provideYoutubeVideos()['php_prague'] as $phpPrague) {
-            $phpPragueCount += count($phpPrague['videos']);
+        $videoCount = 0;
+        foreach ($this->recordedConferences as $recordedConference) {
+            $videoCount += count($recordedConference->getVideos());
         }
 
-        return $phpPragueCount;
+        return $videoCount;
     }
 
-    private function ensureYoutubeDataExists(): void
+    /**
+     * @return RecordedMeetup[]
+     */
+    public function getRecordedMeetups(): array
     {
-        if ($this->provideYoutubeVideos() && isset($this->provideYoutubeVideos()['livestream'], $this->provideYoutubeVideos()['meetups'])) {
-            return;
-        }
+        return $this->recordedMeetups;
+    }
 
-        throw new FileDataNotFoundException(sprintf(
-            'Youtube data not found. Generate data by "%s" command first',
-            CommandNaming::classToName(ImportVideosCommand::class)
-        ));
+    /**
+     * @return RecordedConference[]
+     */
+    public function getRecordedConferences(): array
+    {
+        return $this->recordedConferences;
+    }
+
+    public function getRecordedMeetupsCount(): int
+    {
+        return count($this->recordedMeetups);
+    }
+
+    /**
+     * @param RecordedMeetup[] $recordedMeetups
+     * @return RecordedMeetup[]
+     */
+    private function sortRecodedMeetupsByMonth(array $recordedMeetups): array
+    {
+        usort($recordedMeetups, function (RecordedMeetup $firstRecodedMeetup, RecordedMeetup $secondRecodedMeetup) {
+            return $secondRecodedMeetup->getMonth() <=> $firstRecodedMeetup->getMonth();
+        });
+
+        return $recordedMeetups;
     }
 }

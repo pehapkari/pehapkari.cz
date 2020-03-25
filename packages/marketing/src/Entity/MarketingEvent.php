@@ -18,11 +18,11 @@ class MarketingEvent implements TimestampableInterface
     use TimestampableTrait;
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -42,12 +42,12 @@ class MarketingEvent implements TimestampableInterface
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private ?DateTimeInterface $publishedAt;
+    private ?DateTimeInterface $publishedAt = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm", inversedBy="marketingEvents")
      */
-    private ?TrainingTerm $trainingTerm;
+    private ?TrainingTerm $trainingTerm = null;
 
     /**
      * @ORM\Column(type="boolean")

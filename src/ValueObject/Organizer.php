@@ -15,9 +15,9 @@ final class Organizer
 
     public string $responsibility;
 
-    public ?string $url;
+    public ?string $url = null;
 
-    public ?string $company;
+    public ?string $company = null;
 
-    public ?string $company_url;
+    public ?string $company_url = null;
 }
