@@ -51,8 +51,7 @@ This is example for running the project locally:
 
 ## Deploy
 
-- This repository is mirrored to [gitlab.com/pehapkari/pehapkari.cz](https://gitlab.com/pehapkari/pehapkari.cz/)
-- [CI Pipeline](https://gitlab.com/pehapkari/pehapkari.cz/pipelines) is run on Gitlab CI
+- [CI Pipeline](https://github.com/pehapkari/pehapkari.cz/actions) is run on Github Actions + Travis
 - When everything passes, it's deployed to our server in a Docker container
 
 ## Thank You
