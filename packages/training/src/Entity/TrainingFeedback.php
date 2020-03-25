@@ -20,26 +20,26 @@ class TrainingFeedback implements TimestampableInterface
     use IsRevisedTrait;
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $name;
+    private ?string $name = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $pointOfEntry;
+    private ?string $pointOfEntry = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $url;
+    private ?string $url = null;
 
     /**
      * @ORM\Column(type="text")
@@ -49,12 +49,12 @@ class TrainingFeedback implements TimestampableInterface
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private ?float $rating;
+    private ?float $rating = null;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private ?string $thingsToImprove;
+    private ?string $thingsToImprove = null;
 
     /**
      * @ORM\Column(type="boolean")
@@ -69,7 +69,7 @@ class TrainingFeedback implements TimestampableInterface
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingFeedbacks")
      */
-    private ?Training $training;
+    private ?Training $training = null;
 
     public function __toString(): string
     {

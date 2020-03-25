@@ -30,7 +30,7 @@ class Article
 {
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="IDENTITY")
      * @var int
@@ -82,7 +82,7 @@ class News
 {
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="IDENTITY")
      * @var int
@@ -147,7 +147,7 @@ abstract class AbstractText
 {
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="IDENTITY")
      * @var int

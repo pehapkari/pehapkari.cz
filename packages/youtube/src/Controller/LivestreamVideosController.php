@@ -24,7 +24,7 @@ final class LivestreamVideosController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('videos/livestream.twig', [
-            'livestream_videos' => $this->videosDataProvider->provideLivestreamVideos(),
+            'livestream_videos' => $this->videosDataProvider->getLivestreamVideos(),
         ]);
     }
 }

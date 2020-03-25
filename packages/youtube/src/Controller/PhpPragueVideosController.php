@@ -11,11 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class PhpPragueVideosController extends AbstractController
 {
-    private VideoRepository $videosDataProvider;
+    private VideoRepository $videoRepository;
 
     public function __construct(VideoRepository $videoRepository)
     {
-        $this->videosDataProvider = $videoRepository;
+        $this->videoRepository = $videoRepository;
     }
 
     /**
@@ -24,7 +24,7 @@ final class PhpPragueVideosController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('videos/videos_php_prague.twig', [
-            'playlists' => $this->videosDataProvider->provideYoutubeVideos()['php_prague'],
+            'recorded_conferences' => $this->videoRepository->getRecordedConferences(),
         ]);
     }
 }

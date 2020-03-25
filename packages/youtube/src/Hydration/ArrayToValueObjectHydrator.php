@@ -8,15 +8,24 @@ use DateTimeInterface;
 use Nette\Utils\DateTime;
 use ReflectionClass;
 use ReflectionParameter;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Symfony\Component\Cache\CacheItem;
+use Symfony\Contracts\Cache\CacheInterface;
 use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 final class ArrayToValueObjectHydrator
 {
     private StringFormatConverter $stringFormatConverter;
 
-    public function __construct(StringFormatConverter $stringFormatConverter)
+    /**
+     * @var FilesystemAdapter&CacheInterface
+     */
+    private CacheInterface $cache;
+
+    public function __construct(StringFormatConverter $stringFormatConverter, FilesystemAdapter $filesystemAdapter)
     {
         $this->stringFormatConverter = $stringFormatConverter;
+        $this->cache = $filesystemAdapter;
     }
 
     /**
@@ -24,9 +33,17 @@ final class ArrayToValueObjectHydrator
      */
     public function hydrateArrayToValueObject(array $data, string $class): object
     {
-        $parameterReflections = $this->getConstructorParameterReflections($class);
+        $arrayHash = md5(serialize($data) . $class);
+
+        /** @var CacheItem $cachedItem */
+        $cachedItem = $this->cache->getItem($arrayHash);
+        if ($cachedItem->get() !== null) {
+            return $cachedItem->get();
+        }
 
         $argumets = [];
+
+        $parameterReflections = $this->getConstructorParameterReflections($class);
         foreach ($parameterReflections as $parameterReflection) {
             $key = $this->stringFormatConverter->camelCaseToUnderscore($parameterReflection->name);
 
@@ -43,7 +60,12 @@ final class ArrayToValueObjectHydrator
             $argumets[] = $value;
         }
 
-        return new $class(...$argumets);
+        $value = new $class(...$argumets);
+
+        $cachedItem->set($value);
+        $this->cache->save($cachedItem);
+
+        return $value;
     }
 
     /**

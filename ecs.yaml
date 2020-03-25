@@ -46,3 +46,6 @@ parameters:
         SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff.UnusedVariable:
             # test
             - 'statie/tests/Posts/Year2017/Iterators/*.php'
+
+        Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff:
+            - 'packages/youtube/src/Repository/VideoRepository.php'

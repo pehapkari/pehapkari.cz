@@ -6,7 +6,7 @@ namespace Pehapkari\Github\Collector;
 
 final class ResolvedTemplateNameCollector
 {
-    private ?string $templateName;
+    private ?string $templateName = null;
 
     public function setValue(string $templateName): void
     {

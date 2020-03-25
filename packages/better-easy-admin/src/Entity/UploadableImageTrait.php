@@ -15,19 +15,19 @@ trait UploadableImageTrait
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $image;
+    private ?string $image = null;
 
     /**
      * @Vich\UploadableField(mapping="image_uploads", fileNameProperty="image")
      */
-    private ?File $imageFile;
+    private ?File $imageFile = null;
 
     /**
      * This needs to be changed on file upload, so the image changes.
      *
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private ?DateTimeInterface $imageUploadedAt;
+    private ?DateTimeInterface $imageUploadedAt = null;
 
     private string $relativeUploadDestination;
 

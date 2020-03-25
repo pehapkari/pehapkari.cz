@@ -22,11 +22,12 @@
             </p>
         </div>
 
-        {% for playlist in meetup_playlists %}
-            <h2 class="mt-5 mb-4" id="{{ playlist.title|webalize }}">{{ playlist.title }}</h2>
+        {# @var recoded_meetup \Pehapkari\Youtube\ValueObject\RecordedMeetup #}
+        {% for recoded_meetup in recoded_meetups %}
+            <h2 class="mt-5 mb-4" id="{{ recoded_meetup.webalizedTitle }}">{{ recoded_meetup.title }}</h2>
 
             <div class="row">
-                {% for video in playlist.videos %}
+                {% for video in recoded_meetup.videos %}
                     {% include "_snippet/video_row.twig" %}
                 {% endfor %}
             </div>

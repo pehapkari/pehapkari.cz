@@ -27,62 +27,64 @@ class Training implements UploadDestinationAwareInterface, SluggableInterface
     use SluggableTrait;
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $name;
+    private ?string $name = null;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private ?string $certificateFormattedName;
+    private ?string $certificateFormattedName = null;
 
     /**
      * @ORM\Column(type="text")
      */
-    private string $perex;
+    private ?string $perex = null;
 
     /**
      * @ORM\Column(type="text")
      */
-    private string $description;
+    private ?string $description = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $hashtags;
+    private ?string $hashtags = null;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private int $duration;
+    private ?int $duration = null;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private int $price;
+    private ?int $price = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Trainer", inversedBy="trainings")
      * @Assert\NotNull()
      */
-    private ?Trainer $trainer;
+    private ?Trainer $trainer = null;
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Training\Entity\TrainingTerm", mappedBy="training")
+     * @var TrainingTerm[]&Collection
      */
-    private array $trainingTerms = [];
+    private Collection $trainingTerms;
 
     /**
      * @ORM\OneToMany(targetEntity="TrainingFeedback", mappedBy="training")
+     * @var TrainingFeedback[]&Collection
      */
-    private array $trainingFeedbacks = [];
+    private Collection $trainingFeedbacks;
 
     private string $uploadDestination;
 
@@ -158,7 +160,7 @@ class Training implements UploadDestinationAwareInterface, SluggableInterface
     /**
      * @return TrainingTerm[]|Collection
      */
-    public function getTrainingTerms(): iterable
+    public function getTrainingTerms(): Collection
     {
         return $this->trainingTerms;
     }
@@ -220,9 +222,9 @@ class Training implements UploadDestinationAwareInterface, SluggableInterface
     }
 
     /**
-     * @return TrainingFeedback[]|Collection
+     * @return TrainingFeedback[]&Collection
      */
-    public function getPublicFeedbacks()
+    public function getPublicFeedbacks(): Collection
     {
         $criteria = Criteria::create()
             ->where(Criteria::expr()->eq('isPublic', true));
@@ -231,9 +233,9 @@ class Training implements UploadDestinationAwareInterface, SluggableInterface
     }
 
     /**
-     * @return TrainingFeedback[]|Collection
+     * @return TrainingFeedback[]&Collection
      */
-    public function getFeedbacks()
+    public function getFeedbacks(): Collection
     {
         return $this->trainingFeedbacks;
     }

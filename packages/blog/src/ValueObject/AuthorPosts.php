@@ -10,7 +10,7 @@ final class AuthorPosts
 
     private int $postCount;
 
-    private ?string $authorPhoto;
+    private ?string $authorPhoto = null;
 
     private int $postsWordCount;
 

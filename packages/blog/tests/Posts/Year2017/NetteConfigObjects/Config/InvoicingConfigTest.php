@@ -30,6 +30,6 @@ final class InvoicingConfigTest extends TestCase
 
         $this->assertSame(7, $config->defaultMaturity);
         $this->assertStringContainsString(self::PDF_PATH, $config->pdfDirectory);
-        $this->assertStringContainsString(self::PDF_PATH . '/2017001.pdf', $config->getPdfPath(2017_001));
+        $this->assertStringContainsString(self::PDF_PATH . '/2017001.pdf', $config->getPdfPath(2_017_001));
     }
 }

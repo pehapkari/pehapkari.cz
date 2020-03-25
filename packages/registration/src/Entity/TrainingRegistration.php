@@ -20,7 +20,7 @@ class TrainingRegistration implements TimestampableInterface
     use TimestampableTrait;
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
@@ -29,35 +29,35 @@ class TrainingRegistration implements TimestampableInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $name;
+    private ?string $name = null;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email()
      */
-    private string $email;
+    private ?string $email = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $phone;
+    private ?string $phone = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $ico;
+    private ?string $ico = null;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private ?string $note;
+    private ?string $note = null;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\Type("integer")
      * @Assert\GreaterThan(0)
      */
-    private int $participantCount;
+    private ?int $participantCount = null;
 
     /**
      * @ORM\Column(type="boolean")
@@ -77,13 +77,13 @@ class TrainingRegistration implements TimestampableInterface
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private ?int $fakturoidInvoiceId;
+    private ?int $fakturoidInvoiceId = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\TrainingTerm", inversedBy="registrations")
      * @Assert\NotNull
      */
-    private ?TrainingTerm $trainingTerm;
+    private ?TrainingTerm $trainingTerm = null;
 
     public function __toString(): string
     {

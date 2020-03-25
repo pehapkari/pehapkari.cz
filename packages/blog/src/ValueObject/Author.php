@@ -10,7 +10,7 @@ final class Author
 
     private string $name;
 
-    private ?string $photo;
+    private ?string $photo = null;
 
     public function __construct(int $id, string $name, ?string $photo = null)
     {

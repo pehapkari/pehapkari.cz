@@ -32,17 +32,17 @@ class TrainingTerm
     private const DEADLINE_DAYS_AHEAD = 7;
 
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private ?int $id = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pehapkari\Training\Entity\Training", inversedBy="trainingTerms")
      * @Assert\NotNull
      */
-    private ?Training $training;
+    private ?Training $training = null;
 
     /**
      * @ORM\Column(type="string", unique=true)
@@ -67,22 +67,25 @@ class TrainingTerm
     /**
      * @ORM\Column(type="datetime")
      */
-    private DateTimeInterface $startDateTime;
+    private ?DateTimeInterface $startDateTime = null;
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Registration\Entity\TrainingRegistration", mappedBy="trainingTerm")
+     * @var Collection&TrainingRegistration[]
      */
-    private array $registrations = [];
+    private Collection $registrations;
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Marketing\Entity\MarketingEvent", cascade={"persist", "remove"}, mappedBy="trainingTerm")
+     * @var Collection&MarketingEvent[]
      */
-    private array $marketingEvents = [];
+    private Collection $marketingEvents;
 
     /**
      * @ORM\OneToMany(targetEntity="Pehapkari\Provision\Entity\Expense", cascade={"remove"}, mappedBy="trainingTerm")
+     * @var Collection&Expense[]
      */
-    private array $expenses = [];
+    private Collection $expenses;
 
     public function __construct()
     {
@@ -126,17 +129,17 @@ class TrainingTerm
         return $this->startDateTime > new DateTime('now');
     }
 
-    public function getStartDateTime(): ?DateTime
+    public function getStartDateTime(): ?DateTimeInterface
     {
         return $this->startDateTime;
     }
 
-    public function setStartDateTime(DateTime $startDateTime): void
+    public function setStartDateTime(DateTimeInterface $startDateTime): void
     {
         $this->startDateTime = $startDateTime;
     }
 
-    public function getEndDateTime(): ?DateTime
+    public function getEndDateTime(): ?DateTimeInterface
     {
         if ($this->training->getDuration() === null) {
             return null;
@@ -152,7 +155,7 @@ class TrainingTerm
         return $endDateTime;
     }
 
-    public function getDeadlineDateTime(): ?DateTime
+    public function getDeadlineDateTime(): ?DateTimeInterface
     {
         if ($this->startDateTime === null) {
             return null;
@@ -196,9 +199,9 @@ class TrainingTerm
     }
 
     /**
-     * @return TrainingRegistration[]|Collection
+     * @return TrainingRegistration[]&Collection
      */
-    public function getRegistrations()
+    public function getRegistrations(): Collection
     {
         return $this->registrations;
     }
@@ -284,17 +287,17 @@ class TrainingTerm
     }
 
     /**
-     * @return Collection|Expense[]
+     * @return Collection&Expense[]
      */
-    public function getExpenses()
+    public function getExpenses(): Collection
     {
         return $this->expenses;
     }
 
     /**
-     * @return Collection|MarketingEvent[]
+     * @return Collection&MarketingEvent[]
      */
-    public function getMarketingEvents()
+    public function getMarketingEvents(): Collection
     {
         return $this->marketingEvents;
     }
@@ -331,9 +334,9 @@ class TrainingTerm
     }
 
     /**
-     * @return TrainingFeedback[]
+     * @return TrainingFeedback[]&Collection
      */
-    public function getFeedbacks(): array
+    public function getFeedbacks(): Collection
     {
         $trainingFeedbacks = $this->training->getFeedbacks();
 
@@ -342,7 +345,7 @@ class TrainingTerm
         $monthAfterStartDateTime->modify('+ 1 month');
 
         // we have to limit all feedback to just those for this term
-        $trainingTermFeedbacks = $trainingFeedbacks->filter(
+        return $trainingFeedbacks->filter(
             function (TrainingFeedback $trainingFeedback) use ($startDateTime, $monthAfterStartDateTime) {
                 // is way old
                 if ($trainingFeedback->getCreatedAt() < $startDateTime) {
@@ -358,8 +361,6 @@ class TrainingTerm
                 return true;
             }
         );
-
-        return $trainingTermFeedbacks->toArray();
     }
 
     /**
