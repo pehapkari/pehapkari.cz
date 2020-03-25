@@ -45,7 +45,7 @@
             {% else %}
                 <div class="col-12 col-lg-6">
                     <div class="article mb-3 mt-3 card">
-                        <a href="{{ post.slug }}">
+                        <a href="{{ path('post', {'postSlug': post.slug}) }}">
                             <div class="card-body">
                                 <h2>{{ post.title }}</h2>
 
