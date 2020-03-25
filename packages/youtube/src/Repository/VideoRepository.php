@@ -23,12 +23,12 @@ final class VideoRepository
     /**
      * @var LivestreamVideo[]
      */
-    private $livestreamVideos = [];
+    private array $livestreamVideos = [];
 
     /**
      * @var RecordedConference[]
      */
-    private $recordedConferences = [];
+    private array $recordedConferences = [];
 
     /**
      * @param mixed[] $facebookVideos
@@ -105,7 +105,7 @@ final class VideoRepository
         }
 
         /** @var RecordedMeetup[]|RecordedConference[] $recodedEvents */
-        $recodedEvents = array_merge($this->recordedMeetups, $this->recordedConferences);
+        $recodedEvents = [...$this->recordedMeetups, ...$this->recordedConferences];
 
         foreach ($recodedEvents as $recodedEvent) {
             foreach ($recodedEvent->getVideos() as $video) {
@@ -157,9 +157,10 @@ final class VideoRepository
      */
     private function sortRecodedMeetupsByMonth(array $recordedMeetups): array
     {
-        usort($recordedMeetups, function (RecordedMeetup $firstRecodedMeetup, RecordedMeetup $secondRecodedMeetup) {
-            return $secondRecodedMeetup->getMonth() <=> $firstRecodedMeetup->getMonth();
-        });
+        usort(
+            $recordedMeetups,
+            fn (RecordedMeetup $firstRecodedMeetup, RecordedMeetup $secondRecodedMeetup) => $secondRecodedMeetup->getMonth() <=> $firstRecodedMeetup->getMonth()
+        );
 
         return $recordedMeetups;
     }
