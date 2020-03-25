@@ -8,6 +8,7 @@ use DateTimeInterface;
 use Nette\Utils\DateTime;
 use ReflectionClass;
 use ReflectionParameter;
+use ReflectionType;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\CacheItem;
 use Symfony\Contracts\Cache\CacheInterface;
@@ -48,13 +49,9 @@ final class ArrayToValueObjectHydrator
             $key = $this->stringFormatConverter->camelCaseToUnderscore($parameterReflection->name);
 
             $value = $data[$key] ?? '';
-            $parameterType = $parameterReflection->getType();
-            if ($parameterType !== null) {
-                $parameterType = (string) $parameterType;
 
-                if (is_a($parameterType, DateTimeInterface::class, true)) {
-                    $value = DateTime::from($data[$key]);
-                }
+            if ($this->isDateTimeType($parameterReflection)) {
+                $value = DateTime::from($data[$key]);
             }
 
             $argumets[] = $value;
@@ -90,5 +87,18 @@ final class ArrayToValueObjectHydrator
         $classReflection = new ReflectionClass($class);
 
         return $classReflection->getConstructor()->getParameters();
+    }
+
+    private function isDateTimeType(ReflectionParameter $reflectionParameter): bool
+    {
+        $parameterType = $reflectionParameter->getType();
+        if ($parameterType === null) {
+            return false;
+        }
+
+        /** @var ReflectionType $parameterType */
+        $parameterTypeName = $parameterType->getName();
+
+        return is_a($parameterTypeName, DateTimeInterface::class, true);
     }
 }

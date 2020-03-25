@@ -55,3 +55,4 @@ parameters:
         - '#Method Pehapkari\\Blog\\PostStatsFactory\:\:createPostsByAuthor\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<int\|string, array<int, Symplify\\Statie\\Renderable\\File\\PostFile\>\>#'
 
         - '#PHPDoc tag @var for property Pehapkari\\Blog\\Posts\\Year2018\\Cart\\Domain\\Cart\:\:\$items contains unresolvable type#'
+        - '#Call to an undefined method ReflectionType\:\:getName\(\)#'

@@ -9462,12 +9462,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/auto-bind-parameter.git",
-                "reference": "8b85fc72fddc953feda56c3d06252eb1fafb21ef"
+                "reference": "e409eb8ed9ee6675e68f299661fa6b10db16d5bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/auto-bind-parameter/zipball/8b85fc72fddc953feda56c3d06252eb1fafb21ef",
-                "reference": "8b85fc72fddc953feda56c3d06252eb1fafb21ef",
+                "url": "https://api.github.com/repos/symplify/auto-bind-parameter/zipball/e409eb8ed9ee6675e68f299661fa6b10db16d5bb",
+                "reference": "e409eb8ed9ee6675e68f299661fa6b10db16d5bb",
                 "shasum": ""
             },
             "require": {
@@ -9504,12 +9504,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/autodiscovery.git",
-                "reference": "c2da89db9cf02757582d707cde33dabfc6db0a81"
+                "reference": "1a31766b17ca16ef0701ea289993db1b1d75889b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/autodiscovery/zipball/c2da89db9cf02757582d707cde33dabfc6db0a81",
-                "reference": "c2da89db9cf02757582d707cde33dabfc6db0a81",
+                "url": "https://api.github.com/repos/symplify/autodiscovery/zipball/1a31766b17ca16ef0701ea289993db1b1d75889b",
+                "reference": "1a31766b17ca16ef0701ea289993db1b1d75889b",
                 "shasum": ""
             },
             "require": {
@@ -9563,12 +9563,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/autowire-array-parameter.git",
-                "reference": "53ae1541e9eca16bd5bae95d627a442092933585"
+                "reference": "02adfac8b8a76e9505c460959279cb4521457039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/autowire-array-parameter/zipball/53ae1541e9eca16bd5bae95d627a442092933585",
-                "reference": "53ae1541e9eca16bd5bae95d627a442092933585",
+                "url": "https://api.github.com/repos/symplify/autowire-array-parameter/zipball/02adfac8b8a76e9505c460959279cb4521457039",
+                "reference": "02adfac8b8a76e9505c460959279cb4521457039",
                 "shasum": ""
             },
             "require": {
@@ -9605,12 +9605,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/flex-loader.git",
-                "reference": "578a2f5af8fe0f3b83eb48ea250ca894ad0748bd"
+                "reference": "0392ceaea7379f95ee10562945f4e23c363f0cd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/flex-loader/zipball/578a2f5af8fe0f3b83eb48ea250ca894ad0748bd",
-                "reference": "578a2f5af8fe0f3b83eb48ea250ca894ad0748bd",
+                "url": "https://api.github.com/repos/symplify/flex-loader/zipball/0392ceaea7379f95ee10562945f4e23c363f0cd2",
+                "reference": "0392ceaea7379f95ee10562945f4e23c363f0cd2",
                 "shasum": ""
             },
             "require": {
@@ -9648,12 +9648,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/package-builder.git",
-                "reference": "9d9b5f8f07058aaeb59ba53bfae52226b3b47236"
+                "reference": "30ec3d3a8fca73d440670a02fdd9963642a4f345"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/package-builder/zipball/9d9b5f8f07058aaeb59ba53bfae52226b3b47236",
-                "reference": "9d9b5f8f07058aaeb59ba53bfae52226b3b47236",
+                "url": "https://api.github.com/repos/symplify/package-builder/zipball/30ec3d3a8fca73d440670a02fdd9963642a4f345",
+                "reference": "30ec3d3a8fca73d440670a02fdd9963642a4f345",
                 "shasum": ""
             },
             "require": {
@@ -9694,12 +9694,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/smart-file-system.git",
-                "reference": "9f6320c3b22c81e85f51aabf66c927bbf4d8c20f"
+                "reference": "fc491365b68dc32bf2a88b86182fea29b30d97fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/smart-file-system/zipball/9f6320c3b22c81e85f51aabf66c927bbf4d8c20f",
-                "reference": "9f6320c3b22c81e85f51aabf66c927bbf4d8c20f",
+                "url": "https://api.github.com/repos/symplify/smart-file-system/zipball/fc491365b68dc32bf2a88b86182fea29b30d97fd",
+                "reference": "fc491365b68dc32bf2a88b86182fea29b30d97fd",
                 "shasum": ""
             },
             "require": {
@@ -11725,12 +11725,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "172adf0c620ebe0d684a61990c37d316f6947570"
+                "reference": "8492af2af1f48d2ca1b1907a0d383acc0244ce17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/172adf0c620ebe0d684a61990c37d316f6947570",
-                "reference": "172adf0c620ebe0d684a61990c37d316f6947570",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/8492af2af1f48d2ca1b1907a0d383acc0244ce17",
+                "reference": "8492af2af1f48d2ca1b1907a0d383acc0244ce17",
                 "shasum": ""
             },
             "require": {
@@ -11881,7 +11881,7 @@
                 "instant refactoring",
                 "instant upgrades"
             ],
-            "time": "2020-03-24T22:56:15+00:00"
+            "time": "2020-03-25T14:53:26+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
