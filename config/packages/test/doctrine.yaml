@@ -1,0 +1,3 @@
+doctrine:
+    dbal:
+        dbname: '%env(DATABASE_DBNAME)%_test'

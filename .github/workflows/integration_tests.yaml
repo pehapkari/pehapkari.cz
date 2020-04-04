@@ -1,0 +1,23 @@
+name: Integration Tests
+
+on:
+    - pull_request
+
+jobs:
+    integration_tests:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   uses: actions/checkout@v2
+            -   uses: shivammathur/setup-php@v1
+                with:
+                    php-version: 7.4
+                    coverage: none # default is xdebug
+                    extensions: int, mbstring
+
+            -   run: composer install --no-progress
+            -   run: |
+                    # we need to run this in Docker to get into the database that started in Docker
+                    docker run --rm pehapkari/pehapkari.cz:${TRAVIS_COMMIT} php bin/console doctrine:database:create --env=test
+                    docker run --rm pehapkari/pehapkari.cz:${TRAVIS_COMMIT} php bin/console doctrine:schema:create --env=test
+                    docker run --rm pehapkari/pehapkari.cz:${TRAVIS_COMMIT} php vendor/bin/phpunit --testsuite integration

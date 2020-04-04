@@ -917,6 +917,9 @@
     "symplify/easy-coding-standard": {
         "version": "v6.0.3"
     },
+    "symplify/easy-hydrator": {
+        "version": "7.3-dev"
+    },
     "symplify/flex-loader": {
         "version": "v6.0.3"
     },

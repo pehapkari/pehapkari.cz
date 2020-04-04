@@ -57,8 +57,6 @@ final class DebugConfigPassCommand extends Command
             $this->symfonyStyle->writeln(sprintf(' * %s (%s) - %s', $bareClass, $mainNamespace, $filePath));
         }
 
-        $this->symfonyStyle->newLine();
-
         return ShellCode::SUCCESS;
     }
 }

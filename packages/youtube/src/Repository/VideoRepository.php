@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Pehapkari\Youtube\Repository;
 
 use Pehapkari\Exception\ShouldNotHappenException;
-use Pehapkari\Youtube\Hydration\ArrayToValueObjectHydrator;
 use Pehapkari\Youtube\ValueObject\LivestreamVideo;
 use Pehapkari\Youtube\ValueObject\RecordedConference;
 use Pehapkari\Youtube\ValueObject\RecordedMeetup;
 use Pehapkari\Youtube\ValueObject\Video;
 use Pehapkari\Youtube\ValueObjectFactory\RecordedConferenceFactory;
 use Pehapkari\Youtube\ValueObjectFactory\RecordedMeetupFactory;
+use Symplify\EasyHydrator\ArrayToValueObjectHydrator;
 
 final class VideoRepository
 {
@@ -55,7 +55,7 @@ final class VideoRepository
 
         foreach ($youtubeVideos['livestream']['videos'] as $livestreamVideoData) {
             /** @var LivestreamVideo $livestreamVideo */
-            $livestreamVideo = $arrayToValueObjectHydrator->hydrateArrayToValueObject(
+            $livestreamVideo = $arrayToValueObjectHydrator->hydrateArray(
                 $livestreamVideoData,
                 LivestreamVideo::class
             );

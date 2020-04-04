@@ -4,7 +4,13 @@
     colors="true"
     verbose="true"
 >
-    <testsuite name="main">
-        <directory>packages/*/tests</directory>
-    </testsuite>
+    <testsuites>
+        <testsuite name="unit">
+            <directory>packages/*/tests</directory>
+            <exclude>packages/route-usage/tests</exclude>
+        </testsuite>
+        <testsuite name="integration">
+            <directory>packages/route-usage/tests</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>

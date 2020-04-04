@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Pehapkari\Youtube\ValueObjectFactory;
 
-use Pehapkari\Youtube\Hydration\ArrayToValueObjectHydrator;
 use Pehapkari\Youtube\ValueObject\RecordedMeetup;
 use Pehapkari\Youtube\ValueObject\Video;
+use Symplify\EasyHydrator\ArrayToValueObjectHydrator;
 
 final class RecordedMeetupFactory
 {
@@ -23,13 +23,10 @@ final class RecordedMeetupFactory
     public function createFromData(array $recordedMeetupData): RecordedMeetup
     {
         /** @var Video[] $videos */
-        $videos = $this->arrayToValueObjectHydrator->hydrateArraysToValueObject(
-            $recordedMeetupData['videos'],
-            Video::class
-        );
+        $videos = $this->arrayToValueObjectHydrator->hydrateArrays($recordedMeetupData['videos'], Video::class);
 
         /** @var RecordedMeetup $recordedMeetup */
-        $recordedMeetup = $this->arrayToValueObjectHydrator->hydrateArrayToValueObject(
+        $recordedMeetup = $this->arrayToValueObjectHydrator->hydrateArray(
             $recordedMeetupData,
             RecordedMeetup::class
         );

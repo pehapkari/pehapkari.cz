@@ -8,9 +8,9 @@ services:
         resource: '../src'
         exclude:
             - '../src/ValueObject/*'
-            - "../src/Posts/Year2016/*/Event/*"
-            - "../src/Posts/Year2017/NetteConfigObjects/*"
-            - "../src/Posts/Year2018/Cart/Domain/*"
+            - '../src/Posts/Year2016/*/Event/*'
+            - '../src/Posts/Year2017/NetteConfigObjects/*'
+            - '../src/Posts/Year2018/Cart/Domain/*'
 
     # for rendering markdown posts
     ParsedownExtra:
