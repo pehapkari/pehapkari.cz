@@ -26,7 +26,7 @@ bin/console doctrine:migration:migrate
 bin/console assets:install --env=prod --no-debug
 
 # install NPM dependencies
-yarn install
+npm install
 
 # build assets
 npm run watch
