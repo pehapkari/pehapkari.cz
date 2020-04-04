@@ -1,5 +1,7 @@
 {% extends 'base.twig' %}
 
+{# @var \Pehapkari\Training\Entity\Training training #}
+{# @var \Pehapkari\Training\Entity\Trainer trainer #}
 {% set page_title %}{{ training.getName() }}{% endset %}
 
 {% block main %}
@@ -28,7 +30,7 @@
                     <div class="pull-right">
                         {% if trainer.getWebsite() %}<a href="{{ trainer.getWebsite() }}">{% endif %}
                             {% if trainer.getImage() %}
-                                <img width="100px" height="100px" src="https://pehapkari.cz/uploads/images//tomas_votruba.jpg" class="img-thumbnail mb-2 rounded-circle pull-right ml-2" alt="">
+                                <img width="100px" height="100px" src="https://pehapkari.cz/uploads/images/{{ trainer.image }}" class="img-thumbnail mb-2 rounded-circle pull-right ml-2" alt="">
                                 <br>
                             {% endif %}
 

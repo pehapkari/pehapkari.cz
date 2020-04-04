@@ -29,7 +29,7 @@ trait UploadableImageTrait
      */
     private ?DateTimeInterface $imageUploadedAt = null;
 
-    private string $relativeUploadDestination;
+    private ?string $relativeUploadDestination = null;
 
     public function getImage(): ?string
     {
