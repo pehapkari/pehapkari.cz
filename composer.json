@@ -26,6 +26,7 @@
         "latte/latte": "^2.7",
         "sentry/sentry": "^2.3",
         "sentry/sentry-symfony": "^3.4.4",
+        "sensio/framework-extra-bundle": "^5.5",
         "setasign/fpdf": "^1.8",
         "setasign/fpdi": "^2.3",
         "spatie/calendar-links": "^1.2",
