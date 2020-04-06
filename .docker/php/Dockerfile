@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
         git \
         unzip \
         g++ \
-        libpq-dev \
+        postgresql-client libpq-dev \
         zlib1g-dev \
         libicu-dev \
         libzip-dev \

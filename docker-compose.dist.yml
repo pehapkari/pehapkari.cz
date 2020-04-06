@@ -28,7 +28,7 @@ services:
             POSTGRES_PASSWORD: "root"
             POSTGRES_DB: "pehapkari_cz"
         volumes:
-            - ./.docker/postgres-data:/var/lib/postgres
+            - ./.docker/postgres-data:/var/lib/postgresql/data
         ports:
             - 5432:5432
 
