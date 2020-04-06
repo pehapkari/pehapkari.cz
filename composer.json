@@ -24,7 +24,6 @@
         "j7mbo/twitter-api-php": "^1.0",
         "knplabs/doctrine-behaviors": "^2.0",
         "latte/latte": "^2.7",
-        "sensio/framework-extra-bundle": "^5.5",
         "sentry/sentry": "^2.2",
         "sentry/sentry-symfony": "dev-master#e30be17",
         "setasign/fpdf": "^1.8",
