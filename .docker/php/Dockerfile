@@ -18,7 +18,6 @@ RUN apt-get update && apt-get install -y \
         libzip-dev \
         libpng-dev \
         libjpeg-dev \
-        pdo_pgsql \
     && docker-php-ext-configure gd --with-jpeg \
     && docker-php-ext-install gd \
     && docker-php-ext-configure intl \
