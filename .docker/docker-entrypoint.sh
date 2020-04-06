@@ -16,9 +16,8 @@ if [ "$1" = 'apache2-foreground' ] || [ "$1" = 'bin/console' ] || [ "$1" = 'php'
 
     ## Check if variable DATABASE_HOST is set, if yes, we have database
     if [[ -v DATABASE_HOST ]]; then
-        ## Wait until database connection is ready
-        # @todo needs update
-        until postgres -u $DATABASE_USER -h $DATABASE_HOST --password="$DATABASE_PASSWORD" -e "" ; do
+        ## Wait until database connection is ready - see https://stackoverflow.com/a/50033347/1348344
+        until psql "postgresql://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST"; do
             >&2 echo "Waiting for database service to start."
             sleep 3
         done
