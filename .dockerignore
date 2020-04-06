@@ -27,3 +27,6 @@ public/build
 
 vendor/
 node_modules/
+
+.docker/mysql-data
+.docker/postgres-data
