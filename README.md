@@ -18,6 +18,8 @@ composer install
 # copy `.env` as `.env.local` and complete variables
 
 # create "pehapkari_cz" database
+bin/console doctrine:database:create
+bin/console doctrine:schema:create
 
 # load database and all migrations
 bin/console doctrine:migration:migrate
