@@ -19,18 +19,18 @@ services:
         tmpfs:
             - /var/www/pehapkari.cz/var/cache
         depends_on:
-            - mysql
+            - postgres
 
-    mysql:
-        image: mysql:5.7
+    postgres:
+        image: postgres:11.7
         restart: unless-stopped
         environment:
-            MYSQL_ROOT_PASSWORD: "root"
-            MYSQL_DATABASE: "pehapkari_cz"
+            POSTGRES_PASSWORD: "root"
+            POSTGRES_DB: "pehapkari_cz"
         volumes:
-            - ./.docker/mysql-data:/var/lib/mysql
+            - ./.docker/postgres-data:/var/lib/postgres
         ports:
-            - 3306:3306
+            - 5432:5432
 
     adminer:
         image: adminer
@@ -38,4 +38,4 @@ services:
         ports:
             - 8081:8080
         depends_on:
-            - mysql
+            - postgres

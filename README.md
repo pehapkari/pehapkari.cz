@@ -47,7 +47,7 @@ This is example for running the project locally:
 2) Enjoy :-)
 
 **Project** is available on [localhost:8080](http://localhost:8080)
-**DB Adminer** is available on [localhost:8081](http://localhost:8081) <small>(default credentials: server: mysql, user: root, password: root)</small>
+**DB Adminer** is available on [localhost:8081](http://localhost:8081) <small>(default credentials: server: postgres, user: postgres, password: root)</small>
 
 *In some rare scenarios you might want to tweak `docker-compose.yml` file for your needs.*
 
