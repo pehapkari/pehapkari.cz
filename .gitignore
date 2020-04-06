@@ -12,6 +12,7 @@ public/generated
 ## Docker
 docker-compose.yml
 .docker/mysql-data
+.docker/postgres-data
 
 .env.local
 .env.local.php

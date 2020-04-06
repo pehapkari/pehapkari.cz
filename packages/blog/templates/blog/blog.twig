@@ -3,7 +3,7 @@
 {% set page_title %}Read about PHP from {{ author_count }} Friends{% endset %}
 
 {% block main %}
-    <div class="container"  id="blog">
+    <div class="container" id="blog">
         <h1>{{ page_title }}</h1>
 
         <div class="subhead">
@@ -34,7 +34,7 @@
                                     {{ post.dateTime|date('j. n. Y') }}
                                 </time>
 
-                                <p class="perex">{{ post.perex|raw }}</p>
+                                <p class="perex">{{ post.perex|markdown|raw }}</p>
                             </div>
                         </div>
                     </a>
@@ -64,4 +64,7 @@
         {% endfor %}
         </div>
     </div>
+
+    <br>
+    <br>
 {% endblock %}

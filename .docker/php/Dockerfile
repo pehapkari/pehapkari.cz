@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
         git \
         unzip \
         g++ \
-        default-mysql-client \
+        postgresql postgresql-contrib \
         zlib1g-dev \
         libicu-dev \
         libzip-dev \
@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
-    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install pdo_pgsql \
     && docker-php-ext-install exif \
     && pecl -q install \
         zip \

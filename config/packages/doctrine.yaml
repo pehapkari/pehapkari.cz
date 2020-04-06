@@ -1,7 +1,7 @@
 doctrine:
     dbal:
-        driver: 'pdo_mysql'
-        server_version: '5.7'
+        driver: '%env(DATABASE_DRIVER)%'
+        server_version: '%env(DATABASE_SERVER_VERSION)%'
         host: '%env(DATABASE_HOST)%'
         port: '%env(DATABASE_PORT)%'
         dbname: '%env(DATABASE_DBNAME)%'
