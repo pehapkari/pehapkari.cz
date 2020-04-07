@@ -29,7 +29,8 @@ jobs:
                     extensions: int, mbstring
 
             -   run: composer install --no-progress
-            -   run: |
-                    # We should run migrations instead, because we can check afterwards if migrations are up to date
-                    bin/console doctrine:schema:create
-                    php vendor/bin/phpunit --testsuite integration
+
+            # We should run migrations instead, because we can check afterwards if migrations are up to date
+            -   run: bin/console doctrine:schema:create
+
+            -   run: php vendor/bin/phpunit --testsuite integration
