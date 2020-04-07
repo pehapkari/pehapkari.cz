@@ -7,6 +7,17 @@ jobs:
     integration_tests:
         runs-on: ubuntu-latest
 
+        services:
+            postgres:
+                image: postgres:11.7
+                env:
+                    POSTGRES_PASSWORD: root
+                    POSTGRES_DB: pehapkari_cz
+                ports:
+                    - 5432:5432
+        env:
+            DATABASE_HOST: localhost
+
         steps:
             -   uses: actions/checkout@v2
             -   uses: shivammathur/setup-php@v1
