@@ -17,7 +17,6 @@ jobs:
 
             -   run: composer install --no-progress
             -   run: |
-                    # we need to run this in Docker to get into the database that started in Docker
-                    docker run --rm pehapkari/pehapkari.cz:${TRAVIS_COMMIT} php bin/console doctrine:database:create --env=test
-                    docker run --rm pehapkari/pehapkari.cz:${TRAVIS_COMMIT} php bin/console doctrine:schema:create --env=test
-                    docker run --rm pehapkari/pehapkari.cz:${TRAVIS_COMMIT} php vendor/bin/phpunit --testsuite integration
+                    bin/console doctrine:database:create --env=test
+                    bin/console doctrine:schema:create --env=test
+                    php vendor/bin/phpunit --testsuite integration
