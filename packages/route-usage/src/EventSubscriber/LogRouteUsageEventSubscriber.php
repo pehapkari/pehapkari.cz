@@ -7,6 +7,7 @@ namespace Pehapkari\RouteUsage\EventSubscriber;
 use Nette\Utils\Strings;
 use Pehapkari\RouteUsage\EntityFactory\RouteVisitFactory;
 use Pehapkari\RouteUsage\EntityRepository\RouteVisitRepository;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
@@ -18,10 +19,20 @@ final class LogRouteUsageEventSubscriber implements EventSubscriberInterface
 
     private RouteVisitRepository $routeVisitRepository;
 
-    public function __construct(RouteVisitRepository $routeVisitRepository, RouteVisitFactory $routeVisitFactory)
-    {
+    /**
+     * @var string[]
+     */
+    private array $routeUsageExcludeRoutes = [];
+
+
+    public function __construct(
+        RouteVisitRepository $routeVisitRepository,
+        RouteVisitFactory $routeVisitFactory,
+        ParameterBagInterface $parameterBag
+    ) {
         $this->routeVisitRepository = $routeVisitRepository;
         $this->routeVisitFactory = $routeVisitFactory;
+        $this->routeUsageExcludeRoutes = $parameterBag->get('route_usage_exclude_routes');
     }
 
     /**
@@ -47,8 +58,16 @@ final class LogRouteUsageEventSubscriber implements EventSubscriberInterface
     {
         $route = $request->get('_route');
 
+        if ($route === null) {
+            return true;
+        }
+
         // is probably some debug-route
         if (Strings::startsWith((string) $route, '_')) {
+            return true;
+        }
+
+        if (in_array($route, $this->routeUsageExcludeRoutes, true)) {
             return true;
         }
 

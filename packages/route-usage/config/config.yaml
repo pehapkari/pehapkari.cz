@@ -1,3 +1,6 @@
+parameters:
+    route_usage_exclude_routes: []
+
 services:
     _defaults:
         autowire: true
