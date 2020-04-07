@@ -5,6 +5,8 @@ imports:
 parameters:
     locale: 'en' # for easy admin bundle
     image_uploads: "/uploads/images/"
+    route_usage_exclude_routes:
+        - "rss"
 
 services:
     _defaults:
