@@ -1,0 +1,7 @@
+name: Continuous integration
+
+on: push
+
+# 1. Build dev/test images
+# 2. Run all tests in built image
+# 3. [master] trigger repository_dispatch event with type deploy
