@@ -3,19 +3,38 @@ name: Continuous integration
 on: push
 
 jobs:
-    publish_image:
+    build:
         runs-on: ubuntu-latest
 
         steps:
             - uses: actions/checkout@v2
 
             # TODO: tag should be argument with commit hash/latest for master
+            # TODO: build base only when it has changed
             - name: Build base image
               run: docker build . --file .docker/php/Dockerfile --tag pehapkari/pehapkari.cz-base:latest
 
             # TODO: tag should be argument with commit hash/latest for master
             - name: Build image
               run: docker build --target=production . --tag pehapkari/pehapkari.cz:latest
+
+            # TODO: push to local (github) repository
+
+    test:
+        runs-on: ubuntu-latest
+        container:
+            image: pehapkari/pehapkari.cz:latest
+            # TODO: https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer
+            # env:
+            #    NODE_ENV: development
+            #    ports:
+            #        - 80
+            #    volumes:
+            #        - my_docker_volume:/volume_mount
+            #    options: --cpus 1
+
+        steps:
+            - run: composer phpstan
 
 # 2. Run all tests in built image
 # 3. [master] trigger repository_dispatch event with type deploy
