@@ -57,14 +57,16 @@
         "symfony/web-profiler-bundle": "^5.1",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "^5.1",
-        "symplify/auto-bind-parameter": "^7.2",
-        "symplify/autodiscovery": "^7.2",
-        "symplify/autowire-array-parameter": "^7.2",
-        "symplify/flex-loader": "^7.2",
-        "symplify/package-builder": "^7.2",
+        "symplify/auto-bind-parameter": "^7.3",
+        "symplify/autodiscovery": "^7.3",
+        "symplify/autowire-array-parameter": "^7.3",
+        "symplify/flex-loader": "^7.3",
+        "symplify/package-builder": "^7.3",
+        "symplify/easy-hydrator": "^7.3",
         "vich/uploader-bundle": "^1.13"
     },
     "require-dev": {
+        "dama/doctrine-test-bundle": "^6.3",
         "doctrine/migrations": "^2.2",
         "nette/application": "^3.0",
         "nette/bootstrap": "^3.0",
@@ -75,13 +77,14 @@
         "rector/rector": "dev-master",
         "symfony/browser-kit": "^5.1",
         "symfony/var-dumper": "^5.1",
-        "symplify/coding-standard": "^7.2",
-        "symplify/easy-coding-standard": "^7.2",
-        "symplify/phpstan-extensions": "^7.2"
+        "symplify/coding-standard": "^7.3",
+        "symplify/easy-coding-standard": "^7.3",
+        "symplify/phpstan-extensions": "^7.3"
     },
     "autoload": {
         "psr-4": {
             "Pehapkari\\": "src",
+            "Pehapkari\\RouteUsage\\": "packages/route-usage/src",
             "Pehapkari\\Provision\\": "packages/provision/src",
             "Pehapkari\\Blog\\": "packages/blog/src",
             "Pehapkari\\Meetup\\": "packages/meetup/src",
@@ -98,6 +101,7 @@
     },
     "autoload-dev":{
         "psr-4": {
+            "Pehapkari\\RouteUsage\\Tests\\": "packages/route-usage/tests",
             "Pehapkari\\Blog\\Tests\\": "packages/blog/tests",
             "Pehapkari\\Utils\\PHPStan\\": "utils/phpstan/src"
         }
@@ -117,7 +121,8 @@
         "fix-cs": "vendor/bin/ecs check --fix --ansi",
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse --ansi --error-format symplify",
         "rector": "vendor/bin/rector process --config rector-ci.yaml --ansi",
-        "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi"
+        "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
+        "migration": "bin/console doctrine:migrations:diff --ansi"
     },
     "config": {
         "sort-packages": true

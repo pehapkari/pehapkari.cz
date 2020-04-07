@@ -29,6 +29,18 @@
     "cweagans/composer-patches": {
         "version": "1.6.7"
     },
+    "dama/doctrine-test-bundle": {
+        "version": "4.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "4.0",
+            "ref": "56eaa387b5e48ebcc7c95a893b47dfa1ad51449c"
+        },
+        "files": [
+            "config/packages/test/dama_doctrine_test_bundle.yaml"
+        ]
+    },
     "dfridrich/ares": {
         "version": "v1.2.5"
     },
@@ -916,6 +928,9 @@
     },
     "symplify/easy-coding-standard": {
         "version": "v6.0.3"
+    },
+    "symplify/easy-hydrator": {
+        "version": "7.3-dev"
     },
     "symplify/flex-loader": {
         "version": "v6.0.3"

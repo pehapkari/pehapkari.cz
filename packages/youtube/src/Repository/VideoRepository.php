@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Pehapkari\Youtube\Repository;
 
 use Pehapkari\Exception\ShouldNotHappenException;
-use Pehapkari\Youtube\Hydration\ArrayToValueObjectHydrator;
 use Pehapkari\Youtube\ValueObject\LivestreamVideo;
 use Pehapkari\Youtube\ValueObject\RecordedConference;
 use Pehapkari\Youtube\ValueObject\RecordedMeetup;
 use Pehapkari\Youtube\ValueObject\Video;
 use Pehapkari\Youtube\ValueObjectFactory\RecordedConferenceFactory;
 use Pehapkari\Youtube\ValueObjectFactory\RecordedMeetupFactory;
+use Symplify\EasyHydrator\ArrayToValueObjectHydrator;
 
 final class VideoRepository
 {
@@ -41,27 +41,15 @@ final class VideoRepository
         RecordedMeetupFactory $recordedMeetupFactory,
         RecordedConferenceFactory $recordedConferenceFactory
     ) {
-        foreach ($facebookVideos as $facebookMeetups) {
-            foreach ($facebookMeetups as $facebookMeetupData) {
-                $this->recordedMeetups[] = $recordedMeetupFactory->createFromData($facebookMeetupData);
-            }
-        }
-
-        foreach ($youtubeVideos['meetups'] as $youtubeMeetupData) {
-            $this->recordedMeetups[] = $recordedMeetupFactory->createFromData($youtubeMeetupData);
-        }
-
-        $this->recordedMeetups = $this->sortRecodedMeetupsByMonth($this->recordedMeetups);
-
-        foreach ($youtubeVideos['livestream']['videos'] as $livestreamVideoData) {
-            /** @var LivestreamVideo $livestreamVideo */
-            $livestreamVideo = $arrayToValueObjectHydrator->hydrateArrayToValueObject(
-                $livestreamVideoData,
-                LivestreamVideo::class
-            );
-
-            $this->livestreamVideos[] = $livestreamVideo;
-        }
+        $this->recordedMeetups = $this->createRecordedMeetups(
+            $facebookVideos,
+            $recordedMeetupFactory,
+            $youtubeVideos['meetups']
+        );
+        $this->livestreamVideos = $arrayToValueObjectHydrator->hydrateArrays(
+            $youtubeVideos['livestream']['videos'],
+            LivestreamVideo::class
+        );
 
         foreach ($youtubeVideos['php_prague'] as $recodedConference) {
             $this->recordedConferences[] = $recordedConferenceFactory->createFromData($recodedConference);
@@ -149,6 +137,29 @@ final class VideoRepository
     public function getRecordedMeetupsCount(): int
     {
         return count($this->recordedMeetups);
+    }
+
+    /**
+     * @return RecordedMeetup[]
+     */
+    private function createRecordedMeetups(
+        array $facebookVideos,
+        RecordedMeetupFactory $recordedMeetupFactory,
+        array $meetups
+    ): array {
+        $recordedMeetups = [];
+
+        foreach ($facebookVideos as $facebookMeetups) {
+            foreach ($facebookMeetups as $facebookMeetupData) {
+                $recordedMeetups[] = $recordedMeetupFactory->createFromData($facebookMeetupData);
+            }
+        }
+
+        foreach ($meetups as $youtubeMeetupData) {
+            $recordedMeetups[] = $recordedMeetupFactory->createFromData($youtubeMeetupData);
+        }
+
+        return $this->sortRecodedMeetupsByMonth($recordedMeetups);
     }
 
     /**

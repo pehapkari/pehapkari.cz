@@ -46,8 +46,8 @@ This is example for running the project locally:
 1) Run `bin/run-from-docker.sh`
 2) Enjoy :-)
 
-**Project** is available on [localhost:8080](http://localhost:8080)
-**DB Adminer** is available on [localhost:8081](http://localhost:8081) <small>(default credentials: server: postgres, user: postgres, password: root)</small>
+- **Project** is available on [localhost:8080](http://localhost:8080)
+- **DB Adminer** is available on [localhost:8081](http://localhost:8081) (default credentials: server: postgres, user: postgres, password: root)
 
 *In some rare scenarios you might want to tweak `docker-compose.yml` file for your needs.*
 
@@ -58,4 +58,4 @@ This is example for running the project locally:
 
 ## Thank You
 
-Our deploy from merge to production takes only 6 minutes thanks to [Jan Mikeš](https://janmikes.cz/). If you need CI-ready, Gitlab, Docker and DigitalOcean fully automated deploy, let him know.
+Our deploy from merge to production takes only 6 minutes thanks to [Jan Mikeš](https://janmikes.cz/). If you need CI-ready, GitHub Actions, Docker and DigitalOcean fully automated deploy, let him know.

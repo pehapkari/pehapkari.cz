@@ -30,17 +30,8 @@ parameters:
         # known value
         - '#Method Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Infrastructure\\DoctrineCartRepository::find\(\) should  Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Domain\\Cart|null but returns object|null#'
 
-        # not sure about this
-
-        # desired sub-type
-        - '#Method Pehapkari\\Blog\\DependencyInjection\\StatieFactory\:\:createStatieKernel\(\) should return Symfony\\Component\\DependencyInjection\\Container but returns Symfony\\Component\\DependencyInjection\\ContainerInterface#'
-
-        # Iterator false positives
-        - '#(.*)Doctrine\\ORM\\EntityManagerInterface#'
-
         - '#Method Pehapkari\\Github\\EventSubscriber\\CatchTemplateEventSubscriber\:\:resolveControllerMethod\(\) should return string but returns object\|string#'
         - '#Parameter \#1 \$object of function get_class expects object, object\|string given#'
-        - '#Method Pehapkari\\Youtube\\Controller\\VideoDetailController\:\:getVideoBySlug\(\) should return Pehapkari\\Youtube\\ValueObject\\Video but returns object#'
 
         # mixed
         - '#with no typehint specified#'
@@ -48,11 +39,6 @@ parameters:
 
         - '#Call to method setRelativeUploadDestination\(\) on an unknown class Pehapkari\\BetterEasyAdmin\\Entity\\UploadableImageTrait#'
 
-        # wtf
-        - '#Method Pehapkari\\User\\EventSubscriber\\UserEventSubscriber\:\:hashUserPassword\(\) has parameter \$genericEvent with no value type specified in iterable type Symfony\\Component\\EventDispatcher\\GenericEvent#'
-
-        - '#Property Pehapkari\\Blog\\Repository\\PostRepository\:\:\$posts \(array<Symplify\\Statie\\Renderable\\File\\PostFile\>\) does not accept array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'
-        - '#Method Pehapkari\\Blog\\PostStatsFactory\:\:createPostsByAuthor\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<int\|string, array<int, Symplify\\Statie\\Renderable\\File\\PostFile\>\>#'
-
         - '#PHPDoc tag @var for property Pehapkari\\Blog\\Posts\\Year2018\\Cart\\Domain\\Cart\:\:\$items contains unresolvable type#'
-        - '#Call to an undefined method ReflectionType\:\:getName\(\)#'
+
+        - '#Property Pehapkari\\Youtube\\Repository\\VideoRepository\:\:\$livestreamVideos \(array<Pehapkari\\Youtube\\ValueObject\\LivestreamVideo\>\) does not accept array<object\>#'

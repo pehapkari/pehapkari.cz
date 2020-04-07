@@ -4,5 +4,8 @@ services:
         autoconfigure: true
         public: true
 
-    Pehapkari\Wiki\:
+    Pehapkari\RouteUsage\:
         resource: '../src'
+        exclude:
+            - '../src/Entity/*'
+            - '../src/ValueObject/*'

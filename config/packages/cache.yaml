@@ -1,8 +1,9 @@
 framework:
     cache:
-        # Put the unique name of your app here: the prefix seed
-        # is used to compute stable namespaces for cache keys.
-        #prefix_seed: your_vendor_name/app_name
+        # this value is used as part of the "namespace" generated for the cache item keys
+        # to avoid collisions when multiple apps share the same cache backend (e.g. a Redis server)
+        # See https://symfony.com/doc/current/reference/configuration/framework.html#prefix-seed
+        prefix_seed: pehapkari-website
 
         # The app cache caches to the filesystem by default.
         # Other options include:

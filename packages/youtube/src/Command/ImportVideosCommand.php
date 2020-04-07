@@ -47,6 +47,7 @@ final class ImportVideosCommand extends Command
     protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
+        $this->setDescription('Imports videos from Youtube Pehapkari channel');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

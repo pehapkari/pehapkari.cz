@@ -57,7 +57,6 @@ final class PehapkariKernel extends Kernel
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
     {
         $this->discovery->discoverRoutes($routeCollectionBuilder);
-
         $this->flexLoader->loadRoutes($routeCollectionBuilder);
     }
 

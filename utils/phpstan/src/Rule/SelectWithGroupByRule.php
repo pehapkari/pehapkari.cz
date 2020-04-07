@@ -9,6 +9,7 @@ use PhpParser\Node\Identifier;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleError;
+use PHPStan\Rules\RuleErrorBuilder;
 use PHPStan\Rules\RuleErrors\RuleErrorWithMessage;
 
 final class SelectWithGroupByRule implements Rule
@@ -57,15 +58,20 @@ final class SelectWithGroupByRule implements Rule
             return [];
         }
 
-        $ruleErrorWithMessage = new RuleErrorWithMessage(sprintf(
-            'Add "select()" while calling "%s()" to query builder chain calls.It has bad side effects if missing, see %s',
+        $message = sprintf(
+            'Add "select()" while calling "%s()" to query builder chain calls. It has bad side effects if missing, see %s',
             $methodName,
             'https://stackoverflow.com/a/41887524/1348344'
-        ));
+        );
+
+        $ruleErrorBuilder = RuleErrorBuilder::message($message);
+        $ruleErrorBuilder->file($scope->getFile());
+        $ruleErrorBuilder->line($node->getLine());
+        $ruleError = $ruleErrorBuilder->build();
 
         $this->reportedParentMethodCallNodes[] = $this->parentMethodCallNode;
 
-        return [$ruleErrorWithMessage];
+        return [$ruleError];
     }
 
     /**
