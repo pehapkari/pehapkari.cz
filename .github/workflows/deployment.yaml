@@ -1,0 +1,9 @@
+name: Deployment
+
+on: repository_dispatch
+    types:
+        - deploy
+
+# 1. Build production images
+# 2. Push to registry
+# 3. SSH + Deploy
