@@ -15,7 +15,9 @@ jobs:
                     POSTGRES_DB: pehapkari_cz
                 ports:
                     - 5432:5432
+
         env:
+            APP_ENV: test
             DATABASE_HOST: localhost
 
         steps:
@@ -28,6 +30,6 @@ jobs:
 
             -   run: composer install --no-progress
             -   run: |
-                    bin/console doctrine:database:create --env=test
-                    bin/console doctrine:schema:create --env=test
+                    # We should run migrations instead, because we can check afterwards if migrations are up to date
+                    bin/console doctrine:schema:create
                     php vendor/bin/phpunit --testsuite integration
