@@ -2,6 +2,20 @@ name: Continuous integration
 
 on: push
 
-# 1. Build dev/test images
+jobs:
+    publish_image:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            # TODO: tag should be argument with commit hash/latest for master
+            - name: Build base image
+              run: docker build . --file .docker/php/Dockerfile --tag pehapkari/pehapkari.cz-base:latest
+
+            # TODO: tag should be argument with commit hash/latest for master
+            - name: Build image
+              run: docker build --target=production . --tag pehapkari/pehapkari.cz:latest
+
 # 2. Run all tests in built image
 # 3. [master] trigger repository_dispatch event with type deploy
