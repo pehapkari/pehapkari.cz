@@ -66,6 +66,7 @@
         "vich/uploader-bundle": "^1.13"
     },
     "require-dev": {
+        "dama/doctrine-test-bundle": "^6.3",
         "doctrine/migrations": "^2.2",
         "nette/application": "^3.0",
         "nette/bootstrap": "^3.0",

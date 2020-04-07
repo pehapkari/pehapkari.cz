@@ -10,6 +10,7 @@ use Nette\Utils\DateTime;
 use Pehapkari\PehapkariKernel;
 use Pehapkari\RouteUsage\Entity\RouteVisit;
 use Pehapkari\RouteUsage\EntityRepository\RouteVisitRepository;
+use Pehapkari\RouteUsage\ValueObject\RouteUsageStat;
 use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
 
 final class RouteVisitRepositoryTest extends AbstractKernelTestCase
@@ -20,8 +21,8 @@ final class RouteVisitRepositoryTest extends AbstractKernelTestCase
     {
         $this->bootKernel(PehapkariKernel::class);
 
-        $this->routeVisitRepository = self::$container->get(RouteVisitRepository::class);
         $this->disableDoctrineLogger();
+        $this->routeVisitRepository = self::$container->get(RouteVisitRepository::class);
     }
 
     public function test(): void
@@ -30,8 +31,14 @@ final class RouteVisitRepositoryTest extends AbstractKernelTestCase
 
         $this->routeVisitRepository->save($routeVisit);
 
-        $routeUsageStat = $this->routeVisitRepository->fetchAll();
-        $this->assertCount(1, $routeUsageStat);
+        $routeUsageStats = $this->routeVisitRepository->fetchAll();
+
+        $this->assertCount(1, $routeUsageStats);
+
+        $routeUsageStat = $routeUsageStats[0];
+
+        /** @var RouteUsageStat $routeUsageStat */
+        $this->assertSame(1, $routeUsageStat->getUsageCount());
     }
 
     private function disableDoctrineLogger(): void
