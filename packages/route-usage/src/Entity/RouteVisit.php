@@ -25,7 +25,7 @@ class RouteVisit
     private string $route;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text")
      */
     private string $routeParams;
 
