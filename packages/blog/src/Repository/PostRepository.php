@@ -6,7 +6,7 @@ namespace Pehapkari\Blog\Repository;
 
 use Pehapkari\Blog\ValueObject\Post;
 use Pehapkari\Blog\ValueObjectFactory\PostFactory;
-use Pehapkari\Exception\ShouldNotHappenException;
+use Pehapkari\Exception\PostNotFoundException;
 use Symfony\Component\Finder\Finder;
 use Symplify\SmartFileSystem\Finder\FinderSanitizer;
 use Symplify\SmartFileSystem\SmartFileInfo;
@@ -33,6 +33,9 @@ final class PostRepository
         $this->initPosts($postFactory);
     }
 
+    /**
+     * @throws PostNotFoundException
+     */
     public function getBySlug(string $slug): Post
     {
         foreach ($this->posts as $post) {
@@ -41,7 +44,7 @@ final class PostRepository
             }
         }
 
-        throw new ShouldNotHappenException(sprintf('Post with slug "%s" was not found', $slug));
+        throw new PostNotFoundException($slug);
     }
 
     /**

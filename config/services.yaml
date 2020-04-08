@@ -20,6 +20,7 @@ services:
             - '../src/PehapkariKernel.php'
             - '../src/Doctrine/Query/*'
             - '../src/ValueObject/*'
+            - '../src/Exception/*'
 
     Defr\Ares: ~
     GuzzleHttp\Client: ~

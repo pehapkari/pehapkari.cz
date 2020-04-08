@@ -7,6 +7,7 @@ namespace Pehapkari\Blog\Controller;
 use Pehapkari\Blog\Repository\AuthorRepository;
 use Pehapkari\Blog\Repository\PostRepository;
 use Pehapkari\Blog\ValueObject\Post;
+use Pehapkari\Exception\PostNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -39,11 +40,10 @@ final class PostController extends AbstractController
 
     private function resolvePost(string $postSlug): Post
     {
-        $post = $this->postRepository->getBySlug($postSlug);
-        if ($post === null) {
-            throw $this->createNotFoundException(sprintf("Post with slug '%s' not found", $postSlug));
+        try {
+            return $this->postRepository->getBySlug($postSlug);
+        } catch (PostNotFoundException $postNotFoundException) {
+            throw $this->createNotFoundException($postNotFoundException->getMessage());
         }
-
-        return $post;
     }
 }
