@@ -80,6 +80,8 @@ final class VideoRepository
     }
 
     /**
+     * @throws VideoNotFoundException
+     *
      * @return Video|LivestreamVideo
      */
     public function findBySlug(string $slug): object
