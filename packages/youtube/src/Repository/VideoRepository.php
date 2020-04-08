@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Pehapkari\Youtube\Repository;
 
-use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Exception\VideoNotFoundException;
 use Pehapkari\Youtube\ValueObject\LivestreamVideo;
 use Pehapkari\Youtube\ValueObject\RecordedConference;
