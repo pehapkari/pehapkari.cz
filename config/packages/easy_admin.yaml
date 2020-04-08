@@ -1,5 +1,5 @@
 imports:
-    - { resource: 'easy_admin/' }
+    - { resource: 'easy_admin/*' }
 
 parameters:
     # exclude globally, if not explicitly listed

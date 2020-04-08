@@ -238,6 +238,9 @@
     "league/uri-schemes": {
         "version": "1.2.1"
     },
+    "migrify/symfony-route-usage": {
+        "version": "dev-master"
+    },
     "myclabs/deep-copy": {
         "version": "1.9.1"
     },

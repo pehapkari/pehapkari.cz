@@ -4,22 +4,31 @@ declare(strict_types=1);
 
 namespace Pehapkari\Blog\Repository;
 
+use Pehapkari\ValueObject\Organizer;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symplify\EasyHydrator\ArrayToValueObjectHydrator;
 
 final class OrganizerRepository
 {
     private ParameterBagInterface $parameterBag;
 
-    public function __construct(ParameterBagInterface $parameterBag)
-    {
+    private ArrayToValueObjectHydrator $arrayToValueObjectHydrator;
+
+    public function __construct(
+        ParameterBagInterface $parameterBag,
+        ArrayToValueObjectHydrator $arrayToValueObjectHydrator
+    ) {
         $this->parameterBag = $parameterBag;
+        $this->arrayToValueObjectHydrator = $arrayToValueObjectHydrator;
     }
 
     /**
-     * @return string[]
+     * @return Organizer[]
      */
-    public function provide(): array
+    public function fetchAll(): array
     {
-        return $this->parameterBag->get('organizers') ?? [];
+        $organizersData = $this->parameterBag->get('organizers');
+
+        return $this->arrayToValueObjectHydrator->hydrateArrays($organizersData, Organizer::class);
     }
 }

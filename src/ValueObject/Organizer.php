@@ -4,20 +4,62 @@ declare(strict_types=1);
 
 namespace Pehapkari\ValueObject;
 
-/**
- * Helpful object to autocomplete in twig files
- */
 final class Organizer
 {
-    public string $photo;
+    private string $photo;
 
-    public string $name;
+    private string $name;
 
-    public string $responsibility;
+    private string $responsibility;
 
-    public ?string $url = null;
+    private ?string $url = null;
 
-    public ?string $company = null;
+    private ?string $company = null;
 
-    public ?string $company_url = null;
+    private ?string $companyUrl = null;
+    public function __construct(
+        string $name,
+        string $photo,
+        string $responsibility,
+        ?string $url = null,
+        ?string $company = null,
+        ?string $companyUrl = null
+    ) {
+        $this->name = $name;
+        $this->photo = $photo;
+        $this->responsibility = $responsibility;
+        $this->url = $url;
+        $this->company = $company;
+        $this->companyUrl = $companyUrl;
+    }
+
+    public function getCompanyUrl(): ?string
+    {
+        return $this->companyUrl;
+    }
+
+    public function getPhoto(): string
+    {
+        return $this->photo;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getResponsibility(): string
+    {
+        return $this->responsibility;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
 }

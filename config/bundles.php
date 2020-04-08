@@ -17,4 +17,6 @@ return [
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
     DAMA\DoctrineTestBundle\DAMADoctrineTestBundle::class => ['test' => true],
+    Migrify\SymfonyRouteUsage\SymfonyRouteUsageBundle::class => ['all' => true],
+    Symplify\EasyHydrator\EasyHydratorBundle::class => ['all' => true],
 ];

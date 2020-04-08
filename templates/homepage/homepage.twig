@@ -102,9 +102,9 @@
                     </p>
 
                     {% if organizer.company is defined %}
-                        {% if organizer.company_url is defined %}<a href="{{ organizer.company_url }}">{% endif %}
+                        {% if organizer.companyUrl is defined %}<a href="{{ organizer.companyUrl }}">{% endif %}
                         <strong>{{ organizer.company }}</strong>
-                        {% if organizer.company_url is defined %}</a>{% endif %}
+                        {% if organizer.companyUrl is defined %}</a>{% endif %}
                     {% endif %}
                 </div>
             {% endfor %}
