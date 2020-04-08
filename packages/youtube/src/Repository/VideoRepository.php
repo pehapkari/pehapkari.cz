@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Pehapkari\Youtube\Repository;
 
 use Pehapkari\Exception\ShouldNotHappenException;
+use Pehapkari\Exception\VideoNotFoundException;
 use Pehapkari\Youtube\ValueObject\LivestreamVideo;
 use Pehapkari\Youtube\ValueObject\RecordedConference;
 use Pehapkari\Youtube\ValueObject\RecordedMeetup;
@@ -105,7 +106,7 @@ final class VideoRepository
             }
         }
 
-        throw new ShouldNotHappenException(sprintf('Video for slug "%s" was not found', $slug));
+        throw new VideoNotFoundException($slug);
     }
 
     public function getPhpPragueVideosCount(): int

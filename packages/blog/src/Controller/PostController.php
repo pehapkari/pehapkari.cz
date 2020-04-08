@@ -43,7 +43,7 @@ final class PostController extends AbstractController
         try {
             return $this->postRepository->getBySlug($postSlug);
         } catch (PostNotFoundException $postNotFoundException) {
-            throw $this->createNotFoundException($postNotFoundException->getMessage());
+            throw $this->createNotFoundException($postNotFoundException->getMessage(), $postNotFoundException);
         }
     }
 }

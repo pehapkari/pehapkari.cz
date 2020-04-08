@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Youtube\Controller;
 
+use Pehapkari\Exception\VideoNotFoundException;
 use Pehapkari\Youtube\Repository\VideoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,8 +24,12 @@ final class VideoDetailController extends AbstractController
      */
     public function __invoke(string $slug): Response
     {
-        return $this->render('videos/video_detail.twig', [
-            'video' => $this->videoRepository->findBySlug($slug),
-        ]);
+        try {
+            return $this->render('videos/video_detail.twig', [
+                'video' => $this->videoRepository->findBySlug($slug),
+            ]);
+        } catch (VideoNotFoundException $videoNotFoundException) {
+            throw $this->createNotFoundException($videoNotFoundException->getMessage(), $videoNotFoundException);
+        }
     }
 }
