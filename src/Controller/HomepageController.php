@@ -11,11 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class HomepageController extends AbstractController
 {
-    private OrganizerRepository $oragnizerProvider;
+    private OrganizerRepository $oragnizerRepository;
 
     public function __construct(OrganizerRepository $organizerRepository)
     {
-        $this->oragnizerProvider = $organizerRepository;
+        $this->oragnizerRepository = $organizerRepository;
     }
 
     /**
@@ -24,7 +24,7 @@ final class HomepageController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('homepage/homepage.twig', [
-            'organizers' => $this->oragnizerProvider->provide(),
+            'organizers' => $this->oragnizerRepository->fetchAll(),
         ]);
     }
 }

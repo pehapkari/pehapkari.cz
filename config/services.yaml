@@ -1,6 +1,5 @@
 imports:
     - { resource: '_data/*.yaml' }
-    - { resource: '../vendor/symplify/easy-hydrator/config/config.yaml' }
 
 parameters:
     locale: 'en' # for easy admin bundle
