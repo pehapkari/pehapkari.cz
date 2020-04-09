@@ -117,7 +117,7 @@ vendor/bin/rector process bin src packages --set symfony50
  {
      "require": {
 -        "sentry/sentry-symfony": "^3.2",
-+        "sentry/sentry-symfony": "dev-master#e30be17",
++        "sentry/sentry-symfony": "^3.4",
      }
  }
 ```
