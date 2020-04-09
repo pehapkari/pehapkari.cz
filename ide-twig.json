@@ -4,7 +4,6 @@
         { "path": "packages/blog/templates" },
         { "path": "packages/better-easy-admin/templates" },
         { "path": "packages/marketing/templates" },
-        { "path": "packages/meetup/templates" },
         { "path": "packages/provision/templates" },
         { "path": "packages/registration/templates" },
         { "path": "packages/training/templates" },

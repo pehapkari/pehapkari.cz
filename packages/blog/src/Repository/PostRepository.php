@@ -18,14 +18,12 @@ final class PostRepository
      */
     private const POST_DIRECTORY = __DIR__ . '/../../data';
 
+    private FinderSanitizer $finderSanitizer;
+
     /**
      * @var Post[]
      */
     private array $posts = [];
-    /**
-     * @var FinderSanitizer
-     */
-    private FinderSanitizer $finderSanitizer;
 
     public function __construct(PostFactory $postFactory, FinderSanitizer $finderSanitizer)
     {

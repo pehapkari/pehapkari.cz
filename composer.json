@@ -64,7 +64,7 @@
         "symplify/package-builder": "^7.2",
         "symplify/easy-hydrator": "^7.2",
         "vich/uploader-bundle": "^1.13",
-        "migrify/symfony-route-usage": "^0.1.3"
+        "migrify/symfony-route-usage": "^0.1.4"
     },
     "require-dev": {
         "dama/doctrine-test-bundle": "^6.3",
@@ -117,7 +117,10 @@
             "@auto-scripts"
         ],
         "check-cs": "vendor/bin/ecs check --ansi",
-        "fix-cs": "vendor/bin/ecs check --fix --ansi",
+        "fix-cs": [
+            "vendor/bin/ecs check --fix --ansi",
+            "bin/clear_trailing_whitespaces.sh"
+        ],
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse --ansi --error-format symplify",
         "rector": "vendor/bin/rector process --config rector-ci.yaml --ansi",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
