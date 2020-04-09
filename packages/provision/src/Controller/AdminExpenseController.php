@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Pehapkari\Provision\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
-use Pehapkari\Provision\Data\Partner;
+use Pehapkari\Provision\ValueObject\Partner;
 use Pehapkari\Training\Repository\TrainingTermRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormInterface;
@@ -30,6 +30,7 @@ final class AdminExpenseController extends EasyAdminController
     {
         $editForm = parent::createEditForm($entity, $entityProperties);
         $this->addPartnerConstantChoices($editForm);
+
         return $editForm;
     }
 

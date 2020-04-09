@@ -1,11 +1,11 @@
 services:
     _defaults:
         autowire: true
+        autoconfigure: true
         public: true
 
     Pehapkari\Provision\:
         resource: '../src'
         exclude:
             - '../src/Entity/*'
-            - '../src/Data/*'
             - '../src/ValueObject/*'

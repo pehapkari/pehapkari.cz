@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pehapkari\Provision\Data;
+namespace Pehapkari\Provision\ValueObject;
 
 final class Partner
 {
