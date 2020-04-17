@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00c3588af4eeeebcb5420c615164cf58",
+    "content-hash": "5244b020d7c6faf30235c2768e008d5d",
     "packages": [
         {
             "name": "alterphp/easyadmin-extension-bundle",
@@ -3289,16 +3289,16 @@
         },
         {
             "name": "migrify/symfony-route-usage",
-            "version": "v0.1.8",
+            "version": "v0.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/migrify/symfony-route-usage.git",
-                "reference": "1b507fd76c8789a2e8201c1e33dfac6ba4209428"
+                "reference": "b27b1c67c51e680e294714b9841c7a90aa0fa141"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/migrify/symfony-route-usage/zipball/1b507fd76c8789a2e8201c1e33dfac6ba4209428",
-                "reference": "1b507fd76c8789a2e8201c1e33dfac6ba4209428",
+                "url": "https://api.github.com/repos/migrify/symfony-route-usage/zipball/b27b1c67c51e680e294714b9841c7a90aa0fa141",
+                "reference": "b27b1c67c51e680e294714b9841c7a90aa0fa141",
                 "shasum": ""
             },
             "require": {
@@ -3333,7 +3333,7 @@
                 "MIT"
             ],
             "description": "Detect used and unused Symfony routes",
-            "time": "2020-04-17T15:18:12+00:00"
+            "time": "2020-04-17T15:51:00+00:00"
         },
         {
             "name": "nesbot/carbon",
