@@ -11,15 +11,13 @@ final class RecordedMeetup
 {
     private string $title;
 
+
+    private DateTimeInterface $month;
+
     /**
      * @var Video[]
      */
     private array $videos = [];
-
-    /**
-     * @var DateTimeInterface
-     */
-    private DateTimeInterface $month;
 
     public function __construct(string $title, DateTimeInterface $month)
     {
