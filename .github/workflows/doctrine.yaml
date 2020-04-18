@@ -1,0 +1,18 @@
+name: Doctrine
+
+on:
+    - pull_request
+
+doctrine:
+    ecs:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
+            -   uses: shivammathur/setup-php@v1
+                with:
+                    php-version: 7.4
+                    extensions: int
+                    coverage: none
+
+            -   run: composer install --no-progress
+            -   run: bin/console doctrine:schema:validate --skip-sync
