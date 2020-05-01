@@ -8,7 +8,7 @@ rules:
 
 parameters:
     symplify:
-        max_cognitive_complexity: 5
+        max_cognitive_complexity: 8
 
     paths:
         - "src"
