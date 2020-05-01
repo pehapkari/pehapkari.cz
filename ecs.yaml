@@ -4,9 +4,6 @@ services:
     SlevomatCodingStandard\Sniffs\Namespaces\ReferenceUsedNamesOnlySniff:
         allowPartialUses: false
 
-    Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff:
-        maxCognitiveComplexity: 8
-
     Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenParentClassSniff:
         forbidden_parent_classes:
             - 'Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository'
@@ -47,6 +44,3 @@ parameters:
         SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff.UnusedVariable:
             # test
             - 'statie/tests/Posts/Year2017/Iterators/*.php'
-
-        Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff:
-            - 'packages/youtube/src/Repository/VideoRepository.php'

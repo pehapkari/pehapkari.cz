@@ -1,13 +1,15 @@
 includes:
-    - 'vendor/phpstan/phpstan-doctrine/extension.neon'
-    - 'vendor/symplify/phpstan-extensions/config/config.neon'
+    - vendor/symplify/coding-standard/packages/cognitive-complexity/config/cognitive-complexity-rules.neon
+    - vendor/phpstan/phpstan-doctrine/extension.neon
+    - vendor/symplify/phpstan-extensions/config/config.neon
 
-services:
-    -
-         class: Pehapkari\Utils\PHPStan\Rule\SelectWithGroupByRule
-         tags: [phpstan.rules.rule]
+rules:
+    - Pehapkari\Utils\PHPStan\Rule\SelectWithGroupByRule
 
 parameters:
+    symplify:
+        max_cognitive_complexity: 5
+
     paths:
         - "src"
         - "packages"
