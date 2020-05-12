@@ -17,6 +17,7 @@ final class Organizer
     private ?string $company = null;
 
     private ?string $companyUrl = null;
+
     public function __construct(
         string $name,
         string $photo,

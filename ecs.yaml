@@ -1,14 +1,3 @@
-services:
-    # Slevomat
-    SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff: null
-    SlevomatCodingStandard\Sniffs\Namespaces\ReferenceUsedNamesOnlySniff:
-        allowPartialUses: false
-
-    Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenParentClassSniff:
-        forbidden_parent_classes:
-            - 'Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository'
-            - 'Doctrine\ORM\EntityRepository'
-
 parameters:
     paths:
         - "src"
@@ -18,6 +7,7 @@ parameters:
         - 'php70'
         - 'php71'
         - 'clean-code'
+        - 'dead-code'
         - 'symplify'
         - 'common'
         - 'psr12'
@@ -26,20 +16,8 @@ parameters:
         - 'src/Kernel.php'
 
     skip:
-        # on purpose - property order is reflected in forms in admin
-        Symplify\CodingStandard\Fixer\Order\PropertyOrderByComplexityFixer:
-            - '*Entity*'
-
-        # from symplify.yaml set
-        Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~
-        Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenStaticFunctionSniff: ~
-        Symplify\CodingStandard\Sniffs\ControlStructure\SprintfOverContactSniff: ~
-
         # mutually excludes with other set
         PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
-
-        # bug in php cs fixer
-        PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: null
 
         SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff.UnusedVariable:
             # test

@@ -30,7 +30,7 @@ parameters:
 
     ignoreErrors:
         # known value
-        - '#Method Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Infrastructure\\DoctrineCartRepository::find\(\) should  Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Domain\\Cart|null but returns object|null#'
+        - '#Method Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Infrastructure\\DoctrineCartRepository::find\(\) should  Pehapkari\\Statie\\Posts\\Year2018\\Cart\\Domain\\Cart\|null but returns object\|null#'
 
         - '#Method Pehapkari\\Github\\EventSubscriber\\CatchTemplateEventSubscriber\:\:resolveControllerMethod\(\) should return string but returns object\|string#'
         - '#Parameter \#1 \$object of function get_class expects object, object\|string given#'

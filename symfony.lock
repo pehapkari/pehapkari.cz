@@ -289,6 +289,9 @@
     "nikic/php-parser": {
         "version": "v4.2.2"
     },
+    "ocramius/package-versions": {
+        "version": "1.8.0"
+    },
     "ocramius/proxy-manager": {
         "version": "2.2.2"
     },
@@ -923,6 +926,9 @@
     "symplify/coding-standard": {
         "version": "v6.0.3"
     },
+    "symplify/console-color-diff": {
+        "version": "v7.3.13"
+    },
     "symplify/easy-coding-standard": {
         "version": "v6.0.3"
     },
@@ -934,6 +940,9 @@
     },
     "symplify/package-builder": {
         "version": "v6.0.3"
+    },
+    "symplify/parameter-name-guard": {
+        "version": "v7.3.13"
     },
     "symplify/phpstan-extensions": {
         "version": "v6.0.3"

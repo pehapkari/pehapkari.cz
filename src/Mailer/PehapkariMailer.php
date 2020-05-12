@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Mailer;
 
+use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Training\Entity\TrainingFeedback;
 use Pehapkari\Training\Entity\TrainingTerm;
@@ -28,8 +29,15 @@ final class PehapkariMailer
         $training = $trainingRegistration->getTraining();
 
         $email = $this->createEmail();
-        $email->to($trainingRegistration->getEmail());
-        $email->subject(sprintf('Vítej na školení %s', $training->getName()));
+
+        $registrationEmail = $trainingRegistration->getEmail();
+        if ($registrationEmail === null) {
+            throw new ShouldNotHappenException();
+        }
+
+        $email->to($registrationEmail);
+        $trainingName = $training->getName();
+        $email->subject(sprintf('Vítej na školení %s', $trainingName));
 
         // set templates with variables
         $email->htmlTemplate('email/email_welcome_to_training.twig');

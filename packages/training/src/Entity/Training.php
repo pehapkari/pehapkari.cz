@@ -34,6 +34,7 @@ class Training implements UploadDestinationAwareInterface, SluggableInterface
     private ?int $id = null;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string", length=255)
      */
     private ?string $name = null;

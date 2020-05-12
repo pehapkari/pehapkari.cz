@@ -94,17 +94,9 @@ final class VideoRepository
             return $livestreamVideo;
         }
 
-        /** @var RecordedMeetup[]|RecordedConference[] $recodedEvents */
-        $recodedEvents = [...$this->recordedMeetups, ...$this->recordedConferences];
-
-        foreach ($recodedEvents as $recodedEvent) {
-            foreach ($recodedEvent->getVideos() as $video) {
-                if ($video->getSlug() !== $slug) {
-                    continue;
-                }
-
-                return $video;
-            }
+        $eventVideo = $this->findVideoInRecodedEvents($slug);
+        if ($eventVideo !== null) {
+            return $eventVideo;
         }
 
         throw new VideoNotFoundException($slug);
@@ -176,5 +168,23 @@ final class VideoRepository
         );
 
         return $recordedMeetups;
+    }
+
+    private function findVideoInRecodedEvents(string $slug): ?Video
+    {
+        /** @var RecordedMeetup[]|RecordedConference[] $recodedEvents */
+        $recodedEvents = [...$this->recordedMeetups, ...$this->recordedConferences];
+
+        foreach ($recodedEvents as $recodedEvent) {
+            foreach ($recodedEvent->getVideos() as $video) {
+                if ($video->getSlug() !== $slug) {
+                    continue;
+                }
+
+                return $video;
+            }
+        }
+
+        return null;
     }
 }

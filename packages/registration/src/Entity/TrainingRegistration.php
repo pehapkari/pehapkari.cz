@@ -220,7 +220,7 @@ class TrainingRegistration implements TimestampableInterface
         $this->fakturoidInvoiceId = $fakturoidInvoiceId;
     }
 
-    public function getTraining(): ?Training
+    public function getTraining(): Training
     {
         return $this->trainingTerm->getTraining();
     }
