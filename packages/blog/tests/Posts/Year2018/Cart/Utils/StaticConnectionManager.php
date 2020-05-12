@@ -11,32 +11,14 @@ use Doctrine\DBAL\Driver\PDOPgSql\Driver as PgSqlDriver;
 use Doctrine\DBAL\Driver\PDOSqlite\Driver as SqliteDriver;
 use Pehapkari\Exception\ShouldNotHappenException;
 
-final class ConnectionManager
+final class StaticConnectionManager
 {
-    private static Connection $connection;
+    private static ?Connection $connection = null;
 
     public static function dropAndCreateDatabase(): void
     {
-        if (self::$connection === null) {
-            self::$connection = new Connection([
-                'user' => self::getUser(),
-                'password' => self::getPassword(),
-                'host' => self::getHost(),
-            ], self::getDriver());
-        }
-
-        self::$connection->exec(sprintf('DROP DATABASE IF EXISTS %s', self::getDbName()));
-        self::$connection->exec(sprintf('CREATE DATABASE %s', self::getDbName()));
-    }
-
-    public static function createConnection(): Connection
-    {
-        return new Connection([
-            'user' => self::getUser(),
-            'password' => self::getPassword(),
-            'dbname' => self::getDbName(),
-            'host' => self::getHost(),
-        ], self::getDriver());
+        self::getConnection()->exec(sprintf('DROP DATABASE IF EXISTS %s', self::getDbName()));
+        self::getConnection()->exec(sprintf('CREATE DATABASE %s', self::getDbName()));
     }
 
     public static function createSqliteMemoryConnection(): Connection
@@ -77,5 +59,18 @@ final class ConnectionManager
     private static function getDbName(): ?string
     {
         return $GLOBALS['DB_DBNAME'] ?? null;
+    }
+
+    private static function getConnection(): Connection
+    {
+        if (self::$connection === null) {
+            self::$connection = new Connection([
+                'user' => self::getUser(),
+                'password' => self::getPassword(),
+                'host' => self::getHost(),
+            ], self::getDriver());
+        }
+
+        return self::$connection;
     }
 }

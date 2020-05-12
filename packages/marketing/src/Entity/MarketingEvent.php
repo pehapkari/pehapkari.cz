@@ -74,7 +74,7 @@ class MarketingEvent implements TimestampableInterface
         $this->isDone = $isDone;
     }
 
-    public function getPlannedAt(): ?DateTimeInterface
+    public function getPlannedAt(): DateTimeInterface
     {
         return $this->plannedAt;
     }
@@ -122,5 +122,10 @@ class MarketingEvent implements TimestampableInterface
     public function setTrainingTerm(?TrainingTerm $trainingTerm): void
     {
         $this->trainingTerm = $trainingTerm;
+    }
+
+    public function getTrainingName(): string
+    {
+        return $this->trainingTerm->getTrainingName();
     }
 }

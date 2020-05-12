@@ -20,7 +20,7 @@ final class HashPasswordCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $password = $input->getArgument('password');
+        $password = (string) $input->getArgument('password');
 
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 

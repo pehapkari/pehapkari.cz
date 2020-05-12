@@ -54,7 +54,10 @@ final class TwitterPublisher
         if ($trainingTerm === null) {
             throw new ShouldNotHappenException();
         }
+
+        /** @var Training $training */
         $training = $trainingTerm->getTraining();
+
         $trainer = $trainingTerm->getTrainer();
         // make sure we have some references to tweet about
         $reference = $training->getFeedbacks()[0];
@@ -66,9 +69,13 @@ final class TwitterPublisher
         }
         $message = $this->createTwitterMessage($reference, $trainer, $trainingTerm, $training);
         if (Strings::length($message) >= self::TWEET_LIMIT_SIZE) {
-            throw new TweetPublishFailedException('Tweet is too long: %d. Fit it under %d chars.', Strings::length(
-                $message
-            ), self::TWEET_LIMIT_SIZE);
+            $message = sprintf(
+                'Tweet is too long: %d. Fit it under %d chars.',
+                Strings::length($message),
+                self::TWEET_LIMIT_SIZE
+            );
+
+            throw new TweetPublishFailedException($message);
         }
         $trainingImage = $training->getImageAbsolutePath();
         if ($trainingImage) {

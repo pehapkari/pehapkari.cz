@@ -83,7 +83,7 @@
     <div class="container text-center" id="team">
         <h2 class="mb-5">Bez týmu aktivních lidí by to nešlo!</h2>
 
-        <div class="row" id="organizers">
+        <div class="row mb-4" id="organizers">
             {# @var organizer \Pehapkari\ValueObject\Organizer #}
             {% for organizer in organizers %}
                 <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-5">
@@ -108,15 +108,6 @@
                     {% endif %}
                 </div>
             {% endfor %}
-
-            <div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-5">
-                <img src="{{ asset('assets/images/people/blank_face.jpg') }}" class="rounded-circle" width="150" height="150" alt="">
-
-                <h3 class="mt-3">Ty?</h3>
-                <p>
-                    <a href="{{ path('contact') }}">Přidej se!</a>
-                </p>
-            </div>
         </div>
     </div>
 {% endblock %}

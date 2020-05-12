@@ -7,6 +7,7 @@ namespace Pehapkari\Github\EventSubscriber;
 use Nette\Utils\FileSystem;
 use Pehapkari\Github\Collector\ResolvedTemplateNameCollector;
 use Pehapkari\Github\PhpParser\NodeVisitor\DetectRenderArgumentNodeVisitor;
+use PhpParser\Node;
 use PhpParser\NodeTraverser;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;
@@ -52,6 +53,8 @@ final class CatchTemplateEventSubscriber implements EventSubscriberInterface
         $controllerFileName = $controllerReflection->getFileName();
 
         $phpParser = $this->getPhpParser();
+
+        /** @var Node[] $controllerNodes */
         $controllerNodes = $phpParser->parse(FileSystem::read($controllerFileName));
 
         // the template name is not in the controller

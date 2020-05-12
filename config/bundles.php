@@ -19,4 +19,5 @@ return [
     DAMA\DoctrineTestBundle\DAMADoctrineTestBundle::class => ['test' => true],
     Migrify\SymfonyRouteUsage\SymfonyRouteUsageBundle::class => ['all' => true],
     Symplify\EasyHydrator\EasyHydratorBundle::class => ['all' => true],
+    Symplify\ParameterNameGuard\ParameterNameGuardBundle::class => ['dev' => true, 'test' => true],
 ];

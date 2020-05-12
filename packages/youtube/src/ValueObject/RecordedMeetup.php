@@ -11,7 +11,6 @@ final class RecordedMeetup
 {
     private string $title;
 
-
     private DateTimeInterface $month;
 
     /**

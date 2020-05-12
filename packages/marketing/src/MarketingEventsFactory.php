@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Marketing;
 
+use DateTime;
 use Pehapkari\Marketing\Entity\MarketingEvent;
 use Pehapkari\Marketing\ValueObject\MarketingCampaignPlanItem;
 use Pehapkari\Training\Entity\TrainingTerm;
@@ -39,6 +40,7 @@ final class MarketingEventsFactory
     ): MarketingEvent {
         $marketingEvent = new MarketingEvent();
 
+        /** @var DateTime $plannedDateTime */
         $plannedDateTime = clone $trainingTerm->getStartDateTime();
         $plannedDateTime->modify('- ' . $marketingCampaignPlanItem->getDaysInAdvance() . ' days');
 

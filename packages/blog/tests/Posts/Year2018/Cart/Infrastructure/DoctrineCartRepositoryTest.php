@@ -10,8 +10,8 @@ use Pehapkari\Blog\Posts\Year2018\Cart\Domain\CartRepositoryInterface;
 use Pehapkari\Blog\Posts\Year2018\Cart\Domain\Item;
 use Pehapkari\Blog\Posts\Year2018\Cart\Domain\Price;
 use Pehapkari\Blog\Posts\Year2018\Cart\Infrastructure\DoctrineCartRepository;
-use Pehapkari\Blog\Tests\Posts\Year2018\Cart\Utils\ConnectionManager;
 use Pehapkari\Blog\Tests\Posts\Year2018\Cart\Utils\EntityManagerFactory;
+use Pehapkari\Blog\Tests\Posts\Year2018\Cart\Utils\StaticConnectionManager;
 use PHPUnit\Framework\Assert;
 
 final class DoctrineCartRepositoryTest extends AbstractCartRepositoryTest
@@ -20,7 +20,7 @@ final class DoctrineCartRepositoryTest extends AbstractCartRepositoryTest
 
     protected function setUp(): void
     {
-        $connection = ConnectionManager::createSqliteMemoryConnection();
+        $connection = StaticConnectionManager::createSqliteMemoryConnection();
         $this->entityManager = EntityManagerFactory::createEntityManager($connection, [Cart::class, Item::class]);
 
         parent::setUp();

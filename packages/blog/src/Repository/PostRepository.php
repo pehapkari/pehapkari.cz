@@ -53,7 +53,6 @@ final class PostRepository
         return $this->posts;
     }
 
-
     private function initPosts(PostFactory $postFactory): void
     {
         foreach ($this->findPostMarkdownFileInfos() as $smartFileInfo) {

@@ -8,6 +8,7 @@ use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
+use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Training\Entity\Training;
 use Pehapkari\Training\Entity\TrainingTerm;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -220,8 +221,22 @@ class TrainingRegistration implements TimestampableInterface
         $this->fakturoidInvoiceId = $fakturoidInvoiceId;
     }
 
-    public function getTraining(): ?Training
+    public function getTraining(): Training
     {
         return $this->trainingTerm->getTraining();
+    }
+
+    public function getTrainingTermSlug(): string
+    {
+        if ($this->trainingTerm === null) {
+            throw new ShouldNotHappenException();
+        }
+
+        $slug = $this->trainingTerm->getSlug();
+        if ($slug === null) {
+            throw new ShouldNotHappenException();
+        }
+
+        return $slug;
     }
 }

@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Nette\Utils\DateTime as NetteDateTime;
+use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Marketing\Entity\MarketingEvent;
 use Pehapkari\Provision\Entity\Expense;
 use Pehapkari\Provision\ValueObject\Partner;
@@ -129,7 +130,7 @@ class TrainingTerm
         return $this->startDateTime > new DateTime('now');
     }
 
-    public function getStartDateTime(): ?DateTimeInterface
+    public function getStartDateTime(): DateTimeInterface
     {
         return $this->startDateTime;
     }
@@ -139,14 +140,14 @@ class TrainingTerm
         $this->startDateTime = $startDateTime;
     }
 
-    public function getEndDateTime(): ?DateTimeInterface
+    public function getEndDateTime(): DateTimeInterface
     {
         if ($this->training->getDuration() === null) {
-            return null;
+            throw new ShouldNotHappenException();
         }
 
         if ($this->startDateTime === null) {
-            return null;
+            throw new ShouldNotHappenException();
         }
 
         $endDateTime = clone $this->startDateTime;
@@ -252,7 +253,7 @@ class TrainingTerm
         $this->slug = $this->training->getSlug() . '-' . $this->startDateTime->format('Y-m-d');
     }
 
-    public function getTrainer(): ?Trainer
+    public function getTrainer(): Trainer
     {
         return $this->training->getTrainer();
     }
@@ -361,6 +362,15 @@ class TrainingTerm
                 return true;
             }
         );
+    }
+
+    public function getTrainingSlug(): string
+    {
+        if ($this->training === null) {
+            throw new ShouldNotHappenException();
+        }
+
+        return $this->training->getSlug();
     }
 
     /**
