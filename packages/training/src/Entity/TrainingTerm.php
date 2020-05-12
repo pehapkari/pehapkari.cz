@@ -364,6 +364,15 @@ class TrainingTerm
         );
     }
 
+    public function getTrainingSlug(): string
+    {
+        if ($this->training === null) {
+            throw new ShouldNotHappenException();
+        }
+
+        return $this->training->getSlug();
+    }
+
     /**
      * @see https://github.com/spatie/calendar-links
      */

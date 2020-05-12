@@ -21,7 +21,10 @@ final class ZipCodeConstraintValidator extends ConstraintValidator
             return;
         }
 
-        if (! ZipCode::isZipCodeValidWithCountry($value, $constraint->country)) {
+        /** @var string $country */
+        $country = $constraint->country;
+
+        if (! ZipCode::isZipCodeValidWithCountry($value, $country)) {
             $this->createViolation($constraint->message);
         }
     }

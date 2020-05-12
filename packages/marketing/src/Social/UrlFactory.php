@@ -20,7 +20,7 @@ final class UrlFactory
     {
         return 'https://pehapkari.cz' . $this->router->generate(
             'training_detail',
-            ['slug' => $trainingTerm->getTraining()->getSlug()]
+            ['slug' => $trainingTerm->getTrainingSlug()]
         );
     }
 }

@@ -8,7 +8,6 @@ use Pehapkari\Blog\Repository\AuthorRepository;
 use Pehapkari\Blog\Repository\PostRepository;
 use Pehapkari\Blog\ValueObject\AuthorPosts;
 use Pehapkari\Blog\ValueObject\Post;
-use Pehapkari\Exception\ShouldNotHappenException;
 
 final class PostStatsFactory
 {
@@ -63,10 +62,6 @@ final class PostStatsFactory
 
         foreach ($authorsPostsData as $authorId => $posts) {
             $author = $this->authorsProvider->get($authorId);
-            if ($author === null) {
-                throw new ShouldNotHappenException();
-            }
-
             $authorPhoto = $author->getPhoto();
             $postCount = count($posts);
             $postsWordCount = $this->countPostsWords($posts);

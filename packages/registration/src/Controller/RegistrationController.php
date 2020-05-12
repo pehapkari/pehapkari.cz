@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pehapkari\Registration\Controller;
 
+use Pehapkari\Exception\ShouldNotHappenException;
 use Pehapkari\Mailer\PehapkariMailer;
 use Pehapkari\Registration\Entity\TrainingRegistration;
 use Pehapkari\Registration\Form\RegistrationFormType;
@@ -81,16 +82,21 @@ final class RegistrationController extends AbstractController
 
     private function processRegistrationForm(TrainingRegistration $trainingRegistration): RedirectResponse
     {
+        $email = $trainingRegistration->getEmail();
+        if ($email === null) {
+            throw new ShouldNotHappenException();
+        }
+
         // is email valid?
-        if (! $this->emailValidation->isEmailValid($trainingRegistration->getEmail())) {
-            throw new AccessDeniedHttpException(sprintf('Email "%s" jsme nenašli', $trainingRegistration->getEmail()));
+        if (! $this->emailValidation->isEmailValid($email)) {
+            throw new AccessDeniedHttpException(sprintf('Email "%s" jsme nenašli', $email));
         }
 
         $this->trainingRegistrationRepository->save($trainingRegistration);
         $this->pehapkariMailer->sendRegistrationConfirmation($trainingRegistration);
 
         return $this->redirectToRoute('registration_thank_you', [
-            'slug' => $trainingRegistration->getTrainingTerm()->getSlug(),
+            'slug' => $trainingRegistration->getTrainingTermSlug(),
         ]);
     }
 }

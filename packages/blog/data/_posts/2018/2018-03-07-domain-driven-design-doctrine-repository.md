@@ -280,8 +280,8 @@ class DoctrineCartRepositoryTest extends CartRepositoryTest
 
     protected function setUp()
     {
-        ConnectionManager::dropAndCreateDatabase();
-        $connection = ConnectionManager::createConnection();
+        StaticConnectionManager::dropAndCreateDatabase();
+        $connection = StaticConnectionManager::createConnection();
         $this->entityManager = EntityManagerFactory::createEntityManager($connection, [Cart::class, Item::class]);
         parent::setUp();
     }
@@ -315,7 +315,7 @@ class DoctrineCartRepositoryTest extends CartRepositoryTest
 ### Database Connection and Entity Manager
 
 In the beginning, we need a connection and an empty database.
-This is done by the `ConnectionManager`.
+This is done by the `StaticConnectionManager`.
 
 ```php
 <?php

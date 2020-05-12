@@ -13,6 +13,7 @@ use Knp\DoctrineBehaviors\Model\Sluggable\SluggableTrait;
 use Pehapkari\BetterEasyAdmin\Entity\UploadableImageTrait;
 use Pehapkari\Contract\Doctrine\Entity\UploadDestinationAwareInterface;
 use Pehapkari\Doctrine\EntityBehavior\IsPublicTrait;
+use Pehapkari\Exception\ShouldNotHappenException;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -246,8 +247,12 @@ class Training implements UploadDestinationAwareInterface, SluggableInterface
         return $this->certificateFormattedName;
     }
 
-    public function getNameForCertificate(): ?string
+    public function getNameForCertificate(): string
     {
+        if ($this->name === null) {
+            throw new ShouldNotHappenException();
+        }
+
         return $this->certificateFormattedName ?? $this->name;
     }
 

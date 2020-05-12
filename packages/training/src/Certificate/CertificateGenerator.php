@@ -8,6 +8,7 @@ use Nette\Utils\DateTime;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Pehapkari\Registration\Entity\TrainingRegistration;
+use Pehapkari\Training\Entity\Training;
 use Pehapkari\Training\Entity\TrainingTerm;
 use Pehapkari\Training\Pdf\PdfFactory;
 use Pehapkari\Training\ValueObject\Font;
@@ -59,6 +60,7 @@ final class CertificateGenerator
      */
     public function generateForTrainingTermAndName(TrainingTerm $trainingTerm, string $participantName): string
     {
+        /** @var Training $training */
         $training = $trainingTerm->getTraining();
 
         $trainingName = $training->getNameForCertificate();

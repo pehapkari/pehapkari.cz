@@ -31,15 +31,19 @@ final class PublishMarketingEventCommand extends Command
 
     private TwitterPublisher $twitterPublisher;
 
+    private DateTimeUtils $dateTimeUtils;
+
     public function __construct(
         SymfonyStyle $symfonyStyle,
         MarketingEventRepository $marketingEventRepository,
-        TwitterPublisher $twitterPublisher
+        TwitterPublisher $twitterPublisher,
+        DateTimeUtils $dateTimeUtils
     ) {
         $this->symfonyStyle = $symfonyStyle;
         $this->marketingEventRepository = $marketingEventRepository;
         $this->twitterPublisher = $twitterPublisher;
         parent::__construct();
+        $this->dateTimeUtils = $dateTimeUtils;
     }
 
     protected function configure(): void
@@ -69,20 +73,24 @@ final class PublishMarketingEventCommand extends Command
      */
     private function canBeMarketingEventPublished(MarketingEvent $marketingEvent): bool
     {
-        $latestPublishedEvent = $this->marketingEventRepository->getLatestPublishedEventByPlatform(
-            $marketingEvent->getPlatform()
-        );
+        /** @var string $platform */
+        $platform = $marketingEvent->getPlatform();
+        $latestPublishedEvent = $this->marketingEventRepository->getLatestPublishedEventByPlatform($platform);
+
         if ($latestPublishedEvent === null) {
             return true;
         }
         // at least X hours pause
-        if ($latestPublishedEvent->getPublishedAt() === null) {
+        $latestPpublishedAt = $latestPublishedEvent->getPublishedAt();
+        if ($latestPpublishedAt === null) {
             return true;
         }
-        $hourDiffs = DateTimeUtils::getHourDifferenceBetweenDateTimes(
+
+        $hourDiffs = $this->dateTimeUtils->getHourDifferenceBetweenDateTimes(
             $marketingEvent->getPlannedAt(),
-            $latestPublishedEvent->getPublishedAt()
+            $latestPpublishedAt
         );
+
         return $hourDiffs > self::MINIMAL_HOUR_DIFFERENCE;
     }
 
@@ -99,11 +107,13 @@ final class PublishMarketingEventCommand extends Command
         // save "when"
         $marketingEvent->setPublishedAt(new DateTime());
         $this->marketingEventRepository->save($marketingEvent);
-        $trainingName = $marketingEvent->getTrainingTerm()->getTrainingName();
-        $this->symfonyStyle->success(
-            sprintf('Event for "%s" and "%s" training was published.', lcfirst(
-                $marketingEvent->getPlatform()
-            ), $trainingName)
-        );
+
+        $trainingName = $marketingEvent->getTrainingName();
+
+        /** @var string $platform */
+        $platform = $marketingEvent->getPlatform();
+        $message = sprintf('Event for "%s" and "%s" training was published.', lcfirst($platform), $trainingName);
+
+        $this->symfonyStyle->success($message);
     }
 }
