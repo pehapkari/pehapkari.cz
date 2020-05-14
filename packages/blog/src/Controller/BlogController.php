@@ -12,13 +12,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class BlogController extends AbstractController
 {
-    private PostRepository $postsProvider;
+    private PostRepository $postRepository;
 
     private AuthorRepository $authorsProvider;
 
     public function __construct(PostRepository $postRepository, AuthorRepository $authorRepository)
     {
-        $this->postsProvider = $postRepository;
+        $this->postRepository = $postRepository;
         $this->authorsProvider = $authorRepository;
     }
 
@@ -28,7 +28,7 @@ final class BlogController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('blog/blog.twig', [
-            'posts' => $this->postsProvider->fetchAll(),
+            'posts' => $this->postRepository->fetchAll(),
             'authors' => $this->authorsProvider->fetchAll(),
             'author_count' => $this->authorsProvider->getCount(),
         ]);

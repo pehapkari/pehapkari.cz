@@ -59,6 +59,11 @@ final class PostRepository
             $post = $postFactory->createFromFileInfo($smartFileInfo);
             $this->posts[$post->getId()] = $post;
         }
+
+        // sort posts from newest one
+        usort($this->posts, function (Post $firstPost, Post $secondPost) {
+            return $secondPost->getDateTime() <=> $firstPost->getDateTime();
+        });
     }
 
     /**
