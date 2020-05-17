@@ -92,7 +92,7 @@ final class PehapkariMailer
     private function createEmail(): TemplatedEmail
     {
         $email = new TemplatedEmail();
-        $email->from(new Address('tomas@pehapkari.cz', 'Tomáš Votruba'));
+        $email->from(new Address('tomas.vot@gmail.com', 'Tomáš Votruba'));
 
         // for testing
         $email->addBcc(new Address('tomas.vot@gmail.com'));
