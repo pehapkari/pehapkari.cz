@@ -3,7 +3,9 @@ id: 86
 title: "What Future do You Want for Pehapkari"
 author: 1
 perex: |
-    Last 2 months gave lot of time to reflect my activities, work and hobbies. One of the topic I think about a lot is our Czech PHP Community - [Pehapkari](https://pehapkari.cz/). I felt like last year I'm not giving it as much energy as before. But why?
+    Last 2 months gave lot of time to reflect my activities, work and hobbies. One of the topic I think about a lot is our Czech PHP Community - Pehapkari.
+    <br><br>
+    I felt like last year I'm not giving it as much energy as before. But why?
 
 tweet: "New Post on #pehapkari Blog: What Future do You Want for #pehapkari"
 ---
