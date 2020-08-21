@@ -6,7 +6,7 @@ Encore.setOutputPath('public/build/')
     .enableSingleRuntimeChunk()
     .autoProvidejQuery()
     .enableSassLoader()
-    .enableVersioning()
+    .enableVersioning(Encore.isProduction())
     .addEntry('js/app', './assets/js/app.js')
     .addStyleEntry('css/app', './assets/scss/app.scss');
 

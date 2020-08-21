@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Pehapkari;
 
 use Iterator;
-use Pehapkari\BetterEasyAdmin\DependencyInjection\CompilerPass\CorrectionCompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -16,7 +15,6 @@ use Symplify\AutoBindParameter\DependencyInjection\CompilerPass\AutoBindParamete
 use Symplify\Autodiscovery\Discovery;
 use Symplify\AutowireArrayParameter\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
 use Symplify\FlexLoader\Flex\FlexLoader;
-use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
 
 final class PehapkariKernel extends Kernel
 {
@@ -62,12 +60,6 @@ final class PehapkariKernel extends Kernel
 
     protected function build(ContainerBuilder $containerBuilder): void
     {
-        // needs to be first, since it's adding new service definitions
-        $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
-
-        // correction compiler pass for uploader and Propel - needs to run before collector
-        $containerBuilder->addCompilerPass(new CorrectionCompilerPass());
-
         // autowiring
         $containerBuilder->addCompilerPass(new AutoBindParameterCompilerPass());
         $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());

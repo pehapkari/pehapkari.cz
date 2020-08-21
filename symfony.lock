@@ -196,9 +196,6 @@
     "jean85/pretty-package-versions": {
         "version": "1.2"
     },
-    "jetbrains/phpstorm-stubs": {
-        "version": "v2019.3"
-    },
     "jms/metadata": {
         "version": "2.0.0"
     },
@@ -237,6 +234,9 @@
     },
     "league/uri-schemes": {
         "version": "1.2.1"
+    },
+    "migrify/php-config-printer": {
+        "version": "v0.3.30"
     },
     "migrify/symfony-route-usage": {
         "version": "dev-master"
@@ -448,6 +448,9 @@
     "sebastian/comparator": {
         "version": "3.0.2"
     },
+    "sebastian/complexity": {
+        "version": "2.0.0"
+    },
     "sebastian/diff": {
         "version": "3.0.2"
     },
@@ -459,6 +462,9 @@
     },
     "sebastian/global-state": {
         "version": "3.0.0"
+    },
+    "sebastian/lines-of-code": {
+        "version": "1.0.0"
     },
     "sebastian/object-enumerator": {
         "version": "3.0.3"
@@ -513,9 +519,6 @@
     },
     "setasign/fpdi": {
         "version": "v2.2.0"
-    },
-    "slevomat/coding-standard": {
-        "version": "5.0.4"
     },
     "spatie/calendar-links": {
         "version": "1.2.4"
@@ -759,6 +762,9 @@
     "symfony/property-access": {
         "version": "v4.3.1"
     },
+    "symfony/property-info": {
+        "version": "v5.1.3"
+    },
     "symfony/routing": {
         "version": "4.2",
         "recipe": {
@@ -935,14 +941,14 @@
     "symplify/easy-hydrator": {
         "version": "7.3-dev"
     },
+    "symplify/easy-testing": {
+        "version": "v8.2.9"
+    },
     "symplify/flex-loader": {
         "version": "v6.0.3"
     },
     "symplify/package-builder": {
         "version": "v6.0.3"
-    },
-    "symplify/parameter-name-guard": {
-        "version": "v7.3.13"
     },
     "symplify/phpstan-extensions": {
         "version": "v6.0.3"

@@ -1,9 +1,0 @@
-services:
-    _defaults:
-        public: true
-        autowire: true
-
-    Pehapkari\User\:
-        resource: '../src'
-
-    Symfony\Component\EventDispatcher\EventDispatcher: ~
