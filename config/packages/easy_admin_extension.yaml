@@ -1,3 +1,0 @@
-easy_admin_extension:
-    # minimum role add and edit content
-    minimum_role: ROLE_ORGANIZER

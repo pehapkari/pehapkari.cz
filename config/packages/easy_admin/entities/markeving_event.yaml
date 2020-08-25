@@ -1,4 +1,0 @@
-easy_admin:
-    entities:
-        MarketingEvent:
-            class: 'Pehapkari\Marketing\Entity\MarketingEvent'
