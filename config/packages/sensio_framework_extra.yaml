@@ -1,4 +1,0 @@
-# needed for argument controller resolver: https://symfony.com/doc/current/controller/argument_value_resolver.html#adding-a-custom-value-resolver
-sensio_framework_extra:
-    router:
-        annotations: false
