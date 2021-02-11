@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+    push:
+        branches:
+            - production
+
+jobs:
+    deploy:
+        runs-on: ubuntu-18.04
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+
+            - name: Install SSH key
+              uses: shimataro/ssh-key-action@v2
+              with:
+                  key: ${{ secrets.PRIVATE_KEY }}
+                  known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+            - name: Push to remote Git repository
+              run: |
+                  git remote rename origin upstream
+                  git remote add origin git@server.disconnect.cz:www.pehapkari.cz
+                  git push origin production:production
