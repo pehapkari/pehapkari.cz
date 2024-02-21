@@ -244,14 +244,18 @@
                 </p>
             </div>
             <div class="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
-                <form class="sm:flex" method="post" action="https://sendfox.com/form/10od4r/1vv87v" class="sendfox-form" id="1vv87v" data-async="true" data-recaptcha="true">
-                    <p><label for="sendfox_form_email">Email: </label><input type="email" id="sendfox_form_email" placeholder="Email" name="email" required class="appearance-none w-full px-5 py-3 border border-transparent text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 transition duration-150 ease-in-out" /></p>
-                    <p><label><input type="checkbox" name="gdpr" value="1" required /> Souhlasím se zasíláním emailových zpráv</label></p>
-                    <!-- no botz please -->
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="a_password" tabindex="-1" value="" autocomplete="off" /></div>
-                    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                        <button type="submit" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:bg-indigo-400 transition duration-150 ease-in-out" >Přihlásit se</button>
+                <form  method="post" action="https://sendfox.com/form/10od4r/1vv87v" class="sendfox-form" id="1vv87v" data-async="true" data-recaptcha="true">
+                    <p><label class="font-medium text-white"><input type="checkbox" name="gdpr" value="1" required /> Souhlasím se zasíláním emailových zpráv</label></p>
+
+                    <div class="sm:flex">
+                        <input type="email" id="sendfox_form_email" placeholder="Email" name="email" required class="appearance-none w-full px-5 py-3 border border-transparent text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 transition duration-150 ease-in-out" />
+                        <!-- no botz please -->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="a_password" tabindex="-1" value="" autocomplete="off" /></div>
+                        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+                            <button type="submit" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:bg-indigo-400 transition duration-150 ease-in-out" >Přihlásit se</button>
+                        </div>
                     </div>
+
                 </form>
                 <script src="https://sendfox.com/js/form.js"></script>
 
