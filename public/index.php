@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+    $request_uri = $_SERVER['REQUEST_URI'];
+    $path = parse_url($request_uri, PHP_URL_PATH);
+    $path = ltrim($path, '/');
+
+    if ($path === 'event') {
+        header('Location: https://www.meetup.com/pražske-srazy-přatel-php-pehapkari-cz/events/311411127/', true, 301);
+        exit();
+    }
+?><!DOCTYPE html>
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
